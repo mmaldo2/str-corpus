@@ -150,24 +150,49 @@ def build_embeddings(conn: sqlite3.Connection, batch_size: int, limit: int) -> N
         buf_texts.clear()
         buf_rows.clear()
 
+    # producer thread: DB reads + CPU tokenization (fast tokenizers release
+    # the GIL) feed a queue; main thread keeps the GPU busy encoding.
+    import queue
+    import threading
+
+    db_path = conn.execute("PRAGMA database_list").fetchone()[2]
+    q: queue.Queue = queue.Queue(maxsize=4000)
+
+    def producer() -> None:
+        read_conn = sqlite3.connect(db_path)
+        read_conn.execute("PRAGMA busy_timeout=120000")
+        for case_id in todo_ids:
+            row = read_conn.execute(
+                "SELECT norm_text FROM cases WHERE case_id=?", (case_id,)
+            ).fetchone()
+            norm_text = row[0] if row else ""
+            if not norm_text:
+                continue
+            for seq, (s, e) in enumerate(chunk_offsets(tokenizer, norm_text)):
+                q.put((case_id, seq, s, e, norm_text[s:e]))
+            q.put(("CASE_DONE", case_id, None, None, None))
+        q.put(None)
+
+    threading.Thread(target=producer, daemon=True).start()
     done_cases = 0
-    read_conn = sqlite3.connect(conn.execute("PRAGMA database_list").fetchone()[2])
-    for case_id in todo_ids:
-        norm_text = read_conn.execute(
-            "SELECT norm_text FROM cases WHERE case_id=?", (case_id,)
-        ).fetchone()[0]
-        if not norm_text:
-            continue
-        for seq, (s, e) in enumerate(chunk_offsets(tokenizer, norm_text)):
-            buf_texts.append(norm_text[s:e])
-            buf_rows.append((case_id, seq, s, e))
+    while True:
+        item = q.get()
+        if item is None:
+            break
+        if item[0] == "CASE_DONE":
+            done_cases += 1
+            # flush only at case boundaries: a mid-case flush + kill would
+            # leave a partial case the resume query then skips forever
             if len(buf_texts) >= batch_size * 8:
                 flush()
-        done_cases += 1
-        if done_cases % 1000 == 0:
-            flush()
-            n = conn.execute("SELECT count(*) FROM chunks").fetchone()[0]
-            print(f"{done_cases}/{len(todo_ids)} cases, {n} chunks", flush=True)
+            if done_cases % 1000 == 0:
+                flush()
+                n = conn.execute("SELECT count(*) FROM chunks").fetchone()[0]
+                print(f"{done_cases}/{len(todo_ids)} cases, {n} chunks", flush=True)
+            continue
+        case_id, seq, s, e, text = item
+        buf_texts.append(text)
+        buf_rows.append((case_id, seq, s, e))
     flush()
     n = conn.execute("SELECT count(*) FROM chunks").fetchone()[0]
     print(f"done: {n} chunks total")

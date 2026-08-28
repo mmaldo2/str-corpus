@@ -238,22 +238,41 @@ def emit_batches(conn, run_id: str) -> int:
         groups.setdefault((e["era_partition"], e["jurisdiction"]), []).append(e)
     out_dir = RUNS / run_id / "batches"
     out_dir.mkdir(parents=True, exist_ok=True)
-    n = 0
+    for old in out_dir.glob("batch-*.json"):
+        old.unlink()
+    gold_ids: set[int] = set()
+    gold_file = ROOT / "data" / "gold" / "gold.jsonl"
+    if gold_file.exists():
+        for line in gold_file.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                cid = json.loads(line).get("case_id")
+                if cid:
+                    gold_ids.add(cid)
+    pending = []
     for (era, jur), cases in sorted(groups.items(), key=lambda kv: str(kv[0])):
-        # multi-selector cases first: signal density is the batch priority (§7)
+        # within a group: multi-selector cases first (signal density, §7)
         cases.sort(key=lambda e: (-len({s["selector_id"] for s in e["signals"]}), e["case_id"]))
         for i in range(0, len(cases), BATCH_SIZE):
-            n += 1
-            batch = {
-                "batch_id": f"{run_id}-batch-{n:03d}",
-                "era_partition": era, "jurisdiction": jur,
-                "cases": cases[i : i + BATCH_SIZE],
-            }
-            (out_dir / f"batch-{n:03d}.json").write_text(
-                json.dumps(batch, indent=1), encoding="utf-8"
+            chunk = cases[i : i + BATCH_SIZE]
+            pending.append(
+                {
+                    "era_partition": era, "jurisdiction": jur, "cases": chunk,
+                    "_gold": sum(1 for e in chunk if e["case_id"] in gold_ids),
+                    "_density": max(
+                        len({s["selector_id"] for s in e["signals"]}) for e in chunk
+                    ),
+                }
             )
-    print(f"{n} batches -> {out_dir}")
-    return n
+    # across groups: gold-bearing batches first (§7 priority a), then density
+    pending.sort(key=lambda b: (-b["_gold"], -b["_density"]))
+    for n, batch in enumerate(pending, 1):
+        batch.pop("_gold"), batch.pop("_density")
+        batch["batch_id"] = f"{run_id}-batch-{n:03d}"
+        (out_dir / f"batch-{n:03d}.json").write_text(
+            json.dumps(batch, indent=1), encoding="utf-8"
+        )
+    print(f"{len(pending)} batches -> {out_dir}")
+    return len(pending)
 
 
 def main() -> int:
@@ -263,7 +282,8 @@ def main() -> int:
     ap.add_argument("--batches-only", action="store_true")
     args = ap.parse_args()
 
-    conn = sqlite3.connect(DB)
+    conn = sqlite3.connect(DB, timeout=120)
+    conn.execute("PRAGMA busy_timeout=120000")
     conn.executescript(SCHEMA)
 
     if args.batches_only:

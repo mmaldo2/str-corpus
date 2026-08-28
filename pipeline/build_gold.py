@@ -209,6 +209,8 @@ def cmd_harvest(args) -> int:
         for cite in get_citations(cleaned):
             if type(cite).__name__ != "FullCaseCitation":
                 continue
+            span_start = cite.span()[0] if cite.span() else 0
+            context = cleaned[max(0, span_start - 300) : span_start]
             corrected = cite.corrected_citation()
             year = None
             meta_year = getattr(cite.metadata, "year", None)
@@ -226,14 +228,35 @@ def cmd_harvest(args) -> int:
                     "tier": "brief",
                     "case_id": None,
                     "sources": [],
+                    "cited_for": [],
                 },
             )
             if source not in entry["sources"]:
                 entry["sources"].append(source)
+            if context.strip():
+                # keep the LAST occurrences: in-text citing sentences, not
+                # the table-of-authorities listing that opens every brief
+                entry["cited_for"].append(context.strip()[-300:])
+                entry["cited_for"] = entry["cited_for"][-3:]
+
+    letting_markers = re.compile(
+        r"leas\w+|rent\w+|let\b|letting|rooms?\b|boarder|boarding|lodg\w+|"
+        r"tenant|occupan\w+|short-?term|dwelling|homestead|incident of ownership|"
+        r"right to (lease|let|rent|use)|property right",
+        re.IGNORECASE,
+    )
+
+    def classify_domain(entry: dict) -> str:
+        """Domain by the BRIEF'S OWN citing context (not our selector
+        lexicon): 'letting' when the brief cites it for a letting/property-
+        use proposition, else 'doctrine'. Auditable via cited_for."""
+        joined = " ".join(entry.get("cited_for") or [])
+        return "letting" if letting_markers.search(joined) else "doctrine"
 
     resolved = unresolved = dropped_modern = 0
     out = []
     for key, entry in rows.items():
+        entry["domain"] = classify_domain(entry)
         hit = conn.execute(
             """SELECT c.case_id, c.decision_year, c.name_abbreviation
                FROM citations ct JOIN cases c ON c.case_id = ct.case_id

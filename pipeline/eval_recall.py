@@ -38,8 +38,16 @@ def evaluate(run_id: str | None) -> dict:
     conn = sqlite3.connect(DB)
     gold = load_gold()
     report: dict = {"tiers": {}, "misses": [], "hits": []}
-    for tier in ("brief", "treatise"):
-        entries = [g for g in gold if g.get("tier") == tier]
+    for tier in ("brief-letting", "brief-all", "treatise"):
+        if tier == "brief-letting":
+            entries = [
+                g for g in gold
+                if g.get("tier") == "brief" and g.get("domain") == "letting"
+            ]
+        elif tier == "brief-all":
+            entries = [g for g in gold if g.get("tier") == "brief"]
+        else:
+            entries = [g for g in gold if g.get("tier") == "treatise"]
         in_corpus = [g for g in entries if g.get("case_id")]
         hits = []
         misses = []
@@ -59,7 +67,7 @@ def evaluate(run_id: str | None) -> dict:
             "signaled": len(hits),
             "shard_recall": round(len(hits) / len(in_corpus), 3) if in_corpus else None,
         }
-        if tier == "brief":
+        if tier == "brief-letting":
             report["hits"] = hits
             report["misses"] = misses
 
@@ -94,7 +102,7 @@ def main() -> int:
         print(json.dumps(report, indent=1))
         return 0
     for tier, m in report["tiers"].items():
-        label = "HEADLINE" if tier == "brief" else "separate"
+        label = "HEADLINE" if tier == "brief-letting" else "secondary"
         print(
             f"{tier:9} ({label}): {m['signaled']}/{m['resolved_in_corpus']} signaled "
             f"of {m['total']} entries -> shard recall {m['shard_recall']}"
