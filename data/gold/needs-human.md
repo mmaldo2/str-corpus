@@ -1,0 +1,4 @@
+- Direct PDF fetch failed: marfil-amicus-slf https://www.slfliberty.org/wp-content/uploads/2025/05/Marfil-v.-New-Braunfels-Amicus-Brief.pdf (The read operation timed out)
+- RECAP fetch skipped: COURTLISTENER_API_TOKEN not set (dockets: {'nekrilov-dnj': 16646707, 'marfil-wdtex': 17024209, 'bodin-edla': 69644320})
+- Ladd v. Real Estate Commission (Pa. 33 MAP 2018): briefs not publicly retrievable via UJS; request from IJ (ij.org) or Prothonotary.
+- Federal appellate briefs (3d/5th Cir.) largely absent from RECAP; PACER purchases require an approved purchase list (A10).

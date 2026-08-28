@@ -1,0 +1,431 @@
+# THE versioned selector artifact (spec §6). Human-reviewed before every
+# shard run. Never edit a selector in place past a shard run — bump version.
+# Never delete — retire. Embedding selectors are pinned by the index's
+# embed_meta (model Qwen/Qwen3-Embedding-0.6B @ rev 97b0c614be4d, 512d int8);
+# shard.py refuses to run an embedding selector against a different index.
+#
+# author: planner-cycle-001 = seeded by the build session from spec §6 seed
+# lexicon + the treatise anchor harvest (data/gold/treatise_anchors_full.md).
+
+# ---------- favorable candidates: lodger/boarder status ----------
+
+- id: lodger-core-01
+  version: 1
+  concept: lodger_status
+  type: fts_phrase
+  index: raw
+  pattern: '"taking in lodgers" OR "lodgers and boarders" OR "letting of lodgings" OR "letting lodgings"'
+  era_scope: [pre-1860, 1860-1900, 1900-1930]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    Core lodger vocabulary from Wood/Taylor lodger chapters; expect
+    householder-letting fact patterns.
+  author: planner-cycle-001
+  status: active
+
+- id: lodger-tenant-near-02
+  version: 1
+  concept: lodger_status
+  type: fts_near
+  index: raw
+  pattern: 'NEAR("lodger" "tenant", 12)'
+  era_scope: [pre-1860, 1860-1900, 1900-1930, 1930-1970]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    The lodger-vs-tenant doctrinal hinge (Wilson v. Martin, 1 Denio 602);
+    cases drawing the line state the letting right's legal character.
+  author: planner-cycle-001
+  status: active
+
+- id: boarder-core-03
+  version: 1
+  concept: boarder_status
+  type: fts_phrase
+  index: raw
+  pattern: '"taking in boarders" OR "taking boarders" OR "boarders and lodgers" OR "keeps boarders" OR "kept boarders"'
+  era_scope: [pre-1860, 1860-1900, 1900-1930, 1930-1970]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: Boarder-side analogue of lodger-core-01.
+  author: planner-cycle-001
+  status: active
+
+- id: boarding-house-keeping-04
+  version: 1
+  concept: boarding_house_keeping
+  type: fts_phrase
+  index: raw
+  pattern: '"keeps a boarding house" OR "kept a boarding house" OR "keeping a boarding house" OR "private boarding house" OR "boarding house keeper"'
+  era_scope: [pre-1860, 1860-1900, 1900-1930, 1930-1970]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    Keeper-framing narrows the very high-frequency bare phrase "boarding
+    house" to cases about the practice itself (Howth v. Franklin line).
+  author: planner-cycle-001
+  status: active
+
+- id: lodging-house-05
+  version: 1
+  concept: lodger_status
+  type: fts_phrase
+  index: raw
+  pattern: '"lodging house keeper" OR "keeps a lodging house" OR "kept a lodging house" OR "keeping a lodging house"'
+  era_scope: [pre-1860, 1860-1900, 1900-1930, 1930-1970]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: Lodging-house analogue of boarding-house-keeping-04.
+  author: planner-cycle-001
+  status: active
+
+- id: furnished-rooms-06
+  version: 1
+  concept: letting_transaction
+  type: fts_phrase
+  index: raw
+  pattern: '"furnished rooms" OR "furnished apartments" OR "furnished lodgings" OR "ready furnished"'
+  era_scope: [pre-1860, 1860-1900, 1900-1930, 1930-1970]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    Smith v. Marrable line; furnished-letting is the era's term for
+    short-duration occupancy of another's dwelling.
+  author: planner-cycle-001
+  status: active
+
+- id: letting-rooms-07
+  version: 1
+  concept: letting_transaction
+  type: fts_phrase
+  index: raw
+  pattern: '"letting rooms" OR "let rooms" OR "letting apartments" OR "rooms to let" OR "letting of rooms"'
+  era_scope: [pre-1860, 1860-1900, 1900-1930]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: Transaction vocabulary for room-letting by householders.
+  author: planner-cycle-001
+  status: active
+
+- id: demise-lodgings-08
+  version: 1
+  concept: letting_transaction
+  type: fts_near
+  index: raw
+  pattern: 'NEAR("demise" "lodgings", 10)'
+  era_scope: [pre-1860, 1860-1900]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: Taylor ch. heading "Demise of Lodgings" (§66).
+  author: planner-cycle-001
+  status: active
+
+# ---------- favorable candidates: doctrinal hinges ----------
+
+- id: license-vs-lease-09
+  version: 1
+  concept: license_vs_lease
+  type: fts_phrase
+  index: raw
+  pattern: '"license and not a lease" OR "a license, not a lease" OR "not a lease but a license" OR "mere license to occupy"'
+  era_scope: all
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    License/lease characterization sentences; the exact formulation courts
+    use when classifying room and lodging arrangements.
+  author: planner-cycle-001
+  status: active
+
+- id: exclusive-possession-lodger-10
+  version: 1
+  concept: license_vs_lease
+  type: fts_near
+  index: raw
+  pattern: 'NEAR("exclusive possession" "lodger", 20)'
+  era_scope: [1860-1900, 1900-1930, 1930-1970]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: Exclusive-possession test applied to lodgers (Oliver v. Moore).
+  author: planner-cycle-001
+  status: active
+
+- id: incident-of-ownership-11
+  version: 1
+  concept: incident_of_ownership
+  type: fts_phrase
+  index: raw
+  pattern: '"incident of ownership" OR "incidents of ownership" OR "incidents of property" OR "incident to the ownership"'
+  era_scope: all
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    The characterization the level-of-generality argument needs: letting as
+    an ordinary incident of ownership (Zaatari's framing).
+  author: planner-cycle-001
+  status: active
+
+- id: right-to-lease-12
+  version: 1
+  concept: incident_of_ownership
+  type: fts_phrase
+  index: raw
+  pattern: '"right to lease" OR "right to let" OR "right to rent" OR "privilege of leasing"'
+  era_scope: all
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: Direct statements of the letting right.
+  author: planner-cycle-001
+  status: active
+
+# ---------- favorable candidates: zoning era ----------
+
+- id: paying-guests-13
+  version: 1
+  concept: zoning_accessory_use
+  type: fts_phrase
+  index: raw
+  pattern: '"paying guests" OR "paying guest"'
+  era_scope: [1900-1930, 1930-1970, 1970-2020]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: Zoning-era euphemism for compensated home occupancy.
+  author: planner-cycle-001
+  status: active
+
+- id: roomers-boarders-14
+  version: 1
+  concept: zoning_accessory_use
+  type: fts_phrase
+  index: raw
+  pattern: '"roomers and boarders" OR "roomers or boarders" OR "boarders or roomers" OR "rooming house"'
+  era_scope: [1900-1930, 1930-1970, 1970-2020]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    Post-Euclid residential-district cases on taking roomers/boarders — the
+    closest structural analogue to modern STR fights (Bassett line).
+  author: planner-cycle-001
+  status: active
+
+- id: tourist-home-15
+  version: 1
+  concept: transient_occupancy
+  type: fts_phrase
+  index: raw
+  pattern: '"tourist home" OR "tourist court" OR "guest house" OR "guest home"'
+  era_scope: [1900-1930, 1930-1970, 1970-2020]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: Auto-era short-stay vocabulary (1920s-1970s).
+  author: planner-cycle-001
+  status: active
+
+- id: transient-guests-16
+  version: 1
+  concept: transient_occupancy
+  type: fts_phrase
+  index: raw
+  pattern: '"transient guests" OR "transient guest" OR "transient occupancy" OR "transient lodgers"'
+  era_scope: [1860-1900, 1900-1930, 1930-1970, 1970-2020]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: Duration-focused vocabulary; feeds the duration field directly.
+  author: planner-cycle-001
+  status: active
+
+- id: single-family-boarders-17
+  version: 1
+  concept: zoning_accessory_use
+  type: fts_near
+  index: raw
+  pattern: 'NEAR("single family" "boarders", 25)'
+  era_scope: [1900-1930, 1930-1970, 1970-2020]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: Single-family-district cases confronting paid occupancy.
+  author: planner-cycle-001
+  status: active
+
+- id: accessory-use-roomers-18
+  version: 1
+  concept: zoning_accessory_use
+  type: fts_near
+  index: raw
+  pattern: 'NEAR("accessory use" "roomers", 30)'
+  era_scope: [1900-1930, 1930-1970, 1970-2020]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: Bassett's accessory-use doctrine for boarders/roomers.
+  author: planner-cycle-001
+  status: active
+
+# ---------- favorable candidates: older status terms ----------
+
+- id: sojourner-19
+  version: 1
+  concept: lodger_status
+  type: fts_phrase
+  index: raw
+  pattern: '"sojourner" OR "sojourners"'
+  era_scope: [pre-1860, 1860-1900]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: Colonial/antebellum status term for temporary residents.
+  author: planner-cycle-001
+  status: active
+
+- id: inmate-historical-20
+  version: 1
+  concept: lodger_status
+  type: fts_near
+  index: raw
+  pattern: 'NEAR("inmate" "lodger", 15)'
+  era_scope: [pre-1860, 1860-1900]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    "Inmate" in its historical sense (household member); NEAR lodger to
+    exclude the carceral sense.
+  author: planner-cycle-001
+  status: active
+
+# ---------- embedding selectors (semantic recall beyond seed phrases) ----------
+
+- id: embed-householder-letting-21
+  version: 1
+  concept: lodger_status
+  type: embedding
+  query_text: >
+    A householder lets furnished rooms or lodgings in her own dwelling to
+    lodgers or boarders for compensation; dispute over whether the occupant
+    is a lodger or a tenant and what rights the letting creates.
+  top_k: 150
+  min_cosine: 0.45
+  era_scope: all
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: Semantic net for fact patterns the seed phrases miss.
+  author: planner-cycle-001
+  status: active
+
+- id: embed-zoning-paying-occupants-22
+  version: 1
+  concept: zoning_accessory_use
+  type: embedding
+  query_text: >
+    Whether taking paying guests, roomers, or boarders into a private home
+    violates a zoning ordinance or deed restriction limiting the property to
+    residential or single-family dwelling use.
+  top_k: 150
+  min_cosine: 0.45
+  era_scope: [1900-1930, 1930-1970, 1970-2020]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: The zoning-era structural analogue, semantically.
+  author: planner-cycle-001
+  status: active
+
+- id: embed-short-letting-23
+  version: 1
+  concept: transient_occupancy
+  type: embedding
+  query_text: >
+    Renting a dwelling or rooms to transient guests for short periods of
+    days or weeks; the legal distinction between an innkeeper, a boarding
+    house keeper, and a landlord letting property.
+  top_k: 150
+  min_cosine: 0.45
+  era_scope: all
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: Duration-centric semantic net.
+  author: planner-cycle-001
+  status: active
+
+# ---------- adverse candidates (build the opposing file, spec §5.2) ----------
+
+- id: adverse-lodging-license-24
+  version: 1
+  concept: lodging_house_regulation
+  type: fts_near
+  index: raw
+  pattern: 'NEAR("lodging house" "license", 15)'
+  era_scope: all
+  jurisdiction_scope: all
+  polarity: adverse-candidate
+  rationale: Lodging-house licensing upheld = the tradition-of-regulation file.
+  author: planner-cycle-001
+  status: active
+
+- id: adverse-boarding-license-25
+  version: 1
+  concept: lodging_house_regulation
+  type: fts_near
+  index: raw
+  pattern: 'NEAR("boarding house" "license", 15)'
+  era_scope: all
+  jurisdiction_scope: all
+  polarity: adverse-candidate
+  rationale: Boarding-house analogue of adverse-lodging-license-24.
+  author: planner-cycle-001
+  status: active
+
+- id: adverse-boarding-nuisance-26
+  version: 1
+  concept: lodging_house_regulation
+  type: fts_near
+  index: raw
+  pattern: 'NEAR("boarding house" "nuisance", 20)'
+  era_scope: all
+  jurisdiction_scope: all
+  polarity: adverse-candidate
+  rationale: Boarding houses treated as nuisances/commercial intrusions.
+  author: planner-cycle-001
+  status: active
+
+- id: adverse-police-power-27
+  version: 1
+  concept: lodging_house_regulation
+  type: fts_near
+  index: raw
+  pattern: 'NEAR("police power" "lodging", 25)'
+  era_scope: all
+  jurisdiction_scope: all
+  polarity: adverse-candidate
+  rationale: Police-power sustainings over lodging.
+  author: planner-cycle-001
+  status: active
+
+- id: adverse-innkeeper-regulation-28
+  version: 1
+  concept: innkeeper_regulation
+  type: fts_near
+  index: raw
+  pattern: 'NEAR("innkeeper" "license", 20)'
+  era_scope: [pre-1860, 1860-1900, 1900-1930]
+  jurisdiction_scope: all
+  polarity: adverse-candidate
+  rationale: >
+    Innkeeper licensing tradition — must be distinguished from householder
+    letting in briefing before opposing counsel does it first.
+  author: planner-cycle-001
+  status: active
+
+- id: adverse-embed-regulation-29
+  version: 1
+  concept: lodging_house_regulation
+  type: embedding
+  query_text: >
+    Municipal ordinance licensing, regulating, or prohibiting lodging houses,
+    boarding houses, or the letting of rooms, upheld as a valid exercise of
+    the police power.
+  top_k: 100
+  min_cosine: 0.45
+  era_scope: all
+  jurisdiction_scope: all
+  polarity: adverse-candidate
+  rationale: Semantic net for the adverse file.
+  author: planner-cycle-001
+  status: active

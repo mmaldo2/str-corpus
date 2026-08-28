@@ -89,7 +89,9 @@ def extract_text_and_pages(html_bytes: bytes) -> tuple[str, list[tuple[int, str]
     """Extract casebody text in document order. Page-label anchors are
     excluded from the text; each contributes (offset, label) to the page map.
     Block-level boundaries become newlines."""
-    doc = lxml_html.fromstring(html_bytes)
+    # static.case.law HTML is UTF-8 without a charset declaration; lxml's
+    # byte-level encoding guess mangles em-dashes etc., so decode explicitly.
+    doc = lxml_html.fromstring(html_bytes.decode("utf-8"))
     body = doc if doc.get("class") == "casebody" else doc
     parts: list[str] = []
     pages: list[tuple[int, str]] = []

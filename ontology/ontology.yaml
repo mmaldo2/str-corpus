@@ -1,0 +1,103 @@
+# concept -> era-specific surface forms -> anchor cases (spec §3, §11).
+# Updated by the Reduce stage each cycle (proposals only; Planner + human
+# author actual selectors). Anchor cites from data/gold/treatise_anchors*.md.
+
+lodger_status:
+  description: Occupant of rooms in another's dwelling without an estate;
+    the lodger/tenant line is the era's vehicle for the letting right.
+  surface_forms:
+    pre-1860: [lodger, lodgers, sojourner, inmate, letting of lodgings]
+    1860-1900: [lodger, lodgers, lodging house keeper, letting lodgings]
+    1900-1930: [lodger, roomer, lodging house]
+    1930-1970: [roomer, lodger]
+  anchor_cases:
+    - {name: Wilson v. Martin, cite: 1 Denio 602, year: 1845, jur: NY}
+    - {name: Ambler v. Skinner, cite: 7 Rob. 561, year: 1868, jur: NY}
+    - {name: Oliver v. Moore, cite: 53 Hun 472, year: 1889, jur: NY}
+
+boarder_status:
+  description: Compensated household occupancy with board; boarder vs. guest
+    vs. tenant distinctions.
+  surface_forms:
+    pre-1860: [boarder, taking in boarders, boarding house]
+    1860-1900: [boarder, boarders and lodgers, boarding house keeper]
+    1900-1930: [boarder, roomers and boarders]
+    1930-1970: [boarders, roomers]
+  anchor_cases:
+    - {name: Willard v. Reinhardt, cite: 2 E.D. Smith 148, year: 1853, jur: NY}
+    - {name: Cady v. McDowell, cite: 1 Lans. 484, year: 1869, jur: NY}
+    - {name: Howth v. Franklin, cite: 20 Tex. 798, year: 1858, jur: TX}
+
+license_vs_lease:
+  description: Whether an arrangement conveys exclusive possession (lease)
+    or a revocable privilege (license); the classification hinge for short
+    occupancies.
+  surface_forms:
+    all: [license and not a lease, mere license, exclusive possession,
+          demise, tenancy at will]
+  anchor_cases:
+    - {name: Reynolds v. Van Beuren, cite: 155 N.Y. 120, year: 1898, jur: NY}
+    - {name: Kunkle v. Philadelphia Rifle Club, cite: 10 Phila. 52, year: 1873, jur: PA}
+
+letting_transaction:
+  description: The transaction vocabulary of letting rooms/dwellings.
+  surface_forms:
+    pre-1860: [to let, letting, demise, furnished lodgings, ready furnished]
+    1860-1900: [furnished rooms, furnished apartments, letting rooms]
+    1900-1930: [furnished rooms, apartments to let]
+  anchor_cases:
+    - {name: Howard v. Doolittle, cite: 3 Duer 464, year: 1854, jur: NY}
+    - {name: Witty v. Matthews, cite: 52 N.Y. 512, year: 1873, jur: NY}
+
+incident_of_ownership:
+  description: Letting as an ordinary incident of property ownership — the
+    level-of-generality claim's direct evidence.
+  surface_forms:
+    all: [incident of ownership, incidents of property, right to lease,
+          right to let, jus disponendi]
+  anchor_cases: []   # cycle-001 target: populate this
+
+boarding_house_keeping:
+  description: Keeping boarders/lodgers as a business; keeper's rights and
+    the inn/boarding-house/private-house line.
+  surface_forms:
+    all: [boarding house keeper, keeps a boarding house, lodging house keeper]
+  anchor_cases:
+    - {name: Howth v. Franklin, cite: 20 Tex. 798, year: 1858, jur: TX}
+    - {name: Korn v. Schedler, cite: 11 Daly 234, year: 1882, jur: NY}
+    - {name: Riddle v. Welden, cite: 5 Whart. 9, year: 1839, jur: PA}
+
+zoning_accessory_use:
+  description: Post-Euclid cases on paying occupants in residential
+    districts — the structural analogue of STR bans.
+  surface_forms:
+    1900-1930: [roomers and boarders, paying guests, single family]
+    1930-1970: [tourist home, rooming house, accessory use, paying guests]
+    1970-2020: [roomers, boarders, transient occupancy]
+  anchor_cases:
+    - {name: Fox Meadow Estates v. Culley, cite: 233 A.D. 250, year: 1933, jur: NY}
+    - {name: Spann v. City of Dallas, cite: 111 Tex. 350, year: 1921, jur: TX}
+    - {name: State ex rel. Civello v. New Orleans, cite: 154 La. 271, year: 1923, jur: LA}
+
+transient_occupancy:
+  description: Duration-focused vocabulary; transient vs. permanent guests.
+  surface_forms:
+    1860-1900: [transient guests, transient lodgers]
+    1900-1930: [transient guests, transient occupancy]
+    1930-1970: [tourist home, tourist court, transient occupancy]
+  anchor_cases:
+    - {name: Shearman v. Iroquois Hotel, cite: 42 Misc. 217, year: 1903, jur: NY}
+
+lodging_house_regulation:
+  description: ADVERSE FILE — licensing/nuisance/police-power regulation of
+    lodging and boarding houses.
+  surface_forms:
+    all: [lodging house license, boarding house nuisance, police power]
+  anchor_cases: []
+
+innkeeper_regulation:
+  description: ADVERSE FILE — innkeeper licensing tradition, to be
+    distinguished from householder letting.
+  surface_forms:
+    all: [innkeeper, victualler, public house, licensed inn]
+  anchor_cases: []

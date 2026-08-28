@@ -88,7 +88,15 @@ def download_volume(client: httpx.Client, slug: str, vol: str) -> dict:
                     for chunk in r.iter_bytes(1 << 16):
                         f.write(chunk)
                         sha.update(chunk)
-            tmp.replace(dest)
+            # Windows: AV can hold a transient lock on the .part file
+            for rename_try in range(6):
+                try:
+                    tmp.replace(dest)
+                    break
+                except PermissionError:
+                    if rename_try == 5:
+                        raise
+                    time.sleep(1 + rename_try)
             return {
                 "key": f"{slug}/{vol}",
                 "url": url,
