@@ -103,6 +103,11 @@ def verify_record(conn, rec: dict) -> dict:
         rec["extraction_status"] = "extraction-invalid"
         rec["invalid_reason"] = "case not in corpus"
         return rec
+    # relevant:false records carry no doctrine; quotes optional (§8 rule 4)
+    if rec.get("relevant") is False:
+        rec["quotes"] = []
+        rec["extraction_status"] = "ok"
+        return rec
     supported_ok: set[str] = set()
     kept_quotes = []
     any_failed = False
