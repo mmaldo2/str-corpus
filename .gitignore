@@ -6,3 +6,5 @@ data/db/
 runs/*/batches/
 runs/*/extractions/
 *.log
+
+.treatise-scratch/

@@ -79,6 +79,19 @@ def download_volume(client: httpx.Client, slug: str, vol: str) -> dict:
     dest.parent.mkdir(parents=True, exist_ok=True)
     tmp = dest.with_suffix(".zip.part")
 
+    # Trust a completed file already on disk (e.g. manifest rows lost in a
+    # crash): hash it locally instead of re-downloading.
+    if dest.exists() and dest.stat().st_size > 0:
+        sha = hashlib.sha256()
+        with dest.open("rb") as f:
+            for chunk in iter(lambda: f.read(1 << 20), b""):
+                sha.update(chunk)
+        return {
+            "key": f"{slug}/{vol}", "url": url, "bytes": dest.stat().st_size,
+            "sha256": sha.hexdigest(), "ts": time.strftime("%Y-%m-%dT%H:%M:%S"),
+            "source": "already-on-disk",
+        }
+
     for attempt in range(5):
         try:
             sha = hashlib.sha256()
