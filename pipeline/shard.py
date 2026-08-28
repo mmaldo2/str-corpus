@@ -141,6 +141,16 @@ def run_embedding(conn, s: dict, era: str, jur: str) -> list[dict]:
         raise ValueError(
             f"selector {s['id']} pinned model_rev {s['model_rev']} != index {model_rev}"
         )
+    unchunked = conn.execute(
+        """SELECT count(*) FROM cases WHERE is_duplicate_of IS NULL
+           AND norm_text != '' AND case_id NOT IN (SELECT DISTINCT case_id FROM chunks)"""
+    ).fetchone()[0]
+    if unchunked:
+        raise RuntimeError(
+            f"embedding index incomplete: {unchunked} cases unchunked — "
+            "an embedding selector over a partial index would silently "
+            "under-cover; finish index.py embed first"
+        )
     if "matrix" not in _EMBED_CACHE:
         rows = conn.execute(
             """SELECT ch.chunk_id, ch.case_id, ch.char_start, ch.char_end,
