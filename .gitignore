@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+data/raw/
+data/db/
+runs/*/batches/
+runs/*/extractions/
+*.log
