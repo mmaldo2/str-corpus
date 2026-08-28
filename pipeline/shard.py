@@ -286,7 +286,13 @@ def main() -> int:
             if args.dry_run:
                 print(f"would run {s['id']} v{s['version']} on {era} x {jur}")
                 continue
-            hits = RUNNERS[s["type"]](conn, s, era, jur)
+            try:
+                hits = RUNNERS[s["type"]](conn, s, era, jur)
+            except RuntimeError as e:
+                # e.g. embedding index incomplete: leave (selector, partition)
+                # uncovered — no coverage row, a later run picks it up
+                print(f"SKIP {s['id']} v{s['version']} {era} x {jur}: {e}")
+                continue
             conn.executemany(
                 """INSERT INTO signals (case_id, selector_id, selector_version,
                      matched_text, char_span_start, char_span_end, chunk_id,

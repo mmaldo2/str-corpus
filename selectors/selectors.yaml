@@ -429,3 +429,20 @@
   rationale: Semantic net for the adverse file.
   author: planner-cycle-001
   status: active
+
+- id: homestay-bnb-30
+  version: 1
+  concept: transient_occupancy
+  type: fts_phrase
+  index: raw
+  pattern: '"bed and breakfast" OR "homestay" OR "home stay" OR "tourist camp"'
+  era_scope: [1930-1970, 1970-2020]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    User-suggested homestay family. "homestay" itself has 0 pre-2020 corpus
+    hits (term post-dates the corpus; kept for future CourtListener sync);
+    "bed and breakfast" carries the modern-era bridge (91 hits 1970-2020)
+    between tourist-home vocabulary and STR litigation.
+  author: planner-cycle-001
+  status: active

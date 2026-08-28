@@ -114,14 +114,15 @@ def build_embeddings(conn: sqlite3.Connection, batch_size: int, limit: int) -> N
     conn.commit()
     print(f"model {EMBED_MODEL}@{commit[:12]} on {device}")
 
-    q = """SELECT case_id, norm_text FROM cases
+    # ids only — fetching 1.7M full texts at once OOMs the machine
+    q = """SELECT case_id FROM cases
            WHERE is_duplicate_of IS NULL
              AND case_id NOT IN (SELECT DISTINCT case_id FROM chunks)
            ORDER BY case_id"""
     if limit:
         q += f" LIMIT {int(limit)}"
-    todo = conn.execute(q).fetchall()
-    print(f"{len(todo)} cases to chunk+embed")
+    todo_ids = [r[0] for r in conn.execute(q)]
+    print(f"{len(todo_ids)} cases to chunk+embed", flush=True)
 
     buf_texts: list[str] = []
     buf_rows: list[tuple[int, int, int, int]] = []
@@ -150,7 +151,11 @@ def build_embeddings(conn: sqlite3.Connection, batch_size: int, limit: int) -> N
         buf_rows.clear()
 
     done_cases = 0
-    for case_id, norm_text in todo:
+    read_conn = sqlite3.connect(conn.execute("PRAGMA database_list").fetchone()[2])
+    for case_id in todo_ids:
+        norm_text = read_conn.execute(
+            "SELECT norm_text FROM cases WHERE case_id=?", (case_id,)
+        ).fetchone()[0]
         if not norm_text:
             continue
         for seq, (s, e) in enumerate(chunk_offsets(tokenizer, norm_text)):
@@ -162,7 +167,7 @@ def build_embeddings(conn: sqlite3.Connection, batch_size: int, limit: int) -> N
         if done_cases % 1000 == 0:
             flush()
             n = conn.execute("SELECT count(*) FROM chunks").fetchone()[0]
-            print(f"{done_cases}/{len(todo)} cases, {n} chunks", flush=True)
+            print(f"{done_cases}/{len(todo_ids)} cases, {n} chunks", flush=True)
     flush()
     n = conn.execute("SELECT count(*) FROM chunks").fetchone()[0]
     print(f"done: {n} chunks total")

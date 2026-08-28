@@ -17,3 +17,9 @@ hard stop). Reviewer attention flagged on:
   tune against gold-set attribution in cycle 2.
 - sojourner-19: may be dominated by settlement/poor-law usage; acceptable as
   lexicon probe, review yield before v2.
+
+## v1 approved — 2026-08-28 (human review: user)
+
+Reviewed and approved as authored, with one addition requested by the user:
+homestay-bnb-30 ("homestay" family; freq-checked, carried by "bed and
+breakfast" 91 hits 1970-2020). 30 active selectors enter cycle-001.
