@@ -1,0 +1,331 @@
+[
+ {
+  "case_id": 12315742,
+  "quote": "Mrs. Conques testified that she and her family purchased the Property in 2013 with the intent to occupy it as their primary residence.",
+  "source": "36.      Svetlana Conques, who is Shvekh\u2019s daughter and the wife of John-Pierre Con-ques, testified that her family purchased the Property in 2013 with the intent to occupy it as their primary residence. However, she and her",
+  "score": 92.54901960784314,
+  "page": "410",
+  "supports": "who_was_letting",
+  "classification": "needs-human",
+  "quote_coverage": 0.811,
+  "miss_runs": [
+   3,
+   22
+  ]
+ },
+ {
+  "case_id": 12321139,
+  "quote": "the Board here was required to apply the terms of the Ordinance as written, rather than deviating from those terms based on unexpressed policies of the Township regarding permitted uses.",
+  "source": "e.\u2019 \u201d Id.           Consequently, the Board here was required to apply the terms of the Ordinance as. written, rather than deviating from those terms based on unexpressed policies of the Township regarding permitted uses. The Board\u2019s function is only to enforce the zoning ord",
+  "score": 99.46236559139786,
+  "page": "642",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 12321139,
+  "quote": "the Board here was required to apply the terms of the Ordinance as written, rather than deviating from those terms based on unexpressed policies of the Township regarding permitted uses.",
+  "source": "e.\u2019 \u201d Id.           Consequently, the Board here was required to apply the terms of the Ordinance as. written, rather than deviating from those terms based on unexpressed policies of the Township regarding permitted uses. The Board\u2019s function is only to enforce the zoning ord",
+  "score": 99.46236559139786,
+  "page": "642",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 12321139,
+  "quote": "Val Kleyman is the sole member of Slice of Life, LLC and resides in Brooklyn, New York",
+  "source": "sylvania and is the record-owner of the Property; Val Kleyman is the sole member of Slice5of Life, LLC and resides in Brooklyn, New York. (R.R. at 483a.) - :      On May 22, 20",
+  "score": 98.83720930232558,
+  "page": "635",
+  "supports": "who_was_letting",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.988,
+  "miss_runs": [
+   1
+  ]
+ },
+ {
+  "case_id": 12350573,
+  "quote": "The record is devoid of any indication that the Reihners served breakfast to any of their guests or did not provide cooking facilities for them to prepare their own breakfast and therefore we must conclude that the NOV alleging that the Reihners operated an illegal B & B was issued in error.",
+  "source": "8 Pa. 260, 182 A.2d 692, 695 (1962); see also Slice of Life, 164 A.3d at 640. The record is devoid of any indication that the Reihners served breakfast to any of their guests or did not provide cooking facilities for them to prepare their own breakfast and therefore we must conclude that the NOV alleging , that the Reihners operated an illegal B & B was issued in error. Despite o",
+  "score": 99.31506849315068,
+  "page": "403",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 12350573,
+  "quote": "The record is devoid of any indication that the Reihners served breakfast to any of their guests or did not provide cooking facilities for them to prepare their own breakfast and therefore we must conclude that the NOV alleging that the Reihners operated an illegal B & B was issued in error.",
+  "source": "8 Pa. 260, 182 A.2d 692, 695 (1962); see also Slice of Life, 164 A.3d at 640. The record is devoid of any indication that the Reihners served breakfast to any of their guests or did not provide cooking facilities for them to prepare their own breakfast and therefore we must conclude that the NOV alleging , that the Reihners operated an illegal B & B was issued in error. Despite o",
+  "score": 99.31506849315068,
+  "page": "403",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 1928403,
+  "quote": "The applicant is the lessee of a two-and-one-half story, five-bedroom building which is occupied by seventeen boarders, to whom the applicant provides meals, lodging, clothes and personal care on a long-term basis.",
+  "source": "r applica-tion for an Occupancy permit to nse a building as a boarding house.      The applicant is the lessee of a two-and-one-half story, .five-bedroom building which is occupied by seventeen- boarders, to whom the applicant provides meals, lodging, clothes and personal care on a long-term basis. The ",
+  "score": 99.53271028037383,
+  "page": "260",
+  "supports": "who_was_letting",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 10195093,
+  "quote": "The evidence is ample to support the finding that plaintiff for a consideration of $270.00 per month agreed to entertain as guests or lodgers the employees of defendant. If this be correct, there was no relationship of landlord and tenant.",
+  "source": "action to recover possession of the room or structure furnished \u2022by the innkeeper. The evidence is ample to .support the finding that plaintiff for a consideration of $270.00 per month agreed to entertain as guests or lodgers the employees of defendant. If this be correct, there was no relationship of landlord and tenant. Plain",
+  "score": 99.581589958159,
+  "page": "346",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 4396009,
+  "quote": "The renting of rooms in the manner shown by the evidence does not constitute the exercise of a calling or business within the meaning of the Constitution.",
+  "source": "es in exempting a place for the exercise of his business. The renting of rooms in the manner shown by the evidence does not constitute the exercise of a calling or business within the meaning of the Constitution, and the giving of this charge w",
+  "score": 99.35064935064936,
+  "page": "634",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 4539230,
+  "quote": "Our statute gives a lien on personal property in favor of hotel and boarding-house keepers, but not in favor of lodging-house keepers.",
+  "source": "er, but merely rented rooms to lodgers. Our statute gives a lien on personal property in favor of hotel and boarding-house keepers, but not in favor of lodging house keepers. In our view there is a distinction between a boar",
+  "score": 99.25373134328358,
+  "page": "494",
+  "supports": "holding_summary",
+  "classification": "needs-human",
+  "quote_coverage": 0.667,
+  "miss_runs": [
+   44
+  ]
+ },
+ {
+  "case_id": 2084208,
+  "quote": "It is no defense to such action that the boarding house keeper thereafter surrendered possession of the premises, as this may justly be regarded as an effort on her part to reduce the damages sustained, and as equivalent to letting them on his account at the price they cost her.",
+  "source": "e, but may recover the profits she would have made had he remained.      3. Same.      It is no defense to such action that the boarding house keeper thereafter surrendered possession of the premises, as this may justly be regarded as-an effort on her part to reduce the damages sustained, and as equivalent to letting them on his account at the price they cost her.   ",
+  "score": 99.6415770609319,
+  "page": "668",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 5053572,
+  "quote": "its terms are too broad and many of its sections make penal acts and persons which and who by no construction could be held to be crimes or criminals, and against whose inclusion as such, reason and common sense would revolt.",
+  "source": "onal Law.      Where the obvious purpose of the ordinance is wholesome, but its terms are too broad and many of its sections make penal acts and persons which and who by no construction could be held to be crimes or criminals, and against whose inclusion as such, reason and common sense would revolt, the same is i",
+  "score": 99.55555555555556,
+  "page": "257",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 2211876,
+  "quote": "the conduct of the defendant in receiving for a series of years without objection, the rent due on the lease, with knowledge of the actual situation, should, if necessary, be construed as a license to use and occupy the building as an apartment house",
+  "source": " rights of the parties, we are of opinion that the conduct of the defendant in receiving for a series of years without objection, the rent due on the lease, with knowledge of \u201e the actual situation, should, if necessary, be construed as a, license to use and occupy the building as an apartment house, and not as a mere waiver from time to ",
+  "score": 98.8,
+  "page": "619",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 2216203,
+  "quote": "the occupant of any building which shall without any fault or neglect on his part be destroyed, or be so injured by the elements or any other cause, as to be untenantable and unfit for occupancy, shall not be liable or bound to pay rent after such destruction or injury",
+  "source": "60, (Sess. Laws, p. 592,) which declares that the occupant of any building which shall without any fault or neglect on his part be destroyed, or be so injured by the elements or any other cause, as to be untenantable and unfit for occupaney, shall not be liable or bound to pay rent after such destruction or injury, unless otherwise expressly provided by wri",
+  "score": 99.62825278810409,
+  "page": "348",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.996,
+  "miss_runs": [
+   1
+  ]
+ },
+ {
+  "case_id": 2216222,
+  "quote": "the evidence showing that her husband had been absent from the state a long time, and tending to show that she kept a boarding-house on her own account, that the motion be denied, with costs.",
+  "source": " for the first time) that she was a married woman.                  Held, the evidence showing that her husband had been absent from the state a long time, and tending to show that she kept a boarding-house on her own account, that the motion be denied, with costs\u00bb             JVe",
+  "score": 99.47643979057592,
+  "page": "132",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 2338566,
+  "quote": "Any hotel, apartment hotel or boarding house keeper, who constantly has in his hotel, apartment hotel or boarding house a metal safe or vault in good order and fit for the custody of money, jewelry, articles of gold or silver manufacture, precious stones, personal ornaments, or documents of any kind, and who keeps on the doors of the sleeping rooms used by guests suitable locks or bolts and proper fastening on the transom and window of said room, shall not be liable for the loss or injury suffered by any guest on account of the loss of said valuables in excess of the sum of fifty dollars",
+  "source": "92, Vernon\u2019s Annotated Civil Statutes, which reads as follows: \u2022      \u201cAny hotel, apartment' hotel or boarding house keeper, who constantly has in his hotel, apartment hotel or boarding house a metal safe or vault in good order and fit for the custody of money, jewelry, articles of gold or silver manufacture, precious stones, personal ornaments, or documents of any kind, and who keeps on the doors of the sleeping rooms used by guests suitable locks or bolts and proper fastening on the transom and window of said room, shall not be liable for the loss or injury suffered by any guest on account of the loss of said valuables in excess of the sum of fifty dollars, which could reas",
+  "score": 99.83164983164983,
+  "page": "344",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 1353539,
+  "quote": "There may be a distinction between the liability of the keeper of an inn and of a mere boarding-house, where transient persons are not received at all, and none are received but for a certain time and upon certain terms. But it is not pretended that the defendant\u2019s house was a mere boarding-house. It was a public house of entertainment for all who chose to visit it, which is the true definition of an inn.",
+  "source": "ious agreement as to the duration of their stay or the terms of, their entertainment, and such was the proof actually given. There may be a distinction between the liability of the keeper of an inn and of a mere boarding-house, where transient persons are not received at all, and none are received but for a certain time and upon certain terms. But it is not pretended that' the defendant\u2019s house was a mere boarding-house. It was a public house of entertainment for all who chose to visit it, whi",
+  "score": 99.75490196078431,
+  "page": "247",
+  "supports": "polarity",
+  "classification": "needs-human",
+  "quote_coverage": 0.803,
+  "miss_runs": [
+   7,
+   37,
+   35
+  ]
+ },
+ {
+  "case_id": 1353539,
+  "quote": "That relation ceases, when the guest pays his bill and leaves the house, with the declared intention of not returning. In such a case it is at his own peril, we apprehend, that he leaves his baggage or other property behind him.",
+  "source": "e relation between him and the guest. That relation ceases, when the guest pays his bill and leaves the house,, with the declared intention of not returning. In such a case it is at his own peril, we apprehend, that he leaves his baggage or other property behind him. The innkeeper has a right to believe that he has t",
+  "score": 99.56140350877193,
+  "page": "247",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 11882976,
+  "quote": "Appellees admit that the Parkview Guest House has some of the characteristics of a hotel, but deny that it shares all those characteristics, and argue that the Parkview is more like a rooming house. We agree.",
+  "source": "found adequate for the attached bath requirement in the past.5 Ap-pellees admit that the Parkview Guest House has some of the characteristics of a hotel, but deny that it shares all those characteristics, and argue that the Parkview is more like a rooming house. We agree.      The Comprehensive Zo",
+  "score": 99.51923076923077,
+  "page": "912",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.99,
+  "miss_runs": [
+   2
+  ]
+ },
+ {
+  "case_id": 11882976,
+  "quote": "We simply cannot say that the BZA\u2019s determination that Parkview does not enjoy nonconforming use as a hotel is wrong.",
+  "source": "Redfeam v. Creppel, supra at 1359. We simply cannot say that the BZA\u2019s determination that Parkview does not |7enjoy nonconforming use as a hotel is wrong. That finding is reasonable, in accord with the City\u2019",
+  "score": 98.29059829059828,
+  "page": "913",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 12364802,
+  "quote": "Finding that the district court did not manifestly err, we affirm the portion of the judgment issuing a permanent injunction against .the Weber entities.",
+  "source": "ng the Weber entities liable in solido for $250,991.24 in damages. Finding that the district court did not manifestly err,, we affirm the portion of the judgment issuing a permanent injunction against .the Weber entities. Finding that the dist",
+  "score": 99.34640522875817,
+  "page": "473",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 834847,
+  "quote": "this court will stay the enforcement of the consent decree entered into by the parties and will allow the tenants to remain in their residences, within the limits defined by this court under the statutory language of Code article 33.",
+  "source": "enforce this law.      This court, for reasons stated below, will stay the enforcement of the consent decree entered into by the parties and will allow the tenants to remain in their residences, within the limits defined by this court under the statutory language of Code article 33.      The defendants and the tenants hav",
+  "score": 96.99570815450643,
+  "page": "842",
+  "supports": "holding_summary",
+  "classification": "needs-human",
+  "quote_coverage": 0.957,
+  "miss_runs": [
+   10
+  ]
+ },
+ {
+  "case_id": 12657540,
+  "quote": "So long as the renters continue to relax, eat, sleep, bathe, and engage in other incidental activities, they are using the cabin for residential purposes.",
+  "source": "s' when those occupying it do so for ordinary living purposes.... [S]o long as the renters continue to relax, eat, sleep, bathe, and engage in other incidental activities, ... they are using the cabin for residential purposes.\" Id. at 579. Hold",
+  "score": 97.40259740259741,
+  "page": "292",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 12386233,
+  "quote": "Because we conclude that the Restriction requiring the Property to be used for \u201csingle family residence purposes\u201d is ambiguous, we must strictly construe the ambiguity against Appellees and resolve all doubts in favor of the free-and-unrestricted use of the Property.",
+  "source": " to when a rental of the Property moves from short-term to long-term. Id. Because we conclude that the Restriction requiring the Property to be used for \u201csingle family residence purposes\u201d is ambiguous, we must 'strictly construe the ambiguity against Appellees and resolve all doubts in favor of the free-and-unrestricted use of the Property. See Wilmoth, 7",
+  "score": 99.625468164794,
+  "page": "867",
+  "supports": "polarity",
+  "classification": "needs-human",
+  "quote_coverage": 0.973,
+  "miss_runs": [
+   7
+  ]
+ },
+ {
+  "case_id": 12386233,
+  "quote": "Accordingly, we hold that the trial court abused its discretion by granting Appellees\u2019 application for temporary injunction, and we sustain the Garretts\u2019 first issue.",
+  "source": "WL 5097116, at *3; Dyegard Land P\u2019ship, 39 S.W.3d at 308-09. Accordingly, we hold that the trial court abused its discretion by granting Appellees\u2019 application for temporary injunction,10 and we sustain the Gar-retts\u2019 first issue.      IV. Conclusion      ",
+  "score": 98.19277108433735,
+  "page": "869",
+  "supports": "holding_summary",
+  "classification": "needs-human",
+  "quote_coverage": 0.863,
+  "miss_runs": [
+   22
+  ]
+ },
+ {
+  "case_id": 428427,
+  "quote": "Where one boards in a family consisting of husband and wife, the money due for boarding furnished, belongs primarily to the husband.",
+  "source": "n plaintiff\u2019s husband and defendant was admissible.      2. Where one boards in a family consisting of husband and wife the money due for boarding furnished, belongs primarily to the husband.      Argued March 11, 1912.   ",
+  "score": 99.24242424242425,
+  "page": "222",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 428427,
+  "quote": "Where one boards in a family consisting of husband and wife, the money due for boarding furnished, belongs primarily to the husband.",
+  "source": "n plaintiff\u2019s husband and defendant was admissible.      2. Where one boards in a family consisting of husband and wife the money due for boarding furnished, belongs primarily to the husband.      Argued March 11, 1912.   ",
+  "score": 99.24242424242425,
+  "page": "222",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 967792,
+  "quote": "We therefore hold that the language \u201cfor the erection of not more than two dwelling houses to be used as dwellings only, and for no other purpose or purposes\u201d is sufficiently clear, explicit and definite to restrict the use of sleeping cottages on the land in question.",
+  "source": " sleeping cottages and therefore did so at their peril.      We therefore hold that the language \u201cfor the erection of not more than two dwelling houses to be used as dwellings only, and for no other purpose or purposes\u201d is sufficiently clear, explicit and definite to restrict the use of sleeping cottages on the land in question and the court below erred in ",
+  "score": 99.62825278810409,
+  "page": "344",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ }
+]

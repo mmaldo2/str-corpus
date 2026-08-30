@@ -146,6 +146,11 @@ def process_batch(conn_str: str, batch_file: Path, run_dir: Path, model: str,
             codex_raw = call_codex(build_payload(conn, batch, "codex"))
             codex_records = parse_records(codex_raw, batch)
             if codex_records:
+                cc_dir = run_dir / "extractions-codex"
+                cc_dir.mkdir(parents=True, exist_ok=True)
+                (cc_dir / batch_file.name).write_text(
+                    json.dumps(codex_records, indent=1), encoding="utf-8"
+                )
                 by_id = {r["case_id"]: r for r in codex_records}
                 disagreements = []
                 for r in records:
