@@ -72,17 +72,29 @@ def load_data(run_id: str) -> dict:
         C.append({**e, "recommendation": a.get("recommendation"),
                   "justification": a.get("justification"),
                   "supporting_quote": a.get("supporting_quote")})
+    # D: only the remap cases where the two models DISAGREE (agreed cases
+    # auto-accept into the ledger, same standard as the main run), rendered
+    # C-style with third-reader recommendations.
+    remap_by = {r["case_id"]: r for r in remap}
     D = []
-    for r in remap:
-        D.append({**info_by_case.get(r["case_id"], {}), "case_id": r["case_id"],
-                  "relevant": r.get("relevant"), "polarity": r.get("polarity"),
-                  "who": r.get("who_was_letting"),
-                  "duration": r.get("duration_of_occupancy"),
-                  "characterization": r.get("characterization"),
-                  "holding": r.get("holding_summary"),
-                  "quotes": [{"t": q.get("text"), "p": q.get("reporter_page"),
-                              "s": q.get("status")} for q in r.get("quotes", [])],
-                  "notes": r.get("notes")})
+    remap_dir2 = ROOT / "runs" / "cycle-001-remap"
+    if (remap_dir2 / "remap-disagreements.json").exists():
+        rdis = json.loads(
+            (remap_dir2 / "remap-disagreements.json").read_text(encoding="utf-8"))
+        radj = {}
+        if (remap_dir2 / "adjudications.json").exists():
+            radj = {(a["case_id"], a["field"]): a for a in json.loads(
+                (remap_dir2 / "adjudications.json").read_text(encoding="utf-8"))}
+        for d in rdis:
+            a = radj.get((d["case_id"], d["field"]), {})
+            r = remap_by.get(d["case_id"], {})
+            D.append({**info_by_case.get(d["case_id"], {}),
+                      "case_id": d["case_id"], "field": d["field"],
+                      "claude": d.get("claude"), "codex": d.get("codex"),
+                      "recommendation": a.get("recommendation"),
+                      "justification": a.get("justification"),
+                      "supporting_quote": a.get("supporting_quote"),
+                      "holding": r.get("holding_summary")})
     return {"A": A, "B": B, "C": C, "D": D}
 
 
@@ -95,8 +107,15 @@ def build_pages(run_id: str) -> None:
             "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">"
             "</head><body>" + content + "</body></html>")
     tb64 = base64.b64encode(full.encode("utf-8")).decode("ascii")
+    # carry forward previously saved decisions if a snapshot exists
+    snap = ROOT / "runs" / run_id / "decisions-snapshot.json"
+    initial_state = "{}"
+    if snap.exists():
+        initial_state = json.dumps(
+            json.loads(snap.read_text(encoding="utf-8"))
+        ).replace("</", "<\\/")
     out = content.replace(TB64_MARKER, tb64).replace(
-        f'"{STATE_MARKER}"', "{}"
+        f'"{STATE_MARKER}"', initial_state
     )
     (ROOT / "reports" / "review-queue.html").write_text(out, encoding="utf-8")
 
@@ -214,13 +233,13 @@ const SECTIONS = [
    render:e=>`${head(e)}<div class="vs">field <b>${esc(e.field)}</b>: <span class="claude">A (Claude): ${esc(e.claude)}</span> vs <span class="codex">B (Codex): ${esc(e.codex)}</span></div>
      <div class="rec"><div class="lab">Third reader recommends: ${esc(e.recommendation)}</div>
      <p>${esc(e.justification)}</p>${e.supporting_quote?`<blockquote>&ldquo;${esc(e.supporting_quote)}&rdquo;</blockquote>`:''}</div>`},
-  {key:'D', title:'Re-mapped records — voided claims, re-extracted and re-verified',
-   blurb:'These 19 claims were voided when their quotes failed verification. They were re-read under stricter quote rules; every quote below has now passed the verbatim gate.',
-   opts:[['accept','Accept'],['discard','Discard','neg']],
-   render:e=>`${head(e)}<div class="meta">re-mapped: relevant=${esc(e.relevant)} · polarity=${esc(e.polarity)} · who=${esc(e.who)} · duration=${esc(e.duration)} · characterization=${esc(e.characterization)}</div>
-     <p>${esc(e.holding)}</p>`+
-     (e.quotes||[]).map(q=>`<blockquote>&ldquo;${esc(q.t)}&rdquo;<span class="meta"> — p. ${esc(q.p)} (${esc(q.s)})</span></blockquote>`).join('')+
-     (e.notes?`<div class="meta">notes: ${esc(e.notes)}</div>`:'')},
+  {key:'D', title:'Re-mapped records — contested fields only',
+   blurb:'The 19 voided records were re-extracted, re-verified, and cross-checked by a second model. Seven cases with full agreement auto-accepted into the ledger (same standard as the main run). Below are only the contested fields, each with a third-reader recommendation.',
+   opts:[['accept-rec','Accept recommendation'],['claude','Side with A'],['codex','Side with B'],['other','Other','neg']],
+   render:e=>`${head(e)}<div class="vs">field <b>${esc(e.field)}</b>: <span class="claude">A (re-map): ${esc(e.claude)}</span> vs <span class="codex">B (Codex): ${esc(e.codex)}</span></div>
+     ${e.holding?`<p class="meta">${esc(e.holding)}</p>`:''}
+     <div class="rec"><div class="lab">Third reader recommends: ${esc(e.recommendation)}</div>
+     <p>${esc(e.justification)}</p>${e.supporting_quote?`<blockquote>&ldquo;${esc(e.supporting_quote)}&rdquo;</blockquote>`:''}</div>`},
 ];
 
 function itemKey(sec, i){ return sec + '-' + i; }

@@ -1,0 +1,142 @@
+[
+ {
+  "case_id": 911921,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court reverses judgment for the boarder and broadly construes the 1860 lien act so that a boarding-house keeper, like an innkeeper, retains a lien on the boarder's goods for unpaid board even under a special fixed-rate contract. This enlarges rather than restricts the statutory remedy available to the party providing compensated occupancy, favoring the letting/boarding business's proprietary interest.",
+  "supporting_quote": "wherever an innkeeper would have a lien upon the goods of a transient guest, there the boarding-house keeper should have a lien upon the goods of a boarder"
+ },
+ {
+  "case_id": 913805,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court holds that a mere lodging-house keeper (as distinct from an innkeeper or a statutorily-covered boarding-house keeper) has no lien whatsoever on a lodger's effects, at common law or under any New York statute then in force. This restricts the proprietary remedies available to a person who lets rooms for compensation, denying him the protection given to analogous letting businesses.",
+  "supporting_quote": "mere lodging house keepers having no lien upon the effects of lodgers either at common law or under the statutes of this state"
+ },
+ {
+  "case_id": 4482382,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The court extends ordinary master-servant vicarious liability to boarding-house keepers, holding the defendant liable for a servant's negligence in permitting the theft of a boarder's goods \u2014 a burden adverse to the letting business. Yet it simultaneously and expressly refuses to hold boarding-house keepers to the innkeeper's strict-insurer standard, limiting the duty to ordinary reasonable care, a protective limitation favorable to keepers. The holding therefore cuts both ways rather than falling cleanly to one side.",
+  "supporting_quote": "I do not however by any means wish to be understood as favoring the idea that a boarding-house keeper should be held to the same degree of care in respect to the goods of his boarder that is exacted from an inn-keeper. * * * All that I contend for is, that he should be required to exercise due and reasonable care."
+ },
+ {
+  "case_id": 625003,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court holds the 1860 boarding-house lien statute confers no greater rights than an innkeeper had at common law, so the keeper's lien cannot reach the wife's separate wearing apparel when only the husband contracted for board. This protects individual ownership of personal effects brought into the compensated-occupancy arrangement against an expansive reading of the regulatory lien, rather than upholding a restriction on the occupant's property rights.",
+  "supporting_quote": "chapter 446, Laws of 1860, for the protection of boarding-house keepers, confers upon them no greater rights than inn-keepers possessed at common law"
+ },
+ {
+  "case_id": 640267,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "Following McIlvane v. Hilton, the court holds the boarding-house keeper's statutory lien does not attach to the wife's separate wearing apparel where the husband alone contracted for board, again vindicating the occupant's ownership of her own effects over the keeper's asserted lien. The ruling protects property rights within the compensated-occupancy relationship rather than expanding the keeper's regulatory or lien powers.",
+  "supporting_quote": "a boarding-house keeper had no lien on the separate personal effects and wearing apparel of the wife living at the boarding house with her husband, where the husband was received under a contract to furnish board for himself and wife"
+ },
+ {
+  "case_id": 912009,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The opinion is centrally about how to classify a mixed restaurant/lodging establishment (inn vs. lodging-house vs. restaurant vs. boarding arrangement) and what legal consequences flow from that classification. That taxonomy of compensated-occupancy arrangements is exactly the subject the case turns on.",
+  "supporting_quote": "That a mere restaurant or eating-house is not an inn, nor a mere lodging-house, in which no provision is made for supplying the lodgers with meals"
+ },
+ {
+  "case_id": 912009,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The case neither protects an owner's right to let rooms nor upholds a regulatory restriction on letting; it is a tort dispute over innkeeper liability for a guest's lost coat, decided by classifying the defendant's business using his own license affidavit. Because it touches the letting/lodging taxonomy without falling into a clean favorable/adverse posture toward compensated occupancy, mixed is the better fit than irrelevant.",
+  "supporting_quote": "The main business of the defendant consisted in the keeping of a restaurant on the lower floor of a building occupied by him, one-half only of the third floor of which was devoted to lodgers."
+ },
+ {
+  "case_id": 912009,
+  "field": "characterization",
+  "recommendation": "innkeeping",
+  "justification": "The court expressly held that the defendant's own license affidavit established that he kept an inn, and grounded liability entirely on that innkeeper status rather than on lease, license-to-occupy, or ordinary lodging principles.",
+  "supporting_quote": "the defendant himself has established, by his own act and declaration, that he keeps an inn"
+ },
+ {
+  "case_id": 1306520,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The case squarely addresses the legal duties a boarding/lodging-house keeper owes a boarder with respect to property in the boarder's room, directly bearing on the legal character of compensated occupancy of another's dwelling.",
+  "supporting_quote": "the defendant is a boarding and lodging-house keeper, and that the plaintiff had been boarding and lodging with him for some time prior to the 20th day of March, 1873"
+ },
+ {
+  "case_id": 1306520,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court treats boarding-house keeping as a legitimate, protected commercial use of property analogous to innkeeping, extending to it the same statutory lien rights and ordinary-care duties, rather than restricting the practice or subjecting it to adverse regulation.",
+  "supporting_quote": "in this State, a boarding-house keeper now has, by statute, all the rights and remedies, in respect of the baggage and effects of his guest, that an innkeeper possesses"
+ },
+ {
+  "case_id": 1306520,
+  "field": "characterization",
+  "recommendation": "lodging",
+  "justification": "The court repeatedly and explicitly identifies the arrangement as boarding/lodging, distinct from innkeeping, and analyzes it under lodging-house-keeper liability principles rather than lease, license, or inn law.",
+  "supporting_quote": "It appears from the evidence that the defendant is a boarding and lodging-house keeper"
+ },
+ {
+  "case_id": 2216251,
+  "field": "characterization",
+  "recommendation": "lodging",
+  "justification": "The opinion's whole analysis is built on distinguishing a 'boarding-house keeper' who furnishes accommodation for a definite period at an agreed rate from an inn-keeper's guest; of the available categories, this compensated-occupancy arrangement maps most closely onto lodging rather than a real-property lease, a bare license, innkeeping, or an unrelated 'other' arrangement.",
+  "supporting_quote": "A boarding-house keeper, as contradistinguished from the keeper of an inn, should, in the sense of this statute, be regarded as one who furnishes accommodation for a definite period, as by the week or month, at a rate of compensation agreed upon."
+ },
+ {
+  "case_id": 4453395,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The case turns entirely on whether a fixed-term, fixed-price arrangement for hotel rooms and meals converts an occupant from a protected 'guest' into a mere boarder, which is precisely a question about the legal character of compensated occupancy.",
+  "supporting_quote": "We are satisfied that the referee erred in the following conclusion of law: \"That the plaintiff was not a guest of the defendants at said hotel within the meaning of the term.\""
+ },
+ {
+  "case_id": 4453395,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court rejects the narrower, less-protected 'boarder/lodger' characterization and instead extends full guest status (and the innkeeper's insurer liability that comes with it) even where price and duration were fixed in advance, favoring the occupant's protected status over a restrictive reading.",
+  "supporting_quote": "We cannot adopt the theory that ascertaining and fixing the price which was to be paid for the accommodations, and specifying the probable duration of the stay at the hotel, necessarily had the effect to deprive the plaintiff of the character of guest."
+ },
+ {
+  "case_id": 4453395,
+  "field": "characterization",
+  "recommendation": "innkeeping",
+  "justification": "The court's holding is explicitly that the innkeeper-guest relationship existed between the parties, resolving the case under innkeeping doctrine rather than lease, license, or ordinary lodging-house principles.",
+  "supporting_quote": "We are of the opinion that the facts of this case establish clearly the relation of innkeeper and guest."
+ },
+ {
+  "case_id": 4539230,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court construes the statutory lien narrowly, upholding a restriction that denies lien rights to lodging-house keepers (as opposed to boarding-house/hotel keepers), which directly restricts the legal protections available to one form of compensated occupancy.",
+  "supporting_quote": "Our statute gives a lien on personal property in favor of hotel and boarding-house keepers, but not in favor of lodging house keepers."
+ },
+ {
+  "case_id": 5687842,
+  "field": "characterization",
+  "recommendation": "lodging",
+  "justification": "The court treats the connected buildings as a single 'boarding house' where a tenant 'keeps boarders' with shared dining and sitting rooms \u2014 a compensated-occupancy arrangement for sleeping rooms rather than a lease, license, or inn for transient guests. Within this corpus's lodging/boarding framework, 'boarding house' is the paradigmatic lodging-type arrangement, not a residual 'other' category, even though the court's actual holding concerns fire-escape regulation rather than the lease/license distinction.",
+  "supporting_quote": "It seems to us clear that the buildings in question are a boarding house. They are used by one tenant for a single purpose."
+ },
+ {
+  "case_id": 8507679,
+  "field": "relevant",
+  "recommendation": "True",
+  "justification": "The suit centers on a claim for 'board and lodging' furnished to the decedent, and the defense expressly disputes whether she occupied the premises as a paying boarder or merely as an invited guest \u2014 squarely implicating the legal character of compensated occupancy. The court also applies prescription rules specific to board-and-lodging claims, which bears on how such arrangements are legally treated.",
+  "supporting_quote": "the defendant... alleged that the intestate was in the family of the plaintiff as an invited guest, and not as a hoarder"
+ },
+ {
+  "case_id": 8507679,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court barred nearly all of the board-and-lodging claim on prescription grounds and treated the remainder with open skepticism as likely fabricated, ultimately reversing the judgment and denying recovery entirely. This is an outcome unfavorable to the party asserting a compensated-occupancy claim, not a neutral or favorable treatment of letting/lodging rights.",
+  "supporting_quote": "The claim for hoard and lodging is prescribed, except that portion winch accrued during the year previous to the commencement of the suit."
+ },
+ {
+  "case_id": 8507679,
+  "field": "characterization",
+  "recommendation": "lodging",
+  "justification": "The plaintiff's cause of action is explicitly framed as furnishing 'board, rooms, fires and servants' \u2014 i.e., board and lodging \u2014 to the decedent, and the contested factual issue is whether that occupancy was as a compensated boarder or a gratuitous guest. The court analyzes this claim under the doctrinal category of board-and-lodging debts (with associated prescription rules), making 'lodging' the closest fit among the enumerated categories rather than no characterization at all.",
+  "supporting_quote": "petitioner hoarded, furnished rooms, fires and servants, and riding horses, and a carriage, and all necessary attention to Winifred Wood"
+ }
+]

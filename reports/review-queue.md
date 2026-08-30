@@ -82,23 +82,24 @@
 - [ ] 193 Misc. 2d 716 City of New York v. New York & Hong Kong Reciprocation Exchange Corp. — characterization: rec=other
 - [ ] 70 Misc. 2d 290 Chawla v. Horch — polarity: rec=favorable
 
-## D. Re-mapped records (re-verified) (19)
-- [ ] 3 Abb. Pr. 26 Cromwell v. Stephens — remapped: mixed/commercial_operator/nights
-- [ ] 9 Daly (N.Y.) 361 Misch v. O'Hara — remapped: mixed/commercial_operator/weeks
-- [ ] 12 Daly (N.Y.) 174 Cochrane v. Schryver — remapped: mixed/commercial_operator/unclear
-- [ ] 29 N.Y. Super. Ct. 264 Shafer v. Guest — remapped: mixed/commercial_operator/months
-- [ ] 52 N.Y.S. 105 Metzger v. Schnabel — remapped: favorable/commercial_operator/unclear
-- [ ] 52 How. Pr. 14 Smith v. Read — remapped: mixed/commercial_operator/unclear
-- [ ] 14 N.Y. Sup. Ct. 594 McIlvane v. Hilton — remapped: mixed/commercial_operator/unclear
-- [ ] 8 N.Y. St. Rep. 347 Birney v. Wheaton — remapped: mixed/commercial_operator/unclear
-- [ ] 25 N.Y. St. Rep. 37 Oliver v. Moore — remapped: favorable/householder/months
-- [ ] 9 Daly (N.Y.) 460 Kopper v. Willis — remapped: irrelevant/commercial_operator/unclear
-- [ ] 6 Daly (N.Y.) 33 Smith v. Read — remapped: irrelevant/commercial_operator/unclear
-- [ ] 24 How. Pr. 62 Stewart v. McCready — remapped: favorable/unclear/unclear
-- [ ] 6 N.Y.S. 413 Oliver v. Moore — remapped: favorable/householder/months
-- [ ] 24 N.Y. Sup. Ct. 279 Hancock v. Rand — remapped: irrelevant/commercial_operator/months
-- [ ] 60 N.Y. Sup. Ct. 472 Oliver v. Moore — remapped: favorable/householder/months
-- [ ] 47 Tex. Crim. 493 Hardin v. State — remapped: mixed/householder/unclear
-- [ ] 42 N.Y.S. 691 Department of Buildings v. Field — remapped: adverse/commercial_operator/unclear
-- [ ] 21 La. Ann. 557 Wood v. McCranie — remapped: irrelevant/householder/months
-- [ ] 42 Pa. D. & C. 586 Ziel v. Borough of Crafton — remapped: favorable/commercial_operator/nights
+## D. Re-mapped records (re-verified) (20)
+- [ ] 9 Daly (N.Y.) 361 Misch v. O'Hara — remapped: None/None/None
+- [ ] 12 Daly (N.Y.) 174 Cochrane v. Schryver — remapped: None/None/None
+- [ ] 52 How. Pr. 14 Smith v. Read — remapped: None/None/None
+- [ ] 14 N.Y. Sup. Ct. 594 McIlvane v. Hilton — remapped: None/None/None
+- [ ] 8 N.Y. St. Rep. 347 Birney v. Wheaton — remapped: None/None/None
+- [ ] 9 Daly (N.Y.) 460 Kopper v. Willis — remapped: None/None/None
+- [ ] 9 Daly (N.Y.) 460 Kopper v. Willis — remapped: None/None/None
+- [ ] 9 Daly (N.Y.) 460 Kopper v. Willis — remapped: None/None/None
+- [ ] 6 Daly (N.Y.) 33 Smith v. Read — remapped: None/None/None
+- [ ] 6 Daly (N.Y.) 33 Smith v. Read — remapped: None/None/None
+- [ ] 6 Daly (N.Y.) 33 Smith v. Read — remapped: None/None/None
+- [ ] 24 How. Pr. 62 Stewart v. McCready — remapped: None/None/None
+- [ ] 24 N.Y. Sup. Ct. 279 Hancock v. Rand — remapped: None/None/None
+- [ ] 24 N.Y. Sup. Ct. 279 Hancock v. Rand — remapped: None/None/None
+- [ ] 24 N.Y. Sup. Ct. 279 Hancock v. Rand — remapped: None/None/None
+- [ ] 47 Tex. Crim. 493 Hardin v. State — remapped: None/None/None
+- [ ] 42 N.Y.S. 691 Department of Buildings v. Field — remapped: None/None/None
+- [ ] 21 La. Ann. 557 Wood v. McCranie — remapped: None/None/None
+- [ ] 21 La. Ann. 557 Wood v. McCranie — remapped: None/None/None
+- [ ] 21 La. Ann. 557 Wood v. McCranie — remapped: None/None/None

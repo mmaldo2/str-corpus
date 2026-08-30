@@ -176,3 +176,19 @@ use in work product. None checked as of this report.
 - [x] verify_quotes.py gating Reduce; zero unverified quotes downstream
 - [x] cycle-001.md (this report)
 - [x] Reproducible from README on a clean machine
+
+---
+
+## Amendment — human adjudication complete (2026-08-30)
+
+All 89 review-queue decisions applied (see data/adjudications/cycle-001.json;
+adjudicated ledger at data/ledger/cycle-001.jsonl, 205 relevant cases).
+Highlights: 10 of 12 priority householder-nights cases human-accepted; 2
+flagged needs-work pending citator (Slice of Life v. Hamilton Twp., 207 A.3d
+886 (Pa. 2019) abrogation risk — also flagged on 147 A.3d 947, 176 A.3d 396,
+164 A.3d 633); 27/28 fuzzy quotes confirmed as scan noise, 1 mismatch quote
+removed (Shvekh); all 35 + 18 model disagreements resolved per third-reader
+recommendations or human override; Shvekh who_was_letting corrected to
+unclear (whole-home VRBO rental of non-primary residence). Two open user
+questions tracked as pending-user-question in the ledger (Hancock v. Rand
+polarity; Hardin v. State relevance).

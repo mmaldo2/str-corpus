@@ -1,0 +1,391 @@
+{
+ "A-0": {
+  "decision": "accept",
+  "at": "2026-08-30T22:10:30.439Z"
+ },
+ "A-1": {
+  "decision": "needs-work",
+  "at": "2026-08-30T22:11:40.493Z",
+  "note": "How favorable is the case if it was overruled by the state Supreme Court? This applies to all of the cases overruled in Slice of Life"
+ },
+ "A-2": {
+  "decision": "needs-work",
+  "at": "2026-08-30T22:12:12.190Z",
+  "note": "Ibid"
+ },
+ "A-3": {
+  "decision": "accept",
+  "at": "2026-08-30T22:12:57.023Z"
+ },
+ "A-4": {
+  "decision": "accept",
+  "at": "2026-08-30T22:13:34.158Z"
+ },
+ "A-5": {
+  "decision": "accept",
+  "at": "2026-08-30T22:14:18.348Z"
+ },
+ "A-6": {
+  "decision": "accept",
+  "at": "2026-08-30T22:14:44.560Z"
+ },
+ "A-7": {
+  "decision": "accept",
+  "at": "2026-08-30T22:15:40.797Z"
+ },
+ "A-8": {
+  "decision": "accept",
+  "at": "2026-08-30T22:16:02.577Z"
+ },
+ "A-9": {
+  "decision": "accept",
+  "at": "2026-08-30T22:16:23.770Z"
+ },
+ "A-10": {
+  "decision": "accept",
+  "at": "2026-08-30T22:16:50.529Z"
+ },
+ "A-11": {
+  "decision": "accept",
+  "at": "2026-08-30T22:17:20.911Z"
+ },
+ "B-0": {
+  "decision": "mismatch",
+  "at": "2026-08-30T22:17:58.151Z",
+  "note": "We need to see what comes after this \"However, she and her...\" If it contradicts the claim that they occupied it as their primary residence, which the construction suggests, that is relevant for the who_was_letting claim and other aspects."
+ },
+ "B-1": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:19:10.284Z"
+ },
+ "B-2": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:19:14.180Z"
+ },
+ "B-3": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:19:15.199Z"
+ },
+ "B-4": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:19:16.614Z"
+ },
+ "B-5": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:19:17.471Z"
+ },
+ "B-6": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:19:18.355Z"
+ },
+ "B-7": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:19:19.166Z"
+ },
+ "B-8": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:19:20.036Z"
+ },
+ "B-9": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:19:34.833Z"
+ },
+ "B-10": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:19:38.098Z"
+ },
+ "B-11": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:19:39.076Z"
+ },
+ "B-12": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:19:40.601Z"
+ },
+ "B-13": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:19:41.492Z"
+ },
+ "B-14": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:19:42.817Z"
+ },
+ "B-15": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:19:44.100Z"
+ },
+ "B-16": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:21:01.038Z",
+  "note": "I think this got included because of the slicing of the chunks, we should double check the next chunk to be certain"
+ },
+ "B-17": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:21:28.710Z"
+ },
+ "B-18": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:21:30.305Z"
+ },
+ "B-19": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:21:33.170Z"
+ },
+ "B-20": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:21:34.187Z"
+ },
+ "B-21": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:21:49.076Z"
+ },
+ "B-22": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:21:51.298Z"
+ },
+ "B-23": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:22:06.905Z"
+ },
+ "B-24": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:22:29.493Z"
+ },
+ "B-25": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:22:31.008Z"
+ },
+ "B-26": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:22:31.947Z"
+ },
+ "C-0": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:23:14.487Z"
+ },
+ "C-1": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:23:28.095Z"
+ },
+ "C-2": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:23:46.255Z"
+ },
+ "C-3": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:24:10.849Z"
+ },
+ "C-4": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:24:25.966Z"
+ },
+ "C-5": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:24:37.554Z"
+ },
+ "C-6": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:42:06.939Z"
+ },
+ "C-7": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:25:11.656Z"
+ },
+ "C-8": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:25:23.129Z"
+ },
+ "C-9": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:26:16.729Z"
+ },
+ "C-10": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:26:26.534Z"
+ },
+ "C-11": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:26:41.828Z"
+ },
+ "C-12": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:27:00.197Z"
+ },
+ "C-13": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:27:04.542Z"
+ },
+ "C-14": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:27:26.911Z"
+ },
+ "C-15": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:27:39.540Z"
+ },
+ "C-16": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:27:51.758Z"
+ },
+ "C-17": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:28:01.080Z"
+ },
+ "C-19": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:29:07.004Z"
+ },
+ "C-20": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:29:13.683Z"
+ },
+ "C-21": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:29:23.208Z"
+ },
+ "C-22": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:29:32.312Z"
+ },
+ "C-23": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:29:36.181Z"
+ },
+ "C-24": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:29:48.338Z"
+ },
+ "C-25": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:31:30.017Z"
+ },
+ "C-26": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:31:33.316Z"
+ },
+ "C-27": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:31:43.598Z"
+ },
+ "C-28": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:31:53.596Z"
+ },
+ "C-29": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:32:13.991Z"
+ },
+ "C-30": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:32:30.998Z"
+ },
+ "C-31": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:32:36.544Z"
+ },
+ "C-32": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:32:48.023Z"
+ },
+ "C-33": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:33:02.587Z"
+ },
+ "C-34": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:34:02.796Z"
+ },
+ "_meta": {
+  "savedAt": "2026-08-30T23:33:18.414Z"
+ },
+ "B-27": {
+  "decision": "ocr-ok",
+  "at": "2026-08-30T22:41:33.046Z"
+ },
+ "C-18": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T22:42:20.369Z"
+ },
+ "D-0": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T23:15:12.963Z"
+ },
+ "D-1": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T23:15:20.290Z"
+ },
+ "D-2": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T23:16:14.249Z"
+ },
+ "D-3": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T23:23:06.431Z"
+ },
+ "D-4": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T23:24:09.363Z"
+ },
+ "D-5": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T23:24:24.688Z"
+ },
+ "D-6": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T23:24:44.946Z"
+ },
+ "D-7": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T23:25:03.844Z"
+ },
+ "D-8": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T23:25:20.923Z"
+ },
+ "D-9": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T23:25:40.007Z"
+ },
+ "D-10": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T23:27:18.565Z"
+ },
+ "D-11": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T23:27:40.750Z"
+ },
+ "D-12": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T23:27:58.549Z"
+ },
+ "D-13": {
+  "decision": "other",
+  "at": "2026-08-30T23:28:36.367Z",
+  "note": "I agree it's relevant, but why is this favorable? "
+ },
+ "D-14": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T23:29:44.522Z"
+ },
+ "D-15": {
+  "decision": "other",
+  "at": "2026-08-30T23:30:48.555Z",
+  "note": "Is this relevant?"
+ },
+ "D-16": {
+  "decision": "accept-rec",
+  "at": "2026-08-30T23:31:26.996Z"
+ },
+ "D-17": {
+  "decision": "claude",
+  "at": "2026-08-30T23:33:10.103Z"
+ },
+ "D-18": {
+  "decision": "claude",
+  "at": "2026-08-30T23:33:07.993Z"
+ },
+ "D-19": {
+  "decision": "claude",
+  "at": "2026-08-30T23:33:16.503Z"
+ }
+}
