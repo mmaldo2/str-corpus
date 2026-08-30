@@ -1,0 +1,480 @@
+[
+ {
+  "case_id": 2121343,
+  "cite": "20 Tex. 798",
+  "year": 1858,
+  "jur": "Tex.",
+  "flags": [],
+  "cl_cluster": {
+   "id": 5073610,
+   "case_name": "Howth v. Franklin",
+   "url": "https://www.courtlistener.com/opinion/5073610/howth-v-franklin/"
+  },
+  "citing": [
+   {
+    "case_name": "Dallas Hotel Co. v. Raitman",
+    "court": "Court of Appeals of Texas",
+    "date": "1933-04-22",
+    "cluster_id": 5182514,
+    "opinion_id": 5004445
+   },
+   {
+    "case_name": "Dallas Hotel Co. v. Davison",
+    "court": "Texas Commission of Appeals",
+    "date": "1930-02-05",
+    "cluster_id": 5180173,
+    "opinion_id": 5001896
+   }
+  ],
+  "negative_passages": [],
+  "verdict": "no-negative-signal-found",
+  "citing_count": 2
+ },
+ {
+  "case_id": 280642,
+  "cite": "22 Tex. Civ. App. 623",
+  "year": 1900,
+  "jur": "Tex.",
+  "flags": [],
+  "cl_cluster": {
+   "id": 4201671,
+   "case_name": "Freeman v. Cates",
+   "url": "https://www.courtlistener.com/opinion/4201671/freeman-v-cates/"
+  },
+  "citing": [],
+  "negative_passages": [],
+  "verdict": "no-negative-signal-found",
+  "citing_count": 0
+ },
+ {
+  "case_id": 832700,
+  "cite": "16 Pa. Super. 184",
+  "year": 1901,
+  "jur": "Pa.",
+  "flags": [],
+  "cl_cluster": {
+   "id": 6402672,
+   "case_name": "Springer v. Stiver",
+   "url": "https://www.courtlistener.com/opinion/6402672/springer-v-stiver/"
+  },
+  "citing": [],
+  "negative_passages": [],
+  "verdict": "no-negative-signal-found",
+  "citing_count": 0
+ },
+ {
+  "case_id": 2618120,
+  "cite": "119 La. 1025",
+  "year": 1907,
+  "jur": "La.",
+  "flags": [],
+  "cl_cluster": {
+   "id": 7252800,
+   "case_name": "Cristadoro v. Von Behren's Heirs",
+   "url": "https://www.courtlistener.com/opinion/7252800/cristadoro-v-von-behrens-heirs/"
+  },
+  "citing": [
+   {
+    "case_name": "Pardee Co. v. Austin",
+    "court": "Court of Appeals for the Fifth Circuit",
+    "date": "1932-06-01",
+    "cluster_id": 6954053,
+    "opinion_id": 6851183
+   },
+   {
+    "case_name": "Hero v. Hankins",
+    "court": "Court of Appeals for the Fifth Circuit",
+    "date": "1917-12-19",
+    "cluster_id": 8821537,
+    "opinion_id": 8806202
+   }
+  ],
+  "negative_passages": [
+   {
+    "citing_case": "Hero v. Hankins",
+    "date": "1917-12-19",
+    "signal": "overruled",
+    "passage": "a recovery to a guest who was injured by the fall of a gallery. In Brodtman v. Finerty, 116 La. 1103 , 41 South. 329 , and Bianchi v. Del Valle, 117 La. 590 , 42 South. 148 , it was said that the claim of a wife of a tenant to any recovery from the owner of the building was through her husband, and her rights were measured by his. In a later case (Cristadoro v. Von Behren\u2019s Heirs, 119 La. 1025 , 44 South. 852 , 17 L. R. A. [N. S.] 1161), the Supreme Court criticized the ruling in McConnell v. Le"
+   }
+  ],
+  "verdict": "negative-signal",
+  "citing_count": 2
+ },
+ {
+  "case_id": 7278558,
+  "cite": "26 A.3d 562",
+  "year": 2011,
+  "jur": "Pa.",
+  "flags": [],
+  "cl_cluster": {
+   "id": 2318594,
+   "case_name": "Thomason v. ZONING HEARING BD. OF RADNOR",
+   "url": "https://www.courtlistener.com/opinion/2318594/thomason-v-zoning-hearing-bd-of-radnor/"
+  },
+  "citing": [],
+  "negative_passages": [],
+  "verdict": "no-negative-signal-found",
+  "citing_count": 0
+ },
+ {
+  "case_id": 4369074,
+  "cite": "133 A.D.3d 1174",
+  "year": 2015,
+  "jur": "N.Y.",
+  "flags": [],
+  "cl_cluster": {
+   "id": 6202230,
+   "case_name": "Fruchter v. Zoning Board of Appeals",
+   "url": "https://www.courtlistener.com/opinion/6202230/fruchter-v-zoning-board-of-appeals/"
+  },
+  "citing": [],
+  "negative_passages": [],
+  "verdict": "no-negative-signal-found",
+  "citing_count": 0
+ },
+ {
+  "case_id": 12195460,
+  "cite": "147 A.3d 947",
+  "year": 2016,
+  "jur": "Pa.",
+  "flags": [
+   "abrogation-risk: Slice of Life v. Hamilton Twp., 207 A.3d 886 (Pa. 2019) \u2014 per human review note; verify via citator"
+  ],
+  "cl_cluster": null,
+  "citing": [],
+  "negative_passages": [],
+  "verdict": "unknown",
+  "error": "lookup 429"
+ },
+ {
+  "case_id": 12315742,
+  "cite": "154 A.3d 408",
+  "year": 2017,
+  "jur": "Pa.",
+  "flags": [
+   "abrogation-risk: Slice of Life v. Hamilton Twp., 207 A.3d 886 (Pa. 2019) \u2014 per human review note; verify via citator"
+  ],
+  "cl_cluster": {
+   "id": 4346288,
+   "case_name": "I. Shvekh v. The ZHB of Stroud Twp. and Twp. of Stroud",
+   "url": "https://www.courtlistener.com/opinion/4346288/i-shvekh-v-the-zhb-of-stroud-twp-and-twp-of-stroud/"
+  },
+  "citing": [
+   {
+    "case_name": "C.L. Johnson & J. Johnson, h/w v. Pocono Twp. ZHB & Pocono Twp.",
+    "court": "Commonwealth Court of Pennsylvania",
+    "date": "2024-02-07",
+    "cluster_id": 9474242,
+    "opinion_id": 9939668
+   }
+  ],
+  "negative_passages": [
+   {
+    "citing_case": "C.L. Johnson & J. Johnson, h/w v. Pocono Twp. ZHB & Pocono Twp.",
+    "date": "2024-02-07",
+    "signal": "overruled",
+    "passage": "this Court\u2019s broad reading of the zoning ordinance to permit all not-expressly-excluded uses within the narrower meaning of a \u201csingle family\u201d use was improper and inconsistent with its decision in Albert and In re: Appeal of Miller, 515 A.2d 904 (Pa. 1986).7 Id. at 902. In so concluding, the Supreme Court overruled our decisions in Marchenko and Shvekh v. Zoning Hearing Board of Stroud Township, 154 A.3d 408 (Pa. Cmwlth. 2017), to the extent that those decisions broadly interpreted the zoning or"
+   }
+  ],
+  "verdict": "negative-signal",
+  "citing_count": 1
+ },
+ {
+  "case_id": 12321139,
+  "cite": "164 A.3d 633",
+  "year": 2017,
+  "jur": "Pa.",
+  "flags": [
+   "abrogation-risk: Slice of Life v. Hamilton Twp., 207 A.3d 886 (Pa. 2019) \u2014 per human review note; verify via citator"
+  ],
+  "cl_cluster": {
+   "id": 4402093,
+   "case_name": "Slice of Life, LLC and v. Kleyman v. Hamilton Twp. ZHB and Hamilton Twp.",
+   "url": "https://www.courtlistener.com/opinion/4402093/slice-of-life-llc-and-v-kleyman-v-hamilton-twp-zhb-and-hamilton-twp/"
+  },
+  "citing": [],
+  "negative_passages": [],
+  "verdict": "no-negative-signal-found",
+  "citing_count": 0
+ },
+ {
+  "case_id": 12350573,
+  "cite": "176 A.3d 396",
+  "year": 2017,
+  "jur": "Pa.",
+  "flags": [
+   "abrogation-risk: Slice of Life v. Hamilton Twp., 207 A.3d 886 (Pa. 2019) \u2014 per human review note; verify via citator"
+  ],
+  "cl_cluster": {
+   "id": 4449671,
+   "case_name": "G.A. Reihner and J.A. Reihner v. The City of Scranton ZHB",
+   "url": "https://www.courtlistener.com/opinion/4449671/ga-reihner-and-ja-reihner-v-the-city-of-scranton-zhb/"
+  },
+  "citing": [
+   {
+    "case_name": "Shyam Ventures, LLC v. ZHB of the Borough of Castle Shannon & Borough of Castle Shannon",
+    "court": "Commonwealth Court of Pennsylvania",
+    "date": "2024-03-07",
+    "cluster_id": 9481853,
+    "opinion_id": 9948466
+   }
+  ],
+  "negative_passages": [],
+  "verdict": "no-negative-signal-found",
+  "citing_count": 1
+ },
+ {
+  "case_id": 12386233,
+  "cite": "523 S.W.3d 862",
+  "year": 2017,
+  "jur": "Tex.",
+  "flags": [],
+  "cl_cluster": {
+   "id": 5448655,
+   "case_name": "Garrett v. Sympson",
+   "url": "https://www.courtlistener.com/opinion/5448655/garrett-v-sympson/"
+  },
+  "citing": [
+   {
+    "case_name": "Brandt v. R&R Mtn. Esc.",
+    "court": "Montana Supreme Court",
+    "date": "2025-07-22",
+    "cluster_id": 10638841,
+    "opinion_id": 11105428
+   },
+   {
+    "case_name": "BLF LLC, Bradford W. Bayliff, and Lisa E. W. Bayliff v. the Landing at Blanco Property Owners Association",
+    "court": "Texas Court of Appeals, 3rd District (Austin)",
+    "date": "2023-12-13",
+    "cluster_id": 9453197,
+    "opinion_id": 9911022
+   },
+   {
+    "case_name": "Pratik Pandharipande, M.D. v. FSD Corporation",
+    "court": "Tennessee Supreme Court",
+    "date": "2023-10-17",
+    "cluster_id": 9441307,
+    "opinion_id": 9899132
+   },
+   {
+    "case_name": "Dorothy Gantenbein & Charles Fricke v. Tonya Lacy, Bob Burnett, Roxanne Burnett, Will Fair, Carolyn Fair, Kurt Harwell, & Jennifer Harwell",
+    "court": "Texas Court of Appeals, 10th District (Waco)",
+    "date": "2023-07-26",
+    "cluster_id": 9416407,
+    "opinion_id": 9411883
+   },
+   {
+    "case_name": "Louis Scoma, Jr. and Sue Scoma v. Colleyville Spring Garden Townhomes Residential Association, Inc.",
+    "court": "Texas Court of Appeals, 2nd District (Fort Worth)",
+    "date": "2019-01-31",
+    "cluster_id": 4586951,
+    "opinion_id": 4364204
+   }
+  ],
+  "negative_passages": [],
+  "verdict": "no-negative-signal-found",
+  "citing_count": 5
+ },
+ {
+  "case_id": 12657445,
+  "cite": "555 S.W.3d 339",
+  "year": 2018,
+  "jur": "Tex.",
+  "flags": [],
+  "cl_cluster": {
+   "id": 4519308,
+   "case_name": "John Schack and Debbie Schack v. Property Owners Association of Sunset Bay and Timothy Raub",
+   "url": "https://www.courtlistener.com/opinion/4519308/john-schack-and-debbie-schack-v-property-owners-association-of-sunset-bay/"
+  },
+  "citing": [
+   {
+    "case_name": "Anquisha Williams, Individually and on Behalf of Her Minor Son, D.T. v. Hurricane Harbor, LP; Hurricane Harbor, GP, LLC; Six Flags Theme Parks, Inc.; And Six Flags Entertainment Corporation",
+    "court": "Texas Court of Appeals, 2nd District (Fort Worth)",
+    "date": "2026-05-21",
+    "cluster_id": 10863905,
+    "opinion_id": 11331347
+   },
+   {
+    "case_name": "Town of Conway v. Scott Kudrick",
+    "court": "Supreme Court of New Hampshire",
+    "date": "2023-05-02",
+    "cluster_id": 10271783,
+    "opinion_id": 10738373
+   },
+   {
+    "case_name": "Ramiro Villarreal v. Rodney Myers D/B/A I-69 Towing and Harold Waite, Individually and D/B/A La Feria Wrecker Service",
+    "court": "Texas Court of Appeals, 13th District",
+    "date": "2022-03-24",
+    "cluster_id": 6455048,
+    "opinion_id": 6327159
+   },
+   {
+    "case_name": "Lake Serene Property Owners Association Inc. v. Clyde Delbert Esplin",
+    "court": "Mississippi Supreme Court",
+    "date": "2022-03-10",
+    "cluster_id": 10627711,
+    "opinion_id": 11094298
+   }
+  ],
+  "negative_passages": [],
+  "verdict": "no-negative-signal-found",
+  "citing_count": 4
+ },
+ {
+  "case_id": 12657540,
+  "cite": "556 S.W.3d 274",
+  "year": 2018,
+  "jur": "Tex.",
+  "flags": [],
+  "cl_cluster": {
+   "id": 6242725,
+   "case_name": "Tarr v. Timberwood Park Owners Ass'n, Inc.",
+   "url": "https://www.courtlistener.com/opinion/6242725/tarr-v-timberwood-park-owners-assn-inc/"
+  },
+  "citing": [
+   {
+    "case_name": "Flor E. Flores v. Marisa Silva Sepulveda",
+    "court": "Texas Court of Appeals, 4th District (San Antonio)",
+    "date": "2026-08-19",
+    "cluster_id": 10957402,
+    "opinion_id": 11425007
+   },
+   {
+    "case_name": "Cliffhanger Developments, LLC v. Michael Lubitz; Tomas Fernandez; And Sarah Moore Lord and Joseph Christopher Lord, as Trustees of the Lord Living Trust",
+    "court": "Texas Court of Appeals, 3rd District (Austin)",
+    "date": "2026-08-14",
+    "cluster_id": 10952087,
+    "opinion_id": 11419680
+   },
+   {
+    "case_name": "Rudy v. Apple Valley Property Owners Assn.",
+    "court": "Ohio Court of Appeals",
+    "date": "2026-08-13",
+    "cluster_id": 10951892,
+    "opinion_id": 11419484
+   },
+   {
+    "case_name": "City of Sulphur Springs v. Luminant Mining Company, LLC, Luminant Generation Company, LLC, Vistra Corp., and Matthew Goering",
+    "court": "Texas Court of Appeals, 6th District (Texarkana)",
+    "date": "2026-07-22",
+    "cluster_id": 10933802,
+    "opinion_id": 11401364
+   },
+   {
+    "case_name": "Turbo Restaurants, LLC v. 900 S. Jackson, LLC",
+    "court": "Texas Court of Appeals, 13th District",
+    "date": "2026-07-09",
+    "cluster_id": 10927036,
+    "opinion_id": 11394574
+   },
+   {
+    "case_name": "Steven Paul Watson and Lacey Watson v. Davis-Woods Subdivision Architectural Committee",
+    "court": "Texas Court of Appeals, 9th District (Beaumont)",
+    "date": "2026-06-25",
+    "cluster_id": 10893785,
+    "opinion_id": 11361313
+   },
+   {
+    "case_name": "Galvin B. Kennedy v. the City of Texas City",
+    "court": "Texas Court of Appeals, 1st District (Houston)",
+    "date": "2026-06-25",
+    "cluster_id": 10881474,
+    "opinion_id": 11348995
+   },
+   {
+    "case_name": "Dean Davenport, Individually and as Trustee of the CRD 2017 Trust, Jana Davenport, the JasperRuth Ranch, LLC, JRRanch a Unit, LLC, and JRRanch B Unit, LLC v. EOG Resources, Inc.",
+    "court": "Texas Court of Appeals, 4th District (San Antonio)",
+    "date": "2026-06-24",
+    "cluster_id": 10881958,
+    "opinion_id": 11349481
+   },
+   {
+    "case_name": "Sandra Flores v. Inverness Forest Residents Civic Club, Inc.",
+    "court": "Texas Court of Appeals, 1st District (Houston)",
+    "date": "2026-06-18",
+    "cluster_id": 10881483,
+    "opinion_id": 11349004
+   },
+   {
+    "case_name": "Hicks Airfield Pilots Association v. Barbara Ann Brunson, Kevin Brunson, Rio Concho Aviation, Inc., Southlake Hospitality, Inc. D/B/A Wing It Caf\u00e9!, and Barbie Land Development, Inc.",
+    "court": "Texas Court of Appeals, 2nd District (Fort Worth)",
+    "date": "2026-06-11",
+    "cluster_id": 10875119,
+    "opinion_id": 11342596
+   },
+   {
+    "case_name": "Modern Builders, LLC, Alicia Gonzalez, Betsy Darling, Callie Stevens, Grayson Buster, Jaime Cobb Tinsley, Tom Tinsley, Jesse Fox, Kelray LLC, Urban Legacy Properties, LLC, D/B/A Urban Legacy Properties Series a LLC, Lauren A. Brady, Lauren Barrett, Lesa Susi, Trustee of the Susi Living Trust, Lori Dugdale, M and M Pool House LLC, Martha Dominguez, Adulfo Dominguez, Sean Sullivan, Shannon Ross, Susan Harper, Smith-Wallace Properties, LLC, Theresa Riley, Trustee of the TK Riley Family Trust v. City of Fort Worth",
+    "court": "Texas Court of Appeals, 2nd District (Fort Worth)",
+    "date": "2026-05-28",
+    "cluster_id": 10867731,
+    "opinion_id": 11335185
+   },
+   {
+    "case_name": "SYNERGY MEDSP a LLC and Michael Holloway v. 2715 Bissonnet, LLC",
+    "court": "Texas Court of Appeals, 1st District (Houston)",
+    "date": "2026-05-28",
+    "cluster_id": 10867691,
+    "opinion_id": 11335145
+   },
+   {
+    "case_name": "Yvette Tisdale v. Pina Sotelo, Juan Sotelo, and La Hacienda Meat Market",
+    "court": "Texas Court of Appeals, 9th District (Beaumont)",
+    "date": "2026-05-21",
+    "cluster_id": 10863091,
+    "opinion_id": 11330528
+   },
+   {
+    "case_name": "In the Estate of Reynaldo Contreras Hernandez v. the State of Texas",
+    "court": "Texas Court of Appeals, 4th District (San Antonio)",
+    "date": "2026-04-22",
+    "cluster_id": 10848742,
+    "opinion_id": 11316120
+   },
+   {
+    "case_name": "Don Jackson Constriction, Inc. v. Rockport-Fulton Independent School District",
+    "court": "Texas Court of Appeals, 13th District",
+    "date": "2026-04-09",
+    "cluster_id": 10841462,
+    "opinion_id": 11308812
+   },
+   {
+    "case_name": "Cris Lalonde and Vanessa Lalonde v. Tortuga Ranch NC, LLC, Vandrake Investments, LLC, and Premier Land Liquidators, LLC",
+    "court": "Texas Court of Appeals, 4th District (San Antonio)",
+    "date": "2026-04-08",
+    "cluster_id": 10842232,
+    "opinion_id": 11309587
+   },
+   {
+    "case_name": "Recreational Land Sales, LLC/James M. Allen, Charles Cedars, and Deborah Cedars v. James M. Allen, Charles Cedars, and Deborah Cedars/Recreational Land Sales, LLC",
+    "court": "Texas Court of Appeals, 8th District (El Paso)",
+    "date": "2026-04-07",
+    "cluster_id": 10839512,
+    "opinion_id": 11306856
+   },
+   {
+    "case_name": "Kelly Hancock, Acting Comptroller of Public Accounts of the State of Texas and Ken Paxton, Attorney General of the State of Texas v. Championx, LLC",
+    "court": "Texas Court of Appeals, 15th District",
+    "date": "2026-03-12",
+    "cluster_id": 10809019,
+    "opinion_id": 11275762
+   },
+   {
+    "case_name": "James P. MacIvor, Phoenix Air Transport, Inc., and Nighthawk Air Systems v. Zuehl Airport Flying Community Owners Association, Inc.",
+    "court": "Texas Court of Appeals, 6th District (Texarkana)",
+    "date": "2026-02-19",
+    "cluster_id": 10800972,
+    "opinion_id": 11267696
+   },
+   {
+    "case_name": "Kelly Hancock, Acting Comptroller of Public Accounts of the State of Texas and Ken Paxton, Attorney General of the State of Texas v. Championx, LLC",
+    "court": "Texas Court of Appeals, 15th District",
+    "date": "2026-02-12",
+    "cluster_id": 10794318,
+    "opinion_id": 11260965
+   }
+  ],
+  "negative_passages": [],
+  "verdict": "no-negative-signal-found",
+  "citing_count": 59
+ }
+]
