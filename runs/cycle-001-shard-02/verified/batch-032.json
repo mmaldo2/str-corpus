@@ -1,0 +1,721 @@
+[
+ {
+  "case_id": 11976952,
+  "cite": "948 S.W.2d 813",
+  "court": "Texas Courts of Appeals",
+  "year": 1997,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "other",
+  "holding_summary": "The court held that a restrictive covenant limiting land to \"residential, camping or picnicing purposes,\" which also deemed \"[m]otel, tourist courts, and trailer parks\" a business use, prohibited appellants from renting their house to vacationers for short stays as transient housing. The temporary injunction was modified to enjoin only rental of the property \"for temporary or transient housing purposes.\"",
+  "doctrinal_concepts": [
+   "restrictive_covenant_business_use",
+   "residential_purposes_construction"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "We further believe that the nature of the rental activity in which appellants have been engaged results in the property being used for the type of transient housing that the third sentence of paragraph six intended to designate as a business use.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     10339,
+     10585
+    ],
+    "reporter_page": "817"
+   },
+   {
+    "text": "Appellees have established a probable Adoption of the restrictive covenant at issue by appellants; therefore, they are entitled to a temporary injunction.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     12346,
+     12500
+    ],
+    "reporter_page": "817"
+   },
+   {
+    "text": "Therefore, the temporary injunction is modified to enjoin appellants from \u201crenting and/or leasing said property to the public for temporary or transient housing purposes.\u201d",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     12684,
+     12855
+    ],
+    "reporter_page": "817"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "Restrictive-covenant case (private, not government police power) enforcing a residential-use limitation against short-term vacation rentals; 'characterization' marked other because the court classified the use as transient/business under the covenant rather than in lease/license/lodging/innkeeping terms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9937705,
+  "cite": "546 S.W.2d 384",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1977,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.35,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court affirmed the trial court's finding that a nonprofit corporation's residential facility for former psychiatric patients, who paid no fees themselves and received counseling but no medical treatment, constituted a \"lodging or boarding house\" rather than an establishment for treatment of alcoholic, narcotic, or psychiatric patients, and was therefore a lawful nonconforming use under the zoning ordinance.",
+  "doctrinal_concepts": [
+   "boarding_house_zoning_definition",
+   "nonconforming_use"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Lodging shall mean where one or more dwelling units are occupied or intended to be occupied by five or more persons who are not husband and wife, son or daughter, mother or father, sister or brother of the owner or operator. Boarding shall mean where meals are provided by the operation of a lodging house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2229,
+     2535
+    ],
+    "reporter_page": "385"
+   },
+   {
+    "text": "It was conceded by the City that the operation of a lodging and boarding house was permitted at 2707 Routh Street as a nonconforming use.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1025,
+     1162
+    ],
+    "reporter_page": "385"
+   },
+   {
+    "text": "the trial judge found as a fact that the present use of the property was not for the treatment of alcoholic, narcotic or psychiatric patients, but was for a lodging or boarding house. We find the evidence sufficient to support that conclusion.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     13937,
+     14180
+    ],
+    "reporter_page": "388"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "Zoning-enforcement dispute over a halfway house for former psychiatric patients; relevant mainly for its definitional treatment of 'lodging or boarding' but residents did not pay for occupancy themselves and stayed indefinitely, so duration is marked unclear.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12657445,
+  "cite": "555 S.W.3d 339",
+  "court": "Court of Appeals of Texas, Corpus Christi-Edinburg",
+  "year": 2018,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "lease",
+  "holding_summary": "The court held that neither the Dwelling Restriction (a structural limitation on the type of building) nor the Occupancy Restriction (which merely defined permissible household composition) prohibited Raub's short-term rental of his home to vacationer groups, and upheld the jury's finding that the operation was not a prohibited \"commercial enterprise\" because no indicia of business existed on the property itself.",
+  "doctrinal_concepts": [
+   "right_to_lease_incident_of_ownership",
+   "restrictive_covenant_residential_purposes",
+   "commercial_enterprise_restriction"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The agreements described two groups of parties: the guests and the \u201clandlords,\u201d which were Raub, Rosa, and Raub Properties, LLC.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7153,
+     7281
+    ],
+    "reporter_page": "346"
+   },
+   {
+    "text": "The ownership of land, when the estate is a fee, carries with it the right to use the land in any manner not hurtful to others; and the right to lease it to others, and therefore derive profit, is an incident of such ownership.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     12643,
+     12870
+    ],
+    "reporter_page": "347"
+   },
+   {
+    "text": "The Occupancy Restriction does not prohibit short-term rentals, so long as the renters meet the Declaration's definition of \"family.\"",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     22836,
+     22969
+    ],
+    "reporter_page": "350"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "Raub formed an LLC to manage the single rental property but did not operate multiple properties or live off-site as a business; classified as householder rather than commercial_operator.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12657540,
+  "cite": "556 S.W.3d 274",
+  "court": "Supreme Court of Texas",
+  "year": 2018,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.98,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "other",
+  "holding_summary": "The Texas Supreme Court held that unambiguous deed restrictions limiting tracts to \"residential purposes\" and prohibiting \"business\" use do not restrict a homeowner's right to lease his home for short-term vacation rentals, because occupants who use the home for ordinary residential activities satisfy \"residential purposes\" regardless of the duration of their stay. It reversed summary judgment for the homeowners' association.",
+  "doctrinal_concepts": [
+   "residential_purposes_construction",
+   "restrictive_covenant_liberal_construction",
+   "short_term_rental_business_use"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "we hold that so long as the occupants to whom Tarr rents his single-family residence use the home for a \"residential purpose,\" no matter how short-lived, neither their on-property use nor Tarr's off-property use violates the restrictive covenants in the Timberwood deeds.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     45523,
+     45794
+    ],
+    "reporter_page": "291"
+   },
+   {
+    "text": "For this reason, we disapprove of the cases that impose an intent or physical-presence requirement when the covenant's language includes no such specification and remains otherwise silent as to durational requirements.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     43478,
+     43696
+    ],
+    "reporter_page": "291"
+   },
+   {
+    "text": "So long as the renters continue to relax, eat, sleep, bathe, and engage in other incidental activities, they are using the cabin for residential purposes.",
+    "supports": "characterization",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     63249,
+     63403
+    ],
+    "reporter_page": "292",
+    "fuzzy_score": 97.40259740259741
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "Landmark favorable authority; characterization marked 'other' because the Court classified the use as residential (not business/transient) rather than in lease/license/lodging/innkeeping terms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7323102,
+  "cite": "331 S.W.3d 869",
+  "court": "Texas Courts of Appeals",
+  "year": 2011,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "Municipal bond-validation dispute over pledging hotel-occupancy-tax revenue to finance a convention-center/hotel project; the tax code's definition of 'hotel' is quoted only for that fiscal purpose, not compensated short-term occupancy of a dwelling or its regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9950704,
+  "cite": "684 S.W.2d 756",
+  "court": "Texas Courts of Appeals",
+  "year": 1984,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court held that a restriction limiting a lot to \"residential purposes\" was satisfied by a group home for four mentally retarded men and supervising houseparents functioning as a single housekeeping unit, distinguishing this from a prohibited \"boarding, lodging house, or hotel,\" and that a separate structural single-family-dwelling provision was not violated because the home was designed for and occupied by one household.",
+  "doctrinal_concepts": [
+   "family_definition_zoning",
+   "boarding_lodging_house_distinction",
+   "restrictive_covenant_residential_purposes"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the Collinses, as lessors, leased their property to the Advisory Board of the El Campo Area Adult Center for the Developmentally Disabled, Inc., for the purpose of establishing a group home for not more than four mentally retarded adults, plus one supervising couple.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1922,
+     2189
+    ],
+    "reporter_page": "758"
+   },
+   {
+    "text": "Family: One or more persons occupying a dwelling and living as a single housekeeping unit and doing their own cooking on the premises, as distinguished from a group occupying a boarding, lodging house, or hotel, as herein defined.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7602,
+     7832
+    ],
+    "reporter_page": "759"
+   },
+   {
+    "text": "Since the evidence shows that the home is \u201cused for residential purposes only\u201d by the four men and their supervising parents, there is no violation of the pertinent provisions of the restrictive covenant.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     15198,
+     15402
+    ],
+    "reporter_page": "761"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "Not a short-term paid stay; occupancy was long-term/permanent, so duration is marked unclear (no enum value for indefinite/permanent occupancy). Relevant for its treatment of leasing residential property and the boarding/lodging-house distinction.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9955967,
+  "cite": "654 S.W.2d 841",
+  "court": "Texas Courts of Appeals",
+  "year": 1983,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "Zoning dispute over a religious college's dormitories, cafeteria, and day-care use; the ordinance's separate prohibition on 'boarding house, rooming house' is listed only as one of several banned uses tied to the college, not independently litigated or about compensated short-term occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9975662,
+  "cite": "626 S.W.2d 574",
+  "court": "Texas Courts of Appeals",
+  "year": 1981,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "mixed",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court held that four unrelated handicapped women living with a paid, unrelated houseparent did not constitute a \"family\" under the Southampton Civic Club definition (a household including parents, children, servants, and incidentally lodgers or boarders), so the arrangement violated a restrictive covenant limiting the property to single-family residential use.",
+  "doctrinal_concepts": [
+   "family_definition_restrictive_covenant",
+   "lodger_status",
+   "single_family_residence_restriction"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The defendant leases all of his property to the Lubbock Area Extended Rehabilitation Services, a non-profit corporation.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     948,
+     1068
+    ],
+    "reporter_page": "575"
+   },
+   {
+    "text": "the generally accepted definition of the word \u201cfamily\u201d is \u201ca household, including parents, children and servants, and, as the case may be, lodgers or boarders.\u201d",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     12041,
+     12201
+    ],
+    "reporter_page": "578"
+   },
+   {
+    "text": "In this instance, the occupants of the property in question do not constitute a family under the Southampton definition.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     12740,
+     12860
+    ],
+    "reporter_page": "578"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "Marked mixed: the opinion approvingly restates the Southampton doctrine that taking in lodgers/boarders is an ordinary incident of family residential use (favorable to letting generally), while itself ruling against this defendant's non-family group-home leasing arrangement (adverse outcome).",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10123963,
+  "cite": "506 S.W.2d 325",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1974,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "Premises-liability tort suit by a paying motel guest's child injured by a defective wall structure; addresses landlord-lessee tort liability and nuisance doctrine, not the legality or regulation of short-term letting itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11552759,
+  "cite": "5 S.W.3d 654",
+  "court": "Supreme Court of Texas",
+  "year": 1999,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "Premises-liability case concerning a criminal sexual assault in a commercial parking garage; addresses landowner duty and foreseeability of third-party crime, unrelated to lodging or short-term rental regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11628573,
+  "cite": "990 S.W.2d 929",
+  "court": "Texas Courts of Appeals",
+  "year": 1999,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "other",
+  "holding_summary": "The court affirmed a declaratory judgment that renting homes on a weekly or weekend \"vacation rental\" basis to different groups violated a deed restriction limiting lots to \"single-family residence purposes,\" and held that any rental for a period of less than ninety days would likewise violate the restriction, drawing on statutory residency-duration analogies.",
+  "doctrinal_concepts": [
+   "restrictive_covenant_single_family_residence",
+   "duration_of_occupancy_construction"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The trial court held that the use of the property in question \u201cas a vacation rental for weekends and/or weekly rentals to different groups of people by JENNIE ATTAWAY BENARD is a violation of Deed Restriction No. 1\u201d for Point Lookout Estates.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1466,
+     1708
+    ],
+    "reporter_page": "930"
+   },
+   {
+    "text": "The trial court further held that any renting for a period of less than ninety days would also be a violation of Deed Restriction No. 1.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1709,
+     1845
+    ],
+    "reporter_page": "930"
+   },
+   {
+    "text": "We cannot say that the trial court abused its discretion in declaring that Appellants use of their property violated the deed restrictions in question.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     9176,
+     9327
+    ],
+    "reporter_page": "932"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11792838,
+  "cite": "981 S.W.2d 469",
+  "court": "Texas Courts of Appeals",
+  "year": 1998,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "Wrongful-death premises-liability case about a social guest killed while cutting down a tree at a private home; addresses invitee/licensee tort duties, unrelated to compensated occupancy or lodging regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11902499,
+  "cite": "954 S.W.2d 786",
+  "court": "Texas Courts of Appeals",
+  "year": 1997,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "Intermediate appellate decision in the same parking-garage sexual-assault premises-liability litigation as Mellon Mortgage Co. v. Holder; unrelated to short-term lodging or its regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12373400,
+  "cite": "510 S.W.3d 725",
+  "court": "Texas Courts of Appeals",
+  "year": 2016,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.95,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "other",
+  "holding_summary": "The court of appeals held that Tarr's short-term rental practice -- fixed check-in/check-out times, a two-night minimum, and payment of hotel occupancy taxes -- showed the home was used for \"transient\" rather than \"residential\" purposes, violating the covenant requiring tracts to be used \"solely for residential purposes,\" and affirmed summary judgment and a take-nothing judgment against Tarr (later reversed by the Texas Supreme Court).",
+  "doctrinal_concepts": [
+   "residential_vs_transient_use",
+   "restrictive_covenant_residential_purposes",
+   "physical_presence_intent_to_remain"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "We also agree with Munson that the term \u201cresidence\u201d \u201cgenerally requires both physical presence and an intention to remain.\u201d",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     11364,
+     11487
+    ],
+    "reporter_page": "730"
+   },
+   {
+    "text": "One leasing his home to be used for transient purposes is not complying with the restrictive covenant that it be used solely for residential purposes.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     11877,
+     12027
+    ],
+    "reporter_page": "730"
+   },
+   {
+    "text": "We therefore find the trial court did not err in granting summary judgment in favor of the Association and ordering that Tarr take nothing on his claims.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     13158,
+     13311
+    ],
+    "reporter_page": "731"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "This intermediate decision was subsequently reversed by the Texas Supreme Court (see cite 556 S.W.3d 274 in this batch); recorded here as adverse authority reflecting the doctrine at that stage of the litigation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12386233,
+  "cite": "523 S.W.3d 862",
+  "court": "Texas Courts of Appeals",
+  "year": 2017,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "other",
+  "holding_summary": "The court held that a restrictive covenant limiting use to \"single family residence purposes\" was ambiguous as to whether it excluded short-term rentals, and, resolving the ambiguity against the enforcing homeowners and in favor of free use, held the Garretts' short-term VRBO rentals violated neither that restriction nor the covenant's prohibition on commercial use; it reversed the temporary injunction.",
+  "doctrinal_concepts": [
+   "restrictive_covenant_ambiguity",
+   "residential_vs_commercial_use",
+   "short_term_rental"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "if a vacation renter uses a home \"for the purposes of eating, sleeping, and other residential purposes,\" as was done in the present case, \"this use is residential, not commercial, no matter how short the rental duration.\"",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     13212,
+     13433
+    ],
+    "reporter_page": "868"
+   },
+   {
+    "text": "Because we conclude that the Restriction requiring the Property to be used for \u201csingle family residence purposes\u201d is ambiguous, we must strictly construe the ambiguity against Appellees and resolve all doubts in favor of the free-and-unrestricted use of the Property.",
+    "supports": "polarity",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     9468,
+     9735
+    ],
+    "reporter_page": "867",
+    "fuzzy_score": 99.625468164794
+   },
+   {
+    "text": "Accordingly, we hold that the trial court abused its discretion by granting Appellees\u2019 application for temporary injunction, and we sustain the Garretts\u2019 first issue.",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     16188,
+     16354
+    ],
+    "reporter_page": "869",
+    "fuzzy_score": 98.19277108433735
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12386276,
+  "cite": "523 S.W.3d 876",
+  "court": "Texas Courts of Appeals",
+  "year": 2017,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "Governmental-immunity and premises-defect suit arising from an employee's injury at a leased airport cargo warehouse; the licensee/invitee duty analysis concerns a commercial cargo lease, not residential short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 6864483,
+  "cite": "463 S.W.3d 562",
+  "court": "Texas Courts of Appeals",
+  "year": 2015,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.95,
+  "polarity": "mixed",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": "The court held that a homeowner who had operated short-term rentals on Tiki Island for years before the Village enacted an ordinance banning short-term rentals pleaded and presented sufficient evidence of a viable regulatory-takings claim -- economic impact and reasonable investment-backed expectations -- to support a temporary injunction restraining enforcement of the ban against her, while dismissing her duplicative declaratory-judgment claim and declining jurisdiction over relief granted to other homeowners due to an untimely notice of appeal.",
+  "doctrinal_concepts": [
+   "regulatory_takings",
+   "short_term_rental_ban",
+   "investment_backed_expectations",
+   "police_power_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "short term rentals have occurred on Tiki Island for over 20 years,\u201d and that, \u201cprior to passage of Ordinance 05-14-02, Plaintiffs were able to do short term lease/rentals.\u201d",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1377,
+     1549
+    ],
+    "reporter_page": "565"
+   },
+   {
+    "text": "We hold that we lack jurisdiction over the Village\u2019s challenge to the trial court\u2019s temporary injunction order in favor of the Ronquille and Changs. We also hold that the trial court lacked jurisdiction over Hill\u2019s declaratory judgment action. We otherwise affirm the trial court\u2019s temporary injunction in Hill\u2019s favor.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     81465,
+     81784
+    ],
+    "reporter_page": "587"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "Directly on point ADVERSE-domain material: a municipal ordinance outright banning short-term rentals, challenged as a taking. Marked mixed because the ordinance itself is a police-power prohibition while the court's disposition favored the property owner by enjoining its enforcement. Characterization left null because the case adjudicates the ordinance's validity/takings status rather than the private-law lease/license/lodging character of the rental arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 6902531,
+  "cite": "449 S.W.3d 572",
+  "court": "Texas Courts of Appeals",
+  "year": 2014,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-032",
+  "notes": "Forcible-detainer eviction appeal from an extended-stay hotel, resolved as moot; the opinion notes a hotel guest is 'a mere licensee, not a tenant' with no landlord-tenant relationship to the hotel, but the case is a commercial-hotel eviction/mootness holding, not a dispute about householder short-term letting or its regulation.",
+  "extraction_status": "ok"
+ }
+]

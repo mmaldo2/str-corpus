@@ -1,0 +1,542 @@
+[
+ {
+  "case_id": 2533579,
+  "cite": "24 La. Ann. 625",
+  "court": "Louisiana Supreme Court",
+  "year": 1872,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Suit to collect rent on a five-year lease of a house knowingly let and used for prostitution; addresses enforceability of leases for immoral purposes, not compensated occupancy by lodgers/boarders or regulation of lodging houses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 322989,
+  "cite": "33 La. Ann. 621",
+  "court": "Louisiana Supreme Court",
+  "year": 1881,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "In a succession accounting dispute, the court held that a daughter's claim against her mother's succession for board furnished during the mother's lifetime was governed by the ten-year prescription, not the one-year prescription applicable to innkeepers and boardinghouse keepers, because the daughter did not make a business of keeping boarders.",
+  "doctrinal_concepts": [
+   "boardinghouse_business_test",
+   "prescription_board_lodging"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It is not shown that Mrs. Hoffman, the daughter and administratrix, made it a business to keep boarders.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3151,
+     3255
+    ],
+    "reporter_page": "622"
+   },
+   {
+    "text": "The claim for rent is prescribed by three years. B. O. C. 3538; 22 An. 581, 325; 24 An. 73; that for board is prescribed by ten years.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3011,
+     3145
+    ],
+    "reporter_page": "622"
+   },
+   {
+    "text": "It is not shown that Mrs. Hoffman, the daughter and administratrix, made it a business to keep boarders.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3151,
+     3255
+    ],
+    "reporter_page": "622"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Occupancy was an open-ended family living arrangement (mother housed by daughter until death); no discrete nights/weeks/months figure given in facts.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2583807,
+  "cite": "51 La. Ann. 847",
+  "court": "Louisiana Supreme Court",
+  "year": 1899,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Construes 'house-holder' under a city charter provision governing neighborhood consent for barroom licenses; does not touch compensated occupancy of dwellings, lodgers/boarders, or lodging-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5219007,
+  "cite": "22 La. Ann. 316",
+  "court": "Louisiana Supreme Court",
+  "year": 1870,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court held that an individual who furnished board and lodging to a single boarder as a friend and agent, without making it his business to keep boarders, is not an innkeeper or private boardinghouse keeper, so his claim for board is not subject to the one-year prescription of Article 3499.",
+  "doctrinal_concepts": [
+   "boardinghouse_business_test",
+   "prescription_board_lodging"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "We can not, therefore, regard him as an innkeeper or as the keeper of a private boarding house, and, consequently, conclude that his claim is not subject to the prescription of article 3499.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4151,
+     4341
+    ],
+    "reporter_page": "317"
+   },
+   {
+    "text": "It is not shown that the opponent ever had any other boarder, much less that he made a business of keeping a house for boarding persons.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4014,
+     4150
+    ],
+    "reporter_page": "317"
+   },
+   {
+    "text": "We can not, therefore, regard him as an innkeeper or as the keeper of a private boarding house",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4151,
+     4245
+    ],
+    "reporter_page": "317"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Board was furnished for roughly two and a half years (Jan. 1863-July 1865); that span does not fit the nights/weeks/months options cleanly.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 322778,
+  "cite": "33 La. Ann. 595",
+  "court": "Louisiana Supreme Court",
+  "year": 1881,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.3,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that a married woman's earnings from keeping a boarding house on her own account during the marriage fell into the community of acquets and gains, so a subsequent transfer of property by her husband purporting to compensate those earnings was null.",
+  "doctrinal_concepts": [
+   "boardinghouse_as_business",
+   "community_property_earnings"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The earnings of a married woman in keeping a boarding-house, during the existence of the Community of acquets and gains, fall into and belong to the said Community.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     73,
+     237
+    ],
+    "reporter_page": "595"
+   },
+   {
+    "text": "money made and earned by her (Mrs. Mentz) by keeping a boardinghouse on her own account in the town of Baton Rouge",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6361,
+     6475
+    ],
+    "reporter_page": "596"
+   },
+   {
+    "text": "The earnings of a married woman in keeping a boarding-house, during the existence of the Community of acquets and gains, fall into and belong to the said Community.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     73,
+     237
+    ],
+    "reporter_page": "595"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Boardinghouse-keeping is referenced only as the source of the wife's earnings in a community-property/mortgage dispute; the court does not adjudicate lodger rights, lease/license status, or regulation of the boardinghouse itself. Duration of the boardinghouse operation is not stated.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 322888,
+  "cite": "33 La. Ann. 954",
+  "court": "Louisiana Supreme Court",
+  "year": 1881,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Venue/jurisdiction dispute over a railroad's liability for killing a mule under the 'trespass' provision of its charter; no connection to lodging, boarding, or dwelling occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2454289,
+  "cite": "30 La. Ann. 133",
+  "court": "Louisiana Supreme Court",
+  "year": 1878,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Concerns compensation for a succession's plantation keeper/manager where the land could not be leased; mentions small tenants only in passing. Not about compensated occupancy of a dwelling by lodgers/boarders.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2456648,
+  "cite": "30 La. Ann. 245",
+  "court": "Louisiana Supreme Court",
+  "year": 1878,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court affirmed an award to a woman who had furnished a lodger with furniture, rooms, washing, cooking, and nursing care over several years, holding that her failure to present an account or settle during the lodger's lifetime did not bar her claim for compensation from his succession.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "compensation_for_lodging_services"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "She kept, furnished apartments for rent on Royal street when Del Oampo first became her lodger, and he paid $25 per month.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5061,
+     5183
+    ],
+    "reporter_page": "247"
+   },
+   {
+    "text": "but that not unreasonable expectation, and \u2014 though not unselfish \u2014 her hesitation to present any account to the deceased, did not \u25a0destroy her right to recover a just compensation from his succession.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3585,
+     3786
+    ],
+    "reporter_page": "246"
+   },
+   {
+    "text": "She kept, furnished apartments for rent on Royal street when Del Oampo first became her lodger",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5061,
+     5155
+    ],
+    "reporter_page": "247"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Facts differ between majority and dissent: majority treats plaintiff mainly as a housekeeper/caregiver whose services warrant compensation, while the dissent frames her as a lodging-house keeper whose lodger later rented houses directly to avoid her ejecting him for nonpayment. who_was_letting/characterization follow the dissent's more detailed factual account, which the majority does not contradict. Occupancy spanned several years under monthly rent arrangements; no single nights/weeks/months figure controls.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2457310,
+  "cite": "30 La. Ann. 487",
+  "court": "Louisiana Supreme Court",
+  "year": 1878,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Dispute over fire damage to plantation buildings and machinery under a farm lease; no lodging, boarding, or dwelling-occupancy issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2562561,
+  "cite": "49 La. Ann. 527",
+  "court": "Louisiana Supreme Court",
+  "year": 1897,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "City ordinance authorizing a railroad to occupy public batture and build wharves for 99 years; a public-property/riparian-rights dispute with no connection to residential lodging or boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5245135,
+  "cite": "26 La. Ann. 402",
+  "court": "Louisiana Supreme Court",
+  "year": 1874,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Dispute between sublessee of a hotel bar/saloon and the hotel's lessee over unauthorized alterations to leased premises; a commercial sublease dispute, not about lodging/boarding of guests.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5297363,
+  "cite": "39 La. Ann. 743",
+  "court": "Louisiana Supreme Court",
+  "year": 1887,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Insolvency sale of the 'right of occupancy' of a commercial storehouse and whether the purchaser assumed rent obligations; a commercial-lease assignment case unrelated to residential lodging/boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5793252,
+  "cite": "20 La. 190",
+  "court": "Louisiana Supreme Court",
+  "year": 1868,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Ordinary year-long lease of an entire dwelling house with a tacit-reconduction/continued-possession dispute; no boarder, lodger, or rooming arrangement is at issue, so it does not bear on the short-term lodging doctrine tracked here.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8505124,
+  "cite": "16 La. Ann. 199",
+  "court": "Louisiana Supreme Court",
+  "year": 1861,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Trespass action over removal of a caretaker's belongings from an outbuilding after sale of the property; occupant was an unpaid employee/agent, not a paying lodger or boarder, and no rent was ever charged.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8505594,
+  "cite": "17 La. Ann. 321",
+  "court": "Louisiana Supreme Court",
+  "year": 1865,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Rent abatement dispute for a plantation/brickyard lease disrupted by wartime military occupation; no lodging or boarding-house issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8507679,
+  "cite": "21 La. Ann. 557",
+  "court": "Louisiana Supreme Court",
+  "year": 1869,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.3,
+  "polarity": null,
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a claim for board, furnished rooms, and lodging supplied in the plaintiff's own household is subject to a one-year prescription except for charges accruing within the year before suit, but ultimately rejected the entire claim as unproven and probably fabricated to offset a promissory note the plaintiff owed the decedent.",
+  "doctrinal_concepts": [
+   "prescription_board_lodging"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The claim for hoard and lodging is prescribed, except that portion winch accrued during the year previous to the commencement of the suit.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2367,
+     2505
+    ],
+    "reporter_page": "557"
+   },
+   {
+    "text": "We must confess that the assertion of the defendant's counsel that the claim in suit .was fabricated in order to compensate this note is not without foundation.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5014,
+     5174
+    ],
+    "reporter_page": "558"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Court applied the one-year prescription to the last roughly nine months of claimed board/lodging, but disposed of the case chiefly on evidentiary grounds (likely fabricated claim) rather than adjudicating the legal character of the lodging arrangement; polarity marked mixed because the case is procedural/adverse-to-claimant rather than a clean statement on lodging rights.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 289477,
+  "cite": "45 La. Ann. 34",
+  "court": "Louisiana Supreme Court",
+  "year": 1893,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Invalidates a city ordinance punishing a husband for failing to support his family as an 'idle person'; a vagrancy/police-power ordinance case unrelated to lodging or boarding houses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 289511,
+  "cite": "45 La. Ann. 791",
+  "court": "Louisiana Supreme Court",
+  "year": 1893,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-036",
+  "notes": "Commercial store lease dispute involving an unauthorized sub-tenant corporation, provisional seizure, and lessor's privilege; no residential lodging or boarding-house issue.",
+  "extraction_status": "ok"
+ }
+]

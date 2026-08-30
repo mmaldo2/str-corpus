@@ -55,7 +55,10 @@ incident_of_ownership:
   surface_forms:
     all: [incident of ownership, incidents of property, right to lease,
           right to let, jus disponendi]
-  anchor_cases: []   # cycle-001 target: populate this
+  anchor_cases:   # populated cycle-001 (citator-check pending on all)
+    - {name: Tarr v. Timberwood Park, cite: 556 S.W.3d 274, year: 2018, jur: TX}
+    - {name: Von Behren camp case, cite: 119 La. 1025, year: 1907, jur: LA}
+    - {name: Rooms-to-lodgers homestead case, cite: 50 Tex. Civ. App. 630, year: 1909, jur: TX}
 
 boarding_house_keeping:
   description: Keeping boarders/lodgers as a business; keeper's rights and
@@ -84,7 +87,10 @@ transient_occupancy:
   surface_forms:
     1860-1900: [transient guests, transient lodgers]
     1900-1930: [transient guests, transient occupancy]
-    1930-1970: [tourist home, tourist court, transient occupancy]
+    1930-1970: [tourist home, tourist court, tourist camp, tourist cabin,
+                tourist lodge, auto camp, motel, trailer court,
+                one housekeeping unit, light housekeeping,
+                transient occupancy]  # cycle-001 worker observations
   anchor_cases:
     - {name: Shearman v. Iroquois Hotel, cite: 42 Misc. 217, year: 1903, jur: NY}
 

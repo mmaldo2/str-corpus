@@ -1,0 +1,1080 @@
+[
+ {
+  "case_id": 7278558,
+  "cite": "26 A.3d 562",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2011,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.92,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": "The Commonwealth Court held that Radnor Township's zoning ordinance is de jure exclusionary of the Thomasons' proposed owner-occupied bed and breakfast, since the ordinance's 'rooming house' definition (limited to three roomers) does not reasonably encompass a bed and breakfast and the Township offered no evidence tying the exclusion to public health, safety, or welfare. The court affirmed the trial court's order requiring the Township to grant site-specific relief permitting the bed and breakfast.",
+  "doctrinal_concepts": [
+   "homestay_bnb",
+   "zoning_exclusion",
+   "tourist_home"
+  ],
+  "new_terms_observed": [
+   "tourist house"
+  ],
+  "quotes": [
+   {
+    "text": "Because we agree with the trial court that the Ordinance is de jure exclusionary of the Thomasons\u2019 proposed bed and breakfast use, we will affirm.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     802,
+     948
+    ],
+    "reporter_page": "563"
+   },
+   {
+    "text": "Because we agree with the trial court that the Ordinance is de jure exclusionary of the Thomasons\u2019 proposed bed and breakfast use, we will affirm.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     802,
+     948
+    ],
+    "reporter_page": "563"
+   },
+   {
+    "text": "The Thomasons wish to continue to reside in the house and operate a bed and breakfast with five guest rooms.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1452,
+     1560
+    ],
+    "reporter_page": "564"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "characterization left null: this is a de jure exclusion/zoning validity case, not a landlord-tenant characterization dispute; no quote squarely supports lease/license/lodging/innkeeping.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1316290,
+  "cite": "79 Pa. Commw. 229",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1983,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The Commonwealth Court affirmed denial of a special exception/variance to operate a for-profit boarding house for seven unrelated adult boarders in an R-2 single/two-family residential district, holding the Borough validly exercised its police power to exclude commercial boarding houses from residential zones.",
+  "doctrinal_concepts": [
+   "roomers_boarders",
+   "police_power",
+   "commercial_operator"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the boarding house is operated for profit and each resident is required to sign a contract with the operator, valid for a thirty day period and renewable thereafter, prior to lodging there.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1120,
+     1309
+    ],
+    "reporter_page": "230"
+   },
+   {
+    "text": "the Borough legitimately exercised its police power in prohibiting \u00a1seven unrelated adults from residing together in a commercial boarding house situate in a single and two family residential district.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6077,
+     6278
+    ],
+    "reporter_page": "233"
+   },
+   {
+    "text": "the Borough legitimately exercised its police power in prohibiting \u00a1seven unrelated adults from residing together in a commercial boarding house situate in a single and two family residential district.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6077,
+     6278
+    ],
+    "reporter_page": "233"
+   },
+   {
+    "text": "A \u201cBoarding House\u201d is defined as \u201c[a] dwelling other than a hotel or private olub where, for compensation, meals or lodging are provided for three (3) or more guests on a weelsly or monthly basis.\u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6538,
+     6735
+    ],
+    "reporter_page": "234"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1404978,
+  "cite": "134 Pa. Commw. 382",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1990,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Commonwealth Court affirmed denial of a special use exception for a bed and breakfast, holding that a B&B is not a 'home occupation' under the zoning ordinance but is instead akin to a boarding house or hotel, and separately affirming that the proposed use failed the home occupation's floor-area size limit.",
+  "doctrinal_concepts": [
+   "homestay_bnb",
+   "roomers_boarders"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It is more like a boarding house or a hotel",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4349,
+     4392
+    ],
+    "reporter_page": "386"
+   },
+   {
+    "text": "A Bed and Breakfast is not \u201cClearly incidental or secondary to the use of the dwelling for dwelling purposes\u201d and is therefore not a home occupation.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4199,
+     4348
+    ],
+    "reporter_page": "386"
+   },
+   {
+    "text": "A Bed and Breakfast is not \u201cClearly incidental or secondary to the use of the dwelling for dwelling purposes\u201d and is therefore not a home occupation.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4199,
+     4348
+    ],
+    "reporter_page": "386"
+   },
+   {
+    "text": "The Reynolds applied to the ZHB for a special exception to use their home as a \u201cBed and Breakfast.\u201d",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     799,
+     898
+    ],
+    "reporter_page": "384"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "duration_of_occupancy unclear: record describes only the proposed floor-area use, not actual guest stay lengths.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1412300,
+  "cite": "138 Pa. Commw. 443",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1991,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": "The Commonwealth Court held that the Orths' owner-occupied bed and breakfast, which rents five rooms nightly to paying guests unrelated to them and provides breakfast and housekeeping, is properly classified as a 'lodging house' under the Fire and Panic Act's Division C-3, rejecting the Orths' claim that a single-family residential zoning classification exempted them from state fire-safety regulation.",
+  "doctrinal_concepts": [
+   "homestay_bnb",
+   "lodging_house_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "We believe, therefore, that the building in question has been properly classified as a lodging house under Division C-3.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5814,
+     5934
+    ],
+    "reporter_page": "448"
+   },
+   {
+    "text": "a building housing four through eight \u201cresidents\u201d ceases to be a mere private residence and has assumed the characteristics of a lodging house.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4083,
+     4226
+    ],
+    "reporter_page": "447"
+   },
+   {
+    "text": "a building housing four through eight \u201cresidents\u201d ceases to be a mere private residence and has assumed the characteristics of a lodging house.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4083,
+     4226
+    ],
+    "reporter_page": "447"
+   },
+   {
+    "text": "The Orths have five rooms with two beds in each which they make available to guests on a per-night fee basis.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     5401,
+     5510
+    ],
+    "reporter_page": "448"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4134815,
+  "cite": "36 Pa. D. & C.5th 449",
+  "court": "Carbon County Court of Common Pleas",
+  "year": 2014,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.95,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lease",
+  "holding_summary": "The trial court held that the development's residential-use covenant does not prohibit renting properties to third parties, that a companion covenant requiring tenants to be approved for association membership had been abandoned through decades of non-enforcement, and that the right to lease real estate\u2014including on a short-term basis\u2014is an inherent property right that cannot be curtailed by a homeowners' association absent express covenant language or the affected owners' consent.",
+  "doctrinal_concepts": [
+   "right_to_lease",
+   "restrictive_covenant_abandonment",
+   "short_letting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The right to lease real estate is an inherent right of ownership which a property owners\u2019 association cannot prohibit absent the consent of the affected owners.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     30500,
+     30660
+    ],
+    "reporter_page": "472"
+   },
+   {
+    "text": "The right to lease real estate is an inherent right of ownership which a property owners\u2019 association cannot prohibit absent the consent of the affected owners.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     30500,
+     30660
+    ],
+    "reporter_page": "472"
+   },
+   {
+    "text": "Common sense dictates that the right to lease these homes, especially on a short-term basis, is important.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     27804,
+     27910
+    ],
+    "reporter_page": "471"
+   },
+   {
+    "text": "In the past, plaintiffs have rented their properties to third parties as vacation homes, or otherwise for short periods of time (i.e., monthly, weekly or weekends), and desire to do so in the future.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     2571,
+     2770
+    ],
+    "reporter_page": "452"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12195460,
+  "cite": "147 A.3d 947",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2016,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "other",
+  "holding_summary": "The Commonwealth Court reversed a zoning violation finding, holding that a homeowner who used her single-family home as her primary residence most of the time and rented it out on weekends via the internet to defray expenses engaged in a permitted single-family dwelling use, not a prohibited 'lodge' use. (This holding was later overruled in relevant part by the Pennsylvania Supreme Court in Slice of Life, LLC v. Hamilton Township Zoning Hearing Board.)",
+  "doctrinal_concepts": [
+   "short_letting",
+   "homestay_bnb"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the ZHB should have broadly interpreted the term \u201csingle-family dwelling\u201d to allow this rental activity rather than straining to designate the activity as a prohibited lodge use, which the Ordinance does not define.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7932,
+     8147
+    ],
+    "reporter_page": "950"
+   },
+   {
+    "text": "the ZHB should have broadly interpreted the term \u201csingle-family dwelling\u201d to allow this rental activity rather than straining to designate the activity as a prohibited lodge use, which the Ordinance does not define.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7932,
+     8147
+    ],
+    "reporter_page": "950"
+   },
+   {
+    "text": "the Property is primarily used as a single-family dwelling by Marchenko.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7430,
+     7502
+    ],
+    "reporter_page": "950"
+   },
+   {
+    "text": "Marchenko rents out the Property to help defray her housing expenses.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     2633,
+     2702
+    ],
+    "reporter_page": "949"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12315742,
+  "cite": "154 A.3d 408",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2017,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "other",
+  "holding_summary": "The Commonwealth Court reversed a zoning enforcement notice, holding that renting an entire single-family home to vacationers for a minimum two-night stay does not meet the ordinance's definition of 'tourist home' (which contemplates room-by-room rental), and that the property qualifies as a permitted single-family dwelling because it was 'designed for' one family, regardless of periodic short-term rental. (Later overruled in relevant part by the Pennsylvania Supreme Court in Slice of Life.)",
+  "doctrinal_concepts": [
+   "tourist_home",
+   "short_letting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "We agree with Shvekh that the Zoning Board sought to expand the definition of \u201ctourist home\u201d to include any short term rental, without any support in the language of the Zoning Ordinance.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     18404,
+     18591
+    ],
+    "reporter_page": "415"
+   },
+   {
+    "text": "We agree with Shvekh that the Zoning Board sought to expand the definition of \u201ctourist home\u201d to include any short term rental, without any support in the language of the Zoning Ordinance.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     18404,
+     18591
+    ],
+    "reporter_page": "415"
+   },
+   {
+    "text": "The vacation rental of the entire home bears no relation to the bedroom-by-bedroom rental that is the hallmark of a tourist home, as the Zoning Officer herself acknowledged.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     18230,
+     18403
+    ],
+    "reporter_page": "415"
+   },
+   {
+    "text": "Mrs. Conques testified that she and her family purchased the Property in 2013 with the intent to occupy it as their primary residence.",
+    "supports": "who_was_letting",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     2810,
+     2944
+    ],
+    "reporter_page": "410",
+    "fuzzy_score": 92.54901960784314
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12321139,
+  "cite": "164 A.3d 633",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2017,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "lease",
+  "holding_summary": "The Commonwealth Court reversed an enforcement notice against a single-family home used exclusively for short-term vacation rentals by an out-of-state investor, holding that the ordinance's undefined terms 'transient lodging' and 'transient tenancies' could not be used to prohibit the use, and that the Township failed to prove a substantial relationship between the rental use and any threat to public health, safety, or welfare. (Reversed by the Pennsylvania Supreme Court in 2019.)",
+  "doctrinal_concepts": [
+   "short_letting",
+   "zoning_paying_occupants"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the Board here was required to apply the terms of the Ordinance as written, rather than deviating from those terms based on unexpressed policies of the Township regarding permitted uses.",
+    "supports": "polarity",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     22113,
+     22299
+    ],
+    "reporter_page": "642",
+    "fuzzy_score": 99.46236559139786
+   },
+   {
+    "text": "the Board here was required to apply the terms of the Ordinance as written, rather than deviating from those terms based on unexpressed policies of the Township regarding permitted uses.",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     22113,
+     22299
+    ],
+    "reporter_page": "642",
+    "fuzzy_score": 99.46236559139786
+   },
+   {
+    "text": "The assumption of risk is part of the lease.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     11217,
+     11261
+    ],
+    "reporter_page": "638"
+   },
+   {
+    "text": "Val Kleyman is the sole member of Slice of Life, LLC and resides in Brooklyn, New York",
+    "supports": "who_was_letting",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     1368,
+     1454
+    ],
+    "reporter_page": "635",
+    "fuzzy_score": 98.83720930232558
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12350573,
+  "cite": "176 A.3d 396",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2017,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": "The Commonwealth Court held that the Reihners' Airbnb-based rental of bedrooms in their owner-occupied home, for stays of up to four nights, did not constitute a 'Bed and Breakfast Use' under the zoning ordinance because that definition required either that breakfast be served or that cooking facilities be withheld, and the Reihners did neither; the notice of violation was therefore issued in error.",
+  "doctrinal_concepts": [
+   "homestay_bnb",
+   "zoning_paying_occupants"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The record is devoid of any indication that the Reihners served breakfast to any of their guests or did not provide cooking facilities for them to prepare their own breakfast and therefore we must conclude that the NOV alleging that the Reihners operated an illegal B & B was issued in error.",
+    "supports": "polarity",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     20727,
+     21019
+    ],
+    "reporter_page": "403",
+    "fuzzy_score": 99.31506849315068
+   },
+   {
+    "text": "The record is devoid of any indication that the Reihners served breakfast to any of their guests or did not provide cooking facilities for them to prepare their own breakfast and therefore we must conclude that the NOV alleging that the Reihners operated an illegal B & B was issued in error.",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     20727,
+     21019
+    ],
+    "reporter_page": "403",
+    "fuzzy_score": 99.31506849315068
+   },
+   {
+    "text": "The Reihners are husband and wife who own and reside in a single-family home located at 1010 Electric Avenue",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1454,
+     1562
+    ],
+    "reporter_page": "398"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "characterization left null: the court held only that the arrangement does NOT meet the 'Bed and Breakfast Use' definition; it did not affirmatively characterize the arrangement as a lease, license, lodging, or innkeeping.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12509210,
+  "cite": "207 A.3d 886",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 2019,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.97,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "other",
+  "holding_summary": "The Pennsylvania Supreme Court reversed the Commonwealth Court and held that purely transient short-term rental of a single-family home, as part of a commercial rental business never occupied by the owner, is incompatible with the ordinance's 'single housekeeping unit' definition of family, and thus is not a permitted single-family residential use. The Court overruled the Commonwealth Court's Marchenko/Shvekh reasoning that any use not expressly prohibited by a zoning ordinance is necessarily permitted.",
+  "doctrinal_concepts": [
+   "single_housekeeping_unit",
+   "short_letting",
+   "police_power"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The use in the case at bar is purely transient.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     49759,
+     49806
+    ],
+    "reporter_page": "903"
+   },
+   {
+    "text": "The use in the case at bar is purely transient.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     49759,
+     49806
+    ],
+    "reporter_page": "903"
+   },
+   {
+    "text": "a group of individuals in a single household must not only function as a family within that household, but in addition, the composition of the group must be sufficiently stable and permanent so as not to be fairly characterized as purely transient.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     12050,
+     12298
+    ],
+    "reporter_page": "891"
+   },
+   {
+    "text": "Slice of Life purchased the Property as an investment property that was to be used exclusively for short-term rentals.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     14612,
+     14730
+    ],
+    "reporter_page": "892"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1329473,
+  "cite": "578 Pa. 439",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 2004,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": "The Pennsylvania Supreme Court held that a halfway house for recovering alcoholics and drug addicts, whose residents pay for room, board, and services but whose population turns over roughly every two to six months, cannot qualify as a 'single-family detached dwelling' because the purely transient composition of its residents is incompatible with the 'single housekeeping unit' concept of family, regardless of any profit motive.",
+  "doctrinal_concepts": [
+   "single_housekeeping_unit",
+   "transiency_doctrine"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "This level of instability and transience is simply incompatible with the single-family concept.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     23995,
+     24090
+    ],
+    "reporter_page": "454"
+   },
+   {
+    "text": "This level of instability and transience is simply incompatible with the single-family concept.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     23995,
+     24090
+    ],
+    "reporter_page": "454"
+   },
+   {
+    "text": "Albert testified that the residents would pay approximately $100 a day for residential services",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     3965,
+     4060
+    ],
+    "reporter_page": "442"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "Case concerns a halfway house for recovering addicts rather than ordinary short-term room letting; marked relevant because it establishes the transiency/'single housekeeping unit' doctrine that directly controls later short-term-rental cases (e.g., Slice of Life). Characterization left null \u2014 the court classifies the arrangement under family/single-housekeeping-unit doctrine, not as a lease, license, lodging, or innkeeping.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1410908,
+  "cite": "137 Pa. Commw. 594",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1991,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "Community living arrangement (CLA) for three mentally retarded men with round-the-clock staff; no paying lodgers or short-term guests \u2014 disability group-home zoning dispute, off-theme.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1449063,
+  "cite": "157 Pa. Commw. 32",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1993,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The Commonwealth Court affirmed a special exception permitting a nonprofit organization to operate a rooming house providing lodging, for compensation (direct or indirect) and by prearrangement for a definite period, to women completing a drug-rehabilitation program and their young children, holding the broadly-construed 'rooming house' definition was satisfied notwithstanding the residents' therapeutic status.",
+  "doctrinal_concepts": [
+   "roomers_boarders",
+   "zoning_paying_occupants"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "we conclude that, in general, the proposed use of the subject property falls within that definition.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4920,
+     5020
+    ],
+    "reporter_page": "36"
+   },
+   {
+    "text": "we conclude that, in general, the proposed use of the subject property falls within that definition.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4920,
+     5020
+    ],
+    "reporter_page": "36"
+   },
+   {
+    "text": "a building, other than a hotel or motel, containing a single dwelling unit where lodging is provided with or without meals for three (3) or more persons, who are not members of the operator\u2019s family, and by prearrangement for definite periods of time and for compensation, whether direct or indirect",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1573,
+     1872
+    ],
+    "reporter_page": "34"
+   },
+   {
+    "text": "Lehigh Valley Coalition Against Addiction (LVCAA) filed a zoning application with the Borough of Fountain Hill (Borough) requesting a special exception to operate a rooming house for women completing Hogar CREA drug rehabilitation treatment and their children under the age of thirteen.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     813,
+     1099
+    ],
+    "reporter_page": "34"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1718705,
+  "cite": "51 Pa. D. & C.2d 335",
+  "court": "Delaware County Court of Common Pleas",
+  "year": 1971,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The trial court reversed a zoning determination that a home renting rooms to former mental-hospital patients was an institutional use, holding that in the absence of on-site medical, counseling, or educational services the arrangement is simply an ordinary 'rooming or boarding house' \u2014 a permitted use \u2014 regardless of the residents' background.",
+  "doctrinal_concepts": [
+   "roomers_boarders"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the actual use to which the premises are put does not characterize them as institutional.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3062,
+     3151
+    ],
+    "reporter_page": "337"
+   },
+   {
+    "text": "the actual use to which the premises are put does not characterize them as institutional.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3062,
+     3151
+    ],
+    "reporter_page": "337"
+   },
+   {
+    "text": "A rooming house is simply one in which furnished rooms are let, and a boarding house is one in which food is also provided for the consideration.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4051,
+     4196
+    ],
+    "reporter_page": "337"
+   },
+   {
+    "text": "certain improvements were made on the premises, creating two apartments, and the apartments were rented to tenants with roomers or boarders.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1667,
+     1807
+    ],
+    "reporter_page": "336"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "duration_of_occupancy unclear: record does not state length of stay for roomers/boarders.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1782441,
+  "cite": "501 Pa. 224",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1983,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Pennsylvania Supreme Court reversed the Commonwealth Court and upheld a zoning ordinance that permits rooming houses but excludes boarding houses from R-4 residential districts, holding the meal-service distinction between the two uses is rationally related to the city's health, safety, and general welfare and therefore does not violate equal protection.",
+  "doctrinal_concepts": [
+   "roomers_boarders",
+   "police_power"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "we do not find Mr. Brown\u2019s testimony sufficient to rebut the presumption in favor of the constitutionality of the ordinance, nor do we find that the classification distinction between boarding and rooming houses fails to bear a substantial relationship to the health, safety, morals or general welfare of the community.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3557,
+     3876
+    ],
+    "reporter_page": "227"
+   },
+   {
+    "text": "we do not find Mr. Brown\u2019s testimony sufficient to rebut the presumption in favor of the constitutionality of the ordinance, nor do we find that the classification distinction between boarding and rooming houses fails to bear a substantial relationship to the health, safety, morals or general welfare of the community.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3557,
+     3876
+    ],
+    "reporter_page": "227"
+   },
+   {
+    "text": "\u2018Boarding house\u2019 means a building or portion thereof, other than a hotel, containing not more than one dwelling unit, if any, where meals and lodging are provided for persons not residing in the dwelling unit.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2530,
+     2739
+    ],
+    "reporter_page": "227"
+   },
+   {
+    "text": "This case arose from the denial by the Zoning Board of Adjustment of the City of Pittsburgh of appellee\u2019s request to occupy the property she leases in Pittsburgh as a boarding house.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     560,
+     742
+    ],
+    "reporter_page": "226"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "duration_of_occupancy unclear: this opinion's text does not itself state the boarders' length of stay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1798746,
+  "cite": "511 Pa. 631",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1986,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": "The Pennsylvania Supreme Court held that a home containing several paying, unrelated elderly and handicapped boarders, along with the owner and her foster daughter, constituted a 'single housekeeping unit' (family) under the pre-1978 zoning ordinance \u2014 and thus a lawful nonconforming single-family use \u2014 because the modest monthly fee did not establish a profit motive as the basis of the relationship and the household functioned as a caring familial unit.",
+  "doctrinal_concepts": [
+   "single_housekeeping_unit",
+   "paying_guests"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "We therefore find that appellant has established a lawful nonconforming use and that the household as described in this record does fall within the definition of a \u201csingle housekeeping unit,\u201d",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     17261,
+     17452
+    ],
+    "reporter_page": "640"
+   },
+   {
+    "text": "We therefore find that appellant has established a lawful nonconforming use and that the household as described in this record does fall within the definition of a \u201csingle housekeeping unit,\u201d",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     17261,
+     17452
+    ],
+    "reporter_page": "640"
+   },
+   {
+    "text": "In return for a fee of approximately $200.00 a month per individual, Mrs. Miller provided them with room, board, some transportation, supervision in grooming, and monitoring of personal needs.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     2037,
+     2229
+    ],
+    "reporter_page": "633"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "characterization left null: the court classifies the arrangement as a 'family'/'single housekeeping unit' for zoning purposes, not as a lease, license, lodging, or innkeeping arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1928403,
+  "cite": "64 Pa. Commw. 258",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1982,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The Commonwealth Court reversed the denial of an occupancy permit for a boarding house serving seventeen elderly boarders, holding the zoning ordinance's exclusion of boarding houses from the R-4 district \u2014 while permitting rooming houses and nursing homes there \u2014 violated equal protection because the meal-service distinction between boarding and rooming houses had no rational relationship to zoning purposes, based on the city's own zoning administrator's testimony. (Reversed by the Pennsylvania Supreme Court, 501 Pa. 224.)",
+  "doctrinal_concepts": [
+   "roomers_boarders",
+   "police_power"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "we must conclude that it would be an abuse of discretion to find that ordinary boarding houses can be rationally excluded from the R-4 districts where rooming houses and nursing homes are allowed.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     8752,
+     8948
+    ],
+    "reporter_page": "265"
+   },
+   {
+    "text": "we must conclude that it would be an abuse of discretion to find that ordinary boarding houses can be rationally excluded from the R-4 districts where rooming houses and nursing homes are allowed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8752,
+     8948
+    ],
+    "reporter_page": "265"
+   },
+   {
+    "text": "\u2018Boarding house\u2019 means a building or portion thereof, other than a hotel, containing not more than one dwelling unit, if any, where meals and lodging are provided for persons not residing in the dwelling unit. . . .",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1536,
+     1751
+    ],
+    "reporter_page": "260"
+   },
+   {
+    "text": "The applicant is the lessee of a two-and-one-half story, five-bedroom building which is occupied by seventeen boarders, to whom the applicant provides meals, lodging, clothes and personal care on a long-term basis.",
+    "supports": "who_was_letting",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     712,
+     926
+    ],
+    "reporter_page": "260",
+    "fuzzy_score": 99.53271028037383
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8823762,
+  "cite": "39 Pa. D. & C.3d 612",
+  "court": "Washington County Court of Common Pleas",
+  "year": 1985,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.45,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": "The trial court reversed a zoning board decision, holding that a proposed nonprofit group home for twelve residents with histories of mental illness \u2014 who would pay a percentage of income (or nothing) toward room and board and whose residency would rotate roughly every nine to twelve months \u2014 satisfies the ordinance's broad definition of 'family' as a single housekeeping unit sharing rooms and facilities in common, and is therefore a permitted single-family dwelling use.",
+  "doctrinal_concepts": [
+   "single_housekeeping_unit",
+   "paying_guests"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It is clear that the proposed use by the applicant is in full compliance with the definition of family in the ordinance as \u201ca single housekeeping unit using certain rooms and housekeeping facilities in common.\u201d",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5958,
+     6168
+    ],
+    "reporter_page": "616"
+   },
+   {
+    "text": "It is clear that the proposed use by the applicant is in full compliance with the definition of family in the ordinance as \u201ca single housekeeping unit using certain rooms and housekeeping facilities in common.\u201d",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5958,
+     6168
+    ],
+    "reporter_page": "616"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-004",
+  "notes": "Case concerns a nonprofit group home for persons with mental-illness histories, adjacent to but not squarely within the short-term-letting corpus theme; marked relevant for its extended treatment of paying-occupant/'single housekeeping unit' doctrine. Characterization left null \u2014 court classifies under family/single-housekeeping-unit doctrine, not lease/license/lodging/innkeeping.",
+  "extraction_status": "partial"
+ }
+]

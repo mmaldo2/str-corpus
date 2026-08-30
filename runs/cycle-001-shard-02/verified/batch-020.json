@@ -1,0 +1,596 @@
+[
+ {
+  "case_id": 2201417,
+  "cite": "101 N.Y. 77",
+  "court": "New York Court of Appeals",
+  "year": 1886,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "Ejectment dispute over whether a husband was the 'actual occupant' of his wife's land under married-women's-property acts; no compensated letting of rooms or a dwelling is at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2204990,
+  "cite": "103 N.Y. 388",
+  "court": "New York Court of Appeals",
+  "year": 1886,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "Oleomargarine-imitation labeling statute case decided on police-power/constitutional grounds; no connection to letting or lodging of dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2210420,
+  "cite": "106 N.Y. 1",
+  "court": "New York Court of Appeals",
+  "year": 1887,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "Dispute over exclusive municipal ferry-franchise ownership and its lease to a railroad company; unrelated to letting rooms or dwellings for occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2210828,
+  "cite": "20 How. Pr. 76",
+  "court": "New York Superior Court",
+  "year": 1860,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "Constitutionality of a Sunday theatrical-exhibition statute; the matched 'sojourner' text is from a quoted 1695 anti-profanation statute, not about letting a dwelling.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2211876,
+  "cite": "107 N.Y. 610",
+  "court": "New York Court of Appeals",
+  "year": 1888,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.82,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "license",
+  "holding_summary": "The lessee built an apartment house, occupied one range of rooms himself, and let the other apartments to tenants by the month; the court held this was not an 'under-letting' breaching the lease's covenant against subletting, and that the landlord, having accepted rent for years with knowledge of the apartment-house use, was estopped from claiming a forfeiture.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease",
+   "covenant_against_underletting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the conduct of the defendant in receiving for a series of years without objection, the rent due on the lease, with knowledge of the actual situation, should, if necessary, be construed as a license to use and occupy the building as an apartment house",
+    "supports": "characterization",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     20878,
+     21128
+    ],
+    "reporter_page": "619",
+    "fuzzy_score": 98.8
+   },
+   {
+    "text": "Letting rooms to lodgers is held not to be a breach of a covenant against under-letting.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     22017,
+     22105
+    ],
+    "reporter_page": "619"
+   },
+   {
+    "text": "It would be inequitable to permit the defendant to insist upon a forfeiture, when by its conduct it had sanctioned the construction which the plaintiff had placed upon the covenant.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     22357,
+     22539
+    ],
+    "reporter_page": "620"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2213706,
+  "cite": "22 How. Pr. 353",
+  "court": "New York Supreme Court",
+  "year": 1861,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "Ejectment pleading question about whether a landlord out of possession may be joined as a defendant; no compensated occupancy issue is litigated.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2215809,
+  "cite": "110 N.Y. 336",
+  "court": "New York Court of Appeals",
+  "year": 1888,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "Forcible entry/detainer and lunacy-committee lease-authority dispute over commercial salt-manufacturing blocks; not a dwelling/lodging letting case.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2216203,
+  "cite": "24 How. Pr. 347",
+  "court": "New York Court of Common Pleas",
+  "year": 1861,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "A monthly tenant of rooms in the plaintiff's building who left before the next month's rent fell due was not liable for that rent, and because filth from a privy, without any fault of the tenant, made the rooms untenantable, the tenant was entitled under the 1860 act on rights of owners/lessors and occupants of buildings to abandon and surrender possession without further liability for rent.",
+  "doctrinal_concepts": [
+   "monthly_tenancy",
+   "habitability",
+   "rooms_letting"
+  ],
+  "new_terms_observed": [
+   "hiring by the month"
+  ],
+  "quotes": [
+   {
+    "text": "The defendant occupied rooms in the plaintiff's building, under a hiring by the month, the rent being payable in advance.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1412,
+     1533
+    ],
+    "reporter_page": "347"
+   },
+   {
+    "text": "the occupant of any building which shall without any fault or neglect on his part be destroyed, or be so injured by the elements or any other cause, as to be untenantable and unfit for occupancy, shall not be liable or bound to pay rent after such destruction or injury",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     4121,
+     4390
+    ],
+    "reporter_page": "348",
+    "fuzzy_score": 99.62825278810409
+   },
+   {
+    "text": "As an occupant of apartments in. a tenement house, the defendant was not bound to either see to the erection of a proper sink or privy upon the premises, or to cause it to be emptied, to prevent an overflow.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5063,
+     5270
+    ],
+    "reporter_page": "349"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2216222,
+  "cite": "24 How. Pr. 132",
+  "court": "New York Supreme Court",
+  "year": 1862,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "In an action for rent where the defendant, a married woman, raised coverture for the first time after judgment, the court denied her motion to set aside the judgment and execution because the evidence showed her husband had long been absent from the state and tended to show she kept a boarding house on her own account, occupying the plaintiff's premises for that purpose.",
+  "doctrinal_concepts": [
+   "boarding_house_keeping",
+   "married_womens_property"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The defence was, surrender of the lease and payment.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     641,
+     693
+    ],
+    "reporter_page": "132"
+   },
+   {
+    "text": "The opposing affidavits tended to show that defendant was keeping a boarding-house on her own account, and had occupied the plaintiff's said premises for that purpose.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1438,
+     1605
+    ],
+    "reporter_page": "133"
+   },
+   {
+    "text": "the evidence showing that her husband had been absent from the state a long time, and tending to show that she kept a boarding-house on her own account, that the motion be denied, with costs.",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     300,
+     491
+    ],
+    "reporter_page": "132",
+    "fuzzy_score": 99.47643979057592
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2218095,
+  "cite": "111 N.Y. 359",
+  "court": "New York Court of Appeals",
+  "year": 1888,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "The 1885 act limiting the height of dwelling-houses and of houses used as dwellings for more than one family was a valid exercise of the police power, but the court held it did not apply to hotels, which are occupied by temporary adult guests under one management, so a mandamus was granted compelling approval of plans for a hotel addition exceeding the height limit.",
+  "doctrinal_concepts": [
+   "police_power_regulation",
+   "dwelling_house_definition",
+   "hotel_exemption"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "hotels not usually built in the midst of dwelling-houses, which are mainly occupied by temporary adult guests, which are under the supervision of one management and which can never become very numerous.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6540,
+     6742
+    ],
+    "reporter_page": "362"
+   },
+   {
+    "text": "We have no doubt of the competency of the legislature in the exercise of the police power under the Constitution to pass such an act",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5282,
+     5414
+    ],
+    "reporter_page": "361"
+   },
+   {
+    "text": "a dwelling-house is not a hotel .and a hotel is not a.dwelling-house.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5654,
+     5723
+    ],
+    "reporter_page": "361"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2219632,
+  "cite": "112 N.Y. 263",
+  "court": "New York Court of Appeals",
+  "year": 1889,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "Dispute over ownership of a pier built by wharf lessees and adverse-possession/fixture law; concerns commercial wharfage rights, not letting of a dwelling.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2221815,
+  "cite": "113 N.Y. 158",
+  "court": "New York Court of Appeals",
+  "year": 1889,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "Construction of a marriage-settlement trust deed and will under the rule against perpetuities and statute of powers; no letting of rooms or a dwelling is involved.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2221850,
+  "cite": "113 N.Y. 442",
+  "court": "New York Court of Appeals",
+  "year": 1889,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "Core holding concerns whether an implied promise to pay rent/board arises between family members living together (it does not); a passing recital that the intestate 'occasionally rented some of the rooms in the house... for the purpose of getting some money' is incidental background, not an adjudicated issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2223963,
+  "cite": "114 N.Y. 13",
+  "court": "New York Court of Appeals",
+  "year": 1889,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "Priority dispute over rents owed by an insolvent lunatic's estate from a commercial (business/store) leasehold and its sub-tenant; not a dwelling/lodging letting case.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2225088,
+  "cite": "30 How. Pr. 124",
+  "court": "New York Court of Common Pleas",
+  "year": 1865,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.72,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "An innkeeper or boarding-house keeper who received all comers, charging by the day or week and for meals and lodging, was not liable for a guest's stolen baggage where the chambermaid instructed the guest, per house rule, to leave the bag with the boy in the store, and the guest instead put it under the bed and it was stolen.",
+  "doctrinal_concepts": [
+   "innkeeper_liability",
+   "boarding_house_keeping",
+   "guest_duty_of_care"
+  ],
+  "new_terms_observed": [
+   "emigrant boarding house"
+  ],
+  "quotes": [
+   {
+    "text": "The defendant kept an emigrant boarding house or inn.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     462,
+     515
+    ],
+    "reporter_page": "125"
+   },
+   {
+    "text": "He received every person that came, accommodating them by the day or by the week, at a charge of one dollar per day.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1501,
+     1617
+    ],
+    "reporter_page": "125"
+   },
+   {
+    "text": "If the guest is notified to put his baggage in a particular place where it will be safely kept, and he neglects to do so, the innkeeper, if it is lost, is not liable.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2242,
+     2408
+    ],
+    "reporter_page": "125"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2226287,
+  "cite": "31 How. Pr. 289",
+  "court": "New York Supreme Court",
+  "year": 1866,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "Habeas corpus challenge to the constitutionality of the 1866 metropolitan liquor excise law; unrelated to letting of rooms or dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2226342,
+  "cite": "31 How. Pr. 344",
+  "court": "New York Court of General Sessions",
+  "year": 1866,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "Demurrers to indictments under the 1866 liquor excise act, sustained on constitutional grounds; unrelated to lodging or letting of dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2227278,
+  "cite": "118 N.Y. 110",
+  "court": "New York Court of Appeals",
+  "year": 1889,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.58,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "In an action for the last quarter's rent under a one-year lease of a furnished dwelling-house, the court held there was no implied covenant that the house was fit for habitation where noxious odors from a neighboring livery stable, unknown to either party when the lease was made and not originating on the demised premises, made the house unhealthy; the tenant, who had examined the premises and continued to occupy them, remained liable for the rent.",
+  "doctrinal_concepts": [
+   "implied_warranty_habitability",
+   "furnished_house_lease",
+   "caveat_emptor_leases"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "In an action to recover the last quarter of rent reserved by a lease for one year of a furnished dwelling-house, the answer set up as a counter-claim damages alleged to have been sustained on account of the breach of an implied covenant that said house was fit for immediate and permanent occupation.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     76,
+     376
+    ],
+    "reporter_page": "110"
+   },
+   {
+    "text": "It is uniformly held in this state that the lessee of real property must run the risk of its condition, unless he has an express agreement on the part of the lessor covering that subject.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     11984,
+     12171
+    ],
+    "reporter_page": "115"
+   },
+   {
+    "text": "We do not think that there was any covenant in the lease in question, implied either by common law or from the acts or relations of the parties, that extended to the grievance of which the defendant complains.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     16864,
+     17073
+    ],
+    "reporter_page": "117"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-020",
+  "notes": "",
+  "extraction_status": "ok"
+ }
+]

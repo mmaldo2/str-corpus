@@ -1,0 +1,582 @@
+[
+ {
+  "case_id": 2249230,
+  "cite": "154 Tex. 50",
+  "court": "Supreme Court of Texas",
+  "year": 1954,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "Premises-liability dispute over invitee/licensee/trespasser status of a former employee injured at a shipyard while seeking re-employment; no letting, lodging, or boarding arrangement involved.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2255823,
+  "cite": "158 Tex. 318",
+  "court": "Supreme Court of Texas",
+  "year": 1958,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "Zoning/police-power dispute over a municipality's denial of a curb-cut driveway permit for a parking garage; unrelated to letting rooms or dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2293164,
+  "cite": "128 Tex. 384",
+  "court": "Supreme Court of Texas",
+  "year": 1936,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "Injunction suit against a dog-racing operation under the common-nuisance statute; the statute's definition happens to list hotels/rooming/boarding houses, but the court held the statute does not reach the racetrack, and no actual lodging arrangement is adjudicated.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2300424,
+  "cite": "124 Tex. 1",
+  "court": "Supreme Court of Texas",
+  "year": 1934,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.35,
+  "polarity": "adverse",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The Texas Supreme Court upheld the constitutionality of the state zoning enabling statute and the City of Dallas zoning ordinance excluding business, apartment, and other non-residential uses from single-family residential districts, as a valid exercise of the police power. In doing so the court reasoned at length that apartment and tenement houses have historically been treated as a class 'peculiarly subject to' police-power regulation because of associated overcrowding, disease, and crime concerns, and affirmed exclusion of a gasoline filling station from a residential district on that reasoning.",
+  "doctrinal_concepts": [
+   "police_power_regulation",
+   "zoning_apartment_house"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Apartment or Tenement Houses have always been regarded as peculiarly subject to the police power.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     26186,
+     26283
+    ],
+    "reporter_page": "13"
+   },
+   {
+    "text": "What we have determined here is that the zoning statutes are valid and that the ordinance before us in its general scope and dominant features, so far as its provisions are here involved, is a valid exercise of authority.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     55074,
+     55295
+    ],
+    "reporter_page": "24"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "characterization left null: the case validates zoning exclusion of apartment/business uses generally (via a gasoline-station dispute) and does not adjudicate or classify a specific letting arrangement, so no quote supports a lease/license/lodging characterization.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2311465,
+  "cite": "139 Tex. 318",
+  "court": "Supreme Court of Texas",
+  "year": 1942,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "An oil-lease pumper was injured in a gas explosion inside a small lease house on his employer's property, which he occupied under an arrangement deducting $10 per month from his wages as rent. The Texas Supreme Court held that even assuming a landlord-tenant relationship existed between the parties as to the house, that relationship is not inconsistent with the master-servant relationship, and because the pumper's occupancy of the house was necessarily incident to the round-the-clock and later twelve-hour duty required by his job, he remained an employee acting in the course of employment to whom common-law duties of care were owed.",
+  "doctrinal_concepts": [
+   "license_vs_lease",
+   "landlord_tenant_master_servant"
+  ],
+  "new_terms_observed": [
+   "lease house"
+  ],
+  "quotes": [
+   {
+    "text": "there is no inconsistency between the relation of landlord and tenant and that of master and servant.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     15413,
+     15514
+    ],
+    "reporter_page": "324"
+   },
+   {
+    "text": "there is no inconsistency between the relation of landlord and tenant and that of master and servant.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     15413,
+     15514
+    ],
+    "reporter_page": "324"
+   },
+   {
+    "text": "The judgment of the Court of Civil Appeals affirming that of the trial court is affirmed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     16957,
+     17046
+    ],
+    "reporter_page": "325"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "who_was_letting coded as commercial_operator because the letting party is the employer oil company, not a private householder letting part of a personal residence.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2321103,
+  "cite": "133 Tex. 378",
+  "court": "Supreme Court of Texas",
+  "year": 1939,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "Dispute between a mortgagee claiming possession rights and a landlord over rent owed for a commercial storefront occupancy; not a lodging or boarding arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2324502,
+  "cite": "131 Tex. 601",
+  "court": "Supreme Court of Texas",
+  "year": 1938,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "Mrs. Abernathy purchased an apartment house, occupied one apartment herself with her husband and rented another to a tenant for $70 per month, paid taxes and interest, and later sold her equity. The Texas Supreme Court held that in doing so she merely exercised the ordinary incidents of ownership -- including the right to lease part of the property -- and committed no wrong that could estop her from later pleading coverture as a defense to personal liability on the purchase-money note.",
+  "doctrinal_concepts": [
+   "incident_of_ownership",
+   "right_to_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Among those incidents were the right of possession and use, the right to lease, and the right to sell the property, subject, of course, to appellant\u2019s lien.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5648,
+     5804
+    ],
+    "reporter_page": "604"
+   },
+   {
+    "text": "Among those incidents were the right of possession and use, the right to lease, and the right to sell the property, subject, of course, to appellant\u2019s lien.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5648,
+     5804
+    ],
+    "reporter_page": "604"
+   },
+   {
+    "text": "By using one of the apartments, leasing another and selling her equity she was but doing that which she had a legal right to do.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5805,
+     5933
+    ],
+    "reporter_page": "604"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2580025,
+  "cite": "156 Tex. Crim. 282",
+  "court": "Texas Court of Criminal Appeals",
+  "year": 1951,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [
+   "tourist court"
+  ],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "Liquor-transportation prosecution; defendant was arrested after pulling into a tourist court, which is background location only, with no adjudication of any lodging or letting arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2583172,
+  "cite": "154 Tex. Crim. 388",
+  "court": "Texas Court of Criminal Appeals",
+  "year": 1950,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [
+   "tourist cabin"
+  ],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "Liquor-possession prosecution turning on sufficiency of a search-warrant's description of a tourist-cabin address; no adjudication of a lodging or letting relationship.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5300288,
+  "cite": "147 Tex. Crim. 624",
+  "court": "Texas Court of Criminal Appeals",
+  "year": 1944,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [
+   "tourist camp"
+  ],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "Theft prosecution set at a tourist camp with adjoining guest rooms; the lodging layout is background fact only, with no legal analysis of the letting arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10122960,
+  "cite": "404 S.W.2d 72",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1966,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "Personal-injury suit over a mule kick on a ranch, turning on invitee/licensee status of a social guest; unrelated to letting of dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10136044,
+  "cite": "440 S.W.2d 354",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1969,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Construing a 1940 subdivision restrictive-covenant instrument that barred hotels, rooming houses, boarding houses, and other business uses on any lot, but shall be used for residence purposes only -- with a proviso that renting out a single room was not itself a prohibited use, only operating a regular rooming or boarding house being barred -- the court held that because the covenant restricted only houses actually built on the lots (not the lots or 'buildings' generally) to residential use, it did not prevent the Y.M.C.A. from erecting and using a non-residential building for religious, educational, and physical-development purposes.",
+  "doctrinal_concepts": [
+   "restrictive_covenant_boarding_house_exception",
+   "single_room_rental_exception"
+  ],
+  "new_terms_observed": [
+   "regular rooming or boarding house"
+  ],
+  "quotes": [
+   {
+    "text": "The mention of rooming house or boarding house does not prohibit the renting out of one room, but is intended only to prevent the running of a regular rooming or boarding house.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3100,
+     3277
+    ],
+    "reporter_page": "356"
+   },
+   {
+    "text": "We hold that they do not.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8431,
+     8456
+    ],
+    "reporter_page": "357"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "characterization left null: the single-room/boarding-house language appears in quoted covenant text construed by the court, not as the court's characterization of an actual adjudicated letting arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10136051,
+  "cite": "426 S.W.2d 545",
+  "court": "Supreme Court of Texas",
+  "year": 1968,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "Personal-injury suit over use of a subcontractor's construction scaffold, turning on invitee/licensee status among contractors' employees; unrelated to letting of dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10139857,
+  "cite": "412 S.W.2d 685",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1967,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "Personal-injury suit over a defective eye bolt on leased commercial warehouse premises, addressing landlord/lessee duty of care for commercial property; not a lodging or short-term letting arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10147739,
+  "cite": "443 S.W.2d 552",
+  "court": "Supreme Court of Texas",
+  "year": 1969,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.45,
+  "polarity": "adverse",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Construing a 1919 trust agreement and conveyance creating the exclusive Shadyside residential subdivision in Houston, the Texas Supreme Court held that the instrument's building and use restrictions -- including a clause permanently barring any business house, saloon, hospital, public boarding house, place of public entertainment, store, livery stable, or other place of business or public resort from ever being erected on the lots -- were of perpetual or indefinite duration and did not automatically expire with the twenty-one-year administrative trust term.",
+  "doctrinal_concepts": [
+   "restrictive_covenant_boarding_house_exclusion",
+   "perpetual_restriction"
+  ],
+  "new_terms_observed": [
+   "public boarding house"
+  ],
+  "quotes": [
+   {
+    "text": "No business house or houses, saloon, hospital, public boarding house, place of public entertainment, store, livery stable, or other place of business or public resort, shall ever be erected on any part of said land, nor shall any telegraph, telephone or electric light poles or overhead structures ever be erected on any part of said property except on a space five feet in width along the West line of the larger tract.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7066,
+     7486
+    ],
+    "reporter_page": "554"
+   },
+   {
+    "text": "We conclude that the building and use restrictions imposed by the written instrument in question on the lots in Shadyside will not expire on June 30th, but are of permanent and indefinite duration.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     14938,
+     15135
+    ],
+    "reporter_page": "556"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "characterization left null: the 'public boarding house' prohibition appears as quoted covenant text whose duration is the issue decided; the case does not adjudicate a specific letting arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10155977,
+  "cite": "391 S.W.2d 63",
+  "court": "Texas Court of Criminal Appeals",
+  "year": 1965,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "Constitutional challenge to a municipal nighttime-loitering ordinance applied to private premises; unrelated to letting of rooms or dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10156136,
+  "cite": "339 S.W.2d 400",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1960,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Applying a subdivision restrictive covenant limiting lots to residence purposes only -- with a proviso that the prohibition on operating a rooming house or boarding house did not prohibit renting one room, but was intended only to prevent running a regular rooming or boarding house -- the court of civil appeals held that the Episcopal Church's use of a house near a university campus for weekly communion services, student discussion meetings, and a daily open house for students was a distinct and substantial breach of the residential-only restriction, and enjoined the use despite evidence of surrounding neighborhood change.",
+  "doctrinal_concepts": [
+   "restrictive_covenant_boarding_house_exception",
+   "single_room_rental_exception"
+  ],
+  "new_terms_observed": [
+   "regular rooming or boarding house"
+  ],
+  "quotes": [
+   {
+    "text": "provided that the prohibition herein contained of the operation of a rooming house or boarding house shall not prohibit the renting of one room, but is intended only to prevent the running of a regular rooming or boarding house;",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1699,
+     1927
+    ],
+    "reporter_page": "401"
+   },
+   {
+    "text": "The use of the property by appellant in the instant case constitutes a distinct and substantial breach of the restrictive covenant and the trial court did not err in granting injunctive relief.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     14455,
+     14648
+    ],
+    "reporter_page": "405"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "characterization left null: the single-room/boarding-house proviso is quoted covenant text, not the court's characterization of an actual letting arrangement at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10156772,
+  "cite": "332 S.W.2d 338",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1960,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "mixed",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Applying a mutual restrictive-covenant agreement among subdivision lot owners limiting use to residential purposes only -- with the mention of rooming house or boarding house intended only to prevent running a regular rooming or boarding house, not to bar renting out one room -- the court of civil appeals held that a local college fraternity's lease and use of a residence as a chapter house, with vending-machine food and beverage sales, meetings, initiations, and social gatherings, violated the restriction, and enjoined the fraternity-house use.",
+  "doctrinal_concepts": [
+   "restrictive_covenant_boarding_house_exception",
+   "single_room_rental_exception"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The mention of rooming house or boarding house herein does not prohibit the renting out of one room, but is intended only to prevent the running of a regular rooming or boarding house.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4570,
+     4754
+    ],
+    "reporter_page": "341"
+   },
+   {
+    "text": "We are of the opinion that the use of the premises in question for a fraternity house is in violation of the foregoing restrictions.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6287,
+     6419
+    ],
+    "reporter_page": "341"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-016",
+  "notes": "characterization left null: the single-room/boarding-house proviso is quoted covenant text; the court's actual holding concerns fraternity-house use, not a specific letting arrangement.",
+  "extraction_status": "ok"
+ }
+]

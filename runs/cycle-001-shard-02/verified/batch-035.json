@@ -1,0 +1,639 @@
+[
+ {
+  "case_id": 9923312,
+  "cite": "51 So. 2d 639",
+  "court": "Court of Appeal of Louisiana, Orleans",
+  "year": 1951,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "In a suit over a landlord's alleged bad-faith use of a rent-control eviction certificate, the court held that the landlord's later renting of two furnished rooms to two roomers was not evidence of bad faith, because such nonhousekeeping furnished accommodations let to no more than two non-family paying tenants (with the landlord occupying the remainder of the unit) fall outside the federal definition of regulated 'controlled housing accommodations.' The judgment for the ousted tenant was reversed and her suit dismissed.",
+  "doctrinal_concepts": [
+   "householder_letting_exemption",
+   "rooming_boarding_house_distinction",
+   "rent_control_exemption"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Furthermore, the fact that Kemp rented two furnished rooms to two roomers is not an indicium of bad faith.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     11148,
+     11254
+    ],
+    "reporter_page": "642"
+   },
+   {
+    "text": "nonhouse-keeping, furnished housing accommodations, located within a single dwelling unit not used as a rooming or boarding house, but only if (A) no more than two paying tenants, not members of the landlord\u2019s immediate family, live in such dwelling unit, and (B) the remaining portion of such dwelling unit is occupied by the landlord or his immediate family.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     11405,
+     11765
+    ],
+    "reporter_page": "642"
+   },
+   {
+    "text": "nonhouse-keeping, furnished housing accommodations, located within a single dwelling unit not used as a rooming or boarding house, but only if (A) no more than two paying tenants, not members of the landlord\u2019s immediate family, live in such dwelling unit, and (B) the remaining portion of such dwelling unit is occupied by the landlord or his immediate family.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     11405,
+     11765
+    ],
+    "reporter_page": "642"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10054172,
+  "cite": "196 So. 571",
+  "court": "Court of Appeal of Louisiana, Orleans",
+  "year": 1940,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "mixed",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": "A neighbor sued to enjoin a couple from operating a 'Tourist Home' in an 'A' residential district, where zoning excluded tourist homes, boarding houses, and rooming houses from permitted uses. The court held that because the couple had been renting spare rooms to transient roomers since before the ordinance's adoption, and the tourist-home use was substantially the same activity under a new name, it was a protected lawful nonconforming use, and affirmed judgment for the defendants.",
+  "doctrinal_concepts": [
+   "zoning_nonconforming_use",
+   "lodging_house_definition",
+   "householder_letting",
+   "tourist_home_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Dr. and Mrs. Braun built the house No. 6407 S. Claiborne Avenue sometime in 1927 for the dual purpose of occupying it themselves and renting out rooms.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3075,
+     3226
+    ],
+    "reporter_page": "572"
+   },
+   {
+    "text": "Lodging House. A building other than a hotel, containing not more than fifteen (15) sleeping rooms, where lodging for five or more persons, is provided for compensation pursuant to previous arrangements and not to any one who may apply.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5221,
+     5457
+    ],
+    "reporter_page": "572"
+   },
+   {
+    "text": "The defendants\u2019 home is situated in the \u201cA\u201d district where the conduct of a tourist home, boarding house or rooming house is not among the permitted uses.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1665,
+     1819
+    ],
+    "reporter_page": "571"
+   },
+   {
+    "text": "Our conclusion is that there is little or no' difference, certainly none of a material character, in the business conducted by the defendants before the adoption of the ordinance in 1929, and that which they have operated since.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     11807,
+     12035
+    ],
+    "reporter_page": "574"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5621749,
+  "cite": "15 La. App. 589",
+  "court": "Court of Appeal of Louisiana, Second Circuit",
+  "year": 1931,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "Wrongful-death case from electrocution of a student visiting an ice plant; discusses invitee/licensee tort doctrine only, no compensated dwelling/room letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9823320,
+  "cite": "210 So. 2d 901",
+  "court": "Court of Appeal of Louisiana, First Circuit",
+  "year": 1968,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "Bowling-alley slip-and-fall; plaintiff's lessor-lessee analogy for lane rental was rejected, no householder or lodging-house issue involved.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9825379,
+  "cite": "221 So. 2d 836",
+  "court": "Court of Appeal of Louisiana, Fourth Circuit",
+  "year": 1969,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "Premises-liability suit against a motel and a neighboring restaurant over injury from an uncovered pipe; addresses invitee/licensee doctrine, not letting or lodging regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9843578,
+  "cite": "167 So. 2d 475",
+  "court": "Court of Appeal of Louisiana, Fourth Circuit",
+  "year": 1964,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "Summary eviction of long-term land occupants under LSA-C.C.P. art. 4701 et seq.; concerns squatter/occupant status on land, not compensated room or dwelling letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9890189,
+  "cite": "130 So. 2d 785",
+  "court": "Court of Appeal of Louisiana, Fourth Circuit",
+  "year": 1961,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "Door-to-door salesman injured on landlord's rented apartment premises; addresses licensee/invitee doctrine and landlord repair liability to third parties, not the letting arrangement itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9896566,
+  "cite": "98 So. 2d 730",
+  "court": "Court of Appeal of Louisiana, First Circuit",
+  "year": 1957,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "Social house-guest injured on host's premises (rug slip-and-fall); establishes invitee/licensee duty for social guests, unrelated to paid room letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9896577,
+  "cite": "107 So. 2d 471",
+  "court": "Court of Appeal of Louisiana, First Circuit",
+  "year": 1958,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "Dispute among heirs over rent owed for occupying the family home post-mother's death; a co-ownership/community-property rent question, not compensated letting to a stranger lodger.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9898239,
+  "cite": "136 So. 2d 838",
+  "court": "Court of Appeal of Louisiana, Fourth Circuit",
+  "year": 1962,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The City sought to enjoin the property owner from using two buildings as a multiple dwelling or 'rooming house' in a two-family residential zoning district, in violation of the Comprehensive Zoning Ordinance. The Court of Appeal held that the owner proved by a preponderance of evidence that the buildings had been continuously used as a rooming house renting to many tenants since before the 1929 zoning ordinance, so the use was a protected legal nonconforming use, and reversed the injunction.",
+  "doctrinal_concepts": [
+   "zoning_nonconforming_use",
+   "rooming_house_regulation",
+   "multiple_family_dwelling"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "sought to enjoin defendant from using said property as a multiple dwelling or \u201crooming house\u201d in violation of the pertinent provisions of the Comprehensive Zoning Ordinance of the City of New Orleans",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1153,
+     1352
+    ],
+    "reporter_page": "839"
+   },
+   {
+    "text": "the premises were used as a rooming house from prior to 1925 continuously to 1939, being occupied during that time by at least twenty tenants.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     15050,
+     15192
+    ],
+    "reporter_page": "843"
+   },
+   {
+    "text": "For the reasons assigned, the judgment appealed from is annulled and reversed and it is now ordered that there be judgment in favor of the defendant and against the plaintiff and the intervenors, dissolving the writ of preliminary injunction herein issued and rejecting and dismissing the demands of the plaintiff and the intervenors.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     16385,
+     16719
+    ],
+    "reporter_page": "843"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10032728,
+  "cite": "167 So. 241",
+  "court": "Court of Appeal of Louisiana, Orleans",
+  "year": 1936,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "innkeeping",
+  "holding_summary": "A weekly guest at a small hotel sued for clothing and jewelry stolen from his room. The court held that the establishment, though a small rooming-type hotel, fell within the Civil Code definition of an innkeeper because it made a business of lodging travelers, and that renting by the week to a local resident did not convert the relationship to landlord-tenant, so the innkeeper was liable for the stolen suits under Civil Code arts. 2965-2967.",
+  "doctrinal_concepts": [
+   "innkeeper_status",
+   "lease_vs_innkeeping",
+   "weekly_rental"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the business conducted by the defendant at the Petit Hotel is clearly within the definition of an innkeeper, as set forth in article 3232 of the Civil Code: \u201cThose are called innkeepers, who keep a tavern or hotel, and make a' business of lodging travelers.\u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3789,
+     4047
+    ],
+    "reporter_page": "242"
+   },
+   {
+    "text": "the business conducted by the defendant at the Petit Hotel is clearly within the definition of an innkeeper, as set forth in article 3232 of the Civil Code: \u201cThose are called innkeepers, who keep a tavern or hotel, and make a' business of lodging travelers.\u201d",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3789,
+     4047
+    ],
+    "reporter_page": "242"
+   },
+   {
+    "text": "The defendant, being an innkeeper, is responsible for the effects of his guest which are stolen or damaged either by his servants or his agents, or strangers coming to or going from the hotel.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4916,
+     5108
+    ],
+    "reporter_page": "242"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10035911,
+  "cite": "163 So. 429",
+  "court": "Court of Appeal of Louisiana, Orleans",
+  "year": 1935,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "Dispute over permission to build a garage/filling station on another's land and possessor-in-good-faith rights; no dwelling or room letting involved.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10037813,
+  "cite": "153 So. 340",
+  "court": "Court of Appeal of Louisiana, Orleans",
+  "year": 1934,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "A lodger sued her lodging-house keeper for damages after he seized and retained her clothing for unpaid weekly room rent. The court held that innkeepers, boarding house, and lodging house keepers have a statutory privilege on a lodger's property brought onto the premises under Acts 35 of 1896 and 110 of 1898, found the plaintiff's claim that she had worked off the rent uncorroborated, and affirmed dismissal of her suit.",
+  "doctrinal_concepts": [
+   "lodging_house_lien",
+   "innkeeper_privilege",
+   "weekly_rent"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Inn-keepers, hotel, boarding house and lodging house keepers enjoy this privilege on all the property which the sojourner has brought to their place, whether it belongs to him or not, because the property so brought into their place has become pledged to them by the mere fact of its introduction into their place.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1283,
+     1597
+    ],
+    "reporter_page": "340"
+   },
+   {
+    "text": "Inn-keepers, hotel, boarding house and lodging house keepers enjoy this privilege on all the property which the sojourner has brought to their place, whether it belongs to him or not, because the property so brought into their place has become pledged to them by the mere fact of its introduction into their place.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1283,
+     1597
+    ],
+    "reporter_page": "340"
+   },
+   {
+    "text": "In our opinion there is no doubt of the authority of the defendant to retain plaintiff\u2019s belongings in view of the provisions of the acts which have been cited.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1116,
+     1276
+    ],
+    "reporter_page": "340"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10043487,
+  "cite": "19 So. 2d 270",
+  "court": "Court of Appeal of Louisiana, Second Circuit",
+  "year": 1944,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "Student injured by falling railroad car wheels during an educational plant visit; establishes invitee/licensee doctrine generally, no room or dwelling letting issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10055384,
+  "cite": "143 So. 505",
+  "court": "Court of Appeal of Louisiana, First Circuit",
+  "year": 1932,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lease",
+  "holding_summary": "Plaintiffs, who rented two rooms with a kitchenette in a hotel wing for $3.50 per week, did their own cooking and cleaning without hotel service, and sued the hotel owner as innkeeper for stolen effects. The court held plaintiffs were tenants, not guests, so the innkeeper-liability Code articles did not apply, and affirmed judgment rejecting their demand.",
+  "doctrinal_concepts": [
+   "lease_vs_innkeeping",
+   "light_housekeeping",
+   "tenant_status",
+   "exclusive_control"
+  ],
+  "new_terms_observed": [
+   "light housekeeping"
+  ],
+  "quotes": [
+   {
+    "text": "Plaintiffs had rented a room in a wing of the Victor Hotel, were tenants under their contract, and hence not entitled to the protection of their effects as guests or travelers under the provisions of the Code, which treat of that subject.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4516,
+     4754
+    ],
+    "reporter_page": "507"
+   },
+   {
+    "text": "The defendant, landlord and proprietor of the hotel, had the right to take plaintiffs as guests or to rent them the rooms across the street or in the hotel for use as tenants.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     8025,
+     8200
+    ],
+    "reporter_page": "507"
+   },
+   {
+    "text": "We therefore affirm, with cost, the judgment appealed from rejecting plaintiffs\u2019 demand.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     11274,
+     11362
+    ],
+    "reporter_page": "508"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10069109,
+  "cite": "192 So. 786",
+  "court": "Court of Appeal of Louisiana, Second Circuit",
+  "year": 1939,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "Prospective tenant injured while inquiring about a residential vacancy; addresses licensee/invitee tort doctrine only, no actual room/dwelling letting arrangement at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10096991,
+  "cite": "32 So. 2d 629",
+  "court": "Court of Appeal of Louisiana, First Circuit",
+  "year": 1947,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "Plaintiffs sued their brother-in-law's succession for the value of board furnished to his wife (plaintiffs' sister), who lived with them for over two years while he was in military service. The court held the one-year prescription applicable to innkeepers and lodging/board furnishers did not apply because plaintiffs were not engaged in the occupation of running a rooming house, but affirmed dismissal since plaintiffs' proof of the alleged board agreement and other claims lacked the required corroboration.",
+  "doctrinal_concepts": [
+   "lodging_house_prescription",
+   "family_board_arrangement",
+   "trade_or_occupation_test"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It is clearly shown by the record that the plaintiffs were not engaged in the occupation of running a rooming house when Mrs. Colligan came to live with her sister on February 1, 1943.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3769,
+     3953
+    ],
+    "reporter_page": "630"
+   },
+   {
+    "text": "It is clearly shown by the record that the plaintiffs were not engaged in the occupation of running a rooming house when Mrs. Colligan came to live with her sister on February 1, 1943.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3769,
+     3953
+    ],
+    "reporter_page": "630"
+   },
+   {
+    "text": "For these reasons assigned, the judgment appealed from is affirmed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     15165,
+     15232
+    ],
+    "reporter_page": "632"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2903998,
+  "cite": "216 La. 994",
+  "court": "Louisiana Supreme Court",
+  "year": 1950,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-035",
+  "notes": "Constitutional challenge to a police jury's creation of a residential zoning district barring commercial businesses (a seafood establishment); no lodging, boarding, or room-letting issue.",
+  "extraction_status": "ok"
+ }
+]

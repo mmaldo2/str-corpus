@@ -1,0 +1,521 @@
+[
+ {
+  "case_id": 5114416,
+  "cite": "42 Barb. 623",
+  "court": "New York Supreme Court, General Term",
+  "year": 1864,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "Construing the 1860 act 'for the protection of boarding house keepers,' the court held that a boarding house keeper has the same lien on a boarder's effects brought onto the premises to furnish his room as the common law gives an innkeeper over a guest's goods, even where those goods actually belong to a third party. The judgment for the plaintiff (the boarder's mother) was reversed and a new trial granted.",
+  "doctrinal_concepts": [
+   "boarding_house_lien",
+   "innkeeper_lien_analogy"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It was the intention of the legislature, by that act, to give hoarding house keepers the same lien, in respect, to the effects of their hoarders, as the common law gave to innkeepers, as to the goods of their guests.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     461,
+     677
+    ],
+    "reporter_page": "623"
+   },
+   {
+    "text": "The defendant has a lien upon the goods in question. They were brought by the boarder upon his premises to furnish his room, and the defendant was the boarding house keeper.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     9225,
+     9398
+    ],
+    "reporter_page": "627"
+   },
+   {
+    "text": "Since the act of April 16, 1860, \u201c for the protection of boarding house keepers,\u201d the keeper of a boarding house has a lien for hoard, upon goods brought upon the premises by a hoarder, to furnish his room,' although they in fact do not belong to the hoarder, hut to a stranger.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     175,
+     453
+    ],
+    "reporter_page": "623"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 32858,
+  "cite": "159 N.Y. 28",
+  "court": "New York Court of Appeals",
+  "year": 1899,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "Ordinary yearly-lease holdover dispute over a dwelling house, excused by a family member's illness; no boarding, lodging, or short-term letting issue presented.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 340537,
+  "cite": "12 Misc. 348",
+  "court": "New York Superior Court",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "Commercial store-lease holdover dispute; no lodging or boarding-house element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 342604,
+  "cite": "13 Misc. 40",
+  "court": "New York Court of Common Pleas",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "Guardian-in-socage summary dispossession proceeding over an infant's leased land, turning on whether a personal debt is a valid counterclaim against a guardian; unrelated to lodging or boarding-house letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 345158,
+  "cite": "14 Misc. 249",
+  "court": "New York City Court",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "Assault/false-imprisonment action against a police officer for seizing a trunk; court expressly holds plaintiff's status as a boarding-house keeper 'entirely immaterial' to the claim, so the boarding-house fact is a passing mention only.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 523159,
+  "cite": "60 N.Y. 221",
+  "court": "New York Court of Appeals",
+  "year": 1875,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.12,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "Criminal assault case turning on whether a mill laborer occupied his employer-supplied house as servant or tenant; concerns employment-incident housing, not compensated letting of rooms to lodgers or boarders.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 534700,
+  "cite": "74 N.Y. 509",
+  "court": "New York Court of Appeals",
+  "year": 1878,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.2,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "Upholds the Civil Damage Act's imposition of liability on a landlord who leased premises knowing liquor would be sold there; the tenant's use of the leased building as a hotel/boarding house is incidental to the liquor-liability holding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 542910,
+  "cite": "77 N.Y. 51",
+  "court": "New York Court of Appeals",
+  "year": 1879,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "Nuisance/tort-apportionment ruling among several stream polluters, some of whom happen to run boarding houses; the case addresses several-liability for pollution, not the legality or character of boarding-house letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 549465,
+  "cite": "87 N.Y. 493",
+  "court": "New York Court of Appeals",
+  "year": 1882,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.12,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "Civil Damage Act wrongful-death action against a hotelkeeper and the hotel's owner over liquor sold to plaintiff's husband; concerns liquor-liability law, not the legality or regulation of hotel/boarding-house letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 702132,
+  "cite": "57 N.Y. St. Rep. 335",
+  "court": "New York Supreme Court, General Term",
+  "year": 1894,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "Family dispute over a widowed mother's rent-free occupancy of her children's inherited real estate under an arrangement with the general guardian; not a boarding/lodging letting-for-pay case.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1101550,
+  "cite": "1 N.Y. City Ct. Rep. 66",
+  "court": "New York Marine Court",
+  "year": 1878,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "Baggage-loss suit against a railway sleeping-car company; court analogizes the company to a lodging-house keeper only to define its liability standard, but the case does not itself involve letting of a dwelling or room.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1290078,
+  "cite": "1 Liquor Tax Rep. 174",
+  "court": "County Court of New York, Monroe County",
+  "year": 1897,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "Demurrer to a Sunday-liquor-sale indictment; discusses what makes a hotel patron a 'guest' for the Liquor Tax Law's exception, not the legality or regulation of letting rooms/dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1295869,
+  "cite": "1 Daly (N.Y.) 496",
+  "court": "New York Court of Common Pleas",
+  "year": 1865,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": "The court held that an emigrant boarding house/inn keeper who instructed a lodger to deposit his baggage with the clerk for safekeeping was not liable when the lodger instead put it under his own bed and it was stolen during his brief absence. A guest who is instructed to place baggage in a particular safe place and neglects to do so cannot recover from the keeper for its loss.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "innkeeper_liability",
+   "boarding_house_keeping"
+  ],
+  "new_terms_observed": [
+   "emigrant boarding house"
+  ],
+  "quotes": [
+   {
+    "text": "He received every person that came, accommodating them by the day or by the week at a charge of one dollar per day.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2530,
+     2645
+    ],
+    "reporter_page": "497"
+   },
+   {
+    "text": "The defendant kept an emigrant boarding house or inn. The plaintiff\u2019s assignor, Blakely, came there and was lodged, without any objection being made upon his part, in a room with several other persons who were strangers to him.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1516,
+     1743
+    ],
+    "reporter_page": "496"
+   },
+   {
+    "text": "If the guest is notified to put his baggage in a particular place, where it will be safely kept, and he neglects to do so ; the innkeeper, if it is lost, is not liable",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3254,
+     3421
+    ],
+    "reporter_page": "497"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1295912,
+  "cite": "1 Daly (N.Y.) 99",
+  "court": "New York Court of Common Pleas",
+  "year": 1860,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.2,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "Landlord-tenant suit over non-disclosure of a family dwelling's prior use as a brothel and alleged eviction by strangers; mentions an implied-fitness exception for 'furnished lodgings' only in passing dicta, inapplicable to the unfurnished house actually leased.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1299966,
+  "cite": "2 Daly (N.Y.) 200",
+  "court": "New York Court of Common Pleas",
+  "year": 1867,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that a public house designated a 'hotel,' which provided lodging to guests for uncertain periods under no express agreement and differed from an ordinary hotel only in having an on-premises refectory where guests could separately pay for meals, was an inn, and its proprietor an innkeeper subject to full innkeeper liability as to lodged guests. Compliance with the 1855 statute requiring a safe and posted notice did not relieve the innkeeper of liability for a guest's stolen watch and cash under the facts found by the jury.",
+  "doctrinal_concepts": [
+   "innkeeping",
+   "lodging_house_vs_inn",
+   "innkeeper_liability"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "A public house, which the proprietor designates as a \u201c hotel,\u201d and at which guests are provided with lodgings for uncertain periods, and under no express agreement, and which only differs from ordinary hotels in having a refectory on the premises, where guests are at liberty to take their meals, if they wish, and pay for them, then and there: Held, To be an inn, and the proprietor an innkeeper, with all the responsibilities attaching to such character, as respects guests received and accommodated with lodgings.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     44,
+     560
+    ],
+    "reporter_page": "200"
+   },
+   {
+    "text": "His house is open to all persons, and he receives them without any express agreement. Travelers go to his premises, and find the ordinary appearances and arrangements of a hotel; they register their names on a book of arrivals, as in hotels generally, and are assigned rooms, which they occupy, with their baggage, as long as they choose to remain.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4571,
+     4919
+    ],
+    "reporter_page": "202"
+   },
+   {
+    "text": "A public house, which the proprietor designates as a \u201c hotel,\u201d and at which guests are provided with lodgings for uncertain periods, and under no express agreement, and which only differs from ordinary hotels in having a refectory on the premises, where guests are at liberty to take their meals, if they wish, and pay for them, then and there: Held, To be an inn, and the proprietor an innkeeper, with all the responsibilities attaching to such character, as respects guests received and accommodated with lodgings.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     44,
+     560
+    ],
+    "reporter_page": "200"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1300562,
+  "cite": "18 Misc. 68",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1896,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "Commercial store-lease dispute over whether occupancy under a void multi-year oral lease created a monthly tenancy; no lodging or boarding element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1306495,
+  "cite": "6 Daly (N.Y.) 39",
+  "court": "New York Court of Common Pleas",
+  "year": 1875,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "Where several tenants occupy distinct, separate apartments in a single house and hire them from a landlord who also resides there, the house is the landlord's dwelling-house and the common street door is the 'outer door' of every tenant in it. A sheriff who lawfully enters through that outer door may therefore break open the door of an individual tenant's rented apartment to levy execution on that tenant's goods.",
+  "doctrinal_concepts": [
+   "householder_letting",
+   "dwelling_house_definition",
+   "multi_tenant_occupancy"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The plaintiff hired from Mrs. Brown the three front rooms on the second floor of No. 306 East 114th street, and placed her goods, consisting of household furniture, in those apartments.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     858,
+     1043
+    ],
+    "reporter_page": "39"
+   },
+   {
+    "text": "When several persons occupy distinct and several apartments in the same house, and hire from a landlord who also resides in the house, the house is the dwelling-house of the landlord, and the street door is the outer door of all the tenants living in the house, and a sheriff who lawfully enters through such outer door may break open the doors of an apartment occupied by any tenant, in order to levy an execution on the goods of such tenant in the room.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     102,
+     557
+    ],
+    "reporter_page": "39"
+   },
+   {
+    "text": "When several persons occupy distinct and several apartments in the same house, and hire from a landlord who also resides in the house, the house is the dwelling-house of the landlord, and the street door is the outer door of all the tenants living in the house, and a sheriff who lawfully enters through such outer door may break open the doors of an apartment occupied by any tenant, in order to levy an execution on the goods of such tenant in the room.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     102,
+     557
+    ],
+    "reporter_page": "39"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1308201,
+  "cite": "7 Daly (N.Y.) 492",
+  "court": "New York Court of Common Pleas",
+  "year": 1878,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-040",
+  "notes": "Commercial manufacturing-space holdover dispute after fire damage and unsuccessful renewal negotiations; no lodging or boarding element.",
+  "extraction_status": "ok"
+ }
+]

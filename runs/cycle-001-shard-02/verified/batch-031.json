@@ -1,0 +1,896 @@
+[
+ {
+  "case_id": 4155206,
+  "cite": "47 Misc.3d 723",
+  "court": "Supreme Court, New York County",
+  "year": 2014,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.95,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "innkeeping",
+  "holding_summary": "Court granted landlord a preliminary injunction against a rent-controlled tenant who repeatedly rented rooms in her apartment to short-term Airbnb guests, holding that her 135 transient rentals for periods under 30 days, generating income far above her regulated rent, constituted incurable profiteering under the Rent Control Law and violated Multiple Dwelling Law \u00a7 4(8) governing class A permanent-residence buildings.",
+  "doctrinal_concepts": [
+   "license_vs_lease",
+   "profiteering_subletting",
+   "class_a_multiple_dwelling_transient_use",
+   "police_power_licensing"
+  ],
+  "new_terms_observed": [
+   "Airbnb rental"
+  ],
+  "quotes": [
+   {
+    "text": "plaintiff has sufficiently demonstrated, at this juncture, that defendant\u2019s 135 rentals to transients for the past year and a half for more than the legal regulated rent constitutes an incurable violation of the Rent Control Law",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     26879,
+     27107
+    ],
+    "reporter_page": "736"
+   },
+   {
+    "text": "plaintiff has sufficiently demonstrated, at this juncture, that defendant\u2019s 135 rentals to transients for the past year and a half for more than the legal regulated rent constitutes an incurable violation of the Rent Control Law",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     26879,
+     27107
+    ],
+    "reporter_page": "736"
+   },
+   {
+    "text": "Defendant\u2019s guests are not roommates or subletters, but clients who are part of her highly organized and apparently successful hotel business.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6734,
+     6876
+    ],
+    "reporter_page": "727"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1064801,
+  "cite": "178 A.D.2d 709",
+  "court": "Supreme Court, Appellate Division, Third Department",
+  "year": 1991,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "Insurance-exclusion dispute over whether unpaid family home care for disabled persons constitutes a 'business pursuit'; court held the disabled residents were treated as family members, not roomers or boarders, so it does not bear on compensated short-term letting or boarding-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1097743,
+  "cite": "186 A.D.2d 507",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 1992,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "license",
+  "holding_summary": "A co-op shareholder who had run a bed-and-breakfast in his apartment since 1987 sued to enjoin the co-op from interfering with his paying guests. The Appellate Division reversed and dismissed the complaint, holding the proprietary lease's allowance for occupancy by 'guests' does not extend to transient, paying business invitees, and distinguishing Baddour v. City of Long Beach as inapplicable to cooperative ownership governed by a proprietary lease.",
+  "doctrinal_concepts": [
+   "license_vs_lease",
+   "cooperative_proprietary_lease_restriction",
+   "transient_commercial_occupancy"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "this language, which encompasses occupancy by members of the lessee\u2019s household and occasional guests, does not extend to business invitees whose occupancy can fairly be characterized as both transient and commercial.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2542,
+     2759
+    ],
+    "reporter_page": "508"
+   },
+   {
+    "text": "The reference to occupancy by \"guests of the Lessee\u201d does not contemplate persons who pay a fee to the proprietary lessee to temporarily reside in the premises as licensees.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2760,
+     2933
+    ],
+    "reporter_page": "508"
+   },
+   {
+    "text": "unanimously reversed, on the law, the motion denied and the cross-motion granted to the extent of dismissing the complaint, without costs.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     821,
+     959
+    ],
+    "reporter_page": "507"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1267454,
+  "cite": "75 Misc. 2d 653",
+  "court": "Supreme Court, Oneida County",
+  "year": 1973,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "In a declaratory judgment action, the court held that a family-care arrangement under which petitioners would board eight state hospital patients for a monthly fee in their home qualifies as a 'rooming or boarding house' use under the village zoning ordinance, permitting the nonconforming-use change as a matter of right because zoning ordinances restricting property rights must be construed liberally in favor of the owner.",
+  "doctrinal_concepts": [
+   "liberal_construction_favoring_owner",
+   "boarding_house_zoning_classification",
+   "family_care_boarding"
+  ],
+  "new_terms_observed": [
+   "family care home"
+  ],
+  "quotes": [
+   {
+    "text": "New York courts have consistently held that zoning ordinances \u2014 being in derogation of common-law property rights \u2014 must be construed in favor of the property owner",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4591,
+     4755
+    ],
+    "reporter_page": "655"
+   },
+   {
+    "text": "it is this court\u2019s opinion that the proposed \u201cfamily care\u201d use would be allowed as a type of boarding or rooming house use in the Residential R-2 zone.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7467,
+     7618
+    ],
+    "reporter_page": "656"
+   },
+   {
+    "text": "it is this court\u2019s opinion that the proposed \u201cfamily care\u201d use would be allowed as a type of boarding or rooming house use in the Residential R-2 zone.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7467,
+     7618
+    ],
+    "reporter_page": "656"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1277008,
+  "cite": "78 Misc. 2d 607",
+  "court": "Supreme Court, Appellate Term, Second Department",
+  "year": 1973,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "Defendant was convicted of violating a village boarding-house licensing ordinance for housing more than two unrelated boarders in her legal two-family dwelling. The Appellate Term reversed, holding the ordinance's definitions of 'family' and 'boarding house' were internally inconsistent and the evidence insufficient to prove the units were used as anything other than single housekeeping units, so the conviction could not stand.",
+  "doctrinal_concepts": [
+   "boarding_house_licensing",
+   "family_definition_ambiguity",
+   "single_housekeeping_unit"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "a family is defined by the code as \u201c any number of individuals related by blood, marriage, or adoption, living and cooking together on the premises as a single housekeeping unit, and may include servants living in, or not more than two paying lodgers or boarders \u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1833,
+     2097
+    ],
+    "reporter_page": "608"
+   },
+   {
+    "text": "we must hold that the code was not violated.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3575,
+     3619
+    ],
+    "reporter_page": "609"
+   },
+   {
+    "text": "The judgment of conviction is unanimously r.eversed on the law land facts and the complaint dismissed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5280,
+     5382
+    ],
+    "reporter_page": "610"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3628412,
+  "cite": "18 Misc. 3d 381",
+  "court": "Supreme Court, New York County",
+  "year": 2007,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "The City sought to enjoin owners of three 'apartment hotel' buildings on the Upper West Side from renting rooms to tourists for stays under 30 days, arguing the use as transient hotels violated the certificates of occupancy and the 1961 Zoning Resolution's R8 residential zoning. The court granted a preliminary injunction, holding the buildings' pre-1961 transient use had itself violated their certificates of occupancy so the nonconforming-use grandfather provision did not apply, and that the extensive transient rentals were not merely incidental to permanent residential use.",
+  "doctrinal_concepts": [
+   "transient_hotel_zoning_violation",
+   "class_a_multiple_dwelling_transient_use",
+   "certificate_of_occupancy_enforcement",
+   "police_power_licensing"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the use of the subject buildings as transient hotels violates both the certificates of occupancy for the subject buildings and the 1961 Zoning Resolution",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     20497,
+     20650
+    ],
+    "reporter_page": "390"
+   },
+   {
+    "text": "a \u201ctransient hotel\u201d is \u201ca \u2018building\u2019 or part of a \u2018building\u2019 in which: (a) living or sleeping accommodations are used primarily for transient occupancy, and may be rented on a daily basis\u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     14489,
+     14677
+    ],
+    "reporter_page": "388"
+   },
+   {
+    "text": "The transient use of the subject buildings is illegal as violative of the certificates of occupancy and the Zoning Resolution.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     29379,
+     29505
+    ],
+    "reporter_page": "396"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4369074,
+  "cite": "133 A.D.3d 1174",
+  "court": "Supreme Court, Appellate Division, Third Department",
+  "year": 2015,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": "A homeowner rented his single-family residence short-term (from overnight to a month or season) via internet listings; the town's code enforcement officer and zoning board treated this as an illegal bed-and-breakfast or hotel requiring a special permit. The Appellate Division reversed, holding the rentals did not meet the town code's definitions of 'hotel' or 'bed-and-breakfast' (since petitioner always rented the whole house and was never present), and that absent an express prohibition on renting a residence to vacationers, the short-term rentals did not remove the property from its residential one-family classification.",
+  "doctrinal_concepts": [
+   "short_term_rental_zoning",
+   "sharing_economy_gap",
+   "one_family_dwelling_classification"
+  ],
+  "new_terms_observed": [
+   "sharing economy",
+   "house sharing"
+  ],
+  "quotes": [
+   {
+    "text": "petitioner\u2019s use of the property does not fall under the definitions in the Town Code of either of these.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4534,
+     4639
+    ],
+    "reporter_page": "1176"
+   },
+   {
+    "text": "Ordered that the judgment is modified, on the law, without costs, by reversing so much thereof as dismissed the petition; petition granted to the extent of annulling the determination of respondent Zoning Board of Appeals of the Town of Hurley; and, as so modified, affirmed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5936,
+     6211
+    ],
+    "reporter_page": "1176"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "Characterization left null: the court held the arrangement did not fit the town code's 'hotel' or 'bed-and-breakfast' definitions but did not affirmatively classify it as lease/license/lodging/innkeeping.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 313487,
+  "cite": "171 Misc.2d 302",
+  "court": "Civil Court of the City of New York, New York County",
+  "year": 1997,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "lease",
+  "holding_summary": "A hotel guest who registered for one night at a rent-stabilized hotel and immediately requested a lease became a 'permanent tenant' under the Rent Stabilization Code upon making that request, even though the hotel had failed to inform her of that right; the hotel's use of self-help to remove her the next day was therefore an illegal eviction, and she was entitled to restoration to possession.",
+  "doctrinal_concepts": [
+   "hotel_stabilization_permanent_tenant",
+   "self_help_eviction_prohibition",
+   "transient_vs_tenant_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Pursuant to RSC \u00a7 2522.5 (a) (2), petitioner became a permanent tenant upon issuing her request for a lease, and respondent had to issue her a lease within 15 days for a term of 6 months.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3296,
+     3483
+    ],
+    "reporter_page": "304"
+   },
+   {
+    "text": "respondent acted illegally in utilizing self-help to remove petitioner from the premises.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6647,
+     6736
+    ],
+    "reporter_page": "306"
+   },
+   {
+    "text": "this court finds that respondent has illegally evicted petitioner and must restore her forthwith to possession of the subject premises.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     11776,
+     11911
+    ],
+    "reporter_page": "309"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 782936,
+  "cite": "110 Misc.2d 392",
+  "court": "City Court of Oswego, Oswego County",
+  "year": 1981,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "adverse",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "Defendant was convicted of operating an unpermitted 'dormitory' \u2014 group quarters for unrelated individuals sharing common facilities \u2014 in a residential district requiring a special permit for such use. The court upheld the zoning board's denial of the permit and found defendant's prior nonconforming boarding/rooming-house use had been abandoned for over a year, extinguishing any grandfathered right, and rejected defendant's argument that the ordinance's 'unrelated individuals' requirement was unconstitutionally vague.",
+  "doctrinal_concepts": [
+   "dormitory_zoning_permit",
+   "nonconforming_use_abandonment",
+   "unrelated_individuals_restriction"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the defendant between February 4 and February 11, 1981 did in fact operate a dormitory at 156 West Seneca Street as is alleged in the accusatory instrument.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1643,
+     1799
+    ],
+    "reporter_page": "393"
+   },
+   {
+    "text": "the non-conforming boarding/rooming house use has been abandoned by Mr. Waring for an uninterrupted period of one calendar year",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     9451,
+     9578
+    ],
+    "reporter_page": "396"
+   },
+   {
+    "text": "As a matter of law, abandonment of a nonconforming use extinguishes the defendant\u2019s legal right to that use.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     9586,
+     9694
+    ],
+    "reporter_page": "396"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 822013,
+  "cite": "122 Misc.2d 136",
+  "court": "Civil Court of the City of New York, New York County",
+  "year": 1983,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "Concerns retroactive application of the 1982 Loft Law to artist-loft tenants facing eviction; addresses loft-conversion legalization, not compensated short-term occupancy or boarding-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 822120,
+  "cite": "122 Misc.2d 770",
+  "court": "Civil Court of the City of New York, New York County",
+  "year": 1983,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "Determines whether a photographer's joint living/working loft use qualifies as a 'residence or home' under the 1982 Loft Law's primary-residence coverage requirements; concerns artist-loft tenant protections, not compensated boarding or short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 828076,
+  "cite": "124 Misc.2d 115",
+  "court": "Civil Court of the City of New York, New York County",
+  "year": 1984,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "A hotel occupant who had resided and paid rent intermittently for about three months but who had registered for a short stay was locked out by the hotel as a 'transient.' The court held she was not a transient because she had no other home, and as an occupant in possession over 30 days she qualified as a 'tenant' under RPAPL 711, so the hotel could not remove her without legal process and had to restore her to possession.",
+  "doctrinal_concepts": [
+   "transient_vs_resident_test",
+   "hotel_occupant_tenant_status",
+   "self_help_eviction_prohibition"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "There is nothing to indicate that she has any other residence, and although hotels normally require a transient guest to provide a home address, the hotel has no other address for her.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4068,
+     4252
+    ],
+    "reporter_page": "117"
+   },
+   {
+    "text": "Consequently, the hotel acted improperly in locking Ms. Mann out of her rooms.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4655,
+     4733
+    ],
+    "reporter_page": "117"
+   },
+   {
+    "text": "\u201cTransient\u201d has been considered the opposite of \u201cresident\u201d (see The Leontios Teryazos, 45 F Supp 618), and with respect to a hotel, is one who has a home elsewhere and is staying at the hotel for a short period in connection with a trip away from home.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3727,
+     3979
+    ],
+    "reporter_page": "117"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 834847,
+  "cite": "126 Misc.2d 836",
+  "court": "Civil Court of the City of New York, Queens County",
+  "year": 1984,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The City sought to close six rooming houses for violating a code provision barring rooming units not registered before 1954, effectively requiring eviction of roughly 95 low-income roomers. Although the code's constitutionality had already been upheld, the court stayed the consent decree requiring eviction and adopted an interpretation of the 'family' definition allowing the buildings to be reorganized so small groups of tenants and boarders could remain, reasoning enforcement compelling eviction into homelessness would produce an unintended injustice.",
+  "doctrinal_concepts": [
+   "rooming_house_licensing",
+   "family_definition_ambiguity",
+   "boarding_house_regulation_police_power"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "DHPD alleged that the defendants were operating these buildings in violation of New York City Housing Maintenance Code \u00a7 D26-33.07",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2145,
+     2275
+    ],
+    "reporter_page": "837"
+   },
+   {
+    "text": "this court will stay the enforcement of the consent decree entered into by the parties and will allow the tenants to remain in their residences, within the limits defined by this court under the statutory language of Code article 33.",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     14559,
+     14792
+    ],
+    "reporter_page": "842",
+    "fuzzy_score": 96.99570815450643
+   },
+   {
+    "text": "Under the Code, a \u201cfamily\u201d is defined as (i) a single person, or (ii) two or more persons related by blood or marriage occupying a common household, with not more than two boarders, and (iii) not more than three unrelated persons occupying a dwelling unit and maintaining a common household.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     23884,
+     24175
+    ],
+    "reporter_page": "845"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 886816,
+  "cite": "146 Misc.2d 395",
+  "court": "Justice Court of Village of Elmsford, Westchester County",
+  "year": 1990,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "A motel owner sought summary eviction of a homeless woman placed there by the county Department of Social Services and residing there over two years, arguing she was a mere transient licensee. The court held she was not a transient because she had no other home, making her a month-to-month tenant under RPAPL 711 entitled to a 30-day notice to vacate, which the motel had not given, so the eviction proceeding was dismissed.",
+  "doctrinal_concepts": [
+   "transient_vs_resident_test",
+   "month_to_month_tenancy",
+   "hotel_occupant_tenant_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "respondent here is a homeless person not a transient, is for the reasons noted a month-to-month tenant, and may not be evicted without being given a 30-day notice to vacate \u2014 which was not afforded her in this case.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4998,
+     5213
+    ],
+    "reporter_page": "398"
+   },
+   {
+    "text": "In the opinion of this court respondent\u2019s argument as presented by Westchester Legal Services is more persuasive.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2004,
+     2117
+    ],
+    "reporter_page": "396"
+   },
+   {
+    "text": "For the reasons heretofore noted this proceeding is dismissed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5219,
+     5281
+    ],
+    "reporter_page": "398"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 921144,
+  "cite": "160 Misc.2d 963",
+  "court": "Supreme Court, Appellate Term, First Department",
+  "year": 1994,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "A landlord sought to evict a tenant occupying a partitioned 'cubicle' in a Manhattan lodging house on the theory the tenancy was an unregulated nightly arrangement. The Appellate Term affirmed dismissal of the holdover proceeding, holding that lodging-house housing accommodations, including cubicles used as a tenant's residence, are covered by rent stabilization because lodging houses are class B multiple dwellings not excluded from that coverage.",
+  "doctrinal_concepts": [
+   "lodging_house_rent_stabilization",
+   "class_b_multiple_dwelling_coverage",
+   "cubicle_housing_accommodation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Petitioner concedes that a lodging house constitutes a class B multiple dwelling (see, Multiple Dwelling Law \u00a7 4 [9], [14]), and can point to no specific ETPA exemption removing lodging houses from the ambit of rent stabilization.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1759,
+     1989
+    ],
+    "reporter_page": "964"
+   },
+   {
+    "text": "The cubicle space here in issue was intended to and has in fact served as this tenant\u2019s \u201cresidence, home [and] dwelling unit\u201d for a period of years",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2374,
+     2521
+    ],
+    "reporter_page": "964"
+   },
+   {
+    "text": "Order entered September 16, 1991 affirmed with $10 costs.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     431,
+     488
+    ],
+    "reporter_page": "964"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "duration_of_occupancy mapped to 'months' as the closest available bucket; the opinion states occupancy 'for a period of years,' which exceeds all enumerated options.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1048115,
+  "cite": "193 Misc.2d 716",
+  "court": "Supreme Court, New York County",
+  "year": 2002,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The City sought reimbursement from a building owner for relocating 55 people found illegally residing in cubicles built into a commercial basement lacking secondary egress, heat, or sanitary facilities, after a fire department vacate order. The court held the relocated occupants were not 'tenants' entitled to trigger owner reimbursement liability under the Administrative Code because the record did not establish that they had occupied the illegal basement lodging for a sufficient, verified period to be more than transient occupants, though the owner was found negligent for the illegal buildout.",
+  "doctrinal_concepts": [
+   "illegal_single_room_occupancy",
+   "tenant_vs_occupant_definition",
+   "unsafe_boarding_conditions"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "No secondary means of egress from cellar, Inadequate fire protection, Overcrowding, Illegal single room occupancies.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1148,
+     1264
+    ],
+    "reporter_page": "717"
+   },
+   {
+    "text": "the court finds that the persons relocated were not \u201ctenants,\u201d defendant is not liable for the relocation expenses for these 55 individuals.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     10182,
+     10322
+    ],
+    "reporter_page": "720"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "Characterization left null: the court addressed only whether the relocated individuals were 'tenants' vs. mere 'occupants' for municipal reimbursement purposes and did not classify the underlying arrangement as lease/license/lodging/innkeeping.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1246298,
+  "cite": "70 Misc.2d 290",
+  "court": "Civil Court of the City of New York, New York County",
+  "year": 1972,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "A resident of a hotel under an 11-month written lease sued for property stolen from his room, invoking the innkeeper's strict-liability rule applicable to transient guests. The court held that, given the duration of occupancy, the written lease, and the hotel's monthly rental services, plaintiff was a tenant rather than a transient guest, so the innkeeper's insurer-liability rule did not apply and, absent proven negligence, the complaint was dismissed.",
+  "doctrinal_concepts": [
+   "innkeeper_liability_vs_tenancy",
+   "guest_vs_tenant_factors",
+   "lease_characterization_factors"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "At common law, the liability of an insurer was imposed on an innkeeper to protect travelers who, while on their journey had stopped in transit for food and lodging.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2038,
+     2202
+    ],
+    "reporter_page": "291"
+   },
+   {
+    "text": "I conclude that the plaintiff is not a guest, to be treated like a transient or traveler at an inn, but rather is a tenant on a regular and permanent basis.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4006,
+     4162
+    ],
+    "reporter_page": "292"
+   },
+   {
+    "text": "since there was no negligence on the part of the defendant and since plaintiff was not a \u201c guest \u201d in defendant\u2019s hotel, judgment will be entered for the defendant dismissing the complaint herein.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4584,
+     4780
+    ],
+    "reporter_page": "292"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1250504,
+  "cite": "71 Misc.2d 864",
+  "court": "Supreme Court, Special Term, Nassau County",
+  "year": 1972,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The Town sued to enjoin the owner of a legally two-family residence from housing far more than two families, having converted the premises into a rooming-house-like arrangement with locked individual rooms occupied by numerous unrelated persons receiving mail there. The court found the ordinance's two-family occupancy limit a valid exercise of the police power and permanently enjoined the owner from permitting occupancy by more than two families, ordering him to remedy the violation.",
+  "doctrinal_concepts": [
+   "boarding_house_zoning_enforcement",
+   "two_family_dwelling_limit",
+   "police_power_licensing",
+   "family_definition_zoning"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The maintenance of a rooming house on premises legally zoned for a two-family dwelling is a continuing violation calling for immediate appropriate legal action.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4280,
+     4440
+    ],
+    "reporter_page": "866"
+   },
+   {
+    "text": "The maintenance of a rooming house on premises legally zoned for a two-family dwelling is a continuing violation calling for immediate appropriate legal action.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4280,
+     4440
+    ],
+    "reporter_page": "866"
+   },
+   {
+    "text": "the defendant is maintaining premises at 63 Allen Drive, Great Neck, New York, in violation of the Building Zone Ordinance as well as section 3(d) of article II of the Housing and Rehabilitation Code of the Town of North Hempstead in that he is permitting the use of said premises by more than two families as defined in the Building Zone Ordinance.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6952,
+     7301
+    ],
+    "reporter_page": "866"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-031",
+  "notes": "",
+  "extraction_status": "ok"
+ }
+]

@@ -1,0 +1,676 @@
+[
+ {
+  "case_id": 1813473,
+  "cite": "39 Misc. 323",
+  "court": "Supreme Court, Appellate Term",
+  "year": 1902,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "innkeeper_lien",
+   "boarder_vs_guest"
+  ],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Replevin/lien dispute over a third party's sewing machine detained by a boarding-house keeper for an unpaid board bill; the boarder/guest/innkeeper distinctions discussed are background to the lien-priority holding, not to the legality or regulation of letting rooms itself. No holding_summary/characterization given because the case does not adjudicate that question.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7701283,
+  "cite": "79 N.Y.S. 859",
+  "court": "Supreme Court, Appellate Term",
+  "year": 1902,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "innkeeper_lien",
+   "boarder_vs_guest"
+  ],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Duplicate report of Barnett v. Walker (also 39 Misc. 323): lien-priority dispute over a third party's sewing machine detained by a boarding-house keeper, not a dispute over the legality or regulation of letting rooms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 50215,
+  "cite": "189 N.Y. 302",
+  "court": "New York Court of Appeals",
+  "year": 1907,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.12,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "innkeeper_lien",
+   "hotel_vs_apartment_definition"
+  ],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Dispute over an innkeeper's common-law lien on a piano owned by a third-party conditional vendor, left at defendant's hotel by a guest (later a one-year apartment tenant); addresses scope/constitutionality of the innkeeper's lien over third-party property, not the legality or regulation of letting/boarding. Guest occupied roughly Aug. 1898-Mar. 1899, then leased apartment for a year, occupied to June 1899.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 743968,
+  "cite": "114 Misc. 106",
+  "court": "Supreme Court, Appellate Term, First Department",
+  "year": 1921,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "A widow occupying only one or two of sixteen rooms in a leased house, whose sole livelihood was letting the remaining rooms to boarders/roomers, was held still to occupy the premises 'for dwelling purposes' under the 1920 emergency rent-suspension statute, because letting rooms to lodgers is merely incidental to the tenant's own occupation of the house as her home. The landlord's summary proceeding to recover possession after the tenancy's expiration was accordingly barred by the statute and properly dismissed.",
+  "doctrinal_concepts": [
+   "emergency_rent_law_dwelling_purposes",
+   "lodger_status",
+   "householder_letting_for_livelihood"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "she has no other business except the letting of rooms in this house and that the letting of rooms in this house is her sole or principal means of livelihood.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     2650,
+     2807
+    ],
+    "reporter_page": "108"
+   },
+   {
+    "text": "There is no essential difference in the relations of the head of a household which includes one lodger who pays for his lodging and one which includes a number of lodgers.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7492,
+     7663
+    ],
+    "reporter_page": "110"
+   },
+   {
+    "text": "There is no essential difference in the relations of the head of a household which includes one lodger who pays for his lodging and one which includes a number of lodgers.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7492,
+     7663
+    ],
+    "reporter_page": "110"
+   },
+   {
+    "text": "There is no essential difference in the relations of the head of a household which includes one lodger who pays for his lodging and one which includes a number of lodgers.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7492,
+     7663
+    ],
+    "reporter_page": "110"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Duration of individual roomers' stays not specified in the record beyond the general letting arrangement, hence unclear.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 766505,
+  "cite": "123 Misc. 950",
+  "court": "Supreme Court, Appellate Term, First Department",
+  "year": 1924,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "mixed",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "In a summary non-payment proceeding against the tenant of a house leased as 'a residence and rooming house,' the court held that the parts of the premises let to roomers and table boarders were used for business rather than dwelling purposes, so the landlord was entitled to recover possession of those parts, while the trial court must separately fix a reasonable rent only for the portion the tenant actually occupied as his own dwelling. The final order fixing rent for the entire premises was reversed and a new trial ordered.",
+  "doctrinal_concepts": [
+   "rooming_house_business_vs_dwelling",
+   "table_boarder",
+   "emergency_rent_law_dwelling_purposes"
+  ],
+  "new_terms_observed": [
+   "table boarders"
+  ],
+  "quotes": [
+   {
+    "text": "The tenant with his wife and daughter occupies the front parlor and kitchen; the front basement contains six tables set for table boarders and all the rest of the house is occupied by roomers.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3611,
+     3803
+    ],
+    "reporter_page": "951"
+   },
+   {
+    "text": "it would seem to follow that the landlord on non-payment of the rents of such a house is entitled to the possession of those parts of the premises occupied by roomers, and it would be the duty of the trial court to fix a reasonable rental for so much of the house used as a dwelling by the tenant.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4145,
+     4442
+    ],
+    "reporter_page": "952"
+   },
+   {
+    "text": "it would seem to follow that the landlord on non-payment of the rents of such a house is entitled to the possession of those parts of the premises occupied by roomers, and it would be the duty of the trial court to fix a reasonable rental for so much of the house used as a dwelling by the tenant.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4145,
+     4442
+    ],
+    "reporter_page": "952"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Characterization marked 'other' because the court's holding bifurcates the premises into a protected dwelling portion and an unprotected business (roomer/table-boarder) portion rather than applying a single lease/license/lodging label. Duration of individual roomers' stays not specified.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1398776,
+  "cite": "107 Misc. 186",
+  "court": "New York City Municipal Court, First District",
+  "year": 1919,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "innkeeper_lien",
+   "boarder_vs_guest"
+  ],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Replevin action addressing whether a boarding-house keeper's statutory lien attaches to a third party's furniture brought onto the premises by a boarder who 'remained for several weeks'; concerns lien priority against the true owner under the constitution, not the legality of the boarding arrangement itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1813511,
+  "cite": "39 Misc. 689",
+  "court": "County Court, Essex County",
+  "year": 1903,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "hotel_vs_apartment_definition",
+   "liquor_license_hotel_definition",
+   "boarder_vs_guest"
+  ],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Liquor Tax Law proceeding over whether premises were continuously occupied as a 'hotel' to preserve a liquor-tax certificate exemption; the hotel/boarding-house distinction (guest vs. boarder paying by the week) is used only to determine liquor-license eligibility, not the legality or regulation of letting rooms/dwellings for pay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1819919,
+  "cite": "42 Misc. 217",
+  "court": "Supreme Court, Appellate Term",
+  "year": 1903,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "tenant_vs_lodger",
+   "license_vs_lease",
+   "innkeeper_lien"
+  ],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Replevin action over a hotel/apartment company's claimed lien on a tenant's wife's furniture; turns on whether the husband under a formal one-year lease was a 'tenant' (no lien) rather than a 'lodger' for lien-law purposes -- a lien-priority classification question, not a dispute over the legality of letting or boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2767299,
+  "cite": "164 A.D. 577",
+  "court": "Supreme Court, Appellate Division, Second Department",
+  "year": 1914,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "A house occupied under a restrictive covenant limiting use to 'one private dwelling house' was rented, by oral arrangement, to three unrelated families who pooled rent and household/food expenses under the management of one of them; the court held this violated the covenant, reasoning that the arrangement's status and service were similar to a boarding-house keeper's, and that occupancy by multiple unrelated families destroys the singleness and privacy of a private dwelling. The order denying an injunction was reversed and the injunction granted.",
+  "doctrinal_concepts": [
+   "restrictive_covenant_private_dwelling",
+   "boarding_house_like_use",
+   "multi_family_cooperative_letting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "his actual status and service was similar to that of a boarding house keeper, notwithstanding the form of the arrangement.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3343,
+     3465
+    ],
+    "reporter_page": "578"
+   },
+   {
+    "text": "when three or more \u2014 at least those unrelated by family ties \u2014 occupy a house, even occupy its living rooms in common, with a common table, the sense of a private dwelling disappears.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3910,
+     4093
+    ],
+    "reporter_page": "579"
+   },
+   {
+    "text": "when three or more \u2014 at least those unrelated by family ties \u2014 occupy a house, even occupy its living rooms in common, with a common table, the sense of a private dwelling disappears.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3910,
+     4093
+    ],
+    "reporter_page": "579"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Characterization marked 'other' because the court neither labels the arrangement a lease/license/lodging nor innkeeping cleanly; it instead likens it to boarding-house-keeping to find a covenant violation. Exact length of individual family members' stays ('some portion of the summer') not stated.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4618349,
+  "cite": "197 A.D. 327",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 1921,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "hotel_vs_apartment_definition"
+  ],
+  "new_terms_observed": [
+   "non-housekeeping apartments"
+  ],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Determines whether a 140-room apartment building with 15 furnished transient rooms qualifies as a 'hotel' exempt from a rent-emergency statute's bill-of-particulars requirement; concerns statutory classification of a large commercial apartment-hotel enterprise, not a householder's letting of dwelling space or police-power regulation of lodging houses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4687596,
+  "cite": "205 A.D. 112",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 1923,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.88,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "A restrictive covenant confining lots to 'first class dwelling houses' and enumerating specific prohibited nuisance-type businesses did not bar a resident from privately taking in boarders, because boarding houses -- though as well known when the covenant was drawn as today -- were not among the uses expressly prohibited, and the house was not held out to the public, took no transients, and admitted only boarders personally known or recommended. The neighboring owner's suit to enjoin the use as a boarding house was dismissed.",
+  "doctrinal_concepts": [
+   "restrictive_covenant_private_dwelling",
+   "private_boarding_not_public_business",
+   "boarder_personally_known"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "No transient guests are received, but on the contrary, several of the guests have lived in the household of the defendant Ida M. Smart, who is a tenant of the defendant Scoville, for long periods of years, and no person is received who is not recommended or personally known to someone in the house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3037,
+     3336
+    ],
+    "reporter_page": "113"
+   },
+   {
+    "text": "boarding houses, though as well known at the time the covenant was drawn as they are to-day, were not prohibited.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5071,
+     5184
+    ],
+    "reporter_page": "113"
+   },
+   {
+    "text": "boarding houses, though as well known at the time the covenant was drawn as they are to-day, were not prohibited.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5071,
+     5184
+    ],
+    "reporter_page": "113"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Guests described as staying 'for long periods of years'; mapped to the 'months' bucket as the closest available option to a multi-year, non-transient occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4740197,
+  "cite": "208 A.D. 147",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 1924,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.78,
+  "polarity": "mixed",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The Appellate Division majority held that a tenant who allowed a family to occupy two upper floors of his leased dwelling for about three years, paying 55% of household expenses and given a separate kitchen, bathroom, and doorbell, had in substance sublet those floors in violation of the lease's no-subletting covenant, rejecting the claim that the occupant was merely a lodger. The dissent, invoking the settled rule that letting rooms to lodgers is not a breach of a covenant against under-letting, would have found no violation.",
+  "doctrinal_concepts": [
+   "lodger_vs_sublessee",
+   "sublet_covenant_lodger_exception",
+   "pooled_expense_arrangement"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It is obvious that whatever the tenant and under-tenant called themselves by private arrangement, their legal character was that of lessor and lessee",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5739,
+     5888
+    ],
+    "reporter_page": "149"
+   },
+   {
+    "text": "It is obvious that whatever the tenant and under-tenant called themselves by private arrangement, their legal character was that of lessor and lessee",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5739,
+     5888
+    ],
+    "reporter_page": "149"
+   },
+   {
+    "text": "Letting rooms to lodgers is held not to be a breach of a covenant against under-letting.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     23434,
+     23522
+    ],
+    "reporter_page": "156"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Occupancy ran roughly October 1918 to October 1921 (about three years); mapped to the 'months' bucket as the closest available option, since 'years' is not an enumerated value.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5193481,
+  "cite": "106 A.D. 431",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 1905,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.12,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "innkeeper_lien",
+   "hotel_vs_apartment_definition"
+  ],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Duplicate/lower-court report of Horace Waters & Co. v. Gerard (see also 189 N.Y. 302): dispute over an innkeeper's lien on a piano owned by a third-party conditional vendor, not a dispute over the legality or regulation of letting/boarding itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5570757,
+  "cite": "150 N.Y.S. 94",
+  "court": "Supreme Court, Appellate Division, Second Department",
+  "year": 1914,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "A house occupied under a restrictive covenant limiting use to 'one private dwelling house' was rented, by oral arrangement, to three unrelated families who pooled rent and household/food expenses under the management of one of them; the court held this violated the covenant, reasoning that the arrangement's status and service were similar to a boarding-house keeper's, and that occupancy by multiple unrelated families destroys the singleness and privacy of a private dwelling. The order denying an injunction was reversed and the injunction granted.",
+  "doctrinal_concepts": [
+   "restrictive_covenant_private_dwelling",
+   "boarding_house_like_use",
+   "multi_family_cooperative_letting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "but his actual status and service was similar to that of a boarding house keeper, notwithstanding the form of the arrangement.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3676,
+     3802
+    ],
+    "reporter_page": "95"
+   },
+   {
+    "text": "when three or more\u2014at least those unrelated by family ties\u2014occupy a house, even occupy its living rooms in common, with a common table, the sense of a private dwelling disappears.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4274,
+     4453
+    ],
+    "reporter_page": "95"
+   },
+   {
+    "text": "when three or more\u2014at least those unrelated by family ties\u2014occupy a house, even occupy its living rooms in common, with a common table, the sense of a private dwelling disappears.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4274,
+     4453
+    ],
+    "reporter_page": "95"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Duplicate report of Kalb v. Mayer (also 164 A.D. 577), with slightly different reporter spacing/dashes reproduced verbatim from this text. Exact length of individual family members' stays not stated.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7670633,
+  "cite": "85 N.Y.S. 334",
+  "court": "Supreme Court, Appellate Term",
+  "year": 1903,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "A boarding-house keeper sued a former boarder for breach of an entire contract to pay $100 a month for a room and board for himself and his wife through a fixed period; the Appellate Term upheld a jury verdict for the boarding-house keeper, finding the entire character of the contract corroborated by a disinterested witness and that she was not obligated to relet the room where the departing boarder said he would arrange for it himself. The judgment was affirmed as not excessive.",
+  "doctrinal_concepts": [
+   "boarding_contract_enforcement",
+   "entire_contract_lodging",
+   "duty_to_mitigate_reletting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The plaintiff, a boarding house keeper, sued for the defendant\u2019s breach of an entire contract whereby he agreed to pay $100 a month for a room and board for himself and his wife during a period ending July 9, 1902.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     877,
+     1091
+    ],
+    "reporter_page": "334"
+   },
+   {
+    "text": "As to the entire character of the contract, the plaintiff\u2019s testimony was corroborated by a disinterested witness, and we find no reason for disturbing the jury\u2019s conclusion upon the facts.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1092,
+     1281
+    ],
+    "reporter_page": "334"
+   },
+   {
+    "text": "As to the entire character of the contract, the plaintiff\u2019s testimony was corroborated by a disinterested witness, and we find no reason for disturbing the jury\u2019s conclusion upon the facts.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1092,
+     1281
+    ],
+    "reporter_page": "334"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Contract enforcement dispute between a commercial boarding-house keeper and a boarder over an entire monthly room-and-board agreement; probative of courts enforcing boarding arrangements as ordinary contracts, though the core issue is contract/mitigation doctrine rather than legality of letting per se.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7672081,
+  "cite": "85 N.Y.S. 365",
+  "court": "Supreme Court, Appellate Term",
+  "year": 1903,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "tenant_vs_lodger",
+   "license_vs_lease",
+   "innkeeper_lien"
+  ],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Duplicate report of Shearman v. Iroquois Hotel & Apartment Co. (also 42 Misc. 217): replevin/lien dispute turning on whether the plaintiff's husband, under a formal one-year lease, was a 'tenant' rather than a 'lodger' for lien-law purposes -- not a dispute over the legality of letting or boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7683925,
+  "cite": "94 N.Y.S. 702",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 1905,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.12,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "innkeeper_lien",
+   "hotel_vs_apartment_definition"
+  ],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Duplicate report of Horace Waters & Co. v. Gerard (see also 189 N.Y. 302, 106 A.D. 431): dispute over an innkeeper's lien on a piano owned by a third-party conditional vendor, not a dispute over the legality or regulation of letting/boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 733451,
+  "cite": "106 Misc. 481",
+  "court": "Supreme Court, Appellate Term, First Department",
+  "year": 1919,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.2,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "innkeeper_guest_status",
+   "hotel_vs_apartment_definition"
+  ],
+  "new_terms_observed": [
+   "light housekeeping"
+  ],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-006",
+  "notes": "Tort action for a lost gown turning on whether an apartment-hotel building (with kitchens, restaurant, weekly billing) was an 'inn' imposing common-law innkeeper strict liability, or an apartment house where plaintiff (who stayed about a week) was merely a tenant doing 'light housekeeping'; concerns innkeeper-bailee tort classification, not the legality or regulation of letting/boarding.",
+  "extraction_status": "ok"
+ }
+]

@@ -1,0 +1,612 @@
+[
+ {
+  "case_id": 8503606,
+  "cite": "5 Pelt. 846",
+  "court": "Louisiana Court of Appeal",
+  "year": 1921,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "A lessor sought to cancel a lease because the lessee's wife received paying Christian Science patients in the dwelling; the court held this was not a violation of a 'dwelling only' use covenant, reasoning the reception of visitors or patients was merely incidental to residential use. In reaching this result the court relied on and extended its own precedent holding that a householder may admit into his home whomever he chooses, including boarders and lodgers, without the home ceasing to be a private dwelling.",
+  "doctrinal_concepts": [
+   "householder_letting",
+   "dwelling_use_restriction"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "A dwelling-house is a place for the accommodation and shelter of human beings, and the householde r may admit into his house whomsoever he pleases even boarders and lodgers; nor does his home thereby cease to be his private dwelling house",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6938,
+     7176
+    ],
+    "reporter_page": "850"
+   },
+   {
+    "text": "We do not see how it can be said that the actions of the defendant detailed above can be construed into making another use of the property; it still remained a dwelling and the receiving of visitors or patients was only incidental.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8644,
+     8875
+    ],
+    "reporter_page": "851"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "This case's own facts concern a Christian Science healer's patients, not a lodger/boarder occupancy; characterization left null because no letting-of-rooms arrangement is characterized here. The doctrine quoted from Moreira v. Heckman (case_id 8502118) is the substantively relevant material, cited here as controlling precedent.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 6759651,
+  "cite": "1 Teiss. 206",
+  "court": "Louisiana Court of Appeal",
+  "year": 1904,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "A landlord provisionally seized all effects in premises leased to a boarding house keeper for unpaid rent; boarders intervened to recover their own furniture. The court held that boarders are sub-tenants (undertenants) to the extent they occupy rooms in the leased premises and keep their own furniture there, and since these boarders owed the boarding house keeper nothing at the time of seizure, their property was properly released.",
+  "doctrinal_concepts": [
+   "undertenant_status",
+   "boarding_house_keeper",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Boarders are in a sense sub-tenants, and where the sub-lessee agreed in good faith to pay the rent in advance payment made in accordance with the terms of the contract is riot a payment made in anticipation under the meaning of R. C. C. 2706",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1748,
+     1989
+    ],
+    "reporter_page": "207"
+   },
+   {
+    "text": "A boarder is an undertenant to the extent that he occupies apartments in the leased premises and keeps his own furniture and effects there.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     290,
+     429
+    ],
+    "reporter_page": "206"
+   },
+   {
+    "text": "Boarders are in a sense sub-tenants, and where the sub-lessee agreed in good faith to pay the rent in advance payment made in accordance with the terms of the contract is riot a payment made in anticipation under the meaning of R. C. C. 2706",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1748,
+     1989
+    ],
+    "reporter_page": "207"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8502118,
+  "cite": "3 Pelt. 530",
+  "court": "Louisiana Court of Appeal",
+  "year": 1920,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.95,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "license",
+  "holding_summary": "A lessor sought to annul a lease and dispossess a tenant who had taken in boarders, lodgers, and roomers, on the ground the premises were rented only as a dwelling and the arrangement was an unconsented sublease. The court held a householder may admit into her house, on whatever condition she chooses, whomever she will, including boarders, lodgers and roomers, without her home ceasing to be a private dwelling, and further held that renting rooms to friends while the tenant retains overall superintendence of the premises is not a 'sublease' requiring the lessor's written consent.",
+  "doctrinal_concepts": [
+   "householder_letting",
+   "sublease_vs_license",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "But certainly a householder may admit into his house, and on whatever condition he chooses, -whomsoever he will, including boarders, lodgers and roomers; nor does his home thereby cease to be his private dwelling.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3310,
+     3523
+    ],
+    "reporter_page": "532"
+   },
+   {
+    "text": "But certainly a householder may admit into his house, and on whatever condition he chooses, -whomsoever he will, including boarders, lodgers and roomers; nor does his home thereby cease to be his private dwelling.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3310,
+     3523
+    ],
+    "reporter_page": "532"
+   },
+   {
+    "text": "A dwelling house is a place for the shelter and accomo-dation of human beings, thereby distinguishing it from a stable or storehouse or factory or commercial establishment; and a private dwelling differs from a public house, i. e. an inn or hotel in this, that it does not hold out as offering accomodation to the general public.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2975,
+     3304
+    ],
+    "reporter_page": "532"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 603147,
+  "cite": "142 La. 167",
+  "court": "Louisiana Supreme Court",
+  "year": 1917,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "Ordinance addressed renting property to prostitutes in a vice-district regulation scheme and was invalidated on vagueness/overbreadth grounds; does not concern lodging/boarding-house letting practice or its regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 666429,
+  "cite": "12 Teiss. 182",
+  "court": "Louisiana Court of Appeal",
+  "year": 1915,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "Concerns a brewery's alleged disguised ownership interest in a barroom lease, prohibited by statute; wholly unrelated to lodging or boarding houses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1260581,
+  "cite": "163 La. 59",
+  "court": "Louisiana Supreme Court",
+  "year": 1926,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "Plaintiff, a practical nurse, rented a room from Mrs. Agnew (the building's lessee) and was injured when defective stairs collapsed; the courts below found plaintiff was not a subtenant but merely a 'roomer or lodger' in the leased premises, and that this did not violate the lessee's covenant not to sublease. The Supreme Court held the building owner could not, by contract with the lessee, escape ex delicto liability to such a lodger for injuries caused by the owner's neglect to keep the building in repair.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "landlord_tort_liability",
+   "sublease_vs_license"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "4. Landlord and tenant <@=>164(5) \u2014 Landlord cannot, by contract with lessee, escape obligation arising ex delicto for injuries to roomer of lessee, resulting from collapse of stairs (Civ. Code, arts. 670, 2315, 2322, 2693-2695).",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1345,
+     1574
+    ],
+    "reporter_page": "59"
+   },
+   {
+    "text": "The district court and the Court of Appeal both found that the plaintiff was not a subtenant, but merely a \u201croomer or lodger\u201d in the leased premises, and that there was no violation of the obligation of Mrs. Agnew \u201cto make no sublease.\u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4599,
+     4835
+    ],
+    "reporter_page": "61"
+   },
+   {
+    "text": "4. Landlord and tenant <@=>164(5) \u2014 Landlord cannot, by contract with lessee, escape obligation arising ex delicto for injuries to roomer of lessee, resulting from collapse of stairs (Civ. Code, arts. 670, 2315, 2322, 2693-2695).",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1345,
+     1574
+    ],
+    "reporter_page": "59"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1267618,
+  "cite": "160 La. 155",
+  "court": "Louisiana Supreme Court",
+  "year": 1925,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "Concerns whether a man renting and occupying a single room alone qualifies as a 'householder' under a prohibition-era home-brewing exemption statute; does not address the legality, character, or regulation of letting rooms to lodgers/boarders.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1273729,
+  "cite": "157 La. 749",
+  "court": "Superior Court of Louisiana",
+  "year": 1925,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "Landlord-tenant dispute over the landlord's duty to protect one apartment tenant from disturbance caused by a disorderly co-tenant in the same duplex; does not involve lodger/boarder letting or its regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1282408,
+  "cite": "153 La. 1007",
+  "court": "Louisiana Supreme Court",
+  "year": 1923,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "Plaintiff and her husband occupied a hotel room that its registered occupant had turned over to them with the desk clerk's knowledge and consent, without themselves registering. The court held that hotel registration is not essential to guest status: when a registered occupant, with the hotel management's knowledge and consent, turns his room over to another person to whom the clerk delivers the key, that person becomes an accepted guest of the hotel and not a mere licensee.",
+  "doctrinal_concepts": [
+   "innkeeper_guest_relationship",
+   "informal_lodging_arrangement"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The fact that such person fails to register, or is not required to register, is immaterial; as the registration , of guests at a hotel is no part of the contract between the hotel proprietor and the guest",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7349,
+     7553
+    ],
+    "reporter_page": "1011"
+   },
+   {
+    "text": "when the registered occupant of a room, with the knowledge and consent of the hotel management, turns his room over to another person, and the hotel clerk delivers the key of the room to that person, he becomes an accepted guest of the hotel, and is not a mere licensee.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7078,
+     7348
+    ],
+    "reporter_page": "1011"
+   },
+   {
+    "text": "The fact that such person fails to register, or is not required to register, is immaterial; as the registration , of guests at a hotel is no part of the contract between the hotel proprietor and the guest",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7349,
+     7553
+    ],
+    "reporter_page": "1011"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "Concerns commercial hotel/innkeeper guest status rather than householder letting, but bears on the legal character of compensated short-term occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2613090,
+  "cite": "123 La. 294",
+  "court": "Louisiana Supreme Court",
+  "year": 1908,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "Plaintiff operated a business of renting furnished rooms in premises leased from defendant, a purpose known to both parties at the time of leasing; when a neighboring hotel's excavation work destroyed the building's usability for that purpose, the court held plaintiff entitled to cancel the lease and be relieved of rent from judicial demand, since the lessor's warranty extends to the tenant's known business purpose. Plaintiff could not additionally recover damages, however, because the disturbance was caused by third parties' tortious acts, for which the lessor was not liable under Civil Code article 2703.",
+  "doctrinal_concepts": [
+   "furnished_rooms_business",
+   "lease_purpose_warranty"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "That the said premises were leased to petitioner for the purpose of renting rooms and keeping furnished rooms therein, which fact was well known to the said John Davidson, agent for the said Miss M. L. Egan",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     14940,
+     15146
+    ],
+    "reporter_page": "301"
+   },
+   {
+    "text": "For all the objects and purposes of the lease, to wit, the renting of furnished rooms by defendant, which were well known to both parties and in their contemplation when the lease was executed, in renewal of similar leases for past years, the damage to the leased building amounted to total destruction.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     25101,
+     25404
+    ],
+    "reporter_page": "307"
+   },
+   {
+    "text": "For all the objects and purposes of the lease, to wit, the renting of furnished rooms by defendant, which were well known to both parties and in their contemplation when the lease was executed, in renewal of similar leases for past years, the damage to the leased building amounted to total destruction.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     25101,
+     25404
+    ],
+    "reporter_page": "307"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3289185,
+  "cite": "1 La. App. 734",
+  "court": "Louisiana Court of Appeal",
+  "year": 1925,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "Plaintiff sued her deceased brother-in-law's succession for board and lodging she furnished him in her private home from January 1916 to January 1920. The court held the one-year prescription applicable to innkeepers and others who make it a business of lodging the public does not apply where a private householder furnishes board and lodging to a relative out of kindness rather than as a business, so the ten-year prescription governed and her claim was not barred.",
+  "doctrinal_concepts": [
+   "boarding_prescription",
+   "householder_kindness_exception",
+   "innkeeper_assimilation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Under Article 3534 of the Civil Code prescription .of one year has no application when one through kindness furnishes hoard and lodging to a parent or friend though that person is not an innkeeper.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     277,
+     474
+    ],
+    "reporter_page": "734"
+   },
+   {
+    "text": "Under Article 3534 of the Civil Code prescription .of one year has no application when one through kindness furnishes hoard and lodging to a parent or friend though that person is not an innkeeper.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     277,
+     474
+    ],
+    "reporter_page": "734"
+   },
+   {
+    "text": "It is clearly shown by the record that plaintiff was not running an inn, hotel or boarding house when the deceased, Liberal Galjour, was lodging and boarding with her from Jan. 1, 1916, to Jan. 1, 1920, for which judgment was rendered in her favor.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3233,
+     3481
+    ],
+    "reporter_page": "734"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "Actual occupancy spanned roughly four years (Jan. 1916-Jan. 1920), longer than the 'months' bucket captures; 'months' used as the closest available enum value since the schema has no 'years' option.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5310815,
+  "cite": "115 La. 988",
+  "court": "Louisiana Supreme Court",
+  "year": 1906,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "Homestead-exemption forfeiture case; the owner rented out his entire homestead and briefly boarded with his own tenant, but the holding concerns homestead abandonment for mortgage-exemption purposes, not the legality or regulation of lodging/boarding practice.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5313566,
+  "cite": "136 La. 724",
+  "court": "Louisiana Supreme Court",
+  "year": 1915,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "Concerns validity of a racially restrictive covenant in a deed prohibiting resale to a Black purchaser; unrelated to lodging or boarding-house letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 580213,
+  "cite": "145 La. 906",
+  "court": "Louisiana Supreme Court",
+  "year": 1919,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "Concerns a municipal ordinance against lewdness/prostitution as applied to an unmarried cohabiting couple in a rented private residence; not about compensated lodging/boarding or its regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 580222,
+  "cite": "145 La. 233",
+  "court": "Louisiana Supreme Court",
+  "year": 1919,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "Oil and gas law dispute between adjoining mineral lessees over pumping fugitive oil; wholly unrelated to lodging or boarding houses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 588875,
+  "cite": "137 La. 435",
+  "court": "Louisiana Supreme Court",
+  "year": 1915,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "Concerns liquor licensing of shipboard barrooms engaged in interstate and foreign commerce; unrelated to lodging or boarding houses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 591379,
+  "cite": "138 La. 763",
+  "court": "Louisiana Supreme Court",
+  "year": 1915,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "Mineral lease validity and judicial-partition dispute among land co-owners; unrelated to lodging or boarding houses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 593472,
+  "cite": "139 La. 605",
+  "court": "Louisiana Supreme Court",
+  "year": 1916,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-033",
+  "notes": "Municipal rat-proofing ordinance applicable city-wide to all buildings (residential, commercial, and stables) as a public-health measure against bubonic plague; not targeted at or limited to lodging/boarding houses and does not address compensated occupancy.",
+  "extraction_status": "ok"
+ }
+]

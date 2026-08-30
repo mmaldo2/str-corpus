@@ -1,0 +1,522 @@
+[
+ {
+  "case_id": 1280319,
+  "cite": "154 La. 271",
+  "court": "Louisiana Supreme Court",
+  "year": 1923,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "Zoning-ordinance validity for a grocery store in a residence district; no lodging, boarding, or room-letting-for-pay issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1286057,
+  "cite": "151 La. 1075",
+  "court": "Louisiana Supreme Court",
+  "year": 1922,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "Plaintiff was a monthly tenant of a room in a tenement house owned by the defendant company, which regularly let rooms in its buildings by the month. When she moved to a different room with the permission of the person managing the property and was later injured on a porch, the court held she was not a trespasser and that a tenant of a room, absent agreement to the contrary, has the use of the porches accessible from it in common with the other occupants.",
+  "doctrinal_concepts": [
+   "landlord_tenant_estoppel",
+   "room_tenancy"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The defendant owns a number of tenement houses in which it lets rooms by the month.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     2457,
+     2540
+    ],
+    "reporter_page": "1077"
+   },
+   {
+    "text": "renting a room in the house, she had the use of the porches accessible therefrom, in common with the other occupants of the premises, in the absence of agreement to the contrary",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5438,
+     5615
+    ],
+    "reporter_page": "1077"
+   },
+   {
+    "text": "A lessee of a room, who took possession of a room other than the one rented, by permission of one in charge of the property as a sort of superintendent, factotum, and go-between, was not a mere trespasser, as far as liability for personal injuries was concerned.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1018,
+     1280
+    ],
+    "reporter_page": "1075"
+   },
+   {
+    "text": "renting a room in the house, she had the use of the porches accessible therefrom, in common with the other occupants of the premises, in the absence of agreement to the contrary",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5438,
+     5615
+    ],
+    "reporter_page": "1077"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2470835,
+  "cite": "113 La. 9",
+  "court": "Louisiana Supreme Court",
+  "year": 1904,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "Police-power regulation of a poolroom/turf-exchange business confined to a district; unrelated to lodging or letting of dwelling rooms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2481537,
+  "cite": "110 La. 270",
+  "court": "Louisiana Supreme Court",
+  "year": 1902,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "Res judicata / possessor-in-good-faith dispute over rents owed for a party's wrongful occupation of land during a title contest; not a letting-for-pay or lodging arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2486590,
+  "cite": "109 La. 996",
+  "court": "Louisiana Supreme Court",
+  "year": 1903,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "Homestead-exemption case; owner lets out two small houses on his lot for $12 and $4 a month, but the fact of letting is used only to show abandonment of homestead status, not to adjudicate the legal character of letting rooms/houses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2504093,
+  "cite": "105 La. 206",
+  "court": "Louisiana Supreme Court",
+  "year": 1901,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.2,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "Ordinance restricting where rooms/houses may be rented to women 'notoriously abandoned to lewdness' and closure of houses used for prostitution; a vice-zoning measure, not regulation of boarding or lodging houses generally.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2610882,
+  "cite": "124 La. 805",
+  "court": "Louisiana Supreme Court",
+  "year": 1909,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "Succession/heirship contest; a witness's past occupation 'keeping a boarding house' is offered only as a biographical detail bearing on witness credibility, not adjudicated.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2611085,
+  "cite": "123 La. 539",
+  "court": "Louisiana Supreme Court",
+  "year": 1909,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "Retroactivity of a barroom-permit statute; 'boarding houses' appears only in a statutory exception permitting liquor service with meals, not adjudicated.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2614823,
+  "cite": "123 La. 825",
+  "court": "Louisiana Supreme Court",
+  "year": 1909,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "Seduction/paternity suit; that plaintiff 'had furnished rooms to let' is a passing biographical fact about her, not adjudicated as to the legal character of letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2614991,
+  "cite": "121 La. 440",
+  "court": "Louisiana Supreme Court",
+  "year": 1908,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "Barroom-license revocation dispute over whether a fire-damaged building lost its 'identity' as a barroom; no lodging/boarding house issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2615441,
+  "cite": "123 La. 527",
+  "court": "Louisiana Supreme Court",
+  "year": 1909,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "Retroactivity of a barroom-permit statute; 'boarding houses' appears only in a statutory exception permitting liquor service with meals, not adjudicated.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2618120,
+  "cite": "119 La. 1025",
+  "court": "Louisiana Supreme Court",
+  "year": 1907,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "lease",
+  "holding_summary": "Von Behren privately owned a lakeside 'camp,' a platform and house that he leased for recreation to all comers, including for single days, and separately arranged for a caretaker to occupy and rent it out when not otherwise let. When a visitor was injured by the collapse of the connecting wharf, the court held the owner liable in tort for failing to keep the wharf safe, regardless of whether the injured person was a direct lessee or a guest.",
+  "doctrinal_concepts": [
+   "short_term_letting",
+   "owner_liability_to_occupants"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "consisting mainly of a platform and a house built over the waters of Lake Pontchartrain, at Milneburg, intended to be used as a place of resort and recreation, and which would be leased for that purpose to all persons desiring to rent it",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1413,
+     1650
+    ],
+    "reporter_page": "1025"
+   },
+   {
+    "text": "for which day said camp had been leased and her mother would have to find other quarters under her agreement with Von Behren",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     2835,
+     2959
+    ],
+    "reporter_page": "1025"
+   },
+   {
+    "text": "she should live in and occupy and use the said camp as a summer home at all times when the same was not leased to other parties, when she should temporarily go to other quarters",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1912,
+     2089
+    ],
+    "reporter_page": "1025"
+   },
+   {
+    "text": "The owner of a wharf which has collapsed while being put to the use for which it was intended, is responsible in damages to those who were legitimately on it at the time and were injured.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     200,
+     387
+    ],
+    "reporter_page": "1025"
+   },
+   {
+    "text": "The owner of a wharf which has collapsed while being put to the use for which it was intended, is responsible in damages to those who were legitimately on it at the time and were injured.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     200,
+     387
+    ],
+    "reporter_page": "1025"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2628929,
+  "cite": "118 La. 1005",
+  "court": "Louisiana Supreme Court",
+  "year": 1907,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.2,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "Landlord-tenant trespass/tort suit over the lessor's unauthorized alteration of leased premises; plaintiff's business of 'keeping furnished rooms' is mentioned only as the basis for lost-revenue damages, not adjudicated as to the legal character of letting rooms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2636712,
+  "cite": "116 La. 1085",
+  "court": "Louisiana Supreme Court",
+  "year": 1906,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "Separation-from-bed-and-board suit turning on the husband's right to select the matrimonial domicile; no letting or lodging issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2683513,
+  "cite": "131 La. 1079",
+  "court": "Louisiana Supreme Court",
+  "year": 1913,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "Whether a private social club must obtain a barroom permit to sell liquor to members/guests; no lodging/boarding house issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2685896,
+  "cite": "130 La. 802",
+  "court": "Louisiana Supreme Court",
+  "year": 1912,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "Nuisance suit over noise from a private social club's bowling alley; no lodging/boarding house issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3287042,
+  "cite": "1 La. App. 453",
+  "court": "Louisiana Court of Appeal",
+  "year": 1925,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "Possessory action over a boundary lane and stray hogs entering an unfenced pasture; no letting or lodging issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3294349,
+  "cite": "3 La. App. 756",
+  "court": "Louisiana Court of Appeal",
+  "year": 1926,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "Plaintiff, injured when defective steps collapsed, was found to be not a sub-tenant but a roomer or lodger of the defendants' tenant, who occupied a rear room under a monthly rental. Because the tenant's written lease shifted to her the duty of keeping the premises safe (absolving the owners except for neglect after notice), and because a lessee cannot convey to those claiming through her a greater right than she herself possesses, the owners were held not liable to the lodger.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the plaintiff was not a sub-tenant, but simply a roomer or lodger of the tenant of the property at the time of the accident",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4850,
+     4973
+    ],
+    "reporter_page": "757"
+   },
+   {
+    "text": "under a monthly rental she was occupying a rear room on the premises",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     1719,
+     1787
+    ],
+    "reporter_page": "757"
+   },
+   {
+    "text": "A lessor, may, by contract, shift from himself to his lessee the duty imposed upon him by the .general law of seeing to the safety of the building owned by him, and may thus absolve himself of all duty toward others on the premises, through license or invitation granted them by the lessee.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     334,
+     624
+    ],
+    "reporter_page": "756"
+   },
+   {
+    "text": "A lesee cannot convey to others on the premises leased by him a greater right than he himself possesses.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     685,
+     789
+    ],
+    "reporter_page": "756"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-013",
+  "notes": "",
+  "extraction_status": "ok"
+ }
+]

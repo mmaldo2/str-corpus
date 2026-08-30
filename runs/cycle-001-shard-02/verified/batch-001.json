@@ -1,0 +1,579 @@
+[
+ {
+  "case_id": 484038,
+  "cite": "1 Denio 602",
+  "court": "New York Court for the Correction of Errors",
+  "year": 1845,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "A boarding-house keeper contracted with the defendant for rooms and board for his family for a year; the court held the arrangement was a single entire contract for board and lodging, not a lease of real estate, so no landlord-tenant relation arose. Because the contract was entire, the defendant was justified in quitting the rooms once the plaintiff failed to furnish proper board, and the plaintiff could not recover rent for rooms alone.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "When one contracts with the keeper of a hotel or boarding house for rooms and board, whether for a week or a year, the technical relation of landlord and tenant is not created between the parties.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6128,
+     6324
+    ],
+    "reporter_page": "604"
+   },
+   {
+    "text": "The lodger acquires no interest in the real estate.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6325,
+     6376
+    ],
+    "reporter_page": "604"
+   },
+   {
+    "text": "I repeat: this was nothing more than a contract for board and lodging.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6561,
+     6631
+    ],
+    "reporter_page": "604"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 497689,
+  "cite": "19 N.Y. 68",
+  "court": "New York Court of Appeals",
+  "year": 1859,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "Case concerns rent-charges reserved on fee conveyances, the statute of quia emptores, and covenants running with the land; no involvement of lodging, boarding, or compensated room occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 497719,
+  "cite": "19 N.Y. 234",
+  "court": "New York Court of Appeals",
+  "year": 1859,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "Mechanic's-lien/trade-fixture case about a tenant's right to remove a ball-room he built at a hotel/boarding-house; the case addresses fixture-removal law by analogy to trade, not the legal character or regulation of letting rooms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 947490,
+  "cite": "1 Lock. Rev. Cas. 307",
+  "court": "New York Court for the Correction of Errors",
+  "year": 1799,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Supreme Court had held that a boarder's property at a boarding-house was not exempt from the landlord's distress for rent when it was in the tenant's actual possession and use rather than the boarder's own. The Court of Errors reversed by resolution, holding that property of boarders at taverns and boarding-houses is exempt from distress regardless of who has actual possession, so long as it is there by the boarder's permission and without the landlord's consent.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "distress_exemption_boarder_property"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Resolved, that property of boarders at taverns and boarding-houses, is not liable to distress for rent although such property is not in their possession, but in the possession and actual use of the tenant, by their permission, and without the consent of the landlord.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     645,
+     912
+    ],
+    "reporter_page": "307"
+   },
+   {
+    "text": "Resolved, that property of boarders at taverns and boarding-houses, is not liable to distress for rent although such property is not in their possession, but in the possession and actual use of the tenant, by their permission, and without the consent of the landlord.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     645,
+     912
+    ],
+    "reporter_page": "307"
+   },
+   {
+    "text": "Resolved, that property of boarders at taverns and boarding-houses, is not liable to distress for rent although such property is not in their possession, but in the possession and actual use of the tenant, by their permission, and without the consent of the landlord.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     645,
+     912
+    ],
+    "reporter_page": "307"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "Facts of the underlying dispute are not reported here, only the appellate resolution; who_was_letting and duration left unclear for that reason.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1105708,
+  "cite": "1 Ant. N.P. Cas. 339",
+  "court": "Superior Court of the State of New York",
+  "year": 1844,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "In an action for wrongful distress of a hotel sub-tenant's merchandise, the court held that the general rule protecting a boarder's property from distress for the boarding-house keeper's rent does not extend to the boarder's stock in trade. The court also allowed distress on goods found in a hallway the landlord had permitted the sub-tenant to use as a passage, and held that irregularities in a distress do not by themselves defeat it.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "distress_exemption_boarder_property",
+   "sub_letting"
+  ],
+  "new_terms_observed": [
+   "qu\u00e2 boarder"
+  ],
+  "quotes": [
+   {
+    "text": "The property of a boarder, qm. boarder, but not his stock in trade in the house, is protected against seizure for the rent of the boarding-house keeper.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     457,
+     609
+    ],
+    "reporter_page": "339"
+   },
+   {
+    "text": "The property of a boarder, qm. boarder, but not his stock in trade in the house, is protected against seizure for the rent of the boarding-house keeper.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     457,
+     609
+    ],
+    "reporter_page": "339"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "characterization left null: the plaintiff occupied the room under a formal underletting from a hotel sub-tenant but is also treated in the syllabus as a 'boarder,' and the court's actual rulings turn on distress procedure and an implied common-way easement rather than on classifying the occupancy itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2035068,
+  "cite": "7 Cow. 71",
+  "court": "New York Supreme Court",
+  "year": 1827,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "Pleading and descent-of-assets case concerning a covenant to convey a land patent, heirs' liability, and mortgagor's estate; no connection to lodging or boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2046153,
+  "cite": "7 Hill & Den. 83",
+  "court": "New York Supreme Court",
+  "year": 1845,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "Dispute over a five-year lease of a store-and-dwelling and an implied warranty of repair; the 'demise of ready furnished lodgings' implied-warranty doctrine (citing Smith v. Marrable) is mentioned only as English dicta contrasted with the case, not applied to these facts.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4452782,
+  "cite": "35 How. Pr. 184",
+  "court": "New York Superior Court",
+  "year": 1858,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "A boarding-house keeper detained a former boarder's furniture, claiming a statutory lien like an innkeeper's. The court held the 1860 statute gives a boarding-house keeper a lien only for board actually due and already earned, not for board to become due under an agreement to board in the future, and does not extend to any other indebtedness.",
+  "doctrinal_concepts": [
+   "boarding_house_keeper_lien",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The statute of April, 1860 (Sess. Laws 1860, ch. 446, p. 771) only gives the keeper of a boarding house a lien upon and right to detain the baggage and effects of a boarder for the amount which may be due by him, to che same extent and in the same manner as inkeepers have them.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     101,
+     379
+    ],
+    "reporter_page": "184"
+   },
+   {
+    "text": "The statute of April, 1860 (Sess. Laws 1860, ch. 446, p. 771) only gives the keeper of a boarding house a lien upon and right to detain the baggage and effects of a boarder for the amount which may be due by him, to che same extent and in the same manner as inkeepers have them.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     101,
+     379
+    ],
+    "reporter_page": "184"
+   },
+   {
+    "text": "Thus limiting the lien to that for board actually due, and not including board to become due under an agreement to board in future.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     385,
+     516
+    ],
+    "reporter_page": "184"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4910024,
+  "cite": "11 Barb. 390",
+  "court": "New York Supreme Court",
+  "year": 1851,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "Trespass/highway case about abusive language on a public sidewalk; the innkeeper's duty to receive travelers and sojourners is invoked only as an analogy illustrating the trespasser-ab-initio doctrine, not as part of the holding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 222155,
+  "cite": "2 Sarat. Ch. Sent. 7",
+  "court": "New York Court of Chancery",
+  "year": 1842,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "Chancery case on waiver of a lease forfeiture for unpaid taxes/assessments; no lodging or boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 369128,
+  "cite": "7 Johns. 1",
+  "court": "New York Supreme Court of Judicature",
+  "year": 1810,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "Trespass-for-waste case against a tenant at will who cut timber; ordinary landlord-tenant doctrine with no lodging or boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 374531,
+  "cite": "13 Johns. 106",
+  "court": "New York Supreme Court of Judicature",
+  "year": 1816,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "Ejectment/notice-to-quit case turning on the relation between successive grantors and grantees of land; no lodging or boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 483853,
+  "cite": "1 Denio 113",
+  "court": "New York Court for the Correction of Errors",
+  "year": 1845,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "Landlord-tenant holdover and distress-for-rent case involving an ordinary house lease; no lodging or boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 496023,
+  "cite": "14 N.Y. 64",
+  "court": "New York Court of Appeals",
+  "year": 1856,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "Tenancy-at-sufferance/notice-to-quit case involving a life-estate farm lease; no lodging or boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 674442,
+  "cite": "1 Hill & Den. 565",
+  "court": "New York Supreme Court",
+  "year": 1841,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "A boarder's furniture at a boarding-house was seized on distress against the boarding-house keeper's landlord. The court held the statutory exemption for boarders' property from distress applies only to property in the boarder's own use as boarder, and does not protect property that the boarder has lent to the tenant for the tenant's own use, so the distress was upheld.",
+  "doctrinal_concepts": [
+   "distress_exemption_boarder_property",
+   "lodger_status"
+  ],
+  "new_terms_observed": [
+   "qu\u00e2 boarder"
+  ],
+  "quotes": [
+   {
+    "text": "The general, property in the furniture in question was in the plaintiff below, but was, at the time of the distress, in the actual use of the tenant, without the consent of the landlord, and by the permission of the plaintiff.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1762,
+     1988
+    ],
+    "reporter_page": "566"
+   },
+   {
+    "text": "The general, property in the furniture in question was in the plaintiff below, but was, at the time of the distress, in the actual use of the tenant, without the consent of the landlord, and by the permission of the plaintiff.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1762,
+     1988
+    ],
+    "reporter_page": "566"
+   },
+   {
+    "text": "So the property of the boarder, in order to come within the exception, should pertain to him in the capacity of boarder.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2872,
+     2992
+    ],
+    "reporter_page": "566"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "This is the Supreme Court decision later reversed on error in Stone v. Matthews (case_id 947490, same statutory question); marked mixed because it recognizes the boarder-property exemption in principle while narrowing its application against the boarder here.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 881680,
+  "cite": "2 Park. Crim. Rep. 168",
+  "court": "New York Supreme Court",
+  "year": 1855,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "Sunday-liquor-sale misdemeanor prosecution of a licensed innkeeper; 'lodgers' and 'travelers' appear only as the statutory exemption categories from the Sunday-closing law, not as the subject of the court's holding about letting rooms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 884862,
+  "cite": "4 E.D. Smith 34",
+  "court": "New York Court of Common Pleas",
+  "year": 1855,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "Pleading case on whether a landlord's trespass can be set up as a counter-claim in an action for rent; ordinary landlord-tenant procedure, no lodging or boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1105728,
+  "cite": "1 Ant. N.P. Cas. 368",
+  "court": "Superior Court of the State of New York",
+  "year": 1851,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "A boarding-house keeper whose boarders were driven away by offensive smells from an adjoining livery stable sued the stable-keeper and the landlord who had leased the adjacent building to be converted into a stable. The court held the boarding-house keeper could maintain a nuisance action against the stable-keeper, and that the landlord could be joined if he leased the premises knowing or having reason to believe a nuisance would likely result.",
+  "doctrinal_concepts": [
+   "boarding_house_nuisance_protection",
+   "landlord_liability_for_tenant_nuisance"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The keeper of a boarding-house, whose boarders are driven away by the offensive smells proceeding from a livery stable set up in an adjacent house, may maintain an action for a nuisance against the keeper of such stable.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     100,
+     320
+    ],
+    "reporter_page": "368"
+   },
+   {
+    "text": "The keeper of a boarding-house, whose boarders are driven away by the offensive smells proceeding from a livery stable set up in an adjacent house, may maintain an action for a nuisance against the keeper of such stable.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     100,
+     320
+    ],
+    "reporter_page": "368"
+   },
+   {
+    "text": "The landlord may be joined in such action, if he leased to such stable-keeper a dwelling-house to be converted into a stable, under such circumstances as must have lead to a reasonable belief that such premises might thereby become a nuisance.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     326,
+     569
+    ],
+    "reporter_page": "368"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-001",
+  "notes": "characterization left null: the case protects the boarding-house business from a neighboring nuisance but does not characterize the letting arrangement between the keeper and her boarders as lease, license, lodging, or innkeeping.",
+  "extraction_status": "ok"
+ }
+]

@@ -1,0 +1,625 @@
+[
+ {
+  "case_id": 442018,
+  "cite": "56 Pa. Super. 557",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1914,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "An owner who resided in part of a large building executed a writing renting a furnished 'housekeeping flat' in the rest of the building for a stated term and rent; the court held this created a landlord-tenant relationship, not a mere lodger arrangement, so the tenant's assignee could recover damages when excluded from possession.",
+  "doctrinal_concepts": [
+   "license_vs_lease",
+   "lodger_status",
+   "incident_of_ownership"
+  ],
+  "new_terms_observed": [
+   "housekeeping flat"
+  ],
+  "quotes": [
+   {
+    "text": "the instrument creates the relation of landlord and tenant, and if the lessee pays the rent in full for the whole term, and before taking possession assigns the lease to another person, the assignee has the right to the possession, and if he is excluded he may recover damages therefor from the lessor.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     599,
+     901
+    ],
+    "reporter_page": "557"
+   },
+   {
+    "text": "We, therefore, conclude that this contract is a lease.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4512,
+     4566
+    ],
+    "reporter_page": "559"
+   },
+   {
+    "text": "The defendant had a right to set apart a portion of her building as a housekeeping flat and to lease it as such.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     17871,
+     17983
+    ],
+    "reporter_page": "566"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Owner lived in part of the same building and let a separate furnished flat; court expressly rejected the lodger/boarding-house characterization urged by the appellant.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 444663,
+  "cite": "57 Pa. Super. 585",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1914,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a lease clause accelerating the whole term's rent upon 'removal' of goods applied only to removal by the tenant himself, not a third person, reversing a verdict for the landlord where the goods belonged to the tenant's mother, who was living with the family as a boarder.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "boarder_furniture_exemption"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "They have also held that where a boarder takes into a house furniture, furnishes his room \u2014 if I take one of you gentlemen into my house as a boarder, and I furnish you with a room, and you furnish that room, and I fail to pay my rent, the law is that your furniture in that room cannot be levied upon and sold for rent; that it is exempt from distress.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3659,
+     4012
+    ],
+    "reporter_page": "587"
+   },
+   {
+    "text": "If she was a boarder in the house, and had actually shown what furniture was in the room occupied by her, I would say to you as a matter of law, that that furniture could not be distrained, it could not be sold for the rent.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5709,
+     5933
+    ],
+    "reporter_page": "587"
+   },
+   {
+    "text": "This language plainly means the tenant\u2019s removal, attempt to remove, or declaration of an intention to remove.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     9500,
+     9610
+    ],
+    "reporter_page": "589"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Primary appellate holding concerns a distress-acceleration covenant; the boarder-furniture-exemption doctrine appears in the trial court's jury charge (quoted in the record) rather than in the appellate reasoning.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 674172,
+  "cite": "91 Pa. Super. 195",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1927,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "An unregistered husband occupying a room reserved only for his registered wife had no standing to sue for a hotel detective's alleged discourtesy in demanding he register or leave, since the hotel was justified in requiring registration to avoid being regarded as a disorderly house.",
+  "doctrinal_concepts": [
+   "hotel_registration_regulation",
+   "disorderly_house_doctrine",
+   "innkeeper_liability"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "A hotel which knowingly permits couples of different sexes to occupy the same rooms without registering as husband and wife is correctly regarded as a disorderly house, and those in charge of it may be prosecuted for maintaining such a house, and persons frequenting it are affected by its character. Hence a hotel is required to be careful in such matters for the protection of its guests no less than on its own account.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     8213,
+     8635
+    ],
+    "reporter_page": "199"
+   },
+   {
+    "text": "A man who is not registered at a hotel and whose presence is not known to the management cannot recover damages for the alleged discourtesy of the inn-keeper\u2019s employees in requesting that he either register or leave the hotel.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     152,
+     379
+    ],
+    "reporter_page": "195"
+   },
+   {
+    "text": "Where a husband occupies a room reserved by his wife, but did not register and was not received as a guest by the hotel, he has no standing to maintain an action for damages for the alleged discourtesy of the hotel company\u2019s employees, in requesting that he either register or leave the hotel.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     385,
+     678
+    ],
+    "reporter_page": "195"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Sustains a commercial hotel's internal registration requirement as justified to avoid the establishment being treated as a disorderly house; adverse in the sense of upholding regulatory/self-regulatory control over lodging arrangements.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 674224,
+  "cite": "91 Pa. Super. 281",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1927,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "The lease's designation of the premises as a 'rooming house' is background fact only; the dispute is about a deserted wife's exemption from distress under the Act of 1849, not about the legality or regulation of lodging use.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 829638,
+  "cite": "15 Pa. Super. 219",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1900,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Dispute over office-building furniture removal rules and distress; no residential lodging or boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 832700,
+  "cite": "16 Pa. Super. 184",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1901,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": "In a wife's suit for board and lodging furnished to a defendant who claimed a prior agreement for free stays, the court held it was proper for the jury to weigh the improbability of a free-lodging claim, and that a wife may lawfully keep boarders and receive pay for her own benefit with her husband's permission.",
+  "doctrinal_concepts": [
+   "board_contract_household",
+   "wife_boarder_income"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "This was an action of assumpsit for board and lodging furnished the defendant.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7667,
+     7745
+    ],
+    "reporter_page": "187"
+   },
+   {
+    "text": "a man can allow his wife to reap the benefit of her labor, and can agree that she may take boarders and receive pay therefor",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4660,
+     4784
+    ],
+    "reporter_page": "186"
+   },
+   {
+    "text": "The fact that a husband permits his wife to keep boarders and to receive the pay therefor does not impose on her an obligation to pay the interest on a mortgage on the premises given for a loan to her husband.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     10174,
+     10383
+    ],
+    "reporter_page": "188"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Occupancy was intermittent stays by a traveling peddler 'when he was in the neighborhood' over roughly fourteen years, coded as nights per individual stay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1477308,
+  "cite": "5 Pa. D. & C. 552",
+  "court": "Philadelphia County Court of Common Pleas",
+  "year": 1924,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "adverse",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "Lessees of a store-and-dwelling who moved out and let their clerk occupy the whole house, which he in turn filled with relatives and other families, breached covenants against subletting and against use other than as store and dwelling; the premises had effectively become a lodging-house, terminating the lease.",
+  "doctrinal_concepts": [
+   "lodging_house_conversion",
+   "covenant_against_subletting",
+   "dwelling_house_definition"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Instead of being a dwelling-house, it became a lodging-house, and it became necessary to conform as such to all the requirements, rules and regulations of the Housing Commission and of the Fire Department.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     8937,
+     9142
+    ],
+    "reporter_page": "554"
+   },
+   {
+    "text": "The whole character of the occupancy changed. Where formerly it had been the home of the defendants, it became a lodging-house for every relative or friend or acquaintance of the clerk employed by the defendant. This is the very thing that the covenant in the lease attempted to provide against.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     9143,
+     9438
+    ],
+    "reporter_page": "554"
+   },
+   {
+    "text": "The defendants, having broken the covenants of this lease by removing their residence elsewhere and subletting to another, have terminated the lease, and the judgment was propertly entered.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     14739,
+     14928
+    ],
+    "reporter_page": "556"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Court treats the shift from single-family dwelling to lodging-house use as the harm the lease covenant guarded against, triggering fire-code and housing-commission regulation; squarely adverse to unrestricted conversion of a dwelling to lodging use.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1485386,
+  "cite": "8 Pa. D. & C. 6",
+  "court": "Philadelphia County Court of Common Pleas",
+  "year": 1926,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "innkeeping",
+  "holding_summary": "A 182-room apartment-hotel that received transient guests, rented by the day, week, or month, ran a restaurant, and retained access to guests' rooms was held to be an inn, making the owner liable to a guest for stolen goods on the absolute innkeeper standard rather than the negligence standard applicable to boarding houses.",
+  "doctrinal_concepts": [
+   "innkeeper_vs_boardinghouse_keeper",
+   "apartment_hotel_characterization"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "we are of the opinion that the facts clearly establish the defendant\u2019s liability as that of an innkeeper.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3821,
+     3926
+    ],
+    "reporter_page": "7"
+   },
+   {
+    "text": "This is not the case of renting an apartment or suite in a hotel, where exclusive possession is given to the tenant, who does his own cooking and cleaning",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5449,
+     5603
+    ],
+    "reporter_page": "7"
+   },
+   {
+    "text": "An apartment-house which receives transient guests, rents rooms at a per Mem rate or by the month or year and maintains a restaurant for the accommodation of guests, the manager having access at all times to their rooms, keeping them clean and supplying them with sheets, bedding and towels, is an inn, and the owner and operator is liable as an innkeeper for property stolen from a guest who occupied a room for an indefinite period at a per Mem rate.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     173,
+     625
+    ],
+    "reporter_page": "6"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Case draws the characterization line between innkeeping/hotel liability and an apartment lease with exclusive possession; polarity coded mixed since it neither protects nor restricts householder letting but supplies the doctrinal vocabulary for classifying occupancy arrangements.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 417810,
+  "cite": "44 Pa. Super. 85",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1910,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "'Boarding house or hotel' is used only as a generic example of a tenant's business in a dispute over furniture leased to a hotel operator and subject to distress; no discussion of lodging legality or regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 417853,
+  "cite": "44 Pa. Super. 7",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1910,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Farm lease trespass/pleading dispute over tree-cutting and property damage; contains no boarding or lodging content. Apparent embedding-selector false positive.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 419279,
+  "cite": "45 Pa. Super. 343",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1911,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Cites 'a boarder in a boarding house' only as one of several illustrative categories of goods exempt from distress; the actual dispute concerns moving-picture films and a generator.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 419303,
+  "cite": "45 Pa. Super. 570",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1911,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Concerns a gratuitous testamentary license for a sister to occupy the testator's house rent-free, litigated for collateral inheritance tax purposes; not compensated occupancy or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 419405,
+  "cite": "45 Pa. Super. 478",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1911,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Private alley boundary and easement dispute between neighboring lot owners; no lodging or boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 428427,
+  "cite": "50 Pa. Super. 222",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1912,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "A farm owner who leased his farm and moved into his tenant's household allegedly boarded there in exchange for farm labor; the tenant's wife sued for board on a claimed account stated, and the court held that board money belongs primarily to the husband absent proof the wife owned the farm proceeds and that the boarder personally agreed to pay her, reversing for evidentiary errors on that issue.",
+  "doctrinal_concepts": [
+   "board_contract_household",
+   "husband_wife_boarding_income"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Where one boards in a family consisting of husband and wife, the money due for boarding furnished, belongs primarily to the husband.",
+    "supports": "characterization",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     1152,
+     1284
+    ],
+    "reporter_page": "222",
+    "fuzzy_score": 99.24242424242425
+   },
+   {
+    "text": "Where one boards in a family consisting of husband and wife, the money due for boarding furnished, belongs primarily to the husband.",
+    "supports": "polarity",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     1152,
+     1284
+    ],
+    "reporter_page": "222",
+    "fuzzy_score": 99.24242424242425
+   },
+   {
+    "text": "Where an owner of a farm lets it in writing to another and thereafter goes to live in the household of his tenant under an alleged agreement by which he was to have his board for his services on the farm",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     162,
+     365
+    ],
+    "reporter_page": "222"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Illustrates a paid/in-kind boarding arrangement between a farm owner and his own tenant's household, treated by the court as an ordinary, legally enforceable household contract.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 435083,
+  "cite": "53 Pa. Super. 618",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1913,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Adverse-possession and prescriptive-easement dispute over a yard and footway; no lodging or boarding content. Apparent embedding-selector false positive.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 444586,
+  "cite": "57 Pa. Super. 592",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1914,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Landlord's trespass action against a tenant holding over on a livery stable; no lodging or boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 444748,
+  "cite": "57 Pa. Super. 553",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1914,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Replevin dispute over the manner and timing of a landlord's distress entry onto closed premises; no lodging or boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 451770,
+  "cite": "60 Pa. Super. 500",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1915,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-038",
+  "notes": "Dispute over whether a holdover after a life tenant's death created a quarter-to-quarter tenancy for rent purposes; no lodging or boarding content.",
+  "extraction_status": "ok"
+ }
+]

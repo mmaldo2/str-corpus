@@ -1,0 +1,884 @@
+[
+ {
+  "case_id": 2034060,
+  "cite": "279 N.Y. 167",
+  "court": "New York Court of Appeals",
+  "year": 1938,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Court of Appeals upheld Long Beach's residential zoning ordinance restricting property to a single one-family housekeeping unit, holding it validly excluded operating the property as a boarding or rooming house business. The court's dictum, however, recognized that a homeowner may still occasionally take in roomers or boarders as an incident to using the house as a family home.",
+  "doctrinal_concepts": [
+   "boarding_house_business_test",
+   "accessory_use_incidental_boarding",
+   "zoning_exclusion_boarding_house"
+  ],
+  "new_terms_observed": [
+   "one housekeeping unit"
+  ],
+  "quotes": [
+   {
+    "text": "It is not unreasonable to prohibit its use as a boarding or rooming house as a business.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     12533,
+     12621
+    ],
+    "reporter_page": "174"
+   },
+   {
+    "text": "The fact that the property may not be used for the business of keeping roomers and boarders does not bar the occupant from occasionally taking roomers or boarders, upon special considerations, where the practice is merely incidental and accessory to the principal use of the house as a home by the family of the occupant.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     13431,
+     13752
+    ],
+    "reporter_page": "175"
+   },
+   {
+    "text": "Using the dwelling as a rooming or boarding house within the above definitions is not a proper accessory use within the residential district and is prohibited by the ordinance.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     17117,
+     17293
+    ],
+    "reporter_page": "176"
+   },
+   {
+    "text": "The judgment appealed from should be affirmed, with costs.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     19458,
+     19516
+    ],
+    "reporter_page": "178"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "Leading case; adverse as to business-scale boarding but favorable dictum for incidental household letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 923658,
+  "cite": "185 Misc. 549",
+  "court": "New York Supreme Court",
+  "year": 1945,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a large lakeside establishment catering to vacationers who stayed for fixed periods at fixed rates was a \"boarding house,\" not a \"hotel,\" and therefore a use permitted under the town's residential zoning ordinance. The neighbor's suit to enjoin it as an unlawful hotel was dismissed.",
+  "doctrinal_concepts": [
+   "hotel_vs_rooming_house_distinction",
+   "zoning_permitted_use"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "it is not a hotel. It is a boarding house notwithstanding its size (forty-five rooms) and the number of its possible guests (100), which features do not characterize the ordinary smaller type of boarding house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     10917,
+     11127
+    ],
+    "reporter_page": "554"
+   },
+   {
+    "text": "the evidence as a whole demonstrates that this place is not for the accommodation of merely transient guests, but is used wholly as a place for boarders who come to spend either part or all of their vacations for fixed periods and at fixed rates.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     10659,
+     10905
+    ],
+    "reporter_page": "553"
+   },
+   {
+    "text": "Complaint dismissed, in all circumstances, without costs in favor of any defendant.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     11453,
+     11536
+    ],
+    "reporter_page": "554"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 822151,
+  "cite": "144 Misc. 121",
+  "court": "New York City Municipal Court",
+  "year": 1932,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "Concerns innkeeper's tort liability for a guest's lost property; the guest-vs-roomer distinction is collateral to bailment/insurer liability, not to the right to let or to boarding-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 870963,
+  "cite": "165 Misc. 834",
+  "court": "New York City Court",
+  "year": 1937,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a church building housing the pastor's family together with three paying female roomers (who ate separately, cooked for by a matron) was not a \"multiple dwelling\" under the Multiple Dwelling Law, because the roomers did not constitute a separate \"family\" living independently. Consequently the statutory lighting-duty claim against the landlord failed.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "multiple_dwelling_licensing"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The building was occupied by one family, the pastor's. The matron was merely a domestic and the three women were roomers or lodgers.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7575,
+     7707
+    ],
+    "reporter_page": "837"
+   },
+   {
+    "text": "There were not three or more families living independently of each other.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7004,
+     7077
+    ],
+    "reporter_page": "837"
+   },
+   {
+    "text": "The motion to set aside the verdict is granted.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     9084,
+     9131
+    ],
+    "reporter_page": "838"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "Favorable in the sense that a small paying-lodger arrangement did not trigger heavier multiple-dwelling regulatory duties.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 880785,
+  "cite": "169 Misc. 995",
+  "court": "Nassau County Court",
+  "year": 1939,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The County Court affirmed a conviction under the Long Beach zoning ordinance for operating premises in a residential district as a boarding/rooming house business, rejecting the defendant's claim of a protected legal nonconforming use. The trial court's finding that the current use was a business use, not a continuation of the prior use, was sustained on the evidence.",
+  "doctrinal_concepts": [
+   "boarding_house_business_test",
+   "nonconforming_use",
+   "burden_of_proof_zoning"
+  ],
+  "new_terms_observed": [
+   "one housekeeping unit"
+  ],
+  "quotes": [
+   {
+    "text": "the trial court was justified in its conclusion that the present use of the premises was for a boarding or rooming house as a business, and that such use was not the use to which the premises were being put when the ordinance was enacted",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     42047,
+     42284
+    ],
+    "reporter_page": "1011"
+   },
+   {
+    "text": "the trial court was justified in its conclusion that the present use of the premises was for a boarding or rooming house as a business, and that such use was not the use to which the premises were being put when the ordinance was enacted",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     42047,
+     42284
+    ],
+    "reporter_page": "1011"
+   },
+   {
+    "text": "The judgment of conviction is, therefore, affirmed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     42423,
+     42474
+    ],
+    "reporter_page": "1011"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "Applies and extends Baddour.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 936937,
+  "cite": "190 Misc. 1",
+  "court": "New York Supreme Court",
+  "year": 1947,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court held that renting out apartments in the plaintiff's subdivided dwelling did not violate a restrictive covenant against business use, since an apartment landlord performs no personal services and is not comparable to a boarding house keeper. However, because plaintiff separately violated the covenant by running a real estate office on the premises, she came to equity with unclean hands and her complaint was dismissed.",
+  "doctrinal_concepts": [
+   "license_vs_lease",
+   "restrictive_covenant_business_use"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "A person who owns and rents out apartments on the other hand, performs no personal services and can scarcely be placed in the category of a boarding house keeper.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5204,
+     5366
+    ],
+    "reporter_page": "4"
+   },
+   {
+    "text": "A person who owns and rents out apartments on the other hand, performs no personal services and can scarcely be placed in the category of a boarding house keeper.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5204,
+     5366
+    ],
+    "reporter_page": "4"
+   },
+   {
+    "text": "Complaint dismissed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     11338,
+     11358
+    ],
+    "reporter_page": "6"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "Plaintiff lost on unclean-hands grounds unrelated to the apartment-letting question itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 977045,
+  "cite": "204 Misc. 746",
+  "court": "New York Supreme Court",
+  "year": 1953,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "other",
+  "holding_summary": "The court held that a proposed motel did not fall within a zoning ordinance's permitted \"inn\" use for a business district, because a motel is commonly understood as materially different from a full-service inn or hotel. The zoning board's denial of a building permit for the motel was accordingly sustained.",
+  "doctrinal_concepts": [
+   "hotel_vs_rooming_house_distinction",
+   "zoning_permitted_use"
+  ],
+  "new_terms_observed": [
+   "motel"
+  ],
+  "quotes": [
+   {
+    "text": "But a motel is commonly understood to be an establishment essentially different from an inn or hotel in design, purpose and use.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5575,
+     5703
+    ],
+    "reporter_page": "749"
+   },
+   {
+    "text": "the court believes that the determination of the zoning board of appeals is to be sustained",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7734,
+     7825
+    ],
+    "reporter_page": "749"
+   },
+   {
+    "text": "The proceeding is dismissed, without costs.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7827,
+     7870
+    ],
+    "reporter_page": "749"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1100128,
+  "cite": "32 Misc. 2d 251",
+  "court": "New York City Court",
+  "year": 1961,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The court convicted a homeowner of violating a single-family zoning ordinance for renting a complete, separate apartment within his house to a tenant family under a long-term lease at substantial rent. This was distinguished from the occasional, incidental boarding permitted as an accessory use under Baddour and held to constitute an illegal second housekeeping unit.",
+  "doctrinal_concepts": [
+   "accessory_use_incidental_boarding",
+   "housekeeping_unit_definition"
+  ],
+  "new_terms_observed": [
+   "one housekeeping unit"
+  ],
+  "quotes": [
+   {
+    "text": "here, on the contrary, he rented a complete apartment to a single tenant for an extended period of time and at a substantial rental.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     8669,
+     8801
+    ],
+    "reporter_page": "255"
+   },
+   {
+    "text": "It is therefore found and determined that defendant is guilty of count 1 of the information here under review.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     9366,
+     9476
+    ],
+    "reporter_page": "255"
+   },
+   {
+    "text": "It is therefore found and determined that defendant is guilty of count 1 of the information here under review.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     9366,
+     9476
+    ],
+    "reporter_page": "255"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "Directly distinguishes the favorable Baddour dictum from an unprotected disguised two-family conversion.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1126775,
+  "cite": "39 Misc. 2d 562",
+  "court": "New York Supreme Court",
+  "year": 1963,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "In a declaratory judgment action, the court held that a 52-room single-room-occupancy establishment was legally a \"hotel\" rather than a \"rooming house\" under the New York City Administrative Code, because it was commonly regarded as a hotel and provided customary hotel services. The owner was therefore not required to obtain a rooming-house operating permit.",
+  "doctrinal_concepts": [
+   "hotel_vs_rooming_house_distinction",
+   "multiple_dwelling_licensing"
+  ],
+  "new_terms_observed": [
+   "room used for Class B occupancy"
+  ],
+  "quotes": [
+   {
+    "text": "the subject premises meets the definition of a hotel within the meaning of the definition of subdivision i of section D26-3.22 of the Administrative Code.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     13057,
+     13211
+    ],
+    "reporter_page": "567"
+   },
+   {
+    "text": "the court finds and declares that the subject premises fall within the Administrative Code definition of hotel under section D26-3.22; and a permit for a rooming house should not be required of plaintiffs.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     15015,
+     15220
+    ],
+    "reporter_page": "568"
+   },
+   {
+    "text": "the court finds and declares that the subject premises fall within the Administrative Code definition of hotel under section D26-3.22; and a permit for a rooming house should not be required of plaintiffs.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     15015,
+     15220
+    ],
+    "reporter_page": "568"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "Concerns the boundary of rooming-house licensing regulation rather than the letting right itself; coded adverse per topical focus on licensing scope.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2245907,
+  "cite": "3 N.Y.2d 116",
+  "court": "New York Court of Appeals",
+  "year": 1957,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The Court of Appeals reversed convictions under a village lodging-house ordinance for housing hospital employees, paid and unpaid, in two adjoining dwellings. It held that such employee housing was an accessory use customarily incidental and subordinate to the hospital's principal use, not an illegal unlicensed lodging house.",
+  "doctrinal_concepts": [
+   "accessory_use_incidental_boarding",
+   "lodging_house_licensing"
+  ],
+  "new_terms_observed": [
+   "family care"
+  ],
+  "quotes": [
+   {
+    "text": "constitutes within the meaning of the village ordinance an accessory use customarily incidental to and subordinate to the principal use of the main building.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3723,
+     3880
+    ],
+    "reporter_page": "119"
+   },
+   {
+    "text": "The judgments should be reversed, and the cash fine remitted in each instance, and the information dismissed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4083,
+     4192
+    ],
+    "reporter_page": "119"
+   },
+   {
+    "text": "The judgments should be reversed, and the cash fine remitted in each instance, and the information dismissed.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4083,
+     4192
+    ],
+    "reporter_page": "119"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "Regulatory conviction for maintaining an unlicensed lodging house was reversed, favoring the letting arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2823516,
+  "cite": "278 A.D. 384",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1951,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Appellate Division upheld the State Rent Administrator's certificate of eviction permitting a landlord to recover the portion of a ten-room house that the tenant used to operate a rooming house, while protecting the tenant's own separate two-room basement dwelling. The rooming-house business space was held separable from the tenant's actual living quarters.",
+  "doctrinal_concepts": [
+   "rooming_house_separability",
+   "rent_control_eviction"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the part of the housing accommodations occupied by the tenants was entirely separable and separate from the accommodations employed as a rooming house",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4317,
+     4467
+    ],
+    "reporter_page": "386"
+   },
+   {
+    "text": "The order appealed from should be affirmed, with $20 costs and disbursements.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6380,
+     6457
+    ],
+    "reporter_page": "387"
+   },
+   {
+    "text": "the part of the housing accommodations occupied by the tenants was entirely separable and separate from the accommodations employed as a rooming house",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4317,
+     4467
+    ],
+    "reporter_page": "386"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "Rent-control case treating the rooming-house business portion of a dwelling as recoverable by the landlord, distinct from the tenant's protected living space.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 804055,
+  "cite": "138 Misc. 488",
+  "court": "New York City Municipal Court",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court held that a lease requiring the premises to be used and occupied \"only for furnished rooms\" became void once operating the building as a rooming house was found to violate the newly effective Multiple Dwelling Law's licensing requirements. The landlord could not recover rent under the illegal lease, though the tenant also could not recover the security deposit.",
+  "doctrinal_concepts": [
+   "multiple_dwelling_licensing",
+   "illegal_lease_void"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The use of the premises specified in the lease being illegal the lease was void.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5387,
+     5467
+    ],
+    "reporter_page": "491"
+   },
+   {
+    "text": "The high purposes of the Multiple Dwelling Law \u2014 the protection of human life and limb \u2014 is far more important than the preservation of alleged contract rights.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5954,
+     6114
+    ],
+    "reporter_page": "491"
+   },
+   {
+    "text": "Petition dismissed without prejudice. Counterclaim dismissed without prejudice.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6748,
+     6827
+    ],
+    "reporter_page": "491"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 923700,
+  "cite": "185 Misc. 818",
+  "court": "New York Supreme Court",
+  "year": 1945,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "Dispute over waste-paper haulers' access to a commercial loft building's freight elevators; no bearing on residential letting or boarding/lodging-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 928551,
+  "cite": "187 Misc. 100",
+  "court": "New York Supreme Court",
+  "year": 1946,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.2,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "Concerns hotel guests' claim to rent-control tenant status when the landlord seeks to close the hotel for redevelopment; the guest-vs-tenant characterization is collateral to the landlord's right to withdraw property from the rental market, not to the right to let or to boarding-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 942324,
+  "cite": "193 Misc. 116",
+  "court": "New York City Court",
+  "year": 1948,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "Commercial office-space sublease and rent-law assignment dispute between a law firm and its landlord's assignees; no bearing on residential lodging, boarding, or short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 947947,
+  "cite": "195 Misc. 125",
+  "court": "New York Supreme Court",
+  "year": 1948,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court held that the plaintiff's property retained a valid legal nonconforming use as a rooming and boarding house despite a wartime interruption and intervening ownership by a church, because the right had never been abandoned. Plaintiff was entitled to operate the rooming/boarding house subject to compliance with any valid licensing ordinance.",
+  "doctrinal_concepts": [
+   "nonconforming_use",
+   "boarding_house_licensing"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the house in question was used as a rooming and boarding house prior to the enactment of the zoning ordinance and continuously thereafter until it was interrupted by the onerous wartime restrictions placed upon all seaside resorts.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     620,
+     851
+    ],
+    "reporter_page": "126"
+   },
+   {
+    "text": "The court finds that at the time of the interruption of the boarding and rooming house business occasioned by wartime restrictions, the premises were vested with a valid nonconforming use.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1567,
+     1755
+    ],
+    "reporter_page": "126"
+   },
+   {
+    "text": "The plaintiff is entitled to judgment for the relief demanded in the complaint; he must, of course, comply with any valid licensing ordinance of the city.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5392,
+     5546
+    ],
+    "reporter_page": "128"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 961759,
+  "cite": "199 Misc. 314",
+  "court": "New York City Municipal Court",
+  "year": 1950,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court denied a residence-club landlord's attempt to evict professional tenants under the Business Rent Law's \"immediate and personal use\" exception, holding that the landlord's proposed expansion of its room-and-board club was really the renting of rooms to others, equivalent to operating a rooming/boarding house under the Multiple Dwelling Law. The landlord's petitions for possession were dismissed.",
+  "doctrinal_concepts": [
+   "hotel_vs_rooming_house_distinction",
+   "business_use_immediate_personal_use"
+  ],
+  "new_terms_observed": [
+   "residence club"
+  ],
+  "quotes": [
+   {
+    "text": "The proposed use in the opinion of the court is for the renting of rooms to others.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5940,
+     6023
+    ],
+    "reporter_page": "316"
+   },
+   {
+    "text": "He is not, in other words, permitted to oust the tenant for the purpose of reletting the space to others.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5662,
+     5767
+    ],
+    "reporter_page": "316"
+   },
+   {
+    "text": "The landlord\u2019s petitions must, therefore, be dismissed and final order entered in favor of the tenants.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8351,
+     8454
+    ],
+    "reporter_page": "317"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "Court equates a paid 'residence club' arrangement with rooming/boarding-house operation for Multiple Dwelling Law purposes.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 983888,
+  "cite": "206 Misc. 826",
+  "court": "New York Supreme Court",
+  "year": 1954,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The court upheld as valid a town zoning ordinance restricting operation of boarding houses for institutional mental-health patients and parolees in residential districts, holding it did not conflict with the Mental Hygiene Law's family-care placement provisions. The ordinance targeted commercial boardinghouse operations rather than incidental family boarding, and the petitioners' challenge to denial of their boardinghouse license was dismissed.",
+  "doctrinal_concepts": [
+   "boarding_house_business_test",
+   "police_power_zoning"
+  ],
+  "new_terms_observed": [
+   "family care"
+  ],
+  "quotes": [
+   {
+    "text": "The conducting of such a boardinghouse is in the nature of a business properly excluded from a residential district.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     9055,
+     9171
+    ],
+    "reporter_page": "830"
+   },
+   {
+    "text": "The application of the ordinance in question to bar operation by petitioners in a residence district of a boardinghouse to accommodate a considerable number of State hospital patients or parolees seems particularly reasonable and proper.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     8817,
+     9054
+    ],
+    "reporter_page": "830"
+   },
+   {
+    "text": "The petition is dismissed. Submit order on notice.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     9246,
+     9296
+    ],
+    "reporter_page": "830"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-029",
+  "notes": "",
+  "extraction_status": "ok"
+ }
+]

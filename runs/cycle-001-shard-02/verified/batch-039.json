@@ -1,0 +1,595 @@
+[
+ {
+  "case_id": 1228387,
+  "cite": "367 Pa. 432",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1951,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": "The Supreme Court reversed an injunction and held that an automobile tourist court is not a nuisance per se as a matter of law, even in a strictly residential, unzoned area, because absent proof of an actual nuisance in fact the owner has a constitutional right to use land for any lawful purpose.",
+  "doctrinal_concepts": [
+   "nuisance_per_se",
+   "police_power_zoning",
+   "tourist_court"
+  ],
+  "new_terms_observed": [
+   "automobile tourist court"
+  ],
+  "quotes": [
+   {
+    "text": "We, therefore, hold that an Automobile Tourist Court or Inn is not a nuisance per se, even in a strictly residential area which is unrestricted and unzoned.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8702,
+     8858
+    ],
+    "reporter_page": "437"
+   },
+   {
+    "text": "Such owners possess a constitutional right to use their land for any lawful purpose.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     8859,
+     8943
+    ],
+    "reporter_page": "437"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "characterization left null: the court's holding addresses nuisance/zoning law, not the legal classification (lease/license/lodging/innkeeping) of the guest occupancy itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1643198,
+  "cite": "19 Pa. D. & C.2d 31",
+  "court": "Adams County Court of Common Pleas",
+  "year": 1959,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a lease covenant restricting use of the premises to 'a motel and for no other purpose' was not necessarily violated as a matter of law by renting some units for extended off-season periods as housekeeping units, reasoning that motels, like hotels and tourist lodging houses, may accommodate both transient and semi-permanent guests without losing their essential character, and that the lease did not expressly restrict occupancy to transients only.",
+  "doctrinal_concepts": [
+   "motel_use_covenant",
+   "lodging_house_characterization",
+   "transient_vs_semipermanent_occupancy"
+  ],
+  "new_terms_observed": [
+   "housekeeping units"
+  ],
+  "quotes": [
+   {
+    "text": "The basic concept of a motel is that it furnishes a type of accommodations for the traveling public having some, but not all, of the attributes of a hotel and some, but not all, of the attributes of a tourist lodging house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5664,
+     5887
+    ],
+    "reporter_page": "35"
+   },
+   {
+    "text": "Doing so does not destroy the basic character of the hotel or the tourist lodging house as being primarily designed to accommodate transient guests.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7277,
+     7425
+    ],
+    "reporter_page": "35"
+   },
+   {
+    "text": "Had the lessors desired to restrict the use of the premises solely to transient guests they could easily have done so by a similar restriction.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8008,
+     8151
+    ],
+    "reporter_page": "36"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 467369,
+  "cite": "165 Pa. Super. 114",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1949,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.35,
+  "polarity": "adverse",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": "The Superior Court affirmed a summary conviction for violating a zoning ordinance prohibiting transient or temporary residential occupancy of trailers and cabins in a commercially-zoned area, holding that occasional living use of trailers, incidental to defendant's trailer sales and repair business, did not establish a valid nonconforming use of the land for a rental lodging business.",
+  "doctrinal_concepts": [
+   "nonconforming_use",
+   "zoning_police_power",
+   "transient_occupancy_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The entire sense of the testimony is that the living by people in trailers on defendant\u2019s property, with the exception, perhaps, of his son, was purely incidental to the defendant\u2019s business of selling new and used trailers and repairing trailers. Renting living quarters was not the defendant\u2019s business and there is not even any effort to assert that such was the case.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4988,
+     5359
+    ],
+    "reporter_page": "117"
+   },
+   {
+    "text": "\u201cCabins, including any and all structures designed for temporary or transient occupancy as living or sleeping quarters\u201d",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1146,
+     1265
+    ],
+    "reporter_page": "115"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "characterization left null: the record affirmatively establishes there was no letting-for-pay arrangement at issue, only incidental trailer occupancy; who_was_letting is 'unclear' for the same reason.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1199919,
+  "cite": "338 Pa. 5",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1940,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.45,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "rooming_house_sublease",
+   "landlord_tenant_tort_liability",
+   "roomer_guest_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Samson rented the building from defendant on August 26, 1936, at twenty dollars a month for use as a rooming house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1270,
+     1385
+    ],
+    "reporter_page": "6"
+   },
+   {
+    "text": "since members of the family, employees, guests and other invitees of the tenant are brought on the premises through the tenant\u2019s initiative, they must look to him and not to the owner, who is out of possession, for their protection.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5418,
+     5650
+    ],
+    "reporter_page": "8"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "Case treats a tenant's subletting of rooms to individual roomers as an unremarkable, lawful commercial arrangement; the actual holding concerns landlord tort liability, not the legality of the letting itself.",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 1508672,
+  "cite": "19 Pa. D. & C. 71",
+  "court": "Philadelphia County Court of Common Pleas",
+  "year": 1933,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "Case concerns constitutionality of a transient-retail-merchant licensing tax on a seasonal toy store; 'transient boarders' appears only in a dictionary definition quoted for statutory construction, unrelated to lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1547846,
+  "cite": "42 Pa. D. & C. 586",
+  "court": "Allegheny County Court of Common Pleas",
+  "year": 1941,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": null,
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "Construing a residential zoning ordinance's use-district exception permitting 'the renting of rooms or lodgings or the serving of meals for compensation,' the court held that tourist homes and coffee houses fall squarely within that exception, and dismissed a mandamus action seeking to compel the borough to enforce the zoning ordinance against them.",
+  "doctrinal_concepts": [
+   "zoning_use_exception",
+   "renting_rooms_lodgings",
+   "tourist_home"
+  ],
+  "new_terms_observed": [
+   "coffee houses"
+  ],
+  "quotes": [
+   {
+    "text": "It is our opinion that tourist homes and coffee houses of the type generally referred to by counsel for the parties fall under the head of \u201cUse District Exceptions\u201d by the provision, \u201cIn the residence districts the use regulations shall not be held to prevent the renting of rooms or lodgings or the serving of meals for compensation.\u201d",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4303,
+     4638
+    ],
+    "reporter_page": "588"
+   },
+   {
+    "text": "Certainly tourist homes involve \u201cthe renting of rooms or lodgings,\u201d and \u201cthe serving of meals for compensation,\u201d and it seems to us that is all they do involve.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4639,
+     4799
+    ],
+    "reporter_page": "588"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 1572284,
+  "cite": "61 Pa. D. & C. 117",
+  "court": "Allegheny County Court of Common Pleas",
+  "year": 1947,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lease",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "week_to_week_tenancy",
+   "furnished_room_letting",
+   "rooming_house_ejectment"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "By analogy, applying the principle in Hollis v. Burns, supra, defendant, having an oral lease from week to week, is entitled to hold said premises from but week to week.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     9178,
+     9347
+    ],
+    "reporter_page": "122"
+   },
+   {
+    "text": "An examination of our files indicates that you are living in a furnished room which rents for $6.50 per week. Since this is a rooming house, we are unable to interfere with the landlord\u2019s right to proceed with eviction",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     12926,
+     13144
+    ],
+    "reporter_page": "124"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 1629416,
+  "cite": "14 Pa. D. & C.2d 676",
+  "court": "Somerset County Court of Quarter Sessions",
+  "year": 1958,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "Case concerns a nonresident hunting-license/domicile dispute; 'boarding or rooming house' is mentioned only as an illustrative example of 'habitation' in dicta, unrelated to letting or its regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1697867,
+  "cite": "41 Pa. D. & C.2d 473",
+  "court": "Montgomery County Court of Common Pleas",
+  "year": 1966,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "Case concerns the 'home occupation' zoning exception for a bridal-gown business run from a residence; no bearing on letting rooms or dwellings for pay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8730260,
+  "cite": "53 Pa. D. & C. 83",
+  "court": "Philadelphia County Court of Quarter Sessions",
+  "year": 1945,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "Case adjudicates a hotel's entitlement to a liquor license under the Liquor Control Act's statutory 'hotel' definition; the description of guests holding rooms under indefinite leases alongside transient hotel-service rooms is incidental background, not a holding on the legal character of room letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 468917,
+  "cite": "355 Pa. 137",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1946,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "Case concerns spousal desertion and a widow's statutory right to elect against her husband's will; decedent's boarding-house keeping is mentioned only as a biographical fact showing self-support, with no discussion of the business's legality or regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 470518,
+  "cite": "167 Pa. Super. 199",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1950,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "Case concerns severability, under federal rent control, of a single lease combining a restaurant and living quarters; unrelated to short-term letting or boarding-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 472949,
+  "cite": "169 Pa. Super. 581",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1951,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "Divorce action for indignities to the person; testimony that appellant managed his father-in-law's rooming houses and furnished-room business is incidental background to marital misconduct, not a holding on lodging regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 688927,
+  "cite": "99 Pa. Super. 168",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1930,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "Premises-liability case about a landlord's duty to maintain a common areaway in a multi-tenant building; does not address compensated short-term occupancy or its regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 695546,
+  "cite": "102 Pa. Super. 293",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1931,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "Case concerns the constitutionality of a statute exempting ice-cream cabinets from landlord distress for rent; the historical mention of 'the goods of a boarder' as traditionally exempt from distress is incidental background, unrelated to the letting practice itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 751438,
+  "cite": "194 Pa. Super. 413",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1961,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "Commercial storeroom holdover-tenancy dispute over unpaid rent; no lodging, boarding, or short-term-letting facts present.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 753643,
+  "cite": "195 Pa. Super. 501",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1961,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "Case concerns a landlord's power to confess judgment for rent against a holdover apartment tenant; no bearing on short-term room letting or lodging-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 967792,
+  "cite": "109 Pa. Super. 336",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1933,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "mixed",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a deed covenant permitting only 'not more than two dwelling houses, to be used as dwellings only, and for no other purpose' barred the grantee from erecting sleeping cottages rented overnight to tourists, because such transient lodging use is not a 'dwelling house' use and directly competes with the grantor's reserved tourists'-home business.",
+  "doctrinal_concepts": [
+   "restrictive_covenant",
+   "tourist_home",
+   "dwelling_house_definition",
+   "sleeping_cottages"
+  ],
+  "new_terms_observed": [
+   "tourists\u2019 home",
+   "sleeping cottages"
+  ],
+  "quotes": [
+   {
+    "text": "We therefore hold that the language \u201cfor the erection of not more than two dwelling houses to be used as dwellings only, and for no other purpose or purposes\u201d is sufficiently clear, explicit and definite to restrict the use of sleeping cottages on the land in question.",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     13584,
+     13853
+    ],
+    "reporter_page": "344",
+    "fuzzy_score": 99.62825278810409
+   },
+   {
+    "text": "The use by defendants of sleeping cottages would clearly not be a use for a dwelling house and would be in direct competition and conflict with the use of the tourists\u2019 home by plaintiff.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     8960,
+     9148
+    ],
+    "reporter_page": "341"
+   },
+   {
+    "text": "she conducted what is commonly known as a tourists\u2019 home, for keeping overnight guests and serving meals",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     564,
+     668
+    ],
+    "reporter_page": "337"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-039",
+  "notes": "Mixed: the court enforces and thereby validates the grantor's short-term tourist-lodging business as a legitimate protectable enterprise (favorable), while simultaneously barring the grantee's competing sleeping cottages for transient guests (adverse to that particular short-term letting use).",
+  "extraction_status": "ok"
+ }
+]

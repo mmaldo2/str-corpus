@@ -1,0 +1,556 @@
+[
+ {
+  "case_id": 1393244,
+  "cite": "30 N.Y. Super. Ct. 561",
+  "court": "New York Superior Court",
+  "year": 1867,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "A lease covenant against underletting did not, on the court's assumption, bar the lessees from taking boarders, but a person occupying rooms as a boarder could claim no greater right than that of a boarder and could not use the premises to carry on a business; the lessor was entitled to an injunction restraining the boarder from practicing dentistry there and from misusing the parlor.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease",
+   "boarder_definition"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The definition of the word boarder is, \u201c one who has food or diet and lodging in another\u2019s family, for reward.\u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4607,
+     4718
+    ],
+    "reporter_page": "563"
+   },
+   {
+    "text": "Assuming (without deciding) that by the proper construction of the covenant against underletting, the lessees have a right to take boarders, yet the occupation of the rooms by persons other than the lessees must be in the \u2022strict character of boarders.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4354,
+     4606
+    ],
+    "reporter_page": "563"
+   },
+   {
+    "text": "An injunction must therefore issue, restraining the defendant from prosecuting the business of dentist on any part of the demised premises",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6039,
+     6177
+    ],
+    "reporter_page": "563"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1604834,
+  "cite": "11 Daly (N.Y.) 101",
+  "court": "New York Court of Common Pleas",
+  "year": 1882,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "Landlord-surety rent action; tenant's plan to sublet the furnished house as lodgings is background only \u2014 the holding turns on fraud/rescission doctrine (must rescind and surrender possession promptly), not on the legality of letting furnished lodgings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1608107,
+  "cite": "15 Daly (N.Y.) 431",
+  "court": "New York Court of Common Pleas",
+  "year": 1889,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "Concerns an unfurnished residential lease and general implied-warranty-of-habitability doctrine (defective plumbing/sewer gas); the furnished-house/short-term-lodging warranty rule (Wilson v. Finch-Hatton) appears only as distinguished dicta, not the holding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1608190,
+  "cite": "23 Misc. 698",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1898,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "innkeeping",
+  "holding_summary": "A hotel occupant who took a room for an indefinite time at an agreed price of $1.25 per week remained a 'guest,' not a 'boarder,' because fixing the price or length of stay in advance does not by itself change the relation from innkeeper-guest to boarder or lodger; the hotelkeeper was liable under the strict common-law innkeeper's liability for the guest's unexplained loss of property.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "guest_vs_boarder",
+   "innkeeper_liability"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "But a special agreement fixing in advance the price to be paid, or the length of the stay, does not absolutely disturb the relation of innkeeper and guest, and constitute the person so acting a boarder or lodger.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2550,
+     2762
+    ],
+    "reporter_page": "699"
+   },
+   {
+    "text": "But the more recent decisions of this state hold that the fixing of the price does' not make the party a boarder.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3196,
+     3309
+    ],
+    "reporter_page": "699"
+   },
+   {
+    "text": "We are of opinion that the relationship of innkeeper and guest existed between the parties.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5400,
+     5491
+    ],
+    "reporter_page": "700"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1608336,
+  "cite": "23 Misc. 116",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1898,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "Ordinary commercial holdover-tenancy/election-of-remedies dispute over a store lease; no boarding or lodging issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1609741,
+  "cite": "16 Daly (N.Y.) 484",
+  "court": "New York Court of Common Pleas",
+  "year": 1891,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "Landlord not liable to tenant for property damage from demolition of an adjoining building, absent a covenant to repair or fraud/negligence; ordinary commercial landlord-tenant case with no boarding or lodging issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1684056,
+  "cite": "53 N.Y. Super. Ct. 474",
+  "court": "New York Superior Court",
+  "year": 1886,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "There is no implied covenant that a house let for use as a private residence, even a furnished one, is fit for habitation; where noxious gases from a neighbor's stable made the leased dwelling unhealthy but neither landlord nor tenant knew of the condition and the landlord was not at fault, the tenant could not assert the resulting damages as a counter-claim to the landlord's action for rent.",
+  "doctrinal_concepts": [
+   "implied_warranty_furnished_house",
+   "caveat_emptor_leasing"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "in the absence of any covenant in the lease itself, as to the fitness of the leased premises for occupation as a dwelling, , no covenant of the lessor can be implied on the subject, and that unless by reason of direct or constructive fraud or culpable negligence on the part of the lessor, the tenant hires at his peril",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     9785,
+     10104
+    ],
+    "reporter_page": "479"
+   },
+   {
+    "text": "the house, its fixtures and furniture were let to defendant for a private dwelling-house to be used by her as a private residence only",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2290,
+     2424
+    ],
+    "reporter_page": "475"
+   },
+   {
+    "text": "There is no responsibility on the landlord in such cases, except such as arises from absolute delictum on his part",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     10312,
+     10426
+    ],
+    "reporter_page": "479"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1913982,
+  "cite": "30 N.Y. Sup. Ct. 669",
+  "court": "New York Supreme Court, General Term",
+  "year": 1881,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "innkeeping",
+  "holding_summary": "The trial court found that a building operated as a 'family hotel' \u2014 where occupants took suites with board for extended periods rather than as transient guests, with no cooking or laundry permitted in guest rooms \u2014 was not a 'tenement-house' within a restrictive covenant and was not noxious or offensive; on appeal the owner was nonetheless enjoined from raising a party wall to enlarge the hotel because he had separately represented to the adjoining purchaser that the buildings would always remain private residences, and she had relied on that representation in buying.",
+  "doctrinal_concepts": [
+   "innkeeping",
+   "lodging_house_vs_tenement",
+   "family_hotel"
+  ],
+  "new_terms_observed": [
+   "family hotel"
+  ],
+  "quotes": [
+   {
+    "text": "I am inclined to the opinion that the defendant\u2019s houses best answer to the designation of a \u201c family hotel.\u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     36756,
+     36865
+    ],
+    "reporter_page": "677"
+   },
+   {
+    "text": "The house is not, however, designed for the accommodation of transient guests or casual boarders.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     36916,
+     37013
+    ],
+    "reporter_page": "677"
+   },
+   {
+    "text": "the plaintiff having purchased the premises relying upon the statement of the defendant, was entitled to an injunction restraining him from carrying up the party-wall for the purpose of enlarging the adjoining building and using the same as a family hotel",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2156,
+     2411
+    ],
+    "reporter_page": "670"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1930845,
+  "cite": "90 N.Y. Sup. Ct. 467",
+  "court": "New York Supreme Court, General Term",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "Fraudulent-conveyance action between husband and wife; wife's testimony that she 'kept boarders or let out furnished rooms' is disputed background on the note's consideration only, not an adjudication of letting/boarding practice.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1998862,
+  "cite": "14 N.Y. St. Rep. 732",
+  "court": "New York Superior Court",
+  "year": 1888,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "Ordinary holdover-tenancy case concerning a store lease; no lodging or boarding issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2033668,
+  "cite": "28 N.Y. St. Rep. 424",
+  "court": "New York Court of Common Pleas",
+  "year": 1889,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "Same case as Daly v. Wise, 15 Daly 431 (case_id 1608107), reported in a different reporter; concerns unfurnished-dwelling implied-warranty doctrine, with furnished-house/lodging rule discussed only as distinguished dicta.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2042013,
+  "cite": "33 N.Y. 47",
+  "court": "New York Court of Appeals",
+  "year": 1865,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "Concerns a leased printing press (personal property), holding the real-property holdover-tenancy rule inapplicable to chattels; no connection to dwelling occupancy or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2042024,
+  "cite": "33 N.Y. 577",
+  "court": "New York Court of Appeals",
+  "year": 1865,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "Innkeeper liability for a horse stabled overnight by a person who was never a guest (he lodged nearby); a bailment/livery dispute, not room lodging or dwelling occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2046981,
+  "cite": "34 N.Y. St. Rep. 1001",
+  "court": "New York Court of Common Pleas",
+  "year": 1891,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "Same case as Rotter v. Goerlitz, 16 Daly 484 (case_id 1609741), reported in a different reporter; ordinary commercial landlord-tenant negligence/covenant dispute with no boarding or lodging issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2084208,
+  "cite": "46 N.Y. St. Rep. 668",
+  "court": "New York Court of Common Pleas",
+  "year": 1892,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "A boarding-house keeper who contracted to provide a boarder furnished rooms, attendance, and board for a one-year term could, upon his unjustified departure, recover the profits she would have made had he remained for the balance of the term; she was not required to tender further performance, and her later surrender of the leased house mitigated rather than barred her damages.",
+  "doctrinal_concepts": [
+   "boarding_house_contract",
+   "lodging_house_keeping"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Where a boarder under contract to board for a certain time refuses to-remain, the boarding house keeper is not obliged to tender performance, but may recover the profits she would have made had he remained.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     444,
+     650
+    ],
+    "reporter_page": "668"
+   },
+   {
+    "text": "This action was commenced by the plaintiff to recover damages for a breach of contract which she claimed to have made with the defendant to provide him furnished rooms, attendance and board for a period of one year from the 1st November, 1887.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1201,
+     1444
+    ],
+    "reporter_page": "668"
+   },
+   {
+    "text": "It is no defense to such action that the boarding house keeper thereafter surrendered possession of the premises, as this may justly be regarded as an effort on her part to reduce the damages sustained, and as equivalent to letting them on his account at the price they cost her.",
+    "supports": "polarity",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     614,
+     893
+    ],
+    "reporter_page": "668",
+    "fuzzy_score": 99.6415770609319
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2107210,
+  "cite": "65 N.Y. St. Rep. 11",
+  "court": "New York Supreme Court, General Term",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "Same case as Clinton Bank v. Collignon, 90 N.Y. Sup. Ct. 467 (case_id 1930845); boarding/furnished-rooms income mentioned only as disputed background in a fraudulent-conveyance action.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2107651,
+  "cite": "65 N.Y. St. Rep. 785",
+  "court": "New York Superior Court",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "Ordinary commercial store-lease holdover case; landlord entitled to treat brief holding over during move-out as creating a tenancy for another year. No lodging or boarding issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2113140,
+  "cite": "67 N.Y. St. Rep. 348",
+  "court": "New York Superior Court",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-011",
+  "notes": "Same case as Post v. Akron Iron Co., 65 N.Y. St. Rep. 785 (case_id 2107651), reported under a variant party name; ordinary commercial store-lease holdover case with no lodging or boarding issue.",
+  "extraction_status": "ok"
+ }
+]

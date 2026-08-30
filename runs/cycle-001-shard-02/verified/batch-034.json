@@ -1,0 +1,685 @@
+[
+ {
+  "case_id": 8243370,
+  "cite": "188 S.W. 44",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1916,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "innkeeping",
+  "holding_summary": "A rooming house renting furnished and unfurnished rooms by the day, week, or month and providing bell-boy, light, water, heat, and phone service qualifies as a 'hotel' under the hotelkeeper's lien statute. A person who rented an unfurnished room there by the month, furnished it himself, and received the hotel's other services was nonetheless a 'guest' subject to the statutory lien on his property for unpaid charges.",
+  "doctrinal_concepts": [
+   "hotel_definition",
+   "guest_status",
+   "innkeepers_lien",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "European plan hotel"
+  ],
+  "quotes": [
+   {
+    "text": "We therefore hold that the building of appellant, Kieffer, in which appellee, Keough, deposited the property in, question is a \u201chotel,\u201d as that term is used in said article 5663 of our statute.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     12562,
+     12755
+    ],
+    "reporter_page": "47"
+   },
+   {
+    "text": "we feel that both justice and common sense dictate that we should hold that appellee E. T. Keough and wife were guests of Hotel Stratford while they occupied rooms therein, and that appellant John Kieffer, has a statutory lien on the property in question, and we therefore so hold.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     15371,
+     15652
+    ],
+    "reporter_page": "47"
+   },
+   {
+    "text": "we feel that both justice and common sense dictate that we should hold that appellee E. T. Keough and wife were guests of Hotel Stratford while they occupied rooms therein, and that appellant John Kieffer, has a statutory lien on the property in question, and we therefore so hold.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     15371,
+     15652
+    ],
+    "reporter_page": "47"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4549858,
+  "cite": "49 Tex. Crim. 319",
+  "court": "Texas Court of Criminal Appeals",
+  "year": 1906,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "An information charging that defendant disturbed the peace at 'the boarding-house of Mrs. R.' as a public place was insufficient because a boarding house is not per se a public place under the statute. A private boarding house is treated as a private establishment regardless of the number of boarders kept, so facts making it a public place must be specifically pleaded.",
+  "doctrinal_concepts": [
+   "boarding_house_private_character",
+   "public_place_definition"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "\u201cA boarding-house\u201d is not per se a public place. It is not so named in the statute.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1299,
+     1382
+    ],
+    "reporter_page": "320"
+   },
+   {
+    "text": "The true distinction is perfectly well understood. A public house is for the entertainment of all who come lawfully and who pay regularly. The boarding-house is for the accommodation only of those who are' accepted as guests by the proprietor. Such an establishment is as much a private house as if there were no boarders.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2494,
+     2816
+    ],
+    "reporter_page": "320"
+   },
+   {
+    "text": "The true distinction is perfectly well understood. A public house is for the entertainment of all who come lawfully and who pay regularly. The boarding-house is for the accommodation only of those who are' accepted as guests by the proprietor. Such an establishment is as much a private house as if there were no boarders.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2494,
+     2816
+    ],
+    "reporter_page": "320"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8293106,
+  "cite": "159 S.W. 849",
+  "court": "Texas Court of Criminal Appeals",
+  "year": 1913,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.35,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "A boarding-house keeper who misappropriated money a boarder deposited with him for safekeeping was guilty of embezzlement rather than mere theft by bailee, because the statutory landlord's lien on boarders' deposited property and the established custom of hotels and boarding houses to be responsible only for valuables actually deposited with the proprietor created a fiduciary relation between keeper and boarder.",
+  "doctrinal_concepts": [
+   "fiduciary_bailment_boarding_house",
+   "landlord_lien_on_boarder_property"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The law gives the landlord a lien on all the property of his boarders deposited with him to secure him in the payment of his board bill.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7042,
+     7178
+    ],
+    "reporter_page": "851"
+   },
+   {
+    "text": "The custom and usage of all hotels and boarding houses are well known, not to be responsible for valuables carried to the rooms by the boarders or guests, but to be responsible if the valuables are deposited with the owner or clerk of the boarding house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7204,
+     7458
+    ],
+    "reporter_page": "851"
+   },
+   {
+    "text": "The custom and usage of all hotels and boarding houses are well known, not to be responsible for valuables carried to the rooms by the boarders or guests, but to be responsible if the valuables are deposited with the owner or clerk of the boarding house.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7204,
+     7458
+    ],
+    "reporter_page": "851"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "Core holding is on the theft-vs-embezzlement distinction for bailees; boarding-house facts are the vehicle for finding a fiduciary relation, not a direct ruling on letting rights.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10306333,
+  "cite": "278 S.W. 513",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1925,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "Where a homeowner's wife rented rooms to roomers, including a sleeping porch to three young women and a room to a music teacher, and structural changes divided the house, the court held the property had been converted into an 'apartment house' operated as a 'business enterprise' in violation of a restrictive covenant limiting the lots to single-family residential use. The court affirmed a perpetual injunction barring the owner from keeping any boarders, lodgers, or roomers on the premises.",
+  "doctrinal_concepts": [
+   "apartment_house_definition",
+   "business_enterprise_restriction",
+   "restrictive_covenant_enforcement"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the improvements placed thereupon constitute \u201can apartment house,\u201d and are used for a \u201cbusiness enterprise.\u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     15338,
+     15446
+    ],
+    "reporter_page": "515"
+   },
+   {
+    "text": "perpetually enjoining defendant E. L. Austin and his agents, assigns, and successors in title from taking, Peeping, or accommodating on said lots and premises any boarders, lodgers, or roomers",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5296,
+     5488
+    ],
+    "reporter_page": "513"
+   },
+   {
+    "text": "perpetually enjoining defendant E. L. Austin and his agents, assigns, and successors in title from taking, Peeping, or accommodating on said lots and premises any boarders, lodgers, or roomers",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5296,
+     5488
+    ],
+    "reporter_page": "513"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "This Court of Civil Appeals decision was reversed in relevant part by the Commission of Appeals, Austin v. Richardson, 288 S.W. 180 (1926) (case_id 10295098 in this batch), which held that merely renting rooms in one's own dwelling is not a 'business enterprise.'",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10317170,
+  "cite": "290 S.W. 912",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1927,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "A fire policy covering a dwelling occupied by tenants was not voided by an increase-of-hazard clause merely because successive tenants incidentally rented three or fewer spare rooms to roomers, since courts recognize dwellings are commonly used that way and the insurance industry's own classification schedule treats such incidental letting as not increasing the rate. The insured's lack of knowledge of the subletting independently barred forfeiture.",
+  "doctrinal_concepts": [
+   "incidental_use_doctrine",
+   "dwelling_vs_rooming_house_classification"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It is a matter of common knowledge that dwelling houses used primarily as places of residence for families are also frequently used for the incidental accommodation of guests, boarders, or roomers.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     23059,
+     23256
+    ],
+    "reporter_page": "916"
+   },
+   {
+    "text": "We conclude therefore that the incidental use of a dwelling house for the accommodation of roomers, within the limit so permitted, does not destroy its character as a dwelling, nor constitute such a material increase of hazard as to require an additional premium or to authorize a forfeiture under the terms of the policy relied on by appellant.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     24559,
+     24904
+    ],
+    "reporter_page": "916"
+   },
+   {
+    "text": "It is a matter of common knowledge that dwelling houses used primarily as places of residence for families are also frequently used for the incidental accommodation of guests, boarders, or roomers.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     23059,
+     23256
+    ],
+    "reporter_page": "916"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 280642,
+  "cite": "22 Tex. Civ. App. 623",
+  "court": "Texas Courts of Appeals",
+  "year": 1900,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": "A homesteader who abandoned his mercantile business but continued running a boarding house -- taking in both transient and regular boarders and using rooms of the former storehouse, together with his residence, as boarders' bedrooms -- had not necessarily abandoned the business-homestead exemption as to that property. Renting out rooms not needed for the boarding business does not by itself forfeit the homestead character of the remaining space.",
+  "doctrinal_concepts": [
+   "business_homestead",
+   "boarding_house_as_business"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Cates has been running a boarding-house, taking in both transient and regulars boarders continuously since he moved on this property in 1893.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3906,
+     4047
+    ],
+    "reporter_page": "625"
+   },
+   {
+    "text": "The evidence fairly shows that the business upon which Cates relied, after his failure in merchandising in 1896, was keeping a boarding-house.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8116,
+     8258
+    ],
+    "reporter_page": "626"
+   },
+   {
+    "text": "Cates has been running a boarding-house, taking in both transient and regulars boarders continuously since he moved on this property in 1893.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3906,
+     4047
+    ],
+    "reporter_page": "625"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2251588,
+  "cite": "107 Tex. 490",
+  "court": "Supreme Court of Texas",
+  "year": 1915,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "Injunction against keeping a bawdy/disorderly house (prostitution) and owner/agent liability for a tenant's illegal use of leased premises; not about lawful short-term letting or boarding-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2380075,
+  "cite": "70 Tex. Crim. 89",
+  "court": "Texas Court of Criminal Appeals",
+  "year": 1913,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "Gambling-house 'control' dispute between lessor and sublessee under the gaming statute; unrelated to letting dwellings or rooms for lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2385137,
+  "cite": "71 Tex. Crim. 206",
+  "court": "Texas Court of Criminal Appeals",
+  "year": 1913,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.35,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "fiduciary_bailment_boarding_house",
+   "landlord_lien_on_boarder_property"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The custom and usage of all hotels and boarding houses are well known, not to be responsible for valuables carried to the rooms by the boarders or guests, but to be responsible if the valuables are deposited with the owner or clerk of the boarding house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7598,
+     7853
+    ],
+    "reporter_page": "208"
+   },
+   {
+    "text": "The custom and usage of all hotels and boarding houses are well known, not to be responsible for valuables carried to the rooms by the boarders or guests, but to be responsible if the valuables are deposited with the owner or clerk of the boarding house.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7598,
+     7853
+    ],
+    "reporter_page": "208"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "Same litigation as case_id 8293106 (159 S.W. 849), reported in a different reporter. Core holding is on the theft-vs-embezzlement distinction for bailees; boarding-house facts are the vehicle for finding a fiduciary relation.",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 4535789,
+  "cite": "45 Tex. Crim. 420",
+  "court": "Texas Court of Criminal Appeals",
+  "year": 1903,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "Criminal disorderly-house prosecution turning on whether a trespasser who let a woman use a borrowed room was a 'tenant'; not about lawful letting or boarding-house practice.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4609080,
+  "cite": "62 Tex. Crim. 177",
+  "court": "Texas Court of Criminal Appeals",
+  "year": 1911,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "Gambling-house keeping / vagrancy-statute case (constitutionality and repeal-by-implication analysis); no bearing on letting dwellings or rooms for lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8248339,
+  "cite": "181 S.W. 438",
+  "court": "Supreme Court of Texas",
+  "year": 1915,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "Same litigation as case_id 2251588 (107 Tex. 490), reported in a different reporter. Concerns injunctions against bawdy/disorderly house keeping (prostitution), not lawful short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8249112,
+  "cite": "181 S.W. 491",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1915,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "Premises-liability (licensee vs. invitee) case about an office-building tenant using a back stairway to reach a river for bathing; unrelated to short-term letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8256748,
+  "cite": "182 S.W. 1144",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1915,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "In a suit over whether a rental was month-to-month or a renewed yearly tenancy, the court held that a boarding-house keeper wrongfully dispossessed by a sequestration writ could recover actual damages, including lost profits, for the destruction of her boarding-house business, since such loss flowed as the proximate and natural result of the wrongful seizure of the premises used for that business. Exemplary damages and damages for humiliation were disallowed.",
+  "doctrinal_concepts": [
+   "boarding_house_as_business",
+   "wrongful_sequestration_damages"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "she was engaged in the boarding house business and had a large number of boarders, who were paying her a total of $88 a week",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     9626,
+     9750
+    ],
+    "reporter_page": "1145"
+   },
+   {
+    "text": "Her business was thereby destroyed, and the actual damages sought to be recovered in this action and awarded by the jury to her as a consequence thereof were the proximate and natural result of the wrongful act charged.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     19936,
+     20155
+    ],
+    "reporter_page": "1147"
+   },
+   {
+    "text": "Her business was thereby destroyed, and the actual damages sought to be recovered in this action and awarded by the jury to her as a consequence thereof were the proximate and natural result of the wrongful act charged.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     19936,
+     20155
+    ],
+    "reporter_page": "1147"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "Primarily a landlord-tenant lease-term and wrongful-sequestration damages dispute; relevance rests on the court treating a boarding-house business as a legitimate, compensable enterprise.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8291523,
+  "cite": "156 S.W. 656",
+  "court": "Texas Court of Criminal Appeals",
+  "year": 1913,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "Same litigation as case_id 2380075 (70 Tex. Crim. 89), reported in a different reporter. Gambling-house control dispute; unrelated to lodging or short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8292019,
+  "cite": "158 S.W. 794",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1913,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "Lease knowingly made and used for a bawdyhouse (illegal purpose); court refuses relief to either party under in pari delicto doctrine. Concerns an illegal lease for prostitution, not lawful short-term letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10295098,
+  "cite": "288 S.W. 180",
+  "court": "Texas Commission of Appeals",
+  "year": 1926,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Commission of Appeals held that a covenant restricting property to residence purposes and barring 'apartment house' or 'business enterprise' use did not prohibit a homeowner from renting individual rooms in his own dwelling to occupants, since doing so is not a 'business enterprise.' Only converting a dwelling into a true apartment house -- separate suites under each occupant's exclusive control -- violates such a covenant, so the broader injunction against taking boarders, lodgers, or roomers was reformed.",
+  "doctrinal_concepts": [
+   "apartment_house_definition",
+   "business_enterprise_restriction",
+   "restrictive_covenant_enforcement"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "\u201cApartment house\u201d as used in this covenant means a building in which separate and distinct suites of rooms are occuiped by one or more persons for residence purposes; the occupant or occupants of each such suite of rooms having exclusive management and control of and dominion over the rooms so occupied.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5934,
+     6238
+    ],
+    "reporter_page": "181"
+   },
+   {
+    "text": "Renting rooms in his dwelling house by Austin as shown by the record and recited in the opinion of the Court of Civil Appeals is not engaging in a business enterprise in contemplation of the restrictions contained in the covenant.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6239,
+     6469
+    ],
+    "reporter_page": "181"
+   },
+   {
+    "text": "Renting rooms in his dwelling house by Austin as shown by the record and recited in the opinion of the Court of Civil Appeals is not engaging in a business enterprise in contemplation of the restrictions contained in the covenant.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6239,
+     6469
+    ],
+    "reporter_page": "181"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "Reverses in relevant part the Court of Civil Appeals decision at 278 S.W. 513 (case_id 10306333 in this batch); same underlying litigation, Commission of Appeals recommendation adopted by the Supreme Court.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10303708,
+  "cite": "282 S.W. 589",
+  "court": "Texas Court of Criminal Appeals",
+  "year": 1926,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-034",
+  "notes": "Gaming statute case construing 'private residence occupied by a family' for card-playing exemption; no connection to lodging or compensated occupancy.",
+  "extraction_status": "ok"
+ }
+]

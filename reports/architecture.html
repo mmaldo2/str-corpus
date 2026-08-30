@@ -1,0 +1,584 @@
+<title>Right-to-Let Corpus Engine</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,500&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#101418; --bg2:#0b0e12; --panel:#171d24; --panel2:#1d242d;
+    --border:#2a333d; --border2:#38434f; --text:#e8eaed; --muted:#9aa5b1; --dim:#5c6874;
+    --c-user:#46f9b8; --c-orch:#6aa9ff; --c-compute:#ff6b8a;
+    --c-embed:#ffc14d; --c-vector:#b388ff; --c-seed:#ff9457;
+    --radius:14px; --radius-sm:8px;
+    --sans:'Source Sans 3',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+    --display:'Fraunces',Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.5;
+       background-image:radial-gradient(1200px 500px at 70% -10%, #17202a 0%, transparent 60%)}
+  header{padding:26px 28px 10px;max-width:1500px;margin:0 auto}
+  header h1{font-family:var(--display);font-weight:600;font-size:28px;margin:0;letter-spacing:.2px;text-wrap:balance}
+  header h1 em{font-style:italic;font-weight:500;color:var(--c-embed)}
+  header p{color:var(--muted);margin:6px 0 0;max-width:72ch}
+  header p u{text-decoration:none;border-bottom:1px dotted var(--c-embed);color:var(--text)}
+  .bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;max-width:1500px;margin:14px auto 0;padding:0 28px}
+  .modes,.flowtabs{display:flex;gap:6px;flex-wrap:wrap}
+  .modes button,.flowtabs button{
+    background:var(--panel);border:1px solid var(--border);color:var(--muted);border-radius:999px;
+    padding:6px 14px;font:600 13px var(--sans);cursor:pointer}
+  .modes button:hover,.flowtabs button:hover{border-color:var(--border2);color:var(--text)}
+  .modes button.on{color:var(--bg2);background:var(--c-embed);border-color:var(--c-embed)}
+  .flowtabs button.on{color:var(--text);border-color:var(--c-orch);background:#1a2534;box-shadow:0 0 0 1px var(--c-orch) inset}
+  .legend{margin-left:auto;display:flex;gap:12px;color:var(--dim);font:500 12px var(--mono);flex-wrap:wrap}
+  .legend span{display:flex;gap:5px;align-items:center}
+  .legend i{width:9px;height:9px;border-radius:3px;display:inline-block}
+  main{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:16px;max-width:1500px;margin:14px auto 40px;padding:0 28px}
+  @media (max-width:1080px){main{grid-template-columns:1fr}}
+  .canvas{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);
+          min-height:600px;overflow:hidden;
+          background-image:linear-gradient(var(--panel) 1px,transparent 1px),linear-gradient(90deg,var(--panel) 1px,transparent 1px);
+          background-size:36px 36px}
+  .canvas.fs{position:fixed;inset:10px;z-index:50;min-height:0}
+  .stage{position:absolute;inset:0}
+  svg.wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  .wire{fill:none;stroke-width:1.6;opacity:.08;transition:opacity .25s}
+  .wire.preview{opacity:.42;stroke-dasharray:5 5}
+  .wire.active{opacity:1;stroke-width:2.4;filter:drop-shadow(0 0 5px currentColor)}
+  .wire-label{font:500 10px var(--mono);fill:var(--dim);opacity:0}
+  .wire-label.preview{opacity:.6}
+  .wire-label.active{opacity:1;fill:var(--text)}
+  .packet{filter:drop-shadow(0 0 6px currentColor)}
+  .node{position:absolute;transform:translate(-50%,-50%);width:132px;background:var(--panel);
+        border:1px solid var(--border);border-radius:var(--radius-sm);padding:9px 10px 8px;cursor:pointer;
+        transition:opacity .25s, box-shadow .25s, border-color .25s;user-select:none}
+  .node:hover{border-color:var(--border2)}
+  .node .icon{width:14px;height:14px;margin-bottom:4px;color:var(--c)}
+  .node .label{font-weight:700;font-size:12.5px;line-height:1.25}
+  .node .tech{font:400 10.5px var(--mono);color:var(--dim);margin-top:2px}
+  .node[data-role=user]{--c:var(--c-user)} .node[data-role=orch]{--c:var(--c-orch)}
+  .node[data-role=compute]{--c:var(--c-compute)} .node[data-role=embed]{--c:var(--c-embed)}
+  .node[data-role=vector]{--c:var(--c-vector)} .node[data-role=seed]{--c:var(--c-seed)}
+  .node::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--c);
+                border-radius:var(--radius-sm) 0 0 var(--radius-sm);opacity:.85}
+  .node.participant{opacity:.92}
+  .node.dimmed{opacity:.22}
+  .node.hiddenN{display:none}
+  .node.active{box-shadow:0 0 0 1.5px var(--c),0 0 18px -2px var(--c);opacity:1}
+  .node.active-from{box-shadow:0 0 0 1px var(--c);opacity:1}
+  .node .step-badge{position:absolute;top:-9px;right:-9px;background:var(--c);color:var(--bg2);
+       font:700 10.5px var(--mono);border-radius:999px;min-width:18px;height:18px;display:none;
+       align-items:center;justify-content:center;padding:0 4px}
+  .node.active .step-badge{display:flex}
+  .node.shake{animation:shake .3s}
+  @keyframes shake{25%{margin-left:-4px}75%{margin-left:4px}}
+  aside{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);
+        padding:18px;align-self:start;position:sticky;top:14px}
+  aside .flowname{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--c-embed)}
+  aside h2{font-family:var(--display);font-size:19px;font-weight:600;margin:6px 0 2px;text-wrap:balance}
+  aside .route{display:inline-block;font:500 11.5px var(--mono);color:var(--c-orch);
+        background:#152030;border:1px solid #23405f;border-radius:6px;padding:2px 9px;margin:6px 0 10px}
+  aside .desc{color:var(--muted);font-size:14px}
+  aside .desc b{color:var(--text)}
+  .gt{color:var(--text);border-bottom:1px dotted var(--c-embed);cursor:help;border-radius:2px}
+  .gt:hover,.gt:focus-visible{background:#2a2413;outline:none}
+  .gbox{display:none;margin-top:12px;border:1px solid #2c4a3a;background:#0f1d17;border-radius:var(--radius-sm);padding:10px 12px}
+  .gbox.show{display:block}
+  .gbox .term{font:600 12px var(--sans);color:var(--c-user)}
+  .gbox p{margin:4px 0 0;font-size:13px;color:#c4dccf}
+  .gbox .close{float:right;background:none;border:none;color:var(--dim);cursor:pointer;font:600 12px var(--sans);padding:0}
+  .litval{margin-top:12px;border:1px solid #4a3b22;background:#221b10;border-radius:var(--radius-sm);padding:10px 12px}
+  .litval .lab{font:600 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--c-embed)}
+  .litval p{margin:5px 0 0;font-size:13.5px;color:#e6d9bd}
+  aside pre{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);
+        padding:10px 12px;font:400 11.5px/1.55 var(--mono);color:#c7d2dc;overflow-x:auto;margin:12px 0 0;white-space:pre}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+  .chips span{font:500 11px var(--mono);color:var(--muted);border:1px solid var(--border2);
+        border-radius:999px;padding:2px 9px}
+  .nav{display:flex;gap:8px;align-items:center;margin-top:14px}
+  .nav button{background:var(--panel2);color:var(--text);border:1px solid var(--border2);
+        border-radius:var(--radius-sm);padding:7px 14px;font:600 13px var(--sans);cursor:pointer}
+  .nav button:hover{border-color:var(--c-orch)}
+  .nav button:focus-visible,.modes button:focus-visible,.flowtabs button:focus-visible{outline:2px solid var(--c-orch);outline-offset:2px}
+  .prog{flex:1;height:4px;background:var(--bg2);border-radius:4px;overflow:hidden}
+  .prog i{display:block;height:100%;background:var(--c-orch);width:0;transition:width .25s}
+  .stepcount{font:500 11.5px var(--mono);color:var(--dim);white-space:nowrap}
+  .hint{color:var(--dim);font:400 11.5px var(--mono);margin-top:12px}
+  @media (prefers-reduced-motion:reduce){.packet,.node.shake{animation:none !important;display:none}}
+</style>
+
+<header>
+  <h1>Right-to-Let Corpus Engine <em>— how the machine builds the historical record</em></h1>
+  <p>Cities are banning short-term rentals, and the strongest counter-arguments are historical:
+     they turn on proving that letting rooms or a dwelling for short periods, for pay, has been an
+     ordinary, lawful incident of property ownership for two centuries. The problem is that the old
+     cases use vanished vocabulary no modern search reaches. This is an interactive map of the system
+     recovering that record. Pick a numbered flow below, press <b>Next</b> to walk through it — and
+     click any <u>dotted term</u> for a plain-English definition.</p>
+</header>
+
+<div class="bar">
+  <div class="modes" id="modes"></div>
+  <div class="flowtabs" id="flowtabs"></div>
+  <div class="legend">
+    <span><i style="background:var(--c-user)"></i>people</span>
+    <span><i style="background:var(--c-seed)"></i>mechanical steps</span>
+    <span><i style="background:var(--c-orch)"></i>search</span>
+    <span><i style="background:var(--c-compute)"></i>AI readers</span>
+    <span><i style="background:var(--c-embed)"></i>meaning-map</span>
+    <span><i style="background:var(--c-vector)"></i>records</span>
+  </div>
+</div>
+
+<main>
+  <div class="canvas" id="canvas"><div class="stage" id="stage">
+    <svg class="wires" id="wires"></svg>
+
+    <div class="node" data-role="user" data-id="litigator" style="left:8%;top:50%">
+      <div class="icon"><svg viewBox="0 0 14 14" fill="currentColor"><circle cx="7" cy="4" r="3"/><path d="M1 13c0-3 3-5 6-5s6 2 6 5z"/></svg></div>
+      <div class="label">Litigation team</div><div class="tech">humans, at the doctrine layer</div>
+      <span class="step-badge">·</span>
+    </div>
+
+    <div class="node" data-role="seed" data-id="caselaw" style="left:24%;top:11%">
+      <div class="icon"><svg viewBox="0 0 14 14" fill="currentColor"><path d="M2 1h7l3 3v9H2z"/></svg></div>
+      <div class="label">The printed law</div><div class="tech">9,252 reporter volumes</div>
+      <span class="step-badge">·</span>
+    </div>
+
+    <div class="node" data-role="seed" data-id="ingest" style="left:44%;top:11%">
+      <div class="icon"><svg viewBox="0 0 14 14" fill="currentColor"><path d="M7 1v8M3 6l4 4 4-4M2 12h10v1H2z" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+      <div class="label">Digitize + clean</div><div class="tech">page numbers preserved</div>
+      <span class="step-badge">·</span>
+    </div>
+
+    <div class="node" data-role="embed" data-id="embedder" style="left:64%;top:11%">
+      <div class="icon"><svg viewBox="0 0 14 14" fill="currentColor"><rect x="1" y="4" width="12" height="6" rx="1"/><path d="M4 2v2M10 2v2M4 10v2M10 10v2"/></svg></div>
+      <div class="label">Meaning-mapper</div><div class="tech">AI model, runs locally</div>
+      <span class="step-badge">·</span>
+    </div>
+
+    <div class="node" data-role="vector" data-id="db" style="left:85%;top:26%">
+      <div class="icon"><svg viewBox="0 0 14 14" fill="currentColor"><ellipse cx="7" cy="3" rx="6" ry="2"/><path d="M1 3v8c0 1.1 2.7 2 6 2s6-.9 6-2V3c0 1.1-2.7 2-6 2S1 4.1 1 3z"/></svg></div>
+      <div class="label">The corpus</div><div class="tech">1.3M cases, four states</div>
+      <span class="step-badge">·</span>
+    </div>
+
+    <div class="node" data-role="orch" data-id="planner" style="left:24%;top:44%">
+      <div class="icon"><svg viewBox="0 0 14 14" fill="currentColor"><path d="M2 2h10v2H2zM2 6h7v2H2zM2 10h9v2H2z"/></svg></div>
+      <div class="label">The lexicon</div><div class="tech">30 saved searches, reviewed</div>
+      <span class="step-badge">·</span>
+    </div>
+
+    <div class="node" data-role="orch" data-id="shard" style="left:46%;top:44%">
+      <div class="icon"><svg viewBox="0 0 14 14" fill="currentColor"><circle cx="6" cy="6" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 9l4 4" stroke="currentColor" stroke-width="1.8"/></svg></div>
+      <div class="label">Search engine</div><div class="tech">every query, logged</div>
+      <span class="step-badge">·</span>
+    </div>
+
+    <div class="node" data-role="compute" data-id="mapfleet" style="left:67%;top:47%">
+      <div class="icon"><svg viewBox="0 0 14 14" fill="currentColor"><rect x="1" y="2" width="5" height="5" rx="1"/><rect x="8" y="2" width="5" height="5" rx="1"/><rect x="4.5" y="8" width="5" height="5" rx="1"/></svg></div>
+      <div class="label">AI readers</div><div class="tech">18 cases per folder</div>
+      <span class="step-badge">·</span>
+    </div>
+
+    <div class="node" data-role="compute" data-id="codex" style="left:67%;top:73%">
+      <div class="icon"><svg viewBox="0 0 14 14" fill="currentColor"><path d="M5 2L1 7l4 5M9 2l4 5-4 5" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+      <div class="label">Second reader</div><div class="tech">independent AI, spot-checks</div>
+      <span class="step-badge">·</span>
+    </div>
+
+    <div class="node" data-role="seed" data-id="verify" style="left:86%;top:60%">
+      <div class="icon"><svg viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l5 2v4c0 3-2 5-5 6-3-1-5-3-5-6V3z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 7l2 2 3-4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+      <div class="label">Quote gate</div><div class="tech">word-for-word, or discarded</div>
+      <span class="step-badge">·</span>
+    </div>
+
+    <div class="node" data-role="compute" data-id="reducer" style="left:46%;top:76%">
+      <div class="icon"><svg viewBox="0 0 14 14" fill="currentColor"><path d="M2 2h10L8 8v4l-2 1V8z"/></svg></div>
+      <div class="label">Synthesizer</div><div class="tech">senior AI, sees only verified</div>
+      <span class="step-badge">·</span>
+    </div>
+
+    <div class="node" data-role="vector" data-id="gold" style="left:24%;top:76%">
+      <div class="icon"><svg viewBox="0 0 14 14" fill="currentColor"><path d="M7 1l2 4 4 .6-3 2.9.7 4.5L7 11l-3.7 2 .7-4.5L1 5.6 5 5z"/></svg></div>
+      <div class="label">The answer key</div><div class="tech">92 known-good cases</div>
+      <span class="step-badge">·</span>
+    </div>
+
+    <div class="node" data-role="seed" data-id="courtlistener" data-modes="roadmap" style="left:85%;top:8%">
+      <div class="label">CourtListener sync</div><div class="tech">post-2020 + citation graph</div>
+      <span class="step-badge">·</span>
+    </div>
+    <div class="node" data-role="seed" data-id="english" data-modes="roadmap" style="left:8%;top:20%">
+      <div class="label">English Reports</div><div class="tech">1220–1867 · the inheritance</div>
+      <span class="step-badge">·</span>
+    </div>
+  </div></div>
+
+  <aside id="panel">
+    <div class="flowname" id="p-flow"></div>
+    <h2 id="p-title"></h2>
+    <div class="route" id="p-route"></div>
+    <div class="desc" id="p-desc"></div>
+    <div class="gbox" id="gbox"><button class="close" id="gclose">×</button>
+      <div class="term" id="g-term"></div><p id="g-def"></p></div>
+    <div class="litval"><div class="lab">Why it matters for the case</div><p id="p-lit"></p></div>
+    <pre id="p-payload"></pre>
+    <div class="chips" id="p-chips"></div>
+    <div class="nav">
+      <button id="prev" aria-label="Previous step">←</button>
+      <button id="next" aria-label="Next step">Next →</button>
+      <div class="prog"><i id="prog"></i></div>
+      <div class="stepcount" id="stepcount"></div>
+    </div>
+    <div class="hint">←/→ step · 1–5 flow · O mode · F fullscreen · click a node to jump</div>
+  </aside>
+</main>
+
+<script>
+const GLOSSARY = {
+  reporter: ["Reporters", "The bound volumes in which American courts published their decisions — 'Wendell's Reports,' 'South Western Reporter.' The complete printed record of what courts actually held, scanned page by page."],
+  selector: ["Saved search (a 'selector')", "A numbered, saved search query — like a standing document request. Each is a hypothesis about how old cases phrased the practice ('taking in lodgers'). They are version-controlled like contract drafts: never silently edited, only superseded, so every search ever run can be reproduced exactly."],
+  meaningmap: ["Meaning-map (embeddings)", "An AI technique that turns each passage into coordinates so that passages MEANING the same thing sit near each other — like shelving cases by subject instead of alphabetically. It lets us find a case about renting rooms by the week even if it uses none of the words we thought to search for."],
+  similarity: ["Similarity score", "How close a passage sits to our search on the meaning-map, on a 0-to-1 scale. We keep everything above a set floor and take the closest matches first."],
+  fts: ["Full-text search", "Classic word-and-phrase searching — the same idea as Westlaw terms-and-connectors, but run locally over the complete corpus with exact, logged, repeatable queries."],
+  chunk: ["Passages ('chunks')", "Each opinion is read in overlapping passages of about 750 words, so one relevant paragraph is findable inside a long opinion that is mostly about something else."],
+  provenance: ["Provenance", "Every candidate case records exactly which search found it, in which version, matching which text. A discovery log for the research itself: any case's path into the record can be reconstructed."],
+  coverage: ["Coverage ledger", "A table recording that every saved search ran over every slice of the corpus — the receipts behind the claim 'we searched everything.' It also means re-runs only repeat what changed."],
+  recall: ["Recall", "The core quality score: of the cases we already KNOW should be found (the answer key), what fraction did the system actually find? Measured every cycle; changes that lower it are rejected."],
+  goldset: ["Answer key (gold set)", "Historical cases cited in real short-term-rental briefs, plus the leading cases from the classic landlord-tenant treatises. We test the machine against what expert lawyers already found by hand, before trusting anything new it finds."],
+  pincite: ["Pin cites", "The original reporter page numbers are preserved as data, so every quotation the system produces carries the exact page it appears on — citable in a brief as-is."],
+  era: ["Era slices", "The corpus is divided into five historical periods with distinct vocabularies (before 1860, Gilded Age, early zoning, mid-century, modern). Every search is scoped to the periods where its language actually existed."],
+  quotegate: ["The quote gate", "A mechanical check: every quotation an AI reader extracts must match the original opinion word-for-word, or the quote is discarded and every conclusion that rested on it is thrown out with it. Invented quotes cannot survive this step — by construction, not by diligence."],
+  crosscheck: ["Second-reader check", "A second, unrelated AI re-reads a sample of the same cases with identical instructions. Where the two disagree, a human decides. Like two associates reading independently, with the disagreement rate reported as a quality measure."],
+  ontology: ["The master glossary (ontology)", "The project's growing map of the practice: each legal concept, the words each era used for it, and the anchor cases for each. It compounds every cycle and is reusable for the next history-and-tradition fight."],
+  batch: ["Reading folders (batches)", "Candidate cases are read in folders of ~18, grouped by period and state, so each AI reader works inside one era's vocabulary and habits."],
+  eyecite: ["eyecite", "An open-source citation parser from the Free Law Project. It reads '1 Wend. 16' out of a brief's text and identifies the case — including the obscure 19th-century reporter abbreviations."],
+  nominate: ["Nominate reporters", "Early reporters named after their editors — Wendell, Barbour, Denio, Wharton. This is where pre-1860 lodger law lives, in citation formats modern databases barely handle."],
+  pinned: ["Pinned versions", "The exact version of every piece of software and every AI model is frozen and recorded — like citing to a specific edition — so any result can be reproduced years later."],
+  glucksberg: ["The Glucksberg test", "The Supreme Court's method for unenumerated-rights claims: the asserted right must be carefully described and 'deeply rooted in this Nation's history and tradition.' It is won or lost on the depth and specificity of the historical record — which is what this system builds."],
+  levelgen: ["Level of generality", "The framing fight that decides these cases. The city describes the right as 'operating an unlicensed hotel' (novel — government wins). The owner describes it as 'a householder letting rooms for short periods for pay' (ancient — owner wins, if the record proves it). The evidence for the owner's framing is precisely WHO was letting and for HOW LONG, case by case."],
+  determinism: ["Mechanical / deterministic", "Steps marked orange involve no AI judgment at all — the same input always produces the same output, like a photocopier. The system deliberately keeps its record-keeping mechanical and lets AI touch only the reading."],
+};
+
+const MODES = [
+  {key:'sprint', name:'Built now'},
+  {key:'roadmap', name:'Roadmap'},
+];
+
+const G = (key, text) => `<span class="gt" tabindex="0" data-g="${key}">${text}</span>`;
+
+const flows = {
+  build_record: {
+    name: "1 · Build the Record",
+    steps: [
+      {from:'caselaw', to:'ingest', color:'--c-seed', title:'Collect the printed past',
+       route:'19 GB of scanned reporter volumes',
+       desc:`Harvard scanned essentially every published American case from the printed ${G('reporter','reporters')}. We collected all 9,252 volumes that ever covered Texas, Pennsylvania, Louisiana, and New York — including the ${G('nominate','nominate reporters')} where the oldest lodger law lives — with a receipt (a digital fingerprint) for every volume.`,
+       lit:'The record must be COMPLETE to support the claim "this tradition is continuous." Any gap becomes opposing counsel’s footnote. The download receipts are the chain of custody for the entire corpus.',
+       payload:'wend/1.zip — Wendell’s Reports\n(N.Y. Supreme Court, 1828)\n+ fingerprint, size, timestamp',
+       chips:['9,252 vols','19 GB','132 reporters']},
+      {from:'ingest', to:'db', color:'--c-seed', title:'Digitize without losing the page',
+       route:'1,915,819 opinions → clean, searchable text',
+       desc:`The scans become searchable text — carefully. The page numbers scattered through old print (<b>*127</b>) are lifted out into a page index instead of being left to corrupt the text, and duplicate printings of the same case across ${G('reporter','reporters')} are reconciled. Every case is dated into one of five ${G('era','era slices')}.`,
+       lit:'Reporter page numbers survive as data, so every quotation the system ever produces can carry a real pin cite — the difference between research notes and something a brief can file.',
+       payload:'Hitchcock v. Post,\n1 Wend. 16 (N.Y. 1828)\nera: pre-1860 · pages mapped',
+       chips:['1.3M unique','5 eras','pin-cite safe']},
+      {from:'db', to:'embedder', color:'--c-embed', title:'Read everything in passages',
+       route:'every opinion, in overlapping passages',
+       desc:`Every opinion is divided into overlapping ${G('chunk','passages')} of about 750 words, so a single relevant paragraph is findable inside a 30-page opinion about something else entirely.`,
+       lit:'A court’s one-sentence characterization of a letting arrangement is retrievable even when it is buried in an opinion nominally about an unrelated dispute.',
+       payload:'3,882,534 passages\nfrom 1,301,147 opinions',
+       chips:['3.88M passages','~3 per case']},
+      {from:'embedder', to:'db', color:'--c-embed', title:'Meaning becomes geography',
+       route:'AI meaning-map, built on a local machine',
+       desc:`An AI model turns each passage into a point on a ${G('meaningmap','meaning-map')}: passages about the same <em>situation</em> sit near each other even when they share no vocabulary. The model version is ${G('pinned','pinned')} so the map can be rebuilt identically years later.`,
+       lit:'This is the answer to vocabulary drift: a 1935 court describing "paying guests by the week" is now findable by what it MEANS, not the words it happened to use. Conventional search never reaches these cases; this does.',
+       payload:'"lodger or tenant?" sits near\n"took in a mechanic and his\n family by the week"',
+       chips:['meaning-based','frozen model']},
+    ]
+  },
+  gold_bench: {
+    name: "2 · Prove Completeness",
+    steps: [
+      {from:'litigator', to:'gold', color:'--c-user', title:'Start from what experts found',
+       route:'real STR briefs + the classic treatises',
+       desc:`The briefs from <em>Zaatari v. City of Austin</em> (43 filings, pulled free from the Texas courts’ public portal) are mined with ${G('eyecite','eyecite')} for every historical citation — keeping, for each one, <b>what proposition the brief cited it for</b>. The lodger chapters of the classic treatises (Wood, Taylor, Tiffany) supply a second list. Together: the ${G('goldset','answer key')}.`,
+       lit:'Expert lawyers’ citations are the test key. If the machine can’t find what the Zaatari team found by hand, it can’t be trusted to find what they missed. Keeping the citing context keeps the benchmark honest: letting-law cites count; procedural cites don’t.',
+       payload:'"An owner has the ‘absolute right\n to lease her property and collect\n the rents.’" — citing Stark v. Coe',
+       chips:['43 briefs','92 known cases']},
+      {from:'gold', to:'db', color:'--c-vector', title:'Match citations to real cases',
+       route:'"1 Denio 602" → the actual opinion',
+       desc:`Each harvested citation is matched to its case in the corpus — including the ${G('nominate','antique citation formats')} ("1 Hill & Den. 565"). Brief-derived and treatise-derived entries are scored separately, because the treatises also seeded the search vocabulary and counting them together would be circular.`,
+       lit:'The two-tier design anticipates a methods cross-examination: the headline score is measured only against citations the system’s own vocabulary didn’t come from.',
+       payload:'Wilson v. Martin, 1 Denio 602\n(N.Y. 1845) — the leading\nlodger-is-not-a-tenant case',
+       chips:['63 brief-tier','29 treatise']},
+      {from:'shard', to:'gold', color:'--c-orch', title:'Score the search against the key',
+       route:'measured, every cycle',
+       desc:`Did the searches find the answer-key cases? Every hit names WHICH ${G('selector','saved search')} found it; every miss requires a written postmortem and a versioned fix. ${G('recall','Recall')} may never silently regress.`,
+       lit:'"We searched the entire published case law of four states, and here is the measured recall" is a defensible methodology statement. A Westlaw session is not. This is what lets the record claim completeness.',
+       payload:'treatise tier: 72% found\n(rising each cycle;\nevery miss gets a fix)',
+       chips:['scored','misses → fixes']},
+      {from:'gold', to:'litigator', color:'--c-user', title:'Misses drive the next round',
+       route:'the answer key only grows',
+       desc:'The miss list goes back to the humans and the lexicon: which vocabulary did we not know yet? More briefs and more anchors join the key over time (the New Orleans and New Braunfels litigation is next).',
+       lit:'The benchmark compounds. Each cycle’s misses become the next cycle’s searches, and the completeness the record can claim keeps rising — with an audit trail.',
+       payload:'MISS: Spann v. City of Dallas\n→ fix proposed: add the\n  use-zoning vocabulary',
+       chips:['flywheel input']},
+    ]
+  },
+  retrieve: {
+    name: "3 · Recover Dead Vocabulary",
+    steps: [
+      {from:'planner', to:'shard', color:'--c-orch', title:'The lexicon is the hypothesis',
+       route:'30 saved searches, human-approved',
+       desc:`Thirty ${G('selector','saved searches')} encode how each era talked about this practice: exact phrases ("taking in lodgers"), proximity searches (lodger NEAR tenant), and ${G('meaningmap','meaning-map')} queries. Six deliberately hunt <b>adverse</b> authority — the licensing tradition — because candor requires knowing both files.`,
+       lit:'The historical record speaks in vanished terms: lodger, sojourner, tourist home, paying guests. The corpus itself confirmed it — "short-term rental" appears ZERO times before 1970. The lexicon is the dictionary reconnecting today’s claim to its own history.',
+       payload:'"taking in lodgers"\n"letting of lodgings"\n"paying guests" · "tourist home"\n+ meaning-based queries',
+       chips:['30 searches','6 adverse','versioned']},
+      {from:'shard', to:'db', color:'--c-orch', title:'Word searches, era by era',
+       route:'exact phrases across all four states',
+       desc:`Every ${G('selector','saved search')} runs over every ${G('era','era slice')} it applies to — ${G('determinism','mechanically')}, with a ${G('coverage','coverage ledger')} recording that each (search × era × state) combination has run.`,
+       lit:'The coverage ledger IS the completeness record: the documentary basis for asserting "this query set was run over the entire published case law of four states."',
+       payload:'~4,700 candidate cases\nfrom the word searches alone',
+       chips:['every slice','logged']},
+      {from:'db', to:'shard', color:'--c-embed', title:'Meaning searches over 3.9M passages',
+       route:'find the situation, not the words',
+       desc:`The meaning queries describe a <em>situation</em> — "a householder lets furnished rooms in her own dwelling for compensation" — and take the nearest passages by ${G('similarity','similarity')}, era by era. No known phrase required.`,
+       lit:'This is where the cases nobody could find surface: the 1880s dispute that says "took in a mechanic and his family by the week" and never once uses the word lodger. Exactly the specific evidence the ' + '<span class="gt" tabindex="0" data-g="glucksberg">Glucksberg test</span>' + ' demands.',
+       payload:'+8,269 candidates from the\nmeaning-map — answer-key\nrecall jumped 24% → 72%',
+       chips:['semantic','era-scoped']},
+      {from:'shard', to:'mapfleet', color:'--c-orch', title:'Candidates become reading folders',
+       route:'answer-key cases and dense hits first',
+       desc:`Candidate cases group into ${G('batch','reading folders')} of 18, each from one era and state. Folders containing answer-key cases or cases flagged by several independent searches go first — the reading budget spends itself where evidence density is highest. Every candidate carries its ${G('provenance','provenance')}.`,
+       lit:'When a case ends up in a brief, its discovery path is reconstructible end to end: which search, which version, matching which words.',
+       payload:'folder: 1900–1930 × New York\n18 cases · each tagged with\nthe searches that found it',
+       chips:['630 folders','top 40 read first']},
+    ]
+  },
+  read_verify: {
+    name: "4 · Read at Scale, Verify Every Quote",
+    steps: [
+      {from:'mapfleet', to:'db', color:'--c-compute', title:'AI readers fill a legal form',
+       route:'a structured questionnaire per case',
+       desc:`An AI reader takes each folder and fills the same form for every case: <b>who was letting</b> (an ordinary householder, or a commercial operator?), <b>how long the stays were</b> (nights, weeks, months), how the court classified the arrangement (lease, license, lodging, innkeeping), and which side of the ledger it lands on — each answer supported by a quotation.`,
+       lit:'Who-was-letting × duration is the ' + '<span class="gt" tabindex="0" data-g="levelgen">level-of-generality</span>' + ' battle in table form. The city says "no tradition of unlicensed hotels"; this table answers: ordinary householders, short stays, lawful, for two centuries — case by case, with citations.',
+       payload:'who: householder\nduration: weeks\ncourt called it: a license\nquote: attached, page-cited',
+       chips:['every case answered']},
+      {from:'mapfleet', to:'codex', color:'--c-compute', title:'A second, independent reader',
+       route:'10% of folders, re-read blind',
+       desc:`A ${G('crosscheck','second AI from a different company')} re-reads a sample of the same folders with identical instructions. Where the two disagree about a case, a human decides.`,
+       lit:'The disagreement rate is a published quality metric. When the methodology is attacked, "two independent readers, measured agreement, humans adjudicate conflicts" is the answer.',
+       payload:'sample re-read → disagreements\nrouted to human review',
+       chips:['blind','measured']},
+      {from:'mapfleet', to:'verify', color:'--c-compute', title:'Every quote faces the gate',
+       route:'word-for-word, or it dies',
+       desc:`The ${G('quotegate','quote gate')} is ${G('determinism','purely mechanical')}: each supporting quotation must appear verbatim in the original opinion (with a tolerance for scanning smudges, flagged for human eyes). A failed quote is discarded — and every conclusion that rested on it is nulled with it.`,
+       lit:'No hallucinated quotation can reach work product — by construction, not by diligence. The single most important property for putting machine-found history in front of a judge.',
+       payload:'exact match → verified + page\nnear-match → human eyeball\nno match → conclusion voided',
+       chips:['zero tolerance']},
+      {from:'verify', to:'reducer', color:'--c-seed', title:'Only verified evidence flows on',
+       route:'quotes now carry their page numbers',
+       desc:`The synthesizer receives verified extractions only — never raw opinions, never the readers’ working notes. Each quotation now carries its reporter page from the ${G('pincite','page index')}.`,
+       lit:'Everything downstream — the evidence tables, the favorable and adverse files, the eventual brief — inherits page-cited, source-anchored quotes. Chain of custody, maintained. (Good-law checking in a citator remains a human checkbox on every case.)',
+       payload:'"a mere license to occupy the\n furnished rooms" — verified,\n at page *127',
+       chips:['brief-grade','citator: human']},
+    ]
+  },
+  synthesize: {
+    name: "5 · Synthesize the Ledger",
+    steps: [
+      {from:'reducer', to:'gold', color:'--c-compute', title:'The evidence tables',
+       route:'favorable file · adverse file · metrics',
+       desc:'A senior AI assembles the cycle report: duplicate printings reconciled, doctrinal lines traced across eras and states, and the who-was-letting × duration table built — favorable, adverse, and mixed, by jurisdiction.',
+       lit:'The evidence table is the deliverable: N householder cases, short stays, by era and state — the empirical spine of a "deeply rooted" argument, and the raw material for choosing WHERE to litigate.',
+       payload:'ledger:\n  favorable (by state × era)\n  adverse — the licensing line\n  mixed',
+       chips:['both sides','candor built in']},
+      {from:'reducer', to:'planner', color:'--c-compute', title:'The flywheel turns',
+       route:'new period terms → proposed searches',
+       desc:`Period vocabulary the readers noticed but the lexicon lacked goes back as proposals; humans approve the next round of ${G('selector','saved searches')}. The ${G('ontology','master glossary')} — concept → each era’s words → anchor cases — compounds every cycle.`,
+       lit:'Each cycle reads deeper into the record than the last, and the glossary becomes a durable research asset — reusable for the next tradition-and-history fight (accessory dwellings, home businesses, any similar historical test).',
+       payload:'observed: "mesne lodger",\n"apartments to let" …\n→ proposed searches, v2',
+       chips:['compounding','reusable']},
+      {from:'reducer', to:'litigator', color:'--c-user', title:'Humans at the doctrine layer',
+       route:'structured summaries, not 10,000 opinions',
+       desc:'The lawyers review structured summaries, adjudicate reader disagreements, run the citator check (an explicit checkbox on every case — nothing is work-product-ready without it), and do the doctrinal synthesis machines are not trusted with.',
+       lit:'The machine prepared the record; the lawyers make the argument. Claim framing — "a householder’s right to let rooms for short periods for compensation" — stays a human judgment, now standing on a complete, verified, two-sided record.',
+       payload:'[ ] citator-checked\n— required on every case\nbefore work-product status',
+       chips:['human gate']},
+      {from:'planner', to:'shard', color:'--c-orch', title:'The next cycle begins',
+       route:'only new or changed searches re-run',
+       desc:`The ${G('coverage','coverage ledger')} means each new round pays only for what changed. The loop runs until it stops producing new material.`,
+       lit:'Termination with a measured endpoint: "the loop stopped finding new authority" is itself a statement about the completeness of the historical record — one no manual research process can honestly make.',
+       payload:'unchanged searches: skipped\nnew searches: run everywhere\nrecall: re-scored',
+       chips:['pay for the diff']},
+    ]
+  },
+};
+
+let mode = 'sprint', flowKey = 'build_record', stepIdx = 0;
+const $ = id => document.getElementById(id);
+const stage = $('stage'), svg = $('wires'), canvas = $('canvas');
+const nodes = [...document.querySelectorAll('.node')];
+const nodeById = Object.fromEntries(nodes.map(n => [n.dataset.id, n]));
+const css = v => getComputedStyle(document.body).getPropertyValue(v).trim();
+
+const modesEl = $('modes');
+MODES.forEach(m => {
+  const b = document.createElement('button');
+  b.textContent = m.name; b.dataset.key = m.key;
+  b.onclick = () => pickMode(m.key);
+  modesEl.appendChild(b);
+});
+const tabsEl = $('flowtabs');
+Object.entries(flows).forEach(([k, f]) => {
+  const b = document.createElement('button');
+  b.textContent = f.name; b.dataset.key = k;
+  b.onclick = () => pickFlow(k);
+  tabsEl.appendChild(b);
+});
+
+function visible(n){ return !n.classList.contains('hiddenN'); }
+function nodeCenter(n, r){
+  const b = n.getBoundingClientRect();
+  return {x: b.left + b.width/2 - r.left, y: b.top + b.height/2 - r.top,
+          w: b.width, h: b.height};
+}
+function anchor(c, t){
+  const dx = t.x - c.x, dy = t.y - c.y;
+  const sx = dx === 0 ? 1e9 : (c.w/2)/Math.abs(dx), sy = dy === 0 ? 1e9 : (c.h/2)/Math.abs(dy);
+  const s = Math.min(sx, sy);
+  return {x: c.x + dx*s, y: c.y + dy*s};
+}
+function drawWires(){
+  svg.innerHTML = '';
+  const r = stage.getBoundingClientRect();
+  svg.setAttribute('viewBox', `0 0 ${r.width} ${r.height}`);
+  flows[flowKey].steps.forEach((s, i) => {
+    const a = nodeById[s.from], b = nodeById[s.to];
+    if(!a || !b || !visible(a) || !visible(b)) return;
+    const ca = nodeCenter(a, r), cb = nodeCenter(b, r);
+    const p1 = anchor(ca, cb), p2 = anchor(cb, ca);
+    const mx = (p1.x+p2.x)/2, my = (p1.y+p2.y)/2;
+    const dx = p2.x-p1.x, dy = p2.y-p1.y, len = Math.hypot(dx,dy) || 1;
+    const off = (i % 2 ? -1 : 1) * Math.min(36, len*0.18);
+    const qx = mx - dy/len*off, qy = my + dx/len*off;
+    const d = `M ${p1.x} ${p1.y} Q ${qx} ${qy} ${p2.x} ${p2.y}`;
+    const ns = 'http://www.w3.org/2000/svg';
+    const path = document.createElementNS(ns, 'path');
+    path.setAttribute('d', d); path.setAttribute('class', 'wire');
+    path.dataset.step = i; path.style.stroke = css(s.color); path.style.color = css(s.color);
+    svg.appendChild(path);
+    const lbl = document.createElementNS(ns, 'text');
+    lbl.setAttribute('x', qx); lbl.setAttribute('y', qy - 4);
+    lbl.setAttribute('class', 'wire-label'); lbl.dataset.step = i;
+    lbl.textContent = i + 1;
+    svg.appendChild(lbl);
+  });
+}
+function addPacket(i){
+  const s = flows[flowKey].steps[i];
+  const path = svg.querySelector(`path[data-step="${i}"]`);
+  if(!path) return;
+  const ns = 'http://www.w3.org/2000/svg';
+  const c = document.createElementNS(ns, 'circle');
+  c.setAttribute('r', 4); c.setAttribute('class', 'packet');
+  c.setAttribute('fill', css(s.color)); c.style.color = css(s.color);
+  const am = document.createElementNS(ns, 'animateMotion');
+  am.setAttribute('dur', '1.6s'); am.setAttribute('repeatCount', 'indefinite');
+  am.setAttribute('path', path.getAttribute('d'));
+  c.appendChild(am); svg.appendChild(c);
+}
+function applyStep(){
+  const flow = flows[flowKey], s = flow.steps[stepIdx];
+  const parts = new Set();
+  flow.steps.forEach(st => { parts.add(st.from); parts.add(st.to); });
+  nodes.forEach(n => {
+    n.classList.remove('active','active-from','participant','dimmed');
+    if(!visible(n)) return;
+    const id = n.dataset.id;
+    if(id === s.to) n.classList.add('active');
+    else if(id === s.from) n.classList.add('active-from');
+    else if(parts.has(id)) n.classList.add('participant');
+    else n.classList.add('dimmed');
+  });
+  const badge = nodeById[s.to].querySelector('.step-badge');
+  if(badge) badge.textContent = stepIdx + 1;
+  svg.querySelectorAll('.packet').forEach(p => p.remove());
+  svg.querySelectorAll('.wire').forEach(w => {
+    w.classList.remove('active','preview');
+    w.classList.add(+w.dataset.step === stepIdx ? 'active' : 'preview');
+  });
+  svg.querySelectorAll('.wire-label').forEach(l => {
+    l.classList.remove('active','preview');
+    l.classList.add(+l.dataset.step === stepIdx ? 'active' : 'preview');
+  });
+  addPacket(stepIdx);
+  $('p-flow').textContent = flow.name;
+  $('p-title').textContent = s.title;
+  $('p-route').textContent = s.route;
+  $('p-desc').innerHTML = s.desc;
+  $('p-lit').innerHTML = s.lit;
+  $('p-payload').textContent = s.payload;
+  $('p-chips').innerHTML = s.chips.map(c => `<span>${c}</span>`).join('');
+  $('gbox').classList.remove('show');
+  $('prog').style.width = ((stepIdx+1)/flow.steps.length*100) + '%';
+  $('stepcount').textContent = `${stepIdx+1} / ${flow.steps.length}`;
+  tabsEl.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.key === flowKey));
+}
+function pickFlow(k){ flowKey = k; stepIdx = 0; drawWires(); applyStep(); }
+function go(d){
+  const n = flows[flowKey].steps.length;
+  stepIdx = (stepIdx + d + n) % n;
+  applyStep();
+}
+function pickMode(m){
+  mode = m;
+  modesEl.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.key === m));
+  nodes.forEach(n => {
+    const restrict = n.dataset.modes;
+    n.classList.toggle('hiddenN', !!restrict && restrict !== m);
+  });
+  drawWires(); applyStep();
+}
+function showGloss(key){
+  const g = GLOSSARY[key];
+  if(!g) return;
+  $('g-term').textContent = g[0];
+  $('g-def').textContent = g[1];
+  $('gbox').classList.add('show');
+}
+document.getElementById('panel').addEventListener('click', e => {
+  const t = e.target.closest('.gt');
+  if(t) showGloss(t.dataset.g);
+});
+document.getElementById('panel').addEventListener('keydown', e => {
+  const t = e.target.closest('.gt');
+  if(t && (e.key === 'Enter' || e.key === ' ')){ e.preventDefault(); showGloss(t.dataset.g); }
+});
+$('gclose').onclick = () => $('gbox').classList.remove('show');
+nodes.forEach(n => {
+  n.addEventListener('click', () => {
+    if(n.classList.contains('dimmed')){
+      n.classList.add('shake'); setTimeout(() => n.classList.remove('shake'), 350);
+      return;
+    }
+    const id = n.dataset.id;
+    const i = flows[flowKey].steps.findIndex(s => s.from === id || s.to === id);
+    if(i >= 0){ stepIdx = i; applyStep(); }
+  });
+});
+$('next').onclick = () => go(1);
+$('prev').onclick = () => go(-1);
+document.addEventListener('keydown', e => {
+  if(e.key === 'ArrowRight') go(1);
+  else if(e.key === 'ArrowLeft') go(-1);
+  else if(e.key >= '1' && e.key <= '5'){
+    const k = Object.keys(flows)[+e.key - 1]; if(k) pickFlow(k);
+  }
+  else if(e.key === 'o' || e.key === 'O') pickMode(mode === 'sprint' ? 'roadmap' : 'sprint');
+  else if(e.key === 'f' || e.key === 'F'){ canvas.classList.toggle('fs'); drawWires(); applyStep(); }
+  else if(e.key === 'Escape'){ canvas.classList.remove('fs'); drawWires(); applyStep(); }
+});
+addEventListener('resize', () => { drawWires(); applyStep(); });
+pickMode('sprint');
+pickFlow('build_record');
+</script>

@@ -1,0 +1,516 @@
+[
+ {
+  "case_id": 268453,
+  "cite": "1 Pa. Super. 578",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1896,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.95,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": "The Act of July 2, 1895 regulating and licensing public lodging houses is a valid exercise of the state's police power and does not violate constitutional requirements as to title, uniformity of taxation, or unreasonable searches. Defendant's conviction for keeping a public lodging house without a license is affirmed.",
+  "doctrinal_concepts": [
+   "police_power_licensing",
+   "lodging_house_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The whole scope and object of the act of July 2,1895, is manifestly for the preservation of the public health, the public morals and good order of society, and it is a legitimate exercise of the police power of the state, upon which there is no constitutional limitation.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     830,
+     1101
+    ],
+    "reporter_page": "578"
+   },
+   {
+    "text": "During and prior to the year 1895, the defendant kept and maintained a public lodging house at 231 Crown street, in the city of Philadelphia. The defendant charged and received twenty-five cents per single night and less for each lodger.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1661,
+     1898
+    ],
+    "reporter_page": "578"
+   },
+   {
+    "text": "The judgment was properly entered on the question raised by the motion in arrest, and is therefore affirmed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     10816,
+     10924
+    ],
+    "reporter_page": "582"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 260438,
+  "cite": "1 Walk. 43",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1887,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Innkeeper/livery-stable lien dispute over a horse; the 1855 boarding-house lien act is discussed only to distinguish it from the innkeeper's horse lien, not to address the character or regulation of letting dwellings/rooms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 270618,
+  "cite": "2 Pa. Super. 599",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1896,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Commercial brewery lease renewal/holding-over dispute between landlord and tenant; no lodging, boarding, or short-term dwelling-letting element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 483142,
+  "cite": "43 Pa. 404",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1862,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Coal-bank mining lease dispute over eviction and rent suspension; no dwelling/room letting or lodging element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 888368,
+  "cite": "180 Pa. 47",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1897,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.95,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "Affirming the Superior Court, the court holds the Act of July 2, 1895 regulating and licensing public lodging houses is obviously constitutional, rejecting challenges based on the title clause, uniformity of taxation, and unreasonable searches; the conviction for keeping an unlicensed lodging house stands.",
+  "doctrinal_concepts": [
+   "police_power_licensing",
+   "lodging_house_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Robert Muir, the defendant, at the time of his arrest, kept a lodging house at 231 Crown street in the city of Philadelphia",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2600,
+     2723
+    ],
+    "reporter_page": "48"
+   },
+   {
+    "text": "The Act of July 2, 1895, P. L. 428, entitled \u201cAn act to regulate and license public lodging houses in the different cities in this commonwealth,\u201d does not violate article III, see. 8, of the constitution, relating to title of acts, nor impose a license or tax lacking uniformity, nor offend against the bill of rights forbidding unreasonable searches: See Com. v. Muir, 1 Pa. Superior Ct. 578.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     123,
+     516
+    ],
+    "reporter_page": "47"
+   },
+   {
+    "text": "We have considered the provisions of the act, and are all of opinion that the Superior Court was clearly right in holding that it is constitutional. It is so obviously constitutional and valid that discussion of the subject is unnecessary.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3939,
+     4178
+    ],
+    "reporter_page": "49"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Supreme Court affirmance of case_id 268453 (Superior Court); this opinion incorporates the facts by reference and does not itself restate the nightly-rate occupancy details, so duration_of_occupancy is left unclear.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1021246,
+  "cite": "64 Pa. 58",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1870,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Use-and-occupation claim by a sheriff's-sale purchaser against a holdover tenant of a commercial storehouse; no lodging or boarding element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 6758056,
+  "cite": "1 Law Times (N.S.) 119",
+  "court": "Philadelphia County Court of Common Pleas",
+  "year": 1879,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The 1876 Act requiring boarding houses to post rate schedules protects only boarders who relied on posted rates without their own contract; where a boarder made a special contract for room and board before occupying, entered under it, and paid under its terms without complaint, he waives the Act's protections and is estopped from invoking them against the boarding-house keeper's claim for unpaid board.",
+  "doctrinal_concepts": [
+   "boarding_house_special_contract",
+   "statutory_waiver"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "These two cases, although not incidental, are so similar that.the point of law raised in both of them can be considered without adverting to the difference between them. They were both actions of replevin for goods and baggage which liad been detained by certain hoarding-house keepers for non-payment of board.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1046,
+     1357
+    ],
+    "reporter_page": "119"
+   },
+   {
+    "text": "it had no application to cases where the boarder, before occupying the rooms, bad made a special contract of his own.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4708,
+     4825
+    ],
+    "reporter_page": "121"
+   },
+   {
+    "text": "Where a party makes his own contract, enters into possession under its terms, makes payments under its provisions, and makes no complaints as to the absence of the placards required by law, he thereby waives the benefit of the law, and is estopped from setting it up in defence of payment.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     687,
+     976
+    ],
+    "reporter_page": "119"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "The special contracts fixed a stipulated term of occupancy for the rooms, but the exact length is not given in the reported facts, so duration_of_occupancy is left unclear.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 222994,
+  "cite": "4 Pennyp. 57",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1884,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "A landlord who boarded and lodged in a room of the house he had let to his tenants, by their permission and subordinate to their rights, was not thereby evicting them; his subsequent payment for use and occupation of the room after he ceased boarding removed any technical character of eviction, so the tenants' distress for rent was upheld.",
+  "doctrinal_concepts": [
+   "boarder_license",
+   "eviction_technical_character"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "This is not the case of an eviction by the landlord, of his tenants from the possession. He entered as a boarder by their permission and in subordination to? their rights. He paid for his board and lodging.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     10739,
+     10945
+    ],
+    "reporter_page": "62"
+   },
+   {
+    "text": "This is not the case of an eviction by the landlord, of his tenants from the possession. He entered as a boarder by their permission and in subordination to? their rights. He paid for his board and lodging.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     10739,
+     10945
+    ],
+    "reporter_page": "62"
+   },
+   {
+    "text": "his subsequent payment to them for the use and occupation thereof, took from the case the technical character of an eviction by a landlord.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     11335,
+     11474
+    ],
+    "reporter_page": "62"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Occupant household (Diehl family) let a room and board to their own landlord as a boarder within the dwelling they occupied; treated as householder-level letting rather than a commercial operation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 223099,
+  "cite": "4 Pennyp. 91",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1884,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Use-and-occupation dispute between a father (tenant by courtesy) and son (devisee) over a family house; plaintiff's passing remark that he only wanted to 'board there somewhere' is not a boarding contract or regulatory issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 240201,
+  "cite": "3 Sadler 301",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1886,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Ordinary commercial rooms lease; landlord's forcible re-entry raised as an eviction defense to a rent action. No lodging or boarding element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 241486,
+  "cite": "4 Sadler 584",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1887,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Vendor-vendee dispute over an executory contract for sale of a house; no lodging or boarding element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 243368,
+  "cite": "5 Sadler 471",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1887,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Revocable license to keep a grain house on another's land, and a use-and-occupation claim tied to it; a commercial/agricultural structure, not a dwelling or lodging arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 246407,
+  "cite": "8 Sadler 271",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1887,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Farm lease debt-for-rent action concerning pleading sufficiency; no lodging or boarding element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 261481,
+  "cite": "2 Walk. 67",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1885,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Mortgagee/trustee's claim to rents and profits following default; no lodging or boarding element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 261506,
+  "cite": "2 Walk. 539",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1864,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Dispute over a tenant's right to fixtures left on a leased coal yard after holding over; no lodging or boarding element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 276330,
+  "cite": "4 Pa. Super. 570",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1897,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Poor-law settlement dispute turning on whether a farm laborer's occupancy of houses as part-payment of wages counted as a 'leasing'; not a compensated boarding/lodging arrangement in the pipeline's sense.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 428642,
+  "cite": "61 Pa. 87",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1869,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Dispute over a tenant's right to remove trade fixtures (boiler, engine, shafting) from a leased factory building; no dwelling or lodging element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 444783,
+  "cite": "97 Pa. 74",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1881,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-037",
+  "notes": "Guardianship/domicile dispute over a minor after a railroad accident; no lodging or boarding element.",
+  "extraction_status": "ok"
+ }
+]

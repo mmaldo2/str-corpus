@@ -1,0 +1,662 @@
+[
+ {
+  "case_id": 2257077,
+  "cite": "159 Tex. 464",
+  "court": "Supreme Court of Texas",
+  "year": 1958,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "mixed",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "On rehearing, the Supreme Court held that a homeowner may incidentally rent a room or rooms to lodgers without violating a single-family-residence restrictive covenant, but that operating a rooming/boarding house as a business, renting a separate establishment for financial gain, or renting space as a separate housekeeping unit would violate the restriction. The consolidated cases were remanded for retrial under that standard.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "single_family_restriction",
+   "incidental_use"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "If the evidence establishes as a matter of law, or if the trial court finds as a fact on conflicting evidence or as a reasonable inference from the evidence, that a particular defendant is operating a rooming or boarding house on his premises as a business, or is using an establishment on his premises, separate and apart from his dwelling house, for renting as a source of financial gain, or is renting space to others in his dwelling house as a separate housekeeping unit, or is using his dwelling house primarily as a source of financial gain rather than as a residence for himself and his family and domestic servants, that activity should be enjoined.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     13842,
+     14499
+    ],
+    "reporter_page": "470"
+   },
+   {
+    "text": "On the other hand, if the evidence establishes as a matter of law, or if the trial court finds as a fact on conflicting evidence or as a reasonable inference from the evidence, that only the dwelling house on the premises of a particular defendant is being used as a place of residence and that it is being used primarily as a residence for the owner and his family and domestic servants, no injunction should issue against the incidental renting by the defendant of a room or rooms to others.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     14500,
+     14993
+    ],
+    "reporter_page": "470"
+   },
+   {
+    "text": "The Court of Civil Appeals correctly reversed the trial court\u2019s judgment because of the erroneous inclusion in each of the decrees of a prohibition against any and all renting of rooms.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     12546,
+     12731
+    ],
+    "reporter_page": "470"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "Duration of individual roomer occupancy (Rice students) not stated with specificity in the opinion.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10141769,
+  "cite": "404 S.W.2d 842",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1966,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "Slip-and-fall premises-liability suit by a motor-hotel guest injured on a rain-slicked stairway; addresses innkeeper standard of care, not the legality, character, or regulation of short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2324491,
+  "cite": "131 Tex. 36",
+  "court": "Supreme Court of Texas",
+  "year": 1938,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "Invitee/licensee premises-liability case involving workmen injured on a hotel fire escape during renovation; unrelated to compensated occupancy or letting arrangements.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10126397,
+  "cite": "431 S.W.2d 29",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1968,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "Slip-and-fall at a dance-hall event; invitee/licensee classification of an orchestra member's spouse. No connection to residential letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10136487,
+  "cite": "415 S.W.2d 438",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1967,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "Social-guest slip-and-fall in a relative's private home; licensee-host duty analysis unrelated to compensated letting of rooms or dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10143387,
+  "cite": "448 S.W.2d 456",
+  "court": "Supreme Court of Texas",
+  "year": 1969,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "Automobile-guest-statute case arising from a car collision; no connection to lodging, rooms, or dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10153038,
+  "cite": "341 S.W.2d 212",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1960,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The court affirmed a Board of Adjustment ruling, supported by substantial evidence, that no nonconforming trailer-court use existed on the property when it was annexed into the city's single-family residential zoning district. It upheld the trial court's judgment denying a certificate of occupancy and permanently enjoining the operator from using the premises as a trailer park.",
+  "doctrinal_concepts": [
+   "nonconforming_use",
+   "zoning_regulation_of_lodging"
+  ],
+  "new_terms_observed": [
+   "tourist lodge",
+   "trailer court"
+  ],
+  "quotes": [
+   {
+    "text": "That the finding of this Board, from the evidence presented to it, both pro and con, is that there was no non-conforming use of a trailer park or court in existence at the time of annexation, and therefore no non-conforming use .exists today.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7877,
+     8119
+    ],
+    "reporter_page": "215"
+   },
+   {
+    "text": "A jury was impaneled; appellant introduced his evidence including the verified record of the Board\u2019s proceedings, and rested, whereupon the court sustained appellees\u2019 motion to withdraw the case from the jury and, entered judgment affirming the decision of the Board of Adjustment, denied appellant any relief and granted a mandatory injunction to the City of Dallas ordering appellant to immediately and forthwith remove any and all house trailers from the premises and permanently restraining appellant from using the premises for the purposes of a trailer park or trailer court or any purpose other than that for which it is zoned.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2295,
+     2929
+    ],
+    "reporter_page": "214"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "Case concerns zoning classification of the land use (trailer court/tourist court), not the lease/license/lodging character of individual guest occupancy, so characterization left null.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10165197,
+  "cite": "398 S.W.2d 348",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1966,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "Corporate alter-ego/agency dispute over an unpaid supplier account for a motor hotel operated under a master commercial lease; does not address the character or regulation of guest occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10166790,
+  "cite": "373 S.W.2d 511",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1963,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "Applying Southampton Civic Club v. Couch, the court affirmed an injunction because the evidence showed appellants rented the second floor of their garage -- a self-contained bedroom, bath, living room, and kitchen -- to a Rice student for $50 a month on a month-to-month basis, constituting a \"housekeeping unit\" rented for financial gain rather than incidental use of a spare room. It held this violated the restrictive covenant regardless of whether the garage was physically connected to the main dwelling by a breezeway.",
+  "doctrinal_concepts": [
+   "housekeeping_unit",
+   "single_family_restriction"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Mr. Ullrich himself testified that the four rooms in the garage apartment were being used, each for its separate purpose, by the tenant. Inferentially, the tenant cooked his meals in the kitchen, etc. Such use constituted the second floor rooms of the garage a housekeeping unit.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6545,
+     6824
+    ],
+    "reporter_page": "513"
+   },
+   {
+    "text": "The implication of the judgment entered in the trial court is that the trial judge found as a matter of law that the evidence established that the Ullrichs were renting, for financial gain, space on their property for use, and used, as a housekeeping unit.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6283,
+     6539
+    ],
+    "reporter_page": "513"
+   },
+   {
+    "text": "the interpretation of the restrictive covenant\u2019s meaning, set out in the Couch case, renders it immaterial whether the housekeeping unit is in the dwelling house or in an establishment separate and apart from it.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7707,
+     7919
+    ],
+    "reporter_page": "513"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10167414,
+  "cite": "313 S.W.2d 360",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1958,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.92,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "license",
+  "holding_summary": "The Court of Civil Appeals held that a homeowner's incidental renting of a room or rooms to Rice University students, where no separate housekeeping unit was operated and the owner retained control of the rented rooms, does not constitute \"multiple housing\" in violation of a single-family-residence restrictive covenant. It reversed the trial court's injunction and rendered judgment for the defendant homeowners.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease",
+   "single_family_restriction"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "These defendants maintained in their \u201chouse\u201d only one \u201chousekeeping unit\u201d \u2014 namely their own, which they maintained to operate the premises for its basic and principal use, their own home. The renting of the right of occupancy of rooms to single students who operated no housekeeping unit, and under circumstances and conditions wherein even the rented rooms were under the control, supervision and management of the defendants, cannot constitute multiple housing.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     10507,
+     10971
+    ],
+    "reporter_page": "364"
+   },
+   {
+    "text": "The renting of the right of occupancy of rooms to single students who operated no housekeeping unit, and under circumstances and conditions wherein even the rented rooms were under the control, supervision and management of the defendants, cannot constitute multiple housing.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     10696,
+     10971
+    ],
+    "reporter_page": "364"
+   },
+   {
+    "text": "The judgment of the Trial Court is accordingly reversed, the injunction against defendants is dissolved, and judgment rendered for defendants.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     14016,
+     14158
+    ],
+    "reporter_page": "365"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "Court of Civil Appeals opinion later reheard by the Supreme Court, see case_id 2257077.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10170158,
+  "cite": "290 S.W.2d 340",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1956,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "Zoning case concerning minimum home-site lot-area requirements and nonconforming-use doctrine for a proposed residential subdivision; does not involve short-term letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10195093,
+  "cite": "227 S.W.2d 344",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1949,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that a hotel's agreement to furnish three rooms to an airline's pilots and hostesses at a fixed monthly rate, while the hotel continued to supply heat, electricity, and telephone service, created a guest/lodger relationship rather than a landlord-tenant tenancy because exclusive possession was never transferred. Because the arrangement was one of lodging rather than a lease, the hotel could not recover the agreed monthly amount as \"rent\" once the airline vacated the rooms.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease",
+   "exclusive_possession"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The evidence is ample to support the finding that plaintiff for a consideration of $270.00 per month agreed to entertain as guests or lodgers the employees of defendant. If this be correct, there was no relationship of landlord and tenant.",
+    "supports": "polarity",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     7722,
+     7961
+    ],
+    "reporter_page": "346",
+    "fuzzy_score": 99.581589958159
+   },
+   {
+    "text": "A tenant is vested with an estate in the property and on the basis thereof may maintain an action to recover its possession. A lodger or guest has not the right to maintain an action to recover possession of the room or structure furnished by the innkeeper.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7515,
+     7773
+    ],
+    "reporter_page": "346"
+   },
+   {
+    "text": "Plaintiff was not entitled to recover as rent the amount he sought to recover, even if defendant did wrongfully refuse to proceed with the contract.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8015,
+     8163
+    ],
+    "reporter_page": "346"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10205217,
+  "cite": "238 S.W.2d 614",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1951,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": null,
+  "holding_summary": "The court articulated the test for distinguishing a lodger from a tenant -- whether exclusive possession was transferred by the terms of the hiring -- and held it was a fact issue properly submitted to the jury whether a room rented at $7.50 per week in a cabin adjoining the Victory Hotel was part of a \"hotel or inn.\" It reversed and remanded for a new trial, however, because exemplary damages had been awarded without any supporting finding of actual damages.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease",
+   "hotelkeepers_lien"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The courts have held that the question of whether a person hiring rooms is a lodger or is a tenant depends upon the intention of the parties as evidenced by the contract of hiring. If the hirer is to have the exclusive possession of the premises as against the owner, an estate in the land is transferred and he is a tenant.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7622,
+     7946
+    ],
+    "reporter_page": "616"
+   },
+   {
+    "text": "Proof that the owner cares for the rooms, retains a key to the rooms, or resides on the premises in the course of a business of hiring out rooms, indicates a lodging contract; whereas, a showing that the hirer exercises complete control over the rooms indicates a lease.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8056,
+     8326
+    ],
+    "reporter_page": "616"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "The jury found the room was not part of a \"hotel or inn,\" but the court did not otherwise resolve whether the arrangement was a lease or a lodging; case reversed and remanded on the exemplary-damages issue, so characterization left null.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10211591,
+  "cite": "180 S.W.2d 478",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1944,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court held that federal Emergency Price Control Act rent regulations, which protect individual room renters in hotels and rooming houses, do not extend to a lessee who leases and operates an entire 22-room tourist court as a business. Because the tenant's written lease of the whole tourist court had expired, the owner was entitled to recover possession in trespass to try title, unaffected by the Act.",
+  "doctrinal_concepts": [
+   "rent_control_exemption",
+   "whole_premises_lease",
+   "rooming_house_definition"
+  ],
+  "new_terms_observed": [
+   "auto camps",
+   "residence clubs"
+  ],
+  "quotes": [
+   {
+    "text": "and appellants, E. C. and E. R. Ross, were tenants in possession of same under a written lease contract dated May 15, 1940, which was terminated by its provisions on May 15, 1943, and the said tenants continued \u201cto hold over\u201d until the owner brought a suit in trespass to try title to recover possession.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     495,
+     799
+    ],
+    "reporter_page": "478"
+   },
+   {
+    "text": "The purpose of the said Act, to our way of thinking, is to protect the individual citizen who is compelled to secure a place in which to live against unfair rental charges, during the war emergency, and not to secure to some lessee or renter of a hotel, rooming-house, tourist court, or any other building, used for the purpose of letting a part of the premises to individual renters, a continuation of his right to rent the whole premises, after his rental contract has expired.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5633,
+     6112
+    ],
+    "reporter_page": "480"
+   },
+   {
+    "text": "The term includes boarding houses, dormitories, auto camps, trailers, residence clubs, tourist homes or cabins and all other establishments of a similar nature.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6792,
+     6952
+    ],
+    "reporter_page": "480"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "The occupancy at issue is the operator's multi-year leasehold of the entire tourist court, not an individual guest's stay, so duration_of_occupancy is marked unclear.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10239955,
+  "cite": "49 S.W.2d 519",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1932,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "Public-nuisance injunction over liquor-law violations at a dance hall; the nuisance statute's boilerplate reference to hotels/rooming/boarding houses is not applied to any lodging-house facts here.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10255730,
+  "cite": "116 S.W.2d 1169",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1938,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "Personal-injury suit against a hotel over insufficient fire escapes under a building-safety statute (Art. 3956), turning on a lot-area square-footage calculation; concerns fire-code compliance, not the legality or regulation of letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10256335,
+  "cite": "106 S.W.2d 351",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1937,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.88,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": "The court held that operating a tourist camp -- renting cabins nightly to travelers along with an associated filling station and grocery -- is a \"business\" within the meaning of the Texas Constitution's business-homestead exemption, on par with any other trade. Because the Delavan family lived on and operated the tourist camp as a single business unit, the entire premises was protected as a business homestead against the lumber company's materialman's lien to the extent claimed, while the paving lien was limited on rendition to the portion of the property found not exempt.",
+  "doctrinal_concepts": [
+   "business_homestead_exemption",
+   "tourist_camp_as_business"
+  ],
+  "new_terms_observed": [
+   "tourist camp"
+  ],
+  "quotes": [
+   {
+    "text": "We think it is doing no violence to the term to say that operating a tourist camp is as distinctive a business as operating a grocery store, a gristmill, or print shop. If it is, then it cannot be questioned that the head of a family who owns and operates a tourist camp is entitled to protection under the Constitution and laws of the state in the same degree as the head of a family who owns and operates any other class of business.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     21136,
+     21571
+    ],
+    "reporter_page": "356"
+   },
+   {
+    "text": "It is a matter of common knowledge, and one of which this court will take judicial notice, that tourist camps exist all over the country and in practically every town and village of not only this state but every other state in the Union. They are, no doubt, the modern offspring of the old-fashioned Texas wagon yard, which, in the early days of this state, supplied the same demand of the traveling public.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     20266,
+     20673
+    ],
+    "reporter_page": "356"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "Case addresses homestead-exemption classification of the tourist-camp enterprise as a whole, not the lease/license/lodging character of individual guest occupancy, so characterization left null.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10258762,
+  "cite": "100 S.W.2d 783",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1936,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": "The court held that a cabin in a tourist camp is a place \"of a like character\" to the hotels, rooming houses, and boarding houses enumerated in the common-nuisance statute (art. 4664). It affirmed that keeping such a cabin for bookmaking and betting on horse races could be enjoined as a common nuisance under arts. 4664-4666 and 4667 of the Revised Civil Statutes.",
+  "doctrinal_concepts": [
+   "nuisance_regulation",
+   "tourist_camp_analogized_to_lodging_house"
+  ],
+  "new_terms_observed": [
+   "tourist camp"
+  ],
+  "quotes": [
+   {
+    "text": "We think a tourist camp house as here located and described is a place similar to and of a like character as those specifically mentioned in said article 4664, and that in so holding we are not in conflict with the holding in Shook v. All-Texas Racing Ass\u2019n, supra.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     10656,
+     10921
+    ],
+    "reporter_page": "786"
+   },
+   {
+    "text": "Bookmaking and betting on horse races is a game specifically prohibited by law, articles 647-651, P.C. Therefore, keeping a place such as that kept by appellants for bookmaking and betting on horse races may be enjoined under the provisions of article 4667, R.S.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     12055,
+     12317
+    ],
+    "reporter_page": "786"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-001-shard-02-batch-008",
+  "notes": "Case regulates a tourist-camp cabin used for illegal gambling under the general nuisance statute, not the lease/license/lodging classification of guest occupancy, so characterization left null.",
+  "extraction_status": "ok"
+ }
+]
