@@ -151,18 +151,44 @@ def run_embedding(conn, s: dict, era: str, jur: str) -> list[dict]:
             "an embedding selector over a partial index would silently "
             "under-cover; finish index.py embed first"
         )
-    if "matrix" not in _EMBED_CACHE:
-        rows = conn.execute(
+    dim = int(meta.get("dim", "512"))
+    if "M8" not in _EMBED_CACHE:
+        # preallocated arrays, streamed fill: ~2 GB for 3.9M x 512 int8
+        # (fetchall + python lists at this scale OOMs a 32 GB machine)
+        n = conn.execute(
+            """SELECT count(*) FROM chunks ch JOIN cases c ON c.case_id = ch.case_id
+               WHERE c.is_duplicate_of IS NULL"""
+        ).fetchone()[0]
+        M8 = np.empty((n, dim), dtype=np.int8)
+        scales = np.empty(n, dtype=np.float32)
+        chunk_ids = np.empty(n, dtype=np.int64)
+        case_ids = np.empty(n, dtype=np.int64)
+        spans = np.empty((n, 2), dtype=np.int32)
+        era_codes = np.empty(n, dtype=np.int8)
+        jur_codes = np.empty(n, dtype=np.int8)
+        era_idx = {e: i for i, e in enumerate(ERAS)}
+        jur_idx = {j: i for i, j in enumerate(JURISDICTIONS)}
+        cur = conn.execute(
             """SELECT ch.chunk_id, ch.case_id, ch.char_start, ch.char_end,
                       ch.embedding, ch.embed_scale, c.era_partition, c.jurisdiction
                FROM chunks ch JOIN cases c ON c.case_id = ch.case_id
                WHERE c.is_duplicate_of IS NULL"""
-        ).fetchall()
-        M = np.stack(
-            [np.frombuffer(r[4], dtype=np.int8).astype(np.float32) * r[5] for r in rows]
-        ) if rows else np.zeros((0, 1), dtype=np.float32)
-        _EMBED_CACHE["matrix"] = M
-        _EMBED_CACHE["rows"] = rows
+        )
+        i = 0
+        for row in cur:
+            M8[i] = np.frombuffer(row[4], dtype=np.int8)
+            scales[i] = row[5]
+            chunk_ids[i], case_ids[i] = row[0], row[1]
+            spans[i] = (row[2], row[3])
+            era_codes[i] = era_idx.get(row[6], -1)
+            jur_codes[i] = jur_idx.get(row[7], -1)
+            i += 1
+        _EMBED_CACHE.update(
+            M8=M8[:i], scales=scales[:i], chunk_ids=chunk_ids[:i],
+            case_ids=case_ids[:i], spans=spans[:i],
+            era_codes=era_codes[:i], jur_codes=jur_codes[:i],
+            era_idx=era_idx, jur_idx=jur_idx, sims={},
+        )
     if "model" not in _EMBED_CACHE:
         from sentence_transformers import SentenceTransformer
 
@@ -170,32 +196,46 @@ def run_embedding(conn, s: dict, era: str, jur: str) -> list[dict]:
             meta["model"], revision=model_rev or None,
             device="cuda" if _cuda() else "cpu",
         )
-    model = _EMBED_CACHE["model"]
-    M, rows = _EMBED_CACHE["matrix"], _EMBED_CACHE["rows"]
-    dim = int(meta.get("dim", "512"))
-    q = model.encode([s["query_text"]], prompt_name="query", convert_to_numpy=True)[0][:dim]
-    q = q / (np.linalg.norm(q) + 1e-12)
-    sims = M @ q if len(M) else np.zeros(0)
-    idx = [
-        i for i in np.argsort(-sims)
-        if rows[i][6] == era and rows[i][7] == jur
-    ][: int(s.get("top_k", 50))]
+    C = _EMBED_CACHE
+    sims_key = f"{s['id']}@v{s['version']}"
+    if sims_key not in C["sims"]:
+        q = C["model"].encode(
+            [s["query_text"]], prompt_name="query", convert_to_numpy=True
+        )[0][:dim].astype(np.float32)
+        q = q / (np.linalg.norm(q) + 1e-12)
+        n = len(C["M8"])
+        sims = np.empty(n, dtype=np.float32)
+        block = 200_000
+        for a in range(0, n, block):
+            b = min(a + block, n)
+            sims[a:b] = (C["M8"][a:b].astype(np.float32) @ q) * C["scales"][a:b]
+        C["sims"] = {sims_key: sims}  # keep only the current selector's pass
+    sims = C["sims"][sims_key]
+    mask = (C["era_codes"] == C["era_idx"][era]) & (
+        C["jur_codes"] == C["jur_idx"][jur]
+    )
+    cand = np.flatnonzero(mask)
+    if not len(cand):
+        return []
+    order = cand[np.argsort(-sims[cand])][: int(s.get("top_k", 50)) * 3]
     out = []
     seen_cases = set()
-    for i in idx:
-        if sims[i] < float(s.get("min_cosine", 0.5)):
+    min_cos = float(s.get("min_cosine", 0.5))
+    for i in order:
+        if sims[i] < min_cos or len(out) >= int(s.get("top_k", 50)):
             break
-        chunk_id, case_id, cs, ce = rows[i][0], rows[i][1], rows[i][2], rows[i][3]
+        case_id = int(C["case_ids"][i])
         if case_id in seen_cases:
             continue
         seen_cases.add(case_id)
+        cs, ce = int(C["spans"][i][0]), int(C["spans"][i][1])
         text = conn.execute(
             "SELECT substr(norm_text, ?, ?) FROM cases WHERE case_id=?",
             (cs + 1, min(ce - cs, 400), case_id),
         ).fetchone()[0]
         out.append(
             {"case_id": case_id, "matched_text": text, "span": (cs, ce),
-             "chunk_id": chunk_id, "cosine": float(sims[i])}
+             "chunk_id": int(C["chunk_ids"][i]), "cosine": float(sims[i])}
         )
     return out
 
