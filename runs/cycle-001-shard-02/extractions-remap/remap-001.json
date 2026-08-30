@@ -1,0 +1,647 @@
+[
+ {
+  "case_id": 1955857,
+  "cite": "3 Abb. Pr. 26",
+  "court": "New York Common Pleas, Special Term",
+  "year": 1867,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": "The court held that the plaintiff's building, though it might fall within general definitions of a hotel, was not chargeable as a 'hotel' under the municipal water-rate ordinance given its actual (deficient) water supply and use as a cheap lodging house. The extensive per-room hotel tax therefore did not apply, and the matter instead fell under the ordinance's residual special-contract provision. The court granted an injunction restraining the Croton Aqueduct Board from cutting off the water supply for non-payment of the disputed tax.",
+  "doctrinal_concepts": [
+   "lodging_house_definition",
+   "hotel_vs_inn_distinction"
+  ],
+  "new_terms_observed": [
+   "hotel garni"
+  ],
+  "quotes": [
+   {
+    "text": "the building is a large structure of eight stories, each story' consisting of lodging rooms, adapted to the use of one person only, and above the basement it is used exclusively \u00e1s a lodging-house",
+    "supports": "characterization"
+   },
+   {
+    "text": "I shall, therefore, grant the injunction.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The ordinance of the city corporation, establishing the rate of water rents, provides that hotels and boarding houses shall, in addition to the regular rate for private families, be charged for each lodging room, at the discretion of the Croton Aqueduct Board.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "Primarily a municipal water-tax classification dispute (hotel vs. lodging house), not a licensing/regulation case in the police-power sense; polarity marked mixed because it neither restricts nor affirmatively protects the letting practice but extensively addresses its legal characterization."
+ },
+ {
+  "case_id": 911921,
+  "cite": "9 Daly (N.Y.) 361",
+  "court": "New York Common Pleas",
+  "year": 1880,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "other",
+  "holding_summary": "The court held that the Act of 1860, which gives boarding-house keepers the same lien as innkeepers upon the goods of their boarders, applies even where board is furnished under a special contract at a fixed weekly or monthly rate, not merely in circumstances analogous to a transient innkeeper's guest. Because the plaintiff owed the defendant three weeks' unpaid board, the defendant's lien on his trunk was valid, and the district court's contrary judgment for the plaintiff was reversed.",
+  "doctrinal_concepts": [
+   "boarding_house_lien",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The act of 1860 for the protection of boarding-house keepers (L. 1860, c. 446),\u2014giving to boarding-house keepers the same lien for board upon the goods of boarders which an innkeeper has upon the goods of a guest, . \u2014applies to cases of special contracts for board at a fixed rate by the week or month, although an innkeeper would, under such circumstances, have no lien.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Misch boarded with O\u2019Hara, who was a boarding-house keeper, and owed her for three weeks\u2019 board, when she demanded his room, and requested him to leave her house.",
+    "supports": "characterization"
+   },
+   {
+    "text": "It has been held in the cases cited by Judge Yah Hoeseh, that the intent of the statute was to give a boarding-house keeper the lien which an innkeeper has upon the effects of his guest, without reference to the question whether the guest was a transient one or a boarder by the week or month, at a rate agreed upon or fixed.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "Arrangement is boarding (with implied meals), which the characterization enum does not list separately from 'lodging'; mapped to 'other'. Polarity mixed: the decision enforces/extends the boarding-house keeper's statutory remedy (protective of the boarding business) but does so against the boarder's interest in his detained goods."
+ },
+ {
+  "case_id": 913805,
+  "cite": "12 Daly (N.Y.) 174",
+  "court": "New York Common Pleas",
+  "year": 1883,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a defendant who merely let rooms to lodgers, without supplying meals, and who had leased the building's basement restaurant to an independent operator, was not an innkeeper, since an inn furnishes both food and lodging under one management. Because mere lodging-house keepers have no lien on a lodger's effects either at common law or under New York's statutes (which extend a lien only to boarding-house keepers), the defendant's claimed lien on the plaintiff's property failed, and the judgment below was affirmed.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "innkeeper_vs_lodging_house",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The conclusion of the judge that the defendant was not an innkeeper was correct. He merely kept a lodging house, in which no provision was made by him for supplying the lodgers with meals, and such house is not an inn (Cromwell v. Stephens, 2 Daly 15), as an inn furnishes both food and lodgings to the guests.",
+    "supports": "characterization"
+   },
+   {
+    "text": "It is plain, therefore, from these cases, that one who merely lets out rooms to lodgers had, at the common law, no lien upon the effects which the lodger had in the room.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "so that the question must be regarded as remaining the same as it was at common law, that mere lodging house keepers have no lien upon the effects of the lodger.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "Facts do not state the length of lodgers' occupancy; duration marked unclear. Polarity mixed: the case leaves the lodger's own property free of any lien (protective of the occupant) while denying the lodging-house keeper a remedy other lodging providers might want."
+ },
+ {
+  "case_id": 1395637,
+  "cite": "29 N.Y. Super. Ct. 264",
+  "court": "New York Superior Court",
+  "year": 1868,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.35,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "The court held that the statutory lien given to boarding-house keepers under the 1860 Act attaches only to board actually due at the time of detention and cannot be extended to cover future or contingent board obligations. Because the boarder's account had been paid in full before she left, no debt existed to support a lien, so the trial court properly directed a verdict returning the property to the plaintiff.",
+  "doctrinal_concepts": [
+   "boarding_house_lien"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The statute providing for the protection of boarding-house keepers, {Laws of 1860, p. 771,) gives a lien upon the effects of boarders for the amount which may be dm for board, and it cannot be extended to any other indebtedness, nor to any demand not due at the time of the detention. It does not include board to become due under an agreement to board in future.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The act which provides for the protection of boarding house keepers, (Laws of 1860, p. 771,) gives the lien upon the effects of the boarders for the amount which may be due for board, and it cannot be extended to any other indebtedness, nor to any demand not due at the time of the detention.",
+    "supports": "characterization"
+   },
+   {
+    "text": "There was not, therefore, a present indebtedness; which was essential to give a boarding house keeper\u2019s lien upon the property of his guest.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "Facts show boarder occupied defendant's house from mid-May to August 16, 1866 (roughly three months) at a weekly rate; mapped duration to months for the actual occupancy at issue. 'dm' in the first quote is an OCR error for 'due', copied verbatim as printed."
+ },
+ {
+  "case_id": 3404516,
+  "cite": "52 N.Y.S. 105",
+  "court": "Supreme Court, Appellate Term",
+  "year": 1898,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that renting a hotel room at a fixed weekly price does not by itself convert a guest into a mere boarder or lodger; because the plaintiff had not bargained for any particular length of stay and was shown to be a wayfarer, the relation of innkeeper and guest existed between the parties. As such, the innkeeper was subject to the common-law rule of strict liability for unexplained losses of a guest's property absent contributory negligence, and the judgment for the defendant was reversed.",
+  "doctrinal_concepts": [
+   "guest_vs_boarder",
+   "lodger_status",
+   "innkeeper_liability"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "We are of opinion that the relationship of innkeeper and guest existed between the parties.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The common law holds the innkeeper absolutely liable for all thefts from within, or unexplained losses of property in his charge, belonging, to his guest, although he may be discharged from liability by any contributory negligence of the guest.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "But a special agreement fixing in advance the price to be paid, or the length of the stay, does not absolutely disturb the relation of innkeeper and guest, and constitute the person so acting a boarder or lodger.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "Facts state a $1.25/week room rate but do not establish how long the plaintiff had actually occupied the room; duration marked unclear rather than 'weeks' since that figure is the price basis, not the occupancy length at issue."
+ },
+ {
+  "case_id": 4482382,
+  "cite": "52 How. Pr. 14",
+  "court": "New York Common Pleas, General Term",
+  "year": 1875,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court held that a boarding-house keeper is liable for the loss of a boarder's goods caused by the negligence of the keeper's own servants acting within the scope of their employment, applying the general master-servant liability rule to boarding-house keepers. A boarding-house keeper must exercise the same due and reasonable care over a boarder's property that a prudent person would take of his own, and on the facts presented (a stranger negligently admitted alone to the plaintiff's room) the defendant was liable, though the damage award was reduced for lack of proof of value on some articles.",
+  "doctrinal_concepts": [
+   "boarding_house_duty_of_care",
+   "boarding_house_lien"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It is incumbent on a boarding-house keeper to exercise due and proper care of the baggage or property of his boarder\u2014 such care as a prudent person would take of his own property.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "A boarding-house keeper is liable for the loss of his guest\u2019s goods, occasioned through the negligence of his own servants while they are acting within the scope of their employment.",
+    "supports": "characterization"
+   },
+   {
+    "text": "I know of no good reason why a boarding-house keeper should be an exception to this rule.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "Opinion states plaintiff 'had been boarding and lodging with him for some time' without giving a specific length; duration marked unclear. Arrangement is boarding (with meals), mapped to 'other' since the enum lacks that option."
+ },
+ {
+  "case_id": 625003,
+  "cite": "14 N.Y. Sup. Ct. 594 (7 Hun 594)",
+  "court": "Supreme Court, General Term",
+  "year": 1876,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.3,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court held that the 1860 Act protecting boarding-house keepers confers upon them no greater lien rights than innkeepers possessed at common law, and that a lien attaches only to the effects of the person actually liable for the unpaid board. Because the plaintiff's husband alone had contracted for and become liable for the couple's board, the wife incurred no personal liability, and the defendant therefore had no right to detain the wife's separate wearing apparel for the husband's debt; the judgment for the plaintiff was affirmed.",
+  "doctrinal_concepts": [
+   "boarding_house_lien",
+   "coverture_separate_property"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Held, that chapter 446, Laws of 1860, for the protection of boarding-house keepers, confers upon them no greater rights than inn-keepers possessed at common law.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The statute cited confers upon boarding-house keepers no greater rights than inn-keepers possessed at common law.",
+    "supports": "characterization"
+   },
+   {
+    "text": "That her husband became liable for her board by special contract with the defendant ; she incurred no liability, and as nothing was due from her the defendant had no right to detain her goods for the debt of her husband.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "No specific occupancy length is stated in the facts; duration marked unclear. Arrangement is boarding, mapped to 'other'. Polarity mixed: narrows the boarding-house keeper's lien remedy while protecting the boarder's spouse's separate property."
+ },
+ {
+  "case_id": 640267,
+  "cite": "8 N.Y. St. Rep. 347",
+  "court": "City Court of New York, General Term",
+  "year": 1887,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.3,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "Following McIlvaine v. Hilton, the court held that a boarding-house keeper has no statutory lien on the separate personal effects and wearing apparel of a boarder's wife where the husband alone contracted for and became liable for board furnished to himself and his wife. Because the wife incurred no liability for the board debt, her goods could not be detained to satisfy her husband's obligation, and the judgment for the plaintiff-wife was affirmed; the court also held it was within its discretion to allow amendment of the pleadings and excuse a procedural default.",
+  "doctrinal_concepts": [
+   "boarding_house_lien",
+   "coverture_separate_property"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "A boarding-house keeper has no lien on the separate personal effects 'and wearing apparel of the wife living at the boarding house with her husband, where the husband was received under a contract to furnish board for himself and wife.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Under this statute, in McIlvaine v. Hilton (7 Hun, 594), where the facts were substantially as here, it was held that a boarding-house keeper had no Hen on th\u00e9 separate personal effects and wearing apparel of the wife Hving at the boarding-house with her husband, and that her wearing apparel (styled paraphernaHa by the appeHant) formed part of her separate property, and that a boarding-house keeper\u2019s Hen did not attach thereto, where the guest was received under a contract to furnish board for himself and wife who accompanies him.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The husband, therefore, is Hable for the board, and as nothing is due from the wife, it foHows that her goods can not be detained.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "No specific occupancy length given; duration marked unclear. 'Hen', 'th\u00e9', 'Hving', 'paraphernaHa', 'appeHant', 'Hable', 'foHows' are OCR ligature errors for 'lien', 'the', 'living', 'paraphernalia', 'appellant', 'liable', 'follows', copied verbatim as printed. Essentially duplicates McIlvane v. Hilton's holding."
+ },
+ {
+  "case_id": 657582,
+  "cite": "25 N.Y. St. Rep. 37",
+  "court": "Supreme Court, General Term, First Department",
+  "year": 1889,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.92,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "A householder who let two rooms in her occupied dwelling to a lodger for a fixed 8.5-month term, with board included, created a lease and landlord-tenant relationship rather than a mere board-and-lodging agreement. The lodger's estate remained liable for rent for the full term, subject to an offset for the cost of board saved after her death, and the landlord was entitled to interest on each weekly installment from when it fell due.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "In 1884, the plaintiff, Mrs. Margaret A. Oliver occupied the house Ho. 675 Fifth avenue, in the city of Hew York, and rented rooms and took boarders there.",
+    "supports": "who_was_letting"
+   },
+   {
+    "text": "I think the contract between the plaintiff and the de-, fendant\u2019s testatrix was a lease which made Miss Gross a tenant of the demised premises, and that her estate became, hable for the rent as long as the term lasted.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Held, that the contract between plaintiff and defendant\u2019s testatrix was a lease which made the latter a tenant of the demised premises, and not an ordinary agreement for board and lodging, and that her testatrix became liable for the rent as long as the term lasted.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Held, that the contract between plaintiff and defendant\u2019s testatrix was a lease which made the latter a tenant of the demised premises, and not an ordinary agreement for board and lodging, and that her testatrix became liable for the rent as long as the term lasted.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-01",
+  "notes": ""
+ },
+ {
+  "case_id": 912009,
+  "cite": "9 Daly (N.Y.) 460",
+  "court": "Court of Common Pleas for the City and County of New York",
+  "year": 1881,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.2,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-01",
+  "notes": "Innkeeper tort-liability case over a restaurant patron's lost overcoat; the inn-vs-lodging-house/restaurant distinction is discussed only to establish innkeeper status for strict-liability purposes, not the legality or regulation of letting rooms for pay. No characterization/holding quote supplied because the case does not adjudicate a letting arrangement."
+ },
+ {
+  "case_id": 1306520,
+  "cite": "6 Daly (N.Y.) 33",
+  "court": "Court of Common Pleas for the City and County of New York",
+  "year": 1875,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.2,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-01",
+  "notes": "Bailment/negligence case holding a boarding-house keeper liable for a servant's negligent loss of a boarder's goods; the boarding-house-vs-lodging-house discussion is used to set the standard of care owed, not to address the legality or regulation of letting rooms for pay."
+ },
+ {
+  "case_id": 2216251,
+  "cite": "24 How. Pr. 62",
+  "court": "New York Common Pleas, General Term",
+  "year": 1861,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "New York's 1860 boarding-house lien statute gives boarding-house keepers a lien on a boarder's baggage to the extent of unpaid board, on the same footing as an innkeeper's lien on a guest's effects, regardless of whether the boarder is transient or permanent. A boarding-house keeper, as distinguished from an innkeeper, is one who furnishes accommodation for a definite period, such as a week or month, at an agreed rate of compensation.",
+  "doctrinal_concepts": [
+   "boardinghouse_lien",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "A boarding-house keeper, as contradistinguished from the keeper of an inn, should, in the sense of this statute, be regarded as one who furnishes accommodation for a definite period, as by the week or month, at a rate of compensation agreed upon.",
+    "supports": "characterization"
+   },
+   {
+    "text": "it was evidently the intent of this statute to give them the same lien which an inn-keeper has upon the effects of a guest.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The intent of the statute of 1860, (Sess, Laws, 771,) giving to the keeper of a boarding house a lien to the extent of the board due, is, to give them the same lien which an inn-keeper has upon the effects of a guest, without reference to the character of the guests, whether they are transient ox permanent boarders.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-01",
+  "notes": "Statutory interpretation case, not tied to one boarder's specific facts, so who_was_letting/duration are unclear from the text."
+ },
+ {
+  "case_id": 3515356,
+  "cite": "6 N.Y.S. 413",
+  "court": "Supreme Court, General Term, First Department",
+  "year": 1889,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.92,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "A householder who by sealed agreement let two rooms in her house to a lodger for a fixed 8.5-month term, agreeing also to board her, created a lease making the lodger a tenant, not a mere board-and-lodging arrangement. The tenant's estate remained liable for the stipulated rent for the full term, subject to an offset for board the landlord was spared from providing after the tenant's death, with interest recoverable on each weekly payment from when it became due.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "In 1884 the plaintiff, Mrs. Margaret A. Oliver, occupied the house Ho. 675 Fifth avenue in the city of Hew York, and rented rooms and took boarders there.",
+    "supports": "who_was_letting"
+   },
+   {
+    "text": "Meld a lease, and not a mere agreement for board and lodging.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Meld, that plaintiff was entitled to recover from her estate the stipulated rent for the whole term of the lease, subject to an offset of the amount plaintiff saved by not having to board G. for the remainder of the term.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Meld a lease, and not a mere agreement for board and lodging.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-01",
+  "notes": "Alternate reporter of the same underlying dispute as case_id 657582/4592472; quotes taken from this reporter's own OCR text, including its 'Meld' misprint of 'Held'."
+ },
+ {
+  "case_id": 4453395,
+  "cite": "24 N.Y. Sup. Ct. 279",
+  "court": "Supreme Court, General Term",
+  "year": 1879,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.25,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-01",
+  "notes": "Hotel-guest tort case: family occupied rooms at the St. Cloud hotel under a special monthly-rate contract, and the court held they remained 'guests' (not boarders) for purposes of the innkeeper's strict liability for stolen goods. Concerns innkeeper/guest tort classification, not the legality or regulation of letting rooms for pay; no characterization/holding quote supplied because the holding does not bear on that question."
+ },
+ {
+  "case_id": 4592472,
+  "cite": "60 N.Y. Sup. Ct. 472",
+  "court": "Supreme Court, General Term, First Department",
+  "year": 1889,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.92,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "A householder who by sealed agreement let two rooms in her house to a lodger for an eight-and-one-half-month term, agreeing to board the lodger and her maid as part of the consideration, created a lease making the lodger the tenant of the rooms rather than a mere board-and-lodging arrangement. The tenant's estate remained liable for the stipulated rent for the full term, subject to a deduction for the actual cost of board the landlord was spared after the tenant's death, and interest was recoverable on each weekly rent payment from when it became due.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Lease with cm agreement to board the lessee \u2014 rights of the pwties, how affected by the death of the lessee \u2014 a deduction must be made if the lessee dies before the termination of the lease.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Held, that the contract between the plaintiff and the defendant\u2019s testatrix was a lease which made Miss Gross the tenant of the demised premises, and that her estate became liable for the rent as long as the term lasted.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Held, that the contract between the plaintiff and the defendant\u2019s testatrix was a lease which made Miss Gross the tenant of the demised premises, and that her estate became liable for the rent as long as the term lasted.",
+    "supports": "polarity"
+   },
+   {
+    "text": "In 1884 the plaintiff, Mrs. Margaret A. Oliver, occupied the house No. 675 Fifth avenue, in the city of New York, and rented rooms and took boarders there.",
+    "supports": "who_was_letting"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-01",
+  "notes": "Third reporter of the same dispute as case_id 657582/3515356; quotes taken from this reporter's own OCR text (e.g., 'Lease with cm agreement to board the lessee' for 'an agreement')."
+ },
+ {
+  "case_id": 4539230,
+  "cite": "47 Tex. Crim. 493",
+  "court": "Court of Criminal Appeals of Texas",
+  "year": 1905,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "In reversing an aggravated-assault conviction for failure to instruct on whether a pistol was used as a deadly weapon, the court also rejected the defendant's argument that his sister had a statutory lien over the prosecutor's property, holding that she was not a boarding-house keeper but had merely rented a room to a lodger, and that Texas's lien statute protects hotel and boarding-house keepers but not lodging-house keepers.",
+  "doctrinal_concepts": [
+   "boardinghouse_vs_lodginghouse",
+   "boardinghouse_lien"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The evidence does not show that she was a boarding-house keeper, but merely rented rooms to lodgers.",
+    "supports": "who_was_letting"
+   },
+   {
+    "text": "Our statute gives a lien on personal property in favor of hotel and boarding-house keepers, but not in favor of lodging house keepers.",
+    "supports": "characterization"
+   },
+   {
+    "text": "In our view there is a distinction between a boardinghouse keeper, and one who keeps a lodging-house.",
+    "supports": "polarity"
+   },
+   {
+    "text": "In our view there is a distinction between a boardinghouse keeper, and one who keeps a lodging-house.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-01",
+  "notes": "Criminal appeal in which the lien question is collateral to the assault conviction; the facts do not state how long the prosecutor had lodged with the defendant's sister, so duration is unclear. Polarity marked mixed: the court recognizes private room-letting to a lodger as a lawful, ordinary practice, but denies it the statutory lien protection given to boarding houses/hotels."
+ },
+ {
+  "case_id": 5687842,
+  "cite": "42 N.Y.S. 691",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 1896,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "Two adjoining buildings occupied by a single tenant who kept boarders, internally connected and sharing a common dining room and parlor, together constitute a single boarding house under the building statute; since the combined structures had more than fifteen sleeping rooms above the basement, the owner was required to install fire escapes.",
+  "doctrinal_concepts": [
+   "boarding_house_classification",
+   "police_power_regulation",
+   "fire_escape_requirement"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It seems to us clear that the buildings in question are a boarding house.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Every boarding-house having more than fifteen sleeping-rooms above the basement story * * * shall be -provided with such good and sufficient fire-escapes, stairways, or other means of, egress in case of fire as shall be directed by the superintendent of buildings.",
+    "supports": "polarity"
+   },
+   {
+    "text": "We are of opinion, therefore, that the plaintiff should have judgment for the sum of $50 and costs.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-02",
+  "notes": ""
+ },
+ {
+  "case_id": 8507679,
+  "cite": "21 La. Ann. 557",
+  "court": "Supreme Court of Louisiana",
+  "year": 1869,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": "The claim for board, lodging, and agency services rendered to a deceased woman was mostly time-barred by prescription, and the agency claim failed for lack of proof of any specific act performed as mandatory; the court did not address the legal character of the boarding arrangement itself.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The claim for hoard and lodging is prescribed, except that portion winch accrued during the year previous to the commencement of the suit.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-02",
+  "notes": "Succession/debt-collection case turning on prescription and proof of agency; board and lodging is the subject of the claim but the court never characterizes the arrangement as lease/license/lodging, so characterization left null."
+ },
+ {
+  "case_id": 1547846,
+  "cite": "42 Pa. D. & C. 586",
+  "court": "Court of Common Pleas (Allegheny County, Pa.)",
+  "year": 1941,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": "The court held that tourist homes and coffee houses operating out of dwellings in a residential zoning district fall within the ordinance's \"Use District Exceptions\" permitting the renting of rooms or lodgings and the serving of meals for compensation, and therefore do not violate the zoning ordinance; the writ of mandamus to compel enforcement against them was dismissed.",
+  "doctrinal_concepts": [
+   "zoning_use_exception",
+   "renting_rooms_for_compensation",
+   "accessory_use"
+  ],
+  "new_terms_observed": [
+   "tourist home"
+  ],
+  "quotes": [
+   {
+    "text": "Certainly tourist homes involve \u201cthe renting of rooms or lodgings,\u201d and \u201cthe serving of meals for compensation,\u201d and it seems to us that is all they do involve.",
+    "supports": "characterization"
+   },
+   {
+    "text": "In the residence districts the use regulations shall not be held to prevent the renting of rooms or lodgings or the serving of meals for compensation.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Under the circumstances of this case and the provisions of the controlling ordinance of the borough, the; writ of mandamus must be dismissed.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-02",
+  "notes": ""
+ }
+]

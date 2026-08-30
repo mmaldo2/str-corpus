@@ -1,182 +1,309 @@
-"""Render the human-review queue (review-queue.json) as a checklist page
-(reports/review-queue.html) + a durable markdown copy (reports/review-queue.md).
+"""Render the cycle human-review queue as a self-saving decision page.
 
-Checkbox state persists per-viewer in localStorage — a convenience, not a
-record; the durable record of adjudications belongs in the repo.
+v2: decisions are real input. The page declares the `artifact` runtime
+capability; "Save decisions" publishes a new version of the page with the
+decision state embedded, which the pipeline session then reads back and
+commits to the repo as the durable record. Where the capability is absent
+(e.g. non-claude.ai viewer) the page falls back to copy-to-clipboard JSON.
+
+Inputs (per run):
+  runs/<run>/review-queue.json      four queues + case info
+  runs/<run>/fuzzy-diffs.json       side-by-side + trivial/needs-human class
+  runs/<run>/adjudications.json     third-reader recommendations
+  runs/cycle-001-remap/verified/*   re-mapped, re-verified records
+
+Outputs:
+  reports/review-queue.html   (content-only file for the Artifact tool)
+  reports/review-queue.md     (durable plain checklist)
 
 Usage: python pipeline/make_review.py --run-id cycle-001-shard-02
 """
 
 import argparse
+import base64
 import html
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-
-def cl_link(cite: str) -> str:
-    q = html.escape((cite or "").replace(" ", "+"))
-    return f"https://www.courtlistener.com/?q=%22{q}%22"
+STATE_MARKER = "__REVIEW_STATE__"
+TB64_MARKER = "__TEMPLATE_B64__"
 
 
 def esc(s) -> str:
     return html.escape(str(s if s is not None else ""))
 
 
-def case_head(e: dict) -> str:
-    return (
-        f'<span class="cite"><a href="{cl_link(e.get("cite"))}" target="_blank" '
-        f'rel="noopener">{esc(e.get("cite") or e.get("case_id"))}</a></span> '
-        f'<b>{esc(e.get("name") or "")}</b> '
-        f'<span class="meta">({esc(e.get("jur"))} {esc(e.get("year"))} · {esc(e.get("court"))})</span>'
+def cl_link(cite: str) -> str:
+    return "https://www.courtlistener.com/?q=%22" + esc((cite or "").replace(" ", "+")) + "%22"
+
+
+def load_data(run_id: str) -> dict:
+    run = ROOT / "runs" / run_id
+    queue = json.loads((run / "review-queue.json").read_text(encoding="utf-8"))
+    diffs = json.loads((run / "fuzzy-diffs.json").read_text(encoding="utf-8"))
+    adj = json.loads((run / "adjudications.json").read_text(encoding="utf-8"))
+    remap = []
+    remap_dir = ROOT / "runs" / "cycle-001-remap" / "verified"
+    for f in sorted(remap_dir.glob("*.json")):
+        remap.extend(json.loads(f.read_text(encoding="utf-8")))
+
+    info_by_case = {}
+    for lst in (queue["fuzzy"], queue["disagreements"], queue["nulled"],
+                queue["householder_nights"]):
+        for e in lst:
+            info_by_case[e["case_id"]] = {
+                k: e.get(k) for k in ("cite", "name", "year", "jur", "court")
+            }
+    diff_by = {(d["case_id"], d["quote"]): d for d in diffs}
+    adj_by = {(a["case_id"], a["field"]): a for a in adj}
+
+    A = queue["householder_nights"]
+    B = []
+    for e in queue["fuzzy"]:
+        d = diff_by.get((e["case_id"], e["quote"]), {})
+        B.append({**e, "source": d.get("source"),
+                  "classification": d.get("classification", "needs-human"),
+                  "coverage": d.get("quote_coverage")})
+    C = []
+    for e in queue["disagreements"]:
+        a = adj_by.get((e["case_id"], e["field"]), {})
+        C.append({**e, "recommendation": a.get("recommendation"),
+                  "justification": a.get("justification"),
+                  "supporting_quote": a.get("supporting_quote")})
+    D = []
+    for r in remap:
+        D.append({**info_by_case.get(r["case_id"], {}), "case_id": r["case_id"],
+                  "relevant": r.get("relevant"), "polarity": r.get("polarity"),
+                  "who": r.get("who_was_letting"),
+                  "duration": r.get("duration_of_occupancy"),
+                  "characterization": r.get("characterization"),
+                  "holding": r.get("holding_summary"),
+                  "quotes": [{"t": q.get("text"), "p": q.get("reporter_page"),
+                              "s": q.get("status")} for q in r.get("quotes", [])],
+                  "notes": r.get("notes")})
+    return {"A": A, "B": B, "C": C, "D": D}
+
+
+def build_pages(run_id: str) -> None:
+    data = load_data(run_id)
+    data_json = json.dumps(data).replace("</", "<\\/")
+    content = CONTENT_TMPL.replace("{{DATA}}", data_json)
+    # full-document template used by the page to republish itself
+    full = ("<!doctype html>\n<html><head><meta charset=\"utf-8\">"
+            "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">"
+            "</head><body>" + content + "</body></html>")
+    tb64 = base64.b64encode(full.encode("utf-8")).decode("ascii")
+    out = content.replace(TB64_MARKER, tb64).replace(
+        f'"{STATE_MARKER}"', "{}"
     )
+    (ROOT / "reports" / "review-queue.html").write_text(out, encoding="utf-8")
 
-
-def item(idx: str, body: str) -> str:
-    return (
-        f'<label class="item" data-k="{idx}"><input type="checkbox">'
-        f'<div class="body">{body}</div></label>'
-    )
-
-
-def render(run_id: str) -> None:
-    data = json.loads(
-        (ROOT / "runs" / run_id / "review-queue.json").read_text(encoding="utf-8")
-    )
-    sections = []
-
-    rows = []
-    for i, e in enumerate(data["householder_nights"]):
-        quotes = "".join(
-            f'<blockquote>&ldquo;{esc(q["t"])}&rdquo;'
-            f'<span class="meta"> — at p. {esc(q["p"])} ({esc(q["s"])})</span></blockquote>'
-            for q in e["quotes"]
-        )
-        rows.append(item(f"hxn-{i}",
-            f'{case_head(e)}<div class="meta">court called it: {esc(e.get("characterization"))}</div>'
-            f'<p>{esc(e.get("holding"))}</p>{quotes}'
-            f'<div class="todo">Verify holding against the opinion · KeyCite/Shepardize · [ ] citator-checked</div>'))
-    sections.append(("A", "Householder × nights — priority favorable cases",
-        "The highest-value stratum for the level-of-generality argument. Read, verify, citator-check.",
-        rows))
-
-    rows = []
-    for i, e in enumerate(data["fuzzy"]):
-        rows.append(item(f"fz-{i}",
-            f'{case_head(e)}<blockquote>&ldquo;{esc(e["quote"])}&rdquo;'
-            f'<span class="meta"> — at p. {esc(e["page"])} · similarity {esc(e["score"])} · supports: {esc(e["supports"])}</span></blockquote>'
-            f'<div class="todo">Compare against the scanned page: is the difference OCR noise, or a real mismatch?</div>'))
-    sections.append(("B", "Fuzzy-verified quotes",
-        "Passed the quote gate only on the OCR-tolerance path. Confirm each against the source scan before any use.",
-        rows))
-
-    rows = []
-    for i, d in enumerate(data["disagreements"]):
-        rows.append(item(f"dg-{i}",
-            f'{case_head(d)}<div class="vs">field <b>{esc(d["field"])}</b>: '
-            f'<span class="claude">Claude: {esc(d.get("claude"))}</span> vs '
-            f'<span class="codex">Codex: {esc(d.get("codex"))}</span>'
-            f'<span class="meta"> · {esc(d.get("batch_id"))}</span></div>'
-            f'<div class="todo">Read the case; record the correct value.</div>'))
-    sections.append(("C", "Cross-model disagreements",
-        "The two AI readers answered differently. Your call is the record.",
-        rows))
-
-    rows = []
-    for i, e in enumerate(data["nulled"]):
-        rows.append(item(f"nl-{i}",
-            f'{case_head(e)}<div class="meta">who: {esc(e.get("who"))} · duration: {esc(e.get("duration"))} '
-            f'· nulled: {esc(", ".join(e.get("nulled") or []))}</div>'
-            f'<p>{esc(e.get("holding"))}</p>'
-            f'<div class="meta">worker notes: {esc(e.get("notes"))}</div>'
-            f'<div class="todo">The supporting quote failed verification, so the field was voided. Re-read: re-map, or discard.</div>'))
-    sections.append(("D", "Quote-gate-nulled records",
-        "Marked relevant, but the quote supporting polarity failed the verbatim gate — conclusions voided pending re-read.",
-        rows))
-
-    sec_html = ""
-    md = ["# Cycle 001 — Human review queue\n",
-          f"Source: `runs/{run_id}/review-queue.json`. Checkbox page: reports/review-queue.html "
-          "(state is per-browser; record final adjudications in the repo).\n"]
-    for key, title, blurb, rows in sections:
-        sec_html += (
-            f'<section><h2><span class="k">{key}</span> {esc(title)} '
-            f'<span class="count" data-sec="{key}">0/{len(rows)}</span></h2>'
-            f'<p class="blurb">{esc(blurb)}</p>{"".join(rows)}</section>'
-        )
-        md.append(f"\n## {key}. {title} ({len(rows)} items)\n{blurb}\n")
-        for r_i, e in enumerate(
-            data["householder_nights"] if key == "A" else
-            data["fuzzy"] if key == "B" else
-            data["disagreements"] if key == "C" else data["nulled"]
-        ):
+    md = ["# Cycle 001 — Human review queue (v2, with recommendations)\n"]
+    for key, title in (("A", "Householder x nights priority cases"),
+                       ("B", "Fuzzy quotes (side-by-side)"),
+                       ("C", "Disagreements (with third-reader recommendation)"),
+                       ("D", "Re-mapped records (re-verified)")):
+        md.append(f"\n## {key}. {title} ({len(data[key])})")
+        for e in data[key]:
             cite = e.get("cite") or e.get("case_id")
-            name = e.get("name") or ""
             extra = ""
             if key == "B":
-                extra = f' — "{e["quote"][:110]}…" (p. {e.get("page")}, sim {e.get("score")})'
+                extra = f" — {e.get('classification')}"
             if key == "C":
-                extra = f' — {e["field"]}: Claude={e.get("claude")} vs Codex={e.get("codex")}'
-            md.append(f"- [ ] {cite} {name}{extra}")
-
-    page = PAGE_TMPL.replace("{{SECTIONS}}", sec_html)
-    (ROOT / "reports" / "review-queue.html").write_text(page, encoding="utf-8")
+                extra = f" — {e['field']}: rec={e.get('recommendation')}"
+            if key == "D":
+                extra = f" — remapped: {e.get('polarity')}/{e.get('who')}/{e.get('duration')}"
+            md.append(f"- [ ] {cite} {e.get('name') or ''}{extra}")
     (ROOT / "reports" / "review-queue.md").write_text("\n".join(md), encoding="utf-8")
-    print("wrote reports/review-queue.html and reports/review-queue.md")
+    print("wrote reports/review-queue.html (+md); template",
+          len(tb64) // 1024, "KB b64")
 
 
-PAGE_TMPL = """<title>Cycle 001 Review Queue</title>
+CONTENT_TMPL = r"""<title>Cycle 001 Review Queue</title>
 <style>
-:root{--bg:#101418;--panel:#171d24;--border:#2a333d;--text:#e8eaed;--muted:#9aa5b1;
---amber:#ffc14d;--mint:#46f9b8;--sky:#6aa9ff;--magenta:#ff6b8a;
+:root{--bg:#101418;--panel:#171d24;--panel2:#1d242d;--border:#2a333d;--border2:#38434f;
+--text:#e8eaed;--muted:#9aa5b1;--amber:#ffc14d;--mint:#46f9b8;--sky:#6aa9ff;--magenta:#ff6b8a;
 --sans:'Source Sans 3',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Consolas,monospace}
-body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 var(--sans);padding:28px}
-.wrap{max-width:880px;margin:0 auto}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 var(--sans);padding:28px 28px 90px}
+.wrap{max-width:900px;margin:0 auto}
 h1{font-family:Georgia,serif;font-weight:600;font-size:26px;margin:0 0 4px}
-.sub{color:var(--muted);max-width:70ch}
+.sub{color:var(--muted);max-width:75ch}
 section{margin-top:34px}
 h2{font-size:17px;border-bottom:1px solid var(--border);padding-bottom:8px}
 h2 .k{display:inline-flex;width:24px;height:24px;border-radius:6px;background:var(--amber);
 color:#101418;align-items:center;justify-content:center;font:700 13px var(--sans);margin-right:6px}
 h2 .count{float:right;font:600 12px var(--mono);color:var(--mint)}
 .blurb{color:var(--muted);font-size:13.5px;margin-top:-4px}
-.item{display:flex;gap:12px;background:var(--panel);border:1px solid var(--border);
-border-radius:10px;padding:12px 14px;margin:10px 0;cursor:pointer}
-.item input{margin-top:4px;accent-color:var(--mint);width:16px;height:16px;flex:none}
-.item:has(input:checked){opacity:.45}
-.body{min-width:0}
+.item{background:var(--panel);border:1px solid var(--border);border-radius:10px;
+padding:12px 14px;margin:10px 0}
+.item.decided{border-color:#22493a}
 .cite a{color:var(--sky);text-decoration:none;font:500 13px var(--mono)}
 .cite a:hover{text-decoration:underline}
 .meta{color:var(--muted);font:400 12px var(--mono)}
 blockquote{margin:8px 0;padding:8px 12px;background:#0b0e12;border-left:3px solid var(--amber);
 border-radius:0 8px 8px 0;font-size:13.5px;color:#d9dee3;overflow-wrap:break-word}
-.vs{margin-top:4px}
-.claude{color:var(--sky)} .codex{color:var(--magenta)}
-.todo{margin-top:6px;font:600 11.5px var(--mono);color:var(--amber)}
+blockquote.src{border-left-color:var(--sky)}
+.rec{margin:8px 0;padding:8px 12px;background:#0f1d17;border:1px solid #2c4a3a;border-radius:8px;font-size:13.5px}
+.rec .lab{font:600 10px var(--mono);letter-spacing:.12em;color:var(--mint);text-transform:uppercase}
+.vs{margin-top:4px}.claude{color:var(--sky)}.codex{color:var(--magenta)}
 p{margin:6px 0;font-size:13.5px;color:#c9d1d9}
+.controls{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;align-items:center}
+.controls button{background:var(--panel2);color:var(--muted);border:1px solid var(--border2);
+border-radius:999px;padding:4px 12px;font:600 12px var(--sans);cursor:pointer}
+.controls button:hover{color:var(--text)}
+.controls button.on{background:var(--mint);border-color:var(--mint);color:#101418}
+.controls button.on.neg{background:var(--magenta);border-color:var(--magenta)}
+.controls input[type=text]{flex:1;min-width:160px;background:#0b0e12;border:1px solid var(--border);
+border-radius:8px;color:var(--text);font:400 12.5px var(--sans);padding:5px 9px}
+.chip{font:600 10.5px var(--mono);border-radius:999px;padding:2px 9px;border:1px solid var(--border2);color:var(--muted)}
+.chip.triv{color:#101418;background:var(--mint);border-color:var(--mint)}
+.chip.hum{color:#101418;background:var(--amber);border-color:var(--amber)}
+.savebar{position:fixed;left:0;right:0;bottom:0;background:#0b0e12ee;border-top:1px solid var(--border);
+padding:12px 28px;display:flex;gap:14px;align-items:center;backdrop-filter:blur(4px)}
+.savebar .status{font:500 12.5px var(--mono);color:var(--muted)}
+.savebar button{background:var(--mint);color:#101418;border:none;border-radius:8px;
+padding:9px 20px;font:700 14px var(--sans);cursor:pointer}
+.savebar button:disabled{opacity:.4;cursor:default}
+.savebar .alt{background:var(--panel2);color:var(--text);border:1px solid var(--border2)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
 </style>
 <div class="wrap">
 <h1>Cycle 001 — Human Review Queue</h1>
-<p class="sub">Four queues from the first extraction cycle. Checkboxes remember your progress
-in this browser only — record final adjudications back in the repo. Each citation links to a
-CourtListener search for the case.</p>
-{{SECTIONS}}
+<p class="sub">Every item carries a machine recommendation where one exists — your job is to
+confirm or override. Decisions are saved into this page itself when you press
+<b>Save decisions</b> (bottom bar); the pipeline reads them back as the durable record.
+Citations link to CourtListener.</p>
+<div id="sections"></div>
 </div>
+<div class="savebar">
+  <button id="save">Save decisions</button>
+  <button id="copy" class="alt">Copy JSON</button>
+  <span class="status" id="status"></span>
+</div>
+<script type="application/json" id="review-state">"__REVIEW_STATE__"</script>
 <script>
-const items=[...document.querySelectorAll('.item')];
-function recount(){
-  document.querySelectorAll('h2 .count').forEach(c=>{
-    const sec=c.closest('section');const all=sec.querySelectorAll('.item');
-    const done=sec.querySelectorAll('.item input:checked');
-    c.textContent=done.length+'/'+all.length;});
+const DATA = {{DATA}};
+const TB64 = "__TEMPLATE_B64__";
+let state = {};
+try { state = JSON.parse(document.getElementById('review-state').textContent) || {}; } catch(e) {}
+if (typeof state !== 'object' || state === null || typeof state === 'string') state = {};
+let dirty = 0;
+
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const clq = c => 'https://www.courtlistener.com/?q=%22' + encodeURIComponent(String(c||'')) + '%22';
+const head = e => `<span class="cite"><a href="${clq(e.cite)}" target="_blank" rel="noopener">${esc(e.cite || e.case_id)}</a></span> <b>${esc(e.name||'')}</b> <span class="meta">(${esc(e.jur)} ${esc(e.year)})</span>`;
+
+const SECTIONS = [
+  {key:'A', title:'Householder × nights — priority favorable cases',
+   blurb:'The highest-value stratum. Confirm the holding reads right, then citator-check before any use.',
+   opts:[['accept','Accept'],['needs-work','Needs work'],['reject','Reject','neg']],
+   extra:[['citator','Citator checked']],
+   render:e=>`${head(e)}<div class="meta">court called it: ${esc(e.characterization)}</div><p>${esc(e.holding)}</p>`+
+     (e.quotes||[]).map(q=>`<blockquote>&ldquo;${esc(q.t)}&rdquo;<span class="meta"> — p. ${esc(q.p)} (${esc(q.s)})</span></blockquote>`).join('')},
+  {key:'B', title:'Fuzzy quotes — AI quote vs. corpus text',
+   blurb:'Top (amber): what the AI reader quoted. Bottom (blue): what the corpus actually says at that spot. 22 are pre-classified as trivial scan noise — one click to confirm.',
+   opts:[['ocr-ok','Scan noise — OK'],['mismatch','Real mismatch','neg']],
+   render:e=>`${head(e)}<span class="chip ${e.classification==='trivial-ocr'?'triv':'hum'}">${e.classification==='trivial-ocr'?'machine: trivial OCR':'machine: needs judgment'}</span>
+     <blockquote>&ldquo;${esc(e.quote)}&rdquo;<span class="meta"> — as quoted (p. ${esc(e.page)}, supports ${esc(e.supports)})</span></blockquote>
+     <blockquote class="src">${esc(e.source)}<span class="meta"> — corpus text at match</span></blockquote>`},
+  {key:'C', title:'Cross-model disagreements — with third-reader recommendation',
+   blurb:'Two AI readers split; a third read the case and recommends. Accept the recommendation or override.',
+   opts:[['accept-rec','Accept recommendation'],['claude','Side with A'],['codex','Side with B'],['other','Other','neg']],
+   render:e=>`${head(e)}<div class="vs">field <b>${esc(e.field)}</b>: <span class="claude">A (Claude): ${esc(e.claude)}</span> vs <span class="codex">B (Codex): ${esc(e.codex)}</span></div>
+     <div class="rec"><div class="lab">Third reader recommends: ${esc(e.recommendation)}</div>
+     <p>${esc(e.justification)}</p>${e.supporting_quote?`<blockquote>&ldquo;${esc(e.supporting_quote)}&rdquo;</blockquote>`:''}</div>`},
+  {key:'D', title:'Re-mapped records — voided claims, re-extracted and re-verified',
+   blurb:'These 19 claims were voided when their quotes failed verification. They were re-read under stricter quote rules; every quote below has now passed the verbatim gate.',
+   opts:[['accept','Accept'],['discard','Discard','neg']],
+   render:e=>`${head(e)}<div class="meta">re-mapped: relevant=${esc(e.relevant)} · polarity=${esc(e.polarity)} · who=${esc(e.who)} · duration=${esc(e.duration)} · characterization=${esc(e.characterization)}</div>
+     <p>${esc(e.holding)}</p>`+
+     (e.quotes||[]).map(q=>`<blockquote>&ldquo;${esc(q.t)}&rdquo;<span class="meta"> — p. ${esc(q.p)} (${esc(q.s)})</span></blockquote>`).join('')+
+     (e.notes?`<div class="meta">notes: ${esc(e.notes)}</div>`:'')},
+];
+
+function itemKey(sec, i){ return sec + '-' + i; }
+function render(){
+  const root = document.getElementById('sections');
+  root.innerHTML = '';
+  for(const S of SECTIONS){
+    const items = DATA[S.key] || [];
+    const sec = document.createElement('section');
+    sec.innerHTML = `<h2><span class="k">${S.key}</span> ${esc(S.title)} <span class="count" id="cnt-${S.key}"></span></h2><p class="blurb">${esc(S.blurb)}</p>`;
+    items.forEach((e, i) => {
+      const k = itemKey(S.key, i);
+      const st = state[k] || {};
+      const div = document.createElement('div');
+      div.className = 'item' + (st.decision ? ' decided' : '');
+      div.dataset.k = k;
+      let controls = S.opts.map(([v, label, neg]) =>
+        `<button data-v="${v}" class="${st.decision===v?'on':''} ${neg||''}">${label}</button>`).join('');
+      for(const [v, label] of (S.extra || []))
+        controls += `<button data-x="${v}" class="${st[v]?'on':''}">${label}${st[v]?' ✓':''}</button>`;
+      controls += `<input type="text" placeholder="note (optional)" value="${esc(st.note||'')}">`;
+      div.innerHTML = S.render(e) + `<div class="controls">${controls}</div>`;
+      div.querySelectorAll('button[data-v]').forEach(b => b.onclick = () => {
+        state[k] = {...(state[k]||{}), decision: b.dataset.v, at: new Date().toISOString()};
+        dirty++; render();
+      });
+      div.querySelectorAll('button[data-x]').forEach(b => b.onclick = () => {
+        state[k] = {...(state[k]||{}), [b.dataset.x]: !(state[k]||{})[b.dataset.x]};
+        dirty++; render();
+      });
+      const inp = div.querySelector('input[type=text]');
+      inp.onchange = () => { state[k] = {...(state[k]||{}), note: inp.value}; dirty++; updateBar(); };
+      sec.appendChild(div);
+    });
+    root.appendChild(sec);
+    const done = items.filter((_, i) => (state[itemKey(S.key, i)]||{}).decision).length;
+    sec.querySelector(`#cnt-${S.key}`).textContent = done + '/' + items.length;
+  }
+  updateBar();
 }
-items.forEach(it=>{
-  const k='rq1-'+it.dataset.k, box=it.querySelector('input');
-  try{ box.checked=localStorage.getItem(k)==='1'; }catch(e){}
-  box.addEventListener('change',()=>{ try{localStorage.setItem(k,box.checked?'1':'0');}catch(e){} recount(); });
-});
-recount();
+function updateBar(){
+  const total = SECTIONS.reduce((n, S) => n + (DATA[S.key]||[]).length, 0);
+  const done = Object.values(state).filter(s => s && s.decision).length;
+  document.getElementById('status').textContent =
+    `${done}/${total} decided` + (dirty ? ` · ${dirty} unsaved change${dirty>1?'s':''}` : ' · saved');
+}
+function rebuildDoc(){
+  const tmpl = new TextDecoder().decode(Uint8Array.from(atob(TB64), c => c.charCodeAt(0)));
+  const stateMarker = '"__REVIEW_' + 'STATE__"';
+  const tb64Marker = '"' + '__TEMPLATE_' + 'B64__' + '"';
+  const payload = JSON.stringify({...state, _meta:{savedAt:new Date().toISOString()}})
+    .replace(/</g, '\\u003c');
+  return tmpl.split('"__REVIEW_' + 'STATE__"').join(payload)
+             .split('__TEMPLATE_' + 'B64__').join(TB64);
+}
+document.getElementById('save').onclick = async () => {
+  const btn = document.getElementById('save');
+  btn.disabled = true; btn.textContent = 'Saving…';
+  try {
+    const art = (typeof claude !== 'undefined' && claude.use)
+      ? await claude.use('artifact') : null;
+    if(!art){ throw new Error('no-capability'); }
+    await art.publish(rebuildDoc());
+    dirty = 0; btn.textContent = 'Saved ✓';
+  } catch(err) {
+    btn.textContent = 'Save decisions';
+    document.getElementById('status').textContent =
+      err.message === 'no-capability'
+        ? 'Saving unavailable in this viewer — use Copy JSON and send it back.'
+        : 'Save failed (' + (err.code || err.message) + ') — try again or Copy JSON.';
+    btn.disabled = false; return;
+  }
+  setTimeout(() => { btn.disabled = false; btn.textContent = 'Save decisions'; updateBar(); }, 1200);
+};
+document.getElementById('copy').onclick = async () => {
+  try {
+    await navigator.clipboard.writeText(JSON.stringify(state, null, 1));
+    document.getElementById('status').textContent = 'Decision JSON copied to clipboard.';
+  } catch(e) {
+    document.getElementById('status').textContent = 'Clipboard blocked — select and copy from console.';
+  }
+};
+render();
 </script>
 """
 
@@ -184,4 +311,4 @@ recount();
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--run-id", default="cycle-001-shard-02")
-    render(ap.parse_args().run_id)
+    build_pages(ap.parse_args().run_id)
