@@ -51,3 +51,5 @@ non-decreasing vs cycle-001 baseline (brief-letting 33.3%, treatise 72.4%).
 - RETIRED sojourner-19 (near-zero yield, proper-name noise)
 Recall gate: non-decreasing vs post-hygiene baseline (brief-letting 3/9 =
 33.3%; treatise 72.4%).
+
+(v3 approved by user 2026-08-31 with Map budget 150 batches.)
