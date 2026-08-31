@@ -255,8 +255,15 @@ def cmd_harvest(args) -> int:
 
     resolved = unresolved = dropped_modern = 0
     out = []
+    overrides = {}
+    ov_path = GOLD_DIR / "gold-domain-overrides.json"
+    if ov_path.exists():
+        overrides = json.loads(ov_path.read_text(encoding="utf-8"))
     for key, entry in rows.items():
         entry["domain"] = classify_domain(entry)
+        if key in overrides:
+            entry["domain"] = overrides[key]["domain"]
+            entry["domain_override"] = overrides[key].get("reason")
         hit = conn.execute(
             """SELECT c.case_id, c.decision_year, c.name_abbreviation
                FROM citations ct JOIN cases c ON c.case_id = ct.case_id
