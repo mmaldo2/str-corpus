@@ -176,12 +176,61 @@ def cmd_fuzzy(run_id: str) -> None:
     print(f"{n_triv} trivial-ocr / {len(diffs) - n_triv} needs-human")
 
 
+def cmd_fuzzy_review(run_id: str) -> None:
+    """Reader pass over every fuzzy quote: scan noise vs. real mismatch, with
+    a one-line justification and the corrected verbatim quote when the
+    passage is present but mis-transcribed. Recommendation only."""
+    path = RUNS / run_id / "fuzzy-diffs.json"
+    diffs = json.loads(path.read_text(encoding="utf-8"))
+    for i in range(0, len(diffs), 10):
+        group = diffs[i : i + 10]
+        payload = (
+            "You are reviewing quotations that an AI reader extracted from "
+            "historical court opinions. Each quotation matched the corpus text "
+            "only approximately (92-99%). For each item, compare QUOTE (as "
+            "extracted) with SOURCE (the corpus text at the match, with a little "
+            "surrounding context). Decide:\n"
+            "- 'ocr-ok': the differences are scan/OCR noise or trivial "
+            "transcription (letter confusions, hyphenation, punctuation, "
+            "ligatures, spacing) and the QUOTE is faithfully the same words.\n"
+            "- 'mismatch': the QUOTE paraphrases, omits, reorders, or adds "
+            "words, or quotes a different passage.\n"
+            "Output ONLY a JSON array, one object per item, in order:\n"
+            '{"index": <n>, "recommendation": "ocr-ok"|"mismatch", '
+            '"justification": "one sentence", '
+            '"corrected_quote": "<verbatim text from SOURCE, or null>"}\n'
+        )
+        for j, e in enumerate(group):
+            payload += (
+                f"\n### item index {i + j}\nQUOTE: {e['quote']}\n"
+                f"SOURCE: {e['source']}\n"
+            )
+        recs = parse_json_array(claude_call(payload))
+        if not recs:
+            print(f"fuzzy-review group {i//10}: PARSE FAILURE")
+            continue
+        by = {r.get("index"): r for r in recs if isinstance(r, dict)}
+        for j in range(len(group)):
+            r = by.get(i + j)
+            if r:
+                diffs[i + j]["recommendation"] = r.get("recommendation")
+                diffs[i + j]["justification"] = r.get("justification")
+                diffs[i + j]["corrected_quote"] = r.get("corrected_quote")
+        print(f"fuzzy-review group {i//10}: {len(by)} verdicts")
+    path.write_text(json.dumps(diffs, indent=1), encoding="utf-8")
+    n_ok = sum(1 for d in diffs if d.get("recommendation") == "ocr-ok")
+    n_mm = sum(1 for d in diffs if d.get("recommendation") == "mismatch")
+    print(f"fuzzy-review: {n_ok} ocr-ok / {n_mm} mismatch / "
+          f"{len(diffs) - n_ok - n_mm} no verdict")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["remap", "adjudicate", "fuzzy"])
+    ap.add_argument("cmd", choices=["remap", "adjudicate", "fuzzy", "fuzzy-review"])
     ap.add_argument("--run-id", default="cycle-001-shard-02")
     a = ap.parse_args()
-    {"remap": cmd_remap, "adjudicate": cmd_adjudicate, "fuzzy": cmd_fuzzy}[a.cmd](a.run_id)
+    {"remap": cmd_remap, "adjudicate": cmd_adjudicate, "fuzzy": cmd_fuzzy,
+     "fuzzy-review": cmd_fuzzy_review}[a.cmd](a.run_id)
     return 0
 
 

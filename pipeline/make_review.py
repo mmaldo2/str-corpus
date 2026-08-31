@@ -65,7 +65,10 @@ def load_data(run_id: str) -> dict:
         d = diff_by.get((e["case_id"], e["quote"]), {})
         B.append({**e, "source": d.get("source"),
                   "classification": d.get("classification", "needs-human"),
-                  "coverage": d.get("quote_coverage")})
+                  "coverage": d.get("quote_coverage"),
+                  "recommendation": d.get("recommendation"),
+                  "justification": d.get("justification"),
+                  "corrected_quote": d.get("corrected_quote")})
     C = []
     for e in queue["disagreements"]:
         a = adj_by.get((e["case_id"], e["field"]), {})
@@ -230,9 +233,10 @@ const SECTIONS = [
   {key:'B', title:'Fuzzy quotes — AI quote vs. corpus text',
    blurb:'Top (amber): what the AI reader quoted. Bottom (blue): what the corpus actually says at that spot. 22 are pre-classified as trivial scan noise — one click to confirm.',
    opts:[['ocr-ok','Scan noise — OK'],['mismatch','Real mismatch','neg']],
-   render:e=>`${head(e)}<span class="chip ${e.classification==='trivial-ocr'?'triv':'hum'}">${e.classification==='trivial-ocr'?'machine: trivial OCR':'machine: needs judgment'}</span>
+   render:e=>`${head(e)}<span class="chip ${e.classification==='trivial-ocr'?'triv':'hum'}">${e.classification==='trivial-ocr'?'mechanical: trivial OCR':'mechanical: needs judgment'}</span>
      <blockquote>&ldquo;${esc(e.quote)}&rdquo;<span class="meta"> — as quoted (p. ${esc(e.page)}, supports ${esc(e.supports)})</span></blockquote>
-     <blockquote class="src">${esc(e.source)}<span class="meta"> — corpus text at match</span></blockquote>`},
+     <blockquote class="src">${esc(e.source)}<span class="meta"> — corpus text at match</span></blockquote>`+
+     (e.recommendation?`<div class="rec"><div class="lab">Reader recommends: ${e.recommendation==='ocr-ok'?'scan noise — OK':'real mismatch'}</div><p>${esc(e.justification)}</p>${e.corrected_quote?`<p class="meta">corrected verbatim: &ldquo;${esc(e.corrected_quote)}&rdquo;</p>`:''}</div>`:'')},
   {key:'C', title:'Cross-model disagreements — with third-reader recommendation',
    blurb:'Two AI readers split; a third read the case and recommends. Accept the recommendation or override.',
    opts:[['accept-rec','Accept recommendation'],['claude','Side with A'],['codex','Side with B'],['other','Other','neg']],

@@ -23,6 +23,28 @@ python -m venv .venv                       # Python 3.11
 .venv\Scripts\python pipeline\eval_recall.py --run-id <run>
 ```
 
+## Per-cycle review pipeline (after verify_quotes)
+
+```powershell
+$R = "cycle-00N-shard-01"
+.venv\Scripts\python pipeline\build_review_queue.py --run-id $R     # queues + fuzzy side-by-sides
+.venv\Scripts\python pipeline\pre_review.py fuzzy        --run-id $R  # mechanical OCR classification
+.venv\Scripts\python pipeline\pre_review.py fuzzy-review --run-id $R  # reader: ocr-ok|mismatch + reason
+.venv\Scripts\python pipeline\pre_review.py adjudicate   --run-id $R  # third reader on disagreements
+.venv\Scripts\python pipeline\pre_review.py remap        --run-id $R  # re-extract quote-gate-nulled records
+.venv\Scripts\python pipeline\verify_quotes.py --run-id cycle-00N-remap
+.venv\Scripts\python pipeline\remap_check.py --run-id $R              # codex check on re-mapped records
+#   (stage runs/cycle-00N-remap/review-queue.json from remap-disagreements, then:)
+.venv\Scripts\python pipeline\pre_review.py adjudicate --run-id cycle-00N-remap
+.venv\Scripts\python pipeline\make_review.py --run-id $R               # self-saving review page
+# human reviews + saves in the artifact -> extract decisions-final.json, then:
+.venv\Scripts\python pipeline\apply_adjudications.py --run-id $R       # data/ledger/cycle-00N.jsonl
+```
+
+Every machine recommendation on the page (fuzzy verdicts, disagreement
+adjudications, re-map contests) is a recommendation only; the human's
+saved decision is the record.
+
 ## Layout
 
 Per spec §3. `selectors/selectors.yaml` is the load-bearing versioned artifact;
