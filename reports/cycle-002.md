@@ -180,3 +180,14 @@ removed; 45 of 55 remap recommendations accepted.
 **Cumulative record (cycles 1+2): 547 relevant cases, 1799-2019 —
 306 favorable / 128 adverse / 99 mixed; 116 favorable householder cases
 (12 nights / 15 weeks / 37 months).**
+
+---
+
+## Amendment — gold-set hygiene pass (2026-08-31, user-confirmed)
+
+Six brief-tier entries re-tagged letting -> doctrine per their citing
+contexts (Eggemeyer, Marrs, Spann, TSEU, Lombardo, McInnis); overrides in
+data/gold/gold-domain-overrides.json survive re-harvest. New headline
+baseline for the cycle-003 recall gate: **brief-letting 3/9 = 33.3%**
+(denominator 15 -> 9; two former hits were doctrine-domain and left the
+tier with their signals). Treatise 72.4% and brief-all 22.2% unchanged.
