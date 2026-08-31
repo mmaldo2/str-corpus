@@ -274,7 +274,7 @@
   polarity: favorable-candidate
   rationale: Colonial/antebellum status term for temporary residents.
   author: planner-cycle-001
-  status: active
+  status: retired   # cycle 003: near-zero yield; proper-name noise dominates
 
 - id: inmate-historical-20
   version: 1
@@ -308,7 +308,7 @@
   polarity: favorable-candidate
   rationale: Semantic net for fact patterns the seed phrases miss.
   author: planner-cycle-001
-  status: active
+  status: retired   # superseded by v2 (cycle 003)
 
 - id: embed-zoning-paying-occupants-22
   version: 1
@@ -528,4 +528,86 @@
     two Texas pre-1900/zoning cases fell just below the cap in dense
     partitions.
   author: planner-cycle-002
+  status: active
+
+# ---------- cycle 003 additions (planner-cycle-003) ----------
+
+- id: apartment-hotel-34
+  version: 1
+  concept: boarding_house_keeping
+  type: fts_phrase
+  index: raw
+  pattern: '"apartment hotel" OR "family hotel" OR "residential hotel"'
+  era_scope: [1860-1900, 1900-1930, 1930-1970]
+  jurisdiction_scope: all
+  polarity: neutral
+  rationale: >
+    The extended-stay hotel line (Hancock v. Rand descendants): where courts
+    drew guest/tenant/duration lines for compensated dwelling occupancy.
+    Cuts both ways; polarity left to extraction.
+  author: planner-cycle-003
+  status: active
+
+- id: sro-35
+  version: 1
+  concept: lodging_house_regulation
+  type: fts_phrase
+  index: raw
+  pattern: '"single room occupancy" OR "rooming unit" OR "rooming units"'
+  era_scope: [1930-1970, 1970-2020]
+  jurisdiction_scope: all
+  polarity: adverse-candidate
+  rationale: Modern regulatory stratum observed by cycle-002 workers.
+  author: planner-cycle-003
+  status: active
+
+- id: motel-near-36
+  version: 1
+  concept: transient_occupancy
+  type: fts_near
+  index: raw
+  pattern: 'NEAR("motel" "residential district", 30) OR NEAR("motel" "zoning ordinance", 30)'
+  era_scope: [1930-1970, 1970-2020]
+  jurisdiction_scope: all
+  polarity: neutral
+  rationale: >
+    Motel zoning cases without the raw-frequency flood: proximity to zoning
+    vocabulary solves the precision problem flagged at tourist-home-15 v2.
+  author: planner-cycle-003
+  status: active
+
+- id: rent-houses-37
+  version: 1
+  concept: letting_transaction
+  type: fts_phrase
+  index: raw
+  pattern: '"rent house" OR "rent houses" OR "rental houses" OR "rent cottages"'
+  era_scope: [1860-1900, 1900-1930, 1930-1970, 1970-2020]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    Post-hygiene miss postmortem: Holmes/Coalson speak of "three-room rent
+    houses" — period (esp. Texas) vernacular for rental dwellings absent
+    from the lexicon.
+  author: planner-cycle-003
+  status: active
+
+- id: embed-householder-letting-21
+  version: 2
+  concept: lodger_status
+  type: embedding
+  query_text: >
+    A householder lets furnished rooms or lodgings in her own dwelling to
+    lodgers or boarders for compensation; dispute over whether the occupant
+    is a lodger or a tenant and what rights the letting creates.
+  top_k: 250
+  min_cosine: 0.43
+  era_scope: all
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    v2: top_k 150->250, floor 0.45->0.43. Gold misses Gouhenant and Ruhl
+    have their letting facts buried in long non-letting disputes and fell
+    below the cap in dense pre-1900 partitions.
+  author: planner-cycle-003
   status: active

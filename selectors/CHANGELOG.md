@@ -38,3 +38,16 @@ From cycle-001 discoveries and gold-miss postmortems:
 non-decreasing vs cycle-001 baseline (brief-letting 33.3%, treatise 72.4%).
 
 (v2 approved by user 2026-08-30 with Map budget 150 batches.)
+
+## v3 — cycle 003 (planner-cycle-003) — PENDING HUMAN REVIEW
+
+- NEW apartment-hotel-34 (neutral; Hancock v. Rand line)
+- NEW sro-35 (adverse; modern regulatory stratum)
+- NEW motel-near-36 (neutral; proximity solves the motel flood)
+- NEW rent-houses-37 (favorable; Holmes/Coalson postmortem — period Texas
+  vernacular "rent houses")
+- embed-householder-letting-21 v1->v2: top_k 250, floor 0.43 (Gouhenant/
+  Ruhl misses buried in long non-letting opinions)
+- RETIRED sojourner-19 (near-zero yield, proper-name noise)
+Recall gate: non-decreasing vs post-hygiene baseline (brief-letting 3/9 =
+33.3%; treatise 72.4%).
