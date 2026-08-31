@@ -220,7 +220,7 @@
   polarity: favorable-candidate
   rationale: Auto-era short-stay vocabulary (1920s-1970s).
   author: planner-cycle-001
-  status: active
+  status: retired   # superseded by v2 (cycle 002)
 
 - id: transient-guests-16
   version: 1
@@ -325,7 +325,7 @@
   polarity: favorable-candidate
   rationale: The zoning-era structural analogue, semantically.
   author: planner-cycle-001
-  status: active
+  status: retired   # superseded by v2 (cycle 002)
 
 - id: embed-short-letting-23
   version: 1
@@ -445,4 +445,87 @@
     "bed and breakfast" carries the modern-era bridge (91 hits 1970-2020)
     between tourist-home vocabulary and STR litigation.
   author: planner-cycle-001
+  status: active
+
+# ---------- cycle 002 additions (planner-cycle-002, from cycle-001 §4) ----------
+
+- id: housekeeping-unit-31
+  version: 1
+  concept: zoning_accessory_use
+  type: fts_phrase
+  index: raw
+  pattern: '"housekeeping unit" OR "one housekeeping unit" OR "single housekeeping unit"'
+  era_scope: [1900-1930, 1930-1970, 1970-2020]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    Zoning term of art discovered by cycle-001 workers (Long Beach line,
+    279 N.Y. 167): the phrase courts use when deciding whether paying
+    occupants break a single-family district.
+  author: planner-cycle-002
+  status: active
+
+- id: boarding-variants-32
+  version: 1
+  concept: boarder_status
+  type: fts_phrase
+  index: raw
+  pattern: '"table boarders" OR "emigrant boarding house" OR "furnished room house" OR "light housekeeping"'
+  era_scope: [1860-1900, 1900-1930, 1930-1970]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: Period variants observed by cycle-001 extraction workers.
+  author: planner-cycle-002
+  status: active
+
+- id: zoning-power-residence-33
+  version: 1
+  concept: lodging_house_regulation
+  type: fts_near
+  index: raw
+  pattern: 'NEAR("police power" "residence district", 30)'
+  era_scope: [1900-1930, 1930-1970]
+  jurisdiction_scope: all
+  polarity: adverse-candidate
+  rationale: >
+    Gold-miss postmortem fix: the Spann/Lombardo use-zoning constitutional
+    line the Zaatari briefs cite lives in this vocabulary, not lodger terms.
+  author: planner-cycle-002
+  status: active
+
+- id: tourist-home-15
+  version: 2
+  concept: transient_occupancy
+  type: fts_phrase
+  index: raw
+  pattern: '"tourist home" OR "tourist court" OR "tourist camp" OR "tourist cabin" OR "tourist lodge" OR "tourist house" OR "auto camp" OR "motor court" OR "guest house" OR "guest home"'
+  era_scope: [1900-1930, 1930-1970, 1970-2020]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    v2: cycle-001 workers observed the wider tourist-accommodation family
+    (camp/cabin/lodge/house, auto camp, motor court). "motel" deliberately
+    excluded: post-1950 volume overwhelms precision; revisit with NEAR if
+    the zoning-era motel cases prove under-covered.
+  author: planner-cycle-002
+  status: active
+
+- id: embed-zoning-paying-occupants-22
+  version: 2
+  concept: zoning_accessory_use
+  type: embedding
+  query_text: >
+    Whether taking paying guests, roomers, or boarders into a private home
+    violates a zoning ordinance or deed restriction limiting the property to
+    residential or single-family dwelling use.
+  top_k: 250
+  min_cosine: 0.43
+  era_scope: [1900-1930, 1930-1970, 1970-2020]
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    v2: top_k 150->250 and floor 0.45->0.43 — gold-miss postmortem showed
+    two Texas pre-1900/zoning cases fell just below the cap in dense
+    partitions.
+  author: planner-cycle-002
   status: active

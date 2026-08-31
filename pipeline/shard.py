@@ -253,7 +253,21 @@ RUNNERS = {"fts_phrase": run_fts, "fts_near": run_fts, "regex": run_regex,
            "embedding": run_embedding}
 
 
-def emit_batches(conn, run_id: str) -> int:
+def already_mapped_ids() -> set[int]:
+    """Cases already extracted in any prior run — excluded from new batches
+    so each cycle pays only for unread material."""
+    ids: set[int] = set()
+    for f in RUNS.glob("*/extractions*/*.json"):
+        try:
+            for r in json.loads(f.read_text(encoding="utf-8")):
+                if isinstance(r, dict) and r.get("case_id"):
+                    ids.add(r["case_id"])
+        except (json.JSONDecodeError, OSError):
+            continue
+    return ids
+
+
+def emit_batches(conn, run_id: str, exclude_mapped: bool = False) -> int:
     """Group all signal-bearing cases (across all runs) that are not yet in
     any batch file for this run, homogeneous by era x jurisdiction."""
     rows = conn.execute(
@@ -288,6 +302,12 @@ def emit_batches(conn, run_id: str) -> int:
                 cid = json.loads(line).get("case_id")
                 if cid:
                     gold_ids.add(cid)
+    skip_ids = already_mapped_ids() if exclude_mapped else set()
+    if skip_ids:
+        for key in groups:
+            groups[key] = [e for e in groups[key] if e["case_id"] not in skip_ids]
+        groups = {k: v for k, v in groups.items() if v}
+        print(f"excluding {len(skip_ids)} already-mapped cases")
     pending = []
     for (era, jur), cases in sorted(groups.items(), key=lambda kv: str(kv[0])):
         # within a group: multi-selector cases first (signal density, §7)
@@ -320,6 +340,7 @@ def main() -> int:
     ap.add_argument("--run-id", required=True)
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--batches-only", action="store_true")
+    ap.add_argument("--exclude-mapped", action="store_true")
     args = ap.parse_args()
 
     conn = sqlite3.connect(DB, timeout=120)
@@ -327,7 +348,7 @@ def main() -> int:
     conn.executescript(SCHEMA)
 
     if args.batches_only:
-        emit_batches(conn, args.run_id)
+        emit_batches(conn, args.run_id, args.exclude_mapped)
         return 0
 
     selectors = load_selectors()
@@ -375,7 +396,7 @@ def main() -> int:
                 print(f"{s['id']} v{s['version']} {era} x {jur}: {len(hits)} signals")
     print(f"{total_new} new signals")
     if not args.dry_run:
-        emit_batches(conn, args.run_id)
+        emit_batches(conn, args.run_id, args.exclude_mapped)
     return 0
 
 

@@ -23,3 +23,18 @@ hard stop). Reviewer attention flagged on:
 Reviewed and approved as authored, with one addition requested by the user:
 homestay-bnb-30 ("homestay" family; freq-checked, carried by "bed and
 breakfast" 91 hits 1970-2020). 30 active selectors enter cycle-001.
+
+## v2 — cycle 002 (planner-cycle-002) — PENDING HUMAN REVIEW
+
+From cycle-001 discoveries and gold-miss postmortems:
+- NEW housekeeping-unit-31 (zoning term of art, Long Beach line)
+- NEW boarding-variants-32 (worker-observed period variants)
+- NEW zoning-power-residence-33 (adverse; Spann/Lombardo gold-miss fix)
+- tourist-home-15 v1->v2: + tourist camp/cabin/lodge/house, auto camp,
+  motor court ("motel" excluded for precision; revisit if under-covered)
+- embed-zoning-paying-occupants-22 v1->v2: top_k 250, min_cosine 0.43
+  (gold-miss fix for dense Texas partitions)
+33 active selectors (2 retired). Recall gate: shard recall must be
+non-decreasing vs cycle-001 baseline (brief-letting 33.3%, treatise 72.4%).
+
+(v2 approved by user 2026-08-30 with Map budget 150 batches.)
