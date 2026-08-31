@@ -17,7 +17,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from make_review import load_data
 
 ROOT = Path(__file__).resolve().parent.parent
-RUN = "cycle-001-shard-02"
+import argparse as _ap
+
+_args = _ap.ArgumentParser()
+_args.add_argument("--run-id", default="cycle-001-shard-02")
+RUN = _args.parse_args().run_id
+CYCLE = RUN.split("-shard")[0]
 
 # Pa. Commw. STR cases whose reasoning Slice of Life v. Hamilton Twp.,
 # 207 A.3d 886 (Pa. 2019), abrogated — flagged per user review note;
@@ -48,7 +53,7 @@ def main() -> int:
             )
     adj_dir = ROOT / "data" / "adjudications"
     adj_dir.mkdir(parents=True, exist_ok=True)
-    (adj_dir / "cycle-001.json").write_text(
+    (adj_dir / f"{CYCLE}.json").write_text(
         json.dumps(adjudications, indent=1), encoding="utf-8"
     )
 
@@ -57,7 +62,7 @@ def main() -> int:
     for f in sorted((ROOT / "runs" / RUN / "verified").glob("*.json")):
         recs.extend(json.loads(f.read_text(encoding="utf-8")))
     remap = []
-    for f in sorted((ROOT / "runs" / "cycle-001-remap" / "verified").glob("*.json")):
+    for f in sorted((ROOT / "runs" / f"{CYCLE}-remap" / "verified").glob("*.json")):
         remap.extend(json.loads(f.read_text(encoding="utf-8")))
     remap_ids = {r["case_id"] for r in remap}
     # replace originals with remap versions
@@ -152,13 +157,13 @@ def main() -> int:
     out_dir = ROOT / "data" / "ledger"
     out_dir.mkdir(parents=True, exist_ok=True)
     relevant = [r for r in ledger.values() if r.get("relevant")]
-    with (out_dir / "cycle-001.jsonl").open("w", encoding="utf-8") as f:
+    with (out_dir / f"{CYCLE}.jsonl").open("w", encoding="utf-8") as f:
         for r in sorted(relevant, key=lambda x: x.get("year") or 0):
             f.write(json.dumps(r) + "\n")
     import collections
     pol = collections.Counter(r.get("polarity") for r in relevant)
     status = collections.Counter(r["review"]["status"] for r in relevant)
-    print(f"ledger: {len(relevant)} relevant cases -> data/ledger/cycle-001.jsonl")
+    print(f"ledger: {len(relevant)} relevant cases -> data/ledger/{CYCLE}.jsonl")
     print("polarity:", dict(pol))
     print("review status:", dict(status))
     return 0
