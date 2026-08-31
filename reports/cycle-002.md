@@ -166,3 +166,17 @@ selectors that would degrade precision.
 `[ ] citator-checked` on every case. Pre-screen tooling
 (`citator_prescreen.py`) available; run over cycle-002 priority cases after
 adjudication (budget: 125 CL requests/day).
+
+---
+
+## Amendment — human adjudication complete (2026-08-31)
+
+All 226 decisions applied (data/adjudications/cycle-002.json; ledger at
+data/ledger/cycle-002.jsonl, 342 relevant cases: 185 favorable / 80 adverse
+/ 65 mixed). 107 of 119 disagreement recommendations accepted (12 overridden
+to reader A); 44 fuzzy quotes confirmed scan noise, 7 mismatch quotes
+removed; 45 of 55 remap recommendations accepted.
+
+**Cumulative record (cycles 1+2): 547 relevant cases, 1799-2019 —
+306 favorable / 128 adverse / 99 mixed; 116 favorable householder cases
+(12 nights / 15 weeks / 37 months).**
