@@ -191,3 +191,21 @@ data/gold/gold-domain-overrides.json survive re-harvest. New headline
 baseline for the cycle-003 recall gate: **brief-letting 3/9 = 33.3%**
 (denominator 15 -> 9; two former hits were doctrine-domain and left the
 tier with their signals). Treatise 72.4% and brief-all 22.2% unchanged.
+
+### Post-hygiene miss postmortem (headline tier, 6 misses)
+Probed the six missed opinions directly:
+- Holmes v. Coalson / Coalson v. Holmes speak of "three-room RENT HOUSES" —
+  a genuine period Texas term for rental dwellings not in the lexicon.
+  -> propose selector `rent-houses-37`: "rent house" OR "rent houses" OR
+  "rental houses" (Tex.-weighted, 1880-1970).
+- Gouhenant: "boarded for some months" in a homestead dispute — generic
+  boarding vocabulary in non-letting procedural context; embedding selector
+  should catch it -> raise embed-householder-letting-21 top_k for Tex.
+  pre-1900 (v2).
+- Ruhl: servants rooms/stable vocabulary; cottage-rental facts buried in a
+  36k-char commercial dispute -> same embedding fix.
+- Smith v. Decker and Latimer v. Hess contain little or no letting
+  vocabulary at all (bond-surety and license-doctrine contexts): the briefs
+  cite them for characterization doctrine, not letting facts. Likely
+  permanent selector misses; flag to the user as candidates for doctrine
+  re-tag in a future hygiene pass rather than selector chase.
