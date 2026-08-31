@@ -1,0 +1,211 @@
+<title>The Right-to-Let Record</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,650;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#f8f7f3; --card:#fdfcfa; --ink:#22262c; --muted:#5b6270;
+    --rule:#d8d4cb; --accent:#8a3324; --accent-soft:#f3e9e4;
+    --good:#2e6b4f; --warn:#8a6d1f;
+    --display:'Fraunces',Georgia,serif; --sans:'Source Sans 3',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font:16px/1.62 var(--sans)}
+  .page{max-width:760px;margin:0 auto;padding:52px 26px 80px}
+  .kicker{font:600 12px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  h1{font-family:var(--display);font-weight:650;font-size:40px;line-height:1.12;
+     margin:10px 0 6px;text-wrap:balance}
+  .dek{font-size:18.5px;color:var(--muted);max-width:62ch;margin:0}
+  .caveat{margin:26px 0 0;border:1px solid var(--rule);border-left:4px solid var(--warn);
+     background:var(--card);border-radius:0 8px 8px 0;padding:12px 16px;font-size:14px;color:#57513c}
+  h2{font-family:var(--display);font-weight:650;font-size:24px;margin:52px 0 6px;text-wrap:balance}
+  h2 .n{color:var(--accent);font-feature-settings:'tnum';margin-right:10px}
+  h3{font-size:15px;font-weight:700;margin:26px 0 4px;letter-spacing:.01em}
+  p{margin:10px 0;max-width:68ch}
+  .lead{font-size:17px}
+  em{font-family:var(--display);font-style:italic}
+  a{color:var(--accent)}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
+     background:var(--rule);border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:26px 0}
+  .stat{background:var(--card);padding:14px 16px}
+  .stat b{display:block;font:500 24px var(--mono);font-feature-settings:'tnum';color:var(--ink)}
+  .stat span{font-size:12.5px;color:var(--muted)}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14px}
+  .tablewrap{overflow-x:auto}
+  th{font:600 11.5px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+     text-align:left;padding:7px 10px;border-bottom:2px solid var(--ink)}
+  td{padding:7px 10px;border-bottom:1px solid var(--rule);font-feature-settings:'tnum'}
+  td.num{font-family:var(--mono);font-size:13px}
+  .hl td{background:var(--accent-soft)}
+  blockquote{margin:18px 0;padding:2px 0 2px 20px;border-left:3px solid var(--accent);
+     font-family:var(--display);font-size:17.5px;font-style:italic;color:#3a3f47}
+  blockquote .attr{display:block;font:500 12.5px var(--mono);font-style:normal;
+     color:var(--muted);margin-top:6px}
+  .timeline{margin:24px 0;border-left:2px solid var(--rule);padding-left:0;list-style:none}
+  .timeline li{position:relative;padding:0 0 18px 26px}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:7px;width:10px;height:10px;
+     border-radius:50%;background:var(--accent);border:2px solid var(--paper)}
+  .timeline .yr{font:600 13px var(--mono);color:var(--accent)}
+  .timeline p{margin:2px 0 0;font-size:14.5px}
+  .method{border:1px solid var(--rule);background:var(--card);border-radius:10px;
+     padding:16px 20px;margin:14px 0}
+  .method h3{margin-top:0}
+  .method .why{font-size:14px;color:var(--good);margin-top:8px}
+  .method .why b{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:640px){.cols{grid-template-columns:1fr}}
+  .foot{margin-top:64px;padding-top:16px;border-top:1px solid var(--rule);
+     font:400 12.5px var(--mono);color:var(--muted)}
+  .pill{display:inline-block;font:600 11px var(--mono);letter-spacing:.06em;border-radius:999px;
+     padding:2px 10px;border:1px solid var(--rule);color:var(--muted);margin-right:6px}
+</style>
+
+<div class="page">
+  <div class="kicker">Progress report · prepared August 30, 2026</div>
+  <h1>The Right-to-Let Record</h1>
+  <p class="dek">A systematic recovery of two centuries of American case law on letting one's
+  home for compensation — built for the historical-evidence tests that decide short-term-rental
+  litigation, with verification machinery designed to survive a methods cross-examination.</p>
+
+  <div class="caveat"><b>Status caveat.</b> Nothing in this report is work-product ready.
+  No case has passed a full KeyCite/Shepard's check (a machine pre-screen has narrowed that
+  work; see §6). Quotations are machine-verified verbatim against source text; legal
+  characterizations have received one round of human review. This is a research record in
+  progress, not a memorandum of law.</p>
+
+  <h2><span class="n">1</span>The problem: the winning tests demand evidence no search can reach</h2>
+  <p class="lead">Constitutional challenges to STR ordinances are mostly losing on federal
+  theories and winning, where they win, on <em>historical</em> ones — state retroactivity
+  clauses (<i>Zaatari v. City of Austin</i>), state due-course-of-law review, and any future
+  <i>Glucksberg</i>-style claim that the right is "deeply rooted in history and tradition."
+  These tests are won or lost on the depth and specificity of the historical record a
+  litigant can assemble.</p>
+  <p>The record exists — but it is written in vocabulary that vanished. Nobody before
+  roughly 2010 said "short-term rental." We indexed the complete published case law of four
+  states and measured it:</p>
+  <div class="tablewrap"><table>
+    <tr><th>term</th><th>pre-1860</th><th>1860–1900</th><th>1900–1930</th><th>1930–1970</th><th>1970–2020</th></tr>
+    <tr><td>lodger</td><td class="num">24</td><td class="num">80</td><td class="num">64</td><td class="num">45</td><td class="num">38</td></tr>
+    <tr><td>roomer</td><td class="num">0</td><td class="num">0</td><td class="num">46</td><td class="num">109</td><td class="num">40</td></tr>
+    <tr><td>tourist home</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">16</td><td class="num">29</td></tr>
+    <tr class="hl"><td>short-term rental</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">26</td></tr>
+  </table></div>
+  <p>Each era names the same practice differently; the modern term appears only after 1970.
+  A Westlaw query built from today's vocabulary returns silence from the very eras that
+  prove the tradition — which is how a federal opinion can assert "no fundamental right to
+  lease one's property for less than 30 days" without engaging two centuries of lodger law.
+  Recovering the record is a language problem before it is a legal problem. That is what
+  this system solves.</p>
+
+  <h2><span class="n">2</span>What was built — and why each piece is defensible</h2>
+  <div class="stats">
+    <div class="stat"><b>1,301,147</b><span>unique cases indexed — the complete published case law of TX, PA, LA &amp; NY, 1799–2020</span></div>
+    <div class="stat"><b>9,252</b><span>reporter volumes acquired, each with a cryptographic fingerprint (chain of custody)</span></div>
+    <div class="stat"><b>30</b><span>versioned, human-approved search hypotheses — incl. 6 that deliberately hunt adverse authority</span></div>
+    <div class="stat"><b>11,191</b><span>candidate cases surfaced, every one tagged with which search found it and why</span></div>
+  </div>
+
+  <div class="method"><h3>Complete corpus, page-faithful</h3>
+  <p>Harvard's scans of the printed reporters, ingested with original page numbers preserved
+  as data — so every quotation carries a real pin cite.</p>
+  <div class="why"><b>Why it holds up</b> — completeness is documented, not asserted: a
+  coverage ledger records that every search ran over every era-and-state slice of the corpus.</div></div>
+
+  <div class="method"><h3>Two kinds of retrieval, measured against an answer key</h3>
+  <p>Exact-phrase searches carry each era's own vocabulary; a semantic index finds cases by
+  <em>situation</em> ("a householder lets furnished rooms for compensation") even when no
+  known term appears. Performance is scored against an answer key of cases expert lawyers
+  already found by hand — real STR briefs plus the classic landlord-tenant treatises.</p>
+  <div class="why"><b>Why it holds up</b> — recall is a published number (72% of
+  treatise-anchor cases found; rising each cycle), every miss requires a written postmortem
+  and fix, and no change is accepted that lowers the score.</div></div>
+
+  <div class="method"><h3>AI reading behind a verbatim quote gate</h3>
+  <p>AI readers fill a fixed legal questionnaire for each candidate — who was letting,
+  for how long, how the court classified it, which side it helps — and every answer must be
+  supported by a quotation. A mechanical gate then requires each quotation to match the
+  original opinion word-for-word; a failed quote voids every conclusion that rested on it.</p>
+  <div class="why"><b>Why it holds up</b> — invented quotations cannot survive by
+  construction. In practice: of 649 quotations extracted, 646 verified (three discarded,
+  and every voided claim re-read from scratch).</div></div>
+
+  <div class="method"><h3>Independent second reader, human adjudication</h3>
+  <p>A second AI from a different maker re-reads a sample blind; disagreements — about 16%
+  of judgment calls, mostly on which side a case helps — go to a human with a third reader's
+  written recommendation. All 89 flagged items in this cycle received a human decision,
+  recorded permanently.</p>
+  <div class="why"><b>Why it holds up</b> — the disagreement rate is disclosed, not hidden,
+  and the final call on every contested judgment is a person's.</div></div>
+
+  <h2><span class="n">3</span>What the record shows so far</h2>
+  <p class="lead">One reading cycle — 712 opinions read of 11,191 candidates (6%, the pilot
+  budget) — produced an adjudicated ledger of <b>204 relevant cases spanning 1799 to
+  2019</b>: 121 favorable, 48 adverse, 34 mixed. The arc is continuous:</p>
+  <ul class="timeline">
+    <li><span class="yr">1799–1845</span><p>Boarders and lodgers are ordinary legal categories: New York and Pennsylvania courts build property-protection and status rules around them (<i>Riddle v. Welden</i>, 5 Whart. 9 (Pa. 1839); <i>Wilson v. Martin</i>, 1 Denio 602 (N.Y. 1845)).</p></li>
+    <li><span class="yr">1858</span><p><i>Howth v. Franklin</i>, 20 Tex. 798: a householder taking paying guests is legally distinct from an innkeeper — the era's own homestay/hotel line.</p></li>
+    <li><span class="yr">1907</span><p>A Louisiana owner lets his lakeside camp "to all comers, including for single days" — litigated without anyone doubting he could (119 La. 1025).</p></li>
+    <li><span class="yr">1916–1926</span><p>Courts in N.Y. and Texas hold that taking paying occupants does not breach "dwelling only" restrictions; a widow letting fifteen of her sixteen rooms still occupies "for dwelling purposes" (114 Misc. 106 (1921); 288 S.W. 180 (Tex. 1926)).</p></li>
+    <li><span class="yr">1958</span><p>The <i>Southampton</i> line draws the enduring boundary: incidental renting by a resident is fine; a rooming house <em>as a business</em> is not — the exact line today's STR fights re-litigate.</p></li>
+    <li><span class="yr">2018–2019</span><p><i>Tarr v. Timberwood Park</i> (Tex.): "residential purposes" does not bar short-term leasing — now cited 59 times and holding. <i>Slice of Life</i> (Pa.): purely commercial, operator-absent rental excluded. The modern split restates the 150-year-old line.</p></li>
+  </ul>
+
+  <h3>The evidence table the framing battle needs</h3>
+  <p>The dispositive question in these cases is how the right is described: the city says
+  "operating an unlicensed hotel" (novel — government wins); the owner says "a householder
+  letting rooms for short periods for pay" (ancient — owner wins, if provable). Proving the
+  owner's description requires knowing, case by case, <em>who</em> was letting and for
+  <em>how long</em>. That is now a table, with a verified quotation behind every cell:</p>
+  <div class="tablewrap"><table>
+    <tr><th>favorable cases</th><th>nights</th><th>weeks</th><th>months</th><th>unclear</th><th>total</th></tr>
+    <tr class="hl"><td><b>ordinary householder</b></td><td class="num"><b>12</b></td><td class="num">3</td><td class="num">14</td><td class="num">20</td><td class="num"><b>49</b></td></tr>
+    <tr><td>commercial operator</td><td class="num">9</td><td class="num">8</td><td class="num">20</td><td class="num">18</td><td class="num">55</td></tr>
+  </table></div>
+  <p>Forty-nine cases of ordinary people lawfully letting rooms in their own homes — twelve
+  at nights-scale — after reading 6% of the candidate pool. The adverse file grew in
+  parallel, deliberately: the same record shows a tradition of <em>licensing and
+  districting</em> lodging houses. That is a manageable point (a tradition of regulation is
+  itself evidence against a power of prohibition), but only if disclosed and briefed first —
+  so the system hunts both sides.</p>
+
+  <h2><span class="n">4</span>A quality episode, reported plainly</h2>
+  <p>The first machine pass contained a serious doctrinal mistake: it marked several 2016–17
+  Pennsylvania Commonwealth Court decisions as favorable authority without registering that
+  the Pennsylvania Supreme Court's <i>Slice of Life</i> decision (2019) had abrogated their
+  reasoning. A human reviewer caught it. The correction is now recorded on every affected
+  case, and a subsequent citation-graph check surfaced independent confirmation — a 2024
+  opinion stating outright that those decisions were "overruled."</p>
+  <p>We report this rather than bury it because it is the honest answer to the first
+  question any lawyer should ask of machine-assisted research: <em>what happens when it's
+  wrong?</em> Answer: the system is built on the assumption that first passes err — verbatim
+  gates for fabrication, second readers for judgment, human review for doctrine, and a
+  permanent record of every correction. The mistake cost one review session, not a brief.</p>
+
+  <h2><span class="n">5</span>Why the method compounds</h2>
+  <p>Each cycle feeds the next: period vocabulary the readers discover ("one housekeeping
+  unit," the tourist-camp family) becomes next cycle's searches; the answer key grows; the
+  master glossary of concepts, era terms, and anchor cases is a durable asset. Nothing is
+  STR-specific — the same instrument serves any question of the form <em>"what does the
+  historical legal record actually say about X?"</em>: accessory dwelling units, home-based
+  businesses, any tradition-and-history inquiry. And because jurisdiction is a first-class
+  field, the output doubles as a state-by-state map of historical authority for venue
+  selection.</p>
+
+  <h2><span class="n">6</span>Where it stands, and what's next</h2>
+  <p><span class="pill">DONE</span> Corpus, retrieval, measured recall, cycle-one ledger
+  (204 cases), full human adjudication of all flagged items, citation-graph pre-screen of
+  the 13 priority/flagged cases (10 clean, 1 confirmed wounded, 2 needing eyes).</p>
+  <p><span class="pill">HUMAN</span> One KeyCite/Shepard's session over the pre-screen memo
+  — the only gate between the priority cases and citable status. The pre-screen turned this
+  from research into confirmation.</p>
+  <p><span class="pill">NEXT</span> Cycle two: the discovered-vocabulary searches, a larger
+  reading budget (94% of surfaced candidates remain unread), harvest of the New Orleans and
+  New Braunfels litigation briefs to broaden the answer key, and — later — the English
+  Reports (1220–1867) for the common-law inheritance.</p>
+
+  <div class="foot">Prepared from the cycle-001 adjudicated ledger (204 cases), the
+  recall evaluation, and the citation-graph pre-screen · Corpus: Caselaw Access Project
+  scans via static.case.law (CC0) · Retrieval, extraction, and verification pipeline
+  version-controlled with full provenance · Every quotation verified verbatim against
+  source text before inclusion.</div>
+</div>
