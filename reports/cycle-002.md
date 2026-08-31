@@ -24,11 +24,11 @@ already mapped (new `--exclude-mapped` plumbing: each cycle pays only for
 unread material).
 
 ### Extraction & verification
-150 batches approved; **149 mapped** (one batch failed JSON parsing twice —
-18 cases deferred to cycle 003; see §8). **2,665 cases read → 324 relevant
-(12.2%)** — lower precision than cycle 001's 28%, as expected: gold-first
-ordering meant cycle 001 consumed the densest candidates.
-Quote gate: **896 exact, 51 fuzzy, 2 dropped; 0 invalid records.**
+150 batches approved; **150 mapped** (one batch needed a third attempt after
+two JSON-parse failures). **2,683 cases read → 328 relevant (12.2%)** —
+lower precision than cycle 001's 28%, as expected: gold-first ordering meant
+cycle 001 consumed the densest candidates.
+Quote gate: **908 exact, 51 fuzzy, 2 dropped; 0 invalid records.**
 
 ### Cross-model agreement
 15 batches (270 cases) Codex-checked, records now saved: **119 field
@@ -44,15 +44,15 @@ as the share of `relevant: false` records rose).
 
 ## 2. The Ledger (cycle 002 additions, pre-adjudication)
 
-324 relevant: **155 favorable / 70 adverse / 47 mixed / 52 polarity-nulled
-(re-map queue)**. Jurisdiction: N.Y. 192, Pa. 58, La. 45, Tex. 29. Era:
+328 relevant: **159 favorable / 70 adverse / 47 mixed / 52 polarity-nulled
+(re-map queue)**. Jurisdiction: N.Y. ~195, Pa. 58, La. 45, Tex. ~30. Era:
 heaviest 1875–1925 (the lodging economy).
 
 ### Level-of-generality table (favorable, cycle 002 only)
 | who \ duration | nights | weeks | months | unclear | Σ |
 |---|---|---|---|---|---|
 | **householder** | 1 | **11** | 17 | 29 | **58** |
-| commercial operator | 12 | 8 | 27 | 43 | 90 |
+| commercial operator | 12 | 8 | 28 | 46 | 94 |
 
 **Cumulative (cycles 1+2, pre-adjudication of cycle 2): ~107 favorable
 householder cases.** Cycle 002's householder finds skew to *weeks*-scale
@@ -156,8 +156,8 @@ selectors that would degrade precision.
   after Codex check listed with recommendations.
 
 ## 8. Deferred
-- One batch (18 cases) failed JSON parsing twice — carried to cycle 003.
 - Gold-set hygiene pass (domain re-tagging) before cycle 003 recall gate.
+- Selector retirement/additions per §4 (Planner + human review).
 
 ## 9. Citator gate
 `[ ] citator-checked` on every case. Pre-screen tooling

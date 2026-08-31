@@ -1,0 +1,516 @@
+[
+ {
+  "case_id": 689889,
+  "cite": "Rowland v. Miller, 54 N.Y. St. Rep. 465",
+  "court": "New York Court of Appeals",
+  "year": 1893,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Restrictive-covenant/nuisance dispute over a lessee undertaker's mortuary chapel and dissection rooms in a leased dwelling; 'furnished rooms' refers to storage of dead bodies, not compensated lodging. No bearing on short-term letting or boarding-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 689897,
+  "cite": "Siegman v. Keeler, 54 N.Y. St. Rep. 125",
+  "court": "New York Court of Common Pleas",
+  "year": 1893,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "A boarding house keeper is not an insurer of a boarder's goods the way an innkeeper is of a guest's; she is liable for loss of a boarder's property only upon a failure to exercise ordinary care in admitting patrons and safeguarding the premises. Finding no evidence of such negligence, the court reversed the plaintiff's judgment and ordered a new trial.",
+  "doctrinal_concepts": [
+   "boarder_vs_guest",
+   "boarding_house_keeper_bailment_duty"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "a boarding-house keeper is answerable for a loss of the goods only if he has omitted to exercise ordinary care to prevent it.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4135,
+     4260
+    ],
+    "reporter_page": "126"
+   },
+   {
+    "text": "A boarder is not a guest in the sense in which it is applied with reference to an inkeeper\u2019s liability, Hancock v. Rand, 94 N. Y., 1",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3895,
+     4027
+    ],
+    "reporter_page": "126"
+   },
+   {
+    "text": "a boarding-house keeper is answerable for a loss of the goods only if he has omitted to exercise ordinary care to prevent it.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4135,
+     4260
+    ],
+    "reporter_page": "126"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Tort/bailment case, not a letting-rights case per se, but doctrinally characterizes the boarder/boarding-house-keeper relation as legally distinct from innkeeper/guest and treats boarding as an ordinary lawful business subject to ordinary-care standards rather than insurer liability.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 694555,
+  "cite": "Sayles v. Best, 55 N.Y. St. Rep. 779",
+  "court": "New York Court of Appeals",
+  "year": 1893,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Judgment-lien/equitable-conversion dispute over an estate's real property under a testamentary power of sale. No lodging, boarding, or short-term letting content; selector hit on generic 'incident of ownership' language unrelated to the corpus topic.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 694738,
+  "cite": "Grannis & Hurd Lumber Co. v. Deeves, 55 N.Y. St. Rep. 674",
+  "court": "New York Supreme Court, General Term",
+  "year": 1893,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Building-contract dispute between a builder and a sub-contractor over completion delay and payment. No lodging/boarding/letting content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 694797,
+  "cite": "Knoedler v. Myers, 55 N.Y. St. Rep. 666",
+  "court": "New York Court of Appeals",
+  "year": 1893,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Collateral-inheritance-tax dispute over whether life insurance policy proceeds are taxable estate assets. No lodging/boarding/letting content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 695162,
+  "cite": "Strakosch v. Wray, 6 Misc. 207",
+  "court": "New York City Court, General Term",
+  "year": 1893,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "In an action by a boarding house keeper for breach of a contract to furnish board and lodging to forty-five convention delegates, the court treated her claim as a meritorious, enforceable business contract, but reversed for a new trial because the correct measure of damages is the plaintiff's actual loss from the breach, not the agreed contract price.",
+  "doctrinal_concepts": [
+   "boarding_house_contract",
+   "damages_measure_boarding_breach"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The plaintiff, a boarding house keeper, agreed to furnish board and lodging to forty-five persons to be sent to her house by the committee of the Eleventh International Christian Endeavor Convention, of which the defendant was treasurer.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     585,
+     822
+    ],
+    "reporter_page": "208"
+   },
+   {
+    "text": "The claim seems to be a meritorious one, and ought to be discharged in a practical manner by its payment.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1663,
+     1768
+    ],
+    "reporter_page": "208"
+   },
+   {
+    "text": "The true measure of damages by a boarding house keeper against those engaging board and lodging and not taking the agreed accommodations, is not what the parties agreed to pay, but what the plaintiff lost in consequence of the breach.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2233,
+     2467
+    ],
+    "reporter_page": "208"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Companion report of the same case appears at case_id 697777 (56 N.Y. St. Rep. 697); adjudicate together if the pipeline dedupes by underlying dispute.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 697699,
+  "cite": "People v. Leland, 56 N.Y. St. Rep. 73",
+  "court": "New York Supreme Court, General Term",
+  "year": 1893,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Larceny prosecution over diamonds; defendant's claimed partnership with complainant in a 'real-estate and insurance business, and also in keeping a boarding house' is background to a partnership dispute, not an adjudication of the boarding arrangement's legal character. Passing mention only; the appeal turns on admissibility of a prior civil judgment.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 697777,
+  "cite": "Strakosch v. Wray, 56 N.Y. St. Rep. 697",
+  "court": "New York City Court",
+  "year": 1893,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "In an action by a boarding house keeper for breach of a contract to furnish board and lodging to forty-five convention delegates, the court treated her claim as meritorious and enforceable, but reversed for a new trial because damages must be measured by the plaintiff's actual loss from the breach rather than the agreed price.",
+  "doctrinal_concepts": [
+   "boarding_house_contract",
+   "damages_measure_boarding_breach"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The plaintiff, a boarding house keeper, agreed to furnish board and lodging to forty-five persons, to be sent to her house by the committee of the Eleventh International Christian Endeavor Convention, of which the defendant was treasurer.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     679,
+     917
+    ],
+    "reporter_page": "697"
+   },
+   {
+    "text": "The claim seems to be a meritorious one, and ought to be discharged in a practical manner by its payment.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1749,
+     1854
+    ],
+    "reporter_page": "697"
+   },
+   {
+    "text": "The true measure of damages by a boarding house keeper against those engaging board and lodging, and not taking the agreed accommodations, is not what the parties agreed to pay, but what the plaintiff lost in consequence of the breach.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2326,
+     2561
+    ],
+    "reporter_page": "697"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Companion report of the same case appears at case_id 695162 (6 Misc. 207); same facts and holding, minor punctuation differences in the opinion text between reporters.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 697975,
+  "cite": "Brown v. New York Central & Hudson River Railroad, 56 N.Y. St. Rep. 748",
+  "court": "New York Supreme Court, General Term",
+  "year": 1894,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Dispute over a railroad's exclusive-hackman contract at a depot yard, concerning common-carrier preference statutes. No lodging/boarding content; selector false positive on generic contract/right-to-let language.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 699223,
+  "cite": "Warren v. Warren, 8 Misc. 189",
+  "court": "New York Superior Court",
+  "year": 1894,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Divorce action on circumstantial adultery evidence; the opinion analogizes the parties' actual conduct to something more intimate than 'boarding-house keeper and boarder,' using the boarding relationship only as a rhetorical baseline of propriety. No holding on lodging arrangements themselves.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 702179,
+  "cite": "Percy v. Fitchburg Railroad, 57 N.Y. St. Rep. 467",
+  "court": "New York Supreme Court, General Term",
+  "year": 1894,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Wrongful-death railroad negligence case (mail carrier struck at station). No lodging/boarding content; selector false positive on generic 'right' language re passenger station access.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 702201,
+  "cite": "Ives v. Quinn, 57 N.Y. St. Rep. 533",
+  "court": "New York Court of Common Pleas",
+  "year": 1894,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Sub-tenancy/rent dispute between two commercial occupants of a manufacturing loft (cutting/stitching machines); concerns evidentiary admissibility of leases, not household lodging or boarding. Selector false positive on 'embed-householder-letting' pattern matching commercial sub-letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 704828,
+  "cite": "Thorn v. Whitbeck, 11 Misc. 171",
+  "court": "Greene County Court",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "Where a boarding house keeper seized a departing boarder's effects to secure an unpaid board bill exceeding their value, the court held her lien over the boarder's goods valid and, applying an innkeeper's-lien analogy, enforceable even against property otherwise exempt from levy and sale on execution; judgment for the defendant boarding house keeper was affirmed.",
+  "doctrinal_concepts": [
+   "boarding_house_keeper_lien",
+   "innkeeper_lien_analogy"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The rule is that the lien of an innkeeper, which is identical with that of a boarding house keeper, extends to property of the guest which is exempt.from execution, such as a coat, for whose recovery replevin is brought against the innkeeper.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     9089,
+     9331
+    ],
+    "reporter_page": "175"
+   },
+   {
+    "text": "The rule is that the lien of an innkeeper, which is identical with that of a boarding house keeper, extends to property of the guest which is exempt.from execution, such as a coat, for whose recovery replevin is brought against the innkeeper.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     9089,
+     9331
+    ],
+    "reporter_page": "175"
+   },
+   {
+    "text": "The lien of a.boarding house keeper extends to property of a guest which is exempt from levy and sale on execution.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     402,
+     517
+    ],
+    "reporter_page": "171"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Plaintiff boarded at $4/week from June 1893 to January 1894 (~7 months); duration classified as 'months' based on actual length of stay rather than the weekly billing period.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 705057,
+  "cite": "King v. Second Avenue Railroad, 58 N.Y. St. Rep. 169",
+  "court": "New York Supreme Court, General Term",
+  "year": 1894,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Personal-injury/assault case against a streetcar company; cross-examination touches on plaintiff's house being fitted up as furnished rooms let to lodgers/tenants (including a death there), but this is incidental background to an evidentiary ruling, not an adjudication of the letting arrangement's legal character.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 705064,
+  "cite": "Gale v. Roll, 58 N.Y. St. Rep. 161",
+  "court": "New York Supreme Court, General Term",
+  "year": 1894,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Real-estate broker's commission dispute over a house sale; plaintiff's job duties ('letting rooms and apartments' for his employer's rental block) are mentioned only as employment background, not adjudicated. Passing mention.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 705131,
+  "cite": "Smith v. Wagner, 58 N.Y. St. Rep. 34",
+  "court": "New York City Court, General Term",
+  "year": 1894,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Landlord-tenant rent dispute over a store premises (commercial retail space), establishing that payment of rent plus continued possession creates a landlord-tenant relation. Not a lodging/dwelling-room case; different subject matter from the corpus focus.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 796221,
+  "cite": "People v. Miller, 3 N.Y. Crim. 475",
+  "court": "New York Supreme Court",
+  "year": 1885,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Municipal police-power case sustaining a Buffalo disorderly-conduct ordinance as applied to keeping a 'house of ill fame'/house of prostitution. This is brothel/vice regulation, not licensing or regulation of ordinary lodging or boarding houses; selector false positive on 'adverse regulation' pattern.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 796223,
+  "cite": "People v. Jefferson, 3 N.Y. Crim. 572",
+  "court": "New York Court of Appeals",
+  "year": 1885,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-093",
+  "notes": "Excise/liquor-license indictment pleading question; 'inn, tavern or hotel-keeper' appears only as the license category needed to sell liquor to be drunk on premises. Concerns liquor licensing, not lodging or boarding-house regulation; selector false positive.",
+  "extraction_status": "ok"
+ }
+]
