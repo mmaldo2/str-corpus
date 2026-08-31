@@ -53,3 +53,7 @@ Recall gate: non-decreasing vs post-hygiene baseline (brief-letting 3/9 =
 33.3%; treatise 72.4%).
 
 (v3 approved by user 2026-08-31 with Map budget 150 batches.)
+v3 recall gate PASSED (2026-08-31): brief-letting 3/9 -> 6/9 (66.7%),
+treatise 21/29 -> 22/29 (75.9%), brief-all 14/63 -> 17/63. Gouhenant and
+Holmes/Coalson recovered (rent-houses-37 + embed-21 v2). Remaining misses:
+Smith v. Decker, Latimer v. Hess (no letting vocabulary), Ruhl.
