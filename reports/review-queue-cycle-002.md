@@ -1,0 +1,236 @@
+# cycle-002 — Human review queue (with recommendations)
+
+
+## A. Householder x nights priority cases (1)
+- [ ] 174 S.W. 853 McCormick v. Houston Printing Co.
+
+## B. Fuzzy quotes (side-by-side) (51)
+- [ ] 60 Misc. 631 In re the Estate of Stiens — needs-human
+- [ ] 17 Mills Surr. 458 In re the Judicial Settlement of the Accounts of Doubleday — needs-human
+- [ ] 324 Pa. 399 Baldwin v. McEldowney — needs-human
+- [ ] 372 Pa. 318 Harrisburg v. Pass — needs-human
+- [ ] 226 S.W.2d 172 Orr v. Orr — needs-human
+- [ ] 217 Pa. Super. 262 Buck v. Hankin — needs-human
+- [ ] 985 S.W.2d 667 Gulf Shores Council of Co-Owners, Inc. v. Raul Cantu No. 3 Family Ltd. Partnership — needs-human
+- [ ] 53 How. Pr. 311 Musgrave v. Sherwood — needs-human
+- [ ] 53 How. Pr. 311 Musgrave v. Sherwood — needs-human
+- [ ] 54 How. Pr. 338 Musgrave v. Sherwood — needs-human
+- [ ] 14 Misc. 462 Farrell v. Harrison — needs-human
+- [ ] 14 Misc. 462 Farrell v. Harrison — needs-human
+- [ ] 14 Misc. 462 Farrell v. Harrison — needs-human
+- [ ] 7 Teiss. 415 Schultz v. Finegan — needs-human
+- [ ] 7 Teiss. 415 Schultz v. Finegan — needs-human
+- [ ] 85 A.D. 235 In re Brewster — needs-human
+- [ ] 89 A.D. 115 Briggs v. Devoe — needs-human
+- [ ] 1 S.W.2d 751 Iford v. Nickel — needs-human
+- [ ] 190 So. 157 Williams v. Hill, Harris & Co. — needs-human
+- [ ] 39 Misc. 2d 30 378 Realty Corp. v. New York City Rent & Rehabilitation Administration — needs-human
+- [ ] 4 Pa. D. & C.2d 186 Ymca of Pittsburgh Appeal — needs-human
+- [ ] 197 S.W.2d 372 McBride v. Hosey — needs-human
+- [ ] 231 S.W.2d 471 Davis v. Nolte — needs-human
+- [ ] 231 S.W.2d 471 Davis v. Nolte — needs-human
+- [ ] 30 S.W.2d 582 Scottish American Mortgage Co. v. Milner — needs-human
+- [ ] 423 So. 2d 1 Blue Ridge Insurance v. Newman — needs-human
+- [ ] 398 So. 2d 1374 Laubie v. Sonesta International Hotel Corp. — needs-human
+- [ ] 745 So. 2d 1259 Weisler v. Board of Zoning Adjustments — needs-human
+- [ ] 726 So. 2d 435 Koerner v. City of New Orleans — needs-human
+- [ ] 726 So. 2d 435 Koerner v. City of New Orleans — needs-human
+- [ ] 270 So. 3d 694 Lafayette Parish Sch. Bd. v. Imagine Mgmt., LLC — needs-human
+- [ ] 45 Misc.3d 623 Cooper v. Back on Track Group, Inc. — needs-human
+- [ ] 60 A.D.3d 226 City of New York v. 330 Continental — needs-human
+- [ ] 550 S.W.2d 152 Southampton Civic Club v. Foxworth — needs-human
+- [ ] 41 La. Ann. 1079 State v. Mack — needs-human
+- [ ] 39 La. Ann. 14 Deslonde v. O'Hern — needs-human
+- [ ] 9 N.Y. St. Rep. 514 Pomeroy v. Tyler — needs-human
+- [ ] 39 N.Y. Super. Ct. 109 Hexter v. Knox — needs-human
+- [ ] 39 N.Y. Super. Ct. 109 Hexter v. Knox — needs-human
+- [ ] 9 Abb. Pr. 199 Harris v. Curet — needs-human
+- [ ] 3 N.Y. St. Rep. 588 Swan v. Smith — needs-human
+- [ ] 3 N.Y. St. Rep. 588 Swan v. Smith — needs-human
+- [ ] 27 N.Y. St. Rep. 955 Franklin v. Brown — needs-human
+- [ ] 27 N.Y. St. Rep. 955 Franklin v. Brown — needs-human
+- [ ] 32 N.Y. St. Rep. 340 Lyon v. Davis — needs-human
+- [ ] 45 N.Y. St. Rep. 243 Haynes v. Aldrich — needs-human
+- [ ] 133 N.Y. 287 Haynes v. Aldrich — needs-human
+- [ ] 133 N.Y. 287 Haynes v. Aldrich — needs-human
+- [ ] 14 A.D. 199 Hicks-Alixanian v. Walton — needs-human
+- [ ] 16 A.D. 95 Montgomery v. Sartirano — needs-human
+- [ ] 170 Pa. 631 Fessenden's Estate — needs-human
+
+## C. Disagreements (with third-reader recommendation) (119)
+- [ ] 137 Tex. 604 Tallwater v. Brodnax — relevant: rec=False
+- [ ] 137 Tex. 604 Tallwater v. Brodnax — polarity: rec=irrelevant
+- [ ] 137 Tex. 604 Tallwater v. Brodnax — characterization: rec=None
+- [ ] 170 La. 426 State v. City Sav. Bank & Trust Co. — relevant: rec=True
+- [ ] 170 La. 426 State v. City Sav. Bank & Trust Co. — polarity: rec=favorable
+- [ ] 170 La. 426 State v. City Sav. Bank & Trust Co. — characterization: rec=lease
+- [ ] 37 So. 2d 464 Salter v. Zoder — relevant: rec=True
+- [ ] 37 So. 2d 464 Salter v. Zoder — polarity: rec=mixed
+- [ ] 37 So. 2d 464 Salter v. Zoder — characterization: rec=license
+- [ ] 178 La. 479 State v. Heymann — relevant: rec=True
+- [ ] 178 La. 479 State v. Heymann — polarity: rec=mixed
+- [ ] 178 La. 479 State v. Heymann — characterization: rec=lease
+- [ ] 151 N.Y. 163 Adams v. New Jersey Steamboat Co. — relevant: rec=True
+- [ ] 151 N.Y. 163 Adams v. New Jersey Steamboat Co. — polarity: rec=mixed
+- [ ] 151 N.Y. 163 Adams v. New Jersey Steamboat Co. — characterization: rec=innkeeping
+- [ ] 9 Misc. 25 Adams v. New Jersey Steamboat Co. — relevant: rec=True
+- [ ] 9 Misc. 25 Adams v. New Jersey Steamboat Co. — polarity: rec=irrelevant
+- [ ] 9 Misc. 25 Adams v. New Jersey Steamboat Co. — characterization: rec=innkeeping
+- [ ] 16 Pa. Super. 202 McCalla's Estate — relevant: rec=True
+- [ ] 16 Pa. Super. 202 McCalla's Estate — polarity: rec=favorable
+- [ ] 16 Pa. Super. 202 McCalla's Estate — characterization: rec=other
+- [ ] 27 Pa. Super. 540 Hood v. Drysdale — relevant: rec=True
+- [ ] 27 Pa. Super. 540 Hood v. Drysdale — polarity: rec=favorable
+- [ ] 27 Pa. Super. 540 Hood v. Drysdale — characterization: rec=lease
+- [ ] 29 Pa. Super. 82 Huggins v. Bridges — relevant: rec=True
+- [ ] 29 Pa. Super. 82 Huggins v. Bridges — polarity: rec=mixed
+- [ ] 29 Pa. Super. 82 Huggins v. Bridges — characterization: rec=other
+- [ ] 20 Misc. 2d 139 People v. Reilly — relevant: rec=True
+- [ ] 20 Misc. 2d 139 People v. Reilly — polarity: rec=favorable
+- [ ] 20 Misc. 2d 139 People v. Reilly — characterization: rec=other
+- [ ] 25 Misc. 2d 803 Lakeshore Club, Inc. v. Country Club Properties, Inc. — relevant: rec=False
+- [ ] 25 Misc. 2d 803 Lakeshore Club, Inc. v. Country Club Properties, Inc. — polarity: rec=irrelevant
+- [ ] 29 Misc. 2d 276 McClellan v. Temporary State Housing Rent Commission — relevant: rec=False
+- [ ] 29 Misc. 2d 276 McClellan v. Temporary State Housing Rent Commission — polarity: rec=irrelevant
+- [ ] 29 Misc. 2d 276 McClellan v. Temporary State Housing Rent Commission — characterization: rec=None
+- [ ] 35 Misc.2d 184 Shienker v. Cox — characterization: rec=other
+- [ ] 39 Misc. 2d 30 378 Realty Corp. v. New York City Rent & Rehabilitation Administration — characterization: rec=None
+- [ ] 53 Misc. 2d 122 Panzer v. Berman — polarity: rec=mixed
+- [ ] 151 S.W.2d 592 Peters v. State — relevant: rec=False
+- [ ] 151 S.W.2d 592 Peters v. State — polarity: rec=irrelevant
+- [ ] 151 S.W.2d 592 Peters v. State — characterization: rec=None
+- [ ] 183 S.W.2d 972 Pearce v. State — relevant: rec=False
+- [ ] 183 S.W.2d 972 Pearce v. State — polarity: rec=irrelevant
+- [ ] 183 S.W.2d 972 Pearce v. State — characterization: rec=None
+- [ ] 167 S.W.2d 1054 Webster v. Moore — relevant: rec=True
+- [ ] 167 S.W.2d 1054 Webster v. Moore — polarity: rec=irrelevant
+- [ ] 158 S.W.2d 809 Frazier v. State — relevant: rec=True
+- [ ] 158 S.W.2d 809 Frazier v. State — polarity: rec=favorable
+- [ ] 158 S.W.2d 809 Frazier v. State — characterization: rec=lease
+- [ ] 142 S.W.2d 706 Connor v. City of University Park — relevant: rec=False
+- [ ] 142 S.W.2d 706 Connor v. City of University Park — polarity: rec=irrelevant
+- [ ] 140 S.W.2d 513 Fort Worth & D. C. Ry. Co. v. Mills — relevant: rec=True
+- [ ] 140 S.W.2d 513 Fort Worth & D. C. Ry. Co. v. Mills — polarity: rec=mixed
+- [ ] 140 S.W.2d 513 Fort Worth & D. C. Ry. Co. v. Mills — characterization: rec=other
+- [ ] 118 S.W.2d 375 Texas Employers Ins. Ass'n v. Cobb — relevant: rec=False
+- [ ] 118 S.W.2d 375 Texas Employers Ins. Ass'n v. Cobb — polarity: rec=irrelevant
+- [ ] 118 S.W.2d 375 Texas Employers Ins. Ass'n v. Cobb — characterization: rec=None
+- [ ] 27 Misc. 3d 1032 Bayram v. City of Binghamton — relevant: rec=True
+- [ ] 27 Misc. 3d 1032 Bayram v. City of Binghamton — polarity: rec=mixed
+- [ ] 27 Misc. 3d 1032 Bayram v. City of Binghamton — characterization: rec=lease
+- [ ] 27 Misc. 3d 938 27 Jay Street, LLC v. City of New York — relevant: rec=True
+- [ ] 27 Misc. 3d 938 27 Jay Street, LLC v. City of New York — polarity: rec=adverse
+- [ ] 27 Misc. 3d 938 27 Jay Street, LLC v. City of New York — characterization: rec=lease
+- [ ] 39 Misc. 3d 221 City of New York v. Smart Apartments LLC — characterization: rec=other
+- [ ] 45 Misc.3d 623 Cooper v. Back on Track Group, Inc. — characterization: rec=lodging
+- [ ] 34 A.D.3d 792 Tower Insurance v. Corlette — characterization: rec=None
+- [ ] 62 A.D.2d 231 Katz v. Shapiro — characterization: rec=other
+- [ ] 60 A.D.3d 226 City of New York v. 330 Continental — characterization: rec=lodging
+- [ ] 11 Johns. 61 Humphreys v. Gardner — relevant: rec=True
+- [ ] 11 Johns. 61 Humphreys v. Gardner — polarity: rec=favorable
+- [ ] 11 Johns. 61 Humphreys v. Gardner — characterization: rec=lease
+- [ ] 15 Johns. 505 Abeel & Abeel v. Radcliff — relevant: rec=True
+- [ ] 15 Johns. 505 Abeel & Abeel v. Radcliff — polarity: rec=favorable
+- [ ] 15 Johns. 505 Abeel & Abeel v. Radcliff — characterization: rec=lease
+- [ ] 20 Johns. 51 Jones v. Clark — relevant: rec=True
+- [ ] 20 Johns. 51 Jones v. Clark — polarity: rec=favorable
+- [ ] 20 Johns. 51 Jones v. Clark — characterization: rec=lease
+- [ ] 2 Cow. 660 Schuyler v. Leggett — relevant: rec=True
+- [ ] 2 Cow. 660 Schuyler v. Leggett — polarity: rec=favorable
+- [ ] 2 Cow. 660 Schuyler v. Leggett — characterization: rec=lease
+- [ ] 3 Hill & Den. 485 Grinnell v. Cook — relevant: rec=True
+- [ ] 3 Hill & Den. 485 Grinnell v. Cook — polarity: rec=mixed
+- [ ] 3 Hill & Den. 485 Grinnell v. Cook — characterization: rec=innkeeping
+- [ ] 10 Abb. N. Cas. 396 In re Eddy — relevant: rec=True
+- [ ] 10 Abb. N. Cas. 396 In re Eddy — polarity: rec=favorable
+- [ ] 10 Abb. N. Cas. 396 In re Eddy — characterization: rec=lease
+- [ ] 12 N.Y. St. Rep. 783 Smith v. Rector of St. Philip's Church — characterization: rec=license
+- [ ] 12 N.Y. St. Rep. 341 Derhoof v. Agricultural Insurance of Watertown — relevant: rec=False
+- [ ] 12 N.Y. St. Rep. 341 Derhoof v. Agricultural Insurance of Watertown — polarity: rec=irrelevant
+- [ ] 12 N.Y. St. Rep. 341 Derhoof v. Agricultural Insurance of Watertown — characterization: rec=None
+- [ ] 75 N.Y. St. Rep. 698 Douglass v. Seiferd — relevant: rec=True
+- [ ] 75 N.Y. St. Rep. 698 Douglass v. Seiferd — polarity: rec=favorable
+- [ ] 75 N.Y. St. Rep. 698 Douglass v. Seiferd — characterization: rec=lease
+- [ ] 67 N.Y. Sup. Ct. 409 Toub v. Schmidt — relevant: rec=True
+- [ ] 67 N.Y. Sup. Ct. 409 Toub v. Schmidt — polarity: rec=mixed
+- [ ] 67 N.Y. Sup. Ct. 409 Toub v. Schmidt — characterization: rec=other
+- [ ] 91 N.Y. Sup. Ct. 537 Maxwell v. Gerard — relevant: rec=True
+- [ ] 91 N.Y. Sup. Ct. 537 Maxwell v. Gerard — polarity: rec=favorable
+- [ ] 91 N.Y. Sup. Ct. 537 Maxwell v. Gerard — characterization: rec=innkeeping
+- [ ] 99 N.Y. Sup. Ct. 223 Huber v. Manchester Fire Assurance Co. — relevant: rec=False
+- [ ] 99 N.Y. Sup. Ct. 223 Huber v. Manchester Fire Assurance Co. — polarity: rec=irrelevant
+- [ ] 99 N.Y. Sup. Ct. 223 Huber v. Manchester Fire Assurance Co. — characterization: rec=None
+- [ ] 1 Lans. 20 Manley v. President & Directors of the Insurance Co. of North America — characterization: rec=lodging
+- [ ] 1 Lans. 397 Kellogg v. Sweeney — relevant: rec=True
+- [ ] 1 Lans. 397 Kellogg v. Sweeney — polarity: rec=mixed
+- [ ] 1 Lans. 397 Kellogg v. Sweeney — characterization: rec=innkeeping
+- [ ] 99 Pa. 52 Vetter's Appeal — relevant: rec=True
+- [ ] 99 Pa. 52 Vetter's Appeal — polarity: rec=favorable
+- [ ] 99 Pa. 370 Auer v. Penn — relevant: rec=True
+- [ ] 99 Pa. 370 Auer v. Penn — polarity: rec=favorable
+- [ ] 148 Pa. 171 Murphy v. Losch — relevant: rec=True
+- [ ] 148 Pa. 171 Murphy v. Losch — polarity: rec=mixed
+- [ ] 148 Pa. 171 Murphy v. Losch — characterization: rec=lease
+- [ ] 155 Pa. 299 Perrin v. Wells — relevant: rec=True
+- [ ] 155 Pa. 299 Perrin v. Wells — polarity: rec=favorable
+- [ ] 155 Pa. 299 Perrin v. Wells — characterization: rec=lease
+- [ ] 38 Pa. 344 Blanche v. Bradford — relevant: rec=False
+- [ ] 38 Pa. 344 Blanche v. Bradford — polarity: rec=irrelevant
+- [ ] 38 Pa. 344 Blanche v. Bradford — characterization: rec=None
+
+## D. Re-mapped records (re-verified) (55)
+- [ ] 4 Misc. 2d 996 De Mott v. Notey — remapped: None/None/None
+- [ ] 188 Misc. 609 Hennig v. Goldberg — remapped: None/None/None
+- [ ] 38 Misc. 2d 844 People ex rel. Gabel v. Eichner — remapped: None/None/None
+- [ ] 38 Misc. 2d 844 People ex rel. Gabel v. Eichner — remapped: None/None/None
+- [ ] 189 La. 521 Ouachita Home Site & Realty Co. v. Collie — remapped: None/None/None
+- [ ] 4 Rob. 102 Bissell v. Leftwich — remapped: None/None/None
+- [ ] 63 Pa. 406 Davidson v. Barclay — remapped: None/None/None
+- [ ] 63 Pa. 406 Davidson v. Barclay — remapped: None/None/None
+- [ ] 63 Pa. 406 Davidson v. Barclay — remapped: None/None/None
+- [ ] 198 S.W. 359 Hadnot v. Hicks — remapped: None/None/None
+- [ ] 198 S.W. 359 Hadnot v. Hicks — remapped: None/None/None
+- [ ] 198 S.W. 359 Hadnot v. Hicks — remapped: None/None/None
+- [ ] 237 La. 359 Garcia v. Dulcich — remapped: None/None/None
+- [ ] 237 La. 359 Garcia v. Dulcich — remapped: None/None/None
+- [ ] 237 La. 359 Garcia v. Dulcich — remapped: None/None/None
+- [ ] 30 Pa. D. & C.2d 68 Spencer Estate — remapped: None/None/None
+- [ ] 30 Pa. D. & C.2d 68 Spencer Estate — remapped: None/None/None
+- [ ] 30 Pa. D. & C.2d 68 Spencer Estate — remapped: None/None/None
+- [ ] 246 So. 3d 754 Edwards v. Landry Chalet Rentals, LLC — remapped: None/None/None
+- [ ] 137 Misc. 2d 898 2-4 Realty Associates v. Pittman — remapped: None/None/None
+- [ ] 137 Misc. 2d 898 2-4 Realty Associates v. Pittman — remapped: None/None/None
+- [ ] 147 Misc. 2d 488 Vidod Realty Co. v. Calvin — remapped: None/None/None
+- [ ] 161 Misc. 2d 25 People v. Fisher — remapped: None/None/None
+- [ ] 161 Misc. 2d 25 People v. Fisher — remapped: None/None/None
+- [ ] 39 Misc. 3d 221 City of New York v. Smart Apartments LLC — remapped: None/None/None
+- [ ] 66 A.D.3d 1393 Libolt v. Town of Irondequoit Zoning Board of Appeals — remapped: None/None/None
+- [ ] 34 A.D.3d 792 Tower Insurance v. Corlette — remapped: None/None/None
+- [ ] 34 A.D.3d 792 Tower Insurance v. Corlette — remapped: None/None/None
+- [ ] 94 A.D.3d 1218 Atkinson v. Wilt — remapped: None/None/None
+- [ ] 60 A.D.3d 226 City of New York v. 330 Continental — remapped: None/None/None
+- [ ] 60 A.D.3d 226 City of New York v. 330 Continental — remapped: None/None/None
+- [ ] 37 La. Ann. 725 Burch v. Mouton — remapped: None/None/None
+- [ ] 18 La. Ann. 156 Woodworth v. Morse — remapped: None/None/None
+- [ ] 18 La. Ann. 156 Woodworth v. Morse — remapped: None/None/None
+- [ ] 18 La. Ann. 156 Woodworth v. Morse — remapped: None/None/None
+- [ ] 86 N.Y. 360 Rodgers v. People — remapped: None/None/None
+- [ ] 14 Abb. N. Cas. 42 Jackson v. Odell — remapped: None/None/None
+- [ ] 14 Abb. N. Cas. 42 Jackson v. Odell — remapped: None/None/None
+- [ ] 14 Abb. N. Cas. 42 Jackson v. Odell — remapped: None/None/None
+- [ ] 14 Daly (N.Y.) 114 Swann v. Smith — remapped: None/None/None
+- [ ] 1 N.Y. City Ct. Rep. 127 Swigley v. Jones — remapped: None/None/None
+- [ ] 34 How. Pr. 416 Prendorill v. Kennedy — remapped: None/None/None
+- [ ] 34 How. Pr. 416 Prendorill v. Kennedy — remapped: None/None/None
+- [ ] 34 How. Pr. 416 Prendorill v. Kennedy — remapped: None/None/None
+- [ ] 67 N.Y. Sup. Ct. 125 Higgins v. Hallock — remapped: None/None/None
+- [ ] 67 N.Y. Sup. Ct. 125 Higgins v. Hallock — remapped: None/None/None
+- [ ] 67 N.Y. Sup. Ct. 125 Higgins v. Hallock — remapped: None/None/None
+- [ ] 11 N.Y. Sup. Ct. 451 Gibbons v. Dayton — remapped: None/None/None
+- [ ] 11 N.Y. Sup. Ct. 451 Gibbons v. Dayton — remapped: None/None/None
+- [ ] 11 N.Y. Sup. Ct. 451 Gibbons v. Dayton — remapped: None/None/None
+- [ ] 18 N.Y. Sup. Ct. 432 De Lavalette v. Wendt — remapped: None/None/None
+- [ ] 168 Pa. 286 Overseers of the Poor v. Somerset County Poor District — remapped: None/None/None
+- [ ] 168 Pa. 286 Overseers of the Poor v. Somerset County Poor District — remapped: None/None/None
+- [ ] 168 Pa. 286 Overseers of the Poor v. Somerset County Poor District — remapped: None/None/None
+- [ ] 21 Tex. Civ. App. 428 Weidemeyer v. Bryan — remapped: None/None/None

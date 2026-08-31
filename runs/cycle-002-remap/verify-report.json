@@ -1,0 +1,12 @@
+{
+ "stats": {
+  "records": 44,
+  "ok": 40,
+  "partial": 4,
+  "invalid": 0,
+  "quotes_verified": 96,
+  "quotes_fuzzy": 1,
+  "quotes_dropped": 0
+ },
+ "remap_queue": []
+}

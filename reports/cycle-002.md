@@ -152,8 +152,11 @@ selectors that would degrade precision.
 - A: householder × nights favorable — 1 case.
 - B: 51 fuzzy quotes (32 machine-classified trivial OCR, 19 for judgment).
 - C: 119 cross-model disagreements, each with third-reader recommendation.
-- D: 52 polarity-nulled records re-mapped and re-verified; contested fields
-  after Codex check listed with recommendations.
+- D: 48 polarity-nulled records → 44 re-mapped and re-verified (96 quotes,
+  0 invalid; 4 records not returned by the re-map worker, carried to cycle
+  003). Codex check contested 55 fields across 30 cases; 14 fully-agreed
+  cases auto-accepted; contested fields listed with third-reader
+  recommendations (48 of 55 — 7 unadjudicated, human decides directly).
 
 ## 8. Deferred
 - Gold-set hygiene pass (domain re-tagging) before cycle 003 recall gate.

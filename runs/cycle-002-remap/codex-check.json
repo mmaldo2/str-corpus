@@ -1,0 +1,1594 @@
+[
+ {
+  "case_id": 1004604,
+  "cite": "De Mott v. Notey, 4 Misc. 2d 996",
+  "court": "County Court, Nassau County",
+  "year": 1956,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.95,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": "Hospital partners violated a residential zoning ordinance by housing more persons in the two dwellings than the ordinance permitted for lodging or boarding purposes. The employee housing was neither a family use nor an accessory use of the hospital, although the buildings did not qualify as lodging houses under the separate licensing ordinance.",
+  "doctrinal_concepts": [
+   "lodging_house_regulation",
+   "zoning_residential_use",
+   "family_definition",
+   "accessory_use"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The judgments of conviction, as modified, are affirmed. Order signed.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Moreover, the defendants have failed to show by evidence adduced at the trial that the occupants of the premises involved constituted a family under the definition of section 2 of Ordinance No. 10.1, that is, \u201c \u2018 Family \u2019 means any number of individuals living together as a single housekeeping unit, \"and doing their cooking as a unit on the premises.\u201d (See Kalb v. Mayer, 164 App. Div. 577.)",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The defendants, therefore, have failed to show that the occupancy of the buildings involved here was \u201c accessory use \u201d.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-0",
+  "notes": "The court rejected both the family and accessory-use theories and upheld the zoning convictions. Characterization is null because the court held that the buildings were not lodging houses under the licensing ordinance without assigning the employee-housing arrangement another affirmative classification."
+ },
+ {
+  "case_id": 1181613,
+  "cite": "Town of Henrietta v. Fairchild, 53 Misc. 2d 862",
+  "court": "Supreme Court, Monroe County",
+  "year": 1967,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.99,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "An owner-occupant who housed three to seven unrelated adults under a shared-expense arrangement was operating the equivalent of a boarding or rooming house rather than using the property as a single-family dwelling. The court declared the use unlawful under the residential zoning ordinance and enjoined its continuation.",
+  "doctrinal_concepts": [
+   "boarding_house_regulation",
+   "zoning_residential_use",
+   "family_definition"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It seems to us that defendant\u2019s actual status or service is similar to a hoarding house keeper, and that he has been such at all times notwithstanding the ingenious form of his economic arrangement.",
+    "supports": "characterization"
+   },
+   {
+    "text": "That the proper application and effect of the Zoning Ordinances of the Town of Henrietta to the facts at hand establish that the defendant\u2019s premises herein described have been used and now are being used in violation of the Zoning Ordinances of the Town of Henrietta, and we do declare it as provided in the CPLR with reference to said matters.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "That the defendant his agents, employees, assigns and successors in interest be and they hereby are enjoined and restrained from keeping, maintaining, and operating and using the premises described in the complaint for a boarding house or rooming house or for similar uses, and from using said premises for any purposes whatsoever except those set forth in \u201carticle V Residential Districts \u00a7 39-6 Uses Permitted, (a) AA and A District \u201d as the same are set forth in the Zoning Ordinances of the Town of Henrietta.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-0",
+  "notes": "The defendant owned and resided in the house, while the other occupants generally paid him $75 per month toward expenses."
+ },
+ {
+  "case_id": 931253,
+  "cite": "Hennig v. Goldberg, 188 Misc. 609",
+  "court": "City Court of the City of New-York, Trial Term, New York County",
+  "year": 1947,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.88,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "A hotel-room occupant had no landlord-tenant relationship or possessory estate because the defendants were innkeepers. Because the plaintiff entered through a guest whose rights were not transferable and lacked the hotel's permission, the innkeepers lawfully changed the lock and were not liable in damages.",
+  "doctrinal_concepts": [
+   "innkeeper_guest",
+   "lodger_status",
+   "license_vs_lease",
+   "self_help_exclusion"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "There was, in this ease, no relation of landlord and tenant between plaintiff and defendants. Defendants were innkeepers, and plaintiff occupied, a room in their hotel.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Furthermore, I find that plaintiff occupied the room \u2014 which had been assigned to one Bihovsky, who had dwelt in it for some time and had paid the February, 1946, rent in advance and in full \u2014 without permission from defendant Margolin or anyone representing the hotel, that she had not registered as a guest and that the permission to use the room which she had obtained from the guest Bihovsky gave her no lawful right to the room and did. not even put her in possession inasmuch as Bihovsky\u2019s rights as a guest were not assignable or transferable.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "I do not wish it to be understood that anything I have said is a recommendation of defendants as I have no wish to express any approval of their conduct, but they acted lawfully and are not answerable in damages to plaintiff.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-0",
+  "notes": "Favorable only as recognition of an innkeeper's lawful authority over hotel rooms and choice of paying guests; it does not recognize a tenant's possessory right. The source does not establish the plaintiff's intended occupancy duration."
+ },
+ {
+  "case_id": 977113,
+  "cite": "Maturi v. Balint, 204 Misc. 1011",
+  "court": "Supreme Court, Special Term, Westchester County",
+  "year": 1953,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.98,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "A proposed thirty-two-room motel satisfied the ordinance's definition of a hotel and therefore was a permitted use in the district. Because the ordinance did not distinguish motels from other hotels, the municipality could not deny the building permit on that basis.",
+  "doctrinal_concepts": [
+   "hotel_definition",
+   "zoning_permitted_use"
+  ],
+  "new_terms_observed": [
+   "motor court"
+  ],
+  "quotes": [
+   {
+    "text": "The one at bar certainly comes within the above definition of a hotel.",
+    "supports": "characterization"
+   },
+   {
+    "text": "If the municipality seeks to differentiate between different types of hotels, it must do so specifically by ordinance. The ordinance before the court does not do so. The building for which a permit is here sought is clearly within the permitted uses of the ordinance. Petition granted. Submit order on two days\u2019 notice.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The building for which a permit is here sought is clearly within the permitted uses of the ordinance. Petition granted.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-0",
+  "notes": "The structure was proposed and had no actual occupants, so actual occupancy duration is unclear despite the court's description of modern motels as serving transient trade."
+ },
+ {
+  "case_id": 1124494,
+  "cite": "People ex rel. Gabel v. Eichner, 38 Misc. 2d 844",
+  "court": "Supreme Court, Special and Trial Term, New York County",
+  "year": 1963,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.99,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "Rent regulations obligated both the fee owner and the prime tenant of a sixty-six-unit rooming house to avoid removing required furnishings or services without administrative approval. Pending an administrative determination, the court enjoined the prime tenant from removing furniture or discontinuing services and required the fee owner not to interfere.",
+  "doctrinal_concepts": [
+   "rooming_house_regulation",
+   "rent_control",
+   "statutory_tenancy",
+   "essential_services"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "This is an action by the City Rent and and Rehabilitation Administrator for an injunction to require defendants, the fee owner and the prime tenant of a rooming house, to restore or continue to furnish all furniture, equipment and services to the subtenant roomers and to restrain them from violating the Rent and Rehabilitation Law of the City of New York and the Rent and Eviction Regulations promulgated thereunder.",
+    "supports": "characterization"
+   },
+   {
+    "text": "It appears to me that the proposed removal of furnishings and discontinuance of services by the prime tenant and the, threatened failure to replace them by the fee owner, all without an order from the Administrator permitting the same, would constitute a violation of subdivision a of section 35, which this court has the power and the duty to enjoin, at least as to any party who is not exempt from the regulations.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Accordingly, an injunction will issue restraining the defendant Samuely, the prime tenant, from removing his furniture or discontinuing the furnishing of services except pursuant to an order of the Bent Administrator (rendered either originally or on judicial review) permitting the same, and restraining the defendant Eichner, the fee owner, from interfering with defendant Samuely\u2019s furnishing of such services and furniture, again except pursuant to such an order of the Bent Administrator.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-0",
+  "notes": "Mixed because the court enforced substantial regulatory duties against the owner and operator while protecting the sixty-six roomers from effective eviction. Individual roomers' occupancy periods are not stated."
+ },
+ {
+  "case_id": 5540689,
+  "cite": "Ouachita Home Site & Realty Co. v. Collie, 189 La. 521",
+  "court": "Supreme Court of Louisiana",
+  "year": 1938,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.93,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "Residential building restrictions running with subdivision land validly barred construction of twelve tourist cabins as a commercial use. The court affirmed the permanent injunction against the owner and contractor.",
+  "doctrinal_concepts": [
+   "restrictive_covenant",
+   "residential_use_restriction",
+   "commercial_use"
+  ],
+  "new_terms_observed": [
+   "tourist cabins",
+   "tourist camp"
+  ],
+  "quotes": [
+   {
+    "text": "When the contractor began to lay out the tourist camp and to break ground for its construction, Mr. Collie, the owner of the property, was notified by the Ouachita Home Site & Realty Company, Inc., through its attorney, that a tourist camp was a commercial enterprise, the operation of which was prohibited by the building restrictions governing the subdivision, and he was called upon to abandon the construction thereof.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Under the jurisprudence and Codal articles to which we have referred, we do not think it can be disputed that building restrictions which restrain the use of real property for commercial purposes by prohibiting the construction of any building other than a residence or residences, and which insure a high type of construction by placing a minimum value upon any residence that may be built thereon, are not unreasonable and are not contrary to good morals, public order or express law, and, hence, they are not invalid and unenforceable, since the restrictions are upon the use and not upon the alienability of the property.",
+    "supports": "polarity"
+   },
+   {
+    "text": "For the reasons assigned, the judgment appealed from is affirmed.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-0",
+  "notes": "The court characterized the proposed tourist camp as a commercial enterprise rather than classifying the guest relationship as a lease, license, lodging, or innkeeping arrangement. The cabins had not yet been built or occupied, so actual occupancy duration is unclear."
+ },
+ {
+  "case_id": 1028885,
+  "cite": "Yocom et al's. Appeal, 142 Pa. Super. 165",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1940,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.91,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The pre-ordinance parking of cars was merely incidental to the family's rooming-house business and did not establish a nonconforming public parking-lot use. The court therefore affirmed denial of permission to operate the entire property as a commercial parking lot.",
+  "doctrinal_concepts": [
+   "nonconforming_use",
+   "accessory_use",
+   "lodger_status",
+   "residential_use"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "In 1921 appellants\u2019 mother began to rent rooms to lodgers, some of whom owned automobiles, and offered to rent space in the yard in which to park their cars.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The Board of Adjustment, in effectuating such a declared intent, properly recognized a wide difference between the incidental parking of automobiles in connection with the use of the premises as a rooming house, prior to the adoption of the ordinance in 1923, and the present and proposed use of all of appellants\u2019 land, including that upon which the buildings formerly stood, as a public automobile parking lot.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "We know that many classes of light or part-time employment are capable of being discharged in or about the home; that many functions are capable of being there discharged as subordinate to the chief function of making a home or providing living quarters for transient paying guests, but the adaptability of premises, the dominant function of which is residential, to these servient functions cannot in every case be held to allow the servient use to become dominant.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-0",
+  "notes": "Favorable because the court treated the family's established provision of lodgings to transient paying guests as the residentially dominant use of the dwelling, while distinguishing the later commercial parking operation. The lodgers' actual periods of occupancy are not stated."
+ },
+ {
+  "case_id": 8501453,
+  "cite": "Bissell v. Leftwich, 4 Rob. 102",
+  "court": "La. Supreme Court",
+  "year": 1843,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that prescription barred the principal claim for four months of board and lodging, that other charges lacked evidentiary or legal support, and that the plaintiff could recover only $60 for boarding and attending to the sick enslaved person.",
+  "doctrinal_concepts": [
+   "board_and_lodging",
+   "innkeeper_claim",
+   "prescription"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The evidence shows that the plaintiff is the keeper of a tavern or boarding house.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The only portion of the plaintiff\u2019s claim sustained by the law and testimony, is that for the boarding and attention to the sick negro.",
+    "supports": "polarity"
+   },
+   {
+    "text": "The judgment of the probate court is therefore annulled and reversed ; and it is ordered and decreed that the plaintiff, F. N. Bissell, do recover of the defendant, Leftwich, as administrator of Lindsay\u2019s estate, the sum of sixty dollars, with interest at five per cent, per annum from the 31st December, in the year 1839, until paid, if the estate be able to pay all- the debts; the said sum and interest to be paid in the due course of administration, according to law.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-1",
+  "notes": "The court recognized a commercial board-and-lodging claim but barred most of it by prescription or lack of proof."
+ },
+ {
+  "case_id": 1019050,
+  "cite": "Davidson v. Barclay, 63 Pa. 406",
+  "court": "Pa. Supreme Court",
+  "year": 1870,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.72,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court held that a rent-paying occupant of one room did not represent the householder\u2019s possession of the whole property and could not, by himself, be made the target of an ejectment that would affect the householder\u2019s contract for the entire premises.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "single_room_tenancy",
+   "possession"
+  ],
+  "new_terms_observed": [
+   "under tenant"
+  ],
+  "quotes": [
+   {
+    "text": "The verdict finds that he occupied but a single room, for which he' paid rent; while the possession at large \u2014 that which represented the contract to be affected by the ejectment \u2014 was actually in Barclay, who was not made a party to the writ.",
+    "supports": "characterization"
+   },
+   {
+    "text": "It is not the case of an absent vendee leaving a tenant in possession, who would be bound under the Act of 1772, to notify his landlord of the service of the ejectment; but Barclay was himself in the principal possession by his family, and entitled to service on himself.",
+    "supports": "polarity"
+   },
+   {
+    "text": "George Mickey, the other defendant, had no such possession of the premises as would make an ejectment against him alone, an equitable remedy for specific performance.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-1",
+  "notes": "The opinion treats the renter of a single room as a tenant while preserving the householder\u2019s principal possession through his family."
+ },
+ {
+  "case_id": 8503953,
+  "cite": "Goldsmith v. Virgin, 122 La. 831, 48 So. 279",
+  "court": "La. Supreme Court",
+  "year": 1909,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.81,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court reversed the dismissal and held that the boarding-house operator\u2019s allegations stated a cause of action under the lessor\u2019s warranty, including a potentially recoverable claim for lost business profits. It remanded for a trial on the merits.",
+  "doctrinal_concepts": [
+   "boarding_house",
+   "lease",
+   "landlord_warranty",
+   "lost_profits"
+  ],
+  "new_terms_observed": [
+   "furnished rooms"
+  ],
+  "quotes": [
+   {
+    "text": "The plaintiff in her petition declares upon a contract of lease between herself and the defendant, the time of commencement of the lease is given, also the date of its expiration, and from plaintiff\u2019s petition it appears that, when her demand was made, the lease had ended.",
+    "supports": "characterization"
+   },
+   {
+    "text": "If those allegations were true, plaintiff, on proving them to the court, was entitled to a judgment.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Eor the reasons herein assigned, it is hereby ordered, adjudged, and decreed that the judgment appealed from be, and the same is hereby, annulled, avoided, and reversed, and it is now adjudged and decreed that the exception that plaintiff\u2019s petition discloses no cause of action be overruled; that this cause be remanded to the .district court and reinstated on the docket, and there be proceeded with according to law.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-1",
+  "notes": "The decision is procedural and does not establish liability on the merits, but it permits the boarding-house operator to pursue warranty damages and lost profits."
+ },
+ {
+  "case_id": 1483122,
+  "cite": "Hoffman's Petition, 7 Pa. D. & C. 88",
+  "court": "Pa. Ct. Com. Pl., Montgomery County",
+  "year": 1925,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.84,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court declared that a deed restriction limiting the premises to private-residence use prohibited operating a structure there as an apartment house. It distinguished a single-family private residence from a profit-operated building housing numerous tenant families.",
+  "doctrinal_concepts": [
+   "restrictive_covenant",
+   "private_residence",
+   "apartment_house",
+   "commercial_residential_use"
+  ],
+  "new_terms_observed": [
+   "general public boarding"
+  ],
+  "quotes": [
+   {
+    "text": "An apartment-house is not a private residence, nor is the occupant of such in private residence.",
+    "supports": "characterization"
+   },
+   {
+    "text": "\u201cPrivate residence\u201d implies a self-contained and independently managed establishment to be used by a single family unit.",
+    "supports": "polarity"
+   },
+   {
+    "text": "After hearing and mature consideration, we, therefore, declare and advise, as a declaratory judgment or decree, that, in our opinion, the restriction in petitioner\u2019s deed prohibits use of any structure hereafter erected on his premises as an apartment-house.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-1",
+  "notes": "The proposed use was an apartment house for long-term family residence rather than transient lodging, but the court\u2019s treatment of profit-operated multi-household occupancy as incompatible with private residence is adverse."
+ },
+ {
+  "case_id": 10319950,
+  "cite": "Hadnot v. Hicks, 198 S.W. 359",
+  "court": "Tex. Civ. App. (Beaumont)",
+  "year": 1917,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.58,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court upheld a householder\u2019s conveyance of community homestead property without her absent husband\u2019s joinder because the husband had abandoned the family and the sale was necessary for their support. Her operation of the homestead as a rooming and boarding house was an important fact bearing on how she had supported the family before her eyesight prevented her from continuing.",
+  "doctrinal_concepts": [
+   "householder_boarding",
+   "rooming_house",
+   "homestead",
+   "family_support"
+  ],
+  "new_terms_observed": [
+   "roomers and boarders"
+  ],
+  "quotes": [
+   {
+    "text": "That throughout all the time that witness was living in Beaumont and Green Hadnot in Oklahoma, witness managed and controlled the property in controversy and made a living for herself and three children, with the aid of the older boy, by using the premises as a rooming and boarding house;",
+    "supports": "characterization"
+   },
+   {
+    "text": "That after Creacy Hadnot left Beaumont in 1904, and up to the time that witness sold the property in controversy to Hicks, she managed and controlled the property in controversy and made a living for herself and children, with the aid of the oldest son, by taking boarders and roomers;",
+    "supports": "polarity"
+   },
+   {
+    "text": "Now, the trial court having found as. a fact that at the date of the execution of the deed by Creacy Hadnot to appellee, conveying the property in question, Green Had-not, her husband, had abandoned and was then living in abandonment of his wife and family, and also having found that Creacy Hadnot and children were in necessitous, circumstances, and that the property was sold for that reason, and the state of the evidence being such, in our judgment, as to warrant such findings of fact by the trial, court, we hold that the deed from Creacy Hadnot to appellee, D. J. Hicks, executed .under such circumstances, had the effect, in law, to pass the title to the property in controversy to appellee, and that the judgment of the trial court in so holding was. correct.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-1",
+  "notes": "The favorable relevance is factual rather than doctrinal: the court treated household rooming and boarding as an ordinary means of family support, but the legal holding concerned authority to convey community property."
+ },
+ {
+  "case_id": 3182788,
+  "cite": "Garcia v. Dulcich, 237 La. 359, 111 So.2d 309",
+  "court": "La. Supreme Court",
+  "year": 1959,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.94,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "The court classified the conveyance of a half interest in the house in exchange for lifetime room, board, laundry, and care as an onerous donation. It revoked or dissolved the arrangement after finding that the householders ceased performing those conditions and declared Garcia the sole owner.",
+  "doctrinal_concepts": [
+   "board_and_lodging",
+   "onerous_donation",
+   "failure_of_consideration",
+   "paying_guest"
+  ],
+  "new_terms_observed": [
+   "paying guest"
+  ],
+  "quotes": [
+   {
+    "text": "In other words, from defendant\u2019s judicial admission it is clear that the transaction, although disguised as a sale in which he was named as a copurchaser, was in truth and in fact an onerous donation.",
+    "supports": "characterization"
+   },
+   {
+    "text": "After considering all the circumstances there is no conclusion that we can reach except that he had just cause to leave the premises, and that defendant and his wife were no longer willing to provide him with room, board, laundry, and care. In other words, defendant failed to comply with the conditions of the donation.",
+    "supports": "polarity"
+   },
+   {
+    "text": "For the reasons assigned the judgment appealed from is annulled, reversed, and set aside. It is ordered that plaintiff, Dr. Joseph M. Garcia, have judgment against the defendant, John L. Dulcich, Sr., decreeing plaintiff to be the sole owner of the following described property:",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-1",
+  "notes": "Garcia initially paid $35 per month for room and board and later exchanged a property interest for promised lifetime accommodations and care."
+ },
+ {
+  "case_id": 5461952,
+  "cite": "Olsen v. Tung, 179 La. 760, 155 So. 16",
+  "court": "La. Supreme Court",
+  "year": 1934,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.14,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "remap-check-1",
+  "notes": "The rooming house appears only as contextual evidence in a dispute over a party wall and whether an adjoining commercial laundry constituted a nuisance."
+ },
+ {
+  "case_id": 10067085,
+  "cite": "Lack v. Anderson, 27 So. 2d 653 (La. Ct. App. 1946)",
+  "court": "Court of Appeal of Louisiana, Second Circuit",
+  "year": 1946,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.76,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held the hotel operator liable as an innkeeper for property stolen from its paying guest's room because the operator had not complied with statutory safeguards limiting its liability. It reduced the damages award to $205 and otherwise affirmed.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The pertinent law governing the liability of hotel or innkeepers to a paying guest, for property stolen from his room, is to be found in the Revised Civil Code, Articles 2964 to 2971, inclusive.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The theft having been perpetrated without force or violence, and defendant having failed to avail himself as innkeeper of those laws designed to limit his liability, he is clearly responsible to plaintiff for the value of the stolen articles.",
+    "supports": "polarity"
+   },
+   {
+    "text": "For the reasons herein assigned, the judgment appealed from is amended by reducing the amount thereof to Two Hundred Five ($205) Dollars, and as thus amended, the judgment is affirmed.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-2",
+  "notes": "The case protects a paying hotel guest through statutory innkeeper liability; the guest testified that he had occupied the room for several months."
+ },
+ {
+  "case_id": 945852,
+  "cite": "Harrington v. Coster, 194 Misc. 577 (N.Y. Sup. Ct. 1949)",
+  "court": "Supreme Court, Special Term, Queens County",
+  "year": 1949,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.18,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "remap-check-2",
+  "notes": "The opinion describes a tenant operating a rooming house but resolves an eviction-certificate challenge on limitations and arbitrary-or-capricious review without deciding the legal character or permissibility of the compensated occupancies."
+ },
+ {
+  "case_id": 1674285,
+  "cite": "Spencer Estate, 30 Pa. D. & C.2d 68 (Pa. 1962)",
+  "court": "Pennsylvania Court of Common Pleas",
+  "year": 1962,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.83,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The court held that Fulton had only a personal right to occupy the premises rather than a life estate. Nevertheless, while she occupied the premises and complied with the will, she was entitled to retain rent from the existing second-floor apartment lease.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "At the time that Bertha Fulton came to live with decedent, the second floor of the premises, consisting of three rooms and a bath, was rented by decedent for a monthly rental of $65, plus $5 per month for garage space, and continued to be so rented until decedent\u2019s death, and is now so rented.",
+    "supports": "duration_of_occupancy"
+   },
+   {
+    "text": "We conclude that the interest of Bertha Fulton in \u201cpremises\u201d 118 West Evergreen Street, West Grove,. Pennsylvania, is other than a life estate.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Having imposed upon Bertha Fulton as a condition of her continuing to occupy the premises, \u201cthat she shall pay all the expenses of maintaining and insuring said premises, the land taxes and other taxes and assessments thereon which may accrue or become payable during her life,\u201d we find a reasonable construction of the will, as entitling her to receive, and convert to her own use, any rentals from any portion of the premises, leases for which existed prior to and at the time of decedent\u2019s death, during such period as she elects to occupy the premises, subject to such conditions, and that any such benefits terminate upon her election to no longer occupy the same.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Notwithstanding the fact that we find no life estate for Bertha Fulton was created by decedent\u2019s will, we do conclude and decree that Bertha Fulton, under the language of decedent\u2019s will considered as a whole and the facts as found, is entitled to receive and convert to her own use the rents from said apartment so long as she, Bertha Fulton, continues to occupy the premises and comply with the conditions in the decedent\u2019s will.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Notwithstanding the fact that we find no life estate for Bertha Fulton was created by decedent\u2019s will, we do conclude and decree that Bertha Fulton, under the language of decedent\u2019s will considered as a whole and the facts as found, is entitled to receive and convert to her own use the rents from said apartment so long as she, Bertha Fulton, continues to occupy the premises and comply with the conditions in the decedent\u2019s will.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-2",
+  "notes": "The compensated occupancy was an existing second-floor apartment lease at a monthly rent; the court separately characterized Fulton's own possessory interest as less than a life estate."
+ },
+ {
+  "case_id": 12672508,
+  "cite": "Edwards v. Landry Chalet Rentals, LLC, 246 So. 3d 754 (La. Ct. App. 2018)",
+  "court": "Court of Appeal of Louisiana, Second Circuit",
+  "year": 2018,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.99,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "lease",
+  "holding_summary": "The court affirmed a permanent injunction against an LLC's short-term vacation-rental operation. On the stipulated facts, operating the dwelling for transient rentals and profit was a prohibited commercial use under the subdivision's restrictive covenants.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Four months after purchasing the property, Landry Rentals began leasing the property for short-term durations of not less than two nights.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Our review of this limited record reveals a reasonable factual basis for the trial court to conclude that Landry Rentals was a commercial business entity operating a vacation rental business on its property in violation of the Timber Point Covenants' express prohibition against using the property for commercial purposes.",
+    "supports": "polarity"
+   },
+   {
+    "text": "For the foregoing reasons, the trial court's judgment permanently enjoining Landry Rentals from operating a business on its property is affirmed.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-2",
+  "notes": "This post-1990 case directly addresses two-night and other short-term vacation rentals but involves an LLC operating for profit rather than a resident householder."
+ },
+ {
+  "case_id": 862373,
+  "cite": "YMCA of Greater New York McBurney Branch v. Plotkin, 136 Misc. 2d 950 (N.Y. Civ. Ct. 1987)",
+  "court": "Civil Court of the City of New York, Trial Term, New York County",
+  "year": 1987,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.91,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that the YMCA residence was a hotel governed by the statutory room-rate-posting provision. It nevertheless dismissed the resident's overcharge counterclaim because he had not proved the rates posted in the required public locations or that his charge exceeded those rates.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Without doubt, petitioner\u2019s establishment is a \"hotel\u201d within the meaning of General Business Law \u00a7 206.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Section 206 is penal in nature. It is also in derogation of the common-law right of a hotel or inn to contract for its service to its guests. Therefore, it must be strictly construed in favor of the hotel.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Respondent, in support of his cause of action under General Business Law \u00a7 206, did not prove whether rates were posted in the required public places or whether the rates charged exceeded the posted rates. Petitioner is, therefore, entitled to judgment on that counterclaim.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "During each stay he was charged and, until October 1986, paid the rate of $22 per day; the rate included $21.25 for rent and 75 cents for \"membership dues\u201d.",
+    "supports": "duration_of_occupancy"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-2",
+  "notes": "Mixed because the court applied hotel regulation to a residence providing transient rooms but strictly construed the penal statute and entered judgment against the resident on the overcharge claim."
+ },
+ {
+  "case_id": 865237,
+  "cite": "2-4 Realty Associates v. Pittman, 137 Misc. 2d 898 (N.Y. Civ. Ct. 1987)",
+  "court": "Civil Court of the City of New York, New York County",
+  "year": 1987,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.79,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "The court held that although Hendrix originally paid Pittman monthly for a room, the relationship later became a family unit rather than a boarding arrangement. Hendrix and Baxter consequently received rent-control protection as members of the deceased tenant's family, and the eviction petition was dismissed.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Originally the arrangement was that Jimmie would pay $60 per month for a room in the apartment. He would buy his own food and supplies, and do his own cooking and cleaning.",
+    "supports": "duration_of_occupancy"
+   },
+   {
+    "text": "However, I do not accept this designation. It is obvious to me that Mr. Hendrix\u2019s relationship changed radically in the 25 years he lived in apartment 25. Therefore, though the parties started out as strangers with Jimmie paying Mr. Pittman for his room, as discussed above, for the last 15 or more years that status changed forever to become a close family unit.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Under the circumstances here which include my finding that Mr. Hendrix, Ms. Baxter and Mr. Pittman lived together as a family, and specifically that Jimmie was the equivalent of Henry Pittman\u2019s son, albeit never formally adopted, it would be irrational and violative of the respondent\u2019s due process rights for the regulations to be read in such a restrictive manner.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Therefore, based on the overwhelming, convincing and uncontested evidence of the existence of a family unit, I find that the respondents are entitled to the protections of the New York City Rent and Eviction Regulations and dismiss the petition.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-2",
+  "notes": "The original compensated room occupancy lasted for years, so the closest permitted duration category is months; the court's ultimate characterization was a family unit rather than boarder status."
+ },
+ {
+  "case_id": 888986,
+  "cite": "Vidod Realty Co. v. Calvin, 147 Misc. 2d 488 (N.Y. Civ. Ct. 1989)",
+  "court": "Civil Court of the City of New York, Bronx County",
+  "year": 1989,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.96,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "The court held that a tenant could share his primary residence with one rent-paying roommate and the roommate's dependent children without the landlord's consent. It treated them as statutorily protected occupants rather than illegal sublessees and dismissed the eviction petition with prejudice.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "chipping-in roommate"
+  ],
+  "quotes": [
+   {
+    "text": "The respondent advertised for and secured a roommate to share his apartment and pay him money for the use of the apartment. This kind of arrangement existed for close to a year.",
+    "supports": "duration_of_occupancy"
+   },
+   {
+    "text": "After reviewing sections 226-b and 235-f of the Real Property Law, I agree that the occupants complained of are occupants fully protected by section 235-f of the Real Property Law.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The roommate and her dependent children, even though they paid for the use of their portion of the respondent\u2019s apartment, were occupants that are permitted without the consent of the landlord pursuant to section 235-f (3) of the Real Property Law.",
+    "supports": "polarity"
+   },
+   {
+    "text": "In view of the fact that the petitioner had ample opportunity to offer additional proof of registration at trial and still chose to stand on the proof already submitted, and, coupled with the fact that if the merits had been reached a decision in favor of the respondent would have been rendered because of section 235-f of the Real Property Law, the petition is dismissed with prejudice.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-2",
+  "notes": "The tenant remained in the apartment as his primary residence and accepted payment from a roommate for part of the dwelling; the phrase \u201cchipping-in roommate\u201d appears as a period formulation not identified in any supplied selector provenance."
+ },
+ {
+  "case_id": 923835,
+  "cite": "People v. Fisher, 161 Misc. 2d 25, 612 N.Y.S.2d 319 (N.Y. Crim. Ct. 1994)",
+  "court": "Criminal Court of the City of New York, New York County",
+  "year": 1994,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.93,
+  "polarity": "mixed",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "A class-B hotel is equivalent to a J-1 building for purposes of the fire-safety rules only if it also satisfies the rules\u2019 more specific transient-use definition. The information was dismissed because it did not allege that the building actually was used or arranged for lodging the same persons for 90 days or less.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Therefore, as recognized by the courts in the unreported decisions submitted, a J-l building is the equivalent of a class-B multiple dwelling and is subject to the Rules if it further satisfies the definition of transient use set forth in those Rules.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Having failed to allege that the building here was used or arranged to be used for lodging of the same persons for 90 days or less, the information is legally deficient and is, therefore, dismissed.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The Rules, by their terms, apply to J-l buildings, and therefore, class-B buildings, that are occupied or arranged to be occupied as a transient occupancy as that term is further defined in the Rules.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Having failed to allege that the building here was used or arranged to be used for lodging of the same persons for 90 days or less, the information is legally deficient and is, therefore, dismissed.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-3",
+  "notes": "Mixed because the court accepted potential application of the fire-safety rules to qualifying transient use but dismissed the prosecution for failure to plead actual qualifying use. Characterization is null because the court found that the accusatory instrument did not establish the building\u2019s actual occupancy arrangement; the defendant\u2019s precise role and the occupants\u2019 actual stays likewise were not established."
+ },
+ {
+  "case_id": 3786837,
+  "cite": "City of New York v. Smart Apartments LLC, 39 Misc. 3d 221, 959 N.Y.S.2d 890 (N.Y. Sup. Ct. 2013)",
+  "court": "Supreme Court, New York County",
+  "year": 2013,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.99,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court preliminarily enjoined the defendants from advertising, contracting for, or allowing stays of less than 30 days in class A multiple dwellings and other buildings where transient occupancy was illegal. It treated the operation as an illegal, unsafe, deceptive business and a public nuisance.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The business includes (or at least included) a website (smart-apartments.com), worldwide advertisements, online photographs of apartments, reservation and booking records, and even laundry services for the subject apartments.",
+    "supports": "who_was_letting"
+   },
+   {
+    "text": "Although defendants harp on the idea that the apartments at issue are \u201cprivate property\u201d (e.g. reply affirmation \u00b6\u00b6 40, 43, 46, 47) they are available, indeed advertised, to the general public, more like hotel rooms than private apartments.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Again, even using the strict general test, placing unsuspecting tourists in illegal, dangerous accommodations constitutes irreparable injury, especially if there is a tragic fire; and the equities lie in favor of shutting down an illegal, unsafe, deceptive business, rather than in allowing said business to continue to operate (to defendants\u2019 presumed financial advantage).",
+    "supports": "polarity"
+   },
+   {
+    "text": "For the reasons set forth herein, the cross motion is denied, the motion is granted; and defendants and their employees, agents etc. are hereby preliminarily enjoined (a) from advertising, contracting for, and/or allowing the transient occupancy, i.e., less than 30 days, of New York City class A multiple dwellings, or any other buildings as to which transient occupancy is illegal; (b) from advertising such occupancies on any and all Internet websites and other media, and to remove whatever such advertising currently is on those sites, whether or not directly controlled or maintained by defendants; and (c) from disposing or modifying the records maintained and used to manage and operate such transient use; all until the resolution of this case or further court order.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-3",
+  "notes": "The court characterized the arrangements as transient residential rentals and as more like hotel rooms than private apartments, rather than deciding whether they were leases or licenses. The record specified stays of less than 30 days but did not establish a single actual duration category."
+ },
+ {
+  "case_id": 3940191,
+  "cite": "Libolt v. Town of Irondequoit Zoning Board of Appeals, 66 A.D.3d 1393, 885 N.Y.S.2d 806 (N.Y. App. Div. 2009)",
+  "court": "Appellate Division of the Supreme Court of New York, Fourth Department",
+  "year": 2009,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.82,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court upheld the zoning board\u2019s determination that the paid transitional-housing facility was not a single-family residence or church and that its principal use as a halfway house violated residential zoning. It also rejected the religious-exercise challenge.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "As a condition of residence at the facility, The Brotherhood required each resident to sign a \u201cPost-Release Transitional Housing Contract\u201d and to pay a per diem fee of $25.",
+    "supports": "who_was_letting"
+   },
+   {
+    "text": "In September 2007, the Town issued a notice of violation based upon, inter alia, its determination that petitioners were operating a \u201chalfway house,\u201d which was not a permitted use in an R-l district.",
+    "supports": "characterization"
+   },
+   {
+    "text": "We conclude that the ZBA\u2019s determination that petitioners did not use the property as a single-family residence or a church within the meaning of sections 235-4 and 235-8, respectively, of the Town\u2019s Zoning Law is not arbitrary or capricious, an abuse of discretion, or affected by errors of law, and we further conclude that the determination is supported by substantial evidence (see generally Matter of Wind Power Ethics Group [WPEG] v Zoning Bd. of Appeals of Town of Cape Vincent, 60 AD3d 1282 [2009]; Matter of Carrier v Town of Palmyra Zoning Bd. of Appeals, 30 AD3d 1036, 1037 [2006], lv denied 8 NY3d 807 [2007]).",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The ZBA\u2019s determination was in furtherance of the compelling governmental interest in maintaining the R-l district as a single-family residential zone, and the cause of action alleging the violation of the Religious Land Use and Institutionalized Persons Act of 2000 must fail, inasmuch as it cannot be said that the ZBA\u2019s determination, i.e., the denial of permission to operate a \u201cTransitional Housing\u201d facility under contract with \u201cclients\u201d who pay a per diem fee of $25 per day for a room, \u201cimposes a substantial burden on the religious exercise of a person, including a religious assembly or institution\u201d (42 USC \u00a7 2000cc [a] [1]; see Third Church of Christ, Scientist, of N.Y. City v City of New York, 617 F Supp 2d 201, 208-209 [SD NY 2008]).",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-3",
+  "notes": "The institutional operator charged a daily fee, but the opinion does not state how long individual residents actually remained; duration is therefore unclear."
+ },
+ {
+  "case_id": 5311532,
+  "cite": "Tower Insurance Co. of New York v. Corlette, 34 A.D.3d 792, 826 N.Y.S.2d 131 (N.Y. App. Div. 2006)",
+  "court": "Appellate Division of the Supreme Court of New York, Second Department",
+  "year": 2006,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.72,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The court held that an insurer had not established that a homeowner-policy exclusion for lodging more than two roomers or boarders applied, and it affirmed the insurer\u2019s duty to defend and indemnify the owner.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Under the particular facts of this case it cannot be said that the exclusionary clause applies.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Ordered that the order and judgment is affirmed, with one bill of costs.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Under the particular facts of this case it cannot be said that the exclusionary clause applies.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-3",
+  "notes": "Characterization is null because the court did not decide whether any occupant was a roomer or boarder; it resolved only whether the insurer proved its exclusion. The opinion does not state whether the owner lived in the residence or how long any occupant stayed."
+ },
+ {
+  "case_id": 5676181,
+  "cite": "Atkinson v. Wilt, 94 A.D.3d 1218, 941 N.Y.S.2d 798 (N.Y. App. Div. 2012)",
+  "court": "Appellate Division of the Supreme Court of New York, Third Department",
+  "year": 2012,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.99,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "other",
+  "holding_summary": "Owners\u2019 occasional weekly vacation rentals did not transform their second home from a single-family residence into a tourist accommodation. Because the zoning ordinance did not expressly prohibit the rentals, the zoning board\u2019s contrary characterization was irrational.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [
+   "occasional rentals"
+  ],
+  "quotes": [
+   {
+    "text": "For seven weeks during the summer of 2010, petitioners rented the property on a weekly basis to various parties.",
+    "supports": "duration_of_occupancy"
+   },
+   {
+    "text": "The rest of the time petitioners, who intended to use the property primarily as a second home, entertained friends and family there \u201cvirtually every single week and . . . weekend.\u201d",
+    "supports": "who_was_letting"
+   },
+   {
+    "text": "Applying these definitions to the record before us, we agree with Supreme Court that the ZBA\u2019s characterization of petitioners\u2019 property as a tourist accommodation is irrational.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Nothing on the face of the Town\u2019s Land Use Ordinance expressly prohibits petitioners from renting their residence to vacationers and, on this record, we cannot say that petitioners\u2019 decision to do so placed their otherwise obviously residential structure outside the Town\u2019s definition of a single-family residence \u2014 a definition that, as noted previously, expressly includes a seasonal cottage.",
+    "supports": "polarity"
+   },
+   {
+    "text": "While the manner in which petitioners marketed the property may have been perceived as somewhat aggressive, neither their decision to advertise the property on the Internet as a vacation rental nor their membership in the local Chamber of Commerce transformed the premises from a single-family residence into a tourist accommodation \u2014 particularly in view of petitioners\u2019 representations that they carefully screened potential renters, thereby belying any assertion that the property was open to the general public.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-3",
+  "notes": "Characterization is other because the court classified the premises and rental use as remaining a single-family residence rather than determining whether the occupants held a lease or license."
+ },
+ {
+  "case_id": 5735453,
+  "cite": "City of New York v. 330 Continental LLC, 60 A.D.3d 226, 873 N.Y.S.2d 9 (N.Y. App. Div. 2009)",
+  "court": "Appellate Division of the Supreme Court of New York, First Department",
+  "year": 2009,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 1.0,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": "The City was not entitled to a preliminary injunction because it failed to show that short-term occupancy predominated in any building. A class A apartment hotel could devote a minority, and even a significant minority, of its units to transient occupancy while remaining primarily a permanent-residence building, although the statute prohibited renting an SRO room for less than a week.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Defendants, the owners and managers of the buildings, advertise the buildings as offering short-term accommodations to tourists on travel-oriented Web sites such as Orbitz.com, Expedia.com, Hotels.com and Yahoo Travel.",
+    "supports": "who_was_letting"
+   },
+   {
+    "text": "The longstanding practice of renting rooms in the buildings for short-term occupancy, including to overnight lodgers, is documented by such contemporaneous evidence in the record as the daily registers that were maintained for the buildings for the years 1941, 1945, 1948 and 1950, and by the buildings\u2019 listings and advertisements in the Manhattan \u201cYellow Pages\u201d during the same time period.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The longstanding practice of renting rooms in the buildings for short-term occupancy, including to overnight lodgers, is documented by such contemporaneous evidence in the record as the daily registers that were maintained for the buildings for the years 1941, 1945, 1948 and 1950, and by the buildings\u2019 listings and advertisements in the Manhattan \u201cYellow Pages\u201d during the same time period.",
+    "supports": "duration_of_occupancy"
+   },
+   {
+    "text": "Under the plain meaning of the Multiple Dwelling Law and the ZR, the use of a significant portion of a class A apartment hotel for transient occupancy (however defined) is permissible so long as it remains true that the building is \u201coccupied, as a rule, for permanent residence purposes\u201d (Multiple Dwelling Law \u00a7 4 [8] [a]) and that the building is \u201cused primarily for permanent occupancy\u201d (ZR \u00a7 12-10).",
+    "supports": "polarity"
+   },
+   {
+    "text": "That it is permissible under the Multiple Dwelling Law to rent some units of a class A SRO for short-term occupancy is also evidenced by Multiple Dwelling Law \u00a7 248 (16), which makes it \u201cunlawful to rent any room in any such [SRO] dwelling for a period of less than a week,\u201d thereby implying that rentals of a week or more are lawful.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Although, as the motion court correctly observed, irreparable injury is presumed from the continuing existence of an unremedied public nuisance (see Love Shack, 286 AD2d at 242 [\u201cthe irreparable injury is based upon the harm to the general public if the nuisance is not immediately abated\u201d]; see also Bilynn Realty, 118 AD2d at 512-513), here the City failed to demonstrate a likelihood that it will ultimately succeed in proving that defendants\u2019 rental of some units within each of the buildings for periods of less than 30 days constitutes a violation either of the ZR or of the certificate of occupancy and, as such, a public nuisance.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The use of the word \u201cprimarily\u201d in the ZR\u2019s definition of \u201capartment hotel\u201d indicates that a secondary use of a building, other than \u201cpermanent occupancy,\u201d is consistent with the status of an \u201capartment hotel.\u201d",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-3",
+  "notes": "Mixed because the court protected minority short-term use of class A SRO buildings but recognized the statutory prohibition on rentals lasting less than one week. Occupancies at issue included overnight stays as well as longer stays of less than 30 days; nights is used because overnight lodging was expressly documented."
+ },
+ {
+  "case_id": 11493971,
+  "cite": "Camp Ramah in the Poconos, Inc. v. Zoning Hearing Board of Worcester Township, 743 A.2d 1019 (Pa. Commw. Ct. 2000)",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2000,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.86,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "The court upheld the denial of a special exception for the proposed adult retreat because its overnight lodging, meals, and leased meeting rooms made it like a hotel with conference facilities rather than a permitted religious use. Anticipated religious activities did not transform the prohibited lodging facility into a religious use.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Einhorn and Ackerman described a facility that would provide overnight lodging for 125 persons, as well as meals and meeting rooms that may be leased for use by Jewish groups other than the Camp Ramah organization.",
+    "supports": "duration_of_occupancy"
+   },
+   {
+    "text": "Einhorn and Ackerman described a facility that would provide overnight lodging for 125 persons, as well as meals and meeting rooms that may be leased for use by Jewish groups other than the Camp Ramah organization.",
+    "supports": "who_was_letting"
+   },
+   {
+    "text": "This evidence supports the conclusion that, in terms of its actual use and physical layout, the proposed retreat is like a hotel with conference facilities.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The anticipated religious activities do not transform the overnight lodging facility, which is not permitted in the agricultural district, into a religious use for which a special exception must be granted.",
+    "supports": "polarity"
+   },
+   {
+    "text": "This evidence supports the conclusion that, in terms of its actual use and physical layout, the proposed retreat is like a hotel with conference facilities. The anticipated religious activities do not transform the overnight lodging facility, which is not permitted in the agricultural district, into a religious use for which a special exception must be granted.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-3",
+  "notes": "The operator was a nonprofit religious corporation, but the proposed facility would provide lodging, meals, and leased meeting space to outside groups; it is classified as a commercial operator under the supplied enterprise-based categories."
+ },
+ {
+  "case_id": 9943901,
+  "cite": "Locke v. State, 637 S.W.2d 511",
+  "court": "Court of Appeals of Texas, Amarillo",
+  "year": 1982,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.78,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that the physically separate second-floor hotel could not be padlocked under the Alcoholic Beverage Code without evidence of Code violations there.",
+  "doctrinal_concepts": [
+   "nuisance",
+   "lodging_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The second floor of the building, containing sixteen rooms, is a hotel where Locke and his common law wife live. They operate the hotel, renting the remaining rooms to the public.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Regardless of those matters, however, the hotel is not enjoinable under \u00a7 101.70 of the Alcoholic Beverage Code absent evidence of Code violations in the hotel.",
+    "supports": "polarity"
+   },
+   {
+    "text": "The second floor should not have been closed, however, because there is no evidence of Code violations on that floor. It is the site of a separate enterprise that is physically isolated from the location of the violations and reached by a separate entrance.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-4",
+  "notes": "The case protects a hotel from an overbroad nuisance injunction but does not identify the duration of any guest's stay."
+ },
+ {
+  "case_id": 2599751,
+  "cite": "Burch v. Mouton, 37 La. Ann. 725",
+  "court": "Supreme Court of Louisiana",
+  "year": 1885,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.96,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "A householder's temporary absence and rental of his homestead for the summer did not defeat the homestead exemption because he intended to return.",
+  "doctrinal_concepts": [
+   "homestead_exemption",
+   "temporary_absence",
+   "temporary_letting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "that, being a poor man, he rented his own premises during the summer, with the express stipulation, however, that he was to retake it on the 1st of October;",
+    "supports": "characterization"
+   },
+   {
+    "text": "So long as such privilege is exercised in good faith, within reasonable limits and without the intention of changing or abandoning the home, but, on the contrary, with the fixed and certain intention of returning thereto, exemption is not affected thereby.",
+    "supports": "polarity"
+   },
+   {
+    "text": "So long as such privilege is exercised in good faith, within reasonable limits and without the intention of changing or abandoning the home, but, on the contrary, with the fixed and certain intention of returning thereto, exemption is not affected thereby.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-4",
+  "notes": "The plaintiff let his own homestead for the summer while temporarily living elsewhere for his health."
+ },
+ {
+  "case_id": 5206672,
+  "cite": "Woodworth v. Morse, 18 La. Ann. 156",
+  "court": "Supreme Court of Louisiana",
+  "year": 1866,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.84,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "Innkeepers were liable as depositaries for the traveler's stolen effects, and the judgment for the traveler was affirmed. The court also noted that hotelkeepers could limit that responsibility by giving the legislatively authorized notice.",
+  "doctrinal_concepts": [
+   "innkeeper_liability",
+   "guest_status",
+   "bailment"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "He sued defendants to recover from them, as keepers of the hotel, the amount of the-money stolen, which belonged to him, to wit: the sum of five hundred and sixty-eight dollars, with interest.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Inn-keepers are responsible, as .depositaries, for effects brought to their house by travelers who lodge therein; they are responsible even when their effects are stolen, unless they show that the same were stolen by force and arms, or with exterior breaking of doors (ou avec effraction ext\u00e9rieure), or by any other extraordinary violence (ou autre force majeure).",
+    "supports": "polarity"
+   },
+   {
+    "text": "Defendants might have easily avoided the responsibility imposed upon them by the articles of the Code referred to, by giving the notice authorized in an Act of the Legislature passed on the 16th of January, 1860, for the protection of hotel-keepers.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Inn-keepers are responsible, as .depositaries, for effects brought to their house by travelers who lodge therein; they are responsible even when their effects are stolen, unless they show that the same were stolen by force and arms, or with exterior breaking of doors (ou avec effraction ext\u00e9rieure), or by any other extraordinary violence (ou autre force majeure).",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Judgment affirmed, with costs.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-4",
+  "notes": "The traveler lodged at a hotel during a journey; the precise number of nights is not stated."
+ },
+ {
+  "case_id": 546238,
+  "cite": "Rodgers v. People, 86 N.Y. 360",
+  "court": "New York Court of Appeals",
+  "year": 1881,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.92,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "A hotel guest's assigned room remained legally the dwelling house of the innkeepers rather than the guest. The burglary indictment was therefore fatally defective because it alleged that the room was the guest's dwelling house.",
+  "doctrinal_concepts": [
+   "guest_status",
+   "possession",
+   "license_vs_lease",
+   "temporary_occupancy"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "He assigns rooms for temporary occupancy by his guests, in the prosecution of his business, and for his profit.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The guest has no interest, but only the use of the chamber for the time being. The legal possession of the room is in the innkeeper. He must answer for the loss of the goods of the guest by theft. . The inn, and the rooms therein, are occupied by the innkeeper. He assigns rooms for temporary occupancy by his guests, in the prosecution of his business, and for his profit.",
+    "supports": "polarity"
+   },
+   {
+    "text": "We are of opinion that the indictment was fatally defective, in laying the offense as against the dweEing-house of Shippee. It sliould have been laid as against the dweEing-house of the keepers of the inn.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-4",
+  "notes": "The opinion recognizes temporary, for-profit hotel occupancy while holding that the guest has use but no legal possessory interest in the room."
+ },
+ {
+  "case_id": 630154,
+  "cite": "Jackson v. Odell, 14 Abb. N. Cas. 42",
+  "court": "New York Court of Common Pleas, General Term",
+  "year": 1884,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.63,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lease",
+  "holding_summary": "A landlord who knowingly induced a tenant to lease a house through a false representation about its condition could not recover rent if the tenant abandoned within a reasonable time after discovering the falsity. The evidence required a jury determination, so a new trial was ordered.",
+  "doctrinal_concepts": [
+   "boarding_house",
+   "habitability",
+   "fraudulent_inducement",
+   "lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The lease in this case was for six months, from the first of November to the first of May following, the rent being payable montly in advance.",
+    "supports": "characterization"
+   },
+   {
+    "text": "A lessor, who induced the lessee to accept the lease by knowingly making a false representation as to the condition of the premises in response to inquiry by the lessee, cannot recover rent in case the tenant abandons the demised premises within a reasonable time after entry, and as soon as the falsity of the representation becomes apparent.",
+    "supports": "polarity"
+   },
+   {
+    "text": "A lessor, who induced the lessee to accept the lease by knowingly making a false representation as to the condition of the premises in response to inquiry by the lessee, cannot recover rent in case the tenant abandons the demised premises within a reasonable time after entry, and as soon as the falsity of the representation becomes apparent.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The judgment should be reversed and a new trial ordered, costs to the appellant to abide the event.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-4",
+  "notes": "The defendant operated the leased house as a boarding house; one identified boarder became ill and died within a month or six weeks. The decision concerns fraud and habitability rather than restrictions on boarding."
+ },
+ {
+  "case_id": 915440,
+  "cite": "Swann v. Smith, 14 Daly (N.Y.) 114",
+  "court": "New York Court of Common Pleas",
+  "year": 1887,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The lodging-house keeper was not liable for clothing stolen from the lodger's room because the lodger failed to exercise ordinary care by disabling his room's lock and leaving the door unlocked.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "lodging_house_keeper_liability",
+   "contributory_negligence"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The defendant kept a bathing-house, the upper floors of which were let in apartments to lodgers. The plaintiff, with a room-mate, occupied one of the rooms.",
+    "supports": "characterization"
+   },
+   {
+    "text": "But conceding that the defendant was bound as a lodging-house keeper to take the same care of the plaintiff\u2019s property that a prudent person takes of his own, the defendant nevertheless was entitled to judgment in his favor.",
+    "supports": "polarity"
+   },
+   {
+    "text": "The duty of the plaintiff \u2014 a duty the performance of which was essential to his right of action \u2014 was to use the ordinary care that a prudent man is expected to take under the circumstances; and the justice was right if he held that the plaintiff was lacking in ordinary care in leaving his door unlocked when he knew that the hall-door was also open to all who chose to enter.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-4",
+  "notes": "The court directly addressed the duties of a lodging-house keeper and lodger, but the duration of the plaintiff's occupancy is not stated."
+ },
+ {
+  "case_id": 1101416,
+  "cite": "Swigley v. Jones, 1 N.Y. City Ct. Rep. 127",
+  "court": "New York Marine Court",
+  "year": 1878,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.76,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "Summary dispossession proceedings were available against the occupant of a furnished house. Inclusion of furniture did not prevent treatment of the arrangement as a lease of realty with a fixed rent.",
+  "doctrinal_concepts": [
+   "furnished_lodgings",
+   "lease",
+   "summary_dispossession"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Mrs. Iris C. Swigley let the furnished house, No. 41 West Forty-fifth street, to J. Alfred Jones, from August 1, 1878, till May 1, 1879, at $150 per month, with the further proviso that if Mrs. Swigley was absent from and did not receive board upon the premises she was to be entitled to the further sum of $25 per month.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Judge McAdam overruled this objection, holding that the contract was entire, and must be performed in its entirety ; that the lease called for a fixed rent, and that it could not be apportioned ; and that the fact that furniture was embraced in the lease of the realty did not defeat the summary remedy awarded by statute, as the furniture was a mere incident of the grant, and the landlord had judgment.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Summary proceedings to dispossess a tenant may be maintained under the statute, against the occupant of a furnished house.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Judge McAdam overruled this objection, holding that the contract was entire, and must be performed in its entirety ; that the lease called for a fixed rent, and that it could not be apportioned ; and that the fact that furniture was embraced in the lease of the realty did not defeat the summary remedy awarded by statute, as the furniture was a mere incident of the grant, and the landlord had judgment.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-4",
+  "notes": "The furnished house was let for nine months. The provision allowing Mrs. Swigley to receive board on the premises indicates a household arrangement, although the entire house was demised."
+ },
+ {
+  "case_id": 1101740,
+  "cite": "Requa v. Bulkley, 1 N.Y. City Ct. Rep. 153",
+  "court": "New York Common Pleas, General Term",
+  "year": 1872,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.96,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "An express agreement for rooms and board through May was not discharged when the occupants moved on medical advice because the agreement contained no health contingency. The judgment for the provider of the rooms and board was affirmed.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "This objection was not raised at all in the court below, and for all that we know, the plaintiff may have had such a notice posted up, and have been able to prove it upon the trial, if this technical objection had been made to her right to recover for a breach of the contract to pay for the room and board up to June 1.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The fact, assuming it to be that the physician thought that it would be better for the health of Miss Bulkley for her and her mother to remove from the plaintiff\u2019s house in Twenty-third street and go to some other place in the centre of the city, would not discharge the defendant- from an express agreement to take the rooms with board at $70 a week, from November 1 to May 1 ensuing.",
+    "supports": "polarity"
+   },
+   {
+    "text": "The judgment should therefore be affirmed.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-5",
+  "notes": "The court enforced a fixed-term room-and-board agreement involving a boarding-house operation."
+ },
+ {
+  "case_id": 2357250,
+  "cite": "Prendorill v. Kennedy, 34 How. Pr. 416",
+  "court": "New York Common Pleas, Special Term",
+  "year": 1867,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.91,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "The court refused to enjoin police from stationing officers outside an inn and warning prospective guests after repeated complaints of exorbitant and illegal charges. The statutory duty to protect strangers and emigrants authorized such warnings.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The plaintiff in this case keeps a public house on Hubert street, for the entertainment and lodging of travelers. Strangers from distant parts of the countiy and emigrants are guests of his house.",
+    "supports": "characterization"
+   },
+   {
+    "text": "I am of opinion that such protection would sustain a warning \u201cto take care,\u201d or \u201cto be careful,\u201d to a person, a stranger, about to enter a public house in which guests had been repeatedly subjected to extortionate, exorbitant and illegal charges, and of which notice had been brought to the police authorities.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Motion for injunction denied.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-5",
+  "notes": "The decision sustains police intervention affecting a commercial lodging house after complaints of guest extortion."
+ },
+ {
+  "case_id": 2382572,
+  "cite": "Higgins v. Hallock, 67 N.Y. Sup. Ct. 125",
+  "court": "New York Supreme Court",
+  "year": 1891,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.89,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "An executor's promise to see a boarding-house keeper paid for boarding and maintaining four children created an enforceable individual obligation. The keeper's performance supplied sufficient consideration for the promise.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The recovery was for the amount owing to the plaintiff for boarding, lodging and otherwise providing for four boys who were the children of Jesse Combs, deceased.",
+    "supports": "characterization"
+   },
+   {
+    "text": "That there was a sufficient consideration for the promise admits of no ground for doubt.",
+    "supports": "polarity"
+   },
+   {
+    "text": "The promise was to see that the plaintiff was paid, if she boarded and maintained the children, which she consented to, and afterwards did do. Her performance was the consideration exacted, and that was furnished and supplied by her, and it fully supported the promise.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-5",
+  "notes": "The duration of the children's compensated occupancy is not stated."
+ },
+ {
+  "case_id": 4444216,
+  "cite": "Gibbons v. Dayton, 11 N.Y. Sup. Ct. 451",
+  "court": "New York Supreme Court, General Term",
+  "year": 1875,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.82,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "Successive one-month lettings of second-floor rooms created a month-to-month tenancy that either party could terminate at the end of a month without notice. The estate owed rent through July, when the administrator removed the tenant's property and returned the keys.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It is very clear that the tenancy of the intestate was from month to month.",
+    "supports": "characterization"
+   },
+   {
+    "text": "She would in that case, have been chargeable with rent for the months of May, June and July ; but her tenancy would have terminated with the month of July.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Neither party was bound to give any notice to the other in order to terminate the tenancy at the expiration of any month. The landlord could have removed the tenant by summary proceedings without notice; and so the tenant could lawfully have left the premises at the expiration of any month without notice, and without being bound to pay further rent.*",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-5",
+  "notes": "The record does not establish whether the respondent was a resident householder or a commercial landlord."
+ },
+ {
+  "case_id": 4448542,
+  "cite": "De Lavalette v. Wendt, 18 N.Y. Sup. Ct. 432",
+  "court": "New York Supreme Court, General Term",
+  "year": 1877,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.92,
+  "polarity": "mixed",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The court left the board-and-lodging contract recovery intact except for damages awarded at the full weekly contract price while the rooms were vacant. It ordered a new trial unless the plaintiff deducted that amount and its interest.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Tbe plaintifE in this action seeks to recover damages, sustained by her in consequence of tbe testator\u2019s violation of bis agreement with her, and by which be engaged board and lodging for himself and family from tbe 1st September, 1866, to tbe 1st May, 1867.",
+    "supports": "characterization"
+   },
+   {
+    "text": "\u201c The Supreme Court in this State, in a case very similar to this, many years ago decided, that a landlord who had let rooms, was not entitled as matter of course to recover from the tenant who had violated his contract, and abandoned the rooms, the whole price stipulated to be paid for the use of the rooms, to the end of the period specified in the contract, but only for such damages as had directly and necessarily resulted from the breach of the contract, and that the plaintiff could not refuse to rent the rooms to other lodgers, leaving them idle, and then recover against the defendant, as for use and occupation; that although one party was chargeable with a breach .of the contract, the other party had no right to conduct himself in such a manner as to make the damages unnecessarily burdensome.\u201d (Wilson v. Martin, 1 Denio., 605; Mary A. Wetmore v. J. Hamilton Jaffray, 16 N. Y. S. C. R., 140.)",
+    "supports": "polarity"
+   },
+   {
+    "text": "Judgment reversed, new trial ordered costs to abide event, unless plaintiff stipulate within twenty days after service of order to deduct $514.28 and interest from tbe amount recovered, in which case judgment modified accordingly and affirmed as modified, without costs to either party on this appeal.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-5",
+  "notes": "The contract was recognized as actionable, but the provider's recovery was limited by the rule against avoidable or unproved damages."
+ },
+ {
+  "case_id": 838143,
+  "cite": "Commonwealth v. Matthews, 152 Pa. 166",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1893,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "remap-check-5",
+  "notes": "The case concerns Sunday newspaper sales; lodging houses appear only in a quoted statutory exception."
+ },
+ {
+  "case_id": 868498,
+  "cite": "Overseers of the Poor v. Somerset County Poor District, 168 Pa. 286",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1895,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.18,
+  "polarity": "irrelevant",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "remap-check-5",
+  "notes": "Paid boarding and lodging with the pauper's mother was incidental to determining his poor-law settlement; the court did not address the occupancy arrangement's legal character or regulation."
+ },
+ {
+  "case_id": 872177,
+  "cite": "Fessenden's Estate, 170 Pa. 631",
+  "court": "Pa.",
+  "year": 1895,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "remap-check-6",
+  "notes": "The boarding-house facts and weekly care arrangement concern a family member's maintenance and the valuation of a testamentary support charge; the court did not address compensated occupancy, its legal character, or boarding-house regulation."
+ },
+ {
+  "case_id": 277215,
+  "cite": "Weidemeyer v. Bryan, 21 Tex. Civ. App. 428",
+  "court": "Tex. Civ. App.",
+  "year": 1899,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.96,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "A woman supporting herself and her children by taking boarders could claim as her exempt urban homestead both the lot where she lived and an adjoining lot whose building housed boarders and renters.",
+  "doctrinal_concepts": [
+   "homestead_exemption",
+   "boarder_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Where a woman who is the head of a family and supports herself by keeping boarders owns two adjoining town lots, with a building on each, in one of which she lives, some of the rooms of the other building being occupied by her boarders and the others rented out, she may claim both lots as exempt, both having been purchased for homestead purposes.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The evidence shows that the property consists of two town lots adjoining each other, with improvements on each, and without a division fence between them; and that one of them was occupied by the owner, and some of the rooms of the house on the other lot were rented, while others were occupied by persons who boarded with appellee, she being the head of a family and supporting herself and children by taking boarders; and the evidence further shows that the property was expressly purchased for homestead purposes, and that its value is within the limit fixed by the Constitution to urban homesteads, and that appellee owned no other real property whatever.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Sudh being the relation of the appellee to the property, and such its uses at and before the plaintiff pretends to have acquired any lien upon the premises, we think the defense of homstead should have been sustained.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "remap-check-6",
+  "notes": "The court treated the owner's use of rooms in an adjoining building for boarders and renters as compatible with the property's protected urban-homestead character; the opinion does not state the occupants' duration."
+ }
+]

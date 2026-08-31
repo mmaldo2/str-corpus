@@ -1,0 +1,332 @@
+[
+ {
+  "case_id": 1004604,
+  "field": "characterization",
+  "claude": "lodging",
+  "codex": null
+ },
+ {
+  "case_id": 931253,
+  "field": "polarity",
+  "claude": "mixed",
+  "codex": "favorable"
+ },
+ {
+  "case_id": 1124494,
+  "field": "polarity",
+  "claude": "favorable",
+  "codex": "mixed"
+ },
+ {
+  "case_id": 1124494,
+  "field": "characterization",
+  "claude": "lease",
+  "codex": "lodging"
+ },
+ {
+  "case_id": 5540689,
+  "field": "characterization",
+  "claude": null,
+  "codex": "other"
+ },
+ {
+  "case_id": 8501453,
+  "field": "polarity",
+  "claude": "favorable",
+  "codex": "mixed"
+ },
+ {
+  "case_id": 1019050,
+  "field": "relevant",
+  "claude": false,
+  "codex": true
+ },
+ {
+  "case_id": 1019050,
+  "field": "polarity",
+  "claude": "irrelevant",
+  "codex": "favorable"
+ },
+ {
+  "case_id": 1019050,
+  "field": "characterization",
+  "claude": null,
+  "codex": "lease"
+ },
+ {
+  "case_id": 10319950,
+  "field": "relevant",
+  "claude": false,
+  "codex": true
+ },
+ {
+  "case_id": 10319950,
+  "field": "polarity",
+  "claude": "irrelevant",
+  "codex": "favorable"
+ },
+ {
+  "case_id": 10319950,
+  "field": "characterization",
+  "claude": null,
+  "codex": "lodging"
+ },
+ {
+  "case_id": 3182788,
+  "field": "relevant",
+  "claude": false,
+  "codex": true
+ },
+ {
+  "case_id": 3182788,
+  "field": "polarity",
+  "claude": "irrelevant",
+  "codex": "favorable"
+ },
+ {
+  "case_id": 3182788,
+  "field": "characterization",
+  "claude": null,
+  "codex": "other"
+ },
+ {
+  "case_id": 1674285,
+  "field": "relevant",
+  "claude": false,
+  "codex": true
+ },
+ {
+  "case_id": 1674285,
+  "field": "polarity",
+  "claude": "irrelevant",
+  "codex": "favorable"
+ },
+ {
+  "case_id": 1674285,
+  "field": "characterization",
+  "claude": null,
+  "codex": "lease"
+ },
+ {
+  "case_id": 12672508,
+  "field": "characterization",
+  "claude": "other",
+  "codex": "lease"
+ },
+ {
+  "case_id": 865237,
+  "field": "polarity",
+  "claude": null,
+  "codex": "favorable"
+ },
+ {
+  "case_id": 865237,
+  "field": "characterization",
+  "claude": null,
+  "codex": "other"
+ },
+ {
+  "case_id": 888986,
+  "field": "polarity",
+  "claude": null,
+  "codex": "favorable"
+ },
+ {
+  "case_id": 923835,
+  "field": "polarity",
+  "claude": null,
+  "codex": "mixed"
+ },
+ {
+  "case_id": 923835,
+  "field": "characterization",
+  "claude": "lodging",
+  "codex": null
+ },
+ {
+  "case_id": 3786837,
+  "field": "characterization",
+  "claude": "innkeeping",
+  "codex": "other"
+ },
+ {
+  "case_id": 3940191,
+  "field": "characterization",
+  "claude": "lodging",
+  "codex": "other"
+ },
+ {
+  "case_id": 5311532,
+  "field": "relevant",
+  "claude": false,
+  "codex": true
+ },
+ {
+  "case_id": 5311532,
+  "field": "polarity",
+  "claude": "irrelevant",
+  "codex": "favorable"
+ },
+ {
+  "case_id": 5676181,
+  "field": "characterization",
+  "claude": null,
+  "codex": "other"
+ },
+ {
+  "case_id": 5735453,
+  "field": "polarity",
+  "claude": "favorable",
+  "codex": "mixed"
+ },
+ {
+  "case_id": 5735453,
+  "field": "characterization",
+  "claude": "innkeeping",
+  "codex": "lodging"
+ },
+ {
+  "case_id": 2599751,
+  "field": "characterization",
+  "claude": null,
+  "codex": "lease"
+ },
+ {
+  "case_id": 5206672,
+  "field": "relevant",
+  "claude": false,
+  "codex": true
+ },
+ {
+  "case_id": 5206672,
+  "field": "polarity",
+  "claude": "irrelevant",
+  "codex": "mixed"
+ },
+ {
+  "case_id": 5206672,
+  "field": "characterization",
+  "claude": null,
+  "codex": "innkeeping"
+ },
+ {
+  "case_id": 546238,
+  "field": "polarity",
+  "claude": "favorable",
+  "codex": "mixed"
+ },
+ {
+  "case_id": 630154,
+  "field": "relevant",
+  "claude": false,
+  "codex": true
+ },
+ {
+  "case_id": 630154,
+  "field": "polarity",
+  "claude": "irrelevant",
+  "codex": "favorable"
+ },
+ {
+  "case_id": 630154,
+  "field": "characterization",
+  "claude": null,
+  "codex": "lease"
+ },
+ {
+  "case_id": 915440,
+  "field": "polarity",
+  "claude": "favorable",
+  "codex": "mixed"
+ },
+ {
+  "case_id": 1101416,
+  "field": "polarity",
+  "claude": null,
+  "codex": "favorable"
+ },
+ {
+  "case_id": 2357250,
+  "field": "relevant",
+  "claude": false,
+  "codex": true
+ },
+ {
+  "case_id": 2357250,
+  "field": "polarity",
+  "claude": "irrelevant",
+  "codex": "adverse"
+ },
+ {
+  "case_id": 2357250,
+  "field": "characterization",
+  "claude": null,
+  "codex": "innkeeping"
+ },
+ {
+  "case_id": 2382572,
+  "field": "relevant",
+  "claude": false,
+  "codex": true
+ },
+ {
+  "case_id": 2382572,
+  "field": "polarity",
+  "claude": "irrelevant",
+  "codex": "favorable"
+ },
+ {
+  "case_id": 2382572,
+  "field": "characterization",
+  "claude": null,
+  "codex": "lodging"
+ },
+ {
+  "case_id": 4444216,
+  "field": "relevant",
+  "claude": false,
+  "codex": true
+ },
+ {
+  "case_id": 4444216,
+  "field": "polarity",
+  "claude": "irrelevant",
+  "codex": "favorable"
+ },
+ {
+  "case_id": 4444216,
+  "field": "characterization",
+  "claude": null,
+  "codex": "lease"
+ },
+ {
+  "case_id": 4448542,
+  "field": "polarity",
+  "claude": "favorable",
+  "codex": "mixed"
+ },
+ {
+  "case_id": 868498,
+  "field": "relevant",
+  "claude": true,
+  "codex": false
+ },
+ {
+  "case_id": 868498,
+  "field": "polarity",
+  "claude": "favorable",
+  "codex": "irrelevant"
+ },
+ {
+  "case_id": 868498,
+  "field": "characterization",
+  "claude": "lodging",
+  "codex": null
+ },
+ {
+  "case_id": 277215,
+  "field": "characterization",
+  "claude": "lodging",
+  "codex": "other"
+ }
+]
