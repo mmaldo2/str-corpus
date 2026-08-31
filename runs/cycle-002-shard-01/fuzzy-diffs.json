@@ -1,0 +1,637 @@
+[
+ {
+  "case_id": 378985,
+  "quote": "The evidence in the case does not bring respondent within the requirements of the provisions of section 71 of the Lien Law, essential to a valid lien in her favor as a boarding-house or lodging-house keeper.",
+  "source": "fect that the box and its contents have no value to her.      The evidence in the case does not bring respondent within the requirements of the provisions of section 71 of the Lien Law, essential to a valid lien in her favor as a boardinghouse or lodging-house keeper.      Under the authority of ",
+  "score": 99.51690821256038,
+  "page": "635",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.995,
+  "miss_runs": [
+   1
+  ]
+ },
+ {
+  "case_id": 1095904,
+  "quote": "it is very evident, from the claimant\u2019s own showing, that Dr. Clyde intended to and did pay his board in the agreed amount of three dollars and fifty cents during his lifetime",
+  "source": "nt of the board for the intervals of time between payments, and it is very evident, from the claimant\u2019s own showing, that Dr. Clyde intended to and did pay his board' in the agreed amount of three dollars and fifty cents during his lifetime, and the only excuse-f\u00f3r",
+  "score": 99.42857142857143,
+  "page": "461",
+  "supports": "holding_summary",
+  "classification": "needs-human",
+  "quote_coverage": 0.936,
+  "miss_runs": [
+   6,
+   5
+  ]
+ },
+ {
+  "case_id": 1171347,
+  "quote": "In support of her position, appellant cites Peaks v. Cobb, 197 Mass. 554, 83 N. E. 1106, and Gardiner v. DeSalles, 13 La. App. 83, 126 So. 739, holding that a lodger is not a sublessee within such a provision.",
+  "source": " of the accommodation received. In support of her position, appellant cites Peaks v. Cobb, 197 Mass. 554, 83 N. E. 1106, and Gardiner v. DeSalles, 13 La. App. 83, 126 So. 739, hblding that a lodger is not a sublessee within such a provision.      Defendant did not object at the trial, when the evid",
+  "score": 99.52153110047847,
+  "page": "403",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.995,
+  "miss_runs": [
+   1
+  ]
+ },
+ {
+  "case_id": 1238067,
+  "quote": "an area including defendants\u2019 land became classified as an R-1 Residence Zone, in which there were permitted only single family detached dwellings, churches, schools, libraries, government buildings and parks.",
+  "source": "g had meanwhile enacted a zoning ordinance under which an area including defendants\u2019 land became classified as an R-l Residence Zone, in which there were permitted only single family detached dwellings, churches, schools, libraries, government buildings and parks. After this court reversed the inju",
+  "score": 99.52153110047847,
+  "page": "320",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.995,
+  "miss_runs": [
+   1
+  ]
+ },
+ {
+  "case_id": 10191402,
+  "quote": "the evidence conclusively reveals that the land was purchased for the purpose of establishing thereon a tourist court to be occupied as a personal and business homestead",
+  "source": "he court.      It is our opinion that the evidence conclusively reveals that the land was purchased for the purpose of establishing thereon a tourist court to be occupied as a personal and 'business homestead; that such was soon thereafter established on the ",
+  "score": 99.40828402366864,
+  "page": "175",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 792662,
+  "quote": "Plaintiff, H. George Buck, was a paying guest of the defendant George Washington Motor Lodge on October 22, 1965, when, at sometime after midnight, while he was in bed in the room assigned him, he was awakened by the noise of an intruder in his room.",
+  "source": "bert C. Oehrle, Jr., for appellee.      September 18, 1970:             Opinion by      Cercone, J.,      Plaintiff, H. George Buck, was a paying guest of the defendant George Washington Motor Lodge on October 22,1965, when, at sometime after midnight, while he was in bed in the room assigned him, he was awakened by the noise of an intrud",
+  "score": 99.6,
+  "page": "264",
+  "supports": "characterization",
+  "classification": "needs-human",
+  "quote_coverage": 0.942,
+  "miss_runs": [
+   14
+  ]
+ },
+ {
+  "case_id": 11596913,
+  "quote": "Each Apartment Owner shall have an absolute right to lease or rent his apartment upon such terms as he shall approve, subject to all provisions and restrictions applicable to the Project.",
+  "source": "tion 5.02 of the Declaration stated \u201c[e]ach Apartment [unit] Owner shall have an absolute right to lease or rent his apartment upon such terms as he shall approve, subject to all provisions and restrictions applicable to the Project.\u201d The term \u201cabsolute right\u201d is limited by \u201cs",
+  "score": 96.2566844919786,
+  "page": "670",
+  "supports": "characterization",
+  "classification": "needs-human",
+  "quote_coverage": 0.93,
+  "miss_runs": [
+   13
+  ]
+ },
+ {
+  "case_id": 4484612,
+  "quote": "the various compartments are let and rented to them, they paying a sum in money as the rent thereof.",
+  "source": "nts, if they wish to use them, yet that the various copartments are let and rented to them, they paying a sum in money as the rent thereof. Ho reason occurs to me why, literally and truly, t",
+  "score": 99.0,
+  "page": "315",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.99,
+  "miss_runs": [
+   1
+  ]
+ },
+ {
+  "case_id": 4484612,
+  "quote": "No reason occurs to me why, literally and truly, the building of the defendant, which is to be occupied by tenants, in name and in fact, is not clearly within the true meaning and definition of a \u201ctenement-house.\u201d The injunction asked for must also for this reason be granted.",
+  "source": "ed to them, they paying a sum in money as the rent thereof. Ho reason occurs to me why, literally and truly, the building of the defendant, which is to be occupied by tenants, in name and in fact, is not clearly within the true meaning and definition of a \u201ctenement-house.\u201d The injunction asked for must also for this reason be granted.             The court is not ",
+  "score": 99.63768115942028,
+  "page": "315",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.996,
+  "miss_runs": [
+   1
+  ]
+ },
+ {
+  "case_id": 4488853,
+  "quote": "Rooms in suits or singly, on the different floors, are taken by families or individuals for some period.",
+  "source": "modation of transient guests or casual boarders. Eooms in suits or singly, on the different floors, are taken by families or individuals for some period. The cooking for all the guests or reside",
+  "score": 99.03846153846155,
+  "page": "357",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 345175,
+  "quote": "Where a husband and wife live together and the wife keeps boarders in the house, the husband is entitled to the board money, unless a special agreement between the husband and wife allowing her to have it for her sole property is shown.",
+  "source": "er Harrison, Appellant.      (City Court of New York      General Term,      November, 1895.)      Where a husband and wife live together and the wife keeps boarders in the house, the husband is .entitled to the board money, unless a special ' agreement between the husband and wife allowing her to have it for her sole' prope",
+  "score": 98.30508474576271,
+  "page": "462",
+  "supports": "holding_summary",
+  "classification": "needs-human",
+  "quote_coverage": 0.833,
+  "miss_runs": [
+   27,
+   12
+  ]
+ },
+ {
+  "case_id": 345175,
+  "quote": "Where a husband and wife live together and the wife keeps boarders in the house, the husband is entitled to the board money, unless a special agreement between the husband and wife allowing her to have it for her sole property is shown.",
+  "source": "er Harrison, Appellant.      (City Court of New York      General Term,      November, 1895.)      Where a husband and wife live together and the wife keeps boarders in the house, the husband is .entitled to the board money, unless a special ' agreement between the husband and wife allowing her to have it for her sole' prope",
+  "score": 98.30508474576271,
+  "page": "462",
+  "supports": "characterization",
+  "classification": "needs-human",
+  "quote_coverage": 0.833,
+  "miss_runs": [
+   27,
+   12
+  ]
+ },
+ {
+  "case_id": 345175,
+  "quote": "Where a husband and wife live together and the wife keeps boarders in the house, the husband is entitled to the board money, unless a special agreement between the husband and wife allowing her to have it for her sole property is shown.",
+  "source": "er Harrison, Appellant.      (City Court of New York      General Term,      November, 1895.)      Where a husband and wife live together and the wife keeps boarders in the house, the husband is .entitled to the board money, unless a special ' agreement between the husband and wife allowing her to have it for her sole' prope",
+  "score": 98.30508474576271,
+  "page": "462",
+  "supports": "polarity",
+  "classification": "needs-human",
+  "quote_coverage": 0.833,
+  "miss_runs": [
+   27,
+   12
+  ]
+ },
+ {
+  "case_id": 3754107,
+  "quote": "a boarder who lives in the leased premises is a sub-tenant, to the extent at least that the property belonging to him and contained in the leased premises is subject to seizure for the rent due by the tenant, only in so far as he is himself indebted to the tenant.",
+  "source": "ready held, and still adhere to, the proposition of law that a boarder who lives in the leased premises is a sub-tenant, to the extent at least that the property belonging to him and contained in the lease-d premises is subject to seizure for the rent due by the tenant, only in so far as he is himself indebted to the tenant.      Rosenthal vs. Longley,",
+  "score": 99.62121212121212,
+  "page": "416",
+  "supports": "characterization",
+  "classification": "needs-human",
+  "quote_coverage": 0.962,
+  "miss_runs": [
+   10
+  ]
+ },
+ {
+  "case_id": 3754107,
+  "quote": "a boarder who lives in the leased premises is a sub-tenant, to the extent at least that the property belonging to him and contained in the leased premises is subject to seizure for the rent due by the tenant, only in so far as he is himself indebted to the tenant.",
+  "source": "ready held, and still adhere to, the proposition of law that a boarder who lives in the leased premises is a sub-tenant, to the extent at least that the property belonging to him and contained in the lease-d premises is subject to seizure for the rent due by the tenant, only in so far as he is himself indebted to the tenant.      Rosenthal vs. Longley,",
+  "score": 99.62121212121212,
+  "page": "416",
+  "supports": "polarity",
+  "classification": "needs-human",
+  "quote_coverage": 0.962,
+  "miss_runs": [
+   10
+  ]
+ },
+ {
+  "case_id": 5035124,
+  "quote": "I conclude that the order and judgment should be reversed on the law and the facts, and that the application of the petitioner should be granted.",
+  "source": "r questions raised by the appellant, I conclude that the order and judgment should be reversed on the law and the facts, and that the application of the petitioner should be granted:      All concurred.      Order and judgment reversed",
+  "score": 99.3103448275862,
+  "page": "239",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 5086215,
+  "quote": "Where a wife renders services and furnishes meals to a stranger under an agreement made between herself and her husband that in case she renders such services and furnishes such meals she alone shall receive the recompense therefor and that it shall become her separate property, the common-law rights of the husband to his wife\u2019s services are abrogated and she may enforce the claim in her own name and right.",
+  "source": "law and fact would be that she was working for. her husband in the discharge of her marital duties.\u201d      Where a wife renders services and furnishes meals to a stranger under an agreement made between herself and her husband that in case she renders such services and furnishes such meals she alone shall receive the recompense therefor and that it shall become her separate property, the common-law rights of the husband to his. wife\u2019s services are abrogated and she may enforce the claim in her ow",
+  "score": 99.7560975609756,
+  "page": "118",
+  "supports": "holding_summary",
+  "classification": "needs-human",
+  "quote_coverage": 0.961,
+  "miss_runs": [
+   16
+  ]
+ },
+ {
+  "case_id": 10303145,
+  "quote": "It cannot be held as a matter of law that a camp for the use of travelers by automobile is a nuisance. The use of land for the purpose of a camp in a city or town is a lawful use, and may be exercised without thereby creating a nuisance.",
+  "source": "oy the use of others in their property. It cannot be held as a matter of law that a camp for the use of travelers by automobile is a nuisance. The use of land for the purpose of a camp in \u00e1 city or town is a lawful use, and may be exercised without thereby creating a nuisance. The lawful use of property cannot be enjoined. Th",
+  "score": 99.57805907172997,
+  "page": "752",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.991,
+  "miss_runs": [
+   2
+  ]
+ },
+ {
+  "case_id": 10029864,
+  "quote": "plaintiff had subleased from Mrs. Lowell one of the rooms in said dwelling at a monthly rental of $8.00, payable in semi-monthly sums of $4.00 each in advance",
+  "source": "      \u201cPlaintiff alleges that he had subleased from Mrs. Lowell one of the rooms in said dwelling at a monthly rental of $8.00, payable in semi-monthly sums of $4.00 each in advance, and that he owed no rent at the time. Hill, Harris & Company, Inc",
+  "score": 96.75324675324676,
+  "page": "159",
+  "supports": "duration_of_occupancy",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 1126530,
+  "quote": "the amendments are applicable to housing accommodations styled as hotels which do not satisfy the definition of hotels in the statute, even though such housing accommodations have not been subject to rent control since 1950, and even though such accommodations were once properly classified as hotels but have since deteriorated into something less",
+  "source": " any time. The court stated (p. 398): \u201c In short, the amendments are applicable to housing accommodations styled as hotels which do not satisfy the defin\u00edtion of hotels in the statute, even though such housing accommodations have not been subject to rent control since 1950, and even though such accommodations were once properly classified as hotels but have since deteriorated into something less      The State rent law (\u00a7 2, subd. 2, ",
+  "score": 99.71264367816092,
+  "page": "31",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.997,
+  "miss_runs": [
+   1
+  ]
+ },
+ {
+  "case_id": 1613746,
+  "quote": "In the former decision the court held that the part of the building occupied by dormitory facilities was primarily commercial in nature, competing with lodging houses which are avowedly commercial in character.",
+  "source": " rooms was fundamentally a commercial enterprise. In the former decision the court held that the part of the building occupied by dormitory facilities was primarily commercial in nature, competing with lodging houses which were avowedly commercial. That the institution was admittedly one of benevole",
+  "score": 95.23809523809523,
+  "page": "191",
+  "supports": "polarity",
+  "classification": "needs-human",
+  "quote_coverage": 0.938,
+  "miss_runs": [
+   1,
+   12
+  ]
+ },
+ {
+  "case_id": 10193061,
+  "quote": "It is our conclusion, therefore, there has been no violation of a legal right and hence there can be no recoverable damage.",
+  "source": "applied after he learned he had been evicted.      It is our conclusion, -therefore, there has been no violation of a legal right and hence there can be no recoverable damage. If it might be said the eviction was ",
+  "score": 99.1869918699187,
+  "page": "375",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 10197826,
+  "quote": "if the amendatory ordinance is upheld the hazards of traffic in the area will be increased, that the existing privacy and quietness of the area will be diminished and that the value of the properties located there will decrease",
+  "source": "d for many years has been, an exclusive residential district, that if the amendatory ordinance is upheld the hazards of traffic in. the area will be increased, that the existing privacy and quietness of the area will be diminished and that the value of the properties located there will decrease. These later facts st",
+  "score": 99.55947136563876,
+  "page": "473",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 10197826,
+  "quote": "The judgment of the trial court is reversed and judgment is here rendered declaring the amendatory ordinance invalid in so far as it relates to Blocks 5110 and 5113.",
+  "source": "inance as it relates to those Blocks.      The judgment of the trial court is reversed and judgment is here rendered declaring the amendatory ordinance invalid in so, far as it relates to Blocks 5110 and 5113.      Reversed and rendered.       ",
+  "score": 99.39393939393939,
+  "page": "474",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 10283820,
+  "quote": "the smaller house, being at the time of the purchase rented, continued to be occupied by the tenant until the levy of attachment on March 14, 1927, some three months after the date of the purchase",
+  "source": "sed the garden and the barn lot. But the smaller house, being at the time of the purchase rented, continued to be occupied by the tenant until the levy of the attachment on March 14, 1927, some three months after the date of the purchase. As explained, however, by the appellee, the ren",
+  "score": 97.95918367346938,
+  "page": "584",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 9522208,
+  "quote": "Por the foregoing reasons, the judgment of the trial court is correct and is affirmed at the appellants\u2019 costs.",
+  "source": "d 196 (La.1978).      III. CONCLUSION      For the foregoing reasons, the judgment of the trial court is correct and is affirmed at the appellants\u2019 costs.      AFFIRMED.             1       . No appeal",
+  "score": 99.09909909909909,
+  "page": "5",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.991,
+  "miss_runs": [
+   1
+  ]
+ },
+ {
+  "case_id": 9606185,
+  "quote": "On or about May 22, 1976, the Laubies were paying guests at the Royal Sonesta Hotel, which at all material times was under the management and control of Sonesta.",
+  "source": "          STATEMENT OF THE CASE           \u201cOn or about May 22, 1976, the Laubies were paying guests at the Royal Sonesta Hotel, which at all material times was under the management and control of Sones-ta. The Laubies are citizens of France and had oc",
+  "score": 99.37888198757764,
+  "page": "1375",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.987,
+  "miss_runs": [
+   2
+  ]
+ },
+ {
+  "case_id": 11517809,
+  "quote": "It is uncontested that the property in question, 2915 Chestnut St., is the Weislers\u2019 residence in the middle of the Garden District.",
+  "source": " the interpretation of zoning regulations.      It is uncontested that the property in question, 2915 Chestnut St., is the Weis-lers\u2019 residence in the middle of the Garden District. In Humphrey, supra, this Court emphasize",
+  "score": 99.24242424242425,
+  "page": "1261",
+  "supports": "who_was_letting",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 11766370,
+  "quote": "The Department of Safety and Permits denied the Plaintiff\u2019s request for the bed and breakfast permit on the grounds that the Plaintiff had not attained a nonconforming use of his residence.",
+  "source": "ty and Permits for a permit to operate a bed and breakfast at his residence. The Department of Safety and Permits denied the Plaintiffs request for the bed and breakfast permit on the grounds that the Plaintiff had not attained a nonconforming use of his residence. Thereafter, t",
+  "score": 99.47089947089947,
+  "page": "436",
+  "supports": "polarity",
+  "classification": "needs-human",
+  "quote_coverage": 0.878,
+  "miss_runs": [
+   22,
+   1
+  ]
+ },
+ {
+  "case_id": 11766370,
+  "quote": "Plaintiff-Appellant Louis R. Koerner, Jr. (\u201cPlaintiff\u201d) is an attorney who purchased a residence located at 1204 Jackson Avenue in the city of New Orleans on October 26, 1979.",
+  "source": "l judgment. For the reasons that follow, we affirm.      FACTS:      PlaintifftAppellant Louis R. Koerner, Jr. (\u201cPlaintiff\u2019) is an attorney who purchased a residence located at 1204 Jackson Avenue in the city of New Orleans on October 26, 1979. Plaintiffs residence",
+  "score": 98.85714285714286,
+  "page": "436",
+  "supports": "who_was_letting",
+  "classification": "needs-human",
+  "quote_coverage": 0.94,
+  "miss_runs": [
+   10
+  ]
+ },
+ {
+  "case_id": 12692177,
+  "quote": "Because the trial court herein failed to issue a ruling on the merits of the Summary Sales Tax Proceeding brought by the Collector, this court has no jurisdiction to decide this appeal. Accordingly, we must reverse the appealed judgment and remand this matter to the trial court for further proceedings.",
+  "source": ", 809 So.2d 1256, 1259.      Because the trial court herein failed to issue a ruling on the merits of the Summary Sales Tax Proceeding brought by the Collector, this court has no jurisdiction to decide this appeal. Accordingly, we must reverse the appealed judgment and remand this matter to the trial court for a rehearing.      DECREE      For the foregoing reasons, the judgment signed on M",
+  "score": 96.97986577181209,
+  "page": "701",
+  "supports": "holding_summary",
+  "classification": "needs-human",
+  "quote_coverage": 0.936,
+  "miss_runs": [
+   19
+  ]
+ },
+ {
+  "case_id": 4268287,
+  "quote": "The court finds that BOT\u2019s argument that licensees housed at BOT are exempt from statutory protections and may be subject to extrajudicial eviction unpersuasive and not grounded in fact or law.",
+  "source": "r omissions occurred within seven days prior to such request.\u201d      The court finds BOT\u2019s argument that licensees housed at BOT are exempt from statutory protections and may be subject to extrajudicial eviction unpersuasive and not grounded in fact or law. There exists no law exempt",
+  "score": 97.40932642487047,
+  "page": "627",
+  "supports": "polarity",
+  "classification": "needs-human",
+  "quote_coverage": 0.974,
+  "miss_runs": [
+   5
+  ]
+ },
+ {
+  "case_id": 5735453,
+  "quote": "it is \u201cunlawful to rent any room in any such [SRO] dwelling for a period of less than a week,\u201d thereby implying that rentals of a week or more are lawful",
+  "source": "denced by Multiple Dwelling Law \u00a7 248 (16), which makes it \u201cunlawful to rent any room in any such [SRO] dwelling for a period of less than a week,\u201d thereby implying that rentals of a week or more are lawful. Further evidence that it is permiss",
+  "score": 98.0392156862745,
+  "page": "236",
+  "supports": "duration_of_occupancy",
+  "classification": "needs-human",
+  "quote_coverage": 0.473,
+  "miss_runs": [
+   47,
+   31
+  ]
+ },
+ {
+  "case_id": 9929170,
+  "quote": "It was uncontradicted that the Foxworths received $85 each month as rental on the garage apartment (an establishment on the premises, separate and apart from the dwelling house), and that approximately $6 per month was spent on the utilities for the garage apartment.",
+  "source": "ivity should be enjoined.      We believe this latter holding controls the present case.      It was uncontradicted that the Fox-worths received $85 each month as rental on the garage apartment (an establishment on the premises, separate and apart from the dwelling house), and that approximately $6 per month was spent on the utilities for the garage apart",
+  "score": 99.625468164794,
+  "page": "153",
+  "supports": "holding_summary",
+  "classification": "needs-human",
+  "quote_coverage": 0.962,
+  "miss_runs": [
+   6,
+   4
+  ]
+ },
+ {
+  "case_id": 5289134,
+  "quote": "The charter of the city expressly delegates the power to \u201c regulate houses of prostitution and assignation \u201d and \u201cexclude such houses from certain limits\u201d and \u201cto close the same,\u201d and \u201cto authorize the Mayor to close such places.\u201d",
+  "source": "property \u201c without due process of law.\u201d      We think not. The charter of the city expressly delegates the power to \u201c regulate houses of prostitution and assignation \u201d and \u201c to exclude such houses from certain limits\u201d and \u201cto close the same,\u201d and \u201cto authorize the Mayor to close such places.\u201d Act 20 of 1882, sec. 8, pa",
+  "score": 98.26086956521739,
+  "page": "1081",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 5303699,
+  "quote": "When a lessor, in illegally issuing a writ of ejectment was actuated by malice, he is liable to a lessee for damages, as a recompense for an oufet age upon his rights and feelings as a citizen and a man.",
+  "source": "gally issues without probable cause, malice will be inferred.      When a lessor, in illegally issuing a writ of ejectment was actuated by malice, he is liable to a lessee for damages, as a recomperse for an oufet age upon his rights and feelings as a citizen and a man.      A PPEAL from the ",
+  "score": 99.50738916256158,
+  "page": "15",
+  "supports": "polarity",
+  "classification": "needs-human",
+  "quote_coverage": 0.889,
+  "miss_runs": [
+   21,
+   1
+  ]
+ },
+ {
+  "case_id": 644432,
+  "quote": "The action is on a written lease of a suit of rooms in the apartment house of the plaintiff, known as the \u201cFour Seasons.\u201d The hiring was for one year from November 1, 1882",
+  "source": "m, constitutes no defense to an. action for the rent.      The action is on a written lease of a' suit of rooms bathe apartment house of the plaintiff, known as the \u201cFour Seasons.\u201d The hiring was for one year from November 1, 1882, and the recovery sought is th",
+  "score": 98.24561403508771,
+  "page": "514",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.982,
+  "miss_runs": [
+   3
+  ]
+ },
+ {
+  "case_id": 1407541,
+  "quote": "That rule simply instructed the jury to give the plaintiff that compensation for the loss of the use and occupation of those rooms for which he had furniture, as the evidence showed the use and occupation of such rooms furnished for hotel purposes was worth, and also for those rooms for which he did not have furniture, such compensation as the evidence showed their use and occupation was worth.",
+  "source": "ese rooms, or of the effect of such rule. That rule simply instructed the jury to give the plaintiff that compensation for the loss of the use and occupation of those rooms for which he had furniture, as the evidence showed the use and occupation of such rooms furnished for hotel purposes was worth, and also for those rooms for which he did not have furniture, such compensation as ' the evidence showed their use and occupation was worth.      It was right that the plaintiff should b",
+  "score": 99.49622166246851,
+  "page": "116",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 1407541,
+  "quote": "The premises were leased by the defendant to the plaintiff for hotel purposes, which contemplates the provision of suitable furniture for the rooms for the use of such persons as the plaintiff in his business as a hotel keeper should let them to.",
+  "source": "an be shown like the value of the use of any other property. The premises were leased by the defendant to the plaintiff for hotel purposes, which contemplates the provision of suitable furniture for the rooms for the use of such persons as the plaintiff in his business as a hotel keeper should let them to, and when deprived by the def",
+  "score": 99.59349593495935,
+  "page": "116",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 1965708,
+  "quote": "The defendant seeks to counter-claim a cause of action arising to him out of the self same contract.",
+  "source": "ch of that contract by the defendant.      The defendant seeks to counter-claim a cause .of action arising to him out of the self same contract.      This comes directly within section 150 o",
+  "score": 99.0,
+  "page": "200",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 1978598,
+  "quote": "There is authority for holding that a lodging house keeper like the defendant does not assume responsibility for the goods of his lodger, as he does not take them into his custody.",
+  "source": "servants to leave, the hall door unlocked.      There is authority for holding that a lodging house keeper like the defendant does not assume responsibility for the goods of his lodger, as he does not take them into Ms custody. Edwards on Bailments, sec. 477; Smith v. R",
+  "score": 98.88888888888889,
+  "page": "589",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.989,
+  "miss_runs": [
+   2
+  ]
+ },
+ {
+  "case_id": 1978598,
+  "quote": "But conceding that the defendant was bound, as a lodging house keeper, to take the same care of the plaintiff\u2019s property that a prudent person takes of his own, the defendant, nevertheless, was entitled to judgment in his favor.",
+  "source": "s (13th ed.), vol. 2, marg., 596.      But conceding that the defendant was bound, as a lodging house keeper, to take the same care of the plaintiff\u2019s property that a prudent person takes of Ms own, the defendant, nevertheless, was entitled to judgment in his favor. The plaintiff complains that the defendant did not ",
+  "score": 99.12280701754386,
+  "page": "589",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.991,
+  "miss_runs": [
+   2
+  ]
+ },
+ {
+  "case_id": 2030674,
+  "quote": "It involves a lease for the ordinary period of one year, instead of a few weeks or months -during the fashionable season.",
+  "source": "ove mentioned, in two significant particulars: 1st. It involves a lease for the ordinary period of one year,- instead of a few weeks or months \u2022during the fashionable season. 2d. The cause of complaint did not o",
+  "score": 99.17355371900827,
+  "page": "957",
+  "supports": "characterization",
+  "classification": "needs-human",
+  "quote_coverage": 0.941,
+  "miss_runs": [
+   5,
+   2
+  ]
+ },
+ {
+  "case_id": 2030674,
+  "quote": "We do not think that there was any covenant in the lease in question, implied either by common law or from the acts or relations of the parties, that extended to the grievance of which the- defendant complains.",
+  "source": "he property leased, whether real or personal.      We do not think that there was any covenant in the lease in question, implied either by common law or from the acts or relations of the parties, that extended to the grievance of which the-defendant complains.      The judgment should, therefore, ",
+  "score": 99.51923076923077,
+  "page": "959",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 2039624,
+  "quote": "We concur with the trial judge respecting the indebtedness of ]he assignor to his wife, and in his conclusion that the debt was croperly preferred in the assignment.",
+  "source": "e, and as they were found and determined so went the judgment.      We concur with the trial judge respecting the indebtedness of ;he assignor to his wife, and in his conclusion that the debt was croperly preferred in the assignment.      The judgment sho",
+  "score": 99.39393939393939,
+  "page": "341",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 2081402,
+  "quote": "Defendant\u2019s lease ended, by its terms, on May 1, and provided that the premises should be occupied as a private dwelling and not sublet without the written consent of the lessor. Defendant sublet the premises to C., who occupied them as a boarding house, and one of her boarders was a chronic invalid.",
+  "source": " convenience, but because he cannot help it.      2. Saids.      Defendant\u2019s lease ended, by its terms, on May 1, and provided that the premises should he occupied as a private dwelling and not sublet without the written consent of the lessor. Defendant sublet the premises to C., who occupied them as a boarding house, and one of her boarders was a chronic invalid. The first of May was a h",
+  "score": 99.66777408637874,
+  "page": "243",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.997,
+  "miss_runs": [
+   1
+  ]
+ },
+ {
+  "case_id": 2251466,
+  "quote": "it contained a provision that the premises should be occupied as a private dwelling, and a covenant not to sublet without the written consent of the lessor. Both stipulations were violated. The tenant, without permission, rented the premises to Mrs. Coventry, who occupied them as a boarding-house.",
+  "source": " lease ended by its terms on May 1,1889; that it contained a provision that the premises should be occupied as a private dwelling, and a covenant not to sublet without the written consent of the lessor. Both stipulations were violated. The tenant, without permission, rented the premises to Mrs. Coventry, who occupied them as a boarding-house, and received, as one of her boarders, a lad",
+  "score": 99.66442953020133,
+  "page": "289",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 2251466,
+  "quote": "it contained a provision that the premises should be occupied as a private dwelling, and a covenant not to sublet without the written consent of the lessor. Both stipulations were violated. The tenant, without permission, rented the premises to Mrs. Coventry, who occupied them as a boarding-house.",
+  "source": " lease ended by its terms on May 1,1889; that it contained a provision that the premises should be occupied as a private dwelling, and a covenant not to sublet without the written consent of the lessor. Both stipulations were violated. The tenant, without permission, rented the premises to Mrs. Coventry, who occupied them as a boarding-house, and received, as one of her boarders, a lad",
+  "score": 99.66442953020133,
+  "page": "289",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 2297464,
+  "quote": "the second is for the value of the exclusive use of a room by him in the plaintiff\u2019s boarding house during a period mentioned in the complaint.; and the third is for the value of the partial use of a room by him in her house during another period of time also stated in the complaint.",
+  "source": "or during a stated period of time; the second is for the value of the exclusive use of a room by him' in the plaintiff\u2019s boarding house during a period mentioned in the complaint.; and the third is for the value of the partial use of a room by him in her house during another period of time also stated in the complaint. The reasonable value of the meals furnished and the v",
+  "score": 99.64788732394366,
+  "page": "200",
+  "supports": "who_was_letting",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 2301654,
+  "quote": "The defendants kept a lodging house in the city of New York. The plaintiff had stayed there one or two nights.",
+  "source": "servant of the defendants upon the plaintiff. \u25a0 The .defendants kept a lodging house in the city of New York. The plaintiff had stayed there one or two' nights. According to the plaintiff\u2019s story he w",
+  "score": 98.18181818181819,
+  "page": "96",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 872177,
+  "quote": "the said F. A. Fessenden, assisted by his said wife, Eliza, kept a boarding house in the borough of Montrose, Pa., the profits of which were the principal source of support of the said Fessenden family",
+  "source": "liza Fessenden filed her petition in No. 222, January term, 1892, the said F. A. Fessenden, assisted by his said wife, Eliza, kept a boarding house in the borough of-Montrose, Pa., the profits of which were the principal source of support of the said Fessenden family.      \u201c 22. The boardin",
+  "score": 99.50248756218906,
+  "page": "634",
+  "supports": "characterization",
+  "classification": "needs-human",
+  "quote_coverage": 0.829,
+  "miss_runs": [
+   33
+  ]
+ }
+]

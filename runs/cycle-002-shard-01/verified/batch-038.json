@@ -1,0 +1,543 @@
+[
+ {
+  "case_id": 10047724,
+  "cite": "Armand v. Bordelon, 53 So. 2d 168",
+  "court": "Louisiana Court of Appeal, Second Circuit",
+  "year": 1951,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Jurisdiction dispute over a farm lease and improvements dispute; no lodging/boarding issue present.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "Case concerns venue/jurisdiction over a farm lease dispute; retrieval hits are incidental caption/header matches.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10047748,
+  "cite": "Le Blanc v. Palmisano, 43 So. 2d 263",
+  "court": "Louisiana Court of Appeal, Orleans",
+  "year": 1949,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.45,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Subdivision property owners sought to enjoin defendants from building a tourist court on their lots based on a title restriction against commercial property. The court held the restriction against commercial property was a personal covenant between the original vendor and a predecessor in title, not a covenant running with the land, and therefore did not bind or restrain the defendants' construction of the tourist court (though a separate building-line restriction was enforced).",
+  "doctrinal_concepts": [
+   "restrictive_covenant_commercial_use"
+  ],
+  "new_terms_observed": [
+   "tourist court"
+  ],
+  "quotes": [
+   {
+    "text": "In our opinion, however, a casual reading of this restriction indicates that it is not a covenant running with the land, but is a personal covenant between the vendor, Claiborne Avenue Extension Realty Company, Inc., and Henry M. Rahders, the predecessor in title of defendants.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5825,
+     6103
+    ],
+    "reporter_page": "265"
+   },
+   {
+    "text": "it is not a covenant running with the land, but is a personal covenant",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3727,
+     3797
+    ],
+    "reporter_page": "265"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "No characterization of an actual letting arrangement occurs; case adjudicates enforceability of a covenant restricting construction of a tourist court, effectively permitting the commercial lodging use to proceed. who_was_letting/duration are unclear because no tenants/guests are at issue, only prospective construction of the tourist court itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10049018,
+  "cite": "Turner v. Ratcliff, 152 So. 379",
+  "court": "Louisiana Court of Appeal, Second Circuit",
+  "year": 1934,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Dispute over a lessor's lien on a car belonging to the lessee's adult son, who was an unpaid overnight guest at his parents' home; the 'traveler in an inn' analogy is used only to determine whether the car was 'transiently' on the leased premises, not to address paid lodging.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "Son was a free family guest, not a paying lodger; the inn-guest comparison is dicta on transience for lien-exemption purposes, unrelated to compensated occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10049841,
+  "cite": "Barrett v. Barrett, 5 So. 2d 381",
+  "court": "Louisiana Court of Appeal, Second Circuit",
+  "year": 1941,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "In a dispute over the scope of a grantor's reserved lifetime 'use and habitation' of a house conveyed to her nephew, the court held that the codal right of habitation is limited to the necessities of the grantee and her family, but expressly does not prevent the holder of a habitation right from receiving boarders in the house so long as she inhabits it herself.",
+  "doctrinal_concepts": [
+   "right_of_habitation",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "But nothing prevents him, who enjoys the right of habitation, from receiving in the house, or the part of it which has been assigned to him, friends, guests, or even boarders, provided he inhabits it himself.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     8051,
+     8259
+    ],
+    "reporter_page": "383"
+   },
+   {
+    "text": "The quoted codal provisions, in our opinion, clearly show that the necessities of the grantee, along with those of his family, are determinative of the extent of the privileges and rights to be enjoyed by him under a grant of use and habitation.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8620,
+     8865
+    ],
+    "reporter_page": "383"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "No actual boarders were taken in this case; the Civil Code article quoted establishes, as a matter of law, that a resident occupying under even a limited habitation right (not full ownership) may lawfully take in boarders while inhabiting the house herself. characterization left null because no specific letting transaction was classified by the court.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10062753,
+  "cite": "Erdo Realty, Inc. v. Terry, 163 So. 736",
+  "court": "Louisiana Court of Appeal, Orleans",
+  "year": 1935,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Landlord-tenant suit for unpaid office rent and a landlord's lien dispute over furniture on the leased premises; no residential lodging issue.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "Commercial office lease and lessor's lien dispute; unrelated to householder/boarding-house letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10066923,
+  "cite": "Magnolia Petroleum Co. v. Carter, 2 So. 2d 680",
+  "court": "Louisiana Court of Appeal, Second Circuit",
+  "year": 1941,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Ejectment action over a sublease of a filling-station lot; commercial real property, not residential lodging.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "Purely commercial ground lease/sublease dispute between businesses; no relevance to compensated dwelling occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10067085,
+  "cite": "Lack v. Anderson, 27 So. 2d 653",
+  "court": "Louisiana Court of Appeal, Second Circuit",
+  "year": 1946,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "innkeeping",
+  "holding_summary": "Plaintiff, a paying hotel guest for several months, sued the hotel operator for property stolen from his locked room. The court held that under the Civil Code articles governing innkeepers, the hotel operator was liable to the paying guest for the loss because it had not complied with statutory prerequisites (safe deposit and posted notices) that would have limited its liability.",
+  "doctrinal_concepts": [
+   "innkeeper_liability",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "An innkeeper' is responsible as depositary for the effects brought by travelers who lodge at his house; the deposit of such effects is considered as a necessary deposit.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3898,
+     4067
+    ],
+    "reporter_page": "654"
+   },
+   {
+    "text": "We experience no difficulty in reaching the conclusion that under the facts of this case and the law defining the duties and fixing the liability of innkeepers to their paying guests, defendant is responsible to plaintiff for the value of the articles stolen from his room.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3187,
+     3460
+    ],
+    "reporter_page": "654"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "Favorable in the sense that the court enforces protections for a paying lodger against the commercial operator; the dispute is over liability for stolen property, not the legality of the letting itself.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 10067092,
+  "cite": "Valley Camp, W. O. W. v. Bethany Lodge, F. & A. M., 190 So. 833",
+  "court": "Louisiana Court of Appeal, Second Circuit",
+  "year": 1939,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Dispute between two fraternal lodges over possession and monthly rental of a meeting hall; not residential lodging or boarding.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "Rental dispute over a lodge meeting hall between organizations; no dwelling/lodging-house issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10069927,
+  "cite": "Tucker v. Woodside, 53 So. 2d 503",
+  "court": "Louisiana Court of Appeal, First Circuit",
+  "year": 1951,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "A deed restriction bound the purchaser, her heirs, successors and assigns never to build or permit a 'saloon, nightclub or tourist court' on the conveyed land. The court held this restriction was a real obligation running with the land (distinguishing Le Blanc v. Palmisano, where similar language lacked express successor-binding terms), and thus was binding and enforceable against subsequent owners, barring construction of a tourist court.",
+  "doctrinal_concepts": [
+   "restrictive_covenant_commercial_use",
+   "servitude_running_with_land"
+  ],
+  "new_terms_observed": [
+   "tourist court"
+  ],
+  "quotes": [
+   {
+    "text": "And now the said purchaser hereby binds and obligates herself unto the said Edward L. Woodside, never to build or permit the building of any saloon, nightclub or tourist court upon the property herein conveyed.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     528,
+     738
+    ],
+    "reporter_page": "504"
+   },
+   {
+    "text": "The restrictive stipulation was not forbidden by law and was binding upon Mrs. Roberts and all subsequent purchasers.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7629,
+     7746
+    ],
+    "reporter_page": "505"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "Adverse: court sustains a permanent restriction barring a tourist court (short-term commercial lodging) as a valid, binding real obligation. characterization left null since no actual letting transaction is characterized, only covenant validity.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10072991,
+  "cite": "Cheatham v. Bohrer, 17 So. 2d 492",
+  "court": "Louisiana Court of Appeal, Orleans",
+  "year": 1944,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.35,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "A laborer who rented a room from a tenant occupying half of a dwelling was injured falling through an unfloored attic space while moving in. The court held the building owner not liable because that portion of the attic was not intended for habitable use, but recognized in its analysis that a sub-occupant renting a room from a tenant may, under the proper facts, recover from the owner for defects even where the tenant could not.",
+  "doctrinal_concepts": [
+   "sublease_status",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "there may be circumstances in which a third person rightfully in the premises as a sublessee of the tenant, or as a guest of-the tenant, may recover from the owner of the building, even though the tenant could-riot have recovered",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     8757,
+     8986
+    ],
+    "reporter_page": "494"
+   },
+   {
+    "text": "we find no defect here and no fault in original construction, and therefore, the owner is not liable since the accident resulted either from fault of the tenant in unfastening the door and in permitting the subtenant to use it, or from negligence on the part of the subtenant, himself.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     12752,
+     13037
+    ],
+    "reporter_page": "495"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "The court treats a tenant's informal renting-out of a spare room to a laborer as an unremarkable, legitimate arrangement (never questioning its legality) while resolving tort liability; characterization left null because the court never doctrinally classified the room arrangement as lease/license/lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10076748,
+  "cite": "Newton v. Independent Exploration Co., 171 So. 875",
+  "court": "Louisiana Court of Appeal, First Circuit",
+  "year": 1937,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Automobile accident/negligence suit; a passing mention that travelers stopped at a 'tourist camp' and did their own cooking during vacation travel, with no legal discussion of the arrangement.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "Tourist camp is mentioned only as an incidental travel fact in a car-accident damages case; no discussion of its legal character or regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10099166,
+  "cite": "Anglin v. Nasif, 39 So. 2d 604",
+  "court": "Louisiana Court of Appeal, Second Circuit",
+  "year": 1948,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "Tenants sued their landlord for OPA rent-overcharge damages after the landlord attempted to reclassify an apartment as separately registered 'sleeping rooms' (with kitchen privileges) to obtain a higher combined rent ceiling under the Hotel and Rooming-house Regulation. On rehearing, the court found the landlord had in fact continued to rent the premises as a single apartment to all three tenants, making the sleeping-room registration an unlawful evasion of the price ceiling, and awarded tenants damages and attorney's fees.",
+  "doctrinal_concepts": [
+   "rooming_house_regulation",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "sleeping rooms",
+   "kitchen privileges"
+  ],
+  "quotes": [
+   {
+    "text": "she in fact rented the premises as an apartment and did collect a rental in excess of the ceiling fixed",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     16975,
+     17078
+    ],
+    "reporter_page": "608"
+   },
+   {
+    "text": "The maximum rent, and other requirements provided in this regulation shall not be evaded, either directly or indirectly, in connection with the renting or leasing",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     15506,
+     15668
+    ],
+    "reporter_page": "608"
+   },
+   {
+    "text": "the fact remains that she made no physical changes and she in fact rented the premises to the three plaintiffs and accepted the $75 payments, knowing that the three people, each and all used the premises as an apartment unit.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     14658,
+     14883
+    ],
+    "reporter_page": "608"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "Directly on point: regulatory scheme (OPA/Hotel and Rooming-house Regulation) governing rental of sleeping rooms with kitchen privileges is enforced against a landlord's evasion attempt, an adverse (regulation-sustained) result for the higher-rent sleeping-room letting scheme.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10102575,
+  "cite": "Duvic v. Home Finance Service, 23 So. 2d 790",
+  "court": "Louisiana Court of Appeal, Orleans",
+  "year": 1945,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Ejectment action concerning a commercial partnership's sublease of business premises (an auto finance office); no residential lodging issue.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "Purely commercial sublease/partnership dissolution dispute; unrelated to dwelling lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11637835,
+  "cite": "Terwilliger v. Union Fire, Accident & General Ins., 185 So. 43",
+  "court": "Louisiana Court of Appeal, Orleans",
+  "year": 1938,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Fire insurance coverage dispute turning on the policy's vacancy/unoccupancy clause after the insured moved away from his dwelling; no letting or boarding arrangement at issue.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "Insurance-occupancy clause case about the insured's own absence from his home, not about letting the dwelling to others for pay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1190078,
+  "cite": "Martin v. Martin, 191 La. 761",
+  "court": "Louisiana Supreme Court",
+  "year": 1939,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Divorce and alimony case; the retrieved 'boarding-variants' text match is a medical description of the wife's blood pressure symptoms, unrelated to boarding/lodging.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "Spurious selector match; the word sequence concerns blood pressure readings ('varied between 150 and 190'), not boarding houses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1190105,
+  "cite": "City of Shreveport v. Breazeale, 191 La. 1088",
+  "court": "Louisiana Supreme Court",
+  "year": 1939,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Constitutional challenge to a municipal ordinance requiring taxicab operators to post an indemnity bond; police-power regulation of taxi transportation, not lodging or boarding houses.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "Police-power regulation case, but subject matter is taxicab bonding, not lodging/boarding regulation; spurious selector match on generic police-power language.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1192667,
+  "cite": "State v. Humble Oil & Refining Co., 195 La. 457",
+  "court": "Louisiana Supreme Court",
+  "year": 1940,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Dispute over whether the State Mineral Board or parish school boards control mineral leases on sixteenth-section school lands; no dwelling-letting issue.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "Mineral-lease jurisdiction dispute over public school lands; spurious selector match on generic lease language.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1192672,
+  "cite": "Martel v. Hunt, 195 La. 701",
+  "court": "Louisiana Supreme Court",
+  "year": 1940,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Ownership and mineral-lease/warranty dispute over land, including prescription and drilling-expense allocation; no dwelling-letting issue.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-038",
+  "notes": "Oil and gas lease/title/warranty litigation; spurious selector match on generic lease/lessee language.",
+  "extraction_status": "ok"
+ }
+]

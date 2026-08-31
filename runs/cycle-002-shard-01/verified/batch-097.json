@@ -1,0 +1,511 @@
+[
+ {
+  "case_id": 1421117,
+  "cite": "32 N.Y. Super. Ct. 705",
+  "court": "New York Superior Court",
+  "year": 1870,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "Innkeeper liability for a hotel guest's stolen watch/money turning on the guest's negligence in leaving his door unlocked; concerns tort liability standards for innkeepers, not the legal character or regulation of short-term letting/lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1421128,
+  "cite": "32 N.Y. Super. Ct. 470",
+  "court": "New York Superior Court",
+  "year": 1870,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "Fire insurance policy assignment and reattachment dispute after a property sale; no connection to lodging, boarding, or short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1423603,
+  "cite": "26 N.Y. Super. Ct. 262",
+  "court": "New York Superior Court",
+  "year": 1865,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "Municipal comptroller's power to lease a public wharf/dock franchise by auction; concerns wharfage franchises, not dwellings or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1423638,
+  "cite": "26 N.Y. Super. Ct. 352",
+  "court": "New York Superior Court",
+  "year": 1865,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "Innkeeper's liability for a guest's money deposited in the hotel safe, and the guest's duty to disclose value; a tort/bailment liability dispute, not a case about the legal character or regulation of letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1423661,
+  "cite": "26 N.Y. Super. Ct. 327",
+  "court": "New York Superior Court",
+  "year": 1865,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court held that letting out furnished rooms to gentlemen for pay as a boarding house was the tenant's assumed lawful and ordinary purpose in hiring the house, and that the landlord's alleged knowledge of the house's prior disreputable use and false representation that it was 'a good place' for that business raised a jury question of fraudulent concealment, rather than a matter properly decided against the tenant as a matter of law.",
+  "doctrinal_concepts": [
+   "boarding_house_keeping",
+   "furnished_rooms_letting",
+   "implied_covenant_fitness_for_use",
+   "landlord_concealment"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It is a subject of defense and recoupment, in an action for rent, that premises demised for the purpose of keeping a respectable boarding house therein had be\u00e9n previously occupied, to the knowledge of the lessor, without disclosing it, as a house-Of ill-fatn'e, and continued, after such demise, in consequence thereof, tobe subject to nightly visits at all hours, from disreputable persons of both sexes, to the .annoyance and disturbance of the tenant, and bringing, reproach and disgrace upon herself and her family, thus defeating the purposes and uses for which she r\u00e9nt'ed tbe bouse, and forcing her to abandon her business therein.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     81,
+     720
+    ],
+    "reporter_page": "327"
+   },
+   {
+    "text": "The evidence in the present case tended to show that the plaintiff represented that the premises were \u201ca good place\u201d for the defendant to let out rooms furnished to gentlemen.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6488,
+     6663
+    ],
+    "reporter_page": "329"
+   },
+   {
+    "text": "The question of fact as to the character of the house at the time of the letting being known to the plaintiff, and his false representation or fraudulent concealment thereof from the defendant, we think should have been submitted to the jury.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8646,
+     8888
+    ],
+    "reporter_page": "330"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1425650,
+  "cite": "25 N.Y. Super. Ct. 701",
+  "court": "New York Superior Court",
+  "year": 1864,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "Attachment law concerning what constitutes non-residency for a debtor who traveled abroad on business while keeping his New York house; unrelated to letting or lodging practice.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1425651,
+  "cite": "25 N.Y. Super. Ct. 156",
+  "court": "New York Superior Court",
+  "year": 1864,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "In an action for rent under leases of two houses hired to be operated as a boarding house, the court held that even if a covenant is implied that leased premises are fit for occupation as a boarding house, that implied covenant does not extend by implication to fitness for a 'first class' or any other particular description of boarding house not expressly stated in the lease, and affirmed judgment for the landlords where no fraud or misrepresentation as to nearby nuisances was proven.",
+  "doctrinal_concepts": [
+   "boarding_house_keeping",
+   "implied_covenant_fitness_for_use",
+   "caveat_emptor_leasing"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Even if a covenant can be implied in a lease of promises to be used as a \u201c boarding house,\u201d that when let they are suitable for occupation as a \u201c boarding house,\u201d such a covenant cannot be extended, by implication, to \u201c first\u2019class,\u201d or any particular description of boarding house not expressly designated in the lease.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     192,
+     512
+    ],
+    "reporter_page": "156"
+   },
+   {
+    "text": "The actions were brought upon leases dated March 18th, 1861, made by the plaintiffs as landlords, to the defendant as tenant of two adjoining houses, Nos. 1 and 3 East 20th street, for the rent which remained unpaid up to the time of trial.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     689,
+     929
+    ],
+    "reporter_page": "156"
+   },
+   {
+    "text": "Conceding that there is an implied covenant in the lease that the premises when let, were fit and suitable for occupation as boarding houses, such covenant cannot be so extended by implication as to cover first class, or any particular description of boarding houses not expressly designated in the lease.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     20745,
+     21050
+    ],
+    "reporter_page": "162"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1425662,
+  "cite": "25 N.Y. Super. Ct. 326",
+  "court": "New York Superior Court",
+  "year": 1864,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "Negligence/nuisance dispute over diseased horses kept in adjoining stables; concerns a railroad company's own premises use, not letting of dwellings or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1425703,
+  "cite": "25 N.Y. Super. Ct. 56",
+  "court": "New York Superior Court",
+  "year": 1864,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "Dispute over a covenant to renew a long-term ground lease of a vacant lot at an appraised rent; a commercial real-estate renewal-covenant case, not lodging or short-term dwelling letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1603752,
+  "cite": "10 Daly (N.Y.) 398",
+  "court": "New York Court of Common Pleas",
+  "year": 1882,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "General landlord-tenant dispute over whether a void oral multi-year hiring created a tenancy from year to year or liability only for actual occupation; premises are not identified as lodging/boarding and no lodger practice is discussed.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1603803,
+  "cite": "10 Daly (N.Y.) 265",
+  "court": "New York Court of Common Pleas",
+  "year": 1881,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "Dispute over whether a dinner visitor became an inn 'guest' for purposes of innkeeper liability for a lost overcoat; concerns the scope of innkeeper tort liability, not the legal character or regulation of letting rooms/dwellings for pay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1608028,
+  "cite": "15 Daly (N.Y.) 170",
+  "court": "New York Court of Common Pleas",
+  "year": 1889,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a boarding-house keeper's statutory lien on a boarder's furniture for unpaid board took priority over a chattel mortgage that was not recorded until after the boarding-house keeper's claim had accrued, affirming judgment for the boarding-house keeper.",
+  "doctrinal_concepts": [
+   "boarding_house_keeping",
+   "statutory_lien_boarding_house"
+  ],
+  "new_terms_observed": [
+   "boarding-house keepers' act"
+  ],
+  "quotes": [
+   {
+    "text": "the defendant Cushing during all this time kept a boarding-house, and that the defendant Green boarded with her",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1692,
+     1803
+    ],
+    "reporter_page": "171"
+   },
+   {
+    "text": "It follows therefore that the justice was right in giving judgment in favor of the defendant Cushing under her lien as a boarding-house keeper.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3655,
+     3798
+    ],
+    "reporter_page": "172"
+   },
+   {
+    "text": "The chattel mortgage given the plaintiff by the defendant Green, not having been recorded until after all the indebtedness claimed by the defendant Cushing in this action accrued, was not a valid lien upon the furniture as against the defendant Cushing\u2019s claim under the boarding-house keepers\u2019 act.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3355,
+     3654
+    ],
+    "reporter_page": "171"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1608059,
+  "cite": "15 Daly (N.Y.) 438",
+  "court": "New York Court of Common Pleas",
+  "year": 1889,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "Remainder-man's right to sue for damages to the inheritance caused by an elevated railroad; a real-property/future-interests damages case unrelated to letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1608153,
+  "cite": "15 Daly (N.Y.) 69",
+  "court": "New York Court of Common Pleas",
+  "year": 1888,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "Promissory note dispute over res judicata effect of a prior judgment between maker and payee; no connection to letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1609633,
+  "cite": "16 Daly (N.Y.) 171",
+  "court": "New York Court of Common Pleas",
+  "year": 1890,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "General apartment/rooms tenancy dispute over the duration implied under the New York City statute for unspecified-term hirings and whether a surrender occurred; no boarding, lodging, or short-term letting practice is at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1616224,
+  "cite": "27 Misc. 232",
+  "court": "New York Supreme Court",
+  "year": 1899,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "Corporate governance dispute over a board of directors' power to lease company mines without stockholder consent; unrelated to dwelling letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1661814,
+  "cite": "44 N.Y. Super. Ct. 66",
+  "court": "New York Superior Court",
+  "year": 1878,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "In a libel action by a woman who kept a respectable boarding house for several years, the court held that a newspaper's publication calling her house home to a 'blackmailing crowd' was libelous per se, treating good character and respectability as valuable assets of her boarding-house business, though the judgment was reversed for improper admission of unrelated evidence.",
+  "doctrinal_concepts": [
+   "boarding_house_keeping",
+   "business_reputation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The evidence shows that the plaintiff was a person of good character, and keeping a large and respectable boardinghouse, which was a source of income and support for herself and her children, and that the publication complained of caused her injury, and damaged her business. Good character and respectability are elements of value in every worthy pursuit in life, and probably in few more so, than in the business conducted by the plaintiff.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3820,
+     4262
+    ],
+    "reporter_page": "68"
+   },
+   {
+    "text": "The conclusion reached in Edsall v. Brooks (2 Robt. 34), \u201cthat the term \u2018 blackmailing \u2019 is universally regarded as an unlawful act,\u201d and is libelous per se, is one to be concurred in.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8130,
+     8314
+    ],
+    "reporter_page": "70"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "characterization left null: this is a libel action, not a landlord-tenant or lodger dispute, so the court never classifies the legal character of any occupancy arrangement (no lease/license/lodging holding to quote).",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1672939,
+  "cite": "48 N.Y. Super. Ct. 220",
+  "court": "New York Superior Court",
+  "year": 1882,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-097",
+  "notes": "Dispute over a contract for advertising privileges in railroad cars, analyzed by analogy to the hiring of a chattel; unrelated to dwelling/lodging letting despite the leasing analogy.",
+  "extraction_status": "ok"
+ }
+]

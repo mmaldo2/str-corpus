@@ -1,0 +1,502 @@
+[
+ {
+  "case_id": 2279427,
+  "cite": "154 N.Y. 493",
+  "court": "New York Court of Appeals",
+  "year": 1897,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Street-surface railroad track-use proceeding; no bearing on residential letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2280512,
+  "cite": "5 A.D. 441",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1896,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Excise-law saloon/school-proximity case; teachers boarding within their own school building is not a compensated letting of dwelling rooms to outside occupants.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2280536,
+  "cite": "5 A.D. 124",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1896,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Commercial lease holding-over dispute over factory premises; no lodging/boarding element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2282289,
+  "cite": "6 A.D. 121",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1896,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "restrictive_covenant_business_use",
+   "boarding_house_use",
+   "laches_acquiescence"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The defendant, by her answer in the action, admits she purchased her property for the purpose of maintaining and using the same and the buildings thereon' for a private hotel or boarding house, and that she used the same for such purpose during the year 1895, and intends to so use it in the future.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     6884,
+     7183
+    ],
+    "reporter_page": "123"
+   },
+   {
+    "text": "The orders, so far as they enjoin the defendant from the keeping of a boarding house or hotel, must be reversed, with ten dollars costs and disbursements to abide the event, and in other respects are affirmed.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     16144,
+     16353
+    ],
+    "reporter_page": "127"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Duration of individual guest stays not given in text; only that the hotel operated seasonally ('summer season').",
+  "nulled_fields": [
+   "characterization",
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 2286049,
+  "cite": "8 A.D. 230",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1896,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Municipal rapid-transit financing/constitutional-law case; no lodging or boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2286115,
+  "cite": "8 A.D. 495",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1896,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Town's sale of railroad stock and statute-of-limitations dispute; no lodging/boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2286119,
+  "cite": "8 A.D. 160",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1896,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Corporate governance dispute over Burden Iron Company stock and 'fancy farming' at the family's private Woodside residences; not a compensated letting of rooms/dwelling.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2288860,
+  "cite": "1 How. Pr. (n.s.) 361",
+  "court": "New York Court of Appeals",
+  "year": 1886,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Ejectment case turning on who is 'actual occupant' between spouses; husband resided with wife as spouse/agent, not as a paying lodger or tenant.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2289285,
+  "cite": "10 A.D. 294",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1896,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Riparian/land-under-water title dispute on the Harlem River; no lodging or boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2293293,
+  "cite": "12 A.D. 258",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1896,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "boarding_house_regulation",
+   "police_power_fire_safety",
+   "boarding_house_definition"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Every boarding house having more than fifteen sleeping rooms above the basement story * * * shall be provided with such good and sufficient fire escapes, stairways, or other means of egress in case of fire, as shall be directed by the superintendent of buildings.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3130,
+     3393
+    ],
+    "reporter_page": "259"
+   },
+   {
+    "text": "But it seems to us that that case establishes beyond question the constitutionality of the act under which the superintendent acted and his right to give the direction which the statute required.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4898,
+     5093
+    ],
+    "reporter_page": "260"
+   },
+   {
+    "text": "Since the year 1880 No. 104 Madison avenue and No. 106 Madison avenue have been occupied by one tenant, and used by said tenant for the reception and entertainment of boarders.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1580,
+     1756
+    ],
+    "reporter_page": "258"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Case addresses building/regulatory classification, not the length of any individual boarder's stay.",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 2297416,
+  "cite": "14 A.D. 548",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1897,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Ordinary house-rental term dispute (month-to-month vs. annual) and agent authority in summary removal proceedings; not a lodging/boarding-house case.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2297451,
+  "cite": "14 A.D. 202",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1897,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Fixture-removal dispute; premises leased for a private boarding school, not a boarding house/lodging arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2297463,
+  "cite": "14 A.D. 474",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1897,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Pier-extension/riparian rights dispute on the Hudson River; no lodging or boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2297464,
+  "cite": "14 A.D. 199",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1897,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "boarding_house_debt_recovery",
+   "lodger_board_compensation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The plaintiff, a boarding house keeper, sued to recover certain sums claimed to be owing her by the defendant\u2019s testator.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1176,
+     1297
+    ],
+    "reporter_page": "200"
+   },
+   {
+    "text": "the second is for the value of the exclusive use of a room by him in the plaintiff\u2019s boarding house during a period mentioned in the complaint.; and the third is for the value of the partial use of a room by him in her house during another period of time also stated in the complaint.",
+    "supports": "who_was_letting",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     1446,
+     1730
+    ],
+    "reporter_page": "200",
+    "fuzzy_score": 99.64788732394366
+   },
+   {
+    "text": "The judgment appealed from must be reversed and a new trial ordered, with costs to abide the event.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4397,
+     4496
+    ],
+    "reporter_page": "201"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Complaint references a stated 'period' for room use and meals but the excerpt does not give its actual length.",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 2299250,
+  "cite": "15 A.D. 195",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1897,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Street-railroad track-use consent dispute (companion case to 2279427); no bearing on residential letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2301654,
+  "cite": "16 A.D. 95",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1897,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "lodging_house_operation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The defendants kept a lodging house in the city of New York. The plaintiff had stayed there one or two nights.",
+    "supports": "characterization",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     1967,
+     2077
+    ],
+    "reporter_page": "96",
+    "fuzzy_score": 98.18181818181819
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Case is doctrinally a master-servant tort-liability holding, not a ruling on the legality or regulation of lodging-house keeping; polarity left null for lack of a supporting quote on that question, though the underlying facts (short-term paid lodging, commercial keeper) are useful data points.",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 2303354,
+  "cite": "17 A.D. 63",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1897,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Municipal street-paving contract/bidding dispute; no lodging or boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2307156,
+  "cite": "19 A.D. 292",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1897,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-110",
+  "notes": "Criminal case on whether a liquor tax certificate is personal property subject to a chattel mortgage; no lodging or boarding content.",
+  "extraction_status": "ok"
+ }
+]

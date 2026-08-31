@@ -1,0 +1,585 @@
+[
+ {
+  "case_id": 3764406,
+  "cite": "27 Misc. 3d 1032",
+  "court": "New York Supreme Court, Cortland County",
+  "year": 2010,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.72,
+  "polarity": "mixed",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The court upheld the zoning board\u2019s determination that seven students leasing a single-family residence were separate roomers rather than a functional family equivalent. It nevertheless held that RPAPL 715 could not be used to evict them because the tenants themselves were not conducting an illegal trade or business.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "functional and factual family equivalent"
+  ],
+  "quotes": [
+   {
+    "text": "On June 15, 2009, petitioner entered into a written agreement to lease the property to seven Binghamton University students, for a term of approximately two years commencing on August 15, 2009 and ending on August 30, 2011.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Following the specified procedure, the ZBA first concluded that the occupants do not share the entire dwelling unit, instead acting as separate roomers, based on evidence \u2014 including photographs \u2014 showing that each has a separate room with his own refrigerator, computer, and television, and that each resident has his. own car.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Thus, the decision of the ZBA must be upheld.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Here, while it has been determined that the landlord has entered into a residential lease not permitted by the local zoning ordinance, there is no proof that the tenants have used the property for any conduct envisioned by the statute, such as conduct of an illegal trade or business; therefore, RPAPL 715 may not be used to compel their eviction.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Here, while it has been determined that the landlord has entered into a residential lease not permitted by the local zoning ordinance, there is no proof that the tenants have used the property for any conduct envisioned by the statute, such as conduct of an illegal trade or business; therefore, RPAPL 715 may not be used to compel their eviction.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "The occupancy was a two-year student lease rather than a short-term rental, but the decision directly addresses paid roomer-style occupancy and residential zoning."
+ },
+ {
+  "case_id": 3765287,
+  "cite": "27 Misc. 3d 938",
+  "court": "New York Supreme Court, New York County",
+  "year": 2010,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.34,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "A loft tenant\u2019s orderly departure at the end of a month-to-month tenancy was ordinary tenant turnover, not abandonment under the Loft Board rules. The court therefore upheld the denial of the owner\u2019s abandonment application.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Apartment 205 was rented to nonparty Kelly Bush for a term from September 2000 to August 2002 pursuant to a written lease.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The vacatur of a loft unit in the ordinary course of the lease should not be equated to an abandonment.",
+    "supports": "polarity"
+   },
+   {
+    "text": "The vacatur of a loft unit in the ordinary course of the lease should not be equated to an abandonment. Bush left the apartment at the end of her month-to-month tenancy; did not owe any rent; cooperated with petitioner\u2019s superintendent as to the vacatur of the apartment; left the apartment in good repair; turned over the keys to the apartment; and requested and received her security deposit back. Under these circumstances, and applying the nine factors in 29 RCNY 2-10 (f) (3), the agency did not err in finding that Bush did not abandon the apartment.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "Tangential to short-term letting because it concerns a long-term loft tenancy and the meaning of abandonment."
+ },
+ {
+  "case_id": 3776499,
+  "cite": "33 Misc. 3d 267",
+  "court": "New York Supreme Court, Kings County",
+  "year": 2011,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "Sidewalk-liability case about whether a life tenant made a two-family property owner occupied; compensated occupancy was not at issue."
+ },
+ {
+  "case_id": 3786837,
+  "cite": "39 Misc. 3d 221",
+  "court": "New York Supreme Court, New York County",
+  "year": 2013,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.99,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court preliminarily enjoined a commercial operator from advertising, contracting for, or allowing occupancies of less than 30 days in class A multiple dwellings and other buildings where transient occupancy was illegal. It treated the operation as an illegal, unsafe, and deceptive transient-rental business and public nuisance.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [
+   "transient residential rentals"
+  ],
+  "quotes": [
+   {
+    "text": "Suffice it to say that the provision of transient residential rentals is covered by Administrative Code \u00a7 20-700.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Again, even using the strict general test, placing unsuspecting tourists in illegal, dangerous accommodations constitutes irreparable injury, especially if there is a tragic fire; and the equities lie in favor of shutting down an illegal, unsafe, deceptive business, rather than in allowing said business to continue to operate (to defendants\u2019 presumed financial advantage).",
+    "supports": "polarity"
+   },
+   {
+    "text": "For the reasons set forth herein, the cross motion is denied, the motion is granted; and defendants and their employees, agents etc. are hereby preliminarily enjoined (a) from advertising, contracting for, and/or allowing the transient occupancy, i.e., less than 30 days, of New York City class A multiple dwellings, or any other buildings as to which transient occupancy is illegal; (b) from advertising such occupancies on any and all Internet websites and other media, and to remove whatever such advertising currently is on those sites, whether or not directly controlled or maintained by defendants; and (c) from disposing or modifying the records maintained and used to manage and operate such transient use; all until the resolution of this case or further court order.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "The record establishes stays of less than 30 days but does not identify whether the particular occupancies were nights or weeks; characterization is recorded as other because the court described transient residential rentals rather than formally classifying a tenancy."
+ },
+ {
+  "case_id": 3940191,
+  "cite": "66 A.D.3d 1393",
+  "court": "New York Supreme Court, Appellate Division, Fourth Department",
+  "year": 2009,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court upheld the zoning board\u2019s determination that a religious order\u2019s paid transitional-housing program was a halfway house rather than a permitted single-family residence or church. It also upheld the restriction against the religious-use challenge.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [
+   "Post-Release Transitional Housing",
+   "Transitional Housing facility"
+  ],
+  "quotes": [
+   {
+    "text": "Thereafter, The Brotherhood began operating a temporary group housing program designed to facilitate the reentry into society of men who had recently been incarcerated based on their convictions of nonviolent drug or alcohol related crimes.",
+    "supports": "characterization"
+   },
+   {
+    "text": "We conclude that the ZBA\u2019s determination that petitioners did not use the property as a single-family residence or a church within the meaning of sections 235-4 and 235-8, respectively, of the Town\u2019s Zoning Law is not arbitrary or capricious, an abuse of discretion, or affected by errors of law, and we further conclude that the determination is supported by substantial evidence",
+    "supports": "polarity"
+   },
+   {
+    "text": "The ZBA\u2019s determination was in furtherance of the compelling governmental interest in maintaining the R-l district as a single-family residential zone, and the cause of action alleging the violation of the Religious Land Use and Institutionalized Persons Act of 2000 must fail, inasmuch as it cannot be said that the ZBA\u2019s determination, i.e., the denial of permission to operate a \u201cTransitional Housing\u201d facility under contract with \u201cclients\u201d who pay a per diem fee of $25 per day for a room, \u201cimposes a substantial burden on the religious exercise of a person, including a religious assembly or institution\u201d",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "The nonprofit religious order was an institutional housing operator rather than a resident householder."
+ },
+ {
+  "case_id": 3957403,
+  "cite": "46 Misc. 3d 325",
+  "court": "New York Supreme Court, Monroe County",
+  "year": 2013,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.87,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court upheld zoning violations involving numerous houses rented to four or more unrelated occupants and rejected the owners\u2019 prior-use claims. It also sustained the amended family definition against an exclusionary-zoning challenge, while temporarily delaying enforcement so affected students could relocate.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "non-family rentals"
+  ],
+  "quotes": [
+   {
+    "text": "In support of its prior legal existing use claim, petitioners provided the ZBA with each lease that predated the December 2011 amendment.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Rather, the rental prohibition was enacted to ensure the quiet family nature of the residential sections of the Town\u2014a legitimate governmental function condoned by the Supreme Court\u2014while at the same time still permitting reasonable rental situations.",
+    "supports": "polarity"
+   },
+   {
+    "text": "In sum, this court declines to issue a declaratory judgment voiding the Code\u2019s 2011 definition of \u201cfamily\u201d as it does not effectuate exclusionary zoning.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Based upon all of the foregoing, it is the decision of this court that the first, second, and fourth causes of action in the verified petition and complaint be denied and that the third cause of action be dismissed. However, this court precludes any civil or criminal enforcement against petitioners, or the tenants, until after June 1, 2013, to afford the affected student tenants\u2014who are not parties to this lawsuit and are in the middle of their quarter\u2014time to find new living arrangements.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "The operator owned numerous rental houses. The opinion does not state the terms of the individual leases, so actual occupancy duration is unclear."
+ },
+ {
+  "case_id": 4098215,
+  "cite": "136 A.D.3d 486",
+  "court": "New York Supreme Court, Appellate Division, First Department",
+  "year": 2016,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "Cooperative-apartment inheritance and transfer-consent dispute; no compensated letting arrangement was at issue."
+ },
+ {
+  "case_id": 4268287,
+  "cite": "45 Misc. 3d 623",
+  "court": "New York City Civil Court, Kings County",
+  "year": 2014,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": "A resident who had occupied a bunk in a three-quarter house for more than 30 days and for whom DSS paid a monthly shelter allowance could not be removed through self-help. The operator was ordered to restore her to possession despite language purporting to make her a licensee and waive landlord-tenant protections.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "three-quarter house",
+   "program house"
+  ],
+  "quotes": [
+   {
+    "text": "There exists no law exempting BOT from the requirement to afford petitioner and, indeed, other occupants of BOT\u2019s bunk beds, due process of law.",
+    "supports": "polarity"
+   },
+   {
+    "text": "It is undisputed that the petitioner resided in the premises in excess of 30 days, from April 2014 through approximately 6:00 a.m. on July 11, 2014. The evidence establishes that DSS paid BOT $215 per month, an individual shelter allowance, for the months that petitioner occupied the premises. It is further undisputed that BOT had the petitioner removed and/or excluded from the premises on July 11, 2014 without a court order or resort to legal process, and that the petitioner remains out of possession to date.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Accordingly, respondent\u2019s motion to dismiss is denied. The court finds that the petitioner, Linette Cooper, is entitled to possession of the premises. Respondent is ordered to provide the petitioner, forthwith, immediate access to the building and the premises.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "The court rejected the operator\u2019s licensee terminology but did not definitively classify the arrangement as a lease, license, lodging, or innkeeping; characterization is therefore null."
+ },
+ {
+  "case_id": 4366903,
+  "cite": "133 A.D.3d 510",
+  "court": "New York Supreme Court, Appellate Division, First Department",
+  "year": 2015,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "Commercial-garage rent and use-and-occupancy dispute, not compensated occupancy of a dwelling or rooms."
+ },
+ {
+  "case_id": 4414183,
+  "cite": "74 N.Y.2d 443",
+  "court": "New York Court of Appeals",
+  "year": 1989,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.06,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "Cooperative-conversion case concerning an estate\u2019s eligibility for an insider purchase option; it does not decide the legality or regulation of compensated letting."
+ },
+ {
+  "case_id": 4429594,
+  "cite": "81 N.Y.2d 741",
+  "court": "New York Court of Appeals",
+  "year": 1992,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.86,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The Court of Appeals held facially unconstitutional a zoning definition of boarding house that swept in ordinary rented homes occupied by families. It remitted the proposed elderly congregate-housing project for further proceedings without deciding the separate family-definition issue.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [
+   "congregate housing facility"
+  ],
+  "quotes": [
+   {
+    "text": "The courts below correctly held that the Zoning Ordinance\u2019s definition of \"boarding house\u201d was unconstitutional.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Because the prohibition against a \"boarding house\u201d includes a family expressly permitted under the Zoning Ordinance\u2019s definition of \"family\u201d,* the definition of \"boarding house\u201d is overbroad, thereby inviting arbitrary application. Thus, this definition lacks a rational relationship to legitimate goals and is facially unconstitutional",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Accordingly, the order of the Appellate Division should be modified, without costs, by vacating the order and judgment of Supreme Court, except insofar as it declared unconstitutional the definition of \"boarding house\u201d in section 267-2 of the Zoning Ordinance of the City of Mount Vernon, and remitting the matter to Supreme Court with directions to remand to respondents for further proceedings in accordance with this opinion, and, as so modified, affirmed.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "The facility was proposed rather than operating, and the court invalidated the governing boarding-house definition without conclusively classifying the proposed arrangement; characterization is therefore null."
+ },
+ {
+  "case_id": 5311532,
+  "cite": "34 A.D.3d 792",
+  "court": "New York Supreme Court, Appellate Division, Second Department",
+  "year": 2006,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.59,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The court held that an insurer had not established the applicability of a homeowner-policy exclusion for a single-family unit used to lodge more than two roomers or boarders. The insurer therefore remained obligated to defend and indemnify the homeowner.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Under the particular facts of this case it cannot be said that the exclusionary clause applies.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Ordered that the order and judgment is affirmed, with one bill of costs.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Under the particular facts of this case it cannot be said that the exclusionary clause applies.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "The opinion does not state how many occupants were present, how long they stayed, whether the homeowner lived there, or whether they legally qualified as roomers; characterization is therefore null."
+ },
+ {
+  "case_id": 5487598,
+  "cite": "62 A.D.2d 231",
+  "court": "New York Supreme Court, Appellate Division, Third Department",
+  "year": 1978,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.82,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court sustained a statutory requirement that proprietary adult homes submit annual financial statements. It held that regulating profit-making businesses providing lodging, food, recreation, and personal assistance to elderly residents was a valid exercise of the police power.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [
+   "private proprietary homes for adults"
+  ],
+  "quotes": [
+   {
+    "text": "Petitioners are duly licensed operators of private proprietary homes for adults (PPHA) as defined in subdivision 26 of section 2 of the Social Services Law which provide suitable care, for compensation and profit, to persons who, though not requiring medical or nursing care, are in such condition by reason of their age, infirmities or disabilities as to require, in addition to lodging and board, the services of attendants to assure their safety and comfort, and to enable them to be bathed, dressed, fed or to move about.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The regulation of businesses engaged in providing lodging, food, recreation and personal aid to the aged is well within the definition of police power, and the reporting requirement has a fair, just and reasonable relationship to the regulation of those businesses.",
+    "supports": "polarity"
+   },
+   {
+    "text": "The regulation of the business conducted by petitioners is within the power of the State and the requirement of annual financial statements is reasonably suited to that regulation.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The judgment should be affirmed, without costs.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "The arrangements included lodging and board plus personal-care services and were not ordinary room rentals."
+ },
+ {
+  "case_id": 5561343,
+  "cite": "34 A.D.2d 821",
+  "court": "New York Supreme Court, Appellate Division, Second Department",
+  "year": 1970,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court held lawful the use of a rented one-family residence as an agency boarding home for six children and a resident married couple. It invalidated the village zoning ordinance insofar as it frustrated the overriding state policy favoring care for neglected children.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [
+   "agency boarding home"
+  ],
+  "quotes": [
+   {
+    "text": "This is an action for a declaratory judgment upon a submission of agreed facts, pursuant to CPLR 3222, to determine whether plaintiffs can utilize a parcel of realty in the Village of Tarrytown as an \u201c agency boarding home\u201d as defined in subdivision 16 of section 371 of the Social Services Law, in view of the Zoning Ordinance of the Village of Tarrytown, which defendants contend bars such a use.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The disputed use of the one-family house by the six children and the married couple placed therein is lawful and the notice of violation issued by defendants to plaintiff Abbott House is invalid.",
+    "supports": "polarity"
+   },
+   {
+    "text": "We are therefore of the opinion that the Tarrytown Zoning Ordinance, insofar as it conflicts and hinders an overriding State law and policy favoring the care of neglected and abandoned children, is void as exceeding the authority vested in the Village of Tarrytown",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The disputed use of the one-family house by the six children and the married couple placed therein is lawful and the notice of violation issued by defendants to plaintiff Abbott House is invalid.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "The operator was a nonprofit authorized agency, and the arrangement was state-supervised child care rather than an ordinary private boarding business."
+ },
+ {
+  "case_id": 5577746,
+  "cite": "38 A.D.2d 675",
+  "court": "New York Supreme Court, Appellate Division, Fourth Department",
+  "year": 1971,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "Estate-administration dispute over reasonable rent owed by a surviving cotenant occupying jointly owned property, not a compensated letting arrangement."
+ },
+ {
+  "case_id": 5606044,
+  "cite": "90 A.D.2d 486",
+  "court": "New York Supreme Court, Appellate Division, Second Department",
+  "year": 1982,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "The permanent rental of a motel room to a travel agency concerned commercial office use, not residential lodging."
+ },
+ {
+  "case_id": 5676181,
+  "cite": "94 A.D.3d 1218",
+  "court": "New York Supreme Court, Appellate Division, Third Department",
+  "year": 2012,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 1.0,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "other",
+  "holding_summary": "Owners who used a lake house primarily as a second home did not turn it into a tourist accommodation by renting it to screened vacationers for seven weeks on a weekly basis. Because the ordinance did not expressly prohibit the rentals, the property remained within the single-family-residence definition and the zoning determination was annulled.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [
+   "vacation rental",
+   "occasional rentals"
+  ],
+  "quotes": [
+   {
+    "text": "Nothing on the face of the Town\u2019s Land Use Ordinance expressly prohibits petitioners from renting their residence to vacationers and, on this record, we cannot say that petitioners\u2019 decision to do so placed their otherwise obviously residential structure outside the Town\u2019s definition of a single-family residence \u2014 a definition that, as noted previously, expressly includes a seasonal cottage.",
+    "supports": "characterization"
+   },
+   {
+    "text": "For seven weeks during the summer of 2010, petitioners rented the property on a weekly basis to various parties. The rest of the time petitioners, who intended to use the property primarily as a second home, entertained friends and family there \u201cvirtually every single week and . . . weekend.\u201d",
+    "supports": "polarity"
+   },
+   {
+    "text": "Applying these definitions to the record before us, we agree with Supreme Court that the ZBA\u2019s characterization of petitioners\u2019 property as a tourist accommodation is irrational.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Nothing on the face of the Town\u2019s Land Use Ordinance expressly prohibits petitioners from renting their residence to vacationers and, on this record, we cannot say that petitioners\u2019 decision to do so placed their otherwise obviously residential structure outside the Town\u2019s definition of a single-family residence \u2014 a definition that, as noted previously, expressly includes a seasonal cottage.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "Characterization is other because the court classified the property\u2019s use as a single-family residence, not as a tourist accommodation, but did not classify the individual contracts as leases or licenses."
+ },
+ {
+  "case_id": 5735453,
+  "cite": "60 A.D.3d 226",
+  "court": "New York Supreme Court, Appellate Division, First Department",
+  "year": 2009,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.98,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": "The City failed to establish entitlement to a preliminary injunction against short-term rentals in three class A SRO apartment hotels. The court held that minority transient use was compatible with buildings used primarily or as a rule for permanent occupancy, although the City\u2019s claims could proceed for later factual determination.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [
+   "apartment hotel"
+  ],
+  "quotes": [
+   {
+    "text": "The longstanding practice of renting rooms in the buildings for short-term occupancy, including to overnight lodgers, is documented by such contemporaneous evidence in the record as the daily registers that were maintained for the buildings for the years 1941, 1945, 1948 and 1950, and by the buildings\u2019 listings and advertisements in the Manhattan \u201cYellow Pages\u201d during the same time period.",
+    "supports": "characterization"
+   },
+   {
+    "text": "As explained below, the rental of a minority of a building\u2019s units for nonpermanent occupancy would violate neither the ZR nor the certificate of occupancy.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Under the plain meaning of the Multiple Dwelling Law and the ZR, the use of a significant portion of a class A apartment hotel for transient occupancy (however defined) is permissible so long as it remains true that the building is \u201coccupied, as a rule, for permanent residence purposes\u201d (Multiple Dwelling Law \u00a7 4 [8] [a]) and that the building is \u201cused primarily for permanent occupancy\u201d (ZR \u00a7 12-10).",
+    "supports": "polarity"
+   },
+   {
+    "text": "We conclude that the City has not demonstrated an entitlement to a preliminary injunction stopping this activity.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Finally, we affirm the order appealed from insofar as it denied defendants\u2019 pre-answer cross motion, pursuant to CPLR 3211 (a) (1) and (7), to dismiss the City\u2019s first, second and fourth causes of action.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-061",
+  "notes": "The ruling concerned preliminary relief and did not finally adjudicate the City\u2019s claims. Duration is recorded as nights because the evidence expressly documented overnight lodgers, although other short-term stays also occurred."
+ }
+]

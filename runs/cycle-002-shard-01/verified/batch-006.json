@@ -1,0 +1,583 @@
+[
+ {
+  "case_id": 1235434,
+  "cite": "37 Pa. D. & C.3d 486",
+  "court": "Beaver County Court of Common Pleas",
+  "year": 1985,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "Dispute is whether a group home for mentally retarded adults qualifies as a 'family' under a single-family zoning ordinance; rooming-house/nursing-home definitions appear only as background statutory text, not as the subject of compensated letting or its regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1356748,
+  "cite": "104 Pa. Commw. 605",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1987,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "Group home for mentally retarded women held to be a 'family' under a single-family dwelling ordinance; not a case about compensated occupancy or its regulation, only cites rooming/boarding-house definitions in passing.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1909367,
+  "cite": "51 Pa. Commw. 79",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1980,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "Foster-home-for-troubled-adolescents case; court holds it is an institutional home, not a single-family residence. No compensated lodging arrangement at issue; boarding/rooming house terms appear only in the ordinance's definitional text.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1316269,
+  "cite": "79 Pa. Commw. 1",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1983,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "innkeeping",
+  "holding_summary": "The Commonwealth Court affirmed that a for-profit 'personal care boarding home' housing eight elderly residents was properly excluded from an R-1 residential-agricultural district: it did not qualify for a special exception as a charitable institution, was not entitled to a special exception as a use not otherwise provided for, was properly denied a variance, and the ordinance was not unconstitutionally exclusionary.",
+  "doctrinal_concepts": [
+   "boarding_house_zoning_exclusion",
+   "personal_care_home",
+   "commercial_lodging_definition"
+  ],
+  "new_terms_observed": [
+   "personal care boarding home"
+  ],
+  "quotes": [
+   {
+    "text": "The trial court concluded that the facility here concerned was profit-motivated and, therefore, analogous to a motel, hotel and other related facilities such as are permitted in the C-2 district",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5482,
+     5676
+    ],
+    "reporter_page": "6"
+   },
+   {
+    "text": "the boarders here were obligated to vacate the premises in the event that their monthly rent went unpaid or if their health deteriorated to a point wthen they needed continued medical attention",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3289,
+     3482
+    ],
+    "reporter_page": "4"
+   },
+   {
+    "text": "We will, therefore, affirm the order of the court below.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     12487,
+     12543
+    ],
+    "reporter_page": "10"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1325362,
+  "cite": "85 Pa. Commw. 407",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1984,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Commonwealth Court affirmed denial of nonconforming-use protection to a 'personal care boarding home' housing seven unrelated, rent-paying adult boarders, holding they did not constitute a single housekeeping unit/family under the pre-amendment ordinance, and rejected the owner's constitutional exclusion challenge.",
+  "doctrinal_concepts": [
+   "boarding_house_zoning_exclusion",
+   "personal_care_home",
+   "nonconforming_use"
+  ],
+  "new_terms_observed": [
+   "personal care boarding home"
+  ],
+  "quotes": [
+   {
+    "text": "the home is operated for a commercial purpose as the residents pay a daily fee for lodging and meals, and residence at the home has been temporary.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5132,
+     5279
+    ],
+    "reporter_page": "411"
+   },
+   {
+    "text": "we are also of the opinion that seven unrelated rent-paying, adult individuals residing temporarily in a boarding home do not constitute a single housekeeping unit.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4701,
+     4865
+    ],
+    "reporter_page": "411"
+   },
+   {
+    "text": "we are also of the opinion that seven unrelated rent-paying, adult individuals residing temporarily in a boarding home do not constitute a single housekeeping unit.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4701,
+     4865
+    ],
+    "reporter_page": "411"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1355559,
+  "cite": "102 Pa. Commw. 290",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1986,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "Group home for mentally retarded adults held to be an eleemosynary institution (not a rooming house); rooming-house definition is discussed only to distinguish it from the charitable-institution classification actually at issue, no compensated occupancy dispute.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1355571,
+  "cite": "102 Pa. Commw. 272",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1986,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "Domestic-violence shelter approved as a 'rooming house' special exception; residents are not paying occupants (a charitable shelter), so it does not bear on compensated occupancy despite using the rooming-house label.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1373750,
+  "cite": "117 Pa. Commw. 547",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1988,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Commonwealth Court affirmed that a nonprofit's community living arrangements, where mentally handicapped residents pay a substantial portion of their income for room and board, constitute rooming houses requiring a special use permit in an R-2 district rather than qualifying as single-family dwellings.",
+  "doctrinal_concepts": [
+   "boarding_house_zoning_exclusion",
+   "special_use_permit",
+   "commercial_lodging_definition"
+  ],
+  "new_terms_observed": [
+   "community living arrangement (CLA)"
+  ],
+  "quotes": [
+   {
+    "text": "each resident is required to pay a substantial part of his income to Step-by-Step under a room and board agreement",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3736,
+     3850
+    ],
+    "reporter_page": "550"
+   },
+   {
+    "text": "Thus, there is sufficient, competent evidence to support the conclusion that these CLAs constitute rooming houses.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3962,
+     4076
+    ],
+    "reporter_page": "551"
+   },
+   {
+    "text": "Thus, there is sufficient, competent evidence to support the conclusion that these CLAs constitute rooming houses.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3962,
+     4076
+    ],
+    "reporter_page": "551"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1385212,
+  "cite": "124 Pa. Commw. 150",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1989,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "Case concerns a one-mile spacing requirement between 'group residence facilities' for mentally handicapped individuals; boarding/lodging house appears only inside the ordinance's 'family' definition, and the actual dispute is about disability-housing dispersal policy, not compensated letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1412273,
+  "cite": "138 Pa. Commw. 101",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1991,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "Case concerns whether a home-based sales office qualifies as a permitted 'home occupation'; 'tourist home, rooming, boarding or lodging house' appears only as a category excluded from the home-occupation definition, not litigated.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1466737,
+  "cite": "167 Pa. Commw. 241",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1994,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The Commonwealth Court reversed a summary conviction for operating an unlicensed 'boardinghouse,' holding the Borough failed to prove the ordinance's element that meals be prepared and served to residents, so the licensing requirement for boardinghouses did not apply to the multi-adult rowhouse arrangement.",
+  "doctrinal_concepts": [
+   "boarding_house_license",
+   "police_power_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "nothing in the record indicates that \u201cmeals are prepared and served\u201d in Tarlecki\u2019s residence so as to bring it within the definition of a boardinghouse.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2905,
+     3057
+    ],
+    "reporter_page": "244"
+   },
+   {
+    "text": "nothing in the record indicates that \u201cmeals are prepared and served\u201d in Tarlecki\u2019s residence so as to bring it within the definition of a boardinghouse.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2905,
+     3057
+    ],
+    "reporter_page": "244"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "Characterization left null: the court did not affirmatively classify the arrangement (lease/license/lodging/innkeeping), it only held the boardinghouse-license ordinance's meal-service element was unproven; who_was_letting/duration left unclear because the opinion states only that 'several adults reside in the building and share expenses,' without specifying a landlord-tenant fee arrangement or occupancy length.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1868845,
+  "cite": "20 Pa. Commw. 236",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1975,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.35,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Commonwealth Court reversed a determination that a nonconforming rooming-house use had been abandoned, holding the Borough failed to meet its burden of proving discontinuance of actual use during the one-year statutory period, and criticized the Borough for shifting between 'rooming house' and 'dormitory' violation theories without adequate notice.",
+  "doctrinal_concepts": [
+   "nonconforming_use_abandonment",
+   "rooming_house_occupancy_permit"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The deed contains a proviso permitting Baird to void the deed if Baird could not continue to use the premises as \u201ca rooming or boarding house.\u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3331,
+     3474
+    ],
+    "reporter_page": "239"
+   },
+   {
+    "text": "the Borough has not met that burden. As a result, we must reverse the order of the court below.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     12694,
+     12789
+    ],
+    "reporter_page": "244"
+   },
+   {
+    "text": "the Borough has not met that burden. As a result, we must reverse the order of the court below.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     12694,
+     12789
+    ],
+    "reporter_page": "244"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "Primarily a procedural/evidentiary case about abandonment of a nonconforming use and inadequate notice of which ordinance provision was violated; the rooming/boarding-house occupancy-permit regulation is background context rather than the litigated issue, hence lower relevance score. who_was_letting/duration marked unclear because the record shows a chain of occupants (fraternity, then Baird and roommates) without a settled letting arrangement going forward.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1883489,
+  "cite": "32 Pa. Commw. 356",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1977,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Commonwealth Court affirmed denial of a special exception to operate a rooming house of up to eight roomers, holding that evidence of shootings and disturbances during the applicant's prior illegal operation supported the conclusion that the rooming house would not harmonize with the residential neighborhood and would impair public health, safety, and welfare.",
+  "doctrinal_concepts": [
+   "rooming_house_special_exception",
+   "police_power_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "A rooming house is permitted in the R-3 district by special exception and on condition: that it have no more than eight roomers",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     846,
+     973
+    ],
+    "reporter_page": "357"
+   },
+   {
+    "text": "the health, safety and welfare of the community would he impaired by granting Hannon\u2019s rooming house on Franklin Street, Wilkes-Barre, the imprimatur of the city zoning authorities.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4008,
+     4189
+    ],
+    "reporter_page": "359"
+   },
+   {
+    "text": "the health, safety and welfare of the community would he impaired by granting Hannon\u2019s rooming house on Franklin Street, Wilkes-Barre, the imprimatur of the city zoning authorities.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4008,
+     4189
+    ],
+    "reporter_page": "359"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1898966,
+  "cite": "44 Pa. Commw. 535",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1979,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "Public-welfare/AFDC eligibility case about whether a daughter living with petitioner is a 'roomer' paying a 'fixed fee' for purposes of assistance-unit calculation; concerns welfare-benefits law, not the legal character or regulation of a letting arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4622450,
+  "cite": "9 Pa. D. & C.3d 378",
+  "court": "Philadelphia County Court of Common Pleas",
+  "year": 1979,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "Restrictive-covenant case enforcing a 'private dwelling house' clause against unrelated female occupants; plaintiffs expressly concede defendants are not operating a rooming or boarding house, so no compensated-occupancy arrangement is at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 6837767,
+  "cite": "39 Pa. D. & C.5th 118",
+  "court": "Monroe County Court of Common Pleas",
+  "year": 2014,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "Zoning-enforcement action over an unpermitted adult-entertainment bar built in a motel's basement; the 'motel' definition's exclusion of rooming/boarding houses is quoted only to classify the bar use, no compensated-lodging dispute at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 6889158,
+  "cite": "108 A.3d 961",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2015,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "Zoning case about whether a nonprofit dog-rescue operation is a 'kennel'; the 'boarding' reference concerns boarding of animals for compensation in a cited case, unrelated to human lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 6914131,
+  "cite": "100 A.3d 244",
+  "court": "Superior Court of Pennsylvania",
+  "year": 2014,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-006",
+  "notes": "Negligence/premises-liability case about a laundromat dryer fire; 'boarders or paying guests' appears only as a Restatement example within the licensee/invitee duty-of-care analysis, wholly unrelated to a letting dispute.",
+  "extraction_status": "ok"
+ }
+]

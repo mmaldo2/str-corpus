@@ -1,0 +1,679 @@
+[
+ {
+  "case_id": 1293532,
+  "cite": "2 Liquor Tax Rep. 320",
+  "court": "New York Supreme Court",
+  "year": 1900,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "A private dwelling-house does not lose its character as a dwelling, for purposes of the Liquor Tax Law's owner-consent requirement, merely because its owner occasionally lets rooms by the week to persons outside the family.",
+  "doctrinal_concepts": [
+   "dwelling_house_status",
+   "householder_letting_rooms"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "A dwelling-house does not lose its character as such merely because its owner occasionally lets rooms by the week.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     738,
+     852
+    ],
+    "reporter_page": "320"
+   },
+   {
+    "text": "A dwelling-house does not lose its character as such merely because its owner occasionally lets rooms by the week.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     738,
+     852
+    ],
+    "reporter_page": "320"
+   },
+   {
+    "text": "A dwelling-house does not lose its character as such merely because its owner occasionally lets rooms by the week.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     738,
+     852
+    ],
+    "reporter_page": "320"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1623905,
+  "cite": "33 Misc. 100",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1900,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "Concerns which of landlord/lessee bears health-department penalty liability for a leased tenement house; no bearing on compensated room-letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1799878,
+  "cite": "34 Misc. 607",
+  "court": "New York Surrogate's Court",
+  "year": 1901,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "In recounting the facts underlying a widow's claim against her husband's estate, the court recites, without any adverse comment, that she had run a boarding-house before and throughout her marriage in her own house, and for a period rented furnished rooms instead, as her ordinary business.",
+  "doctrinal_concepts": [
+   "boarding_house_keeping",
+   "householder_letting_rooms"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Subsequent to the marriage, the claimant continued to keep boarders, in a house owned and furnished by her, for nearly the entire seventeen years of her married life, and the business was only interrupted for a few years during which she rented part of her house in furnished rooms.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3119,
+     3401
+    ],
+    "reporter_page": "608"
+   },
+   {
+    "text": "Subsequent to the marriage, the claimant continued to keep boarders, in a house owned and furnished by her, for nearly the entire seventeen years of her married life, and the business was only interrupted for a few years during which she rented part of her house in furnished rooms.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3119,
+     3401
+    ],
+    "reporter_page": "608"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "Court does not doctrinally classify the arrangement (lease/license/lodging/innkeeping); the boarding-house facts are background to a probate claim resolved on consideration/gratuitous-support grounds, so characterization is left null.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1802225,
+  "cite": "35 Misc. 805",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1901,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "Under chapter 446 of the Laws of 1899, a boarding-house keeper has a lien on a boarder's property for the amount due for board, practically equivalent to an innkeeper's common-law lien, and tender of the amount due extinguishes it.",
+  "doctrinal_concepts": [
+   "boarding_house_lien",
+   "innkeeper_liability"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "by chapter 446, Laws of 1899, a boarding-house keeper is given a lien \u201c for the amount which may be due for board.\u201d His lien is practically the same as that of an innkeeper.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     539,
+     712
+    ],
+    "reporter_page": "806"
+   },
+   {
+    "text": "by chapter 446, Laws of 1899, a boarding-house keeper is given a lien \u201c for the amount which may be due for board.\u201d His lien is practically the same as that of an innkeeper.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     539,
+     712
+    ],
+    "reporter_page": "806"
+   },
+   {
+    "text": "by chapter 446, Laws of 1899, a boarding-house keeper is given a lien \u201c for the amount which may be due for board.\u201d His lien is practically the same as that of an innkeeper.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     539,
+     712
+    ],
+    "reporter_page": "806"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1826752,
+  "cite": "45 Misc. 113",
+  "court": "New York Supreme Court",
+  "year": 1904,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "Concerns evidentiary presumptions for striking a voter's registration based on a lodging-house keeper's sworn election-law report; does not address the legal character of lodging or its regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1830478,
+  "cite": "48 Misc. 1",
+  "court": "New York Supreme Court",
+  "year": 1905,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "An occupant who resides in hotel rooms for an extended period under an open-ended arrangement (here roughly sixteen months) ceases to be a 'guest' subject to the innkeeper's strict common-law liability for lost property; even if the innkeeper-guest relation existed at first, it is lost through lapse of time as the occupancy becomes that of a permanent lodger.",
+  "doctrinal_concepts": [
+   "innkeeper_liability",
+   "lodger_boarder_distinction"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the Annex was the plaintiff\u2019s home; her permanent abiding place; and that she wtas not there merely for temporary accommodation or as a transient guest.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     9930,
+     10082
+    ],
+    "reporter_page": "5"
+   },
+   {
+    "text": "if such was the case that relationship, by the lapse of time, was lost long before her property was lost.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     10814,
+     10919
+    ],
+    "reporter_page": "6"
+   },
+   {
+    "text": "if such was the case that relationship, by the lapse of time, was lost long before her property was lost.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     10814,
+     10919
+    ],
+    "reporter_page": "6"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1832719,
+  "cite": "49 Misc. 535",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1906,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "Absent an express covenant restricting an 'Apartment Hotel' exclusively to leased apartments, the landlord may also lease other rooms in the building to transient guests by the day; doing so does not breach the term tenant's lease or constitute a constructive eviction.",
+  "doctrinal_concepts": [
+   "constructive_eviction",
+   "quiet_enjoyment",
+   "commercial_operator_letting"
+  ],
+  "new_terms_observed": [
+   "apartment hotel"
+  ],
+  "quotes": [
+   {
+    "text": "The plaintiff leased to the defendant a suite of rooms in the building described in the lease as the \u201c Bristol Apartment Hotel\u201d, and defendant entered into the occupancy of the rooms and paid rent for eight months.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2206,
+     2420
+    ],
+    "reporter_page": "536"
+   },
+   {
+    "text": "it by no means follows, in the absence of an express covenant that no portion of the building would be rented otherwise than in apartments as aforesaid, that plaintiff was guilty of a breach of any contract with defendant when it undertook to lease rooms in the building to transient tenants.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4341,
+     4633
+    ],
+    "reporter_page": "536"
+   },
+   {
+    "text": "it by no means follows, in the absence of an express covenant that no portion of the building would be rented otherwise than in apartments as aforesaid, that plaintiff was guilty of a breach of any contract with defendant when it undertook to lease rooms in the building to transient tenants.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4341,
+     4633
+    ],
+    "reporter_page": "536"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1847135,
+  "cite": "57 Misc. 557",
+  "court": "County Court of New York, Orleans County",
+  "year": 1908,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "Farmhand's occupancy of employer's house was an incident of a farm-labor hiring contract (license vs. tenancy for wrongful-discharge purposes), not compensated lodging/boarding let by a householder.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1858054,
+  "cite": "72 Misc. 70",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1911,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "Although letting an apartment in a hotel ordinarily creates a landlord-tenant relationship, a contract to furnish an apartment together with board for a family at a single weekly price is not an ordinary lease, because furnishing the board is the most substantial part of the consideration; damages for breach are limited to the price less the landlord's saved cost of the board.",
+  "doctrinal_concepts": [
+   "landlord_tenant_boarding_contract",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "it is equally true that the contract in question here is not analogous to an ordinary lease of premises.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6276,
+     6380
+    ],
+    "reporter_page": "73"
+   },
+   {
+    "text": "an agreement for the letting of an apartment in an apartment hotel ordinarily creates the relationship of landlord and tenant between the parties",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5882,
+     6027
+    ],
+    "reporter_page": "72"
+   },
+   {
+    "text": "The furnishing of the board, therefore, was not merely incidental to the renting of the premises, but was, in fact, a very substantial, if not the most substantial, part of the contract.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6740,
+     6926
+    ],
+    "reporter_page": "73"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1871517,
+  "cite": "82 Misc. 94",
+  "court": "New York Supreme Court",
+  "year": 1913,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "Concerns municipal regulation of taxicab hack stands under the police power; hotels appear only as abutting property owners, with no bearing on room-letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1973677,
+  "cite": "241 N.Y. 288",
+  "court": "New York Court of Appeals",
+  "year": 1925,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "A municipal zoning ordinance may validly exclude large apartment houses and hotels from residential districts, or heavily restrict them through height and set-back requirements, as a legitimate exercise of the police power promoting the general welfare, even though this depreciates the value of the owner's land.",
+  "doctrinal_concepts": [
+   "zoning_apartment_exclusion",
+   "police_power_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "excluding big apartment houses like the one proposed by appellant whereby the enjoyment of light and air by adjoining property would be impaired",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     28411,
+     28555
+    ],
+    "reporter_page": "301"
+   },
+   {
+    "text": "excluding big apartment houses like the one proposed by appellant whereby the enjoyment of light and air by adjoining property would be impaired",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     28411,
+     28555
+    ],
+    "reporter_page": "301"
+   },
+   {
+    "text": "excluding big apartment houses like the one proposed by appellant whereby the enjoyment of light and air by adjoining property would be impaired",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     28411,
+     28555
+    ],
+    "reporter_page": "301"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "Characterization set to 'other' because the case adjudicates land-use/zoning regulation of building types rather than the lease/license/lodging/innkeeping character of a specific occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1977895,
+  "cite": "244 N.Y. 42",
+  "court": "New York Court of Appeals",
+  "year": 1926,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "Property used to house and board outside paying guests, even when operated by a religious missionary organization, is not used exclusively for exempt purposes and loses its tax exemption as to the parcels so used, though a separate parcel used only to house missionary families and staff remains exempt.",
+  "doctrinal_concepts": [
+   "tax_exemption_commercial_use",
+   "boarding_house_keeping"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It had hired out on some occasions the advantages of these parcels to persons in no way connected with its missionary undertakings and had received an income which it applied to expenses. This user, however, took from it the right of exemption.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     9525,
+     9769
+    ],
+    "reporter_page": "46"
+   },
+   {
+    "text": "It had hired out on some occasions the advantages of these parcels to persons in no way connected with its missionary undertakings and had received an income which it applied to expenses. This user, however, took from it the right of exemption.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     9525,
+     9769
+    ],
+    "reporter_page": "46"
+   },
+   {
+    "text": "It had hired out on some occasions the advantages of these parcels to persons in no way connected with its missionary undertakings and had received an income which it applied to expenses. This user, however, took from it the right of exemption.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     9525,
+     9769
+    ],
+    "reporter_page": "46"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2308711,
+  "cite": "173 N.Y. 203",
+  "court": "New York Court of Appeals",
+  "year": 1903,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "Boarding/lodging-house restrictions are mentioned only in passing, distinguishing prior covenant cases (Round Lake, Chautauqua), from the actual issue here, which is an association's invalid trade-monopoly regulation over grocery deliveries.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2391002,
+  "cite": "210 A.D. 217",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1924,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "Where a tenant occupies part of a leased dwelling and sublets other rooms to roomers under weekly hirings for more than a week, the sublet portions are used for business, not dwelling, purposes, and are therefore outside the protection of the rent laws applicable to dwellings.",
+  "doctrinal_concepts": [
+   "rent_law_dwelling_purpose",
+   "householder_letting_rooms"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "where three floors out of five are leased to roomers upon a weekly tenancy for more than a week, such parts of the premises so leased are used for business and not for dwelling purposes.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1989,
+     2175
+    ],
+    "reporter_page": "218"
+   },
+   {
+    "text": "where three floors out of five are leased to roomers upon a weekly tenancy for more than a week, such parts of the premises so leased are used for business and not for dwelling purposes.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1989,
+     2175
+    ],
+    "reporter_page": "218"
+   },
+   {
+    "text": "where three floors out of five are leased to roomers upon a weekly tenancy for more than a week, such parts of the premises so leased are used for business and not for dwelling purposes.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1989,
+     2175
+    ],
+    "reporter_page": "218"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3163083,
+  "cite": "158 N.Y.S. 675",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1916,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "Dispute over a bill of sale for a rooming-house business and its furniture; addresses sales-contract damages, not the legal character or regulation of room-letting itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3190210,
+  "cite": "160 N.Y.S. 581",
+  "court": "New York Supreme Court",
+  "year": 1916,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "Mechanic's-lien foreclosure over renovation work; the building's intended use as a restaurant and furnished-room house is mentioned only in describing the lien notice, not adjudicating letting practices.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3293718,
+  "cite": "143 N.Y.S. 279",
+  "court": "New York Supreme Court",
+  "year": 1913,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "Same public-hack-stand litigation as the Yellow Taxicab Co. v. Gaynor case reported at 82 Misc. 94; hotels appear only as abutting property owners in a taxicab-regulation dispute, with no bearing on room-letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3375184,
+  "cite": "144 N.Y.S. 647",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1913,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-028",
+  "notes": "Dispute over privity between a landlord and a sub-subtenant for a use-and-occupation claim following dispossess proceedings; no bearing on the character or regulation of room-letting or lodging.",
+  "extraction_status": "ok"
+ }
+]

@@ -1,0 +1,591 @@
+[
+ {
+  "case_id": 1918053,
+  "cite": "95 Misc. 2d 377",
+  "court": "New York Supreme Court",
+  "year": 1978,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The court found the Hotel Winslow is not a 'rooming house' under RPAPL 711, but nonetheless held a landlord-tenant relationship existed between plaintiffs and the hotel, entitling plaintiffs to be evicted only through summary proceedings. The court declined to extend section 711 to all SRO occupants generally, noting the legislature's history exempted transient hotel guests and transient rooming house residents, applying protection only to permanent (30+ day) rooming house residents.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease",
+   "transient_vs_permanent"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "I specifically find plaintiffs are, in fact, \"tenants\" for the purposes of the Real Property Actions and Proceedings Law and, as such, may only be evicted by means of summary proceedings.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5379,
+     5566
+    ],
+    "reporter_page": "380"
+   },
+   {
+    "text": "It should be emphasized that the proposed amendment will not apply to hotel tenants or to transient rooming house residents, but only to rooming house tenants who have been in occupancy for 30 consecutive days or more \u2014 i.e., to permanent rooming house residents.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4290,
+     4553
+    ],
+    "reporter_page": "379"
+   },
+   {
+    "text": "a landlord-tenant relationship was established and exists between the plaintiffs and the defendants.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1190,
+     1290
+    ],
+    "reporter_page": "378"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5700866,
+  "cite": "133 A.D.2d 754",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1987,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The Appellate Division reversed dismissal and permanently enjoined the motel operator from using the Lakeview Lodge Motel as a lodging, boarding, or rooming house without a certificate of occupancy, holding that persons placed there by the county Department of Social Services for three to six months or longer, who enrolled children in local schools and treated the motel as home, were not 'transient' travelers under the amended zoning ordinance.",
+  "doctrinal_concepts": [
+   "boarding_house_licensing",
+   "transient_vs_permanent"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the defendant is permanently enjoined from using, maintaining or allowing the use and maintenance of the premises known as the Lakeview Lodge Motel as a lodging, boarding and/or rooming house without having first obtained the proper certificate of occupancy as required by Code of Town of Brookhaven \u00a7 85-14.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     543,
+     851
+    ],
+    "reporter_page": "754"
+   },
+   {
+    "text": "the defendant is permanently enjoined from using, maintaining or allowing the use and maintenance of the premises known as the Lakeview Lodge Motel as a lodging, boarding and/or rooming house without having first obtained the proper certificate of occupancy as required by Code of Town of Brookhaven \u00a7 85-14.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     543,
+     851
+    ],
+    "reporter_page": "754"
+   },
+   {
+    "text": "persons referred to Lakeview Lodge Motel by the Suffolk County Department of Social Services may reside there for periods of 3 to 6 months or at times longer, register their children in the local schools, and consider Lakeview Lodge Motel as their home.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1692,
+     1945
+    ],
+    "reporter_page": "754"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 350773,
+  "cite": "170 Misc. 2d 598",
+  "court": "New York City Criminal Court",
+  "year": 1996,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "Statutory interpretation of theft-of-services for unpaid bar tab (restaurant services vs. alcohol); 'rooming house' appears only as one enumerated establishment type in the theft-of-services statute, not the subject of the holding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 478673,
+  "cite": "175 Misc. 2d 493",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1997,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "Cooperative-apartment holdover proceeding turning on RPL 235-f 'immediate family'/authorized-occupant definitions; no compensated letting of rooms is at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 792286,
+  "cite": "113 Misc. 2d 63",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1981,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "Dispute over whether a live-in home health aide is an unauthorized 'occupant' under a lease; the aide paid no consideration to the tenant, so no compensated lodging arrangement is at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 850331,
+  "cite": "179 Misc. 2d 479",
+  "court": "New York City Criminal Court",
+  "year": 1999,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "Same theft-of-services/restaurant-alcohol statutory question as People v. Sei Young Choi; 'rooming house' is only one item in the statutory list of establishments, not the subject of the holding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 900564,
+  "cite": "152 Misc. 2d 997",
+  "court": "New York Supreme Court",
+  "year": 1991,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court declared the Mt. Vernon zoning ordinance's definitions of 'boarding house' and 'family' facially unconstitutional under the state due process clause, finding the boarding house definition so broad it would literally capture an ordinary family renting a house, and held petitioner's proposed elderly congregate-housing project was entitled to be built as of right as a functionally equivalent family rather than a boarding house.",
+  "doctrinal_concepts": [
+   "boarding_house_licensing",
+   "family_definition_zoning"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "By its terms, the foregoing literally includes even traditional families in a house or apartment unit rented in the City of Mt. Vernon that contains a mother, father and two children.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     15033,
+     15216
+    ],
+    "reporter_page": "1004"
+   },
+   {
+    "text": "Such a broad definition is overinclusive because it simultaneously prohibits what is expressly allowed under the Zoning Ordinance",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     15468,
+     15597
+    ],
+    "reporter_page": "1004"
+   },
+   {
+    "text": "Petitioner is entitled to construct a two-family house as a matter of right.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     20886,
+     20962
+    ],
+    "reporter_page": "1006"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "Not a paid short-term letting case; included because it directly invalidates a 'boarding house' licensing definition under the police power, which bears on the adverse-regulation file.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1205209,
+  "cite": "213 A.D.2d 790",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1995,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "Nonconforming-use zoning dispute over a skydiving airstrip's tent 'tourist camp' use; concerns camping, not compensated occupancy of a dwelling or rooms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1909185,
+  "cite": "92 Misc. 2d 383",
+  "court": "Yonkers City Court",
+  "year": 1977,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "Lease 'roomers or lodgers' clause dispute over a tenant's overnight male guest; the guest paid no consideration, so this addresses an uncompensated guest, not paid lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1951105,
+  "cite": "107 Misc. 2d 867",
+  "court": "New York City Civil Court",
+  "year": 1980,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "Lease occupancy-clause dispute over a seven-week houseguest who paid no rent or other consideration; not a compensated letting arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3392960,
+  "cite": "105 A.D.2d 46",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1984,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "Single-family zoning 'family' definition case about unrelated roommates sharing a rented house long-term; 'rooming house' is invoked only as a contrasting illustration (see Kaye, J., concurring), not the holding, and no short-term paid letting is at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3710248,
+  "cite": "102 A.D.3d 637",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2013,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "The Appellate Division annulled fines for operating a Class A multiple dwelling as 'primarily transient,' holding that the owner may lawfully rent a portion of units to transient guests without violating the Multiple Dwelling Law's permanent-residence requirement, and that the agency failed to prove which units or tenants were actually transient rather than permanent.",
+  "doctrinal_concepts": [
+   "transient_vs_permanent",
+   "multiple_dwelling_law"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "petitioner can rent up to 46 rooms to transient guests without violating the requirement that the building be used primarily for permanent residence purposes",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1389,
+     1546
+    ],
+    "reporter_page": "637"
+   },
+   {
+    "text": "petitioner can rent up to 46 rooms to transient guests without violating the requirement that the building be used primarily for permanent residence purposes",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1389,
+     1546
+    ],
+    "reporter_page": "637"
+   },
+   {
+    "text": "ECB failed to prove that petitioner violated Administrative Code \u00a7 28-118.3.2.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2328,
+     2406
+    ],
+    "reporter_page": "638"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3949595,
+  "cite": "68 A.D.3d 474",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2009,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "Roommate-law (RPL 235-f) dispute over the number of permitted occupants in an apartment; no compensation flowed for the additional occupant's presence.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3956648,
+  "cite": "46 Misc. 3d 910",
+  "court": "New York City Civil Court",
+  "year": 2014,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a resident of a 'three-quarter house' who paid $215/month (via a city shelter allowance) for a bunk bed and closet space for 97 days was unlawfully evicted without court process, because the expected six-to-nine month duration of residency and the assignment of exclusive space made the arrangement a protected tenancy rather than a revocable license.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease",
+   "rooming_house_tenant_protection"
+  ],
+  "new_terms_observed": [
+   "three-quarter house",
+   "program house"
+  ],
+  "quotes": [
+   {
+    "text": "BOT did not provide this residence to petitioner for free; instead, BOT charged $215 per month.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3394,
+     3489
+    ],
+    "reporter_page": "912"
+   },
+   {
+    "text": "BOT set out 15 rules, compliance with which would lead to a continued residency for an estimated six to nine months; this, the court finds, is at odds with the idea of a residence terminable at will.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     14044,
+     14243
+    ],
+    "reporter_page": "916"
+   },
+   {
+    "text": "Accordingly, the court holds that petitioner\u2019s eviction was illegal and the court grants petitioner a judgment of possession.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     14793,
+     14918
+    ],
+    "reporter_page": "917"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3958158,
+  "cite": "46 Misc. 3d 637",
+  "court": "New York City Civil Court",
+  "year": 2014,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a bunk-bed space rented monthly in a 'three-quarter house' operated by BOT was a 'dwelling unit' protected under RPAPL 711 and NYC Administrative Code \u00a7 26-521 after six months of occupancy, so the operator's self-help removal of the tenant for late rent constituted an illegal eviction requiring restoration to possession.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "rooming_house_tenant_protection"
+  ],
+  "new_terms_observed": [
+   "three-quarter house"
+  ],
+  "quotes": [
+   {
+    "text": "petitioner moved in that day after signing a number of papers that BOT presented to him, that he did not read the papers because his reading skills were insufficient for that task, and that he paid rent monthly beginning at that time.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1584,
+     1818
+    ],
+    "reporter_page": "638"
+   },
+   {
+    "text": "in contravention of the foregoing statutes BOT wrongfully deprived petitioner of his tenancy.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4579,
+     4672
+    ],
+    "reporter_page": "639"
+   },
+   {
+    "text": "The court directs BOT to restore petitioner to that tenancy forthwith",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4673,
+     4742
+    ],
+    "reporter_page": "639"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4231771,
+  "cite": "142 Misc.2d 995",
+  "court": "New York Supreme Court",
+  "year": 1989,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "Concerns transient parking of vehicles in a residential building's garage under Multiple Dwelling Law \u00a7 60, not letting of dwelling rooms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4401059,
+  "cite": "66 N.Y.2d 544",
+  "court": "New York Court of Appeals",
+  "year": 1985,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "Court of Appeals affirmance of the same single-family 'family'-definition zoning issue as the Appellate Division decision (McMinn, 105 A.D.2d 46); boarding/rooming house references remain illustrative only, not the holding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5588725,
+  "cite": "38 A.D.2d 420",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1972,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-005",
+  "notes": "Premises-liability slip-and-fall case involving a social guest; unrelated to compensated lodging or its regulation.",
+  "extraction_status": "ok"
+ }
+]

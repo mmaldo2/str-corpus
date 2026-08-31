@@ -1,0 +1,477 @@
+[
+ {
+  "case_id": 2032749,
+  "cite": "Reynolds v. Shuler, 5 Cow. 323",
+  "court": "New York Supreme Court",
+  "year": 1826,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "Concerns distress against a distillery tenant's trade fixtures, not compensated occupancy of dwelling rooms or lodging regulation."
+ },
+ {
+  "case_id": 2035084,
+  "cite": "Jackson ex dem. Church v. Miller, 7 Cow. 747",
+  "court": "New York Supreme Court",
+  "year": 1827,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "Concerns possession under a parol land-purchase agreement without rent, not compensated lodging or dwelling-room letting."
+ },
+ {
+  "case_id": 2037368,
+  "cite": "People ex rel. Kline v. Rickert, 8 Cow. 226",
+  "court": "New York Supreme Court",
+  "year": 1828,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "Concerns a four-year agricultural lease and forcible detainer, not compensated occupancy of a dwelling or rooms."
+ },
+ {
+  "case_id": 2037373,
+  "cite": "Sherman v. Ballou, 8 Cow. 304",
+  "court": "New York Supreme Court",
+  "year": 1828,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.12,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "The premises were improved for a tavern, but the case concerns guardianship authority and accounting among tenants in common rather than guest or lodger occupancy."
+ },
+ {
+  "case_id": 2037440,
+  "cite": "Dyett v. Pendleton, 8 Cow. 727",
+  "court": "New York Court for the Correction of Errors",
+  "year": 1826,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.74,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "A landlord's repeated use of the undemised portion of his dwelling for prostitution, accompanied by nocturnal noise and reputational harm, could support a jury finding of constructive eviction of the family renting rooms in the same house. Such an eviction would bar recovery of rent after the tenant departed.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "constructive eviction"
+  ],
+  "quotes": [
+   {
+    "text": "It is to be remarked, that the letting was from the 1st of November, 1818, to the 1st of November, 1820; at least the terms of the lease did not compel the lessee to keep the premises longer than to the last mentioned date.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Where the lessor was guilty of habitually bringing lewd women under the same roof with the demised premises, though in an apartment not demised, by which nocturnal noise and disturbance were made; and, in consequence, the lessee quitted the premises and remained away with his family; held, that this was evidence to go to the jury under a plea of eviction by the landlord, in answer to a declaration for the rent; and that the jury mighty upon such evidence, find the plea true; and the lessor would thereby be barred of his rent, the same as on an actual or physical entry and expulsion of the tenant.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Believing that it tended to establish a constructive eviction and expulsion against the consent of the tenant: that it tended to prove a disturbance of his quiet possession, and a failure of the consideration on which only the tenant was obliged to pay rent, I am of opinion that it ought to have been re-\u201e ceived; and that, therefore, the judgment of the supreme court should be reversed, with directions to issue a venire de novo.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "The lessor occupied the first floor of his dwelling and let four rooms elsewhere in the same house; the arrangement was long-term rather than transient."
+ },
+ {
+  "case_id": 2046170,
+  "cite": "Stone v. Matthews, 7 Hill & Den. 428",
+  "court": "New York Supreme Court",
+  "year": 1844,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.88,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court adopted a resolution that property belonging to boarders at taverns and boarding houses was not subject to distress for the operator's rent, even when the operator possessed and used the property with the boarder's permission.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The property of boarders at taverns or boarding houses is not liable to distress for rent, although such property is not in their possession, but in the possession and actual use of the tenant, by their permission, and without the consent of the landlord. Semble.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Resolved, That property of hoarders at taverns and boarding houses is not liable to distress for rent, although such property is not in their possession, but in the possession and actual use of the tenant, by their permission, and without the consent of the landlord.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Affirmative: Senators Backus, Bartlit, Bockee, Burn-ham, Chamberlain, Hard, Lawrence, Lester, Mitchell, Platt, Scott, Smith, Yarney, Works and Wright\u201415.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "Directly protects boarders' property within commercial taverns and boarding houses."
+ },
+ {
+  "case_id": 2128208,
+  "cite": "Jackson ex demis. Colden v. Brownell, 1 Johns. 267",
+  "court": "New York Supreme Court of Judicature",
+  "year": 1806,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "Concerns one-year sharecropping arrangements and a restrictive agricultural lease covenant, not lodging or dwelling-room occupancy."
+ },
+ {
+  "case_id": 2129768,
+  "cite": "Tobey v. Webster, 3 Johns. 468",
+  "court": "New York Supreme Court of Judicature",
+  "year": 1808,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.06,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "The subtenant occupied employment premises free of rent, and the dispute concerns removal of a structure rather than compensated residential occupancy."
+ },
+ {
+  "case_id": 2137661,
+  "cite": "Humphreys v. Gardner, 11 Johns. 61",
+  "court": "New York Supreme Court of Judicature",
+  "year": 1814,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.52,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "A person who entered a house under a one-year rental arrangement while two claimants submitted their competing rights to the rent to arbitration was bound to take notice of the resulting award. The court ordered a new trial after the lower court required separate proof that the occupant had received notice.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It was proved upon the trial, by Colden, that on the 1st of May, 1810, there was a dispute between the defendant, Gardner, and one Ross, as to which of them belonged the right to let the house in question to Humphreys, and Humphreys being then in the act of moving in, it was agreed by Gardner and Ross, in the presence of Humphreys, to submit to two persons, then named as arbitrators, to determine to which of them Humphreys was to pay the rent for the ensuing year.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Upon these facts, the question of notice to Humphreys of the award does not arise, lie was bound to take notice of the award at his peril, for he was present when it was submitted to the arbitrators to determine to whom he should pay the rent, and it was in proof that he was privy to the submission, and the conclusion is irresistible that it was so referred with his approbation.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The parties claiming respectively the right to let, interpleaded, as it were, in his presence, and agreed to refer the question to the arbitrators, and he entered into possession with the knowledge of that interpleader and submission, and at the time it took place.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "Recognizes and enforces an ordinary one-year compensated letting of an entire house, but does not concern transient occupancy."
+ },
+ {
+  "case_id": 2139143,
+  "cite": "Adams v. Freeman, 12 Johns. 408",
+  "court": "New York Supreme Court of Judicature",
+  "year": 1815,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.14,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "Mentions the public license implied by keeping an inn, but the actual dispute is an uncompensated trespass into a private dwelling."
+ },
+ {
+  "case_id": 2140956,
+  "cite": "Abeel & Abeel v. Radcliff, 15 Johns. 505",
+  "court": "New York Supreme Court of Judicature",
+  "year": 1818,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.61,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "A tenant who holds over without a new agreement ordinarily holds from year to year at the former rent. Here, because the former rent covered only the lot and the landlords had since acquired title to the tenant-erected house and barn, the landlords could recover the actual rental value of the improved premises.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "holding over"
+  ],
+  "quotes": [
+   {
+    "text": "The principle is, undoubtedly, a sound one, that where a tenant holds over, without any new stipulation between the parties, an implication arises that there is a tacit consent on both sides, that the tenant shall hold, from year to year, at the former or first rent.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The rent agreed upon between the parties was for the naked lot, and when, by operation of law, the plaintiffs have acquired a title to the bouse also, a different rule must be established ; for a new state of things has arisen between the parties, repelling the presumption that they intended that the tenant was to hold at the old rent.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "I am, therefore, of opinion, that the plaintiffs are entitled to judgment for three hundred dollars for which the verdict was taken by consent.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "Concerns an entire dwelling house and barn occupied through a long-term underletting, not short-term rooms."
+ },
+ {
+  "case_id": 2142410,
+  "cite": "Jones v. Clark, 20 Johns. 51",
+  "court": "New York Supreme Court of Judicature",
+  "year": 1822,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.51,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "After a mortgage became forfeited, the tenant of the mortgagor could lawfully attorn to the mortgagees and take a new lease from them during the former lease term. That attornment furnished a defense to the mortgagor's claim for rent.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "attorn"
+  ],
+  "quotes": [
+   {
+    "text": "At the trial, the plaintiffs gave in evidence a written lease of the premise?, from them to the defendant and Maltby Hotoel, for one year, ending May 1, 1821, for the rent of 400 dollars, payable quarterly.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The statute makes no difference between a tenant to the mortgagor, who becomes so before or after the execution of the mortgage. It applies to every tenant of the mortgagor, without reference to the time when he became tenant.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Indeed, the rights of the tenant also require that he should be allowed to do so; for if he refuses to attorn, he at once subjects himself to eviction, and the payment of costs.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "Protects the continuity of a compensated one-year house tenancy when the tenant accepts a lease from the mortgagees."
+ },
+ {
+  "case_id": 2142431,
+  "cite": "Holmes v. Tremper, 20 Johns. 29",
+  "court": "New York Supreme Court of Judicature",
+  "year": 1822,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "Concerns a farm tenant's right to remove a cider mill and press, not residential or lodging occupancy."
+ },
+ {
+  "case_id": 2150292,
+  "cite": "Walker v. Sherman, 20 Wend. 636",
+  "court": "New York Supreme Court of Judicature",
+  "year": 1839,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "Concerns whether factory machinery was personal property or a fixture in a partition proceeding."
+ },
+ {
+  "case_id": 2153268,
+  "cite": "Stratton v. Lord, 22 Wend. 611",
+  "court": "New York Supreme Court of Judicature",
+  "year": 1840,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "Concerns service of ejectment papers for wholly unoccupied land containing no dwelling or other building."
+ },
+ {
+  "case_id": 2161480,
+  "cite": "Schuyler v. Leggett, 2 Cow. 660",
+  "court": "New York Supreme Court",
+  "year": 1824,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.57,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "Although the contemplated seven-year parol lease was void for its stated duration, the tenant's entry and continued occupation made it a tenancy from year to year governed by the agreed rent and other terms. The landlord therefore could distrain for unpaid rent.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "parol demise"
+  ],
+  "quotes": [
+   {
+    "text": "If the occupancy has been under the parol agreement, then he has held under a parol demise for seven years ; which, though it is void as a lease for the term, yet it enures as a tenancy from year to year, (Clayton v. Blakey, 8 T. R. 3,) and must regulat. the terms on which the tenancy subsists in other respects; as the rent, the time of the year when the tenant must quit, &c.",
+    "supports": "characterization"
+   },
+   {
+    "text": "In either case, there was.a letting by Leggett to Schuyler, and an agreement by Schuyler to pay the rent.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Rent being due by the terms of the parol demise, the landlord\u2019s right to distrain was perfect; and the defendant was at liberty, under the avowry in this case, to avail himself of either a parol or written lease.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "Treats a compensated letting of a house and lot as an enforceable year-to-year tenancy, though the occupancy lasted several years rather than a short period."
+ },
+ {
+  "case_id": 2161491,
+  "cite": "Cornell v. Lamb, 2 Cow. 652",
+  "court": "New York Supreme Court",
+  "year": 1824,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "Addresses the general common-law right to distrain under a parol lease, but the premises are not identified as a dwelling, rooms, inn, or boarding house."
+ },
+ {
+  "case_id": 2172545,
+  "cite": "Grinnell v. Cook, 3 Hill & Den. 485",
+  "court": "New York Supreme Court",
+  "year": 1842,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.64,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "An innkeeper's extraordinary liability and corresponding lien arise only when the owner of the goods is actually or constructively a guest. Because the horse owner was a local neighbor rather than a traveler or guest, the innkeeper had no lien for merely feeding and keeping the horses.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [
+   "infra hospitium"
+  ],
+  "quotes": [
+   {
+    "text": "The inquiry then is, whether the plaintiff received and kept the horses as an innkeeper. In other words, was he bound to receive and take care of them, and would he have been answerable for the loss if the horses had been stolen without any negligence on his part 1",
+    "supports": "characterization"
+   },
+   {
+    "text": "Tyler, who owned the property, was not a traveller, nor was he in any sense a guest in the plaintiff\u2019s house; and I think it quite clear that the plaintiff was not bound to receive and take care of the horses.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The lien and the liability must stand or fall together. Innkeepers cannot claim the one with any just expectation of escaping the other.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-071",
+  "notes": "Mixed because it recognizes reciprocal common-law protections and obligations for compensated inn guests while denying guest status and the lien on the actual facts."
+ }
+]

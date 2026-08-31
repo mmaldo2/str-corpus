@@ -1,0 +1,553 @@
+[
+ {
+  "case_id": 457003,
+  "cite": "63 Pa. Super. 607",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1916,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Landlord-tenant dispute over tenancy-at-sufferance and use-and-occupation liability after a partition; defendant happened to run a hotel in the demised premises, but the holding addresses holding-over/assumpsit doctrine, not lodging or boarding practice or its regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 635513,
+  "cite": "70 Pa. Super. 167",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1918,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Appeal in the same Sutmeyer/Thornton litigation as case 457003; again turns on use-and-occupation/estoppel doctrine for a holdover hotel tenant, not on lodging/boarding practice or its regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 648518,
+  "cite": "77 Pa. Super. 144",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1921,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Hotel room let by the day (up to a month) for use as a millinery shop and private trade display, not as a dwelling or lodging; dispute concerns advertising rights and eviction, not compensated residential occupancy or its regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 678497,
+  "cite": "93 Pa. Super. 533",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1928,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Municipal negligence case over an icy sidewalk and a snow-removal ordinance's application to a commercial tenant (telegraph office); no lodging, boarding, or short-term residential letting involved.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 853873,
+  "cite": "26 Pa. Super. 5",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1904,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "A constable who broke into a hotel boarder's room and seized her piano under a landlord's distress warrant for rent owed by the hotel keeper was liable in trespass, because a boarder's goods are not subject to distraint for the boarding-house keeper's rent. The court also permitted amendment to drop the landlord as a defendant since the case had proceeded against the constable alone.",
+  "doctrinal_concepts": [
+   "boarder_status",
+   "lodging"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Where a constable at the instance of the lessor of a hotel breaks into the room of a boarder, and seizes and sells for rent a piano belonging to the boarder, he will be liable in damages to the boarder in an action of trespass.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     121,
+     348
+    ],
+    "reporter_page": "5"
+   },
+   {
+    "text": "The goods of a boarder are not liable to be distrained for rent due by the keeper of a boarding house",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5942,
+     6043
+    ],
+    "reporter_page": "8"
+   },
+   {
+    "text": "The goods of a boarder are not liable to be distrained for rent due by the keeper of a boarding house",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5942,
+     6043
+    ],
+    "reporter_page": "8"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Facts do not state how long plaintiff had boarded at the hotel, so duration is left unclear.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 860144,
+  "cite": "29 Pa. Super. 48",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1905,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Trade-fixture removal dispute between a commercial landlord and outgoing tenant; no lodging, boarding, or dwelling-occupancy issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 880629,
+  "cite": "39 Pa. Super. 276",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1909,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Municipal borough renting excess office space in its own building to raise revenue; not a householder or commercial lodging operator, and no lodger/boarder occupancy at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 994771,
+  "cite": "203 Pa. 161",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1902,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Dispute over use of a fraternal meeting hall (GAR Memorial Hall) among veterans' organizations under a deed of trust; not compensated residential occupancy or boarding-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1092001,
+  "cite": "284 Pa. 545",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1925,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "The hotel proprietor was not liable when a bottle fell from an upper window and injured a passerby below, because there was no proof connecting the fall to any act or knowledge of the proprietor or a guest under his control. The court held a hotel proprietor is not liable for an occupant's negligent placement of an article on a window sill absent notice of the danger.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "innkeeper_liability",
+   "guest_status"
+  ],
+  "new_terms_observed": [
+   "light housekeeping"
+  ],
+  "quotes": [
+   {
+    "text": "it is his living quarters or residence as a home",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     748,
+     796
+    ],
+    "reporter_page": "545"
+   },
+   {
+    "text": "the guest or boarder has an absolute right to the free enjoyment of his room or apartment without interference from anyone",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     9949,
+     10071
+    ],
+    "reporter_page": "549"
+   },
+   {
+    "text": "Nor would he be liable for the result of articles placed on the window sill falling to the street unless he knew, or had reason to know, the thing placed there was of a dangerous nature, or likely to fall to the street.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     15260,
+     15479
+    ],
+    "reporter_page": "552"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Court draws a doctrinally rich distinction between transient hotel guests and 'permanent guests' using rooms partly for light housekeeping (a recurring boarding/lodging-adjacent term); the specific room from which the bottle fell was never identified, so duration is unclear from the facts. Characterization set to innkeeping as the dominant frame, though lodging-type occupancy is also discussed.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1477071,
+  "cite": "5 Pa. D. & C. 135",
+  "court": "Butler County Court of Common Pleas",
+  "year": 1924,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "A tenant holding a hotel building under a twenty-year lease is an 'owner' within the meaning of the fire-escape statute and may be compelled to erect and maintain fire-escapes, even though the lease imposed no such duty on him and made no provision for repairs by the landlord.",
+  "doctrinal_concepts": [
+   "police_power_regulation",
+   "innkeeper_liability"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The building is a four-story brick, used in its entirety for hotel purposes.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     793,
+     869
+    ],
+    "reporter_page": "135"
+   },
+   {
+    "text": "the hotel building and the use made of it by the relator is such as to require fire-escapes, under the provisions of the Act of May 3, 1909, P. L. 417",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1256,
+     1406
+    ],
+    "reporter_page": "135"
+   },
+   {
+    "text": "A tenant for years may he compelled to erect fire-escapes under the Act of May 3, 1909, P. L. 417",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     153,
+     250
+    ],
+    "reporter_page": "135"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Sustains a police-power safety regulation (fire-escapes) against a hotel operator, extending statutory 'owner' liability to a tenant for years; classified adverse as an upheld regulation of a lodging establishment. Duration of individual occupants' stays is not addressed.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 446170,
+  "cite": "58 Pa. Super. 387",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1914,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Bailment dispute over a trunk stored in a hotel baggage room before the owner's arrival; discusses when the guest/innkeeper relation begins only to resolve bailment liability for lost trunk contents, not the legality or character of room-letting itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 451711,
+  "cite": "60 Pa. Super. 617",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1915,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Bailment dispute over a traveling bag left at a hotel desk while plaintiff sought a room elsewhere and eventually stayed at a different hotel; concerns bailment-for-mutual-benefit liability standards, not lodging/boarding doctrine.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 453570,
+  "cite": "61 Pa. Super. 269",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1915,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Private nuisance/trespass dispute between adjoining landowners over a roof spout and boarded-up windows; the covenant of quiet enjoyment is discussed only as to a commercial tenant's shop, unrelated to short-term letting or boarding-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 457958,
+  "cite": "64 Pa. Super. 78",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1916,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Dispute over the form of a landlord's distress warrant and whether it reaches a stranger's goods on leased business premises; no lodging or boarding element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 458016,
+  "cite": "64 Pa. Super. 525",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1916,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Dispute over 19th-century deed covenants for a public wharf/pier and municipal wharfage fees; commercial dockage rights, not residential lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 571221,
+  "cite": "87 Pa. Super. 369",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1926,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Equity suit over the power to execute oil and gas leases reserved under a family partition deed; no lodging/boarding element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 651758,
+  "cite": "79 Pa. Super. 234",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1922,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "Hotel guests whose room was broken into and clothing stolen during a night's absence could recover from the innkeeper, who is practically an insurer of property properly kept in a guest's assigned room while the guest remains in the house. The Act of 1913 did not diminish this common-law responsibility for goods left in the room.",
+  "doctrinal_concepts": [
+   "innkeeper_liability",
+   "guest_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The innkeeper, as to articles properly retained by guests in their room, is practically in the position of an insurer while the guest remains in his house",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6665,
+     6819
+    ],
+    "reporter_page": "238"
+   },
+   {
+    "text": "The guests had the reasonable right to expect that their room would be protected from unlawful intrusion or thefts.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5867,
+     5982
+    ],
+    "reporter_page": "237"
+   },
+   {
+    "text": "The guests had the reasonable right to expect that their room would be protected from unlawful intrusion or thefts.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5867,
+     5982
+    ],
+    "reporter_page": "237"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Plaintiffs registered and occupied the room jointly for one night before the theft was discovered the next evening.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 661177,
+  "cite": "83 Pa. Super. 125",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1924,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "The Act of May 8, 1876, permitting hotel, inn, and boarding-house keepers to attach a debtor-employee's wages for up to four weeks' board, is constitutional special legislation for a properly recognized class. The judgment against the garnishee was nonetheless reversed because the record failed to show the plaintiff was a boarding-house keeper and affirmatively showed the claim included board for persons other than the laborer.",
+  "doctrinal_concepts": [
+   "boarding_house_keeper_class",
+   "lodging"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Hotelkeepers and innkeepers have from time immemorial been recognized as a distinct class, owing special duties to their patrons and possessing special corresponding rights.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5458,
+     5631
+    ],
+    "reporter_page": "128"
+   },
+   {
+    "text": "Hotelkeepers and innkeepers have from time immemorial been recognized as a distinct class, owing special duties to their patrons and possessing special corresponding rights.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5458,
+     5631
+    ],
+    "reporter_page": "128"
+   },
+   {
+    "text": "The Act of May 8, 1876, P. L. 139, authorizing hotel and hoarding house keepers to attach wages due such employees as may be indebted to them is constitutional.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     203,
+     363
+    ],
+    "reporter_page": "125"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-009",
+  "notes": "Underlying justice-of-the-peace judgment was for four weeks' board and lodging. Holding_summary quote reproduces the source's OCR rendering of 'boarding' as 'hoarding' verbatim, per source-fidelity requirement.",
+  "extraction_status": "ok"
+ }
+]

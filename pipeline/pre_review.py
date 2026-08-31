@@ -83,8 +83,9 @@ def cmd_remap(run_id: str) -> None:
             print(f"remap group {i//8}: {len(recs)} records")
         else:
             print(f"remap group {i//8}: PARSE FAILURE")
-    d = RUNS / run_id / "extractions-remap"
-    d.mkdir(exist_ok=True)
+    # remap outputs live in their own run dir so verify_quotes can gate them
+    d = RUNS / (run_id.split("-shard")[0] + "-remap") / "extractions"
+    d.mkdir(parents=True, exist_ok=True)
     (d / "remap-001.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
     print(f"{len(out)} re-mapped records -> {d}")
 

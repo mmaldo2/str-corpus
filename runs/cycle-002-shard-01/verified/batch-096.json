@@ -1,0 +1,518 @@
+[
+ {
+  "case_id": 1296536,
+  "cite": "People ex rel. Penny v. Board of Excise, 17 Misc. 98",
+  "court": "County Court of New York, Oneida County",
+  "year": 1896,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Excise (liquor) license revocation of a hotel keeper for keeping a disorderly house (prostitution); addresses summons sufficiency and judicial notice, not the legality or regulation of lodging/boarding as such.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1296568,
+  "cite": "Sidwell v. Greig, 17 Misc. 165",
+  "court": "New York Supreme Court",
+  "year": 1896,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Dispute over an easement to fish and boat on a pond created by agreement between adjoining owners; no bearing on letting of dwellings or rooms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1299997,
+  "cite": "Gore v. Norwich & New York Transportation Co., 2 Daly (N.Y.) 254",
+  "court": "New York Court of Common Pleas",
+  "year": 1867,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.35,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "A steamboat carrier that let a passenger a private state-room for extra compensation remained liable, on the analogy of an innkeeper, for a passenger's overcoat stolen from the locked state-room absent negligence, because placing the coat there did not withdraw it from the carrier's custody.",
+  "doctrinal_concepts": [
+   "innkeeping",
+   "state_room_bailment"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The granting, for compensation, of the use of a state-room, in the absence of notice to the contrary, is a designation of the place in which the passenger may place his ordinary baggage, but not to the exclusion of the carrier, inasmuch as the whole vessel is in the possession and under the control of the carrier, and the animus custodiendi of the passenger, as to wearing apparel in temporary use, ceases when the article is placed in the state-room.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     466,
+     919
+    ],
+    "reporter_page": "254"
+   },
+   {
+    "text": "The staterooms on board of the defendant\u2019s boat are similar to the rooms at an inn.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5505,
+     5588
+    ],
+    "reporter_page": "256"
+   },
+   {
+    "text": "The proprietor of a steamboat is liable for wearing apparel stolen from a passenger\u2019s state-room, in the absence of negligence on the part of the latter.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     925,
+     1078
+    ],
+    "reporter_page": "254"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Tangential to core letting doctrine (holding is about carrier/bailment liability, not the legality of letting), but the court expressly analogizes a paid private state-room to an inn room and treats the innkeeper-guest duties as applicable.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1300658,
+  "cite": "Douglass v. Seiferd, 18 Misc. 188",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1896,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Ordinary residential flat tenancy dispute (monthly vs. yearly hiring, surrender by leaving keys) and appellate/District Court procedure; not short-term lodging or boarding-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1302586,
+  "cite": "Metropolitan Board of Health v. Schmades, 3 Daly (N.Y.) 282",
+  "court": "New York Court of Common Pleas",
+  "year": 1870,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Concerns the Board of Health's authority to regulate petroleum/kerosene storage and sale; unrelated to lodging or letting of dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1303535,
+  "cite": "Thompson v. Fox, 21 Misc. 298",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1897,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Trespass/use-and-occupation dispute over commercial store window and counter space encroachment; no lodging or dwelling-letting issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1306508,
+  "cite": "Foster v. Townshend, 6 Daly (N.Y.) 136",
+  "court": "New York Court of Common Pleas",
+  "year": 1875,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Concerns a divorce-suit receiver's powers over a husband's sequestered real estate and fraudulent conveyances; no bearing on room/dwelling letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1306829,
+  "cite": "Smusch v. Kohn, 22 Misc. 344",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1898,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Trover action over store trade fixtures (glass partition, chandeliers, showcase) removable by an outgoing commercial tenant; no lodging-letting issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1306923,
+  "cite": "Ofschlager v. Surbeck, 22 Misc. 595",
+  "court": "New York Supreme Court",
+  "year": 1898,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Malicious-prosecution action turning on whether a hired farm hand's occupancy of the employer's house (rent deducted from wages) was as tenant or as a mere incident of service; concerns employment housing, not short-term lodging/boarding for pay to strangers.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1315682,
+  "cite": "Moffat v. Strongs, 22 N.Y. Super. Ct. 57",
+  "court": "New York Superior Court",
+  "year": 1861,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Commercial lot-and-building lease (three-year term); dispute over eviction by paramount title and the implied covenant of quiet enjoyment; no lodging-house issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1321965,
+  "cite": "Mortimer v. Brunner, 19 N.Y. Super. Ct. 653",
+  "court": "New York Superior Court",
+  "year": 1860,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Commercial store lease dispute (restaurant tenant on ground floor allegedly interfering with an upper-floor tenant's business); no lodging/boarding issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1395636,
+  "cite": "Ramaley v. Leland, 29 N.Y. Super. Ct. 358",
+  "court": "New York Superior Court",
+  "year": 1868,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that the 1855 statute limiting hotel keepers' common-law liability applies only to money, jewels, and ornaments not deposited in the provided safe, and admits a reasonable-sum exception for cash and did not clearly cover a watch and chain kept for personal use, so the hotel keeper remained liable to the guest absent the guest's own negligence.",
+  "doctrinal_concepts": [
+   "innkeeping",
+   "sojourner"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "That being a resident of Pittsburgh, and being on a visit to the city of New York, in April, 1867, he put up and lodged at the Metropolitan hotel, kept by the defendants, in said city, as a guest or customer thereof, and was received as such upon ihe ordinary and usual rates or terms charged by said hotel to travelers and sojourners.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3579,
+     3914
+    ],
+    "reporter_page": "359"
+   },
+   {
+    "text": "He must certainly be entitled to carry with him to his bed chamber at night as much as would meet those contingencies\u2014a reasonable sum such as a prudent man would keep.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     17497,
+     17665
+    ],
+    "reporter_page": "366"
+   },
+   {
+    "text": "That being a resident of Pittsburgh, and being on a visit to the city of New York, in April, 1867, he put up and lodged at the Metropolitan hotel, kept by the defendants, in said city, as a guest or customer thereof, and was received as such upon ihe ordinary and usual rates or terms charged by said hotel to travelers and sojourners.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3579,
+     3914
+    ],
+    "reporter_page": "359"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Squarely a commercial hotel-guest (innkeeping) case; the pleaded facts frame the guest as a paying 'sojourner' received at 'ordinary and usual rates.'",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1403082,
+  "cite": "Irvin v. Wood, 27 N.Y. Super. Ct. 138",
+  "court": "New York Superior Court",
+  "year": 1866,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Public-nuisance action over an unauthorized coal-hole opening in a sidewalk and landlord/tenant liability for continuing a street nuisance; no lodging-letting issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1405428,
+  "cite": "Stapenhorst v. American Manufacturing Co., 36 N.Y. Super. Ct. 392",
+  "court": "New York Superior Court",
+  "year": 1873,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Negligence action between commercial building co-tenants (upper-floor manufacturer's leaking oil damaging a mustard manufacturer below); cites the furnished-house implied-warranty line of cases only as general landlord-tenant authority argued by counsel, not on the case's own facts.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1407541,
+  "cite": "Hexter v. Knox, 39 N.Y. Super. Ct. 109",
+  "court": "New York Superior Court General Term",
+  "year": 1875,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "Where a landlord's breach of a covenant to complete and deliver a hotel building delayed a hotelkeeper-tenant's possession, the tenant's damages were properly measured by the proven market value of the use of the rooms he was denied\u2014furnished-room value for rooms he had furniture for, unfurnished-room value for the rest\u2014varying with the season, rather than speculative profits.",
+  "doctrinal_concepts": [
+   "furnished_rooms",
+   "right_to_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the plaintiff and defendant executed a lease, by which defendant demised to the plaintiff the",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3241,
+     3334
+    ],
+    "reporter_page": "111"
+   },
+   {
+    "text": "That rule simply instructed the jury to give the plaintiff that compensation for the loss of the use and occupation of those rooms for which he had furniture, as the evidence showed the use and occupation of such rooms furnished for hotel purposes was worth, and also for those rooms for which he did not have furniture, such compensation as the evidence showed their use and occupation was worth.",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     13420,
+     13817
+    ],
+    "reporter_page": "116",
+    "fuzzy_score": 99.49622166246851
+   },
+   {
+    "text": "The premises were leased by the defendant to the plaintiff for hotel purposes, which contemplates the provision of suitable furniture for the rooms for the use of such persons as the plaintiff in his business as a hotel keeper should let them to.",
+    "supports": "polarity",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     14143,
+     14389
+    ],
+    "reporter_page": "116",
+    "fuzzy_score": 99.59349593495935
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Underlying litigated arrangement (Knox-Hexter) is a lease of a hotel building; relevant to the corpus because the court recognizes the value of letting furnished hotel rooms as an ordinary, market-provable commercial activity. Specific guest-occupancy duration not stated in facts, hence 'unclear.'",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1412421,
+  "cite": "Chambovet v. Cagney, 35 N.Y. Super. Ct. 474",
+  "court": "New York Superior Court",
+  "year": 1873,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Plaintiffs' boarding-and-lodging-house business is only background to a trover action over furniture and a marital-property/tenancy-in-common dispute; the court never addresses the character or regulation of the lodging business itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1417306,
+  "cite": "Sulzbacher v. Davison, 34 N.Y. Super. Ct. 145",
+  "court": "New York Superior Court",
+  "year": 1871,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.45,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court held it was error to nonsuit on the coverture defense because there was evidence a jury could credit that the defendant independently carried on a boarding house (leasing the house, hiring out rooms, and contracting with boarders in her own name) and purchased the furniture for that business, which would make her separately liable for the goods notwithstanding coverture.",
+  "doctrinal_concepts": [
+   "boarding_house_keeping",
+   "married_womens_separate_business"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "she was carrying on a boarding house, that she signed the lease of the house, that she sometimes hired out the rooms and made agreements with the boarders, and sometimes received the money and sometimes her husband did",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7249,
+     7467
+    ],
+    "reporter_page": "149"
+   },
+   {
+    "text": "we think the jury would not be warranted in finding that the defendant did not carry on business in her own name, or that the articles were not purchased and furnished for that business. Such a finding would have been against the evidence.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     15267,
+     15506
+    ],
+    "reporter_page": "154"
+   },
+   {
+    "text": "she was carrying on a boarding house, that she signed the lease of the house, that she sometimes hired out the rooms and made agreements with the boarders, and sometimes received the money and sometimes her husband did",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7249,
+     7467
+    ],
+    "reporter_page": "149"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Boarding-house keeping (hiring out rooms to boarders) is central to the holding, not merely background, because the coverture defense turns on whether that letting activity was her own separate business. Duration of individual boarders' stays not specified in facts.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1419154,
+  "cite": "Peck v. Knox, 31 N.Y. Super. Ct. 311",
+  "court": "New York Superior Court",
+  "year": 1869,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-096",
+  "notes": "Trover action over store fixtures left behind after summary dispossession for nonpayment of commercial rent; no lodging/boarding issue.",
+  "extraction_status": "ok"
+ }
+]

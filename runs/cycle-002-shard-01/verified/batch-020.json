@@ -1,0 +1,517 @@
+[
+ {
+  "case_id": 1963465,
+  "cite": "23 Abb. N. Cas. 241",
+  "court": "New York Supreme Court, General Term",
+  "year": 1889,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Warehouseman's lien dispute (replevin over stored goods); no lodging, boarding, or dwelling-letting facts at all.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2116079,
+  "cite": "68 N.Y. St. Rep. 165",
+  "court": "New York Court of Common Pleas",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Guardian-in-socage's authority to lease infant's real estate in summary dispossession proceeding; unrelated to lodging/boarding of dwelling rooms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2121955,
+  "cite": "70 N.Y. St. Rep. 450",
+  "court": "New York City Court",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "False imprisonment/assault by a policeman seizing a boarder's trunk. Court expressly held plaintiff's status as a licensed boarding-house keeper 'entirely immaterial' to the holding; no adjudication of lodging/boarding legal character.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2192059,
+  "cite": "94 N.Y. 1",
+  "court": "New York Court of Appeals",
+  "year": 1883,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "innkeeping",
+  "holding_summary": "The Court of Appeals held that General Hancock and his family, though occupying hotel rooms under an understanding as to price and expected length of stay, remained transient guests rather than boarders because no binding contract fixed a definite term and Hancock, as an army officer with no permanent home, could be ordered away at any moment. Because the hotel failed to post the statutory notice limiting innkeeper liability, it was held liable as insurer for property stolen from the plaintiff's rooms. The court distinguished this case from ones where an explicit boarding contract had stripped the occupant of a guest's protections.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Officers of the army and navy, and soldiers and sailors, who have no permanent residence which they can call home, may well be regarded as travelers or wayfarers when stopping at public inns or hotels, and to make them chargeable as mere boarders it should be shown satisfactorily that an explicit contract had been made which deprived them of the privileges and rights which their vocation conferred upon them as passengers or travelers.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     12143,
+     12581
+    ],
+    "reporter_page": "6"
+   },
+   {
+    "text": "The common-law rule which fixes the liability of an innkeeper to his guest is a salutary one and imposes no needless hardship upon him, and it should be administered according to its spirit without regard to technical distinctions.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     22227,
+     22458
+    ],
+    "reporter_page": "11"
+   },
+   {
+    "text": "but he may, by a special contract to board and sojourn, make himself a boarder, and being such the innkeeper is not liable.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     19605,
+     19728
+    ],
+    "reporter_page": "10"
+   },
+   {
+    "text": "we think the defendants are bound within the reason of the rule under which an innkeeper is held liable for the goods and property of his guest.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     13374,
+     13518
+    ],
+    "reporter_page": "7"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Not a householder-letting case; concerns the guest-vs-boarder distinction for innkeeper liability at a commercial hotel. Marked mixed: broadly protects transient lodgers' rights while reaffirming that an explicit boarding contract strips those protections.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2231715,
+  "cite": "120 N.Y. 427",
+  "court": "New York Court of Appeals",
+  "year": 1890,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Minister's uncompensated occupancy of a church parsonage incident to his ministerial office; possession/license doctrine, not compensated lodging or boarding for pay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2249817,
+  "cite": "54 Barb. 311",
+  "court": "New York Supreme Court",
+  "year": 1863,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Criminal prosecution of excise commissioners for corruptly granting a liquor/tavern license; defines 'inn/tavern/hotel' for excise-licensing purposes but does not address a householder's right to let rooms or regulation of lodging/boarding houses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2953238,
+  "cite": "7 N.Y.S. 902",
+  "court": "New York Court of Common Pleas",
+  "year": 1889,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Ordinary unfurnished-house landlord/tenant rent dispute over defective plumbing; discusses furnished-house implied warranty in dicta only, no lodging/boarding facts.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2983407,
+  "cite": "27 N.Y.S. 575",
+  "court": "New York Supreme Court, General Term",
+  "year": 1894,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Suit by infants for use-and-occupation rent against their mother, who occupied the family homestead with guardian's consent; general property/guardianship law, not compensated lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3026054,
+  "cite": "33 N.Y.S. 654",
+  "court": "New York Superior Court",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Commercial store tenant holding over after lease expiration; ordinary landlord-tenant law, no lodging/boarding element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3410459,
+  "cite": "51 N.Y.S. 1006",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1897,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Equity suit over a meretricious-relationship 'partnership' agreement; plaintiff's letting of furnished rooms and keeping of boarders is mentioned only in passing as a source of household income, not adjudicated as to legal character.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3413161,
+  "cite": "52 N.Y.S. 519",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1898,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a restrictive covenant barring certain business uses did not prohibit operating a private hotel or boarding house on the restricted property, because the practical construction the parties had given the covenant -- years of unobjected-to private hotels and boarding houses on other restricted parcels -- showed such use was not meant to be barred. The defendant's establishment, though larger and more elaborately furnished than its neighbors, was a private boarding house rather than an ordinary inn because it did not bid indiscriminately for transient travelers, so it fell outside the covenant's prohibition.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "An inn or hotel proper is conducted for the purpose of entertaining travelers and all respectable persons who apply for accommodation. It bids indiscriminately for the patronage of transient and permanent guests. The Victoria did not entertain travelers as such.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2059,
+     2321
+    ],
+    "reporter_page": "1006"
+   },
+   {
+    "text": "I therefore decide that the Victoria is a private hotel or boarding house of the same general character as the other hotels or boarding houses named, and therefore not within the prohibition of the covenant.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2568,
+     2775
+    ],
+    "reporter_page": "1006"
+   },
+   {
+    "text": "for many years there have been erected and continuously conducted upon parcels of the restricted property private hotels or boarding houses without remonstrance, and without suggestion from any one that the covenant was thereby violated.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1095,
+     1332
+    ],
+    "reporter_page": "1006"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3469821,
+  "cite": "35 N.Y.S. 716",
+  "court": "New York City Court",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Duplicate reporter citation (14 Misc. Rep. 249) of Isaacs v. Flahive, same as case_id 2121955; same false-imprisonment facts, boarding-house license status expressly held immaterial.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3542033,
+  "cite": "31 N.Y.S. 1116",
+  "court": "New York Supreme Court, General Term",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Fraudulent-conveyance action over a promissory note between husband and wife; wife's history of 'renting furnished rooms' and 'keeping boarders' is mentioned only as an unproven source of funds, not adjudicated as to legal character.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4290708,
+  "cite": "12 N.Y.S. 210",
+  "court": "New York Court of Common Pleas",
+  "year": 1891,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Landlord's liability for a contractor's demolition of an adjoining building damaging a tenement leasehold; ordinary landlord-tenant negligence, no lodging/boarding facts.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4292318,
+  "cite": "12 N.Y.S. 27",
+  "court": "New York Supreme Court, General Term",
+  "year": 1890,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Farm lease eviction/rent dispute involving a lessor's reserved hen-house and stable rights; ordinary agricultural landlord-tenant law, no lodging/boarding element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4484612,
+  "cite": "53 How. Pr. 311",
+  "court": "New York Supreme Court",
+  "year": 1877,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "French flat"
+  ],
+  "quotes": [
+   {
+    "text": "the various compartments are let and rented to them, they paying a sum in money as the rent thereof.",
+    "supports": "characterization",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     10100,
+     10200
+    ],
+    "reporter_page": "315",
+    "fuzzy_score": 99.0
+   },
+   {
+    "text": "No reason occurs to me why, literally and truly, the building of the defendant, which is to be occupied by tenants, in name and in fact, is not clearly within the true meaning and definition of a \u201ctenement-house.\u201d The injunction asked for must also for this reason be granted.",
+    "supports": "polarity",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     10180,
+     10456
+    ],
+    "reporter_page": "315",
+    "fuzzy_score": 99.63768115942028
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Interlocutory injunction stage of the Musgrave v. Sherwood dispute; compare case_id 4488853 (54 How. Pr. 338), the later trial decision reaching the opposite result on the tenement-house question.",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 4488853,
+  "cite": "54 How. Pr. 338",
+  "court": "New York Supreme Court",
+  "year": 1878,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "French flat",
+   "family hotel"
+  ],
+  "quotes": [
+   {
+    "text": "Rooms in suits or singly, on the different floors, are taken by families or individuals for some period.",
+    "supports": "characterization",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     39313,
+     39417
+    ],
+    "reporter_page": "357",
+    "fuzzy_score": 99.03846153846155
+   },
+   {
+    "text": "It has no reference to a hotel of the character of the defendant, which is, in no just sense noxious or offensive.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     45195,
+     45309
+    ],
+    "reporter_page": "360"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Final trial ruling in the Musgrave v. Sherwood dispute; compare case_id 4484612 (53 How. Pr. 311), the earlier injunction-stage ruling holding the same conversion to be a prohibited tenement-house.",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 4517284,
+  "cite": "58 How. Pr. 331",
+  "court": "New York Supreme Court",
+  "year": 1880,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-020",
+  "notes": "Summary nonpayment-of-rent proceeding addressing whether including furniture in a demise defeats the summary remedy; procedural landlord-tenant rule, no lodging/boarding facts.",
+  "extraction_status": "ok"
+ }
+]

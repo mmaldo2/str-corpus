@@ -1,0 +1,516 @@
+[
+ {
+  "case_id": 7316556,
+  "cite": "358 S.W.3d 457",
+  "court": "Texas Courts of Appeals",
+  "year": 2012,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The Dallas Court of Appeals affirmed judgment for the apartment complex owner, holding the City failed to prove that the property was being operated as a zoning-restricted 'residential hotel,' because current tenants signed apartment leases for whole units (with optional roommate agreements) rather than six or more separately rented, individually secured guest rooms. The trial court's refusal to permanently enjoin the owner's use of the property was therefore upheld.",
+  "doctrinal_concepts": [
+   "residential_hotel_zoning",
+   "boardinghouse_regulation",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "residential hotel"
+  ],
+  "quotes": [
+   {
+    "text": "All current tenants had entered into an apartment lease for a particular apartment unit.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6360,
+     6448
+    ],
+    "reporter_page": "460"
+   },
+   {
+    "text": "we cannot conclude the evidence established conclusively Billinglsey was separately renting six or more guestrooms at the time of trial or that the trial court's finding to the contrary was against the great weight and preponderance of the evidence.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     10306,
+     10555
+    ],
+    "reporter_page": "461"
+   },
+   {
+    "text": "The zoning ordinance, however, does not permit Bill-ingsley's property to be used as a residential hotel or motel.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3965,
+     4079
+    ],
+    "reporter_page": "459"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Complex previously advertised 'Rooms for Rent' at $105/week/$420/month but had switched to month-to-month apartment leases with roommate agreements by trial; city's 'residential hotel' zoning theory failed on proof of separately-rented rooms, so outcome favors owner's leasing practice even though the underlying regulatory scheme (adverse-type) targets room-by-room lodging use.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8165903,
+  "cite": "278 S.W.3d 901",
+  "court": "Texas Courts of Appeals",
+  "year": 2009,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Wrongful-death/premises-liability suit over a shopping-center parking-lot shooting; invitee/licensee/trespasser status discussed only for tort-duty purposes, no letting or lodging arrangement at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9929843,
+  "cite": "669 S.W.2d 129",
+  "court": "Texas Courts of Appeals",
+  "year": 1984,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Premises-liability suit by a boarding agent injured at a dock construction site; licensee status analyzed for tort duty only, no occupancy/lodging arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9999252,
+  "cite": "910 S.W.2d 156",
+  "court": "Texas Courts of Appeals",
+  "year": 1995,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Off-duty employee assault premises-liability case; invitee/licensee/trespasser doctrine applied to a restaurant dumpster enclosure, unrelated to lodging or letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10135884,
+  "cite": "506 S.W.2d 742",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1974,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The court held that a mobile-home owner's informal, no-fixed-term rental of her own mobile home to a tenant who was 'desperate for a place to live' was an ordinary landlord-tenant rental, not a 'bailment lease' (a financing device carrying an eventual right to ownership), so the fire policy's bailment-lease exclusion did not bar recovery.",
+  "doctrinal_concepts": [
+   "license_vs_lease",
+   "short_term_letting",
+   "bailment_lease_distinction"
+  ],
+  "new_terms_observed": [
+   "bailment lease"
+  ],
+  "quotes": [
+   {
+    "text": "There was nothing in the agreement that gave the tenant the right to use and enjoy the mobile home as long as she paid the rental, or the right to ever become the owner of the mobile home.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7543,
+     7731
+    ],
+    "reporter_page": "745"
+   },
+   {
+    "text": "The subject exclusion is directed solely to a security transaction and not to a simple landlord-tenant relationship.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4986,
+     5102
+    ],
+    "reporter_page": "744"
+   },
+   {
+    "text": "we hold that the verbal agreement in question in this case did not create a \u201cbailment lease\u201d as we have defined that term.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8020,
+     8142
+    ],
+    "reporter_page": "745"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Owner rented her own mobile home at $55/month with no definite term to a tenant seeking temporary housing until she found an apartment; court treats such informal householder letting as an ordinary, protected incidence of ownership rather than a specialized encumbrance.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11596913,
+  "cite": "985 S.W.2d 667",
+  "court": "Texas Courts of Appeals",
+  "year": 1999,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court held that condominium unit owners have an 'absolute right to lease' their units as guaranteed by the condominium declaration, but that right is 'subject to all provisions and restrictions applicable to the Project'; it reversed the trial court and upheld the condo association's fees on units rented outside its rental pool and its prohibition on outside leasing agents as reasonably necessary to the project's operation, not arbitrary, capricious, or discriminatory.",
+  "doctrinal_concepts": [
+   "right_to_lease",
+   "condominium_regulation",
+   "boardinghouse_regulation"
+  ],
+  "new_terms_observed": [
+   "rent pool"
+  ],
+  "quotes": [
+   {
+    "text": "Each Apartment Owner shall have an absolute right to lease or rent his apartment upon such terms as he shall approve, subject to all provisions and restrictions applicable to the Project.",
+    "supports": "characterization",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     6216,
+     6403
+    ],
+    "reporter_page": "670",
+    "fuzzy_score": 96.2566844919786
+   },
+   {
+    "text": "We conclude the prohibition and fees were necessary to achieve the purpose of creating a uniform plan for the development and operation of the condominium project.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     21022,
+     21185
+    ],
+    "reporter_page": "673"
+   },
+   {
+    "text": "We hold there is no evidence to support the jury\u2019s conclusion that the assessment of the fee and later prohibition against the use of outside rental agents was arbitrary, capricious, and discriminatory.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     21245,
+     21447
+    ],
+    "reporter_page": "673"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Beach-condo (Port Aransas) rental-pool dispute; owner held investment units through a family limited partnership and used an outside leasing agent instead of the condo's rent pool. Court recognizes letting as an incident of ownership but sustains private (HOA-level) regulation restricting how that letting may occur; exact rental duration (nightly/weekly) not stated in excerpt.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7086689,
+  "cite": "412 S.W.3d 95",
+  "court": "Texas Courts of Appeals",
+  "year": 2013,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Criminal trespass case: defendant occupied a rented house using a key given by the tenant (not for pay) after the tenant's month lease lapsed. Issue is criminal notice of forbidden entry, not the legal character or regulation of compensated short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7261687,
+  "cite": "417 S.W.3d 909",
+  "court": "Supreme Court of Texas",
+  "year": 2013,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Commercial laundry-room lease in an apartment complex terminated by foreclosure; tenant-at-sufferance/trespass doctrine addressed for a coin-laundry vendor, not residential lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7299705,
+  "cite": "295 S.W.3d 334",
+  "court": "Texas Courts of Appeals",
+  "year": 2005,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "adverse",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The court upheld a city zoning ordinance barring 'correctional or rehabilitation facilities'\u2014including a religious ministry's homes for parolees and probationers\u2014within 1000 feet of residential areas, schools, parks, and churches, holding the ordinance was a valid, generally applicable exercise of the city's police power that did not violate the operator's free-exercise, free-speech, assembly, equal-protection rights, or the Texas Religious Freedom Act.",
+  "doctrinal_concepts": [
+   "boardinghouse_regulation",
+   "residential_hotel_zoning"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The purpose of the legislation was not to stifle speech but rather to protect the public by regulating the location of correctional and rehabilitation facilities.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     10796,
+     10958
+    ],
+    "reporter_page": "341"
+   },
+   {
+    "text": "We conclude Pastor Barr\u2019s religious rights were not substantially burdened by the City ordinance. Therefore, the Religious Freedom Act has not been violated.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     16245,
+     16402
+    ],
+    "reporter_page": "344"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Not a paid-lodging arrangement (ministry housing for parolees, no rent shown), but analogous adverse authority: zoning/police-power regulation sustained against a multi-occupant residential-use facility in residential zones, akin to boarding-house distance restrictions. Characterization left null because the court made no lease/license/lodging characterization -- only a land-use/constitutional ruling.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7300906,
+  "cite": "293 S.W.3d 788",
+  "court": "Texas Courts of Appeals",
+  "year": 2009,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Nuisance suit over a motorsports race track; standing analysis turns on part-time occupancy of a residence for nuisance purposes, no letting/lodging issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7317949,
+  "cite": "357 S.W.3d 706",
+  "court": "Texas Courts of Appeals",
+  "year": 2011,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Municipal hotel-occupancy tax dispute against online travel companies; concerns tax construction of 'cost of occupancy' for commercial hotel bookings, not a householder's right to let or lodging-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7318495,
+  "cite": "349 S.W.3d 621",
+  "court": "Texas Courts of Appeals",
+  "year": 2011,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Companion/earlier appeal of the Coinmach laundry-room lease dispute; same commercial laundry-room facts, not residential lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7319693,
+  "cite": "337 S.W.3d 431",
+  "court": "Texas Courts of Appeals",
+  "year": 2011,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Wrongful-death suit over a fatal car accident after teenage trespassers held an unauthorized 'pasture party' on rural land; no letting or lodging arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8167250,
+  "cite": "270 S.W.3d 609",
+  "court": "Texas Courts of Appeals",
+  "year": 2008,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Billboard sign-ordinance takings dispute; zoning police-power analysis concerns outdoor advertising, not residential lodging or letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8302074,
+  "cite": "225 S.W.3d 14",
+  "court": "Texas Courts of Appeals",
+  "year": 2005,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Tenant-injury premises-liability suit against a landlord over roof access to fix air conditioning; ordinary residential duplex lease is background fact only, dispute is about tort duty/licensee status, not the character or regulation of the letting itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8322334,
+  "cite": "218 S.W.3d 865",
+  "court": "Texas Courts of Appeals",
+  "year": 2007,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Sexually-oriented-business permit dispute turning on whether a shop owner's occasional overnight stays (2-3 nights/month) in space above their own store made it a 'dwelling'/residence for zoning-distance purposes. No compensated letting to another party is involved, so it falls outside the corpus's scope despite discussing residence/occupancy definitions.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8897979,
+  "cite": "177 S.W.3d 584",
+  "court": "Texas Courts of Appeals",
+  "year": 2005,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Premises-liability suit by a tenant's guest over a stairway fall; addresses a landlord's duty for negligent repairs to leased premises, not the character or regulation of short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8995559,
+  "cite": "181 S.W.3d 532",
+  "court": "Texas Courts of Appeals",
+  "year": 2005,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-018",
+  "notes": "Hospital-visitor premises-liability suit over tripping on landscaping; no connection to lodging or letting of dwellings.",
+  "extraction_status": "ok"
+ }
+]

@@ -1,0 +1,768 @@
+[
+ {
+  "case_id": 788238,
+  "cite": "133 Misc. 881",
+  "court": "New York Supreme Court",
+  "year": 1929,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court held that 'apartment hotel' buildings equipped with serving pantries suitable for cooking meals fall within the statutory definition of a tenement house, and rejected the owners' association's suit to enjoin the city from enforcing the Tenement House Law against those buildings.",
+  "doctrinal_concepts": [
+   "tenement_house_regulation",
+   "apartment_hotel_classification",
+   "police_power_housing_regulation"
+  ],
+  "new_terms_observed": [
+   "apartment hotel",
+   "family hotel"
+  ],
+  "quotes": [
+   {
+    "text": "Complaint dismissed on the merits. Submit findings and judgment.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     24776,
+     24840
+    ],
+    "reporter_page": "889"
+   },
+   {
+    "text": "It is not contended that the public authorities can be estopped from enforcing a statute where no discretionary permit is provided for.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     20188,
+     20323
+    ],
+    "reporter_page": "888"
+   },
+   {
+    "text": "the phrase \u201c apartment hotel \u201d originated about 1900 and was used interchangeably. with the words \u201c family hotel \u201d to describe hotels which made a practice of renting apartments for fixed periods, the lessees or guests being treated in other respects like the transient guests of the house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     13503,
+     13793
+    ],
+    "reporter_page": "886"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "Concerns Tenement House Law classification of commercial apartment-hotel buildings (fixed-period apartment rentals with kitchenette use), not householder short-term letting or boarding-house licensing per se; included as tangential regulatory precedent.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3392598,
+  "cite": "135 N.Y.S. 565",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1912,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "The Appellate Term held that a householder who lived in the basement of her house with her family and rented the other rooms by the week, without serving meals, was not an innkeeper, so she was liable to a lodger for stolen goods only upon a showing of negligence, which was not proven.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "innkeeper_vs_lodging_house",
+   "householder_letting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "From these facts it is very clear that the relation that existed was not that of innkeeper and guest.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2823,
+     2924
+    ],
+    "reporter_page": "566"
+   },
+   {
+    "text": "A lodging house keeper is only liable for negligence; that is, for a failure to exercise such care as a reasonably prudent person would exercise over his own property.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2941,
+     3108
+    ],
+    "reporter_page": "566"
+   },
+   {
+    "text": "The defendant kept a furnished room house at 116 West Eleventh street. She lived in the basement with her family, and rented the other rooms in the house by the week. No meals were served.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2080,
+     2268
+    ],
+    "reporter_page": "566"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 452503,
+  "cite": "76 Misc. 539",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1912,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "Duplicate reporter of Quigley v. Southwick: the court held a householder renting rooms by the week while living on the premises with her family was not an innkeeper, so she was liable for a lodger's stolen goods only on proof of negligence, which was absent.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "innkeeper_vs_lodging_house",
+   "householder_letting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "From these facts it .is very clear that, the relation that existed was not that of innkeeper and guest.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1746,
+     1849
+    ],
+    "reporter_page": "539"
+   },
+   {
+    "text": "A lodging-house keeper is only liable for negligence; that is, for a failure to exercise such care as a reasonably prudent person would exercise over his own property.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1850,
+     2017
+    ],
+    "reporter_page": "540"
+   },
+   {
+    "text": "The defendant kept a furnished room house at 116 West Eleventh street. She lived in the basement with her family and rented the other rooms in the house by the week. Ho meals were served.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1003,
+     1190
+    ],
+    "reporter_page": "539"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "Same underlying case as case_id 3392598, different reporter (Misc. Rep.).",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1224744,
+  "cite": "39 N.Y. Crim. 480",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1922,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "The Appellate Division reversed a conviction for unlawfully converting a house into a tenement house, holding that a summer-resort boarding house where furnished rooms without cooking facilities were let to families who cooked in a common kitchen was not a tenement house, since occupants there do not live independently of each other and rooms occupied only a few days or weeks are not 'homes' or 'residences' under the statute.",
+  "doctrinal_concepts": [
+   "boarding_house_business",
+   "tenement_house_regulation",
+   "short_term_room_occupancy"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "A building is not a \u201c tenement house \u201d within the statutory definition unless the occupants live independently of each other.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4643,
+     4768
+    ],
+    "reporter_page": "482"
+   },
+   {
+    "text": "FTeither do I think that single furnished rooms in the boarding house in question, occupied as they are for a few days or weeks at a summer resort, are \u201c homes \u201d or \u201c residences \u201d as these words are used in the statute.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5875,
+     6094
+    ],
+    "reporter_page": "483"
+   },
+   {
+    "text": "FTeither do I think that single furnished rooms in the boarding house in question, occupied as they are for a few days or weeks at a summer resort, are \u201c homes \u201d or \u201c residences \u201d as these words are used in the statute.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5875,
+     6094
+    ],
+    "reporter_page": "483"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "'FTeither' is an OCR artifact for 'Neither' in the source text, preserved verbatim per quoting rules.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1292139,
+  "cite": "3 Liquor Tax Rep. 70",
+  "court": "County Court of New York, Essex County",
+  "year": 1903,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "Liquor Tax Law dispute over whether premises qualified as a 'hotel' (vs. abandoned/boarding house) for purposes of consent-exemption from neighbors on a liquor certificate; concerns alcohol licensing continuity, not householder short-term letting or lodging/boarding regulation under the police power.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1292140,
+  "cite": "3 Liquor Tax Rep. 482",
+  "court": "New York Supreme Court",
+  "year": 1905,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "Liquor Tax Law definition of 'hotel' and 'other dwellers' for purposes of a liquor tax bond action; alcohol licensing dispute, not about short-term dwelling letting or boarding-house regulation under the police power.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1292156,
+  "cite": "3 Liquor Tax Rep. 415",
+  "court": "County Court of New York, Steuben County",
+  "year": 1904,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "In a liquor-license consent dispute, the county court held that a family's occasional, informal taking in of a boarder, as an accommodation to neighbors rather than a business, did not convert their private residence into a public boarding house.",
+  "doctrinal_concepts": [
+   "householder_occasional_boarder",
+   "dwelling_house_character",
+   "boarding_house_vs_private_residence"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The mere fact that a family occasionally takes in a boarder would not deprive the residence of its character as a dwelling house.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3782,
+     3911
+    ],
+    "reporter_page": "417"
+   },
+   {
+    "text": "the taking of the boarders was more in the nature of an accommodation to neighbors and friends than the carrying on of the business of keeping boarders.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3341,
+     3493
+    ],
+    "reporter_page": "416"
+   },
+   {
+    "text": "and the evidence fails to disclose a single element in this case even tending to show that Mr. Colegrove kept, or ever kept, a public boarding house.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4031,
+     4180
+    ],
+    "reporter_page": "417"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "Arises in a liquor-consent proceeding, but the substantive holding directly addresses when a householder's occasional boarder-taking retains the dwelling's private residential character.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1828717,
+  "cite": "46 Misc. 188",
+  "court": "New York Supreme Court",
+  "year": 1905,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "Duplicate reporter of case_id 1292140 (Cullinan v. Clark); Liquor Tax Law hotel/other-dwellers definitional dispute, not about short-term dwelling letting or boarding-house police-power regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1893213,
+  "cite": "95 Misc. 603",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1916,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "In an action for conversion of a piano, the Appellate Term held that a boarding-house keeper's statutory lien extends only to accrued charges for board and lodging actually furnished, not to future rent or damages for breach of an alleged yearly room hiring at a weekly rate, and ordered a new trial to determine when the tenant's surrender of the room was accepted.",
+  "doctrinal_concepts": [
+   "boarding_house_keeper_lien",
+   "room_hiring_as_lease",
+   "surrender_and_acceptance"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The statute, however, gives a lien only for accommodation, board, lodging and extra furnished. Its language cannot possibly be extended to cover future rent or damages under a yearly hiring.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6364,
+     6554
+    ],
+    "reporter_page": "607"
+   },
+   {
+    "text": "It appears from the evidence that the plaintiff about October 5, 1914, hired a room in defendant\u2019s boarding-house at eight dollars a week.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2833,
+     2971
+    ],
+    "reporter_page": "605"
+   },
+   {
+    "text": "Assuming as we must on this appeal, that the hiring of the room was by the year, the defendant would prima facie be entitled to the rent at the rate of eight dollars per week for the unexpired period of nineteen weeks.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6801,
+     7019
+    ],
+    "reporter_page": "607"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "Room was rented from a boarding-house keeper on a weekly rate under an alleged yearly hiring; treated by the court under ordinary landlord-tenant surrender doctrine, limiting the boarding-house lien to lodging actually furnished.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2847206,
+  "cite": "172 A.D. 393",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1916,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Appellate Division held that restrictive covenants prohibiting noxious, noisy, or objectionable business and limiting occupancy to two families are not violated by a private family taking boarders into its own dwelling, even where the boarders are occasionally noisy, since such conduct is not a 'business' within the meaning of the covenants.",
+  "doctrinal_concepts": [
+   "restrictive_covenant_boarders",
+   "boarding_not_a_business",
+   "householder_letting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Restrictive covenants in a deed prohibiting dangerous, noxious, noisy and objectionable business, and restricting dwelling houses to the use of two families, are not violated where an owner takes boarders, and this is so, even though it be shown that the boarders congregate about the premises, play games and are noisy.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     660,
+     980
+    ],
+    "reporter_page": "393"
+   },
+   {
+    "text": "Upon what theory the taking\u2019of boarders in and by a private family, in their dwelling house, can be deemed to be a violation of the restrictions specified, as the trial court evidently has decided, I do not understand.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     8220,
+     8438
+    ],
+    "reporter_page": "396"
+   },
+   {
+    "text": "In practically every suburb of New York city, such as Hount Vernon, New Rochelle or White Plains, in which nearly all of the newer sections have quite as stringent restrictions as these, the taking of boarders in private houses in such sections has been carried on for years, without any question of its violating such a restriction having been even raised.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     8613,
+     8970
+    ],
+    "reporter_page": "396"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "'Hount Vernon' is an OCR artifact for 'Mount Vernon' in the source text, preserved verbatim.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2900437,
+  "cite": "178 A.D. 423",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1917,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "Core holding concerns whether a restrictive covenant runs with the land and whether a physician's use of his residence as a private maternity sanatorium violates it; boarding is mentioned only in a citation to Gallon v. Hussar (case_id 2847206), not decided by this court.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2926152,
+  "cite": "181 A.D. 535",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1918,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The Appellate Division held that a plaintiff who leased four hotel rooms for a six-month term as his private living apartment was a tenant, not a transient guest, so the hotel operator was not subject to the extraordinary innkeeper's-liability rule for tennis trophies stolen from the room during the tenant's absence.",
+  "doctrinal_concepts": [
+   "innkeeper_vs_tenant",
+   "hotel_room_lease",
+   "duration_of_stay"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It would seem clear that under the facts in this case the relation between the plaintiff and defendant was that of tenant and landlord and not that of guest and innkeeper from which the extraordinary liability sought here to be enforced might arise.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5656,
+     5905
+    ],
+    "reporter_page": "537"
+   },
+   {
+    "text": "The contract clearly contemplates the relation of landlord and tenant and expressly so designates the parties thereto, and not the relation of innkeeper and guest.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4968,
+     5131
+    ],
+    "reporter_page": "537"
+   },
+   {
+    "text": "It would seem clear that under the facts in this case the relation between the plaintiff and defendant was that of tenant and landlord and not that of guest and innkeeper from which the extraordinary liability sought here to be enforced might arise.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5656,
+     5905
+    ],
+    "reporter_page": "537"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "Concerns a six-month hotel-room lease, not short-term letting; useful for the lease/innkeeping characterization boundary but does not squarely favor or oppose the short-letting practice at issue in the corpus, hence 'mixed'.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2944818,
+  "cite": "182 A.D. 703",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1918,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Appellate Division enjoined construction of a building designed and intended for use as a regular boarding-house business as a violation of a restrictive covenant against erecting buildings for carrying on any trade or business, while affirming that receiving boarders into a private family is not itself a business.",
+  "doctrinal_concepts": [
+   "restrictive_covenant_boarders",
+   "boarding_house_business",
+   "boarding_not_a_business"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Taking boarders may or may not be a trade or business. To receive boarders into a private family is not a business; but it is a business to run a regular boarding house.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     689,
+     858
+    ],
+    "reporter_page": "703"
+   },
+   {
+    "text": "Taking boarders may or may not be a trade or business. To receive boarders into a private family is not a business; but it is a business to run a regular boarding house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     689,
+     858
+    ],
+    "reporter_page": "703"
+   },
+   {
+    "text": "Taking boarders may or may not be a trade or business. To receive boarders into a private family is not a business; but it is a business to run a regular boarding house.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     689,
+     858
+    ],
+    "reporter_page": "703"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "Mixed polarity: reaffirms private family boarding is not a 'business' (favorable) while enjoining a purpose-built commercial boarding house as a covenant violation (adverse).",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3098380,
+  "cite": "93 N.Y.S. 256",
+  "court": "New York Supreme Court",
+  "year": 1904,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "Duplicate reporter of case_id 1292140/1828717 (Cullinan v. Clark); Liquor Tax Law 'hotel'/'other dwellers' definitional dispute, not about short-term dwelling letting or boarding-house police-power regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4646407,
+  "cite": "201 A.D. 55",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1922,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "Duplicate report of People v. Shkilky: the Appellate Division reversed a tenement-house-conversion conviction, holding that a summer-resort boarding house with furnished rooms lacking cooking facilities, let to families cooking in a common kitchen for a few days or weeks, was not a tenement house under the statute.",
+  "doctrinal_concepts": [
+   "boarding_house_business",
+   "tenement_house_regulation",
+   "short_term_room_occupancy"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "A building is not a \u201c tenement house \u201d within the statutory definition unless the occupants live independently of each other.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4650,
+     4775
+    ],
+    "reporter_page": "57"
+   },
+   {
+    "text": "Neither do I think that single furnished rooms in the boarding house in question, occupied as they are for a few days or weeks at a summer resort, are \u201c homes \u201d or \u201c residences \u201d as these words are used in the statute.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5881,
+     6099
+    ],
+    "reporter_page": "57"
+   },
+   {
+    "text": "Neither do I think that single furnished rooms in the boarding house in question, occupied as they are for a few days or weeks at a summer resort, are \u201c homes \u201d or \u201c residences \u201d as these words are used in the statute.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5881,
+     6099
+    ],
+    "reporter_page": "57"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "Same underlying case as case_id 1224744, official report (201 App. Div. 55) rather than the N.Y. Crim. reporter.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5489440,
+  "cite": "80 N.Y.S. 666",
+  "court": "County Court of New York, Essex County",
+  "year": 1903,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "Duplicate reporter of case_id 1292139 (In re Brewster, County Court); Liquor Tax Law 'hotel' definition/continuous-occupancy dispute, not about householder short-term letting or boarding-house regulation under the police power.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7660450,
+  "cite": "129 N.Y.S. 505",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1911,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": "The Appellate Term held that a lodging-house keeper, unlike an innkeeper, could limit her liability for a nightly lodger's property by a conspicuously posted notice disclaiming responsibility for items left in rooms or closets, and that the lodger's failure to comply with the reasonable regulation and secure his valuables constituted contributory negligence barring recovery.",
+  "doctrinal_concepts": [
+   "lodging_house_liability",
+   "innkeeper_vs_lodging_house",
+   "reasonable_regulation_notice"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It is not pretended that the keeper of this lodging house can be charged with the peculiar responsibility attached to an innkeeper.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4130,
+     4261
+    ],
+    "reporter_page": "506"
+   },
+   {
+    "text": "It is not pretended that the keeper of this lodging house can be charged with the peculiar responsibility attached to an innkeeper.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4130,
+     4261
+    ],
+    "reporter_page": "506"
+   },
+   {
+    "text": "Plaintiff for some 15 months, had been a lodger in defendant\u2019s lodging house, where he paid 25 cents a night for a small room and bed.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2854,
+     2988
+    ],
+    "reporter_page": "506"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "Plaintiff had lodged there 15 months, but the room charge and the specific loss both turned on nightly occupancy (25 cents a night), so duration_of_occupancy is coded 'nights'.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7679793,
+  "cite": "83 N.Y.S. 564",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1903,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-003",
+  "notes": "Appellate Division reversal of case_id 1292139/5489440 (In re Brewster); still a Liquor Tax Law 'hotel'-abandonment dispute (leasing portions of the building to a milliner, barber, and dressmaker), not about householder short-term letting or boarding-house regulation under the police power.",
+  "extraction_status": "ok"
+ }
+]

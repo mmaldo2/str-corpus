@@ -1,0 +1,522 @@
+[
+ {
+  "case_id": 840193,
+  "cite": "128 Misc. 2d 725",
+  "court": "Civil Court of the City of New York",
+  "year": 1985,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Rent-control succession/family-member dispute (daughter passing on apartment); no compensated lodging or boarding-house issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 840251,
+  "cite": "128 Misc. 2d 324",
+  "court": "City Court of Yonkers",
+  "year": 1985,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Tenant-in-common vs. cotenant's commercial lessee dispute over business premises; no lodging/boarding issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 843717,
+  "cite": "129 Misc. 2d 652",
+  "court": "Civil Court of the City of New York",
+  "year": 1985,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Loft Law 'residential occupant' priority dispute between prime tenant and one-year subtenant of loft space; not about lodging/boarding characterization.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 846432,
+  "cite": "130 Misc. 2d 987",
+  "court": "New York Supreme Court",
+  "year": 1985,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Criminal larceny/extortion prosecution of landlords for forcibly evicting tenants; discusses license-vs-lease property theory only as analogy, not an actual lodging arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 846506,
+  "cite": "130 Misc. 2d 861",
+  "court": "New York Supreme Court",
+  "year": 1986,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Overcrowding-statute/primary-residence dispute over tenant's daughter as additional occupant; not compensated lodging or boarding regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 848892,
+  "cite": "131 Misc. 2d 622",
+  "court": "New York Supreme Court",
+  "year": 1986,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Zoning challenge to floating-home (houseboat) district ordinance; concerns mobile-home/vessel zoning, not lodging or boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 851582,
+  "cite": "132 Misc. 2d 236",
+  "court": "New York City Civil Court",
+  "year": 1986,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Commercial holdover; dispute over use-and-occupancy liability after lease expiration and tender of keys. No lodging issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 857128,
+  "cite": "134 Misc. 2d 597",
+  "court": "Supreme Court, Appellate Term, First Department",
+  "year": 1987,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Roommate-law (RPL 235-f) applicability to an incarcerated tenant's absent-roommate arrangement; no compensated short-term lodging at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 859663,
+  "cite": "135 Misc. 2d 304",
+  "court": "Justice Court of the Village of Port Chester",
+  "year": 1986,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Criminal trespass prosecution over nursing-home visitation restriction; unrelated to lodging or boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 862373,
+  "cite": "136 Misc. 2d 950",
+  "court": "New York City Civil Court",
+  "year": 1987,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that the YMCA's residence, which provides rooms to transient guests at a daily rate (with some weekly long-term residents), is a 'hotel' within the meaning of General Business Law \u00a7 206, but the tenant's overcharge counterclaim failed because the statute only requires rates to be posted in public areas, not in each bedroom, and respondent failed to prove the posted public-area rates were exceeded.",
+  "doctrinal_concepts": [
+   "innkeeping",
+   "transient_guest_lodging",
+   "hotel_rate_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Petitioner operates a \u201cresidence\u201d that provides rooms for transient guests. The basic rental is a daily rate although there are 130 long-term residents who rent by the week, either as \u201cstudents\u201d or as \u201cpermanent\u201d residents.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     3276,
+     3499
+    ],
+    "reporter_page": "952"
+   },
+   {
+    "text": "Without doubt, petitioner\u2019s establishment is a \u201chotel\u201d within the meaning of General Business Law \u00a7 206.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5593,
+     5697
+    ],
+    "reporter_page": "952"
+   },
+   {
+    "text": "A more modern interpretation of the term \u201chotel\u201d includes any place where \u201ctransient guests are received and lodged.\u201d",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4947,
+     5064
+    ],
+    "reporter_page": "952"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 865237,
+  "cite": "137 Misc. 2d 898",
+  "court": "Civil Court of the City of New York",
+  "year": 1987,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.35,
+  "polarity": null,
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The occupant originally paid the rent-controlled tenant $60/month for a room and handled his own cooking and cleaning, but the court held that decades of shared family life transformed the relationship into a true family unit, rejecting the landlord's argument that he remained a mere 'boarder' and awarding him succession rights under the rent-control regulations.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "family_succession"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Originally the arrangement was that Jimmie would pay $60 per month for a room in the apartment. He would buy his own food and supplies, and do his own cooking and cleaning.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1594,
+     1766
+    ],
+    "reporter_page": "899"
+   },
+   {
+    "text": "However, I do not accept this designation. It is obvious to me that Mr. Hendrix\u2019s relationship changed radically in the 25 years he lived in apartment 25.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     11838,
+     11992
+    ],
+    "reporter_page": "903"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Initial paying-lodger period spanned roughly a decade before evolving into a family relationship; no clean nights/weeks/months bucket fits, hence 'unclear'. Core holding is about family succession, not about the legality of the original room-letting arrangement.",
+  "nulled_fields": [
+   "characterization",
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 876187,
+  "cite": "141 Misc. 2d 874",
+  "court": "New York Supreme Court",
+  "year": 1986,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Zoning variance dispute over a group home's second kitchenette ('housekeeping unit' definition); no compensated lodging or letting issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 888986,
+  "cite": "147 Misc. 2d 488",
+  "court": "New York City Civil Court",
+  "year": 1989,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": null,
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "The tenant, unemployed and needing help paying rent, advertised for and took in a paying roommate for close to a year; the court held this did not constitute an illegal sublet requiring landlord consent because Real Property Law \u00a7 235-f protects an occupant and dependent children in the apartment regardless of any financial arrangement between tenant and roommate.",
+  "doctrinal_concepts": [
+   "roommate_law",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The respondent advertised for and secured a roommate to share his apartment and pay him money for the use of the apartment. This kind of arrangement existed for close to a year.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     2036,
+     2213
+    ],
+    "reporter_page": "489"
+   },
+   {
+    "text": "This provision does not prohibit the making of financial arrangements between the roommate and the tenant. It does however permit one occupant and that occupant\u2019s dependent children to reside in the apartment without the landlord\u2019s consent.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3492,
+     3732
+    ],
+    "reporter_page": "490"
+   },
+   {
+    "text": "the occupants complained of are occupants fully protected by section 235-f of the Real Property Law.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4514,
+     4614
+    ],
+    "reporter_page": "490"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Court declines to characterize the paid-occupancy arrangement as lease or license, treating it as a statutorily-protected 'roommate' category.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 923835,
+  "cite": "161 Misc. 2d 25",
+  "court": "New York City Criminal Court",
+  "year": 1994,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "The court held that because the Rules of the City of New York define 'transient occupancy' more narrowly (occupancy by the same persons for 90 days or less) than the Administrative Code's J-1/class-B hotel definitions (day-to-day or week-to-week accommodation), the prosecution could not rely on the building's authorized certificate-of-occupancy classification alone to establish transient use, and had to plead facts of actual or arranged 90-day-or-less lodging; having failed to do so, the fire-safety-director information was dismissed.",
+  "doctrinal_concepts": [
+   "lodging_house_classification",
+   "transient_occupancy_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Such buildings shall include but are not limited to buildings occupied as hotels, motels, lodging houses, dormitories and single room occupancies.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3499,
+     3645
+    ],
+    "reporter_page": "27"
+   },
+   {
+    "text": "buildings or parts thereof which contain a total of more than 30 sleeping rooms or can accommodate a total of more than 30 lodgers, or contain more than 15 sleeping rooms or can accommodate more than 15 lodgers above the first or ground story, used for living or sleeping purposes by the same person or persons for a period of ninety days or less shall be considered as being occupied by a transient occupancy.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     3088,
+     3498
+    ],
+    "reporter_page": "27"
+   },
+   {
+    "text": "Having failed to allege that the building here was used or arranged to be used for lodging of the same persons for 90 days or less, the information is legally deficient and is, therefore, dismissed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     14158,
+     14356
+    ],
+    "reporter_page": "32"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Regulatory scheme for lodging/transient-occupancy buildings is discussed at length and sustained in principle, though this particular prosecution failed on pleading grounds.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 926340,
+  "cite": "162 Misc. 2d 310",
+  "court": "Mount Vernon City Court",
+  "year": 1994,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Installment land-sale contract labeled 'landlord-tenant' by its terms; court holds it is a contract-vendee relationship, not a summary-proceeding-eligible tenancy. No lodging issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 936784,
+  "cite": "166 Misc. 2d 112",
+  "court": "New York Supreme Court",
+  "year": 1995,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [
+   "Bed and Breakfast Home"
+  ],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Case adjudicates whether a funeral home qualifies as a customary 'home occupation'; the ordinance's definitional list separately names 'Bed and Breakfast Home' as a permitted home occupation, but that category is not litigated or discussed by the court -- a passing background reference only.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1060464,
+  "cite": "177 A.D.2d 297",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1991,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Former building owners who sold to plaintiff and stayed on rent-free as owner-occupants sought Loft Law 'residential occupant' protection; court finds they are not tenants/lodgers at all. No compensated letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1089705,
+  "cite": "184 A.D.2d 339",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1992,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-058",
+  "notes": "Loft Law window-period residential-occupancy proof dispute for former commercial building; no compensated lodging/boarding characterization issue.",
+  "extraction_status": "ok"
+ }
+]

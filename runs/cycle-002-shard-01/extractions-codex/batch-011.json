@@ -1,0 +1,463 @@
+[
+ {
+  "case_id": 2923357,
+  "cite": "State v. City Sav. Bank & Trust Co., 170 La. 426, 127 So. 890",
+  "court": "Louisiana Supreme Court",
+  "year": 1930,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.72,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court held that the statutory omnibus clause did not impose a license tax on a bank that leased surplus office space in its own building. It stated that leasing one's own property may be regarded as an incident of ownership.",
+  "doctrinal_concepts": [
+   "incident_of_ownership",
+   "right_to_lease",
+   "license_tax"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The lower part of the building is used by it for its banking business proper, and the upper part, which its present needs do not require, is leased to various persons for offices.",
+    "supports": "characterization"
+   },
+   {
+    "text": "In our view, the Legislature has not levied a license tax against one who leases his own property, or against a banking concern,' which is the case here, that leases its surplus space for offices in the building owned by it.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The Legislature had no intention of imposing license taxes upon banks or others for leasing the surplus space for offices in buildings, owned and occupied by them, or for leasing the buildings themselves. Even had the Legislature desired to levy such a tax, it is doubtful if it could have constitutionally done' so, for the right to lease one\u2019s own property may be regarded as an incident of ownership, and a license tax thereon as a property tax in the guise of an excise tax, the levy of which would affect the uniformity of taxation.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "The leased spaces were offices rather than residential accommodations, and the opinion does not disclose lease duration."
+ },
+ {
+  "case_id": 5540689,
+  "cite": "Ouachita Home Site & Realty Co. v. Collie, 189 La. 521, 179 So. 841",
+  "court": "Louisiana Supreme Court",
+  "year": 1938,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.93,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court enforced residential building restrictions and affirmed an injunction preventing construction of twelve tourist cabins. It held that restrictions prohibiting commercial uses and permitting only residences were valid restraints on use.",
+  "doctrinal_concepts": [
+   "restrictive_covenant",
+   "residential_use_restriction",
+   "commercial_use"
+  ],
+  "new_terms_observed": [
+   "tourist cabins",
+   "tourist camp"
+  ],
+  "quotes": [
+   {
+    "text": "On September 13, 1937, F. U. Collie obtained a building permit from the city of Monroe to erect twelve tourist cabins on the property, two of the cabins to cost $500 each and the other ten cabins to cost $400 each, and pursuant to this permit entered into a contract with J. F. Heard to build the cabins.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Under the jurisprudence and Codal articles to which we have referred, we do not think it can be disputed that building restrictions which restrain the use of real property for commercial purposes by prohibiting the construction of any building other than a residence or residences, and which insure a high type of construction by placing a minimum value upon any residence that may be built thereon, are not unreasonable and are not contrary to good morals, public order or express law, and, hence, they are not invalid and unenforceable, since the restrictions are upon the use and not upon the alienability of the property.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Under the jurisprudence and Codal articles to which we have referred, we do not think it can be disputed that building restrictions which restrain the use of real property for commercial purposes by prohibiting the construction of any building other than a residence or residences, and which insure a high type of construction by placing a minimum value upon any residence that may be built thereon, are not unreasonable and are not contrary to good morals, public order or express law, and, hence, they are not invalid and unenforceable, since the restrictions are upon the use and not upon the alienability of the property.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "The proposed twelve-cabin tourist camp had not begun operating, so no actual occupancy duration appears."
+ },
+ {
+  "case_id": 9822668,
+  "cite": "Stroughter v. Blanton, 207 So. 2d 865",
+  "court": "Louisiana Court of Appeal, Fourth Circuit",
+  "year": 1968,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "The case concerns summary eviction of a former owner who had never paid rent, not compensated occupancy."
+ },
+ {
+  "case_id": 9917398,
+  "cite": "Clements v. Billiot, 52 So. 2d 268",
+  "court": "Louisiana Court of Appeal, First Circuit",
+  "year": 1951,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "The defendant lived in a camp boat through the owner's accommodation, with no compensated letting at issue."
+ },
+ {
+  "case_id": 10025335,
+  "cite": "Boylston v. Jones, 153 So. 53",
+  "court": "Louisiana Court of Appeal, Second Circuit",
+  "year": 1934,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "The dispute concerns agricultural leases and a lessor's privilege over cotton, not paid occupancy of dwelling rooms."
+ },
+ {
+  "case_id": 10055905,
+  "cite": "Salter v. Zoder, 37 So. 2d 464",
+  "court": "Louisiana Court of Appeal, Second Circuit",
+  "year": 1948,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.82,
+  "polarity": "mixed",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "license",
+  "holding_summary": "The court held that the plaintiff's paid sublease from the existing occupant did not create a landlord-tenant relationship with the defendant purchaser. It classified the plaintiff and his family as licensees by permission concerning their use of the driveway and affirmed dismissal of their negligence action.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "garage apartment"
+  ],
+  "quotes": [
+   {
+    "text": "Some two years prior to defendant\u2019s acquisition of this property, L. E. Plitt, excepting the vacant lot, leased all of it, from the then owner and he and family occupied the main residence. The lease was by the month and oral. In April, 1946, he subleased the upper part or the living quarters of the apartment to plaintiff.",
+    "supports": "who_was_letting"
+   },
+   {
+    "text": "The lease was by the month and oral.",
+    "supports": "duration_of_occupancy"
+   },
+   {
+    "text": "Our appreciation of the facts of this case has led us to the conclusion that so far as concerns the question of the use of the driveway plaintiff and the members of his family were licensees by permission. This status arose when plaintiff leased the garage apartment from Plitt and it did not undergo change prior to the accident.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The relation of landlord and tenant can arise only from contract, either expressed or implied. We conclude that in legal contemplation plaintiff was not defendant\u2019s tenant or sub-tenant at any time.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "In April, 1946, he subleased the upper part or the living quarters of the apartment to plaintiff. He and his wife and two small children were living therein when the accident occurred.",
+    "supports": "polarity"
+   },
+   {
+    "text": "One may occupy property and pay for such occupancy without being a tenant of anyone.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "Mixed because the opinion recognizes a monthly residential sublease from the resident lessee but rejects a landlord-tenant relationship with the subsequent purchaser and treats driveway use as a license."
+ },
+ {
+  "case_id": 2903274,
+  "cite": "City of Alexandria v. Jones, 216 La. 923, 45 So. 2d 79",
+  "court": "Louisiana Supreme Court",
+  "year": 1950,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "The case regulates uninvited door-to-door solicitation at private residences and does not concern compensated occupancy."
+ },
+ {
+  "case_id": 2945356,
+  "cite": "City of Lake Charles v. Theall, 227 La. 461, 79 So. 2d 739",
+  "court": "Louisiana Supreme Court",
+  "year": 1954,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "A gambling ordinance mentions hotels, rooming houses, and transient residences only to define its private-residence exception; lodging regulation was not at issue."
+ },
+ {
+  "case_id": 2965236,
+  "cite": "State v. Neu, 180 La. 545, 157 So. 105",
+  "court": "Louisiana Supreme Court",
+  "year": 1934,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "Tourist camps appear only as overnight stops in a murder confession; no occupancy right, characterization, or regulation was adjudicated."
+ },
+ {
+  "case_id": 2990839,
+  "cite": "State v. Johnson, 220 La. 1076, 58 So. 2d 389",
+  "court": "Louisiana Supreme Court",
+  "year": 1952,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "A tourist-court cabin appears solely in alibi and witness-impeachment evidence; the court did not adjudicate the letting arrangement."
+ },
+ {
+  "case_id": 2992006,
+  "cite": "State v. Trahan, 214 La. 100, 36 So. 2d 652",
+  "court": "Louisiana Supreme Court",
+  "year": 1948,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.58,
+  "polarity": "mixed",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "On rehearing, the court sustained the Sunday law against the restaurant proprietor's equal-protection challenge, concluding that hotels and boarding houses could remain a separate statutory class permitted to serve table wine on Sundays. It annulled the employee's conviction because the statute penalized proprietors rather than employees.",
+  "doctrinal_concepts": [
+   "police_power",
+   "equal_protection",
+   "boarding_house_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "provided, that nothing in this act shall be construed so as to allow hotels or boarding houses to sell or dispose of alcoholic liquors, except wine for table use on Sundays",
+    "supports": "polarity"
+   },
+   {
+    "text": "But, even if we assume that all hotel and boarding house restaurants presently cater to the public generally, this does not warrant the conclusion that the change in conditions has brought about an arbitrary or unjustifiable discrimination against restaurants as there may still be good reason, because of the nature of the hotel and boarding house business, the investment therein, etc., for the legislature to place them in a separate and distinct class in regulating the operation of business which may be pursued on Sundays.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "Mixed because boarding houses received a special table-wine privilege while remaining subject to police-power regulation; no particular compensated occupancy arrangement was classified."
+ },
+ {
+  "case_id": 3001534,
+  "cite": "State ex rel. Szodomka v. Gruber, 201 La. 1068, 10 So. 2d 899",
+  "court": "Louisiana Supreme Court",
+  "year": 1942,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "The case concerns restaurant parking, traffic ordinances, zoning, and nuisance allegations rather than compensated residential occupancy."
+ },
+ {
+  "case_id": 3002534,
+  "cite": "In re Cummings, 201 La. 439, 9 So. 2d 614",
+  "court": "Louisiana Supreme Court",
+  "year": 1942,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "A tourist camp is mentioned only as the location where a disbarment respondent was found."
+ },
+ {
+  "case_id": 3071489,
+  "cite": "State v. Heymann, 178 La. 479, 151 So. 901",
+  "court": "Louisiana Supreme Court",
+  "year": 1933,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court upheld a license tax on the organized business of operating a large office building while distinguishing an isolated property letting from such a business. It limited the earlier incident-of-ownership discussion to dictum and reduced the tax base to rent derived from the office-building operation.",
+  "doctrinal_concepts": [
+   "incident_of_ownership",
+   "right_to_lease",
+   "license_tax",
+   "commercial_operation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The ground floor is rented and- used for retail stores, and the basement and half of the second floor are used in connection with the stores on the ground floor, and were designed for such use, and not for offices.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Of course, an isolated instance of the leasing of property by its owner would not be deemed pursuing a trade, business, occupation, vooation, or profession.' But the operating or managing of an office building, whether by the owner or by a lessee of the building, is now well recognized as the carrying on of an occupation or business.",
+    "supports": "polarity"
+   },
+   {
+    "text": "It is plain, therefore, that the doubt which the court expressed, in State v. City Savings Bank & Trust Co., as to whether a license tax on the business of operating an office building would be really a direct tax upon the property itself, was not essential to the question before the court, and was not a part of the decision rendered in the case.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Our conclusion is that this license tax of one-tenth of 1 per cent, should be computed only upon the revenues derived from the business of operating an office building, and not upon rents or revenues derived from the leases on that part of the property not employed in the business of operating an office building.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "The case concerns commercial office space rather than residential lodging, but directly distinguishes isolated owner leasing from a taxable organized leasing business."
+ },
+ {
+  "case_id": 3152452,
+  "cite": "State v. Green, 205 La. 439, 17 So. 2d 620",
+  "court": "Louisiana Supreme Court",
+  "year": 1944,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "A tourist camp appears only as evidence of the burglars' overnight movements."
+ },
+ {
+  "case_id": 3152661,
+  "cite": "State v. Holmes, 205 La. 730, 18 So. 2d 40",
+  "court": "Louisiana Supreme Court",
+  "year": 1944,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "A tourist-camp cabin appears only as the place where a theft suspect was arrested."
+ },
+ {
+  "case_id": 3164143,
+  "cite": "City of New Orleans v. Southern Auto Wreckers, Inc., 193 La. 895, 192 So. 523",
+  "court": "Louisiana Supreme Court",
+  "year": 1939,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "The decision concerns an unreasonable fencing requirement for a junkyard, not letting or lodging."
+ },
+ {
+  "case_id": 3174626,
+  "cite": "Board of Barber Examiners v. Parker, 190 La. 214, 182 So. 485",
+  "court": "Louisiana Supreme Court",
+  "year": 1938,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-011",
+  "notes": "The case concerns minimum prices for barber services and contains no compensated occupancy or lodging issue."
+ }
+]

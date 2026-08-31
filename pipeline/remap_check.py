@@ -13,14 +13,19 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 def main() -> int:
+    import argparse
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--run-id", default="cycle-001-shard-02")
+    run_id = ap.parse_args().run_id
+    remap_run = run_id.split("-shard")[0] + "-remap"
     conn = sqlite3.connect(ROOT / "data" / "db" / "corpus.db")
     remap = json.loads(
-        (ROOT / "runs" / "cycle-001-remap" / "verified" / "remap-001.json")
+        (ROOT / "runs" / remap_run / "verified" / "remap-001.json")
         .read_text(encoding="utf-8")
     )
     queue = json.loads(
-        (ROOT / "runs" / "cycle-001-shard-02" / "review-queue.json")
-        .read_text(encoding="utf-8")
+        (ROOT / "runs" / run_id / "review-queue.json").read_text(encoding="utf-8")
     )["nulled"]
     info = {e["case_id"]: e for e in queue}
     header = (
@@ -44,7 +49,7 @@ def main() -> int:
         if recs:
             all_out.extend(recs)
         print(f"group {i//7}: {'ok ' + str(len(recs)) if recs else 'PARSE FAIL'}")
-    (ROOT / "runs" / "cycle-001-remap" / "codex-check.json").write_text(
+    (ROOT / "runs" / remap_run / "codex-check.json").write_text(
         json.dumps(all_out, indent=1), encoding="utf-8"
     )
     by = {r["case_id"]: r for r in all_out}
@@ -59,7 +64,7 @@ def main() -> int:
                     {"case_id": r["case_id"], "field": f,
                      "claude": r.get(f), "codex": o.get(f)}
                 )
-    (ROOT / "runs" / "cycle-001-remap" / "remap-disagreements.json").write_text(
+    (ROOT / "runs" / remap_run / "remap-disagreements.json").write_text(
         json.dumps(dis, indent=1), encoding="utf-8"
     )
     print(

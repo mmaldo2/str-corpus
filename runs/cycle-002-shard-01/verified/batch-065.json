@@ -1,0 +1,612 @@
+[
+ {
+  "case_id": 6879598,
+  "cite": "113 A.3d 879",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2015,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": "The Commonwealth Court affirmed a zoning hearing board's tie-vote denial of a use variance sought by homeowners to operate a bed-and-breakfast in a large single-family residence in an agricultural/residential district. The court held the tie vote validly maintained the status quo denial as a matter of law and that the record did not compel a finding of unnecessary hardship entitling the owners to the variance.",
+  "doctrinal_concepts": [
+   "zoning_variance",
+   "bed_and_breakfast_regulation",
+   "police_power_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Because the ZHB has exclusive authority over matters of witness credibility and evidentiary weight, and after consideration of the entire record, we further conclude that Appellants are not entitled to a variance as a matter of law.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     35310,
+     35542
+    ],
+    "reporter_page": "893"
+   },
+   {
+    "text": "AND NOW, this 10th day of April, 2015, the order of the Court of Common Pleas of Montgomery County, dated November 25, 2013, is affirmed.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     35600,
+     35737
+    ],
+    "reporter_page": "893"
+   },
+   {
+    "text": "Appellants have operated a B & B in Media, Pennsylvania, and that successful experience would lead to a positive result here, should the use variance be granted.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     4562,
+     4723
+    ],
+    "reporter_page": "882"
+   },
+   {
+    "text": "He believed that these guests would likely stay one-to-two nights, but not more than two weeks.",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     8165,
+     8260
+    ],
+    "reporter_page": "883"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "No quote in the opinion directly classifies the arrangement as lease/license/lodging/innkeeping (case turns on zoning-variance procedure, not private-law characterization); characterization left null.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 6903886,
+  "cite": "34 Pa. D. & C.5th 87",
+  "court": "Lackawanna County Court of Common Pleas",
+  "year": 2013,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Injunction/trespass-harassment dispute between a neighbor and a townhouse developer/landlord; only incidentally cites tenants' statutory right to invite social guests. Does not bear on compensated short-term letting or its regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7272028,
+  "cite": "28 A.3d 228",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2011,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "hotel_motel_permitted_use",
+   "zoning_permit",
+   "innkeeping"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "any building or structure containing six or more guest rooms intended or designed to be used, or which are used, rented or hired out to be occupied, or which are occupied for sleeping purposes by guests.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     21965,
+     22168
+    ],
+    "reporter_page": "237"
+   },
+   {
+    "text": "Orange Stones Co.\u2019s application for zoning permit for the use of a 20 guest room Hotel/Motel is GRANTED as a permitted use pursuant to the uses permitted in a VC Borough and Village Center Zoning District subject to the following conditions:",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4143,
+     4384
+    ],
+    "reporter_page": "230"
+   },
+   {
+    "text": "Accordingly, we affirm.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     20807,
+     20830
+    ],
+    "reporter_page": "237"
+   },
+   {
+    "text": "Orange Stones is the owner of real property (Property) located at 215 Pine Street, in the Borough of Hamburg, Berks County.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1130,
+     1253
+    ],
+    "reporter_page": "229"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "No facts in the record address actual guest-stay length; duration left unclear.",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 7294956,
+  "cite": "37 A.3d 15",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2012,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Hotel occupancy tax dispute over whether Expedia qualifies as a hotel 'operator'; addresses tax liability of an online travel intermediary, not the legality or regulation of short-term letting itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7305861,
+  "cite": "79 A.3d 1205",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2013,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Zoning dispute over a farm banquet/wedding-venue special exception; 'bed and breakfast' appears only within an unlitigated 'Tourist Farm' definition. No lodging/letting arrangement is at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7323955,
+  "cite": "29 Pa. D. & C.5th 230",
+  "court": "Monroe County Court of Common Pleas",
+  "year": 2013,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Premises-liability slip-and-fall on an HOA road; addresses licensee/invitee status of a homeowner-association member, unrelated to compensated room letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7872071,
+  "cite": "656 A.2d 598",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1995,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Gas station/convenience-store accessory-use zoning dispute; 'tourist home' and 'rooming house' appear only in an unlitigated list of permitted uses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8350653,
+  "cite": "931 A.2d 820",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2007,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Federal nutrition-program reimbursement dispute over whether a commercial office building qualifies as a 'private residence' for cost-allocation purposes; no lodger or letting-for-pay arrangement is at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8746190,
+  "cite": "43 Pa. D. & C.4th 459",
+  "court": "Lehigh County Court of Common Pleas",
+  "year": 1999,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "boarding_house_definition",
+   "nonconforming_use",
+   "lodging"
+  ],
+  "new_terms_observed": [
+   "personal care boarding home"
+  ],
+  "quotes": [
+   {
+    "text": "a building containing a single-dwelling unit where lodging is provided with or without meals for three or more persons who are not members of the operator\u2019s family, and by prearrangement for definite periods of time and for compensation, whether direct or indirect, but not to include rest homes or homes for aged.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7788,
+     8102
+    ],
+    "reporter_page": "464"
+   },
+   {
+    "text": "The property is commonly referred to as the Acom Hotel, which has been used as a rooming house and hotel since the 1800s.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     660,
+     781
+    ],
+    "reporter_page": "460"
+   },
+   {
+    "text": "Accordingly, the board abused its discretion in finding the prior nonconforming use had been abandoned.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7007,
+     7110
+    ],
+    "reporter_page": "464"
+   },
+   {
+    "text": "Consequently, appellant\u2019s appeal must be denied.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     11155,
+     11203
+    ],
+    "reporter_page": "466"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Duration of guest stays at the boarding house/hotel is not specified in the record.",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 8822018,
+  "cite": "39 Pa. D. & C.3d 312",
+  "court": "Chester County Court of Common Pleas",
+  "year": 1981,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Adverse-possession dispute over a shared third-floor room between adjoining houses; no compensated occupancy or letting arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8925399,
+  "cite": "71 Pa. D. & C.4th 534",
+  "court": "Lehigh County Court of Common Pleas",
+  "year": 2004,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Amusement-park parking-lot vehicle-theft case addressing bailment/license/negligence duties; unrelated to room letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9089782,
+  "cite": "831 A.2d 673",
+  "court": "Superior Court of Pennsylvania",
+  "year": 2003,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Premises-liability case involving a utility meter reader's licensee/invitee status on a homeowner's land; no lodging or letting arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11485677,
+  "cite": "745 A.2d 1267",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2000,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "personal_residence_exemption",
+   "householder_letting",
+   "fair_housing_exemption"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "From about mid-May through August, Staszak and his family regularly occupied the property. For twenty years, the property was rented during the academic year to students attending Edinboro University.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1808,
+     2008
+    ],
+    "reporter_page": "1267"
+   },
+   {
+    "text": "For twenty years, the property was rented during the academic year to students attending Edinboro University.",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     1899,
+     2008
+    ],
+    "reporter_page": "1268"
+   },
+   {
+    "text": "Because the property in question is a personal residence offered for rent, it is exempt from the requirements of the Act.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     12788,
+     12909
+    ],
+    "reporter_page": "1271"
+   },
+   {
+    "text": "Accordingly, the Commission erred by concluding that during the time that the property is rented, the property ceases to be Staszak's personal residence.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     12634,
+     12787
+    ],
+    "reporter_page": "1271"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Court's classification is the statutory 'personal residence offered for rent' category rather than lease/license/lodging/innkeeping; coded as 'other'.",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 11493971,
+  "cite": "743 A.2d 1019",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2000,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "overnight_lodging_facility",
+   "zoning_special_exception",
+   "innkeeping"
+  ],
+  "new_terms_observed": [
+   "Family Life Retreat Center"
+  ],
+  "quotes": [
+   {
+    "text": "This evidence supports the conclusion that, in terms of its actual use and physical layout, the proposed retreat is like a hotel with conference facilities. The anticipated religious activities do not transform the overnight lodging facility, which is not permitted in the agricultural district, into a religious use for which a special exception must be granted.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7210,
+     7573
+    ],
+    "reporter_page": "1022"
+   },
+   {
+    "text": "Einhorn and Ackerman described a facility that would provide overnight lodging for 125 persons, as well as meals and meeting rooms that may be leased for use by Jewish groups other than the Camp Ramah organization.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     6995,
+     7209
+    ],
+    "reporter_page": "1022"
+   },
+   {
+    "text": "The ZHB denied Camp Ramah's request for a special exception to develop 30 acres in the agricultural district for use as a summer day camp for children and a year-round weekend retreat for adults.",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     638,
+     833
+    ],
+    "reporter_page": "1021"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Same first quote also supports polarity (adverse): the overnight lodging facility was denied special-exception approval and held not permitted in the agricultural district.",
+  "nulled_fields": [
+   "polarity",
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 11594770,
+  "cite": "726 A.2d 1108",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1999,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Home-occupation/accessory-use dispute over parking a commercial truck at a residence; 'rooming house' appears only as an unlitigated accessory-use category in the ordinance.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11877304,
+  "cite": "704 A.2d 732",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1997,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Zoning/Fair Housing Act dispute over a proposed group home for dependent foster children placed by the county; a non-compensated institutional care arrangement, not paid room letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11995703,
+  "cite": "693 A.2d 643",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1997,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Inheritance-tax dispute over whether a testamentary grant of a gratuitous right to continue residing in a decedent's home is a life estate or a license; no rent or compensation is involved, so it does not bear on compensated letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12500483,
+  "cite": "193 A.3d 1023",
+  "court": "Superior Court of Pennsylvania",
+  "year": 2018,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-065",
+  "notes": "Premises-liability dispute among co-tenants under an ordinary long-term residential house lease; not a short-term room-letting or lodging arrangement.",
+  "extraction_status": "ok"
+ }
+]

@@ -1,0 +1,539 @@
+[
+ {
+  "case_id": 9888189,
+  "cite": "148 So. 2d 881",
+  "court": "Louisiana Court of Appeal",
+  "year": 1963,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "Premises-liability tort case turning on licensee-vs-invitee status of a warehouse worker unloading crackers; the licensee/invitee terminology is a general tort concept, not lodging-related. No occupancy of a dwelling for pay is at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9892089,
+  "cite": "91 So. 2d 114",
+  "court": "Louisiana Court of Appeal",
+  "year": 1956,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "Zoning nonconforming-use dispute over an ice cream store, liquor store, and refrigerator building added to a grocery; no lodging or boarding house is at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9895896,
+  "cite": "103 So. 2d 525",
+  "court": "Louisiana Court of Appeal",
+  "year": 1958,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "A separately-leased 'cafe and tourist court' is mentioned as backdrop, but the dispute concerns rent-deduction for repair costs between lessor and commercial lessee under civil code lease law; guest occupancy of the tourist court is never addressed.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9898922,
+  "cite": "85 So. 2d 337",
+  "court": "Louisiana Court of Appeal",
+  "year": 1956,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "Zoning rezoning dispute for a neighborhood shopping center (supermarket, drug store, laundry, barber shop); no lodging or boarding house at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9905690,
+  "cite": "91 So. 2d 609",
+  "court": "Louisiana Court of Appeal",
+  "year": 1957,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The City of New Orleans sought to enjoin the owner from using his property as a multiple dwelling or 'rooming house' in a zoned two-family residential district. The court affirmed the injunction because the evidence showed the rooming-house use began around 1933, after the 1929 zoning ordinance's effective date, so no lawful nonconforming use had ever been acquired.",
+  "doctrinal_concepts": [
+   "zoning_regulation",
+   "nonconforming_use",
+   "boarding_house_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "which, prior to the judgment rendered herein, was occupied and used as a multiple dwelling or \u201crooming house\u201d and that the use thereof, as such, is prohibited by virtue of an appropriate zoning ordinance adopted by the City of New Orleans.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1638,
+     1877
+    ],
+    "reporter_page": "609"
+   },
+   {
+    "text": "We have made \u00e1 careful analysis of the record and we are of the opinion that an abundance of evidence is contained therein revealing that the property never acquired a legal non-conforming status and there now exists a glaring violation of the ordinance which unequivocally created a prima facie case in support of the issuance of the preliminary writ of injunction by the trial judge.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4690,
+     5075
+    ],
+    "reporter_page": "610"
+   },
+   {
+    "text": "We have made \u00e1 careful analysis of the record and we are of the opinion that an abundance of evidence is contained therein revealing that the property never acquired a legal non-conforming status and there now exists a glaring violation of the ordinance which unequivocally created a prima facie case in support of the issuance of the preliminary writ of injunction by the trial judge.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4690,
+     5075
+    ],
+    "reporter_page": "610"
+   },
+   {
+    "text": "It apears from the record and from oral argument of counsel that the violation of the health ordinance may have been eliminated due primarily to the reduction of the number of families residing in the property",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     3264,
+     3473
+    ],
+    "reporter_page": "610"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9907209,
+  "cite": "90 So. 2d 694",
+  "court": "Louisiana Court of Appeal",
+  "year": 1956,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "Dispute over a servitude/destination du pere de famille for a commercial storeroom used with a grocery and meat market; unrelated to residential lodging or boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9911288,
+  "cite": "69 So. 2d 88",
+  "court": "Louisiana Court of Appeal",
+  "year": 1953,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "Concerns whether housing furnished by an employer to farm laborers as part of their compensation constitutes a rental agreement for purposes of court jurisdiction under the sharecropper eviction statute; not compensated short-term lodging of the public in a household.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9915404,
+  "cite": "57 So. 2d 707",
+  "court": "Louisiana Court of Appeal",
+  "year": 1952,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "A tenant sued his landlords for overcharging rent on a room in their house under the federal Housing and Rent Act. The court affirmed judgment for the tenant, finding the room had been created by conversion of the landlady's own dwelling before decontrol could apply, and upholding a refund of the rent overcharge plus attorney's fees while declining treble damages absent willfulness.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "rent_control",
+   "householder_letting",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "Rooming House Registration"
+  ],
+  "quotes": [
+   {
+    "text": "This is a suit brought by a tenant seeking treble damages because of the defendants, his landlords, having exacted excessive rent for a room leased to and occupied by him.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     334,
+     505
+    ],
+    "reporter_page": "707"
+   },
+   {
+    "text": "After a careful study of the entire record, and more particularly the order in question, which we deem valid, we think the matter was correctly disposed of below.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     13231,
+     13393
+    ],
+    "reporter_page": "710"
+   },
+   {
+    "text": "After a careful study of the entire record, and more particularly the order in question, which we deem valid, we think the matter was correctly disposed of below.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     13231,
+     13393
+    ],
+    "reporter_page": "710"
+   },
+   {
+    "text": "According to Mrs. McBeath\u2019s testimony, in the spring of 1945 she rearranged her house.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     4157,
+     4243
+    ],
+    "reporter_page": "708"
+   },
+   {
+    "text": "that he occupied Apartment C, located in said premises from July 5, 1948, through August 7, 1949.",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     2386,
+     2483
+    ],
+    "reporter_page": "708"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10025590,
+  "cite": "172 So. 33",
+  "court": "Louisiana Court of Appeal",
+  "year": 1937,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "Party-wall construction dispute between a bakery and an adjoining residence, addressing whether zoning/building ordinances superseded Civil Code party-wall articles; unrelated to lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10029864,
+  "cite": "190 So. 157",
+  "court": "Louisiana Court of Appeal",
+  "year": 1939,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.72,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "Plaintiff had sub-rented a room in an ordinary dwelling from a woman who herself leased and occupied the house, taking in roomers and boarders. The court held that because plaintiff had full and exclusive control of his room, the relation of lessee and sublessee existed rather than mere roomer status, so the primary landlord's privilege for the sub-lessor's unpaid rent could not reach plaintiff's furniture, and the seizure of it was illegal.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease",
+   "landlord_privilege"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "it appeared from the evidence that plaintiff and his family had full control over the particular room occupied by them, to the exclusion of any supervision or control thereof by Mrs. Lowell, and in such cases it appears to be the law that the relation of lessee and sublessee exists.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4851,
+     5134
+    ],
+    "reporter_page": "159"
+   },
+   {
+    "text": "Under the provisions of article 2706 of the Civil Code, the lessor\u2019s right of pledge extends to the property of the under-tenant only when the latter is indebted unto the tenant for rent at the time when the lessor chooses to exercise his right. Under the evidence, therefore, Hill, Harris & Co., Inc., had no such right of pledge on the 19th day of May upon plaintiff\u2019s property on the leased premises, and the seizure was, in the opinion of the court, illegal.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5691,
+     6153
+    ],
+    "reporter_page": "159"
+   },
+   {
+    "text": "Under the provisions of article 2706 of the Civil Code, the lessor\u2019s right of pledge extends to the property of the under-tenant only when the latter is indebted unto the tenant for rent at the time when the lessor chooses to exercise his right. Under the evidence, therefore, Hill, Harris & Co., Inc., had no such right of pledge on the 19th day of May upon plaintiff\u2019s property on the leased premises, and the seizure was, in the opinion of the court, illegal.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5691,
+     6153
+    ],
+    "reporter_page": "159"
+   },
+   {
+    "text": "Mrs. Lowell was taking in roomers and boarders in the building.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     10165,
+     10228
+    ],
+    "reporter_page": "160"
+   },
+   {
+    "text": "plaintiff had subleased from Mrs. Lowell one of the rooms in said dwelling at a monthly rental of $8.00, payable in semi-monthly sums of $4.00 each in advance",
+    "supports": "duration_of_occupancy",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     1194,
+     1352
+    ],
+    "reporter_page": "159",
+    "fuzzy_score": 96.75324675324676
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10030428,
+  "cite": "4 So. 2d 97",
+  "court": "Louisiana Court of Appeal",
+  "year": 1941,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "Dispute over a building permit for a filling station on a railroad right-of-way and the city's police-power authority to revoke it as a traffic hazard; unrelated to residential lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10031057,
+  "cite": "194 So. 127",
+  "court": "Louisiana Court of Appeal",
+  "year": 1940,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "Dispute between divorced spouses over ownership of a houseboat and its furniture; unrelated to lodging or boarding-house doctrine.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10031380,
+  "cite": "172 So. 185",
+  "court": "Louisiana Court of Appeal",
+  "year": 1937,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "Highway expropriation valuation case; the owners' unfinished plan to add tourist cabins to a filling-station/cafe building is mentioned only as an element of property value, with no cabins ever built or occupied.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10031690,
+  "cite": "172 So. 191",
+  "court": "Louisiana Court of Appeal",
+  "year": 1937,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "Tort/conversion case over furniture seized from a household; 'room and board' at a relative's home is mentioned only as a measure of the plaintiffs' displacement damages, not as a lodging arrangement at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10034494,
+  "cite": "197 So. 187",
+  "court": "Louisiana Court of Appeal",
+  "year": 1940,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "Dispute over ownership of furniture stored at a hotel where plaintiff worked as hostess in exchange for free room and board; the case turns on a purchase/sale of the furniture, not the legal character of paying guests' occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10041314,
+  "cite": "168 So. 346",
+  "court": "Louisiana Court of Appeal",
+  "year": 1936,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "Challenge to the procedural validity of a zoning ordinance rezoning residential lots to commercial use; no lodging or boarding house at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10041660,
+  "cite": "14 So. 2d 300",
+  "court": "Louisiana Court of Appeal",
+  "year": 1943,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "Breach-of-contract suit over payment for advertising signs promoting a tourist camp's business; does not address occupancy of the tourist camp by paying guests.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10043042,
+  "cite": "196 So. 388",
+  "court": "Louisiana Court of Appeal",
+  "year": 1940,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-037",
+  "notes": "Mandamus action over denial of a building permit for a service station after the town created a residential zoning district; unrelated to lodging or boarding houses.",
+  "extraction_status": "ok"
+ }
+]

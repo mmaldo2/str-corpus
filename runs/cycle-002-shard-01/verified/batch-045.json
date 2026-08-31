@@ -1,0 +1,581 @@
+[
+ {
+  "case_id": 1588864,
+  "cite": "73 Pa. D. & C. 513",
+  "court": "Fayette County Court of Common Pleas",
+  "year": 1950,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "Declaratory judgment action over a three-year commercial building lease (storefront/rear structure) and whether a holdover covenant waiving notice to quit survives into an extended term. Ordinary commercial landlord-tenant notice dispute; no bearing on lodging, boarding, or short-term room letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1604427,
+  "cite": "87 Pa. D. & C. 172",
+  "court": "Philadelphia County Court of Common Pleas",
+  "year": 1953,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "Zoning appeal over a rooftop advertising sign for a lumber yard, treated as an accessory use in a commercial district. The passage about the 'right to lease' property concerns transferring an easement in visibility for a billboard, not occupancy of a dwelling or rooms. No bearing on lodging/boarding letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1611828,
+  "cite": "3 Pa. D. & C.2d 14",
+  "court": "Philadelphia County Court of Common Pleas",
+  "year": 1955,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": "The court held that a property owner's conversion of a building into a store, seven housekeeping units, and one non-housekeeping unit was a permissible 'natural expansion' of a lawful nonconforming multiple-dwelling use predating the zoning ordinance, reversing the zoning board's refusal of a permit. The court also held the rear-yard width requirement of the Housing and Sanitation Act was satisfied notwithstanding an uneven yard depth across the two conjoined buildings.",
+  "doctrinal_concepts": [
+   "nonconforming_use_expansion",
+   "multiple_dwelling_occupancy"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "We therefore hold that the present use of the property as a store, seven housekeeping units and one non-housekeeping unit is a permissible expansion of nonconforming use rights, under section 4 of the Philadelphia Zoning Ordinance of 1933.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6680,
+     6919
+    ],
+    "reporter_page": "18"
+   },
+   {
+    "text": "We therefore hold that the present use of the property as a store, seven housekeeping units and one non-housekeeping unit is a permissible expansion of nonconforming use rights, under section 4 of the Philadelphia Zoning Ordinance of 1933.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6680,
+     6919
+    ],
+    "reporter_page": "18"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "The building's 'non-housekeeping unit' (a room without cooking facilities) is a lodging-type unit, and the court protects the owner's ability to maintain and expand a multi-unit rental use against zoning restriction -- marked favorable. However, the opinion addresses nonconforming-use zoning status rather than expressly classifying the tenancy as lease/license/lodging, so characterization is left null for lack of a directly supporting quote.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1613746,
+  "cite": "4 Pa. D. & C.2d 186",
+  "court": "Allegheny County Court of Common Pleas",
+  "year": 1954,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "The court held that YMCA dormitory and food-service facilities, though occupied by paying residents (some 'transient' for under two weeks, most 'permanent' for two weeks or more), were tax-exempt because their actual use was primarily charitable rather than commercial lodging. The court distinguished the case from an earlier ruling taxing a YMCA's dormitory that competed with avowedly commercial lodging houses, finding no comparable competition, advertising, or profit here.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "transient_vs_permanent_occupancy",
+   "charitable_exemption"
+  ],
+  "new_terms_observed": [
+   "bed-night"
+  ],
+  "quotes": [
+   {
+    "text": "In neither the Salvation Army case nor the instant case was there any testimony of that character; in fact, the evidence shows that there was no advertising of the dormitory facilities in any of the five buildings here involved, and no complaints were heard from hotels or boarding houses that the dormitories were in competition with them.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     8959,
+     9299
+    ],
+    "reporter_page": "192"
+   },
+   {
+    "text": "In the former decision the court held that the part of the building occupied by dormitory facilities was primarily commercial in nature, competing with lodging houses which are avowedly commercial in character.",
+    "supports": "polarity",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     7081,
+     7291
+    ],
+    "reporter_page": "191",
+    "fuzzy_score": 95.23809523809523
+   },
+   {
+    "text": "Having thus disposed of the problem of the dormitories and food service facilities, the incidental problem of bowling alleys, barber shops, and businessmen's health clubs is easily resolved.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     32768,
+     32958
+    ],
+    "reporter_page": "205"
+   },
+   {
+    "text": "The permanent classification included all those who occupied the rooms for two weeks or more and paid rent-on a weekly basis; transients being those whose occupancy was less than two weeks and who paid on a daily basis.",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     13032,
+     13251
+    ],
+    "reporter_page": "194"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "A tax-exemption case, not a letting-rights or police-power-licensing case, but it extensively analyzes the line between charitable dormitory lodging and commercial lodging-house/hotel operation, including transient (nights-to-under-two-weeks) versus permanent (two-weeks-plus) occupancy classes -- both are present in the facts, weeks chosen as the predominant occupancy class since a majority of residents were permanent.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1621653,
+  "cite": "9 Pa. D. & C.2d 144",
+  "court": "Allegheny County Court of Common Pleas",
+  "year": 1956,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The court sustained, against vagueness, special-legislation, and due-process challenges, a statute requiring state licensure of commercial boarding homes for the aged, and permanently enjoined defendant from operating such a home without a license. The court held that protecting aged boarders from fire hazards and unsanitary conditions is a legitimate exercise of the police power, comparable to regulation protecting hotel guests, schoolchildren, or restaurant patrons.",
+  "doctrinal_concepts": [
+   "police_power_licensing",
+   "boarding_house_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "conducting, operating or maintaining for profit a commercial boarding home for the aged as defined in the Act of Assembly of September 26, 1951, P. L. 1536, sec. 2, 37 PS \u00a7172",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6438,
+     6613
+    ],
+    "reporter_page": "148"
+   },
+   {
+    "text": "The contention that the statute is an unlawful exercise of the Commonwealth\u2019s police power, in that it bears no reasonable relation to health, welfare and safety is also unfounded.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4478,
+     4658
+    ],
+    "reporter_page": "147"
+   },
+   {
+    "text": "The concern for the protection and safety of elderly persons is as much within the exercise of the police powers of the Commonwealth as is the regulation for the protection and welfare of guests in hotels, children in public schools, or patrons in restaurants and theatres, and the fact that such aged persons are ambulatory does not render their classification arbitrary or unreasonable.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4749,
+     5137
+    ],
+    "reporter_page": "147"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "Squarely adverse authority: licensing/regulation of a commercial boarding home sustained under the police power against a commercial operator.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1636593,
+  "cite": "17 Pa. D. & C.2d 130",
+  "court": "Allegheny County Court of Common Pleas",
+  "year": 1958,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "Receivership priority dispute over whether an unexecuted rider promising a future storeroom lease creates a preferred landlord's claim. Purely commercial lease/contract-creditor priority question; no bearing on dwelling occupancy or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1647352,
+  "cite": "21 Pa. D. & C.2d 630",
+  "court": "Allegheny County Court of Common Pleas",
+  "year": 1959,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "Tenant injury on an apartment building fire escape; validity of an exculpatory clause against a tenement-safety ordinance. Ordinary long-term apartment tenancy tort case; does not address the legal character of a letting arrangement or regulation of lodging/boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1650569,
+  "cite": "22 Pa. D. & C.2d 475",
+  "court": "Philadelphia County Court of Common Pleas",
+  "year": 1960,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "Private deed-restriction injunction against construction of two 17-unit apartment buildings in a tract restricted to 'private residences.' Concerns enforceability of restrictive covenants against long-term multi-family construction, not short-term room letting or boarding-house police-power regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1665643,
+  "cite": "27 Pa. D. & C.2d 666",
+  "court": "Lawrence County Court of Common Pleas",
+  "year": 1962,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "Challenge to minimum-floor-area zoning requirements as applied to an owner-occupied mobile home. Concerns residential floor-area/trailer zoning, not compensated letting of rooms or dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1674285,
+  "cite": "30 Pa. D. & C.2d 68",
+  "court": "Chester County Orphans' Court",
+  "year": 1962,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": null,
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "Construing a will granting a household member the right to occupy the testator's residence 'for and during her life or so long as she may desire,' the court held her interest was a mere license to occupy rather than a life estate. Nonetheless, the court held she was entitled to receive and keep the rent from a second-floor apartment already let to a tenant, for as long as she continued to occupy and maintain the premises, while remaining personally liable for the accruing sewer assessment.",
+  "doctrinal_concepts": [
+   "license_vs_lease",
+   "life_estate_vs_license"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "we find a reasonable construction of the will, as entitling her to receive, and convert to her own use, any rentals from any portion of the premises, leases for which existed prior to and at the time of decedent\u2019s death, during such period as she elects to occupy the premises, subject to such conditions, and that any such benefits terminate upon her election to no longer occupy the same.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     13095,
+     13485
+    ],
+    "reporter_page": "75"
+   },
+   {
+    "text": "we do conclude and decree that Bertha Fulton, under the language of decedent\u2019s will considered as a whole and the facts as found, is entitled to receive and convert to her own use the rents from said apartment so long as she, Bertha Fulton, continues to occupy the premises and comply with the conditions in the decedent\u2019s will.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     13594,
+     13922
+    ],
+    "reporter_page": "75"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "A householder-occupant's entitlement to keep rent from a portion of the dwelling already let to a tenant is enforced by the court as an incident of her occupancy right -- favorable. The rented second-floor apartment was let at $65/month, i.e., ordinary month-to-month residential letting, not short-term.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 1689551,
+  "cite": "37 Pa. D. & C.2d 390",
+  "court": "Mercer County Court of Common Pleas",
+  "year": 1965,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "In a municipal sewer-rental assessment dispute, the court held that a four-unit apartment house converted from an old dwelling is legally distinct from a rooming house, and that the borough did not abuse its discretion by billing each apartment as a separate dwelling unit rather than permitting a single water meter as allowed for rooming houses and hotels. The court defined a rooming house as one where the owner rents separate rooms to individuals primarily for sleeping, as distinguished from an apartment house.",
+  "doctrinal_concepts": [
+   "rooming_house_definition",
+   "apartment_house_definition"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "In our opinion, the term \u201crooming house\u201d in common parlance refers to a dwelling in which the owner rents out separate rooms to separate individuals primarily for sleeping purposes, whereas, an apartment house ordinarily means a building consisting of more than one dwelling unit, each of which units may be used by one or more persons as a general dwelling.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5737,
+     6095
+    ],
+    "reporter_page": "394"
+   },
+   {
+    "text": "In our opinion, the Borough of Greenville has not abused its discretion in its method of regarding each of the four apartments in defendants\u2019 property as a single-dwelling unit for sewage rental purposes.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7315,
+     7519
+    ],
+    "reporter_page": "394"
+   },
+   {
+    "text": "In our opinion, the Borough of Greenville has not abused its discretion in its method of regarding each of the four apartments in defendants\u2019 property as a single-dwelling unit for sewage rental purposes.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7315,
+     7519
+    ],
+    "reporter_page": "394"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "Municipal rate regulation upheld against an apartment-house owner who sought rooming-house treatment; classified adverse as a regulatory burden sustained against the letting operator, though the underlying dispute is a utility/sewer rate case rather than police-power licensing. Characterization set to 'other' because the arrangement at issue is ordinary apartment tenancy, not lease/license/lodging/innkeeping in the tenancy-law sense.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1691899,
+  "cite": "38 Pa. D. & C.2d 362",
+  "court": "Carbon County Court of Common Pleas",
+  "year": 1965,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "Zoning ordinance confining trailers used as residences to a designated park district, upheld as police power measure. Concerns a self-owned trailer used by its owner as an office/residence, not compensated letting of rooms or a dwelling to another.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1696087,
+  "cite": "40 Pa. D. & C.2d 294",
+  "court": "Washington County Orphans' Court",
+  "year": 1966,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "Estate claim for back rent against a deceased farmhouse occupant's estate, denied for failure to prove a landlord-tenant contract among family members who inherited occupancy from their parents. Ordinary implied-contract/rent-claim dispute among family occupants of a farm; no discussion of lodging, boarding, or short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1893983,
+  "cite": "417 Pa. 397",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1965,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "Invalidates a township sign ordinance and its motel-signage amendment as an improper, discriminatory exercise of the police power lacking standards. Although it references motels, the case concerns outdoor-advertising sign regulation, not the right to operate lodging or the regulation of dwelling occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8731157,
+  "cite": "7 Pa. D. & C.2d 602",
+  "court": "Bucks County Court of Common Pleas",
+  "year": 1956,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "Peddling/soliciting-license ordinance appeal turning on whether a call at a tourist-cabin business's place of business (rather than house-to-house) triggered the ordinance. The tourist-cabin business is only the incidental site of the solicitation; the case does not address the legality or regulation of letting lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 351087,
+  "cite": "43 Pa. D. & C.2d 319",
+  "court": "Mercer County Court of Common Pleas",
+  "year": 1967,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "Zoning ordinance limiting airport property to one employee's family residence upheld as a valid exercise of the police power to preserve airport function. Concerns employee housing on industrial/airport-zoned land, not compensated letting of rooms or a dwelling to paying occupants.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 351173,
+  "cite": "43 Pa. D. & C.2d 341",
+  "court": "Delaware County Court of Common Pleas",
+  "year": 1967,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The court affirmed a zoning variance permitting a converted carriage-house/garage on a residential lot to continue to be rented generally as an apartment to unrelated tenants, rather than being limited to family members or to the prior owner's tenure, finding no evidence the rental use had adversely affected the neighborhood in fourteen years. The court struck down the zoning board's condition limiting the variance to five years as bearing no reasonable relationship to public health, safety, morals, or welfare.",
+  "doctrinal_concepts": [
+   "nonconforming_accessory_dwelling",
+   "letting_as_ordinary_incident_of_ownership"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Petitioners wish to continue the existing use of two dwellings under a lessor-lessee relationship.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6192,
+     6290
+    ],
+    "reporter_page": "344"
+   },
+   {
+    "text": "We, therefore, find that it would create an unnecessary and unique hardship to require a discontinuance of the use of this converted property after so many years and that the grant of a variance by the board of adjustment was proper and not contrary to public health, safety, morals or general welfare.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7457,
+     7759
+    ],
+    "reporter_page": "345"
+   },
+   {
+    "text": "We, therefore, find that it would create an unnecessary and unique hardship to require a discontinuance of the use of this converted property after so many years and that the grant of a variance by the board of adjustment was proper and not contrary to public health, safety, morals or general welfare.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7457,
+     7759
+    ],
+    "reporter_page": "345"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "The rental was made pursuant to a one-year lease at the time of the dispute; 'months' chosen as the closest available bucket for this ordinary annual residential tenancy (not short-stay lodging).",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 458637,
+  "cite": "160 Pa. Super. 515",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1947,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-045",
+  "notes": "Divorce action; the libellant's rental of a room in a rooming house is mentioned only incidentally to establish Pennsylvania domicile for jurisdictional purposes. No treatment of the legal character or regulation of the letting arrangement itself.",
+  "extraction_status": "ok"
+ }
+]

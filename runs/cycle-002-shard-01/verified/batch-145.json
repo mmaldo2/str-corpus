@@ -1,0 +1,219 @@
+[
+ {
+  "case_id": 8856267,
+  "cite": "Duke v. Hague, 107 Pa. 57",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1884,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-145",
+  "notes": "Oil-and-gas mining lease and partition-of-freehold dispute (whether a mining lessee is entitled to notice of an amicable partition among tenants in common). No lodging, boarding, or residential letting content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8856435,
+  "cite": "Watts v. Lehman, 107 Pa. 106",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1884,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-145",
+  "notes": "Trover and conversion action by a former mining lessee against its landlord over trade fixtures forcibly withheld after entry under a forfeiture notice. No lodging/boarding content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8875584,
+  "cite": "Leister's Appeal, 7 Sadler 509",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1887,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "The Supreme Court affirmed the quarter sessions' refusal of retail liquor licenses to several hotel/tavern keepers, holding that on certiorari only the record (not the judge's stated reasons) is reviewable, and that a court may lawfully find a licensed house necessary for public accommodation while still concluding, on the petitions and remonstrances, that a liquor license is not necessary. The refusal of licenses to inns/taverns under the licensing statute was sustained.",
+  "doctrinal_concepts": [
+   "innkeeper_regulation"
+  ],
+  "new_terms_observed": [
+   "entertainment of strangers or travelers"
+  ],
+  "quotes": [
+   {
+    "text": "The records in the cases before us are without fault, and as the facts cannot be brought .before us on appeal, we must affirm the certioraris, and dismiss the appeals.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     25737,
+     25904
+    ],
+    "reporter_page": "519"
+   },
+   {
+    "text": "\u201cOur system of licensed inns and taverns,\u201d says Judge Woodwakd, in Omit v. Com. 21 Pa. 434, \u201cis founded in the just idea that it is the duty of every community to provide for the accommodation of strangers and travelers who come into their midst.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     21874,
+     22120
+    ],
+    "reporter_page": "518"
+   },
+   {
+    "text": "While such is the case, we, the associate judges, do not think that it is necessary to license a hotel to sell intoxicating liquors, and we therefore refuse this application.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6899,
+     7073
+    ],
+    "reporter_page": "512"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-145",
+  "notes": "Innkeeper/hotel liquor-license regulation case; bears on ADVERSE file as licensing of a lodging/public-house business sustained under the licensing statute, though the direct dispute is over the liquor license rather than a lodging license per se.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9502838,
+  "cite": "Evans v. Hall, 45 Pa. 235",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1863,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-145",
+  "notes": "Suit on a note given for a cask of brandy sold to a licensed innkeeper, plus a justice-of-the-peace jurisdictional-amount question. The innkeeper appears only as a liquor purchaser; no discussion of lodging, boarding, or letting of rooms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11250975,
+  "cite": "Petition of Sparrow, 138 Pa. 116",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1890,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "The Supreme Court refused a writ of mandamus to compel a quarter sessions judge to grant a retail liquor license to a hotel keeper, holding that even though the hotel was conceded necessary for public accommodation and entertainment of strangers and travelers, the judge retained sound discretion to weigh remonstrances and could lawfully find that the license itself was not a matter of public necessity, so long as he did not simply substitute the remonstrants' will for his own judgment.",
+  "doctrinal_concepts": [
+   "innkeeper_regulation"
+  ],
+  "new_terms_observed": [
+   "entertainment of strangers and travelers"
+  ],
+  "quotes": [
+   {
+    "text": "That the National Hotel for which said license was prayed, was then and still is a good hotel and necessary for the accommodation of the public and the entertainment of strangers and travelers.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     15282,
+     15475
+    ],
+    "reporter_page": "122"
+   },
+   {
+    "text": "In the view we take of the case, this was not an abuse of discretion.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     23046,
+     23115
+    ],
+    "reporter_page": "125"
+   },
+   {
+    "text": "We have decided repeatedly, in language too plain to be misunderstood, that the granting of a license to sell liquor by retail rests in the sound discretion of the court below.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     18505,
+     18681
+    ],
+    "reporter_page": "124"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-145",
+  "notes": "Companion doctrine to Leister's Appeal: sustains the licensing court's discretion to deny a hotel/innkeeper's liquor license notwithstanding the house's conceded necessity for lodging travelers, i.e., regulation of a lodging-adjacent commercial establishment upheld under the licensing statute.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11251675,
+  "cite": "In re Berg, 139 Pa. 354",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1891,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-145",
+  "notes": "Purely territorial/procedural question of whether a township liquor-sale prohibition act continued to apply to land later organized into a borough; certiorari record review only, with no discussion of hotel/lodging necessity or character of the business.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11252394,
+  "cite": "Ghormley v. Smith, 139 Pa. 584",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1891,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-145",
+  "notes": "Spendthrift-trust/attachment-of-income case concerning whether a settlor can shield self-settled trust income from her own creditors. No connection to lodging, boarding, or letting.",
+  "extraction_status": "ok"
+ }
+]

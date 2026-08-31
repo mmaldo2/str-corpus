@@ -1,0 +1,593 @@
+[
+ {
+  "case_id": 3407559,
+  "cite": "138 N.Y.S. 53",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1912,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "A private association owning a development's streets, water, and sewer systems could reasonably restrict extension of that service to buildings used as boarding houses, lodging houses, or hotels. Because plaintiff had fraudulently represented her building as a private residence to obtain the connections, the association was entitled to withdraw them, and judgment for the boarding-house-keeping plaintiff was reversed.",
+  "doctrinal_concepts": [
+   "boarding_house_regulation",
+   "restrictive_covenant",
+   "private_association_police_power"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the capacity of its water and sewer system should not be further burdened by subjecting the same to the use of buildings erected for boarding houses, lodging houses, or inn or hotel purposes, a reasonable regulation.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6680,
+     6896
+    ],
+    "reporter_page": "55"
+   },
+   {
+    "text": "defendant was authorized to withdraw from its agreement and sever plaintiff\u2019s connection with the sewer and water pipes, which, induced by such false representations, it had caused to be laid.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7577,
+     7769
+    ],
+    "reporter_page": "55"
+   },
+   {
+    "text": "The plaintiff has a large house on her property, in which she lives with her family, and she keeps a boarding house on the premises.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     8202,
+     8334
+    ],
+    "reporter_page": "56"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "characterization left null: the opinion addresses utility-service regulation and fraud, not the legal classification (lease/license/lodging) of the boarding arrangement itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3413651,
+  "cite": "132 N.Y.S. 375",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1911,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "Lien-priority dispute between an innkeeper and a chattel mortgagee; boarding-house lien mentioned only in distinguishing cited authority, not itself at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4744833,
+  "cite": "52 A.D. 325",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1900,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "Landlord-tenant holdover/notice-of-surrender dispute following expiration of an ordinary residential lease; no boarding, lodging, or short-term letting issue present.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4789097,
+  "cite": "216 A.D. 124",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1926,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "Probate dispute over whether decedent was a common-law wife; the deceased's boarding-house business and decedent's long tenure as a boarder are background facts, not the issue decided.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4789622,
+  "cite": "216 A.D. 135",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1926,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.3,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The court held that a restrictive covenant confining a Madison Avenue block to single-family dwelling houses remained enforceable notwithstanding commercial encroachment in the surrounding neighborhood, and ordered removal of a business building the defendant erected in violation of the covenant, while approvingly citing prior authority that a boarding-house business does not itself violate such a dwelling-house restriction.",
+  "doctrinal_concepts": [
+   "restrictive_covenant",
+   "boarding_house_compatible_with_dwelling_covenant"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "it was held that the conduct of a boarding house business did not violate a restriction providing that no building should be erected excepting \u201c first class dwelling houses \u201d and that no \u201c trade or business \u201d whatsoever should be conducted on the premises.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     12857,
+     13113
+    ],
+    "reporter_page": "139"
+   },
+   {
+    "text": "The judgment appealed from should be reversed, with costs, and judgment entered in favor of the plaintiffs for the relief asked for, with costs.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     20682,
+     20826
+    ],
+    "reporter_page": "142"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "Boarding-house doctrine appears only as favorably-cited dictum (Smith v. Scoville); this case's own dispute concerns physicians' offices and a commercial building, not a boarding letting at issue here, hence the moderate-low relevance score and unclear who_was_letting/duration.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4873339,
+  "cite": "224 A.D. 232",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1928,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that a large resort establishment with about seventy rooms, dining, and recreational facilities was properly found by the jury to be a 'hotel' under General Business Law section 205, despite defendants' contention it was merely a boarding house, and that the statute imposed an absolute duty to equip guest rooms with fire-escape ropes, breach of which proximately caused the paying guest's death in a fire.",
+  "doctrinal_concepts": [
+   "hotel_vs_boarding_house_classification",
+   "innkeeper_statutory_duty",
+   "police_power_safety_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "There were all the elements that go to make up the conduct and operation of a hotel as the term is ordinarily understood.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7341,
+     7462
+    ],
+    "reporter_page": "236"
+   },
+   {
+    "text": "Under the statute the duty of the defendants was absolute.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     10364,
+     10422
+    ],
+    "reporter_page": "237"
+   },
+   {
+    "text": "Under the statute the duty of the defendants was absolute.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     10364,
+     10422
+    ],
+    "reporter_page": "237"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4904861,
+  "cite": "222 A.D. 297",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1928,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court held that a partnership housing twenty to twenty-five children for compensation was neither a 'lodging or boarding house' nor a 'school' within the exceptions of the Yonkers Zoning Ordinance, and therefore enjoined the business from operating in the residential district.",
+  "doctrinal_concepts": [
+   "zoning_boarding_house_definition",
+   "police_power_land_use_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The house is not a boarding house as contemplated by the Zoning Ordinance.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4571,
+     4645
+    ],
+    "reporter_page": "299"
+   },
+   {
+    "text": "The house is not a boarding house as contemplated by the Zoning Ordinance.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4571,
+     4645
+    ],
+    "reporter_page": "299"
+   },
+   {
+    "text": "the plaintiff is entitled to judgment restraining the defendants from conducting the business.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1384,
+     1478
+    ],
+    "reporter_page": "298"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5035124,
+  "cite": "85 A.D. 235",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1903,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The court held that in 1896 the premises, though advertised only as a boarding house, met the statutory definition of a 'hotel' because the proprietor received and lodged any transient guest who applied, but that his subsequent subdivision and leasing of the building for tenement, shop, and reduced boarding-house use showed an intent to abandon its hotel character, so a liquor tax certificate later issued without neighbors' consents could not stand.",
+  "doctrinal_concepts": [
+   "hotel_vs_boarding_house_classification",
+   "liquor_licensing_police_power"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Hence it would seem to have then been used as a hotel, within the definition of the law.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6546,
+     6634
+    ],
+    "reporter_page": "237"
+   },
+   {
+    "text": "I conclude that the order and judgment should be reversed on the law and the facts, and that the application of the petitioner should be granted.",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     10086,
+     10231
+    ],
+    "reporter_page": "239",
+    "fuzzy_score": 99.3103448275862
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "characterization left null: the opinion applies two different classifications over time (hotel in 1896; abandoned to boarding/tenement use later) rather than a single characterization of the letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5086215,
+  "cite": "89 A.D. 115",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1903,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.45,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court held that where a wife, by agreement with her husband, personally furnishes a room, board, and care to a paying boarder within the household, the common-law rule vesting a wife's earnings in her husband is abrogated, and she may sue in her own name and right to recover the agreed compensation from the boarder's estate.",
+  "doctrinal_concepts": [
+   "boarder_status",
+   "household_boarding_arrangement",
+   "marital_property_earnings"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Where a husband as the head of the household takes boarders into his house and his wife takes charge of the house, and thus aids the husband in carrying on the business so maintained in the house, her services and earnings belong to the husband",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     289,
+     533
+    ],
+    "reporter_page": "115"
+   },
+   {
+    "text": "the testatrix came to live with the plaintiff under an agreement to pay the plaintiff $200 a year for the room occupied by her, together with her board and the care, attention and services consequent upon the occupancy of said room",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3345,
+     3576
+    ],
+    "reporter_page": "117"
+   },
+   {
+    "text": "Where a wife renders services and furnishes meals to a stranger under an agreement made between herself and her husband that in case she renders such services and furnishes such meals she alone shall receive the recompense therefor and that it shall become her separate property, the common-law rights of the husband to his wife\u2019s services are abrogated and she may enforce the claim in her own name and right.",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     6215,
+     6625
+    ],
+    "reporter_page": "118",
+    "fuzzy_score": 99.7560975609756
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "duration_of_occupancy marked unclear: the boarder actually resided about seven years (1894-1901), a span the nights/weeks/months schema does not capture.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5156782,
+  "cite": "100 A.D. 278",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1905,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "Fire-insurance vacancy/occupancy clause dispute about a dwelling between tenancies; no compensated lodging or boarding arrangement at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5283086,
+  "cite": "119 A.D. 808",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1907,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "Addresses an innkeeper's tort duty to protect a guest's person from insult by a servant, not the legality, character, or regulation of letting rooms or boarding-house keeping.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5324947,
+  "cite": "157 A.D. 798",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1913,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "Criminal rape prosecution; the furnished-room house is merely the situs of the offense, not the subject of any ruling on letting or boarding-house law.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5421858,
+  "cite": "186 A.D. 235",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1919,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "Ordinary landlord-tenant dispute over whether a lessee of a life tenant may be removed by summary proceedings after the life tenant's death; unrelated to short-term letting or boarding-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5503317,
+  "cite": "84 N.Y.S. 228",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1903,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "Purely procedural dispute over the sufficiency of a summary-proceeding petition's description of the landlord's interest; no letting-character or boarding-house issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5527565,
+  "cite": "84 N.Y.S. 437",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1903,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.3,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": null,
+  "holding_summary": "The court held that a tenant operating a boarding house could recover, as damages for a nuisance impairing the usable value of the premises, the rent reductions she was forced to give boarders who threatened to leave on account of smoke and vibration from the defendant's plant, but reversed for improperly admitting unsubstantiated evidence of outside laundry costs.",
+  "doctrinal_concepts": [
+   "boarding_house_as_ordinary_business",
+   "nuisance_damages_usable_value"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "She was therefore entitled to recover the loss sustained by being deprived of the use of the rear of the premises and the loss she sustained by being obliged to reduce the rental of her rooms in order to keep her tenants.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4672,
+     4893
+    ],
+    "reporter_page": "439"
+   },
+   {
+    "text": "The plaintiff, as tenant of the premises No. 48 West Twenty-Seventh street, which she conducted as a boarding house, brought this action to recover damages for a nuisance caused by defendant\u2019s plant",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2427,
+     2625
+    ],
+    "reporter_page": "438"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "characterization left null: the opinion treats the boarding-house business as a given fact for damages purposes and does not classify the letting as lease/license/lodging/innkeeping.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5558575,
+  "cite": "148 N.Y.S. 257",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1914,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "Landlord's action for use and occupation of saloon premises after a tenant's dispossession; commercial saloon property, not lodging or boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5585096,
+  "cite": "155 N.Y.S. 86",
+  "court": "New York Court of General Sessions of the Peace",
+  "year": 1915,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "Vagrancy prosecution of a hotel proprietor for allegedly permitting prostitutes to resort to the premises, turning on guilty knowledge; concerns disorderly-house/vice regulation rather than the legality or zoning of short-term room letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5591008,
+  "cite": "151 N.Y.S. 796",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1915,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-029",
+  "notes": "Dispute over tax liability of a holdover tenant under a deceased life tenant's lease; ordinary landlord-tenant law, unrelated to boarding or short-term letting.",
+  "extraction_status": "ok"
+ }
+]

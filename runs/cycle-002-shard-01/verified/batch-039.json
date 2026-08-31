@@ -1,0 +1,525 @@
+[
+ {
+  "case_id": 920791,
+  "cite": "184 Misc. 975",
+  "court": "New York City Municipal Court",
+  "year": 1945,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Commercial Rent Law dispute over which 'lessee-landlord' may invoke the owner-personal-use exception in a business space; no lodging/boarding-house issue present.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 923575,
+  "cite": "185 Misc. 831",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1945,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Commercial Rent Law case on whether a parent corporation is the true 'owner' landlord through a subsidiary realty corporation; no lodging/boarding-house issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 923683,
+  "cite": "185 Misc. 97",
+  "court": "New York Domestic Relations Court",
+  "year": 1945,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Support/domicile dispute over validity of a Florida divorce decree; mentions that respondent 'lodged not in a hotel or tourist camp but in the home of a married daughter' only as evidence bearing on domicile intent, not on a letting arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 925987,
+  "cite": "186 Misc. 31",
+  "court": "New York Supreme Court",
+  "year": 1945,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Divorce action turning on bona fide Nevada domicile; defendant's residence in 'a trailer or in a tourist camp' is cited only as evidence against a genuine change of domicile, not a lodging/letting dispute.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 926026,
+  "cite": "186 Misc. 784",
+  "court": "New York Supreme Court",
+  "year": 1945,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Declaratory judgment action apportioning bank-branch commercial rent among a bank sublessee and its business subtenants (liquor store, another store, vault space); no residential lodging issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 926034,
+  "cite": "186 Misc. 721",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1946,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The Appellate Term held that a rooming house proprietor who failed to show he was renting the same number of units on a monthly basis as of the maximum rent date must continue the prior term of occupancy, and awarded the tenant an overcharge of $44 plus attorney's fees.",
+  "doctrinal_concepts": [
+   "rooming_house_regulation",
+   "rent_control_hotels_rooming_houses"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "In the absence of evidence by a rooming house proprietor that he was renting the same number of rooms or units on a monthly basis as> of the maximum rent date, the same term of occupancy for a unit must be continued as existed on that date.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     356,
+     596
+    ],
+    "reporter_page": "723"
+   },
+   {
+    "text": "In the absence of evidence by a rooming house proprietor that he was renting the same number of rooms or units on a monthly basis as> of the maximum rent date, the same term of occupancy for a unit must be continued as existed on that date.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     356,
+     596
+    ],
+    "reporter_page": "723"
+   },
+   {
+    "text": "In the absence of evidence by a rooming house proprietor that he was renting the same number of rooms or units on a monthly basis as> of the maximum rent date, the same term of occupancy for a unit must be continued as existed on that date.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     356,
+     596
+    ],
+    "reporter_page": "723"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Regulatory enforcement of hotel/rooming-house rent rules against a commercial rooming-house operator; treated as adverse (regulation sustained/applied against operator's rate-setting practice).",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 926217,
+  "cite": "186 Misc. 853",
+  "court": "New York City Municipal Court",
+  "year": 1945,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Co-operative apartment summary proceeding turning on whether an assignee of a proprietary lease/shares qualifies as 'landlord'; no lodging/boarding-house issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 931328,
+  "cite": "188 Misc. 885",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1947,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Appellate Term held that conducting a rooming house in a building restricted to private-dwelling use violated the Multiple Dwelling Law, rendering the lease void as an illegal occupancy the landlord could not waive, and ordered a new trial.",
+  "doctrinal_concepts": [
+   "rooming_house_regulation",
+   "multiple_dwelling_law",
+   "illegal_use_void_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Conducting a rooming house in a building restricted to use as a private dwelling in violation of the provisions of the Multiple Dwelling Law is illegal.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     967,
+     1119
+    ],
+    "reporter_page": "886"
+   },
+   {
+    "text": "Conducting a rooming house in a building restricted to use as a private dwelling in violation of the provisions of the Multiple Dwelling Law is illegal.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     967,
+     1119
+    ],
+    "reporter_page": "886"
+   },
+   {
+    "text": "A landlord can not waive right of removal for an occupancy in violation of statute and every person violating or assisting in violation of the statute is punishable therefor.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1120,
+     1294
+    ],
+    "reporter_page": "886"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Rooming house use treated as an illegal, unwaivable violation of the Multiple Dwelling Law in a restricted-dwelling building; who_was_letting inferred as commercial-scale from the description of a 'rooming house' with multiple undertenants, though the opinion gives few facts.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 934607,
+  "cite": "189 Misc. 850",
+  "court": "New York City Municipal Court",
+  "year": 1947,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Eviction sought by a dentist-landlord for mixed office/dwelling personal use under the Housing and Rent Act of 1947; no boarding/lodging issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 939590,
+  "cite": "191 Misc. 334",
+  "court": "New York City Municipal Court",
+  "year": 1948,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Dispute over whether an infant counts as an 'occupant' triggering a rent surcharge; the family in question are relatives, not paying boarders/roomers, and the Multiple Dwelling Law boarder/lodger definition is quoted only in passing as interpretive aid.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 945584,
+  "cite": "194 Misc. 35",
+  "court": "New York City Municipal Court",
+  "year": 1948,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Municipal Court held that tenants who leased entire apartments expressly to sublet furnished rooms to individual roomers could not be evicted for single-room occupancy in violation of the Multiple Dwelling Law, since that use was contemplated by the leases and the tenants were protected as controlled housing accommodations under the Federal Housing and Rent Act.",
+  "doctrinal_concepts": [
+   "single_room_occupancy",
+   "furnished_room_subletting",
+   "multiple_dwelling_law",
+   "housing_and_rent_act_protection"
+  ],
+  "new_terms_observed": [
+   "single-room occupancy"
+  ],
+  "quotes": [
+   {
+    "text": "occupied by Tenant\u2019s subtenants for furnished room dwelling purposes and for no other purpose",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1963,
+     2056
+    ],
+    "reporter_page": "37"
+   },
+   {
+    "text": "The landlord hereby expressly authorizes the tenant to sublet furnished rooms or suites of rooms in the demised premises to individual roomers or families",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2129,
+     2283
+    ],
+    "reporter_page": "37"
+   },
+   {
+    "text": "It is the expressed intention of this law not to dispossess tenants in the situation of this defendant, who have equipped rooms and apartments with furniture and furnishings, and have sublet them as furnished apartments.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     13266,
+     13486
+    ],
+    "reporter_page": "41"
+   },
+   {
+    "text": "There is no occupancy for \u2018 an immoral or illegal purpose \u2019 here.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6391,
+     6456
+    ],
+    "reporter_page": "38"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 945692,
+  "cite": "194 Misc. 498",
+  "court": "New York City Municipal Court",
+  "year": 1949,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Dispute over whether an occupant who worked as building janitor is a tenant or mere employee for rent-control purposes; no boarding/lodging-for-pay issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 945741,
+  "cite": "194 Misc. 735",
+  "court": "Mount Vernon City Court",
+  "year": 1948,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Superintendent-occupancy dispute over whether occupancy incidental to employment is protected as a tenancy under federal rent control; no letting-for-pay/boarding-house issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 945852,
+  "cite": "194 Misc. 577",
+  "court": "New York Supreme Court",
+  "year": 1949,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Supreme Court denied review of a housing rent commission's refusal to grant the owner a certificate of eviction against a tenant who was subletting the building room-by-room as a rooming house, holding the application time-barred and, on the merits, that the commission's denial was not arbitrary given the closeness of the case.",
+  "doctrinal_concepts": [
+   "rooming_house_regulation",
+   "certificate_of_eviction",
+   "owner_personal_use_exception"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "He rents three separate furnished rooms on the top floor to three individuals, a two-room apartment on the main floor to a husband and wife with a three-year-old child, a two-room unfurnished apartment on the basement floor to one individual, and he, himself, occupies sleeping quarters in a basement garage.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     959,
+     1267
+    ],
+    "reporter_page": "578"
+   },
+   {
+    "text": "He rents three separate furnished rooms on the top floor to three individuals, a two-room apartment on the main floor to a husband and wife with a three-year-old child, a two-room unfurnished apartment on the basement floor to one individual, and he, himself, occupies sleeping quarters in a basement garage.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     959,
+     1267
+    ],
+    "reporter_page": "578"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Marked mixed: outcome functionally preserves the rooming-house tenant's continued occupancy against an owner's personal-use eviction bid, but the reasoning is procedural/deferential (statute of limitations, arbitrary-and-capricious review) rather than a doctrinal endorsement of letting rooms for pay.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 948060,
+  "cite": "195 Misc. 901",
+  "court": "New Rochelle City Court",
+  "year": 1949,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Dispute over decontrol status of a superintendent's apartment after termination of employee occupancy; no boarding/lodging-for-pay issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 948071,
+  "cite": "195 Misc. 100",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1949,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Dispute over whether employees living in a leased business store, without landlord permission, are 'squatters' subject to summary removal; not a compensated lodging/letting arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 948154,
+  "cite": "195 Misc. 246",
+  "court": "New York Supreme Court",
+  "year": 1948,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "License-vs-lease dispute over a soda-fountain concession inside a drugstore under the Business Rent Law; a commercial-space license question, not a residential lodging issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 959058,
+  "cite": "198 Misc. 1048",
+  "court": "New York City Municipal Court",
+  "year": 1951,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.2,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-039",
+  "notes": "Dispute over a landlord's right to make one co-tenant of a 'railroad flat' share a kitchen/bathroom with a new occupant chosen by the landlord; concerns implied conditions of a shared-facilities tenancy rather than short-term letting for pay or boarding-house licensing under the police power.",
+  "extraction_status": "ok"
+ }
+]

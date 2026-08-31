@@ -1,0 +1,511 @@
+[
+ {
+  "case_id": 1028885,
+  "cite": "142 Pa. Super. 165",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1940,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": null,
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court held that renting rooms to lodgers was a use subordinate to and incidental of the residential character of the premises, but that this did not create a nonconforming use permitting the subsequent conversion of the entire lot into a commercial automobile parking lot, since the parking had been merely incidental to the rooming-house use, not equivalent in kind to it.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "accessory_use_residential_letting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "In 1921 appellants\u2019 mother began to rent rooms to lodgers, some of whom owned automobiles, and offered to rent space in the yard in which to park their cars.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     5016,
+     5173
+    ],
+    "reporter_page": "168"
+   },
+   {
+    "text": "The principal income of the family was from the renting of lodgings, and as a general rule the renting of parking space was to the lodgers in the two houses.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5679,
+     5836
+    ],
+    "reporter_page": "168"
+   },
+   {
+    "text": "We know that many classes of light or part-time employment are capable of being discharged in or about the home; that many functions are capable of being there discharged as subordinate to the chief function of making a home or providing living quarters for transient paying guests, but the adaptability of premises, the dominant function of which is residential, to these servient functions cannot in every case be held to allow the servient use to become dominant.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     15805,
+     16271
+    ],
+    "reporter_page": "174"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 1063304,
+  "cite": "158 Pa. Super. 572",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1946,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "Concerns building-code regulation of house trailers used as permanent owner-occupied dwellings; not about letting rooms/dwellings to others for pay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1697781,
+  "cite": "41 Pa. D. & C.2d 30",
+  "court": "Monroe County Court of Common Pleas",
+  "year": 1963,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "Tort/premises-liability demurrer case concerning an innkeeper's duty of care to injured paying guests at a tourist lodge; does not address the legality or regulation of letting rooms/dwellings for pay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8730584,
+  "cite": "44 Pa. D. & C. 125",
+  "court": "Delaware County Court of Quarter Sessions",
+  "year": 1941,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "Defendant lived in his own trailer as his own residence; ordinance's leasing/renting provision (\u00a73) was expressly not before the court. Not about compensated occupancy of another's dwelling.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 720705,
+  "cite": "175 Pa. Super. 320",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1954,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "Zoning nonconforming-use dispute over converting a store to a restaurant/tavern with a liquor license; no lodging or room-letting issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 720789,
+  "cite": "175 Pa. Super. 157",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1954,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "Child-custody habeas corpus case; father's rooming/boarding arrangement and grandparents' tourist camp are passing background facts only.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 983106,
+  "cite": "118 Pa. Super. 312",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1935,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "Fire-insurance case construing 'vacant or unoccupied'; cites lodger/occupancy case law only as interpretive dicta, not concerning a letting arrangement itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1021077,
+  "cite": "137 Pa. Super. 24",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1939,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "Mandamus case over a building-permit refusal for an undersized dwelling lot; tourist-home restrictive-covenant material appears only as a distinguished citation to another case (Douglass v. Queeney), not this court's own holding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1050933,
+  "cite": "153 Pa. Super. 524",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1943,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "Criminal conviction for maintaining a disorderly house/prostitution in furnished rooms; the opinion's holding addresses evidentiary/cross-examination rules, not the legality or regulation of room-letting as such.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1067278,
+  "cite": "173 Pa. Super. 223",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1953,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "Divorce/indignities case; a tourist camp is mentioned only as the site of the parties' honeymoon, a purely incidental detail.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1171347,
+  "cite": "324 Pa. 399",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1936,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "The court held that plaintiff's presence in her brother's leased apartment, where she paid $2 a week for lodging when able and helped with housework, did not constitute a sub-letting forbidden by the lease's no-subletting clause; her status more closely resembled that of a servant than an independent lodger or sublessee, and the landlord owed her, as an invitee, a duty of reasonable care on the common fire-escape passageway.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "She can hardly be said to have been a lodger (cf. Davis v. Hartel, 56 Pa. Superior Ct. 557, 564) as that designation would imply some status more independent of Whitton than the evidence discloses; the relationship had more of the characteristics of master and servant and it was in this relationship that she was employed when injured, as she had been washing dishes and \u201cwas starting down to empty the rubbish.\u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4400,
+     4813
+    ],
+    "reporter_page": "402"
+   },
+   {
+    "text": "We think the provision in the lease was intended to prohibit a more substantial change in possession than resulted from plaintiff\u2019s presence in the household. It is not conceivable that by the words of the provision the parties intended to prevent the tenant\u2019s taking a servant who worked outside for others part of the time and also did the family household work in whole or part consideration of the accommodation received.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4814,
+     5239
+    ],
+    "reporter_page": "403"
+   },
+   {
+    "text": "In support of her position, appellant cites Peaks v. Cobb, 197 Mass. 554, 83 N. E. 1106, and Gardiner v. DeSalles, 13 La. App. 83, 126 So. 739, holding that a lodger is not a sublessee within such a provision.",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     5239,
+     5448
+    ],
+    "reporter_page": "403",
+    "fuzzy_score": 99.52153110047847
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1182973,
+  "cite": "330 Pa. 33",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1938,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "Trade-fixtures dispute over bowling alleys in a commercial lease; unrelated to lodging or room-letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1217412,
+  "cite": "347 Pa. 247",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1943,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "Tort case turning on invitee-versus-licensee status of a hotel guest's visitor injured on a balcony; does not address the character or regulation of letting rooms for pay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1230354,
+  "cite": "368 Pa. 538",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1951,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "Commercial lease assignment/holdover dispute over a restaurant-liquor business; not about lodging or room-letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1232345,
+  "cite": "369 Pa. 19",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1951,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.2,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "Concerns a zoning ordinance's attempt to bar liquor sales at an otherwise-permitted hotel; the regulatory dispute is about liquor licensing within the hotel business, not the legality or regulation of letting/lodging itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1237075,
+  "cite": "371 Pa. 290",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1952,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "The Supreme Court affirmed a zoning variance permitting a restaurant lessee to also operate its property as a hotel/guest house, holding that although the ordinance's special-exception provision for 'hotel, boarding house or restaurant' use lacked governing standards, the commercial character of the surrounding neighborhood and the proven financial hardship of restricting the business to a restaurant justified granting a variance.",
+  "doctrinal_concepts": [
+   "zoning_regulation_of_lodging",
+   "hotel_use_classification"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Among the possible uses, by special exception, is a \u201chotel, boarding house or restaurant\u201d.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1707,
+     1797
+    ],
+    "reporter_page": "292"
+   },
+   {
+    "text": "entered a decree nisi reversing the order of the Board of Adjustment and directing the Board to authorize a variance permitting the plaintiff to use the demised premises as a hotel.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3092,
+     3273
+    ],
+    "reporter_page": "293"
+   },
+   {
+    "text": "The hardship to the plaintiff, if it were prevented from using the premises as a hotel, was satisfactorily established.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     9091,
+     9210
+    ],
+    "reporter_page": "296"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "Marked mixed: the ordinance's power to restrict hotel/boarding-house use via special exception is treated as a valid regulatory scheme (adverse element), while the ultimate outcome favored the operator's ability to run the lodging business (favorable element).",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1238067,
+  "cite": "372 Pa. 318",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1953,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": "The court affirmed defendants' summary conviction for beginning excavation and construction of a motel/automobile tourist camp without a zoning permit, holding that the newly enacted R-1 residential zoning ordinance validly barred the commercial tourist-camp use in that district and that defendants' pre-ordinance architect's fees and post-injunction construction expenditures did not vest a right to complete the project.",
+  "doctrinal_concepts": [
+   "zoning_regulation_of_lodging",
+   "vested_rights_nonconforming_use"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "an area including defendants\u2019 land became classified as an R-1 Residence Zone, in which there were permitted only single family detached dwellings, churches, schools, libraries, government buildings and parks.",
+    "supports": "polarity",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     2369,
+     2578
+    ],
+    "reporter_page": "320",
+    "fuzzy_score": 99.52153110047847
+   },
+   {
+    "text": "The decree of the court below affirming the judgment of the alderman is affirmed at the cost of appellants.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     12328,
+     12435
+    ],
+    "reporter_page": "325"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "characterization left null: the opinion turns on zoning-permit validity and vested-rights doctrine and does not itself classify the legal nature of the intended guest occupancy as lease/license/lodging/innkeeping.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1253581,
+  "cite": "379 Pa. 118",
+  "court": "Supreme Court of Pennsylvania",
+  "year": 1954,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-013",
+  "notes": "Dispute over relocating a restaurant's liquor license under a zoning ordinance; concerns liquor regulation, not lodging or room-letting.",
+  "extraction_status": "ok"
+ }
+]

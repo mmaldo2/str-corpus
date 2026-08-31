@@ -1,0 +1,634 @@
+[
+ {
+  "case_id": 9777065,
+  "cite": "271 So. 2d 630",
+  "court": "Louisiana Court of Appeal",
+  "year": 1972,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Eviction proceeding against a deceased lessee's heirs occupying agricultural land by permission; concerns the C.C.P. eviction 'occupant' definition, not compensated short-term lodging or letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11189675,
+  "cite": "761 So. 2d 44",
+  "court": "Louisiana Court of Appeal",
+  "year": 2000,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Family dispute over a usufructuary's sons occupying the family home by permission and jurisdiction to summarily evict co-owners; no compensated lodging or letting arrangement at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11203687,
+  "cite": "762 So. 2d 271",
+  "court": "Louisiana Court of Appeal",
+  "year": 2000,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Divorce case addressing whether a spouse occupying the family home pending property settlement retroactively owes rent to the other spouse; a co-ownership/community-property rent dispute, not short-term letting for pay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11319228,
+  "cite": "524 So. 2d 10",
+  "court": "Louisiana Court of Appeal",
+  "year": 1988,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Community-property partition case disallowing a rental-value offset between divorced co-owner spouses for occupancy of the marital home; not a short-term letting/lodging arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11323068,
+  "cite": "524 So. 2d 172",
+  "court": "Louisiana Court of Appeal",
+  "year": 1988,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Zoning nonconforming-use case concerning loss of status for a seven-unit apartment building left vacant six months; involves ordinary long-term apartment leasing, not short-term letting or boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11517809,
+  "cite": "745 So. 2d 1259",
+  "court": "Louisiana Court of Appeal",
+  "year": 1999,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "other",
+  "holding_summary": "The court affirmed denial of nonconforming-use status for a Garden District residence used intermittently over years to host paid tours and parties for tourists, holding that occasional commercial use of a private home, no matter how longstanding, is not sufficiently continuous to qualify as a legal nonconforming use under the city's zoning ordinance.",
+  "doctrinal_concepts": [
+   "nonconforming_use",
+   "zoning_police_power"
+  ],
+  "new_terms_observed": [
+   "pay-parties"
+  ],
+  "quotes": [
+   {
+    "text": "The Weislers\u2019 sought review of a decision of the Board denying them nonconforming use status for the commercial purpose of conducting tours and parties for out-of-town tourists in a residentially zoned neighborhood.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1194,
+     1409
+    ],
+    "reporter_page": "1261"
+   },
+   {
+    "text": "The Board classified the commercial use of the property as intermittent and as such it did not qualify for nonconforming status.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1472,
+     1600
+    ],
+    "reporter_page": "1261"
+   },
+   {
+    "text": "As a matter of law we find that such usage is not sufficiently continuous or consistent to qualify for legally nonconforming status, i.e., we agree with the Board that and the trial court that the use was intermittent.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6145,
+     6363
+    ],
+    "reporter_page": "1262"
+   },
+   {
+    "text": "It is uncontested that the property in question, 2915 Chestnut St., is the Weislers\u2019 residence in the middle of the Garden District.",
+    "supports": "who_was_letting",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     3087,
+     3219
+    ],
+    "reporter_page": "1261",
+    "fuzzy_score": 99.24242424242425
+   },
+   {
+    "text": "in 1968 and 1969 he \u201cworked at least a dozen paid details for the Weislers\u201d at commercial \u201cpay-parties.\u201d",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     3685,
+     3789
+    ],
+    "reporter_page": "1261"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Householder's own residence was periodically rented out for paid parties/receptions for tourists; zoning board and courts treated this compensated short-term use as insufficiently continuous commercial use, denying it protection \u2014 adverse to a householder's claimed right to let for pay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11573019,
+  "cite": "738 So. 2d 138",
+  "court": "Louisiana Court of Appeal",
+  "year": 1999,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Divorce case denying a spouse's second rule for use/occupancy or rent for the family home under La.R.S. 9:374; a co-ownership rent dispute, not short-term letting for pay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11584934,
+  "cite": "741 So. 2d 1285",
+  "court": "Louisiana Court of Appeal",
+  "year": 1999,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Recreational Use Statute case defining 'occupant' of leased hunting-club land for immunity purposes; no lodging, boarding, or letting of a dwelling is at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11708483,
+  "cite": "717 So. 2d 702",
+  "court": "Louisiana Court of Appeal",
+  "year": 1998,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Restrictive-covenant dispute over operation of a used-car lot on subdivision lots; the 'commercial purposes' restriction concerns retail vehicle sales, not lodging or letting of dwellings/rooms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11766370,
+  "cite": "726 So. 2d 435",
+  "court": "Louisiana Court of Appeal",
+  "year": 1999,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": "The court affirmed the denial of a permit to operate a bed and breakfast at the owner's own Garden District residence, holding the Board of Zoning Adjustments reasonably found the owner had not established a legal nonconforming use of the property as a lodging business.",
+  "doctrinal_concepts": [
+   "nonconforming_use",
+   "bed_and_breakfast_permit",
+   "zoning_police_power"
+  ],
+  "new_terms_observed": [
+   "ten occupancy temporary lodgings"
+  ],
+  "quotes": [
+   {
+    "text": "On May 1, 1997, Plaintiff filed an application with the Department of Safety and Permits for a permit to operate a bed and breakfast at his residence.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2619,
+     2769
+    ],
+    "reporter_page": "436"
+   },
+   {
+    "text": "The Department of Safety and Permits denied the Plaintiff\u2019s request for the bed and breakfast permit on the grounds that the Plaintiff had not attained a nonconforming use of his residence.",
+    "supports": "polarity",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     2724,
+     2913
+    ],
+    "reporter_page": "436",
+    "fuzzy_score": 99.47089947089947
+   },
+   {
+    "text": "Plaintiff-Appellant Louis R. Koerner, Jr. (\u201cPlaintiff\u201d) is an attorney who purchased a residence located at 1204 Jackson Avenue in the city of New Orleans on October 26, 1979.",
+    "supports": "who_was_letting",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     1185,
+     1360
+    ],
+    "reporter_page": "436",
+    "fuzzy_score": 98.85714285714286
+   },
+   {
+    "text": "Plaintiff alleges that he inherited the nonconforming use of a \u201cten occupancy temporary lodgings\u201d from the previous owner which he expanded into the additional commercial use of the premises through the years as an office for attorneys and for charitable and civic groups.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5466,
+     5738
+    ],
+    "reporter_page": "437"
+   },
+   {
+    "text": "Plaintiff alleges that he inherited the nonconforming use of a \u201cten occupancy temporary lodgings\u201d from the previous owner which he expanded into the additional commercial use of the premises through the years as an office for attorneys and for charitable and civic groups.",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     5466,
+     5738
+    ],
+    "reporter_page": "437"
+   },
+   {
+    "text": "For the foregoing reasons, we affirm the judgment of the trial court and find that there was a reasonable basis for the Board of Zoning Adjustments to conclude kthat n0 nonconfirming commercial use of 1204 Jackson Avenue was acquired by the Plaintiff.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8644,
+     8895
+    ],
+    "reporter_page": "438"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Squarely on point: a householder sought to operate short-term paid lodging (a bed and breakfast) out of his own residence and was denied on zoning nonconforming-use grounds \u2014 an adverse precedent restricting a householder's ability to let short-term.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11892806,
+  "cite": "702 So. 2d 648",
+  "court": "Louisiana Supreme Court",
+  "year": 1996,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Commercial ground-lease and mortgage-foreclosure dispute over a restaurant leasehold and whether the foreclosing bank owed rent; no residential letting, lodging, or boarding is involved.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11921962,
+  "cite": "701 So. 2d 1280",
+  "court": "Louisiana Supreme Court",
+  "year": 1997,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Community-property lesion case addressing whether the rental value of a family home occupied by an ex-spouse should count as consideration in a partition; a co-ownership rent dispute, not short-term letting for pay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12120860,
+  "cite": "483 So. 2d 1123",
+  "court": "Louisiana Court of Appeal",
+  "year": 1986,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.3,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The court upheld a permanent injunction requiring a group-home operator to obtain parish planning-board and council approval under the state community-home statute before housing developmentally disabled residents in a residentially zoned area, rejecting an equal-protection challenge and analogizing the required local approval to the zoning variance a boarding-house operator would need in the same district.",
+  "doctrinal_concepts": [
+   "boarding_house_definition",
+   "zoning_police_power"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "We agree with the defendant that the closest definition applicable to the home is that of a boarding house, \u201ca building other than a hotel where, for compensation and by prearrangement for a definite period, meals or lodging and meals are provided for three (3) or more persons, but not exceeding twenty (20) persons.\u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6030,
+     6348
+    ],
+    "reporter_page": "1125"
+   },
+   {
+    "text": "The statute places essentially the same burden on a sponsor seeking to open a community home as the parish zoning ordinance places on anyone seeking a variance or exception. Since the community home is not a permitted use under the ordinance in an R-2 area, Normal Life would be obliged to request an exception or variance, as would any party seeking to operate a boarding house in an R-2 district.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     8539,
+     8937
+    ],
+    "reporter_page": "1126"
+   },
+   {
+    "text": "For the foregoing reasons, the judgment appealed from is affirmed. Costs are taxed to appellant.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     10757,
+     10853
+    ],
+    "reporter_page": "1127"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Marginal/tangential: the facility is a state-licensed community home for disabled residents, not ordinary compensated lodging, but the court substantively invokes the zoning ordinance's 'boarding house' definition (compensation, prearrangement, meals/lodging) as the closest analogous use category, which bears on how such regulation classifies and burdens compensated multi-occupant residential use.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12672508,
+  "cite": "246 So. 3d 754",
+  "court": "Court of Appeal of Louisiana, Second Circuit",
+  "year": 2018,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "other",
+  "holding_summary": "The court affirmed a permanent injunction barring an LLC from operating a short-term vacation-rental business out of a lakefront house, holding that renting the dwelling to transient occupants for as little as two nights at a time, advertised online and covered by commercial insurance, constituted a 'commercial purpose' prohibited by the subdivision's residential-use restrictive covenant.",
+  "doctrinal_concepts": [
+   "restrictive_covenant",
+   "commercial_use_of_residence"
+  ],
+  "new_terms_observed": [
+   "vacation rental"
+  ],
+  "quotes": [
+   {
+    "text": "On March 12, 2015, Landry Chalet Rentals, LLC (\"Landry Rentals\"), purchased Lot 10 of Timber Point Subdivision located on Caney Lake in Jackson Parish, Louisiana (\"Timber Point\").",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1060,
+     1239
+    ],
+    "reporter_page": "755"
+   },
+   {
+    "text": "Landry Rentals \"leases Lot 10 for not less than periods of two nights and has rented it on one, possibly two occasions, for a maximum period of one month since its ownership began in July of 2015.\"",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     2563,
+     2760
+    ],
+    "reporter_page": "755"
+   },
+   {
+    "text": "Our review of this limited record reveals a reasonable factual basis for the trial court to conclude that Landry Rentals was a commercial business entity operating a vacation rental business on its property in violation of the Timber Point Covenants' express prohibition against using the property for commercial purposes.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     8774,
+     9096
+    ],
+    "reporter_page": "757"
+   },
+   {
+    "text": "For the foregoing reasons, the trial court's judgment permanently enjoining Landry Rentals from operating a business on its property is affirmed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     11195,
+     11340
+    ],
+    "reporter_page": "758"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Directly on point: a commercial operator's short-term (as short as two-night) vacation-rental letting of a residence was enjoined as an impermissible commercial use under a residential restrictive covenant \u2014 a modern adverse precedent against short-term letting.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 12692177,
+  "cite": "270 So. 3d 694",
+  "court": "Court of Appeal of Louisiana, Third Circuit",
+  "year": 2019,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "In a summary tax-collection proceeding against a hostel/bed-and-breakfast business that furnished sleeping rooms to transient guests for a fee, the appellate court found the trial court never actually ruled on the merits of the parish's sales and occupancy tax assessment and remanded for a decision on the merits.",
+  "doctrinal_concepts": [
+   "occupancy_tax",
+   "transient_lodging_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "On or about March 4, 2016, IMAGINE MANAGEMENT, LLC, through its owner, TOBY DORE, registered with Petitioner as a dealer for sales, use and occupancy tax purposes, for its operation of a hostel/ guesthouse/ bed and breakfast business in Lafayette Parish, Louisiana, under the trade name \"CAJUN HOSTEL.\"",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     2335,
+     2637
+    ],
+    "reporter_page": "696"
+   },
+   {
+    "text": "Upon information and belief, at all times pertinent hereto, Taxpayer was engaged in business as a \"dealer\" as defined in La. R.S. 47:301(4)(f)(ii) by furnishing sleeping rooms, cottages, or cabins at residential locations (as defined in La. R.S. 47:301(6)(a)(ii) ) in Lafayette Parish to transient guests for a fee, as well as by offering sales at retail of other taxable items.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2654,
+     3032
+    ],
+    "reporter_page": "696"
+   },
+   {
+    "text": "Upon information and belief, at all times pertinent hereto, Taxpayer was engaged in business as a \"dealer\" as defined in La. R.S. 47:301(4)(f)(ii) by furnishing sleeping rooms, cottages, or cabins at residential locations (as defined in La. R.S. 47:301(6)(a)(ii) ) in Lafayette Parish to transient guests for a fee, as well as by offering sales at retail of other taxable items.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2654,
+     3032
+    ],
+    "reporter_page": "696"
+   },
+   {
+    "text": "Because the trial court herein failed to issue a ruling on the merits of the Summary Sales Tax Proceeding brought by the Collector, this court has no jurisdiction to decide this appeal. Accordingly, we must reverse the appealed judgment and remand this matter to the trial court for further proceedings.",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     16309,
+     16612
+    ],
+    "reporter_page": "701",
+    "fuzzy_score": 96.97986577181209
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "A commercial hostel/B&B business furnishing sleeping rooms to transient guests for a fee is the subject of an occupancy-tax enforcement action; the merits of the tax liability were never actually decided (remanded), but the case documents modern regulatory treatment of short-term paid lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12694168,
+  "cite": "273 So. 3d 406",
+  "court": "Court of Appeal of Louisiana, Fourth Circuit",
+  "year": 2019,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Premises-liability slip-and-fall case involving a roof-repair worker who fell off a rental property's roof; concerns invitee/trespasser duty analysis, not the letting or lodging arrangement itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3257683,
+  "cite": "263 La. 865",
+  "court": "Louisiana Supreme Court",
+  "year": 1972,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Constitutional challenge to a parish local-option alcohol-prohibition ordinance under the police power; no lodging, boarding, or letting of dwellings is involved.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5599746,
+  "cite": "257 La. 91",
+  "court": "Louisiana Supreme Court",
+  "year": 1970,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-057",
+  "notes": "Police-negligence case about a fire in a locked patrol car while an intoxicated arrestee was left unattended; a hearsay fire-department report contains a passing, discredited reference to a 'rooming house,' unrelated to the holding on negligence and contributory negligence.",
+  "extraction_status": "ok"
+ }
+]

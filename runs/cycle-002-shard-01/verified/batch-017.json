@@ -1,0 +1,546 @@
+[
+ {
+  "case_id": 6947523,
+  "cite": "86 A.3d 330",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2014,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Zoning dispute over a methadone clinic use permit; references Thomason (bed-and-breakfast exclusionary zoning) only in passing as a distinguishable precedent. Does not itself address short-term letting, boarding houses, or lodger status.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7865773,
+  "cite": "675 A.2d 791",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1996,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": "The Commonwealth Court affirmed dimensional variances allowing a nonprofit to convert a vacant former motel/dormitory into a fifty-unit single-room-occupancy residence for low-income and homeless persons, holding the proposed use fit within zoning categories such as apartment/multiple-family dwelling, group care facility, rooming/boarding home, or tourist home that are all expressly permitted uses in the T-1 district.",
+  "doctrinal_concepts": [
+   "rooming_house_classification",
+   "group_care_facility",
+   "zoning_permitted_use"
+  ],
+  "new_terms_observed": [
+   "single room occupancy (SRO)"
+  ],
+  "quotes": [
+   {
+    "text": "Community Services\u2019 Executive Director, Kitty Cancilla, testified that the intended purpose of the building would be to provide low-income and homeless persons with a place to live and that their average stay would be six to nine months.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5187,
+     5424
+    ],
+    "reporter_page": "794"
+   },
+   {
+    "text": "Accordingly, we affirm the judgment of the Court of Common Pleas of Erie County and the grant of the two dimensional variances to Community Services.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     20812,
+     20961
+    ],
+    "reporter_page": "799"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Court treats the converted motel/dormitory as fitting several permitted zoning categories (apartment/multiple-family dwelling, group care facility, rooming/boarding home, tourist home) without settling on a single characterization of the arrangement; characterization left null.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7875109,
+  "cite": "658 A.2d 886",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1995,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The Commonwealth Court held that a six-room boarding house with a communal kitchen qualifies as a 'residential building' under the Utility Service Tenants Rights Act, affirming an injunction requiring the water authority to restore and maintain water service to boarder-tenants despite the landlord's nonpayment, because occupants who treat their rooms as a permanent domicile and pay rent are the tenants USTRA was meant to protect.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "residential_building_definition",
+   "tenant_utility_rights"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Appellees live as tenants in the building and pay the landlord rent for the right to do so.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7016,
+     7107
+    ],
+    "reporter_page": "889"
+   },
+   {
+    "text": "The legislature, in enacting USTRA, clearly intended to combat against an innocent tenant suffering the loss of utility service because of a landlord\u2019s failure to pay.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6758,
+     6925
+    ],
+    "reporter_page": "889"
+   },
+   {
+    "text": "Therefore, if the Authority could simply ignore USTRA in this case, the Appellees would innocently suffer the loss of water service to the residence, even though they maintain payment to the landlord for the use of their room and common areas.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7108,
+     7351
+    ],
+    "reporter_page": "889"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8449184,
+  "cite": "910 A.2d 756",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2006,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Home occupation special exception dispute over a dog-breeding business; 'kennel license'/floor-area/employee language matched lodging-adjacent selectors but the case does not involve letting rooms or dwellings for pay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8731698,
+  "cite": "103 Pa. Commw. 326",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 1987,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "adverse",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The Commonwealth Court upheld a municipal ordinance requiring landlords to notify the health officer and pass an inspection before re-letting a vacant rental dwelling, holding it a valid exercise of police power that neither denies due process nor violates equal protection, and that distinguishing rental from owner-occupied housing for inspection purposes is rationally related to protecting tenant health and safety.",
+  "doctrinal_concepts": [
+   "police_power_regulation",
+   "rental_housing_licensing"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "No dwelling or dwelling unit hereafter becoming vacant and available for occupancy or reoccupancy shall be leased, rented, or occupied for dwelling purposes by other than the lawful owner until the Health Officer has certified in writing on a form provided by the City that such dwelling or dwelling unit substantially conforms with the provisions of this ordinance.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     12153,
+     12519
+    ],
+    "reporter_page": "333"
+   },
+   {
+    "text": "As a measure taken by the City of Farrell to ensure that rental property within the City is safe, healthful, and habitable, the ordinance requiring landlords to notify the City of a change in tenants in rental property and allow inspection of the premises for health and safety violations is a proper exercise of the City\u2019s police powers.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3007,
+     3345
+    ],
+    "reporter_page": "328"
+   },
+   {
+    "text": "In light of these principles, it is clear that the trial court was correct in finding that the ordinance is a constitutional exercise of the City\u2019s police power, and that the appellant has failed to carry his burden of proving otherwise.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5378,
+     5615
+    ],
+    "reporter_page": "329"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Concerns ordinary rental dwellings citywide rather than a specific boarding/lodging house; record does not indicate whether appellant was an individual landlord or larger operator, so who_was_letting and duration are unclear.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8744140,
+  "cite": "28 Pa. D. & C.4th 168",
+  "court": "Lycoming County Court of Common Pleas",
+  "year": 1993,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The trial court held that a six-room rooming house with a communal kitchen, where boarders held oral leases and paid weekly or monthly rent to the landlord's agent, is a 'residential building' under the Utility Service Tenant's Rights Act, entitling the long-term boarders to USTRA's protections against termination of water service for the landlord's nonpayment.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease",
+   "boarding_house"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Both plaintiffs Mark Sisco and Van Thompson have oral leases with the landlord owner of 1117 Vine Avenue, John Bricker Jr.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1803,
+     1925
+    ],
+    "reporter_page": "170"
+   },
+   {
+    "text": "These plaintiffs have resided at 1117 Vine Avenue for a significant period of time. This is their home.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7617,
+     7720
+    ],
+    "reporter_page": "173"
+   },
+   {
+    "text": "In conclusion, based on the foregoing discussion the court finds that the Utility Service Tenant\u2019s Rights Act applies to plaintiffs Mark Sisco and Van Thompson and the defendant Williamsport Municipal Water Authority must comply with this act and allow plaintiffs the opportunity to be availed of this act.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     12220,
+     12526
+    ],
+    "reporter_page": "176"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Trial-court opinion underlying the appellate decision at case_id 7875109; contains fuller facts about the rooming house's oral leases and rent arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9300174,
+  "cite": "837 A.2d 634",
+  "court": "Commonwealth Court of Pennsylvania",
+  "year": 2003,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Home occupation special exception dispute over a roofing business; cites Reynolds v. Zoning Hearing Board of Abington Township (bed and breakfast) only in a footnote listing prior home-occupation cases, without discussion. No bearing on short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 11989923,
+  "cite": "694 A.2d 1106",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1997,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Dispute over a tenant's statutory right to invite social guests to an apartment after the landlord issued a 'no trespassing' letter to the guest; unrelated to compensated short-term occupancy or boarding/lodging house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12315623,
+  "cite": "153 A.3d 353",
+  "court": "Superior Court of Pennsylvania",
+  "year": 2016,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Personal-injury suit over a shooting at a convenience store; the Restatement invitee/licensee definitions incidentally mention 'boarders or paying guests' as an example category, but the case does not involve lodging or letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12502620,
+  "cite": "195 A.3d 248",
+  "court": "Superior Court of Pennsylvania",
+  "year": 2018,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Slip-and-fall premises liability case in an HOA common area; Restatement block quote defining licensee incidentally lists 'boarders or paying guests' as an example, but the case concerns a resident's own invitee/licensee status, not lodging or letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 92550,
+  "cite": "319 Pa. Super. 228",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1983,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Commercial office-space lease dispute over anticipatory breach and a tenant's duty to occupy; no connection to short-term residential letting or boarding/lodging houses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 588371,
+  "cite": "320 Pa. Super. 519",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1983,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Wrongful-death trespasser liability case involving a dirt-bike accident on leased contractor storage land; the licensee/invitee Restatement discussion is generic premises-liability doctrine unrelated to lodging or compensated occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 661929,
+  "cite": "359 Pa. Super. 549",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1986,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Wrongful-death case about a landlord-out-of-possession's liability for an unguarded stairwell that killed a social guest of the residential tenant; ordinary residential lease premises liability, not boarding/lodging or short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 719775,
+  "cite": "442 Pa. Super. 614",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1995,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Personal-injury case over a patron injured behind a leased restaurant; invitee-status analysis of a lessor's retained common areas, unrelated to short-term letting or lodging house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 730194,
+  "cite": "447 Pa. Super. 302",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1995,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Sexual-abuse civil suit turning on whether a step-grandmother owed a duty to protect licensee grandchildren visiting under tenancy-by-the-entireties ownership; no bearing on compensated occupancy or lodging practice.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 790382,
+  "cite": "216 Pa. Super. 269",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1970,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Eminent-domain dispute over rent owed by a commercial fruit-market tenant who remained in possession after condemnation; concerns Eminent Domain Code compensation procedure, not residential lodging or boarding houses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 792662,
+  "cite": "217 Pa. Super. 262",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1970,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.35,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "The Superior Court held that a motor lodge remained subject to the innkeeper's strict common-law liability for a paying guest's stolen property because it had not complied with the notice-posting and safe-provision requirements of the Act of 1913 that would otherwise have limited its liability, affirming liability and remanding only for a jury determination of the amount of the guest's loss.",
+  "doctrinal_concepts": [
+   "innkeeper_liability",
+   "paying_guest_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Plaintiff, H. George Buck, was a paying guest of the defendant George Washington Motor Lodge on October 22, 1965, when, at sometime after midnight, while he was in bed in the room assigned him, he was awakened by the noise of an intruder in his room.",
+    "supports": "characterization",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     304,
+     554
+    ],
+    "reporter_page": "264",
+    "fuzzy_score": 99.6
+   },
+   {
+    "text": "He held himself out as an innkeeper, and was required by law to receive all persons coming and desiring lodgings, and upon him was imposed the duty of strict care of the property of his guests whilst in his hotel.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2824,
+     3037
+    ],
+    "reporter_page": "265"
+   },
+   {
+    "text": "However, defendant did not comply with the requirements of the Statute and therefore remained in the domain of common law liability.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6827,
+     6959
+    ],
+    "reporter_page": "268"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Concerns commercial innkeeping (a motor lodge) rather than household letting; included because the case directly addresses the legal character of a short-term paying-guest occupancy (the 'innkeeping' characterization category).",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 834621,
+  "cite": "249 Pa. Super. 303",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1977,
+  "jurisdiction": "Pa.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-017",
+  "notes": "Fire-injury suit turning on whether an implied residential landlord-tenant relationship arose between a redevelopment authority and a family remaining rent-free in an apartment after condemnation; ordinary apartment tenancy formation, not boarding/lodging houses or short-term letting.",
+  "extraction_status": "ok"
+ }
+]

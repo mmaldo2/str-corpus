@@ -1,0 +1,588 @@
+[
+ {
+  "case_id": 1053980,
+  "cite": "20 Misc. 2d 175",
+  "court": "New York Supreme Court",
+  "year": 1959,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "Zoning variance case about a substandard vacant residential lot's single-and-separate-ownership status and takings doctrine; no occupancy, letting, or lodging facts of any kind.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1054003,
+  "cite": "20 Misc. 2d 139",
+  "court": "New York Court of Special Sessions",
+  "year": 1959,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "Purely a hotel-occupancy tax statute construction case distinguishing 'motel' from 'hotel' and 'lodging house' for tax liability purposes; does not address the lawfulness or regulation of letting rooms/dwellings to occupants.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1061931,
+  "cite": "22 Misc. 2d 107",
+  "court": "New York Supreme Court",
+  "year": 1960,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "Zoning dispute over converting a one-family house into a two-family dwelling for the owner and his son (a family, non-paying arrangement); no compensated letting or lodging is at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1066514,
+  "cite": "23 Misc. 2d 955",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1960,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "adverse",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court held that occupancy of the dwelling unit by three rent-paying roomers or boarders exceeded the two-boarder limit of the Multiple Dwelling Law and Code, and that this illegal occupancy, combined with a nonconforming door/transom at the room's egress, established the landlord's prima facie case for possession. It was therefore error for the trial court to have dismissed the landlord's summary proceeding.",
+  "doctrinal_concepts": [
+   "roomers_boarders",
+   "multiple_dwelling_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The testimony in behalf of the landlord, without contradiction by tenant, established the premises were used and occupied by three rent-paying roomers or boarders. This constituted a single-room occupancy in violation of the Multiple Dwelling Law (\u00a7 3, subd. 4) and the Multiple Dwelling Code of the City of New York (Administrative Code of City of New York, \u00a7 D26-3.7) which limits the number of permissible boarders, roomers or lodgers to two.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     292,
+     737
+    ],
+    "reporter_page": "956"
+   },
+   {
+    "text": "The testimony in behalf of the landlord, without contradiction by tenant, established the premises were used and occupied by three rent-paying roomers or boarders. This constituted a single-room occupancy in violation of the Multiple Dwelling Law (\u00a7 3, subd. 4) and the Multiple Dwelling Code of the City of New York (Administrative Code of City of New York, \u00a7 D26-3.7) which limits the number of permissible boarders, roomers or lodgers to two.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     292,
+     737
+    ],
+    "reporter_page": "956"
+   },
+   {
+    "text": "It was error to dismiss landlord\u2019s petition upon the ground that she had failed to make out a prima facie case.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1457,
+     1568
+    ],
+    "reporter_page": "956"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "Record does not clarify whether a primary household occupant lived alongside the three boarders, so who_was_letting and duration are left unclear.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1074035,
+  "cite": "25 Misc. 2d 803",
+  "court": "New York Supreme Court",
+  "year": 1960,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "Restrictive-covenant standing/enforcement dispute among successive grantors and grantees; 'boarding or rooming house' appears only as one item in a list of prohibited commercial uses in the covenant, with no facts about an actual letting arrangement -- a passing mention.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1074134,
+  "cite": "25 Misc. 2d 814",
+  "court": "New York Supreme Court",
+  "year": 1960,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The court sustained the State Rent Administrator's regulation directing a hearing on petitioner's claim of hotel status, holding that a converted single-room-occupancy building found to be a rooming house is not exempt from rent control merely because the owner asserts hotel status, and that the regulation's rooming-house standard tracks the governing statute.",
+  "doctrinal_concepts": [
+   "hotel_vs_rooming_house",
+   "furnished_rooms"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "a ruling was made by the Local Rent Administrator which established the premises as a rooming house based upon evidence in the records of respondent.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1272,
+     1421
+    ],
+    "reporter_page": "815"
+   },
+   {
+    "text": "It appears that the regulations impose the identical standard as prescribed in the act and are in all respects valid.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6613,
+     6730
+    ],
+    "reporter_page": "817"
+   },
+   {
+    "text": "Petitioner has failed to show that the order of the Administrator is either arbitrary or capricious, and it appears that it is amply supported by the record and may not therefore be disturbed. Accordingly, the application is denied and the petition is dismissed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8150,
+     8412
+    ],
+    "reporter_page": "818"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1074208,
+  "cite": "25 Misc. 2d 1013",
+  "court": "New York Supreme Court",
+  "year": 1960,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "Wrongful-death tort case about a child trespasser/licensee injured on a fire-escape roof of an untenanted building; no letting or lodging facts.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1081975,
+  "cite": "27 Misc. 2d 1010",
+  "court": "New York Supreme Court",
+  "year": 1961,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "Zoning appeal concerning a bowling alley's parking-plan approval; unrelated to lodging or letting of dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1088152,
+  "cite": "29 Misc. 2d 276",
+  "court": "New York Supreme Court",
+  "year": 1960,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "Underoccupancy eviction dispute turning on whether family members and a salaried live-in maid count as 'occupants'; no paying lodger/boarder or letting-for-pay arrangement is involved.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1100313,
+  "cite": "32 Misc. 2d 557",
+  "court": "New York Supreme Court",
+  "year": 1961,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court upheld the Rent Administrator's determination that petitioner's premises were a well-run rooming house rather than a hotel, and rejected a constitutional challenge to the 1961 amendment clarifying that only establishments classified as hotels under the federal act qualify for hotel decontrol.",
+  "doctrinal_concepts": [
+   "hotel_vs_rooming_house"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "This is a petition pursuant to article 78 of the Civil Practice Act to review respondent\u2019s determination which held that petitioner\u2019s premises are a well-run rooming house rather than a hotel within the statutory definitions.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     414,
+     639
+    ],
+    "reporter_page": "557"
+   },
+   {
+    "text": "That petitioner may not in the future run its operations free from control is not a denial of due process.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2493,
+     2599
+    ],
+    "reporter_page": "558"
+   },
+   {
+    "text": "Since the factual determination as to petitioner\u2019s status has ample support in the record the court may not be called upon to substitute its judgment for the respondent\u2019s.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     640,
+     811
+    ],
+    "reporter_page": "557"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1112641,
+  "cite": "35 Misc.2d 873",
+  "court": "New York Supreme Court",
+  "year": 1962,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "Dispute over whether a corporate ground lessee qualified as 'landlord' under rent regulations to seek an eviction certificate for demolition; no lodging/boarding facts.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1112849,
+  "cite": "35 Misc.2d 184",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1962,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "mixed",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "New York rent regulation decontrols a one- or two-family dwelling unit where an owner lets nonhousekeeping furnished space to no more than two paying tenants while occupying the remainder of the unit, but this exemption is forfeited once the letting becomes a housekeeping arrangement rather than single-family occupancy. Because the landlord here rented part of the unit for housekeeping purposes, the exemption terminated and control was restored.",
+  "doctrinal_concepts": [
+   "householder_letting",
+   "roomers_boarders",
+   "furnished_rooms"
+  ],
+  "new_terms_observed": [
+   "nonhousekeeping furnished accommodation"
+  ],
+  "quotes": [
+   {
+    "text": "They also remain decontrolled and not subject to rent control where the letting is of nonhousekeeping, furnished housing accommodation, located within a single-dwelling unit not used as a rooming or boarding house, provided not more than two tenants pay rent and live in such dwelling unit, and the remaining portion of such dwelling unit is occupied by the landlord or his immediate family.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     485,
+     876
+    ],
+    "reporter_page": "185"
+   },
+   {
+    "text": "The landlord respondent having rented part of the dwelling unit for housekeeping purposes, the housing accommodation was occupied for other than single-family occupancy and the exemption from control terminated.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     882,
+     1093
+    ],
+    "reporter_page": "185"
+   },
+   {
+    "text": "The final order should be reversed, with $30 costs, and final order awarded the tenant dismissing the petition on the merits, with costs.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1099,
+     1236
+    ],
+    "reporter_page": "185"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "General rule recognizing owner letting of up to two paying lodgers while occupying the remainder is favorable framework; specific application here found the exemption forfeited, hence mixed polarity.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1126505,
+  "cite": "39 Misc. 2d 116",
+  "court": "New York City Civil Court",
+  "year": 1963,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "Overcharge dispute about whether a separately-leased private storage room was part of the tenant's 'housing accommodation' essential services; no lodging/boarding issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1126530,
+  "cite": "39 Misc. 2d 30",
+  "court": "New York Supreme Court",
+  "year": 1963,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court rejected constitutional challenges to the State and City rent laws' hotel-exclusion provisions, reaffirming (per Hotel Armstrong, Fabian Studios, Sylarn, and Noxon) that establishments not classified as hotels on and after March 1, 1950 are properly regulated as rooming houses and that the implementing regulations validly track the statutory standard.",
+  "doctrinal_concepts": [
+   "hotel_vs_rooming_house",
+   "adverse_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the amendments are applicable to housing accommodations styled as hotels which do not satisfy the definition of hotels in the statute, even though such housing accommodations have not been subject to rent control since 1950, and even though such accommodations were once properly classified as hotels but have since deteriorated into something less",
+    "supports": "characterization",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     3798,
+     4146
+    ],
+    "reporter_page": "31",
+    "fuzzy_score": 99.71264367816092
+   },
+   {
+    "text": "It appears that the regulations impose the identical standard as prescribed in the act and are in all respects valid.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     13269,
+     13386
+    ],
+    "reporter_page": "35"
+   },
+   {
+    "text": "the conclusion is inescapable that the court is concluded by the prior adjudications and the declarations as sought by the plaintiff are without merit.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     15179,
+     15330
+    ],
+    "reporter_page": "36"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1181699,
+  "cite": "53 Misc. 2d 122",
+  "court": "New York Supreme Court",
+  "year": 1967,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The court sustained recontrol and denial of decontrol for a rooming house that had been converted to self-contained apartments, holding that decontrol required the conversion to have produced additional self-contained family units of minimum size completed before April 30, 1962, and that the landlord failed to prove timely completion, adequate unit size, or a net increase in legal housing units.",
+  "doctrinal_concepts": [
+   "roomers_boarders",
+   "adverse_regulation",
+   "single_room_occupancy"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The premises here involved were a one-family house prior to 1947, and thereafter the property was converted into a rooming house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     345,
+     474
+    ],
+    "reporter_page": "122"
+   },
+   {
+    "text": "No regulation or order of the city housing rent agency shall be enjoined or set aside, in whole or in part, unless the petitioner shall establish to the satisfaction of the court that the regulation or order is not in accordance with law, or is arbitrary or capricious.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     38206,
+     38475
+    ],
+    "reporter_page": "137"
+   },
+   {
+    "text": "Sufficient ground exists upon the record herein to support the order and it should not be disturbed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     38708,
+     38808
+    ],
+    "reporter_page": "137"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1200047,
+  "cite": "58 Misc. 2d 247",
+  "court": "New York Supreme Court",
+  "year": 1968,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "Zoning variance case about a horse-breeding barn as a nonconforming use; the ordinance text quoted incidentally permits 'keeping of not more than two roomers or boarders' as an accessory residential use, but this is a passing citation, not a litigated letting arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1206708,
+  "cite": "60 Misc. 2d 422",
+  "court": "Civil Court of the City of New York",
+  "year": 1969,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "Holdover proceeding over whether tenant's adult godson qualifies as 'immediate family' under an occupancy-restriction lease clause; no facts show compensated letting or a lodger/boarder arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1206813,
+  "cite": "60 Misc. 2d 782",
+  "court": "Civil Court of the City of New York",
+  "year": 1969,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-041",
+  "notes": "Personal-injury case concerning a social guest's licensee status and a defective throw rug; no letting or lodging facts.",
+  "extraction_status": "ok"
+ }
+]

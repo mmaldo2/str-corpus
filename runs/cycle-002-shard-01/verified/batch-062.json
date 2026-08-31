@@ -1,0 +1,560 @@
+[
+ {
+  "case_id": 6789736,
+  "cite": "52 Misc. 3d 890",
+  "court": "Nassau County District Court, First District",
+  "year": 2016,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "Where property is held by spouses as tenants by the entirety, one tenant may lease her interest to another without the other's consent; the non-consenting co-tenant who is himself already in possession has no exclusive right against the lessee and the eviction proceeding must be dismissed.",
+  "doctrinal_concepts": [
+   "incident_of_ownership",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The wife has the absolute right to lease her interest to respondent (her sister).",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     8842,
+     8923
+    ],
+    "reporter_page": "894"
+   },
+   {
+    "text": "The wife has the absolute right to lease her interest to respondent (her sister).",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     8842,
+     8923
+    ],
+    "reporter_page": "894"
+   },
+   {
+    "text": "Petitioner or wife may lease or convey his or her interest to another, who becomes a tenant in common with the other tenant by the entirety.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4614,
+     4754
+    ],
+    "reporter_page": "892"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "Sister-lodger relationship is long-running (8 years, monthly rent) rather than short-term; duration bucket left unclear because none of the enumerated options fit a multi-year tenancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12170121,
+  "cite": "53 Misc. 3d 8",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 2016,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "License-vs-lease analysis concerns a parking-space add-on to a rent-stabilized apartment lease, not occupancy of a room or dwelling.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12287906,
+  "cite": "149 A.D.3d 755",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2017,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The Appellate Division reversed and reinstated the Zoning Board of Appeals' determination that petitioner's leased cottage, a second dwelling on his residential lot, did not qualify as a legal preexisting nonconforming use, because the Board's finding that it was not a lawful rooming or boarding house (limited under the 1942 ordinance to no more than three boarders) was not arbitrary and capricious.",
+  "doctrinal_concepts": [
+   "roomers_boarders",
+   "zoning_nonconforming_use"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The petitioner lived in the bungalow and leased the cottage.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1426,
+     1486
+    ],
+    "reporter_page": "756"
+   },
+   {
+    "text": "the ZBA\u2019s determination that the cottage did not constitute a rooming or boarding house under the 1942 zoning ordinance was not arbitrary and capricious.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4199,
+     4352
+    ],
+    "reporter_page": "757"
+   },
+   {
+    "text": "the ZBA\u2019s determination that the cottage did not constitute a rooming or boarding house under the 1942 zoning ordinance was not arbitrary and capricious.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4199,
+     4352
+    ],
+    "reporter_page": "757"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "Duration of the cottage tenancy at issue is not stated in the opinion.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12294668,
+  "cite": "148 A.D.3d 1306",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2017,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lease",
+  "holding_summary": "The Appellate Division affirmed summary judgment for condominium owners, holding that a homeowners association's 2014 rules restricting short-term leasing of individual units (e.g., a two-week minimum rental period and fees) conflicted with bylaws expressly granting owners the right to lease their homes free of any restrictions, and that the board exceeded its authority by imposing such rules without a bylaw amendment.",
+  "doctrinal_concepts": [
+   "right_to_lease",
+   "short_term_rental"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "\u201c[a]ny [h]ome may be conveyed or leased by its . . . [o]wner free of any restrictions\u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2598,
+     2684
+    ],
+    "reporter_page": "1307"
+   },
+   {
+    "text": "the plain and unequivocal provisions of the bylaws relative to the rental of individual homeowner units precludes respondents \u2014 specifically, the HOA board of directors \u2014 from unilaterally adopting the 2014 rules in the fashion accomplished here.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     11401,
+     11647
+    ],
+    "reporter_page": "1310"
+   },
+   {
+    "text": "the plain and unequivocal provisions of the bylaws relative to the rental of individual homeowner units precludes respondents \u2014 specifically, the HOA board of directors \u2014 from unilaterally adopting the 2014 rules in the fashion accomplished here.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     11401,
+     11647
+    ],
+    "reporter_page": "1310"
+   },
+   {
+    "text": "under both the 2004 and 2012 rules, which apparently went unchallenged, one-week rentals were permitted.",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     15381,
+     15485
+    ],
+    "reporter_page": "1312"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12297261,
+  "cite": "55 Misc. 3d 28",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 2017,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "The Appellate Term affirmed dismissal of licensee holdover proceedings against occupants of a single-room-occupancy facility who had been referred by a city social-services agency, holding that because each occupant had continuously resided in his unit for more than six months, he qualified as a 'permanent tenant' under the Rent Stabilization Code rather than a transient licensee, defeating the operator's argument that the SRO was exempt from rent regulation as transient occupancy.",
+  "doctrinal_concepts": [
+   "transient_guests",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Respondents have conclusively established that they are not licensees, but \u201cpermanent tenant[s]\u201d under Rent Stabilization Code (RSC) (9 NYCRR) \u00a7 2520.6 (j), since petitioner placed each respondent in occupancy of his respective SRO unit and each respondent \u201ccontinuously resided\u201d in said unit for more than six months",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2826,
+     3143
+    ],
+    "reporter_page": "30"
+   },
+   {
+    "text": "Respondents have conclusively established that they are not licensees, but \u201cpermanent tenant[s]\u201d under Rent Stabilization Code (RSC) (9 NYCRR) \u00a7 2520.6 (j), since petitioner placed each respondent in occupancy of his respective SRO unit and each respondent \u201ccontinuously resided\u201d in said unit for more than six months",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2826,
+     3143
+    ],
+    "reporter_page": "30"
+   },
+   {
+    "text": "Respondents\u2019 respective use of the premises cannot be deemed \u201ctransient,\u201d inasmuch as they have resided in their units for several years thus qualifying as \u201cpermanent tenant[s]\u201d",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3592,
+     3769
+    ],
+    "reporter_page": "30"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "Six-month statutory threshold is the operative fact; actual tenures ran to several years, which the nights/weeks/months/unclear scale does not capture precisely.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12298658,
+  "cite": "55 Misc. 3d 382",
+  "court": "New York Supreme Court",
+  "year": 2016,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": "The court upheld the Zoning Board of Appeals' determination that a proposed 16-bed transitional 'sober living' residence for women recovering from substance abuse, where residents pay rent for stays averaging four to nine months, was not a one-family dwelling permitted as of right in a residential district, though it found arbitrary and capricious the further determination that the facility was a 'convalescent home' requiring nursing care.",
+  "doctrinal_concepts": [
+   "roomers_boarders",
+   "police_power_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "RSS has not demonstrated that the ZBA\u2019s determination that the proposed residence is not a one-family dwelling is arbitrary and capricious.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     13373,
+     13512
+    ],
+    "reporter_page": "388"
+   },
+   {
+    "text": "RSS has not demonstrated that the ZBA\u2019s determination that the proposed residence is not a one-family dwelling is arbitrary and capricious.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     13373,
+     13512
+    ],
+    "reporter_page": "388"
+   },
+   {
+    "text": "The residents must pay rent to RSS; rental proceeds are supplemented by governmental funding.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     3508,
+     3601
+    ],
+    "reporter_page": "385"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "Court addressed zoning classification (one-family dwelling vs. group residence/convalescent home) rather than characterizing the occupancy as lease/license/lodging, so characterization is left null.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12434429,
+  "cite": "54 Misc. 3d 924",
+  "court": "Nassau County District Court, First District",
+  "year": 2016,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "Live-in home health aide's occupancy was incident to employment, not a paying lodger/tenant arrangement; respondent paid no rent.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3329,
+  "cite": "202 A.D.2d 840",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1994,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "Procedural dismissal on statute-of-limitations grounds for an untimely Article 78 challenge to denial of a special-permit renewal for a 'group residence'; substantive occupancy/letting classification was never reached.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3337,
+  "cite": "202 A.D.2d 856",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1994,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "Statute of Frauds/part-performance contract dispute over resale of foreclosed property; the matched 'incident of ownership' phrase is part-performance doctrine language, unrelated to letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3670,
+  "cite": "202 A.D.2d 907",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1994,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "Divorce equitable-distribution case; the bed and breakfast (Decker Pond Inn) is treated only as a marital asset, with no discussion of lodging/letting doctrine.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 26021,
+  "cite": "253 A.D.2d 110",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1999,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "Adult-cabaret zoning dispute; unrelated to letting or lodging of dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 30401,
+  "cite": "233 A.D.2d 710",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1996,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "Child-custody/civil-rights tort case; plaintiff's residence in 'a rooming house' is a passing biographical detail, not a lodging-doctrine holding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 30724,
+  "cite": "233 A.D.2d 824",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1996,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "License-vs-lease analysis concerns a coin-operated laundry-machine servicing agreement in a condominium common area, not occupancy of rooms or a dwelling by a lodger.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 35271,
+  "cite": "234 A.D.2d 768",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1996,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "Railroad personal-injury/indemnity case involving a trackage-usage agreement; unrelated to residential letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 71024,
+  "cite": "6 A.D.3d 1043",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2004,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "Mortgage-fraud and title-insurance dispute over a real estate improvement/profit-sharing arrangement; unrelated to letting or lodging of dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 75883,
+  "cite": "69 N.Y.2d 448",
+  "court": "New York Court of Appeals",
+  "year": 1987,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "Cooperative-conversion insider-purchase-rights case turning on whether a deceased tenant's estate qualifies as a 'tenant in occupancy'; concerns rent-control conversion rights, not compensated short-term lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 76029,
+  "cite": "69 N.Y.2d 559",
+  "court": "New York Court of Appeals",
+  "year": 1987,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "Personal-injury/indemnity case against a commercial building owner and its tenant grocery store over a defective staircase; unrelated to residential lodging or letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 82267,
+  "cite": "3 Misc. 3d 11",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 2003,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-062",
+  "notes": "Gas-station convenience-store alcohol-licensing zoning-preemption case; unrelated to residential lodging or letting.",
+  "extraction_status": "ok"
+ }
+]

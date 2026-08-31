@@ -1,0 +1,564 @@
+[
+ {
+  "case_id": 5438241,
+  "cite": "24 N.Y.S. 821",
+  "court": "New York Court of Common Pleas",
+  "year": 1893,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "A boarding house keeper who did not omit ordinary care is not liable for a boarder's goods stolen from his room during a temporary absence; the appellate court reversed a plaintiff's verdict because it rested on an unpled conversion theory rather than the negligence theory actually tried. The court held boarding house keepers are bailees for mutual benefit, liable only for ordinary negligence, unlike innkeepers who are strictly liable as insurers.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "bailment_liability"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "A boarding house keeper is liable for the loss of goods belonging to a boarder only if he has omitted to exercise ordinary care to prevent it.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     813,
+     955
+    ],
+    "reporter_page": "821"
+   },
+   {
+    "text": "A boarder is not a guest in the sense in which it is applied with reference to an innkeeper\u2019s liability, (Hancock v. Rand, 94 N. Y. 1,) and, unlike the latter, who is liable as an insurer of his patron\u2019s goods, (Hulett v. Swift, 33 N. Y. 571,) a boarding house keeper is answerable for a loss of the goods only if he has omitted to exercise ordinary care to prevent it, (Barber v. Harrison, 6 City H. Rec. 89; Smith v. Read, 6 Daly, 33; Cooley, Torts, p. 761.)",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3743,
+     4203
+    ],
+    "reporter_page": "822"
+   },
+   {
+    "text": "A boardinghouse keeper, furthermore, is, in the absence of an agreement to the contrary, in contemplation of law, a custodian of his patron\u2019s goods.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4602,
+     4750
+    ],
+    "reporter_page": "822"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "Tangential: about a boarding-house keeper's bailee liability for a boarder's stolen goods, not directly about the legality of letting, but treats the boarder/keeper relation as ordinary lawful bailment distinct from (and less onerous than) innkeeping.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5442302,
+  "cite": "32 N.Y.S. 1088",
+  "court": "Greene County Court",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "A boarding-house keeper's lien on a boarder's baggage for unpaid board is not defeated merely because the property would otherwise be exempt from execution; the lien is treated the same as an innkeeper's lien. The court affirmed a judgment awarding the keeper possession of a boarder's effects seized to secure a board debt of about $170.",
+  "doctrinal_concepts": [
+   "boarding_house_lien",
+   "innkeeper_lien_analogy"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the defendant kept a boarding house at Cairo, Greene county; that the plaintiff boarded at defendant\u2019s house from June 3, 1893, to January 9, 1894, for the price of $4 per week, no part of which account has been paid",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     946,
+     1162
+    ],
+    "reporter_page": "1088"
+   },
+   {
+    "text": "The rule is that the lien of an innkeeper, which is identical with that of a boarding-house keeper, extends to property of the guest which is exempt from execution, such as a coat, for whose recovery replevin is brought against the innkeeper.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     8755,
+     8997
+    ],
+    "reporter_page": "1091"
+   },
+   {
+    "text": "It is immaterial whether these goods, or any of them, were exempt from levy and sale on execution or not.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     8511,
+     8616
+    ],
+    "reporter_page": "1091"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5461334,
+  "cite": "32 N.Y.S. 849",
+  "court": "New York Supreme Court, General Term",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "Pure hotel/innkeeper tort case about how long an innkeeper's liability for a departed guest's baggage persists; not about householder letting or lodging-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5627116,
+  "cite": "19 N.Y.S. 220",
+  "court": "New York Court of Common Pleas",
+  "year": 1892,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "A plaintiff who contracted to furnish a boarder furnished rooms, attendance, and board for one year could recover damages when the boarder left early, but damages were limited to lost profits above the cost of providing board, not the full contract price. The court also held that, absent a plea of the statute of frauds, an oral one-year contract could not be attacked on that ground for the first time on appeal.",
+  "doctrinal_concepts": [
+   "board_contract_damages",
+   "lodging_business"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "This action was commenced by the plaintiff to recover damages for. a breach of contract which she claimed to have made with the defendant to provide him furnished rooms, attendance, and board for a period of one year from the 1st November, 1887.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1518,
+     1763
+    ],
+    "reporter_page": "220"
+   },
+   {
+    "text": "Where a person who has agreed to board with another for a certain time leaves \"before the expiration of the time, damages are recoverable, not for the entire contract price, but for the profits which would have accrued, over and above the cost of the board, during the time when other boarders could not have been obtained to take his place.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     431,
+     772
+    ],
+    "reporter_page": "220"
+   },
+   {
+    "text": "to provide him furnished rooms, attendance, and board for a period of one year from the 1st November, 1887",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1656,
+     1762
+    ],
+    "reporter_page": "220"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5627822,
+  "cite": "19 N.Y.S. 387",
+  "court": "New York Court of Common Pleas",
+  "year": 1892,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "About corporate agent authority to bind an employer for an undertaker's bill and common-law duty of burial; no connection to lodging or boarding-house letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5630865,
+  "cite": "20 N.Y.S. 688",
+  "court": "New York Court of Common Pleas",
+  "year": 1892,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "Summary-proceedings/attornment dispute over ordinary tenancy; not about boarding or lodging arrangements.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5633678,
+  "cite": "17 N.Y.S. 173",
+  "court": "New York Court of Common Pleas",
+  "year": 1892,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "Commercial store-lease rent dispute (landlord's duty to eject a trespasser); no lodging/boarding facts.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5635565,
+  "cite": "19 N.Y.S. 941",
+  "court": "New York Supreme Court, General Term",
+  "year": 1892,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "Quarry lease improvements/partition dispute between tenants in common; unrelated to lodging or boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5637344,
+  "cite": "17 N.Y.S. 510",
+  "court": "New York Court of Common Pleas",
+  "year": 1892,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "Strikes down a board-of-health order requiring Croton water on every tenement floor; concerns multi-family tenement-house regulation generally, with no facts about lodgers, boarders, or short-term letting. Likely a near-miss on the police-power-regulation selector rather than an on-point boarding-house case.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5637610,
+  "cite": "19 N.Y.S. 817",
+  "court": "New York Court of Common Pleas",
+  "year": 1892,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The plaintiff, a boarding-house keeper, sued a boarder who left owing for board and secretly removed his belongings, claiming a lien on the boarder's baggage. The appellate court held the action was one for wrongful conversion of personal property under the Code, so the boarder was liable to arrest on execution, and reversed the justice's refusal to so provide.",
+  "doctrinal_concepts": [
+   "boarding_house_lien",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the plaintiff was a boarding-house keeper in the city of New York; that the defendant was a boarder, occupying a room and taking his breakfast with plaintiff; that defendant, after becoming indebted to plaintiff, clandestinely left the house, unknown to plaintiff or his family, and in a secret manner removed all his baggage and wardrobe, except an old pair of pants and a vest.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1150,
+     1529
+    ],
+    "reporter_page": "817"
+   },
+   {
+    "text": "Plaintiff claimed a lien against the defendant\u2019s baggage and wardrobe, not in actual use, under the law giving boarding-house keepers a lien upon all baggage and personal effects of their boarders for unpaid board.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1669,
+     1883
+    ],
+    "reporter_page": "817"
+   },
+   {
+    "text": "where, as in this case, the cause of action is for the wrongful conversion of personal property, the same is one of the actions specified in subdivision 2, \u00a7 2895, Code Civil Proc.; and consequently the justice was bound to insert in the judgment the liability of the defendant to arrest upon execution.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3016,
+     3319
+    ],
+    "reporter_page": "818"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5648059,
+  "cite": "56 N.Y.S. 341",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1899,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "A restrictive covenant requiring buildings to be 'in every way adapted for use as a family residence' is not violated by a six-story apartment house built for the residence of multiple families, because the covenant's purpose was to exclude business use rather than to limit occupancy to a single family. The court reasoned that even a single family occupying a qualifying house could let rooms to other families or board them without breaching the covenant.",
+  "doctrinal_concepts": [
+   "letting_as_ordinary_incident",
+   "restrictive_covenant_residential_use"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "A covenant in a deed to erect only a building adapted for a family residence, and not to permit the carrying on of certain classes of business, nor to erect buildings therefor, is not broken by the erection of an apartment house for the residence of families, since the intention merely was not to devote the lands to business, but to residence, purposes.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     165,
+     520
+    ],
+    "reporter_page": "341"
+   },
+   {
+    "text": "Or suppose that a \u201cfamily,\u201d in literal sense, did in fact erect and occupy a house answering to the requirements of the covenant, would they be held to have violated the terms of the covenant if they let rooms in the house to other families or boarded them therein? We think not; and, if not, how does the existence of a structure for the use of several families contravene its provisions?",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5093,
+     5482
+    ],
+    "reporter_page": "343"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "characterization left null: the court addresses whether letting rooms/boarding is consistent with 'family residence' use under a restrictive covenant, but does not classify the tenancy itself as lease, license, lodging, or innkeeping.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5651423,
+  "cite": "56 N.Y.S. 1002",
+  "court": "New York Supreme Court",
+  "year": 1899,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "City park department's power to lease a municipal building as a hotel/restaurant; a municipal-corporation powers case, not about private householder letting or lodging-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5652728,
+  "cite": "56 N.Y.S. 731",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1899,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "Board of health's summary abatement of a privy vault nuisance under general sanitary police power; no lodging or boarding facts, only a general residential-nuisance regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5654827,
+  "cite": "50 N.Y.S. 82",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1898,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "In an action for ice sold to a woman's husband while he ran a lodging enterprise, the county court had directed a verdict for the plaintiff on the theory that the wife's earlier undisclosed-principal relationship with her husband continued into a new, separate business at a different building. The appellate court reversed, holding that conflicting evidence over who actually owned and operated the new enterprise should have gone to the jury.",
+  "doctrinal_concepts": [
+   "lodging_business",
+   "undisclosed_principal"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the defendant Letitia Evans, being the owner of a house on Stewart avenue, in the city of Ithaca, had conducted therein on her own account the business of taking lodgers and boarders.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3061,
+     3244
+    ],
+    "reporter_page": "82"
+   },
+   {
+    "text": "We think that on the evidence the court was not authorized to direct a verdict, but should have submitted the questions of fact in the case to the jury.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5034,
+     5186
+    ],
+    "reporter_page": "83"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "characterization left null: the case's holding concerns undisclosed-principal agency and directed verdicts, not a court classification of the lodging arrangement as lease/license/lodging/innkeeping. Background facts establish a woman householder lawfully running a lodgers-and-boarders business, with no suggestion of illegality, hence coded favorable.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5658248,
+  "cite": "50 N.Y.S. 733",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1898,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "Ordinary tenant-holding-over/landlord's-election dispute over a commercial tenancy; not about lodging or boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5668496,
+  "cite": "50 N.Y.S. 862",
+  "court": "New York Supreme Court",
+  "year": 1898,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "Dispute over whether a hired farmhand's occupancy of employer-provided housing was a tenancy or mere service occupancy (with rent deducted from wages); this is tied/service housing between employer and employee, not compensated lodging/boarding let to a stranger.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5675166,
+  "cite": "36 N.Y.S. 273",
+  "court": "New York Supreme Court, General Term",
+  "year": 1895,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "Excise commissioners' discretion to refuse a hotel liquor license based on the applicant's moral character and the house being used as a resort for illicit purposes; concerns liquor licensing and disorderly-house conduct, not boarding/lodging-house regulation as such.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5678125,
+  "cite": "40 N.Y.S. 499",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1896,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-123",
+  "notes": "Extensive corporate-law dispute among family shareholders over promoters' agreements, by-laws, and corporate assets (including family mansion houses held by the corporation); no lodging, boarding, or short-term letting facts.",
+  "extraction_status": "ok"
+ }
+]

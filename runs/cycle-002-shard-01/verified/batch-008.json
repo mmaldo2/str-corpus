@@ -1,0 +1,592 @@
+[
+ {
+  "case_id": 7757016,
+  "cite": "65 N.Y.S. 517",
+  "court": "New York Supreme Court",
+  "year": 1900,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a homeowner's practice of letting rooms by the week to lodgers did not deprive his residence of its character as a private dwelling house under the liquor tax law's 200-foot saloon-distance requirement, since the house was not thereby opened to the general public for business.",
+  "doctrinal_concepts": [
+   "dwelling_house_definition",
+   "lodger_status",
+   "letting_rooms_by_week"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The fact that one or more of his rooms were let for occupancy of persons other than members of his family would not deprive his house of its character as a dwelling house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2407,
+     2578
+    ],
+    "reporter_page": "517"
+   },
+   {
+    "text": "It is not a place where the general public would be invited to enter and transact business, but for every intent it would still be a private house, and its occupants entitled to the privacy which surrounds a dwelling house.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2579,
+     2802
+    ],
+    "reporter_page": "517"
+   },
+   {
+    "text": "It appears that the owner of one of the houses was in the habit of letting rooms by the week to persons who might apply for them, and it is claimed by the respondent that this action constituted him a boarding house keeper, under the law, and that he was carrying on a business, within the meaning of the statute.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2093,
+     2406
+    ],
+    "reporter_page": "517"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 55905,
+  "cite": "193 N.Y. 397",
+  "court": "New York Court of Appeals",
+  "year": 1908,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "Tort action concerning an innkeeper's liability for a servant's assault on a hotel guest; discusses the general innkeeper-guest relationship but does not bear on householders letting rooms or on regulation of boarding/lodging houses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 62285,
+  "cite": "209 N.Y. 434",
+  "court": "New York Court of Appeals",
+  "year": 1913,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "Concerns construction of a municipal ordinance restricting public garages; no bearing on letting of rooms or lodging/boarding house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 90845,
+  "cite": "229 N.Y. 313",
+  "court": "New York Court of Appeals",
+  "year": 1920,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "Specific-performance dispute over a real estate contract, addressing whether a general zoning resolution constitutes an incumbrance on title; no bearing on letting rooms or lodging house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 376983,
+  "cite": "47 Misc. 134",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1905,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "Dispute over liability for use and occupation between a lessee's assignee and a lessor arising from an assigned manufacturing contract; not concerned with residential letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 378845,
+  "cite": "60 Misc. 58",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1908,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court held that in summary nonpayment proceedings a tenant may plead, without formally labeling it a counterclaim, the landlord's breach of covenants to install steam heat, hot water, and toilets, which caused roomers renting the leased premises as bachelor apartments and furnished rooms to vacate, and that such resulting damages may be set off against the landlord's claim for rent.",
+  "doctrinal_concepts": [
+   "furnished_rooms_letting",
+   "landlord_covenant_breach",
+   "counterclaim_offset"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the said lease contained a provision that the said premises should be used and occupied as bachelor apartments and furnished rooms",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2104,
+     2234
+    ],
+    "reporter_page": "59"
+   },
+   {
+    "text": "Damages for breach of covenant by the landlord cannot only be recouped by the tenant in an action for rent; but, under section 2244 of the Code, can be set off to the extent of the landlord\u2019s claim for rent to defeat a summary proceeding for nonpayment of rent.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7603,
+     7864
+    ],
+    "reporter_page": "61"
+   },
+   {
+    "text": "by reason of the failure of the landlord to install an efficient steam heating and hot water supply, and his failure to furnish steam heat, hot water and toilets, as agreed, roomers, whom tenant had obtained in said premises, refused to stay in said apartments, and had vacated the same",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3299,
+     3585
+    ],
+    "reporter_page": "59"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 378985,
+  "cite": "60 Misc. 631",
+  "court": "New York Surrogate's Court",
+  "year": 1908,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.45,
+  "polarity": "mixed",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "In a proceeding to discover estate assets, the surrogate held that a householder who had taken in the decedent as a lodger and boarder failed to prove a valid boarding-house keeper's lien over his property, because there was no evidence the sum claimed represented the proper charge for his accommodation, board, and lodging, and ordered her to deliver the property to the administrator.",
+  "doctrinal_concepts": [
+   "boarding_house_keepers_lien",
+   "lodger_status",
+   "board_and_lodging_charge"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Mr. Stiens had been a lodger and boarder of yours for some time previous to his death",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7026,
+     7111
+    ],
+    "reporter_page": "634"
+   },
+   {
+    "text": "A keeper of a hotel, inn, boarding house or lodging house, except an emigrant lodging house, has a lien upon, while in possession, and may detain the baggage and other property brought upon their premises by a guest, boarder or lodger, for the proper charges due from him, on account of his accommodation, board and lodging, and such extras as are furnished at his request.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5341,
+     5714
+    ],
+    "reporter_page": "634"
+   },
+   {
+    "text": "The evidence in the case does not bring respondent within the requirements of the provisions of section 71 of the Lien Law, essential to a valid lien in her favor as a boarding-house or lodging-house keeper.",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     8544,
+     8751
+    ],
+    "reporter_page": "635",
+    "fuzzy_score": 99.51690821256038
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "Polarity marked mixed: the Lien Law's recognition of lodger/boarder arrangements is protective, but on these facts the boarding-house keeper's lien claim failed for lack of proof.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 743949,
+  "cite": "114 Misc. 590",
+  "court": "New York Supreme Court",
+  "year": 1921,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "Water-power rights dispute arising from nineteenth-century perpetual leases; discusses feudal landlord-tenant tenure doctrine, not residential letting or lodging house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 747867,
+  "cite": "116 Misc. 135",
+  "court": "New York Supreme Court",
+  "year": 1921,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "Landlord-tenant eviction dispute over mixed store/dwelling premises under the 1920 emergency rent laws; concerns the tenant's own residential occupancy of part of the premises, not compensated letting of rooms to lodgers or regulation of boarding/lodging houses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 760923,
+  "cite": "121 Misc. 341",
+  "court": "New York Supreme Court",
+  "year": 1923,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "other",
+  "holding_summary": "The court granted certiorari to correct a hotel-classification tax assessment, holding that a fifteen-story building whose rooms were mostly leased to permanent tenants, with roughly twenty percent temporarily let to transients pending long-term leasing, retained its character as an apartment house rather than a hotel and therefore qualified for the new-building tax exemption for buildings 'planned for dwelling purposes exclusively, except hotels.'",
+  "doctrinal_concepts": [
+   "hotel_vs_apartment_house",
+   "transient_occupancy",
+   "dwelling_purposes_exemption"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "One hundred and thirteen rooms are leased to permanent tenants; twenty-eight rooms are used by transients; seventy-four rooms were furnished by the landlord, of which fifty-six have been leased on long-term leases, and twenty-eight rooms devoted to transients.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3112,
+     3372
+    ],
+    "reporter_page": "342"
+   },
+   {
+    "text": "I think that it may safely be said that the character of the building as an apartment house was practically adjudicated.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4706,
+     4826
+    ],
+    "reporter_page": "343"
+   },
+   {
+    "text": "The rooms occupied by transients, forming but twenty per cent of the total number of rooms, are being so used only temporarily in order to derive an income therefrom pending attempts to lease them for .long terms, like the rest of the rooms.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5288,
+     5529
+    ],
+    "reporter_page": "343"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "Characterization marked 'other' because the court's classification turns on the hotel-versus-apartment-house tax distinction rather than lease/license/lodging/innkeeping.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 763540,
+  "cite": "122 Misc. 202",
+  "court": "New York City Municipal Court",
+  "year": 1924,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "Summary proceeding over alleged illegal use of a leased loft as a place of public assembly under the building code; unrelated to residential letting or lodging house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 766661,
+  "cite": "123 Misc. 568",
+  "court": "New York Supreme Court",
+  "year": 1924,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "Zoning-classification dispute over whether a sorority/chapter house qualifies as a 'family' single dwelling; concerns communal student cooperative living, not compensated letting of rooms to lodgers or boarders.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 774302,
+  "cite": "128 Misc. 24",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1926,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "Dispute over right to possession of a building hallway/stairway among landlord, tenant, and a third-party squatter; not concerned with letting of rooms or lodging house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 785660,
+  "cite": "132 Misc. 82",
+  "court": "New York Supreme Court",
+  "year": 1928,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.12,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "Zoning ordinance dispute over erection of apartment houses in a restricted single/two-family residence district; concerns multi-family apartment-house zoning generally, not letting of rooms by householders or regulation of boarding/lodging houses specifically.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 788185,
+  "cite": "133 Misc. 907",
+  "court": "New York Supreme Court",
+  "year": 1929,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "Mandamus proceeding over a zoning-map amendment reclassifying property from residence to business district for an office building; unrelated to residential letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1073529,
+  "cite": "6 Mills Surr. 577",
+  "court": "New York Surrogate's Court",
+  "year": 1908,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.45,
+  "polarity": "mixed",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "In a proceeding to discover estate assets, the surrogate held that a householder who had taken in the decedent as a lodger and boarder failed to prove a valid boarding-house keeper's lien over his property, because there was no evidence the sum claimed represented the proper charge for his accommodation, board, and lodging, and ordered her to deliver the property to the administrator.",
+  "doctrinal_concepts": [
+   "boarding_house_keepers_lien",
+   "lodger_status",
+   "board_and_lodging_charge"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Mr. Stiens had been a lodger and boarder of yours for some time previous to his death",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7061,
+     7146
+    ],
+    "reporter_page": "580"
+   },
+   {
+    "text": "A keeper of a hotel, inn, boarding house or lodging house, except an emigrant lodging house, has a lien upon, while in possession, and may detain the baggage and other property brought upon their premises by a guest, boarder or lodger, for the proper charges due from him, on account of his accommodation, board and lodging, and such extras as are furnished at his request.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5373,
+     5746
+    ],
+    "reporter_page": "579"
+   },
+   {
+    "text": "The evidence in the case does not bring respondent within the requirements of the provisions of section 71 of the Lien Law, essential to a valid lien in her favor as a boarding-house or lodging-house keeper.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8614,
+     8821
+    ],
+    "reporter_page": "581"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "Duplicate report of the same case as case_id 378985 (60 Misc. 631); polarity marked mixed for the same reason: the Lien Law's recognition of lodger/boarder arrangements is protective, but the claim failed on the facts.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1095904,
+  "cite": "17 Mills Surr. 458",
+  "court": "New York Surrogate's Court",
+  "year": 1916,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "Reviewing a claim against a decedent's estate for table board, room rent, and nursing care, the court held that although the decedent had for years boarded weekly with claimant's household at an agreed price he had paid up to the week of his death, the evidence failed to establish any express or implied contract to pay for room rent, laundering, or nursing services beyond that board, and reversed the surrogate's allowance of those additional charges.",
+  "doctrinal_concepts": [
+   "boarder_definition",
+   "board_and_lodging_charge",
+   "implied_contract_for_services"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Board \u201d is- defined as \u201c To receive food as a lodger, or without lodgings, for a compensation\u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     8936,
+     9030
+    ],
+    "reporter_page": "462"
+   },
+   {
+    "text": "Dr. Clyde had boarded with the claimant\u2019s mother and with the claimant for a long term of years",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5669,
+     5764
+    ],
+    "reporter_page": "461"
+   },
+   {
+    "text": "it is very evident, from the claimant\u2019s own showing, that Dr. Clyde intended to and did pay his board in the agreed amount of three dollars and fifty cents during his lifetime",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     5273,
+     5448
+    ],
+    "reporter_page": "461",
+    "fuzzy_score": 99.42857142857143
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1206255,
+  "cite": "30 N.Y. Crim. 197",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1913,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-008",
+  "notes": "Criminal rape prosecution where the defendant took the complainant to a furnished-room house; the furnished-room setting is mentioned only as the location of the offense, with no discussion of the legal character of letting or lodging.",
+  "extraction_status": "ok"
+ }
+]

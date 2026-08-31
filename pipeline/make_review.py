@@ -45,7 +45,7 @@ def load_data(run_id: str) -> dict:
     diffs = json.loads((run / "fuzzy-diffs.json").read_text(encoding="utf-8"))
     adj = json.loads((run / "adjudications.json").read_text(encoding="utf-8"))
     remap = []
-    remap_dir = ROOT / "runs" / "cycle-001-remap" / "verified"
+    remap_dir = ROOT / "runs" / (run_id.split("-shard")[0] + "-remap") / "verified"
     for f in sorted(remap_dir.glob("*.json")):
         remap.extend(json.loads(f.read_text(encoding="utf-8")))
 
@@ -77,7 +77,7 @@ def load_data(run_id: str) -> dict:
     # C-style with third-reader recommendations.
     remap_by = {r["case_id"]: r for r in remap}
     D = []
-    remap_dir2 = ROOT / "runs" / "cycle-001-remap"
+    remap_dir2 = ROOT / "runs" / (run_id.split("-shard")[0] + "-remap")
     if (remap_dir2 / "remap-disagreements.json").exists():
         rdis = json.loads(
             (remap_dir2 / "remap-disagreements.json").read_text(encoding="utf-8"))
@@ -101,7 +101,12 @@ def load_data(run_id: str) -> dict:
 def build_pages(run_id: str) -> None:
     data = load_data(run_id)
     data_json = json.dumps(data).replace("</", "<\\/")
-    content = CONTENT_TMPL.replace("{{DATA}}", data_json)
+    cycle_label = run_id.split("-shard")[0].replace("cycle-", "Cycle ")
+    content = (CONTENT_TMPL.replace("{{DATA}}", data_json)
+               .replace("{{CYCLE}}", cycle_label)
+               .replace("<title>Cycle 001 Review Queue</title>",
+                        f"<title>{cycle_label} Review Queue</title>")
+               .replace("'rq1-'", f"'rq-{run_id}-'"))
     # full-document template used by the page to republish itself
     full = ("<!doctype html>\n<html><head><meta charset=\"utf-8\">"
             "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">"
@@ -117,9 +122,10 @@ def build_pages(run_id: str) -> None:
     out = content.replace(TB64_MARKER, tb64).replace(
         f'"{STATE_MARKER}"', initial_state
     )
-    (ROOT / "reports" / "review-queue.html").write_text(out, encoding="utf-8")
+    cycle = run_id.split("-shard")[0]
+    (ROOT / "reports" / f"review-queue-{cycle}.html").write_text(out, encoding="utf-8")
 
-    md = ["# Cycle 001 — Human review queue (v2, with recommendations)\n"]
+    md = [f"# {cycle} — Human review queue (with recommendations)\n"]
     for key, title in (("A", "Householder x nights priority cases"),
                        ("B", "Fuzzy quotes (side-by-side)"),
                        ("C", "Disagreements (with third-reader recommendation)"),
@@ -135,8 +141,8 @@ def build_pages(run_id: str) -> None:
             if key == "D":
                 extra = f" — remapped: {e.get('polarity')}/{e.get('who')}/{e.get('duration')}"
             md.append(f"- [ ] {cite} {e.get('name') or ''}{extra}")
-    (ROOT / "reports" / "review-queue.md").write_text("\n".join(md), encoding="utf-8")
-    print("wrote reports/review-queue.html (+md); template",
+    (ROOT / "reports" / f"review-queue-{cycle}.md").write_text("\n".join(md), encoding="utf-8")
+    print(f"wrote reports/review-queue-{cycle}.html (+md); template",
           len(tb64) // 1024, "KB b64")
 
 
@@ -189,7 +195,7 @@ padding:9px 20px;font:700 14px var(--sans);cursor:pointer}
 button:focus-visible,input:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
 </style>
 <div class="wrap">
-<h1>Cycle 001 — Human Review Queue</h1>
+<h1>{{CYCLE}} — Human Review Queue</h1>
 <p class="sub">Every item carries a machine recommendation where one exists — your job is to
 confirm or override. Decisions are saved into this page itself when you press
 <b>Save decisions</b> (bottom bar); the pipeline reads them back as the durable record.

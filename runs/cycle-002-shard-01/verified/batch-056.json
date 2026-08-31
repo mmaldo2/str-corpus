@@ -1,0 +1,558 @@
+[
+ {
+  "case_id": 8421307,
+  "cite": "930 So. 2d 107",
+  "court": "Louisiana Court of Appeal, Fourth Circuit",
+  "year": 2006,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "The court affirmed denial of a preliminary injunction sought by neighborhood groups to stop a French Quarter property from continuing to operate as a transient-rental guest house/hotel, finding no manifest error in crediting affidavits that the hotel was never vacant for six continuous months and that no completed structural changes disqualified its nonconforming-use status. The court preserved the operator's ability to continue short-term transient rental use while reaffirming that nonconforming uses are construed narrowly against continuation.",
+  "doctrinal_concepts": [
+   "nonconforming_use",
+   "transient_rental_zoning"
+  ],
+  "new_terms_observed": [
+   "transient-rental/guest house"
+  ],
+  "quotes": [
+   {
+    "text": "Appellees and their predecessors in right have operated 517 Dumaine as a hotel since before the enactment of the Comprehensive Zoning Act in 1982.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     12989,
+     13135
+    ],
+    "reporter_page": "112"
+   },
+   {
+    "text": "it should, consistently with the property rights of the individuals affected and substantial justice, be viewed narrowly and have all doubts resolved against continuation or expansion of the nonconformity",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     10154,
+     10358
+    ],
+    "reporter_page": "111"
+   },
+   {
+    "text": "Based on the foregoing reasons, the denial of Appellants\u2019 motion for preliminary injunction is affirmed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     14158,
+     14262
+    ],
+    "reporter_page": "112"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8450756,
+  "cite": "942 So. 2d 471",
+  "court": "Louisiana Supreme Court",
+  "year": 2006,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Dispute over whether a building-restriction violation (operating a trucking/vehicle-repair business from a residential lot) had prescribed; no lodging or dwelling-rental issue.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "Building-restriction/commercial-vehicle-use case; no compensated occupancy of a dwelling or lodging arrangement at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8944369,
+  "cite": "907 So. 2d 896",
+  "court": "Louisiana Court of Appeal, Second Circuit",
+  "year": 2005,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Dispute over a hunting-privileges lease, a right of first refusal, and co-ownership partition of rural land; no dwelling or lodging occupancy at issue.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "Hunting lease and land-partition dispute; unrelated to letting rooms/dwellings for compensated occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9229408,
+  "cite": "874 So. 2d 131",
+  "court": "Louisiana Supreme Court",
+  "year": 2004,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Wrongful-death case addressing employer vicarious liability and Recreational Use Immunity Statutes for a duck-hunting lease accident; no lodging or dwelling occupancy issue.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "Duck-hunting-lease tort case; addresses a lease of hunting rights (an incorporeal), not compensated dwelling/room occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9522208,
+  "cite": "423 So. 2d 1",
+  "court": "Louisiana Court of Appeal, First Circuit",
+  "year": 1982,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The court held that a homeowner's rental of the family residence to successive tenants at $200/month, occurring in eleven of fifteen months (including periods of \"holding for rental\" between tenants), was continuous rather than \"occasional\" rental for dwelling purposes, and thus fell within the homeowners policy's \"business pursuits\" exclusion. Coverage for tort liability arising from the property during that period was therefore denied.",
+  "doctrinal_concepts": [
+   "business_pursuits_exclusion",
+   "occasional_vs_continuous_letting"
+  ],
+  "new_terms_observed": [
+   "holding for rental"
+  ],
+  "quotes": [
+   {
+    "text": "The evidence of record shows that the Newmans either rented or held for rental the residence premises continuously, and not occasionally, from October of 1979 to December of 1980.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     9161,
+     9340
+    ],
+    "reporter_page": "4"
+   },
+   {
+    "text": "The trial judge determined that following the departure of the elder Newman from the property, it \u201cwas rented almost exclusively until the time of the loss ...\u201d and found that the \u201cbusiness pursuits\u201d exclusion was applicable.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     9856,
+     10081
+    ],
+    "reporter_page": "4"
+   },
+   {
+    "text": "Por the foregoing reasons, the judgment of the trial court is correct and is affirmed at the appellants\u2019 costs.",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     12322,
+     12433
+    ],
+    "reporter_page": "5",
+    "fuzzy_score": 99.09909909909909
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9534965,
+  "cite": "431 So. 2d 798",
+  "court": "Louisiana Court of Appeal, Fourth Circuit",
+  "year": 1983,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Equitable reversal of denial of an alcoholic-beverage permit for a bar where a sublessee had falsely reported the business closed; concerns bar licensing continuity, not dwelling lodging.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "Alcoholic-beverage permit/nonconforming-use case for a bar; no dwelling or lodging occupancy issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9536722,
+  "cite": "430 So. 2d 822",
+  "court": "Louisiana Court of Appeal, Fifth Circuit",
+  "year": 1983,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Commercial office-space lease dispute over roof repairs and disturbance from an adjacent adult bookstore tenant; the lessee was found to have breached the lease by vacating without cause.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "Commercial office lease dispute; not residential lodging or dwelling occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9541318,
+  "cite": "392 So. 2d 182",
+  "court": "Louisiana Court of Appeal, Second Circuit",
+  "year": 1980,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.12,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Eviction of the widow of a longtime employee who had occupied a residence by permission of the employer-landowner as an incident of employment; occupant status under eviction statute upheld.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "Occupancy was gratuitous employer-provided housing tied to employment, not compensated lodging for pay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9606185,
+  "cite": "398 So. 2d 1374",
+  "court": "Louisiana Supreme Court",
+  "year": 1981,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "Answering certified questions, the court held that Civil Code article 2971's $100 cap on innkeeper liability limits only the innkeeper's contractual liability as depositary of a paying guest's effects, not the innkeeper's or its employees' delictual (tort) liability for negligence. A paying hotel guest whose property is stolen due to employee negligence may recover beyond the statutory cap.",
+  "doctrinal_concepts": [
+   "innkeeper_liability",
+   "paying_guest_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "An innkeeper is responsible as depositary for the effects brought by travelers who lodge at his house; the deposit of such effects is considered as a necessary deposit.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     15389,
+     15557
+    ],
+    "reporter_page": "1378"
+   },
+   {
+    "text": "On or about May 22, 1976, the Laubies were paying guests at the Royal Sonesta Hotel, which at all material times was under the management and control of Sonesta.",
+    "supports": "polarity",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     2826,
+     2987
+    ],
+    "reporter_page": "1375",
+    "fuzzy_score": 99.37888198757764
+   },
+   {
+    "text": "Article 2971 of the Civil Code, as amended and reenacted by Act 231 of 1912, provides for a limitation of only the contractual liability of an innkeeper as depositary. It does not diminish the delictual responsibility of the innkeeper, his officers of his employees.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     13507,
+     13773
+    ],
+    "reporter_page": "1378"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9656340,
+  "cite": "323 So. 2d 155",
+  "court": "Louisiana Court of Appeal, Third Circuit",
+  "year": 1975,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Mandamus ordering issuance of a beer and liquor permit for a bar/lounge as a preexisting nonconforming use after rezoning; no dwelling/lodging occupancy issue.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "Bar/liquor-permit zoning case; unrelated to lodging or dwelling letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9659934,
+  "cite": "335 So. 2d 466",
+  "court": "Louisiana Court of Appeal, First Circuit",
+  "year": 1976,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court held that although numerous homeowners in a restricted subdivision had rented rooms or garage apartments to unrelated tenants in violation of covenants limiting lots to single-family use, these violations were not sufficiently frequent, substantial, or widely known to establish abandonment of the restrictions. Conversion of accessory living quarters to rental use was treated as a violation of the single-family restriction, which remained enforceable against a proposed apartment complex.",
+  "doctrinal_concepts": [
+   "restrictive_covenant_single_family",
+   "conversion_to_rental_violation"
+  ],
+  "new_terms_observed": [
+   "garage apartment"
+  ],
+  "quotes": [
+   {
+    "text": "a restriction against the erection of a particular type of building is construed as prohibiting the conversion to that use",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     11223,
+     11345
+    ],
+    "reporter_page": "472"
+   },
+   {
+    "text": "The owner of Lot 4 admitted to renting rooms but not apartments.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     12536,
+     12600
+    ],
+    "reporter_page": "472"
+   },
+   {
+    "text": "We have come to the conclusion that there has been insufficient violations of a substantial nature to evidence abandonment of the plan for the subdivision, a subversion of the original scheme of the sub-dividers.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     16364,
+     16576
+    ],
+    "reporter_page": "473"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "Duration of occupancy varies widely across the many lots surveyed (some multi-year, some single-season), so left unclear rather than forcing a single bucket.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9670736,
+  "cite": "309 So. 2d 797",
+  "court": "Louisiana Court of Appeal, Fourth Circuit",
+  "year": 1975,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Commercial restaurant sublease dispute over unpaid rent, indispensable parties, and repairs; possession alone found sufficient to let a thing.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "Commercial restaurant sublease case; not residential lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9681317,
+  "cite": "345 So. 2d 96",
+  "court": "Louisiana Court of Appeal, First Circuit",
+  "year": 1977,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": "The court held that a motel had no duty to give a room key to the wife of its registered, month-to-month occupant where she was not herself registered and the husband had not authorized her admission, regardless of whether the occupant's relationship to the motel was lessor-lessee or motel-guest. The motel's affirmative duty to protect a paying occupant's privacy and peaceable possession from unauthorized third parties barred the claim, and summary judgment for the motel was affirmed.",
+  "doctrinal_concepts": [
+   "license_vs_lease",
+   "peaceable_possession"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "In fact, the motel had an affirmative duty, stemming from a guest\u2019s rights of privacy and peaceful possession, not to allow unregistered and unauthorized third parties to gain access to the rooms of its guest, (cf. LSA-C.C. art. 2965-67). This duty is the same regardless of whether we consider the contractual relationship one of lessor-lessee or motel-guest.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3814,
+     4174
+    ],
+    "reporter_page": "98"
+   },
+   {
+    "text": "Mr. Campbell rented a double room on a month to month basis at the Rodeway Inn, in Morgan City, Louisiana.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1116,
+     1222
+    ],
+    "reporter_page": "97"
+   },
+   {
+    "text": "Having found that Mrs. Campbell was not entitled to demand a key to the motel room, and further that no authorization to admit her was communicated to the motel by her husband, there was no breach of contract.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5197,
+     5406
+    ],
+    "reporter_page": "98"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "Characterization left null: the court expressly declined to decide whether the paying occupant's relationship to the motel was lessor-lessee or motel-guest ('This duty is the same regardless...'), so no quote supports a definitive characterization.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9695231,
+  "cite": "345 So. 2d 1226",
+  "court": "Louisiana Court of Appeal, First Circuit",
+  "year": 1977,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Zoning-ordinance dispute over placement of house trailers in a single-family residential district; a mobile home was found to violate the ordinance.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "The ordinance's definition of 'dwelling' excludes hotels/boardinghouses/lodginghouses, but this is incidental boilerplate in a mobile-home placement dispute, not an adjudicated lodging-house issue -- passing mention only.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9702456,
+  "cite": "353 So. 2d 341",
+  "court": "Louisiana Court of Appeal, First Circuit",
+  "year": 1977,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Nuisance suit under La. C.C. arts. 667-669 over polyvinyl chloride powder contaminating a neighboring residence from an industrial plant; injunction and damages affirmed.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "Industrial-nuisance case; no lodging or letting issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9727148,
+  "cite": "361 So. 2d 925",
+  "court": "Louisiana Court of Appeal, Fourth Circuit",
+  "year": 1978,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Post-foreclosure dispute over occupancy of and personal property in a commercial nursery-school building; found to be an 'occupant' relationship (not a lease), with recovery for conversion of school equipment and mental anguish.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "Concerns commercial school-building occupancy and conversion of school property, not residential lodging or dwelling letting, despite discussing 'occupant' doctrine similar to eviction-statute cases.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9727504,
+  "cite": "238 So. 2d 267",
+  "court": "Louisiana Court of Appeal, Fourth Circuit",
+  "year": 1970,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.2,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Zoning variance upheld allowing structural renovation of a nonconforming maternity residence housing unwed mothers, to relieve overcrowding; the Board's variance was found within its authority.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "Residents of the charitable maternity home are not paying lodgers/boarders; rooming-house zoning classification is mentioned only in passing regarding relocation feasibility, not adjudicated here.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9743203,
+  "cite": "258 So. 2d 90",
+  "court": "Louisiana Court of Appeal, Second Circuit",
+  "year": 1972,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Zoning dispute over whether a mobile home placed on a residential lot qualifies as a permitted 'one-family dwelling'; court held it does.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-056",
+  "notes": "Mobile-home zoning classification case; not about lodging houses or compensated short-term occupancy of a dwelling.",
+  "extraction_status": "ok"
+ }
+]

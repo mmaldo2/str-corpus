@@ -1,0 +1,509 @@
+[
+ {
+  "case_id": 5154473,
+  "cite": "250 A.D. 286",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1937,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "Commercial landlord-tenant dispute over who pays for fire-code structural compliance under a lease clause; the building's use as a rooming/furnished-room house is background fact only, not the legal issue decided.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5340954,
+  "cite": "273 A.D. 447",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1948,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "Defendant leased an entire rooming house, furnished the rooms/apartments herself, and sublet them at a profit; the court held the landlord's cancellation of the master lease was ineffective and, independently, that federal rent control barred eviction because defendant's furnished sublettings are 'housing accommodations' including 'rooming- or boarding-house accommodations' protected under the Act.",
+  "doctrinal_concepts": [
+   "rent_control_coverage",
+   "furnished_room_subletting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Section 202, subdivision (b), of said act defines the term \u201c housing accommodations \u201d so as to include \u201c real or personal property rented or offered for rent for living or dwelling purposes (including houses, apartments, rooming- or boarding-house accommodations, and other properties used for living or dwelling purposes) together with all privileges, services, furnishings, furniture, and facilities connected with the use or occupancy of such property.\u201d This includes the defendant in this action, who furnished these rooms and apartments and rented them in a furnished condition.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5101,
+     5684
+    ],
+    "reporter_page": "450"
+   },
+   {
+    "text": "Section 202, subdivision (b), of said act defines the term \u201c housing accommodations \u201d so as to include \u201c real or personal property rented or offered for rent for living or dwelling purposes (including houses, apartments, rooming- or boarding-house accommodations, and other properties used for living or dwelling purposes) together with all privileges, services, furnishings, furniture, and facilities connected with the use or occupancy of such property.\u201d This includes the defendant in this action, who furnished these rooms and apartments and rented them in a furnished condition.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5101,
+     5684
+    ],
+    "reporter_page": "450"
+   },
+   {
+    "text": "It is the expressed intention of this law not to dispossess tenants in the situation of this defendant, who have equipped rooms and apartments with furniture and furnishings, and have sublet them as furnished accommodations.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6082,
+     6306
+    ],
+    "reporter_page": "450"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5343260,
+  "cite": "275 A.D.2d 283",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1949,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "Commercial rent-control/arbitration dispute over a restaurant lease; no lodging, boarding, or dwelling-occupancy issue present. Selector match was a false positive on generic 'emergency rent' phrasing.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5417290,
+  "cite": "6 A.D.2d 359",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1958,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "Fire-insurance coverage dispute turning on whether tenant owned the apartment building separately from the land; 'apartment building' is only the insured property type, not a lodging/boarding issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5495443,
+  "cite": "16 A.D.2d 267",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1962,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "Property-tax dispute over separate ownership of cold-storage warehouse buildings on leased dock land; wholly unrelated to lodging/boarding letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5780791,
+  "cite": "231 A.D. 421",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1931,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "innkeeping",
+  "holding_summary": "A naval officer's family occupied hotel rooms billed on a per diem basis while his post was contingent on transfer orders; the court held this made them transient guests (not permanent boarders/tenants), so the hotel was liable as an innkeeper-insurer for baggage lost through its agent's negligence.",
+  "doctrinal_concepts": [
+   "guest_vs_boarder",
+   "innkeeper_liability",
+   "transient_guest_duration"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "In our view the evidence fully warranted a finding that the relationship between the parties was that of guest and innkeeper.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4365,
+     4490
+    ],
+    "reporter_page": "423"
+   },
+   {
+    "text": "Plaintiff\u2019s claim on this issue finds support in the weekly bills rendered by the appellant. They show a per diem, and not a charge prorated upon a monthly basis at the rate of $1,500 a month.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4491,
+     4683
+    ],
+    "reporter_page": "423"
+   },
+   {
+    "text": "We are of opinion, therefore, that under the circumstances here presented the appellant was liable as an innkeeper for the loss of the plaintiff\u2019s baggage.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     13837,
+     13992
+    ],
+    "reporter_page": "427"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "Doctrinally useful for the guest/boarder/duration distinction (citing Hancock v. Rand) even though the immediate holding concerns innkeeper baggage liability rather than letting legality itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8840068,
+  "cite": "8 Misc. 2d 994",
+  "court": "New York Supreme Court",
+  "year": 1957,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": "A zoning ordinance permitted 'hotels, lodging and boarding houses' as of right in a business district; the Board of Appeals denied a permit to build a 12-unit motel citing insufficient lot size, but the court found no record support for that finding and ordered the permit issued, noting motels cannot be excluded from all areas of a municipality.",
+  "doctrinal_concepts": [
+   "zoning_lodging_use",
+   "motel_hotel_classification"
+  ],
+  "new_terms_observed": [
+   "motel"
+  ],
+  "quotes": [
+   {
+    "text": "While motels, as such, may properly be excluded from certain areas of a community, they cannot be excluded from all areas.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2051,
+     2173
+    ],
+    "reporter_page": "995"
+   },
+   {
+    "text": "My decision, however, must be made on the record presented and on the reasons given in the decision of the board. I find these reasons insufficient for a denial of petitioner\u2019s application.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2226,
+     2415
+    ],
+    "reporter_page": "995"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "Characterization left null: the court expressly declined to decide whether a 'motel' is a 'hotel' under the ordinance, so no lease/license/lodging/innkeeping classification is supported by quotable text.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 795751,
+  "cite": "135 Misc. 760",
+  "court": "County Court of New York, Putnam County",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "County-farm keeper's occupancy of the poorhouse was an incident of his employment (part of wages), not a paid letting arrangement; occupancy ends with discharge, not with rent nonpayment.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 795780,
+  "cite": "135 Misc. 637",
+  "court": "New York City Municipal Court",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "Commercial loft lease dispute over appurtenant sign rights and constructive eviction; no dwelling/lodging occupancy issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 798044,
+  "cite": "136 Misc. 406",
+  "court": "New York Supreme Court",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "Dispute over a covenant not to rename dedicated streets; wholly unrelated to lodging/boarding letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 798108,
+  "cite": "136 Misc. 561",
+  "court": "New York City Municipal Court",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "Summary proceeding over a cooperative apartment lease/stock-subscription payment default; concerns co-op financing structure, not lodging/boarding letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 798158,
+  "cite": "136 Misc. 893",
+  "court": "New York Surrogate's Court",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "Estate accounting/corporate valuation dispute; the Daniels Hotel's furnished-room income is discussed only as a valuation input, not the legal character of the letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 801471,
+  "cite": "137 Misc. 182",
+  "court": "New York City Municipal Court",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "Landlord leased an entire 'furnished rooming house' building to a tenant, but the dispute is purely about which lease-termination clause governed and return of security; the rooming-house nature of the premises is incidental background, not adjudicated.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 801560,
+  "cite": "137 Misc. 22",
+  "court": "New York Supreme Court",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "Zoning/building-code challenge concerns multi-family 'apartment houses' generally, not boarding/lodging houses or individual room letting to lodgers/boarders.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 801614,
+  "cite": "137 Misc. 472",
+  "court": "New York Supreme Court",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "Taxicab-stand ordinance case; unrelated to lodging/boarding letting. Selector match was a false positive on generic 'abutting owner' language.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 803982,
+  "cite": "138 Misc. 216",
+  "court": "New York Surrogate's Court",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "Trust accounting dispute over stock subscription-rights proceeds; unrelated to lodging/boarding letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 804136,
+  "cite": "138 Misc. 338",
+  "court": "New York Supreme Court",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "A cotenant who remained in exclusive possession of the family home after her mother's death took in a roomer at $7 per week; in a partition accounting, the court held this income was rent (not compensation for personal services) and charged it against her claimed maintenance expenditures, requiring her to account to her out-of-possession siblings.",
+  "doctrinal_concepts": [
+   "roomer_rent_characterization",
+   "cotenant_accounting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Defendant\u2019s contention that the moneys received from roomers should not be construed as rent but rather as compensation for personal services cannot be allowed. The income in question came from one who was living; in the premises; had he not lived there, the income would not have been received.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3595,
+     3890
+    ],
+    "reporter_page": "339"
+   },
+   {
+    "text": "Defendant\u2019s contention that the moneys received from roomers should not be construed as rent but rather as compensation for personal services cannot be allowed. The income in question came from one who was living; in the premises; had he not lived there, the income would not have been received.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3595,
+     3890
+    ],
+    "reporter_page": "339"
+   },
+   {
+    "text": "We charge against the defendant only the moneys testified to have been paid to her by that roomer.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3891,
+     3989
+    ],
+    "reporter_page": "340"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 804137,
+  "cite": "138 Misc. 10",
+  "court": "New York Surrogate's Court",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-043",
+  "notes": "Bank-book gift dispute; decedent's residence 'in a room' at a rooming house is background biographical fact only, not an adjudicated issue.",
+  "extraction_status": "ok"
+ }
+]

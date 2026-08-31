@@ -1,0 +1,460 @@
+[
+ {
+  "case_id": 10218338,
+  "cite": "175 S.W.2d 664",
+  "court": "Court of Civil Appeals of Texas, El Paso",
+  "year": 1943,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "Condemnation case involving land and mineral-development rights; it does not concern paid residential occupancy."
+ },
+ {
+  "case_id": 10220311,
+  "cite": "146 S.W.2d 195",
+  "court": "Court of Criminal Appeals of Texas",
+  "year": 1940,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "The injured party merely went to a tourist camp to obtain help after an assault; no lodging arrangement was at issue."
+ },
+ {
+  "case_id": 10220866,
+  "cite": "162 S.W.2d 728",
+  "court": "Court of Criminal Appeals of Texas",
+  "year": 1942,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "A tourist camp is mentioned only as the place where the accused drank and was arrested after the assault."
+ },
+ {
+  "case_id": 10222986,
+  "cite": "151 S.W.2d 592",
+  "court": "Court of Criminal Appeals of Texas",
+  "year": 1941,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "mixed",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The court treated Peters as the tenant and person in charge of a rented residence and held that the evidence supported attributing possession of the liquor found there to him. The conviction was affirmed.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Paul Peters .approached me to rent the house and he has paid me the rent during this time.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Under these facts we are impressed that the record shows that Paul Peters was the \u25a0person in charge of these premises, that it was his residence, and that they are sufficient to show that this large amount of .alcoholic beverages were possessed by him for the purpose of sale.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "It is unlikely that anyone else would have or could have stored the amount of liquors as here involved in the cellar of appellant\u2019s house, without his knowledge and acquiescence.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "The occupancy lasted three or four years, which is recorded as months because the schema has no years category. The result is mixed for this project because the court recognized the rental but used the tenant's control of the residence to sustain a criminal conviction."
+ },
+ {
+  "case_id": 10223380,
+  "cite": "183 S.W.2d 972",
+  "court": "Court of Criminal Appeals of Texas",
+  "year": 1944,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.63,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": "The court reversed a tourist-camp guest's theft conviction because the configuration and occupancy of the guest rooms left other reasonable possibilities for who took the money.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It is shown that the room in the tourist camp, occupied by the soldier who lost the money, had two doors thereto, one opening outward into the court, and another opening into a toilet, with a further door opening into another room which was occupied by a sailor.",
+    "supports": "characterization"
+   },
+   {
+    "text": "It was also shown that all the rooms at this tourist court were occupied by guests, and of course during the hours of the soldier\u2019s sleep anyone of these different occupants of these rooms could have had access to the soldier\u2019s room.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Under the circumstances presented to us, we are of the opinion that same do not exclude every other reasonable hypothesis than that of appellant\u2019s guilt.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "The tourist-camp guest arrangement was central to the court's access analysis, but the opinion neither protected nor restricted the operator's right to provide lodging."
+ },
+ {
+  "case_id": 10225079,
+  "cite": "167 S.W.2d 1054",
+  "court": "Court of Civil Appeals of Texas, Amarillo",
+  "year": 1943,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The court held that the tourist-camp operator's appeal from the dismissal of his rent and lien action was procedurally proper, reversed the dismissal, and remanded the action.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "This suit originated in the Justice Court of Hall County. In that court the appellant, J. W. Webster, operator of a tourist camp, sued the appellee, W. A. Moore, for a debt of $42, for past due rent and for foreclosure of an alleged lien upon certain household goods of the alleged value of $75.",
+    "supports": "polarity"
+   },
+   {
+    "text": "We thus conclude that the trial court erred in dismissing the cause. The judgment is therefore reversed and the cause remanded.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "The opinion allowed the operator's rent action to proceed but did not decide the merits or expressly classify the occupancy, so characterization is null and polarity is mixed."
+ },
+ {
+  "case_id": 10225186,
+  "cite": "152 S.W.2d 772",
+  "court": "Court of Criminal Appeals of Texas",
+  "year": 1941,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "Tourist camps were merely the locations of alleged sexual offenses; no paid-occupancy right or lodging regulation was adjudicated."
+ },
+ {
+  "case_id": 10225434,
+  "cite": "158 S.W.2d 809",
+  "court": "Court of Criminal Appeals of Texas",
+  "year": 1942,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.81,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The owner-operator presented evidence that her son had rented the room containing the wine to a couple who controlled it. Because the State's case against her was circumstantial, the court reversed for failure to give a circumstantial-evidence instruction and also expressed doubt about the evidence's sufficiency.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The appellant\u2019s twenty-year-old son, who was employed in a drug store, testified that he lived at, and had charge of, the house searched by the officers; that his mother did not live at the house, but lived at the tourist camp where she worked; that, about two months prior to the search, he had rented the room where the wine was found to a man and his wife, whose names he gave as Mr. and Mrs. Roy Jones.",
+    "supports": "characterization"
+   },
+   {
+    "text": "With this contention we are in accord, because the State\u2019s case did depend upon circumstantial evidence.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "We express doubt as to the sufficiency of the evidence to support the conviction; but, inasmuch as the case is to be reversed for the above reason, we forego a determination of that question now.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "Favorable because evidence of a room rental and the occupants' separate control prevented automatic attribution of contraband to the owner-operator, although the court did not finally decide evidentiary sufficiency."
+ },
+ {
+  "case_id": 10226756,
+  "cite": "144 S.W.2d 367",
+  "court": "Court of Civil Appeals of Texas, San Antonio",
+  "year": 1940,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "A long-term tourist-camp cabin rental supplied background for witnesses in a deed-capacity dispute, but no occupancy issue was decided."
+ },
+ {
+  "case_id": 10228629,
+  "cite": "142 S.W.2d 706",
+  "court": "Court of Civil Appeals of Texas, Dallas",
+  "year": 1940,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.57,
+  "polarity": "adverse",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The court upheld the city's use of zoning police power to prohibit a dentist from operating a professional office in a single-family residential district. In reaching that result, it relied on authority treating the exclusion of hotels and apartment houses from residential districts as constitutionally permissible.",
+  "doctrinal_concepts": [
+   "police_power",
+   "zoning"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The exclusion from residential districts by zoning ordinances of business and trade of every sort, including hotels and apartment houses, cannot be, said to be so clearly arbitrary and unreasonable, and to have no such substantial relation to the public health, safety, morals, and general welfare, as not to be within the police power/\u2019",
+    "supports": "polarity"
+   },
+   {
+    "text": "So, we conclude that, as authorized by the provisions of the controlling statute, the governing body of the City, in the exercise of its police power, was justified in prohibiting the use of premises in the residential' district for the practice of dentistry, and that, in prohibiting such use, the governing body was author-ized to give due consideration to the conservation of property values, the lessening of congestion in the streets, the prevention of undue concentration or overcrowding of the population, the appropriate use of land throughout the municipality, and. to the preservation of attractive homes and home surroundings.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "No lodging arrangement was actually before the court, so characterization is null; relevance comes from the court's approving use of zoning authority that expressly encompassed hotels and apartment houses."
+ },
+ {
+  "case_id": 10229388,
+  "cite": "138 S.W.2d 195",
+  "court": "Court of Civil Appeals of Texas, Amarillo",
+  "year": 1940,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.06,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "Boarding houses, rooming houses, and a tourist camp were described only as roadside surroundings in a motorcycle-collision case."
+ },
+ {
+  "case_id": 10230476,
+  "cite": "141 S.W.2d 626",
+  "court": "Court of Criminal Appeals of Texas",
+  "year": 1940,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "The defendants' tourist-camp cabin was merely factual background to a murder prosecution."
+ },
+ {
+  "case_id": 10231429,
+  "cite": "141 S.W.2d 707",
+  "court": "Court of Civil Appeals of Texas, Waco",
+  "year": 1940,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "A tourist camp served as an employee's work headquarters, but the opinion concerns interstate employee status rather than paid lodging."
+ },
+ {
+  "case_id": 10231630,
+  "cite": "127 S.W.2d 226",
+  "court": "Court of Civil Appeals of Texas, Galveston",
+  "year": 1939,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.07,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "The case enforced a construction worker's claim and liens for building tourist-camp apartments, not any lodging or letting arrangement."
+ },
+ {
+  "case_id": 10232188,
+  "cite": "140 S.W.2d 513",
+  "court": "Court of Civil Appeals of Texas, Amarillo",
+  "year": 1940,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.66,
+  "polarity": "mixed",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "The railroad's provision of residential outfit cars to its section foreman and his family was an incident of employment rather than a lease or landlord-tenant relationship. The court reversed the injury judgment and rendered judgment that the employee take nothing.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The cars had been so located and ap-pellee had been using them in this manner for about nine months immediately preceding Mrs. Mills\u2019 injury.",
+    "supports": "duration_of_occupancy"
+   },
+   {
+    "text": "When the labor ceased the right to occupy the outfit cars came to an end and in no sense can this be construed to be a relationship of landlord and tenant.",
+    "supports": "characterization"
+   },
+   {
+    "text": "There is no suggestion that any contract of lease or rental existed between the parties nor that Mills paid any specific amount as rental for the outfit cars, platform or steps.",
+    "supports": "polarity"
+   },
+   {
+    "text": "The judgment of the court below will be reversed and judgment here rendered that appellee take nothing by his suit",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "The provider was a railroad rather than a householder or lodging business, so who_was_letting is unclear under the available categories. Polarity is mixed because the case carefully classified residential occupancy but held that it created no tenancy."
+ },
+ {
+  "case_id": 10232197,
+  "cite": "120 S.W.2d 262",
+  "court": "Court of Criminal Appeals of Texas",
+  "year": 1938,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "A tourist camp was merely the place from which a taxi picked up the robbery defendant."
+ },
+ {
+  "case_id": 10232312,
+  "cite": "118 S.W.2d 375",
+  "court": "Court of Civil Appeals of Texas, El Paso",
+  "year": 1938,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.69,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a traveling employee's fatal carbon-monoxide exposure in a tourist-camp cabin was an accident arising from his employment because the employment required travel and lodging away from headquarters. It affirmed the compensation award.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Cobb\u2019s employer paid Cobb\u2019s board and lodging, expenses when away from his headquarters, and it was contemplated that he would be required to stay ^.t hotels and other suitable places of abode while working in territory outside of his headquarters city.",
+    "supports": "characterization"
+   },
+   {
+    "text": "On November 6, 1936, it was suggested to Cobb by his superior officer that he leave Fort Worth for El Paso on the following day and to arrange for his stay at a hotel, or a suitable place elsewhere, on a weekly basis.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Under the agreed facts of this case the character of employment of Cobb imposed upon him the duty to go from place to place at the will of his employer in the performance of his duty, and the risks incident thereto are directly causal connections between the employment itself and the injury. In such cases resulting injuries are the proper subject for compensation under our Workmen\u2019s Compensation Act.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "The opinion treats paid tourist-camp lodging as an ordinary incident of work travel, but it does not adjudicate the operator's right to let the cabin, so polarity is mixed."
+ },
+ {
+  "case_id": 10235826,
+  "cite": "124 S.W.2d 362",
+  "court": "Court of Criminal Appeals of Texas",
+  "year": 1939,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-002-shard-01-batch-051",
+  "notes": "The accused's tourist camp was mentioned only as his business and as a location connected to a gun in a burglary prosecution."
+ }
+]

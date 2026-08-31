@@ -1,0 +1,710 @@
+[
+ {
+  "case_id": 5600838,
+  "cite": "151 N.Y.S. 783",
+  "court": "County Court of New York, Columbia County",
+  "year": 1914,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "Summary proceeding to remove a discharged farm employee occupying premises incident to his service; no compensated letting/lodging arrangement at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5633372,
+  "cite": "142 N.Y.S. 330",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1913,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "Damages for a landlord's wrongful re-entry into a leased apartment before lease expiration; ordinary lease dispute, no lodging/boarding element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7656250,
+  "cite": "136 N.Y.S. 125",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1912,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "A householder who let a room to a roomer for weekly pay, providing hooks and locker space, was not liable for stolen clothing absent proof of negligence, and an oral guaranty of safety made after the hiring agreement was unsupported by consideration. The court held boarding-house keepers, unlike innkeepers, owe only ordinary care to boarders' property.",
+  "doctrinal_concepts": [
+   "boarding_house_keeper_liability",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The defendant keeps a house for roomers on Lancaster street, a residence street in the city of Albany.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1510,
+     1612
+    ],
+    "reporter_page": "126"
+   },
+   {
+    "text": "The defendant showed him a room on the third floor, the price of which was $2.50 per week.",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     1717,
+     1807
+    ],
+    "reporter_page": "126"
+   },
+   {
+    "text": "he had been there perhaps two weeks",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     3159,
+     3194
+    ],
+    "reporter_page": "126"
+   },
+   {
+    "text": "A boarding house keeper is liable for the loss of goods of a boarder only where he has failed to exercise ordinary care to prevent it.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     780,
+     914
+    ],
+    "reporter_page": "126"
+   },
+   {
+    "text": "A boarding house keeper is liable for the loss of goods of a boarder only where he has failed to exercise ordinary care to prevent it.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     780,
+     914
+    ],
+    "reporter_page": "126"
+   },
+   {
+    "text": "I think, therefore, the judgment must be reversed, for the reason that no negligence was proved.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5308,
+     5404
+    ],
+    "reporter_page": "127"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7661624,
+  "cite": "129 N.Y.S. 617",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1911,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "other",
+  "holding_summary": "An agreement to let an apartment-hotel suite for $70 per week inclusive of board for a family did not create an ordinary landlord-tenant relationship, because the furnishing of board was a substantial, not merely incidental, part of the consideration. On the tenant's breach, the landlord's recoverable damages were limited to the contract price less the cost she would have incurred furnishing the board, not the full rent.",
+  "doctrinal_concepts": [
+   "landlord_tenant_relation",
+   "letting_with_board"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "I would state that I will pay $70 per week for your four rooms and bath on the ninth floor; these rooms being for my wife, baby, nurse, and myself.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     2044,
+     2191
+    ],
+    "reporter_page": "618"
+   },
+   {
+    "text": "While it is true, as contended by the respondent, that an agreement for the letting of an apartment in an apartment hotel ordinarily creates the' relationship of landlord and tenant between the parties, and while it is also evident that the ordinary relationship between an innkeeper and his guest did not exist between these parties, because of the surrender by the plaintiff of the. custody and control of the apartment in question to the defendant, it is equally true that the contract in question here is not analogous to an ordinary lease of premises.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6090,
+     6646
+    ],
+    "reporter_page": "619"
+   },
+   {
+    "text": "While it is true, as contended by the respondent, that an agreement for the letting of an apartment in an apartment hotel ordinarily creates the' relationship of landlord and tenant between the parties, and while it is also evident that the ordinary relationship between an innkeeper and his guest did not exist between these parties, because of the surrender by the plaintiff of the. custody and control of the apartment in question to the defendant, it is equally true that the contract in question here is not analogous to an ordinary lease of premises.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6090,
+     6646
+    ],
+    "reporter_page": "619"
+   },
+   {
+    "text": "The furnishing of the board, therefore, was not merely incidental to the renting of the premises, but was, in fact, a very substantial, if riot the most substantial, part of the contract.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6983,
+     7170
+    ],
+    "reporter_page": "619"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "Neither clearly favorable nor adverse to the corpus questions; useful for the letting-with-board hybrid doctrine and damages measure.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7666346,
+  "cite": "115 N.Y.S. 465",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1909,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "License to run a hotel carriage/taxicab stand, held revocable and not a lease; concerns a business privilege, not occupancy of a dwelling or rooms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7681755,
+  "cite": "107 N.Y.S. 715",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1907,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "A boarding-house keeper's liability for a boarder's stolen property is only for want of ordinary care, a lesser standard than an innkeeper's strict insurer liability. Affirming judgment for the defendant, the court found the evidence insufficient to show negligence, given testimony that the boarder himself insisted on leaving his door unlocked.",
+  "doctrinal_concepts": [
+   "boarding_house_keeper_liability",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Defendant kept a boarding house at Nos. 5, 7, 9, and 11 East Thirty-First street.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1681,
+     1762
+    ],
+    "reporter_page": "715"
+   },
+   {
+    "text": "This rigid liability does not extend to the boarding house keeper, whose duty to his boarders with respect to their property is merely to exercise such care as a prudent person would \u25a0exercise over his own property, under similar circumstances.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7164,
+     7408
+    ],
+    "reporter_page": "717"
+   },
+   {
+    "text": "This rigid liability does not extend to the boarding house keeper, whose duty to his boarders with respect to their property is merely to exercise such care as a prudent person would \u25a0exercise over his own property, under similar circumstances.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7164,
+     7408
+    ],
+    "reporter_page": "717"
+   },
+   {
+    "text": "In an action against a boarding house keeper by a guest for the loss of property taken from his room, evidence considered, and held insufficient to show actionable negligence on the part of defendant.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1029,
+     1229
+    ],
+    "reporter_page": "715"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "Opinion does not state how long plaintiff had been boarding before the loss, beyond that the chambermaid recalled a first day of occupancy; duration left unclear.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7689254,
+  "cite": "109 N.Y.S. 1094",
+  "court": "County Court of New York, Orleans County",
+  "year": 1908,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "Farmhand's occupancy of employer's house was an incident of his wage/service contract (license vs. tenancy), not a paid lodging/letting arrangement; likely a selector false positive on the license-vs-lease language.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7701664,
+  "cite": "70 N.Y.S. 426",
+  "court": "New York Surrogate's Court",
+  "year": 1901,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "An undelivered memorandum in which a decedent stated he owed his wife for years of 'home keep' did not create an enforceable claim against his estate, because it was never delivered and no contract or consideration was shown. The marital relationship raised a presumption that the board and lodging she furnished him in the boarding house she operated were gratuitous, not for hire.",
+  "doctrinal_concepts": [
+   "boarding_house_keeping",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "prior to the marriage of the decedent the claimant was carrying on the business of keeping a boarding house, and the decedent was. one of her boarders. Subsequent to the marriage, the claimant continued to keep boarders, in a house owned and furnished by her,, for nearly the entire 17 years of her married life; and the business was only interrupted for a few years, during which she rented part of her house in furnished rooms.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     2891,
+     3320
+    ],
+    "reporter_page": "427"
+   },
+   {
+    "text": "prior to the marriage of the decedent the claimant was carrying on the business of keeping a boarding house, and the decedent was. one of her boarders. Subsequent to the marriage, the claimant continued to keep boarders, in a house owned and furnished by her,, for nearly the entire 17 years of her married life; and the business was only interrupted for a few years, during which she rented part of her house in furnished rooms.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2891,
+     3320
+    ],
+    "reporter_page": "427"
+   },
+   {
+    "text": "The-relation of the parties repels any presumption of a promise to pay for food and lodging furnished, and requires a presumption that such food and lodging were gratuitous.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4792,
+     4965
+    ],
+    "reporter_page": "427"
+   },
+   {
+    "text": "The-relation of the parties repels any presumption of a promise to pay for food and lodging furnished, and requires a presumption that such food and lodging were gratuitous.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4792,
+     4965
+    ],
+    "reporter_page": "427"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "The 17-year figure describes the overall boarding-house operation, not a single boarder's stay; 'months' selected as the closest bucket to the long-term, non-transient occupancy described. Favorable signal is background context (boarding-house business treated as unremarkable lawful enterprise), not the court's actual holding, which turns on marital-gratuity presumption.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7704521,
+  "cite": "113 N.Y.S. 1105",
+  "court": "New York Surrogate's Court",
+  "year": 1908,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "New York's lien law gives keepers of hotels, boarding houses, and lodging houses a statutory lien on a boarder's or lodger's property for proper charges due for accommodation, board, and lodging. Because the respondent failed to prove that the $600 owed to her by the decedent was specifically for board and lodging charges rather than some other debt, the court held she had no valid lien and ordered the decedent's property turned over to the estate's administrator.",
+  "doctrinal_concepts": [
+   "boarding_house_lien",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Q. Mr. Stiens had been a lodger and boarder of yours for some time previous to his death? A. Tes, sir; ever since coming to Utica.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     7896,
+     8026
+    ],
+    "reporter_page": "1107"
+   },
+   {
+    "text": "A keeper of a hotel, inn, boarding house or lodging house, except an emigrant lodging house, has a lien upon, while in possession, and may detain the baggage and other property brought upon their premises by a guest, boarder or lodger for the proper charges due from him, on account of his accommodation, board and lodging, and such extras as are furnished at his request.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6211,
+     6583
+    ],
+    "reporter_page": "1107"
+   },
+   {
+    "text": "A keeper of a hotel, inn, boarding house or lodging house, except an emigrant lodging house, has a lien upon, while in possession, and may detain the baggage and other property brought upon their premises by a guest, boarder or lodger for the proper charges due from him, on account of his accommodation, board and lodging, and such extras as are furnished at his request.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6211,
+     6583
+    ],
+    "reporter_page": "1107"
+   },
+   {
+    "text": "The evidence in the case does not bring respondent within the requirements of the provisions of section 71 of the lien law, essential to a valid lien in her favor as a boarding house or lodging house keeper.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     9453,
+     9660
+    ],
+    "reporter_page": "1108"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "Duration of the lodging relationship given only as 'ever since coming to Utica,' with no specific length stated.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7706508,
+  "cite": "94 N.Y.S. 1122",
+  "court": "New York Supreme Court",
+  "year": 1905,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "A woman who resided in a hotel annex for seventeen months, moved substantial personal property including a piano into her rooms, and dealt directly with the proprietors rather than hotel staff was not a transient 'guest' for purposes of the innkeeper's strict insurer liability, even though no fixed lodging term was ever agreed and she changed rooms several times. Because the relationship of innkeeper and guest did not exist, her complaint for loss of property was dismissed.",
+  "doctrinal_concepts": [
+   "transient_guest_vs_permanent_lodger",
+   "innkeeper_liability"
+  ],
+  "new_terms_observed": [
+   "permanent lodger"
+  ],
+  "quotes": [
+   {
+    "text": "who had lived for 17 months in an inn which accommodated both transient and permanent lodgers",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     474,
+     567
+    ],
+    "reporter_page": "1123"
+   },
+   {
+    "text": "A woman, who had lived for 17 months in an inn which accommodated both transient and permanent lodgers, and had moved property into her rooms, which indicated an intention to make more than a temporary sojourn, and had made the arrangements for her stay with the proprietors themselves, instead of the clerk, was not a traveler and guest, within the rule which makes an innkeeper an insurer of the property of his guest, although, when she first went to the inn, she contemplated housekeeping, and never made any agreement for lodging for a definite time, and had frequently changed her apartments during her stay at the inn.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     465,
+     1090
+    ],
+    "reporter_page": "1123"
+   },
+   {
+    "text": "A woman, who had lived for 17 months in an inn which accommodated both transient and permanent lodgers, and had moved property into her rooms, which indicated an intention to make more than a temporary sojourn, and had made the arrangements for her stay with the proprietors themselves, instead of the clerk, was not a traveler and guest, within the rule which makes an innkeeper an insurer of the property of his guest, although, when she first went to the inn, she contemplated housekeeping, and never made any agreement for lodging for a definite time, and had frequently changed her apartments during her stay at the inn.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     465,
+     1090
+    ],
+    "reporter_page": "1123"
+   },
+   {
+    "text": "A woman, who had lived for 17 months in an inn which accommodated both transient and permanent lodgers, and had moved property into her rooms, which indicated an intention to make more than a temporary sojourn, and had made the arrangements for her stay with the proprietors themselves, instead of the clerk, was not a traveler and guest, within the rule which makes an innkeeper an insurer of the property of his guest, although, when she first went to the inn, she contemplated housekeeping, and never made any agreement for lodging for a definite time, and had frequently changed her apartments during her stay at the inn.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     465,
+     1090
+    ],
+    "reporter_page": "1123"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "Bears centrally on duration-of-occupancy doctrine (transient guest vs. permanent lodger) rather than on the favorable/adverse letting question directly; marked mixed.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7737590,
+  "cite": "74 N.Y.S. 894",
+  "court": "New York Supreme Court",
+  "year": 1902,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "Restrictive-covenant dispute over building-line/first-class-dwelling requirements; a boarding house is mentioned only once, in passing, as evidence of neighborhood commercial change.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8823584,
+  "cite": "2 Mills Surr. 202",
+  "court": "New York Surrogate's Court",
+  "year": 1901,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "An undelivered memorandum in which a decedent stated he owed his wife for seventeen years of 'home keep' did not create an enforceable claim against his estate, because it was never delivered and no contract or consideration was shown. The marital relationship raised a presumption that the board and lodging she furnished him in the boarding house she operated were gratuitous, not for hire.",
+  "doctrinal_concepts": [
+   "boarding_house_keeping",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It was shown that, prior to the marriage of the decedent, the claimant was carrying on the business of keeping a boarding-house, and the decedent was one of her boarders. Subsequent to the marriage, the claimant continued to keep' boarders, in a house owned and furnished by her, for nearly the entire seventeen years of her married life, and the business was only interrupted for a few years during which she rented part of her house in furnished rooms.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     3010,
+     3464
+    ],
+    "reporter_page": "203"
+   },
+   {
+    "text": "It was shown that, prior to the marriage of the decedent, the claimant was carrying on the business of keeping a boarding-house, and the decedent was one of her boarders. Subsequent to the marriage, the claimant continued to keep' boarders, in a house owned and furnished by her, for nearly the entire seventeen years of her married life, and the business was only interrupted for a few years during which she rented part of her house in furnished rooms.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3010,
+     3464
+    ],
+    "reporter_page": "203"
+   },
+   {
+    "text": "The relation of the parties repels any presumption of a promise to pay for food and lodging furnished, and requires a presumption that such food and lodging were gratuitous.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4935,
+     5108
+    ],
+    "reporter_page": "204"
+   },
+   {
+    "text": "The relation of the parties repels any presumption of a promise to pay for food and lodging furnished, and requires a presumption that such food and lodging were gratuitous.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4935,
+     5108
+    ],
+    "reporter_page": "204"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "Parallel report (Mills Surr.) of the same underlying dispute as case_id 7701664 (70 N.Y.S. 426); recorded as a separate case per batch instructions. Same duration caveat applies.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 36989,
+  "cite": "161 N.Y. 451",
+  "court": "New York Court of Appeals",
+  "year": 1900,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "Murder appeal; sole reference is that the defendant 'went to boarding with his brother' after a marital estrangement, a passing biographical detail with no bearing on lodging doctrine.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 45909,
+  "cite": "183 N.Y. 242",
+  "court": "New York Court of Appeals",
+  "year": 1905,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "Cigar-sale-to-minor prosecution; the boy's mother 'kept a boarding house' is a passing background fact, not a lodging-law issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 54738,
+  "cite": "192 N.Y. 490",
+  "court": "New York Court of Appeals",
+  "year": 1908,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "Restrictive-covenant dispute between adjoining lot owners over a private-first-class-residence covenant; no boarding, lodging, or letting issue in the case.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 54787,
+  "cite": "192 N.Y. 54",
+  "court": "New York Court of Appeals",
+  "year": 1908,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "Municipal lateral-support-of-streets/highway law case involving excavation adjacent to a public street; unrelated to lodging or letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 57910,
+  "cite": "198 N.Y. 1",
+  "court": "New York Court of Appeals",
+  "year": 1910,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "Police-power licensing case, but the subject is public dancing academies, not lodging or boarding houses; outside corpus scope despite structural similarity to boarding-house licensing cases (statute struck down as arbitrary discrimination).",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 60491,
+  "cite": "206 N.Y. 319",
+  "court": "New York Court of Appeals",
+  "year": 1912,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-002-shard-01-batch-030",
+  "notes": "Riparian rights/erosion and railroad right-of-way condemnation dispute; unrelated to lodging or letting of dwellings.",
+  "extraction_status": "ok"
+ }
+]
