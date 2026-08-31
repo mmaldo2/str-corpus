@@ -5,7 +5,10 @@
   "source": "fect that the box and its contents have no value to her.      The evidence in the case does not bring respondent within the requirements of the provisions of section 71 of the Lien Law, essential to a valid lien in her favor as a boardinghouse or lodging-house keeper.      Under the authority of ",
   "score": 99.51690821256038,
   "page": "635",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "Only difference is hyphenation of \"boarding-house\" vs \"boardinghouse,\" a trivial transcription variant.",
+  "corrected_quote": null
  },
  {
   "case_id": 1095904,
@@ -13,7 +16,10 @@
   "source": "nt of the board for the intervals of time between payments, and it is very evident, from the claimant\u2019s own showing, that Dr. Clyde intended to and did pay his board' in the agreed amount of three dollars and fifty cents during his lifetime, and the only excuse-f\u00f3r",
   "score": 99.42857142857143,
   "page": "461",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "Quote matches source apart from a stray apostrophe after \"board\" and being truncated before the source continues, which is trivial noise.",
+  "corrected_quote": null
  },
  {
   "case_id": 1171347,
@@ -21,7 +27,10 @@
   "source": " of the accommodation received. In support of her position, appellant cites Peaks v. Cobb, 197 Mass. 554, 83 N. E. 1106, and Gardiner v. DeSalles, 13 La. App. 83, 126 So. 739, hblding that a lodger is not a sublessee within such a provision.      Defendant did not object at the trial, when the evid",
   "score": 99.52153110047847,
   "page": "403",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "The only discrepancy is \"hblding\" in the source, an OCR letter-confusion for \"holding\" in the quote.",
+  "corrected_quote": null
  },
  {
   "case_id": 1238067,
@@ -29,7 +38,10 @@
   "source": "g had meanwhile enacted a zoning ordinance under which an area including defendants\u2019 land became classified as an R-l Residence Zone, in which there were permitted only single family detached dwellings, churches, schools, libraries, government buildings and parks. After this court reversed the inju",
   "score": 99.52153110047847,
   "page": "320",
-  "supports": "polarity"
+  "supports": "polarity",
+  "recommendation": "ocr-ok",
+  "justification": "Source's \"R-l\" (letter L) vs quote's \"R-1\" (numeral one) is a typical OCR character confusion.",
+  "corrected_quote": null
  },
  {
   "case_id": 10191402,
@@ -37,7 +49,10 @@
   "source": "he court.      It is our opinion that the evidence conclusively reveals that the land was purchased for the purpose of establishing thereon a tourist court to be occupied as a personal and 'business homestead; that such was soon thereafter established on the ",
   "score": 99.40828402366864,
   "page": "175",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "Text matches word-for-word aside from a stray curly quote mark before \"business\" in the source, which is OCR/typographic noise.",
+  "corrected_quote": null
  },
  {
   "case_id": 792662,
@@ -45,7 +60,10 @@
   "source": "bert C. Oehrle, Jr., for appellee.      September 18, 1970:             Opinion by      Cercone, J.,      Plaintiff, H. George Buck, was a paying guest of the defendant George Washington Motor Lodge on October 22,1965, when, at sometime after midnight, while he was in bed in the room assigned him, he was awakened by the noise of an intrud",
   "score": 99.6,
   "page": "264",
-  "supports": "characterization"
+  "supports": "characterization",
+  "recommendation": "ocr-ok",
+  "justification": "Only difference is a missing space in the source's date \"October 22,1965\" vs the quote's \"October 22, 1965,\" trivial spacing noise.",
+  "corrected_quote": null
  },
  {
   "case_id": 11596913,
@@ -53,7 +71,10 @@
   "source": "tion 5.02 of the Declaration stated \u201c[e]ach Apartment [unit] Owner shall have an absolute right to lease or rent his apartment upon such terms as he shall approve, subject to all provisions and restrictions applicable to the Project.\u201d The term \u201cabsolute right\u201d is limited by \u201cs",
   "score": 96.2566844919786,
   "page": "670",
-  "supports": "characterization"
+  "supports": "characterization",
+  "recommendation": "mismatch",
+  "justification": "The quote drops the bracketed word \"[unit]\" that appears in the source between \"Apartment\" and \"Owner,\" an actual word omission rather than OCR noise.",
+  "corrected_quote": "[e]ach Apartment [unit] Owner shall have an absolute right to lease or rent his apartment upon such terms as he shall approve, subject to all provisions and restrictions applicable to the Project."
  },
  {
   "case_id": 4484612,
@@ -61,7 +82,10 @@
   "source": "nts, if they wish to use them, yet that the various copartments are let and rented to them, they paying a sum in money as the rent thereof. Ho reason occurs to me why, literally and truly, t",
   "score": 99.0,
   "page": "315",
-  "supports": "characterization"
+  "supports": "characterization",
+  "recommendation": "ocr-ok",
+  "justification": "\"compartments\" vs source's \"copartments\" is a single dropped letter typical of OCR misreads on old typeset text, not a substantive word change.",
+  "corrected_quote": null
  },
  {
   "case_id": 4484612,
@@ -69,7 +93,10 @@
   "source": "ed to them, they paying a sum in money as the rent thereof. Ho reason occurs to me why, literally and truly, the building of the defendant, which is to be occupied by tenants, in name and in fact, is not clearly within the true meaning and definition of a \u201ctenement-house.\u201d The injunction asked for must also for this reason be granted.             The court is not ",
   "score": 99.63768115942028,
   "page": "315",
-  "supports": "polarity"
+  "supports": "polarity",
+  "recommendation": "ocr-ok",
+  "justification": "Source's \"Ho reason\" is an OCR H/N letter confusion for the quote's \"No reason\"; otherwise text matches exactly.",
+  "corrected_quote": null
  },
  {
   "case_id": 4488853,
@@ -77,7 +104,10 @@
   "source": "modation of transient guests or casual boarders. Eooms in suits or singly, on the different floors, are taken by families or individuals for some period. The cooking for all the guests or reside",
   "score": 99.03846153846155,
   "page": "357",
-  "supports": "characterization"
+  "supports": "characterization",
+  "recommendation": "ocr-ok",
+  "justification": "Source's \"Eooms\" is an OCR R/E letter confusion for the quote's \"Rooms\"; the rest of the text matches exactly.",
+  "corrected_quote": null
  },
  {
   "case_id": 345175,
@@ -85,7 +115,10 @@
   "source": "er Harrison, Appellant.      (City Court of New York      General Term,      November, 1895.)      Where a husband and wife live together and the wife keeps boarders in the house, the husband is .entitled to the board money, unless a special ' agreement between the husband and wife allowing her to have it for her sole' prope",
   "score": 98.30508474576271,
   "page": "462",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "Only stray OCR punctuation (periods, quote marks) separates SOURCE from QUOTE; wording is identical.",
+  "corrected_quote": null
  },
  {
   "case_id": 345175,
@@ -93,7 +126,10 @@
   "source": "er Harrison, Appellant.      (City Court of New York      General Term,      November, 1895.)      Where a husband and wife live together and the wife keeps boarders in the house, the husband is .entitled to the board money, unless a special ' agreement between the husband and wife allowing her to have it for her sole' prope",
   "score": 98.30508474576271,
   "page": "462",
-  "supports": "characterization"
+  "supports": "characterization",
+  "recommendation": "ocr-ok",
+  "justification": "Only stray OCR punctuation (periods, quote marks) separates SOURCE from QUOTE; wording is identical.",
+  "corrected_quote": null
  },
  {
   "case_id": 345175,
@@ -101,7 +137,10 @@
   "source": "er Harrison, Appellant.      (City Court of New York      General Term,      November, 1895.)      Where a husband and wife live together and the wife keeps boarders in the house, the husband is .entitled to the board money, unless a special ' agreement between the husband and wife allowing her to have it for her sole' prope",
   "score": 98.30508474576271,
   "page": "462",
-  "supports": "polarity"
+  "supports": "polarity",
+  "recommendation": "ocr-ok",
+  "justification": "Only stray OCR punctuation (periods, quote marks) separates SOURCE from QUOTE; wording is identical.",
+  "corrected_quote": null
  },
  {
   "case_id": 3754107,
@@ -109,7 +148,10 @@
   "source": "ready held, and still adhere to, the proposition of law that a boarder who lives in the leased premises is a sub-tenant, to the extent at least that the property belonging to him and contained in the lease-d premises is subject to seizure for the rent due by the tenant, only in so far as he is himself indebted to the tenant.      Rosenthal vs. Longley,",
   "score": 99.62121212121212,
   "page": "416",
-  "supports": "characterization"
+  "supports": "characterization",
+  "recommendation": "ocr-ok",
+  "justification": "The only difference is a hyphenation artifact ('lease-d' vs 'leased'); wording is otherwise identical.",
+  "corrected_quote": null
  },
  {
   "case_id": 3754107,
@@ -117,7 +159,10 @@
   "source": "ready held, and still adhere to, the proposition of law that a boarder who lives in the leased premises is a sub-tenant, to the extent at least that the property belonging to him and contained in the lease-d premises is subject to seizure for the rent due by the tenant, only in so far as he is himself indebted to the tenant.      Rosenthal vs. Longley,",
   "score": 99.62121212121212,
   "page": "416",
-  "supports": "polarity"
+  "supports": "polarity",
+  "recommendation": "ocr-ok",
+  "justification": "The only difference is a hyphenation artifact ('lease-d' vs 'leased'); wording is otherwise identical.",
+  "corrected_quote": null
  },
  {
   "case_id": 5035124,
@@ -125,7 +170,10 @@
   "source": "r questions raised by the appellant, I conclude that the order and judgment should be reversed on the law and the facts, and that the application of the petitioner should be granted:      All concurred.      Order and judgment reversed",
   "score": 99.3103448275862,
   "page": "239",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "QUOTE begins mid-sentence and ends with a period where SOURCE has a colon, but the quoted words match exactly.",
+  "corrected_quote": null
  },
  {
   "case_id": 5086215,
@@ -133,7 +181,10 @@
   "source": "law and fact would be that she was working for. her husband in the discharge of her marital duties.\u201d      Where a wife renders services and furnishes meals to a stranger under an agreement made between herself and her husband that in case she renders such services and furnishes such meals she alone shall receive the recompense therefor and that it shall become her separate property, the common-law rights of the husband to his. wife\u2019s services are abrogated and she may enforce the claim in her ow",
   "score": 99.7560975609756,
   "page": "118",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "Only a stray OCR period/apostrophe in SOURCE ('his. wife's') differs; the wording matches exactly.",
+  "corrected_quote": null
  },
  {
   "case_id": 10303145,
@@ -141,7 +192,10 @@
   "source": "oy the use of others in their property. It cannot be held as a matter of law that a camp for the use of travelers by automobile is a nuisance. The use of land for the purpose of a camp in \u00e1 city or town is a lawful use, and may be exercised without thereby creating a nuisance. The lawful use of property cannot be enjoined. Th",
   "score": 99.57805907172997,
   "page": "752",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "SOURCE has an OCR accent artifact ('\u00e1' for 'a'); otherwise the wording matches exactly.",
+  "corrected_quote": null
  },
  {
   "case_id": 10029864,
@@ -149,7 +203,10 @@
   "source": "      \u201cPlaintiff alleges that he had subleased from Mrs. Lowell one of the rooms in said dwelling at a monthly rental of $8.00, payable in semi-monthly sums of $4.00 each in advance, and that he owed no rent at the time. Hill, Harris & Company, Inc",
   "score": 96.75324675324676,
   "page": "159",
-  "supports": "duration_of_occupancy"
+  "supports": "duration_of_occupancy",
+  "recommendation": "mismatch",
+  "justification": "QUOTE drops 'alleges that he,' turning the source's reported allegation into an assertion of fact, which changes meaning rather than being mere OCR noise.",
+  "corrected_quote": "Plaintiff alleges that he had subleased from Mrs. Lowell one of the rooms in said dwelling at a monthly rental of $8.00, payable in semi-monthly sums of $4.00 each in advance"
  },
  {
   "case_id": 1126530,
@@ -157,7 +214,10 @@
   "source": " any time. The court stated (p. 398): \u201c In short, the amendments are applicable to housing accommodations styled as hotels which do not satisfy the defin\u00edtion of hotels in the statute, even though such housing accommodations have not been subject to rent control since 1950, and even though such accommodations were once properly classified as hotels but have since deteriorated into something less      The State rent law (\u00a7 2, subd. 2, ",
   "score": 99.71264367816092,
   "page": "31",
-  "supports": "characterization"
+  "supports": "characterization",
+  "recommendation": "ocr-ok",
+  "justification": "SOURCE has an OCR accent artifact ('defin\u00edtion' for 'definition'); otherwise the wording matches exactly.",
+  "corrected_quote": null
  },
  {
   "case_id": 1613746,
@@ -165,7 +225,10 @@
   "source": " rooms was fundamentally a commercial enterprise. In the former decision the court held that the part of the building occupied by dormitory facilities was primarily commercial in nature, competing with lodging houses which were avowedly commercial. That the institution was admittedly one of benevole",
   "score": 95.23809523809523,
   "page": "191",
-  "supports": "polarity"
+  "supports": "polarity",
+  "recommendation": "mismatch",
+  "justification": "The quote changes \"were\" to \"are\" and adds the phrase \"in character,\" which is not in the source.",
+  "corrected_quote": "In the former decision the court held that the part of the building occupied by dormitory facilities was primarily commercial in nature, competing with lodging houses which were avowedly commercial."
  },
  {
   "case_id": 10193061,
@@ -173,7 +236,10 @@
   "source": "applied after he learned he had been evicted.      It is our conclusion, -therefore, there has been no violation of a legal right and hence there can be no recoverable damage. If it might be said the eviction was ",
   "score": 99.1869918699187,
   "page": "375",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "The only difference is a stray OCR hyphen before \"therefore\"; the wording is identical.",
+  "corrected_quote": "It is our conclusion, therefore, there has been no violation of a legal right and hence there can be no recoverable damage."
  },
  {
   "case_id": 10197826,
@@ -181,7 +247,10 @@
   "source": "d for many years has been, an exclusive residential district, that if the amendatory ordinance is upheld the hazards of traffic in. the area will be increased, that the existing privacy and quietness of the area will be diminished and that the value of the properties located there will decrease. These later facts st",
   "score": 99.55947136563876,
   "page": "473",
-  "supports": "polarity"
+  "supports": "polarity",
+  "recommendation": "ocr-ok",
+  "justification": "The quote matches the source apart from a misplaced OCR period after \"in\" in the source.",
+  "corrected_quote": "if the amendatory ordinance is upheld the hazards of traffic in the area will be increased, that the existing privacy and quietness of the area will be diminished and that the value of the properties located there will decrease"
  },
  {
   "case_id": 10197826,
@@ -189,7 +258,10 @@
   "source": "inance as it relates to those Blocks.      The judgment of the trial court is reversed and judgment is here rendered declaring the amendatory ordinance invalid in so, far as it relates to Blocks 5110 and 5113.      Reversed and rendered.       ",
   "score": 99.39393939393939,
   "page": "474",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "The only difference is a stray OCR comma in the source (\"so, far\"), not a wording change.",
+  "corrected_quote": "The judgment of the trial court is reversed and judgment is here rendered declaring the amendatory ordinance invalid in so far as it relates to Blocks 5110 and 5113."
  },
  {
   "case_id": 10283820,
@@ -197,7 +269,10 @@
   "source": "sed the garden and the barn lot. But the smaller house, being at the time of the purchase rented, continued to be occupied by the tenant until the levy of the attachment on March 14, 1927, some three months after the date of the purchase. As explained, however, by the appellee, the ren",
   "score": 97.95918367346938,
   "page": "584",
-  "supports": "characterization"
+  "supports": "characterization",
+  "recommendation": "mismatch",
+  "justification": "The quote omits the word \"the\" before \"attachment,\" which the source includes.",
+  "corrected_quote": "the smaller house, being at the time of the purchase rented, continued to be occupied by the tenant until the levy of the attachment on March 14, 1927, some three months after the date of the purchase"
  },
  {
   "case_id": 9522208,
@@ -205,7 +280,10 @@
   "source": "d 196 (La.1978).      III. CONCLUSION      For the foregoing reasons, the judgment of the trial court is correct and is affirmed at the appellants\u2019 costs.      AFFIRMED.             1       . No appeal",
   "score": 99.09909909909909,
   "page": "5",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "\"Por\" is an OCR misread of \"For\"; the remaining text matches the source exactly.",
+  "corrected_quote": "For the foregoing reasons, the judgment of the trial court is correct and is affirmed at the appellants' costs."
  },
  {
   "case_id": 9606185,
@@ -213,7 +291,10 @@
   "source": "          STATEMENT OF THE CASE           \u201cOn or about May 22, 1976, the Laubies were paying guests at the Royal Sonesta Hotel, which at all material times was under the management and control of Sones-ta. The Laubies are citizens of France and had oc",
   "score": 99.37888198757764,
   "page": "1375",
-  "supports": "polarity"
+  "supports": "polarity",
+  "recommendation": "ocr-ok",
+  "justification": "The only difference is OCR hyphenation of \"Sonesta\" in the source; wording is identical.",
+  "corrected_quote": "On or about May 22, 1976, the Laubies were paying guests at the Royal Sonesta Hotel, which at all material times was under the management and control of Sonesta."
  },
  {
   "case_id": 11517809,
@@ -221,7 +302,10 @@
   "source": " the interpretation of zoning regulations.      It is uncontested that the property in question, 2915 Chestnut St., is the Weis-lers\u2019 residence in the middle of the Garden District. In Humphrey, supra, this Court emphasize",
   "score": 99.24242424242425,
   "page": "1261",
-  "supports": "who_was_letting"
+  "supports": "who_was_letting",
+  "recommendation": "ocr-ok",
+  "justification": "The only difference is OCR hyphenation of \"Weislers'\" in the source; wording is identical.",
+  "corrected_quote": "It is uncontested that the property in question, 2915 Chestnut St., is the Weislers' residence in the middle of the Garden District."
  },
  {
   "case_id": 11766370,
@@ -229,7 +313,10 @@
   "source": "ty and Permits for a permit to operate a bed and breakfast at his residence. The Department of Safety and Permits denied the Plaintiffs request for the bed and breakfast permit on the grounds that the Plaintiff had not attained a nonconforming use of his residence. Thereafter, t",
   "score": 99.47089947089947,
   "page": "436",
-  "supports": "polarity"
+  "supports": "polarity",
+  "recommendation": "ocr-ok",
+  "justification": "The only difference is a missing apostrophe in \"Plaintiffs\" in the source, a trivial punctuation variant.",
+  "corrected_quote": "The Department of Safety and Permits denied the Plaintiff's request for the bed and breakfast permit on the grounds that the Plaintiff had not attained a nonconforming use of his residence."
  },
  {
   "case_id": 11766370,
@@ -237,7 +324,10 @@
   "source": "l judgment. For the reasons that follow, we affirm.      FACTS:      PlaintifftAppellant Louis R. Koerner, Jr. (\u201cPlaintiff\u2019) is an attorney who purchased a residence located at 1204 Jackson Avenue in the city of New Orleans on October 26, 1979. Plaintiffs residence",
   "score": 98.85714285714286,
   "page": "436",
-  "supports": "who_was_letting"
+  "supports": "who_was_letting",
+  "recommendation": "ocr-ok",
+  "justification": "The differences (\"PlaintifftAppellant\" for \"Plaintiff-Appellant\" and a stray quote mark) are OCR noise, not wording changes.",
+  "corrected_quote": "Plaintiff-Appellant Louis R. Koerner, Jr. (\"Plaintiff\") is an attorney who purchased a residence located at 1204 Jackson Avenue in the city of New Orleans on October 26, 1979."
  },
  {
   "case_id": 12692177,
@@ -245,7 +335,10 @@
   "source": ", 809 So.2d 1256, 1259.      Because the trial court herein failed to issue a ruling on the merits of the Summary Sales Tax Proceeding brought by the Collector, this court has no jurisdiction to decide this appeal. Accordingly, we must reverse the appealed judgment and remand this matter to the trial court for a rehearing.      DECREE      For the foregoing reasons, the judgment signed on M",
   "score": 96.97986577181209,
   "page": "701",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "mismatch",
+  "justification": "The quote says the case is remanded 'for further proceedings' while the source says 'for a rehearing,' a substantive wording change.",
+  "corrected_quote": "Because the trial court herein failed to issue a ruling on the merits of the Summary Sales Tax Proceeding brought by the Collector, this court has no jurisdiction to decide this appeal. Accordingly, we must reverse the appealed judgment and remand this matter to the trial court for a rehearing."
  },
  {
   "case_id": 4268287,
@@ -253,7 +346,10 @@
   "source": "r omissions occurred within seven days prior to such request.\u201d      The court finds BOT\u2019s argument that licensees housed at BOT are exempt from statutory protections and may be subject to extrajudicial eviction unpersuasive and not grounded in fact or law. There exists no law exempt",
   "score": 97.40932642487047,
   "page": "627",
-  "supports": "polarity"
+  "supports": "polarity",
+  "recommendation": "mismatch",
+  "justification": "The quote inserts the word 'that' after 'finds' which is not present in the source and alters the grammar.",
+  "corrected_quote": "The court finds BOT\u2019s argument that licensees housed at BOT are exempt from statutory protections and may be subject to extrajudicial eviction unpersuasive and not grounded in fact or law."
  },
  {
   "case_id": 5735453,
@@ -261,7 +357,10 @@
   "source": "denced by Multiple Dwelling Law \u00a7 248 (16), which makes it \u201cunlawful to rent any room in any such [SRO] dwelling for a period of less than a week,\u201d thereby implying that rentals of a week or more are lawful. Further evidence that it is permiss",
   "score": 98.0392156862745,
   "page": "236",
-  "supports": "duration_of_occupancy"
+  "supports": "duration_of_occupancy",
+  "recommendation": "ocr-ok",
+  "justification": "The quote matches the source verbatim aside from the quote simply ending before the source's continuation.",
+  "corrected_quote": null
  },
  {
   "case_id": 9929170,
@@ -269,7 +368,10 @@
   "source": "ivity should be enjoined.      We believe this latter holding controls the present case.      It was uncontradicted that the Fox-worths received $85 each month as rental on the garage apartment (an establishment on the premises, separate and apart from the dwelling house), and that approximately $6 per month was spent on the utilities for the garage apart",
   "score": 99.625468164794,
   "page": "153",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "The only difference is the hyphenation of 'Foxworths' vs 'Fox-worths,' a trivial OCR/typesetting artifact.",
+  "corrected_quote": null
  },
  {
   "case_id": 5289134,
@@ -277,7 +379,10 @@
   "source": "property \u201c without due process of law.\u201d      We think not. The charter of the city expressly delegates the power to \u201c regulate houses of prostitution and assignation \u201d and \u201c to exclude such houses from certain limits\u201d and \u201cto close the same,\u201d and \u201cto authorize the Mayor to close such places.\u201d Act 20 of 1882, sec. 8, pa",
   "score": 98.26086956521739,
   "page": "1081",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "mismatch",
+  "justification": "The quote omits the word 'to' before 'exclude such houses,' which is present in the source's parallel clause structure.",
+  "corrected_quote": "The charter of the city expressly delegates the power to \u201c regulate houses of prostitution and assignation \u201d and \u201c to exclude such houses from certain limits\u201d and \u201cto close the same,\u201d and \u201cto authorize the Mayor to close such places.\u201d"
  },
  {
   "case_id": 5303699,
@@ -285,7 +390,10 @@
   "source": "gally issues without probable cause, malice will be inferred.      When a lessor, in illegally issuing a writ of ejectment was actuated by malice, he is liable to a lessee for damages, as a recomperse for an oufet age upon his rights and feelings as a citizen and a man.      A PPEAL from the ",
   "score": 99.50738916256158,
   "page": "15",
-  "supports": "polarity"
+  "supports": "polarity",
+  "recommendation": "ocr-ok",
+  "justification": "The word 'recompense' vs source's 'recomperse' is a trivial OCR letter-confusion, with the rest of the passage matching exactly.",
+  "corrected_quote": null
  },
  {
   "case_id": 644432,
@@ -293,7 +401,10 @@
   "source": "m, constitutes no defense to an. action for the rent.      The action is on a written lease of a' suit of rooms bathe apartment house of the plaintiff, known as the \u201cFour Seasons.\u201d The hiring was for one year from November 1, 1882, and the recovery sought is th",
   "score": 98.24561403508771,
   "page": "514",
-  "supports": "characterization"
+  "supports": "characterization",
+  "recommendation": "ocr-ok",
+  "justification": "The source contains OCR garbling ('a' suit', 'bathe') that the quote correctly renders as the same faithful words ('a suit', 'in the').",
+  "corrected_quote": null
  },
  {
   "case_id": 1407541,
@@ -301,7 +412,10 @@
   "source": "ese rooms, or of the effect of such rule. That rule simply instructed the jury to give the plaintiff that compensation for the loss of the use and occupation of those rooms for which he had furniture, as the evidence showed the use and occupation of such rooms furnished for hotel purposes was worth, and also for those rooms for which he did not have furniture, such compensation as ' the evidence showed their use and occupation was worth.      It was right that the plaintiff should b",
   "score": 99.49622166246851,
   "page": "116",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "The only difference is a stray apostrophe in the source ('as ' the'), a trivial OCR punctuation artifact.",
+  "corrected_quote": null
  },
  {
   "case_id": 1407541,
@@ -309,7 +423,10 @@
   "source": "an be shown like the value of the use of any other property. The premises were leased by the defendant to the plaintiff for hotel purposes, which contemplates the provision of suitable furniture for the rooms for the use of such persons as the plaintiff in his business as a hotel keeper should let them to, and when deprived by the def",
   "score": 99.59349593495935,
   "page": "116",
-  "supports": "polarity"
+  "supports": "polarity",
+  "recommendation": "ocr-ok",
+  "justification": "The quote is a faithful excerpt that simply ends with a period where the source continues with a comma into further text.",
+  "corrected_quote": null
  },
  {
   "case_id": 1965708,
@@ -317,7 +434,10 @@
   "source": "ch of that contract by the defendant.      The defendant seeks to counter-claim a cause .of action arising to him out of the self same contract.      This comes directly within section 150 o",
   "score": 99.0,
   "page": "200",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "The only difference is a stray period in the source ('cause .of'), a trivial OCR punctuation artifact, with the quote using the correct 'cause of'.",
+  "corrected_quote": null
  },
  {
   "case_id": 1978598,
@@ -325,7 +445,10 @@
   "source": "servants to leave, the hall door unlocked.      There is authority for holding that a lodging house keeper like the defendant does not assume responsibility for the goods of his lodger, as he does not take them into Ms custody. Edwards on Bailments, sec. 477; Smith v. R",
   "score": 98.88888888888889,
   "page": "589",
-  "supports": "polarity"
+  "supports": "polarity",
+  "recommendation": "ocr-ok",
+  "justification": "The only difference is an OCR misread of 'his' as 'Ms', a common ligature/scan error; the wording is otherwise identical.",
+  "corrected_quote": "There is authority for holding that a lodging house keeper like the defendant does not assume responsibility for the goods of his lodger, as he does not take them into Ms custody."
  },
  {
   "case_id": 1978598,
@@ -333,7 +456,10 @@
   "source": "s (13th ed.), vol. 2, marg., 596.      But conceding that the defendant was bound, as a lodging house keeper, to take the same care of the plaintiff\u2019s property that a prudent person takes of Ms own, the defendant, nevertheless, was entitled to judgment in his favor. The plaintiff complains that the defendant did not ",
   "score": 99.12280701754386,
   "page": "589",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "Only difference is the OCR misread of 'his' as 'Ms'; wording otherwise matches exactly.",
+  "corrected_quote": "But conceding that the defendant was bound, as a lodging house keeper, to take the same care of the plaintiff\u2019s property that a prudent person takes of Ms own, the defendant, nevertheless, was entitled to judgment in his favor."
  },
  {
   "case_id": 2030674,
@@ -341,7 +467,10 @@
   "source": "ove mentioned, in two significant particulars: 1st. It involves a lease for the ordinary period of one year,- instead of a few weeks or months \u2022during the fashionable season. 2d. The cause of complaint did not o",
   "score": 99.17355371900827,
   "page": "957",
-  "supports": "characterization"
+  "supports": "characterization",
+  "recommendation": "ocr-ok",
+  "justification": "Text matches with only trivial punctuation/hyphenation and stray-mark differences from scanning.",
+  "corrected_quote": "It involves a lease for the ordinary period of one year,- instead of a few weeks or months \u2022during the fashionable season."
  },
  {
   "case_id": 2030674,
@@ -349,7 +478,10 @@
   "source": "he property leased, whether real or personal.      We do not think that there was any covenant in the lease in question, implied either by common law or from the acts or relations of the parties, that extended to the grievance of which the-defendant complains.      The judgment should, therefore, ",
   "score": 99.51923076923077,
   "page": "959",
-  "supports": "holding_summary"
+  "supports": "holding_summary",
+  "recommendation": "ocr-ok",
+  "justification": "Only a trivial spacing/hyphenation difference around 'the-defendant'; wording is identical.",
+  "corrected_quote": "We do not think that there was any covenant in the lease in question, implied either by common law or from the acts or relations of the parties, that extended to the grievance of which the-defendant complains."
  },
  {
   "case_id": 2039624,
@@ -357,7 +489,10 @@
   "source": "e, and as they were found and determined so went the judgment.      We concur with the trial judge respecting the indebtedness of ;he assignor to his wife, and in his conclusion that the debt was croperly preferred in the assignment.      The judgment sho",
   "score": 99.39393939393939,
   "page": "341",
-  "supports": "polarity"
+  "supports": "polarity",
+  "recommendation": "ocr-ok",
+  "justification": "Difference is an OCR misread of 'the' as ']he'/';he' and 'properly' as 'croperly'; wording is otherwise identical.",
+  "corrected_quote": "We concur with the trial judge respecting the indebtedness of ;he assignor to his wife, and in his conclusion that the debt was croperly preferred in the assignment."
  },
  {
   "case_id": 2081402,
@@ -365,7 +500,10 @@
   "source": " convenience, but because he cannot help it.      2. Saids.      Defendant\u2019s lease ended, by its terms, on May 1, and provided that the premises should he occupied as a private dwelling and not sublet without the written consent of the lessor. Defendant sublet the premises to C., who occupied them as a boarding house, and one of her boarders was a chronic invalid. The first of May was a h",
   "score": 99.66777408637874,
   "page": "243",
-  "supports": "polarity"
+  "supports": "polarity",
+  "recommendation": "ocr-ok",
+  "justification": "Text matches nearly verbatim aside from an OCR misread of 'be' as 'he'.",
+  "corrected_quote": "Defendant\u2019s lease ended, by its terms, on May 1, and provided that the premises should he occupied as a private dwelling and not sublet without the written consent of the lessor. Defendant sublet the premises to C., who occupied them as a boarding house, and one of her boarders was a chronic invalid."
  },
  {
   "case_id": 2251466,
@@ -373,7 +511,10 @@
   "source": " lease ended by its terms on May 1,1889; that it contained a provision that the premises should be occupied as a private dwelling, and a covenant not to sublet without the written consent of the lessor. Both stipulations were violated. The tenant, without permission, rented the premises to Mrs. Coventry, who occupied them as a boarding-house, and received, as one of her boarders, a lad",
   "score": 99.66442953020133,
   "page": "289",
-  "supports": "characterization"
+  "supports": "characterization",
+  "recommendation": "ocr-ok",
+  "justification": "Quote is a faithful, verbatim excerpt of the source that simply stops before the sentence continues; no words altered.",
+  "corrected_quote": "it contained a provision that the premises should be occupied as a private dwelling, and a covenant not to sublet without the written consent of the lessor. Both stipulations were violated. The tenant, without permission, rented the premises to Mrs. Coventry, who occupied them as a boarding-house."
  },
  {
   "case_id": 2251466,
@@ -381,7 +522,10 @@
   "source": " lease ended by its terms on May 1,1889; that it contained a provision that the premises should be occupied as a private dwelling, and a covenant not to sublet without the written consent of the lessor. Both stipulations were violated. The tenant, without permission, rented the premises to Mrs. Coventry, who occupied them as a boarding-house, and received, as one of her boarders, a lad",
   "score": 99.66442953020133,
   "page": "289",
-  "supports": "polarity"
+  "supports": "polarity",
+  "recommendation": "ocr-ok",
+  "justification": "Duplicate of the prior faithful excerpt; matches source verbatim up to where the quote ends.",
+  "corrected_quote": "it contained a provision that the premises should be occupied as a private dwelling, and a covenant not to sublet without the written consent of the lessor. Both stipulations were violated. The tenant, without permission, rented the premises to Mrs. Coventry, who occupied them as a boarding-house."
  },
  {
   "case_id": 2297464,
@@ -389,7 +533,10 @@
   "source": "or during a stated period of time; the second is for the value of the exclusive use of a room by him' in the plaintiff\u2019s boarding house during a period mentioned in the complaint.; and the third is for the value of the partial use of a room by him in her house during another period of time also stated in the complaint. The reasonable value of the meals furnished and the v",
   "score": 99.64788732394366,
   "page": "200",
-  "supports": "who_was_letting"
+  "supports": "who_was_letting",
+  "recommendation": "ocr-ok",
+  "justification": "Text matches with only a trivial stray-apostrophe scan artifact after 'him'.",
+  "corrected_quote": "the second is for the value of the exclusive use of a room by him' in the plaintiff\u2019s boarding house during a period mentioned in the complaint.; and the third is for the value of the partial use of a room by him in her house during another period of time also stated in the complaint."
  },
  {
   "case_id": 2301654,
@@ -397,7 +544,10 @@
   "source": "servant of the defendants upon the plaintiff. \u25a0 The .defendants kept a lodging house in the city of New York. The plaintiff had stayed there one or two' nights. According to the plaintiff\u2019s story he w",
   "score": 98.18181818181819,
   "page": "96",
-  "supports": "characterization"
+  "supports": "characterization",
+  "recommendation": "ocr-ok",
+  "justification": "Only trivial OCR spacing/punctuation noise ('.defendants', stray apostrophe after 'two'); wording is identical.",
+  "corrected_quote": "The .defendants kept a lodging house in the city of New York. The plaintiff had stayed there one or two' nights."
  },
  {
   "case_id": 872177,
