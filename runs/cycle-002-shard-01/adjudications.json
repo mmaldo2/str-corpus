@@ -1,0 +1,850 @@
+[
+ {
+  "case_id": 2315036,
+  "field": "relevant",
+  "recommendation": false,
+  "justification": "The opinion resolves whether tort-like damages (destroyed household goods, lost use of premises, attorney fees) from a wrongful eviction must be litigated inside a forcible entry and detainer suit or may be pursued separately under Arts. 3990/3994. The existence of a tenancy is stipulated background fact, never contested or analyzed for its legal character.",
+  "supporting_quote": "as Tallwater's contract of tenancy had expired the preceding December 6, 1937",
+  "verdict": "PLAUSIBLE"
+ },
+ {
+  "case_id": 2315036,
+  "field": "polarity",
+  "recommendation": "irrelevant",
+  "justification": "Because the case turns entirely on remedy-exclusivity under the forcible entry and detainer statutes rather than on whether letting is a protected incident of ownership or a regulated privilege, it does not speak to either pole of the polarity scale.",
+  "supporting_quote": "plaintiffs were obliged by statute (Art. 3990) to assert said damages in the forcible entry and detainer action",
+  "verdict": "PLAUSIBLE"
+ },
+ {
+  "case_id": 2315036,
+  "field": "characterization",
+  "recommendation": null,
+  "justification": "The court never classifies the occupancy arrangement as a lease, license, lodging, or innkeeping relationship \u2014 it simply accepts the parties' own label of landlord and tenant while deciding a procedural damages question, so no characterization value applies.",
+  "supporting_quote": "recovery of damages ... suffered by the plaintiffs as proximate result of an alleged wrongful eviction of the plaintiffs, at the instance of the defendant, from a certain building which was lawfully in the possession of the plaintiffs as the tenants of the defendant",
+  "verdict": "PLAUSIBLE"
+ },
+ {
+  "case_id": 2923357,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The case squarely addresses whether a bank's leasing of surplus office space it owns can be taxed as a business, requiring the court to characterize the legal nature of an owner letting rooms/space to others for compensation.",
+  "supporting_quote": "the right to lease one's own property may be regarded as an incident of ownership, and a license tax thereon as a property tax in the guise of an excise tax",
+  "verdict": "CONFIRMED"
+ },
+ {
+  "case_id": 2923357,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court holds the omnibus license-tax clause inapplicable to an owner leasing its own surplus space, treating the right to let one's property as an incident of ownership that a license tax could not constitutionally burden without raising uniformity problems.",
+  "supporting_quote": "the right to lease one's own property may be regarded as an incident of ownership",
+  "verdict": "CONFIRMED"
+ },
+ {
+  "case_id": 2923357,
+  "field": "characterization",
+  "recommendation": "lease",
+  "justification": "Throughout the opinion the court repeatedly and exclusively describes the arrangement as leasing of surplus office space to tenants, never considering license, lodging, or innkeeping framings.",
+  "supporting_quote": "the upper part, which its present needs do not require, is leased to various persons for offices",
+  "verdict": "CONFIRMED"
+ },
+ {
+  "case_id": 10055905,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The court expressly analyzes whether paying to occupy rooms in another's building creates a landlord-tenant relationship, holding it does not automatically do so \u2014 a direct statement on the legal character of compensated occupancy, even though the case's ultimate disposition turns on premises-liability to a child.",
+  "supporting_quote": "One may occupy property and pay for such occupancy without being a tenant of anyone.",
+  "verdict": "CONFIRMED"
+ },
+ {
+  "case_id": 10055905,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The opinion neither favors nor restricts an owner's right to let; instead it narrows what compensated occupants can claim against a non-privy owner (no landlord-tenant duty flows to the new owner) while still recognizing the underlying sublease as valid, so it cuts in more than one direction rather than falling cleanly on either pole.",
+  "supporting_quote": "It is certain that after defendant acquired the property he did not do anything, expressly or tacitly, to assume the status of landlord to Plitt or plaintiff.",
+  "verdict": "PLAUSIBLE"
+ },
+ {
+  "case_id": 10055905,
+  "field": "characterization",
+  "recommendation": "license",
+  "justification": "Although the underlying room occupancy arose from an uncontested sublease, the specific compensated-occupancy question the court actually decided \u2014 the child's and family's status in using the shared driveway incident to that occupancy \u2014 was expressly classified as a license.",
+  "supporting_quote": "plaintiff and the members of his family were licensees by permission",
+  "verdict": "PLAUSIBLE"
+ },
+ {
+  "case_id": 3071489,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The case directly confronts whether the state may tax the business of leasing office space, and revisits the ownership-incident reasoning from the City Savings Bank case, making it centrally about the legal character and regulation of letting.",
+  "supporting_quote": "the right of a property owner to rent his property to others and to receive the rent is an inherent right, or attribute of ownership",
+  "verdict": "CONFIRMED"
+ },
+ {
+  "case_id": 3071489,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The court preserves isolated leasing as a free incident of ownership but upholds a license tax once that leasing rises to an organized business of operating an office building, so the opinion contains both a favorable strand (ownership incident) and an adverse strand (regulation upheld).",
+  "supporting_quote": "an isolated instance of the leasing of property by its owner would not be deemed pursuing a trade, business, occupation, vocation, or profession",
+  "verdict": "CONFIRMED"
+ },
+ {
+  "case_id": 3071489,
+  "field": "characterization",
+  "recommendation": "lease",
+  "justification": "The arrangement at issue throughout is the defendant's leasing of office space to tenants in its building, discussed and cited alongside the parallel leasing arrangement in State v. City Savings Bank & Trust Co.",
+  "supporting_quote": "operating or managing of an office building, whether by the owner or by a lessee of the building, is now well recognized as the carrying on of an occupation or business",
+  "verdict": "CONFIRMED"
+ },
+ {
+  "case_id": 29709,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The court analogizes a steamboat stateroom passenger to an innkeeper's guest to decide the carrier's liability for lost property, directly engaging with the legal character of compensated occupancy of a room furnished for the night.",
+  "supporting_quote": "A steamer carrying passengers upon the water, and furnishing them with rooms and entertainment, is, for all practical purposes, a floating inn",
+  "verdict": "CONFIRMED"
+ },
+ {
+  "case_id": 29709,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "Rather than protecting the room-provider's autonomy (favorable) or upholding an external regulatory restriction on letting (adverse), the court extends a stringent common-law insurer-liability duty onto the party furnishing paid lodging, a result that does not map cleanly onto either pole of the scale.",
+  "supporting_quote": "the defendant was properly held liable in this case for the money stolen from the plaintiff without any proof of negligence",
+  "verdict": "PLAUSIBLE"
+ },
+ {
+  "case_id": 29709,
+  "field": "characterization",
+  "recommendation": "innkeeping",
+  "justification": "The court's holding rests entirely on treating the steamboat-stateroom relationship as legally equivalent to the innkeeper-guest relationship, explicitly rejecting a lesser sleeping-car/carrier analogy.",
+  "supporting_quote": "The relations that exist between a steamboat company and its passengers, who have procured staterooms for their comfort during the journey, differ in no essential respect from those that exist between the innkeeper and his guests.",
+  "verdict": "CONFIRMED"
+ },
+ {
+  "case_id": 314949,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The opinion is centered on whether a steamboat company's liability for property lost from a passenger's stateroom is governed by the common-law rule for innkeepers, extensively analyzing what distinguishes an innkeeper-like lodging arrangement (indiscriminate lodging/entertainment for reward) from a sleeping-car company's mere accommodation. This is a direct engagement with the legal character of compensated-lodging arrangements.",
+  "supporting_quote": "the character of a \u201c travelling inn \u201d (Macklin v. Stmbt. Co., 7 Abb. Pr. [N. S.] 229) is, with regard to liability for loss of baggage or personal effects, borne out strongly in the case of these carriers"
+ },
+ {
+  "case_id": 314949,
+  "field": "polarity",
+  "recommendation": "irrelevant",
+  "justification": "The case decides a tort-liability question (whether loss occurring without proof of negligence renders the carrier liable as an insurer, like an innkeeper) rather than whether letting/lodging is a protected incident of ownership or whether regulation/restriction of letting should be upheld. Neither 'favorable' nor 'adverse' fairly captures a holding that is purely about the standard of care/liability for lost property.",
+  "supporting_quote": "the defendant company was liable for the loss of plaintiff\u2019s money, to an amount which might reasonably be carried for traveling expenses, retained by him in his designated stateroom, without proof of negligence upon the part of defendant"
+ },
+ {
+  "case_id": 314949,
+  "field": "characterization",
+  "recommendation": "innkeeping",
+  "justification": "The court repeatedly and explicitly analogizes the steamboat's stateroom accommodation to an inn, using the innkeeper liability standard both in its holding and in the trial judge's charge to the jury.",
+  "supporting_quote": "I think I shall have to charge, in accordance with the decisions of this court, that the responsibility is that of a hotel keeper, and that the mere fact of the loss would make the defendant liable to pay for it"
+ },
+ {
+  "case_id": 832648,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "Although primarily a will-construction case about a life estate, the court's reasoning turns on whether the devisees' interest permits them to occupy the property themselves or instead let it to others for rent, directly addressing letting as a lawful incident of a possessory property interest.",
+  "supporting_quote": "It does not create a mere easement for her personal use; she might either occupy it herself, or let it to another, receiving from it the rent it produces."
+ },
+ {
+  "case_id": 832648,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court holds that the devisees are entitled to unconditional possession and may use the property as they see fit, including by letting it out for rent, rejecting the executors' argument that occupancy rights were conditioned on personal residence. This treats the right to let as a lawful incident of the granted estate rather than something restricted.",
+  "supporting_quote": "so long as Mrs. Dickey and her husband or the survivor of them live and \u201c pay the taxes, and keep up the repairs,\u201d they cannot be deprived of the possession of the property devised to them"
+ },
+ {
+  "case_id": 832648,
+  "field": "characterization",
+  "recommendation": "other",
+  "justification": "The arrangement at issue is a testamentary life estate, not a lease, license, lodging, or innkeeping relationship; the court's discussion of letting arises only incidentally in construing the scope of the devised estate.",
+  "supporting_quote": "vests in W. an estate in the two rooms for life, of which she may make any disposition"
+ },
+ {
+  "case_id": 856487,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "This is a classic landlord-tenant dispute over the nature of a residential/commercial lease and the tenancy created when a month-to-month tenant holds over, squarely addressing the legal character of compensated occupancy.",
+  "supporting_quote": "plaintiff leased to defendant the premises, No. 100 Sterner street, for the term of one month from September 27, 1894, at the monthly rental of $25.00"
+ },
+ {
+  "case_id": 856487,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court upholds the landlord's contractual terms and right to regain possession on one month's notice, enforcing the lease as written and the landlord's control over the tenancy rather than expanding the tenant's rights, which favors the landlord's lawful control incident to ownership.",
+  "supporting_quote": "the effect of his holding over and the landlord\u2019s acceptance of rent was to create a tenancy, not from year to year, but from month to month, which could be terminated ... by the landlord by giving one month\u2019s previous notice to quit"
+ },
+ {
+  "case_id": 856487,
+  "field": "characterization",
+  "recommendation": "lease",
+  "justification": "The opinion repeatedly refers to the arrangement as a lease and analyzes it under landlord-tenant doctrine (tenancy for years, holding over, tenancy from month to month).",
+  "supporting_quote": "By said agreement plaintiff leased to defendant the premises"
+ },
+ {
+  "case_id": 860155,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The case addresses the legal character of an employee's occupancy of a room furnished by his employer as part of his wages, expressly distinguishing it from an ordinary landlord-tenant relationship, which bears directly on the classification of compensated occupancy arrangements.",
+  "supporting_quote": "As part of the consideration for his services or wages, Huggins was allowed to occupy with his wife a room or rooms on the second floor of the livery building."
+ },
+ {
+  "case_id": 860155,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The court affirms the owner's right to repossess the room and evict the occupant without liability once employment ended (favoring the owner's control over the space), but simultaneously holds the owner liable for wantonly injuring the occupant during that process, protecting the occupant to that extent. Neither a purely favorable nor purely adverse label fits.",
+  "supporting_quote": "they had the right to have the possession of that property and to put these parties out ... yet they had no right to wantonly injure them"
+ },
+ {
+  "case_id": 860155,
+  "field": "characterization",
+  "recommendation": "other",
+  "justification": "The court expressly rejects treating the arrangement as a tenancy in the landlord-tenant sense, and it does not fit lease, license, lodging, or innkeeping as those terms are conventionally used; it is a service-based occupancy right tied to employment.",
+  "supporting_quote": "He was not a tenant in the sense in which that term is used in Bowman v. Bradley, 151 Pa. 351"
+ },
+ {
+  "case_id": 1054003,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The case directly construes the legal category of compensated lodging for regulatory/tax purposes, deciding whether a motel qualifies as a 'lodging house' subject to a municipal occupancy tax, which is squarely about the legal character and regulation of paid room occupancy.",
+  "supporting_quote": "the People urge that the local law imposing the tax applies to all types of accommodations for the lodging of transients and that a \u201c motel \u201d falls squarely within the definition of \u201c lodging house \u201d"
+ },
+ {
+  "case_id": 1054003,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court narrowly construes the tax/regulatory statute against the taxing authority and refuses to extend 'lodging house' regulation to motels absent explicit statutory language, resolving doubt in favor of the operator rather than upholding an expansive regulatory reach.",
+  "supporting_quote": "If there is a reasonable doubt as to the meaning of the language employed, it should be resolved against the taxing authority."
+ },
+ {
+  "case_id": 1054003,
+  "field": "characterization",
+  "recommendation": "other",
+  "justification": "The court is not characterizing an actual lease/license/lodging/innkeeping relationship between parties but performing a statutory classification exercise distinguishing 'hotel,' 'motel,' and 'lodging house' for tax purposes, concluding a motel is none of the taxed categories as then defined.",
+  "supporting_quote": "The distinction between a \u2018 hotel \u2019 and a \u2018 motel \u2019 is firmly established in the mind of any reasonable person."
+ },
+ {
+  "case_id": 1074035,
+  "field": "relevant",
+  "recommendation": "False",
+  "justification": "This is a real-property covenant-enforcement dispute about who may enforce restrictive covenants after successive conveyances; 'boarding or rooming house' appears only as one throwaway term in a long laundry list of prohibited commercial uses (hotel, tourist house, bathing pavilion, store, office, garage, factory, stables, hospital, etc.). The court never analyzes what constitutes a boarding/rooming house, discusses lodging doctrine, or applies the restriction to any actual letting activity \u2014 the litigated uses are restaurant/bar and clubhouse operation.",
+  "supporting_quote": "shall not be used for the conduct of business of any character or description, or as a hotel, boarding or rooming house, tourist house, public bathing pavilion, store or stores, office or offices, multi-family dwelling, shop or shops, garage, factory, boat livery, stables, pound, hospital, clinic or sanitarium"
+ },
+ {
+  "case_id": 1074035,
+  "field": "polarity",
+  "recommendation": "irrelevant",
+  "justification": "Because the boarding/rooming-house term is incidental to a covenant dispute never actually adjudicated on that basis, there is no genuine favorable or adverse holding on compensated occupancy to record. The entire opinion turns on covenant-enforcement standing (which grantee/successor may enforce), a question orthogonal to the character or regulation of letting.",
+  "supporting_quote": "The ultimate conclusion reached is that the covenants and restrictions contained in the 1946 agreement are still binding upon the plaintiff Lakeshore Club and that its premises are subject thereto, but that the only person who may now be entitled to enforce the same is the original covenantee"
+ },
+ {
+  "case_id": 1088152,
+  "field": "relevant",
+  "recommendation": "False",
+  "justification": "This article 78 proceeding decides whether an apartment is 'under-occupied' for purposes of a landlord's statutory right to subdivide, by counting family members and a maid as 'legal occupants.' The maid's room-and-board arrangement is discussed only to determine occupant-counting eligibility under section 57's under-occupancy formula, not to characterize or regulate a compensated-occupancy/letting relationship between the tenant and a paying lodger or boarder.",
+  "supporting_quote": "Under such circumstances, Miss Gilmartin has lost the character and requisites of a full-time, live-in maid. Instead, she has become the full-time receptionist who performs services in petitioner's household in return for a small salary and room and board"
+ },
+ {
+  "case_id": 1088152,
+  "field": "polarity",
+  "recommendation": "irrelevant",
+  "justification": "Since the case does not bear on the legal character or regulation of compensated occupancy as such, no favorable/adverse holding on letting is present; the outcome (dismissal of tenant's petition) turns entirely on the separate rent-control under-occupancy eviction scheme, not on letting rights.",
+  "supporting_quote": "The determination of the respondent, on all counts, is fully and substantially supported by the record and the evidence."
+ },
+ {
+  "case_id": 1088152,
+  "field": "characterization",
+  "recommendation": "None",
+  "justification": "The court never classifies the maid's or family members' occupancy as a lease, license, lodging, or innkeeping arrangement; it applies a purely regulatory 'legal occupant' test under section 57 of the Rent and Eviction Regulations, so no doctrinal characterization of a compensated-occupancy relationship is made.",
+  "supporting_quote": "none of the three members of the Barrett family can be considered as occupants of subject apartment"
+ },
+ {
+  "case_id": 1112849,
+  "field": "characterization",
+  "recommendation": "other",
+  "justification": "The court resolves the case entirely through the statutory 'housekeeping' vs. 'nonhousekeeping' and single-family-occupancy decontrol categories of the rent regulations, never invoking or applying lease, license, lodging, or innkeeping doctrine to the arrangement. Because the court's own classificatory framework doesn't map onto any of those four doctrinal categories, 'other' better reflects how the court actually characterized the arrangement.",
+  "supporting_quote": "The landlord respondent having rented part of the dwelling unit for housekeeping purposes, the housing accommodation was occupied for other than single-family occupancy and the exemption from control terminated."
+ },
+ {
+  "case_id": 1126530,
+  "field": "characterization",
+  "recommendation": "None",
+  "justification": "378 Realty is a facial constitutional/declaratory-judgment challenge to rent-control hotel-classification provisions, resolved by applying prior adjudications (Hotel Armstrong, Fabian Studios, Sylarn Realty, Noxon Operating) rather than by the court itself classifying the plaintiffs' premises as hotel, rooming house, lease, license, or lodging. The extensive hotel/rooming-house discussion is summary of other cases' holdings, not this court's own characterization of an occupancy arrangement in this case.",
+  "supporting_quote": "the conclusion is inescapable that the court is concluded by the prior adjudications and the declarations as sought by the plaintiff are without merit"
+ },
+ {
+  "case_id": 1181699,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The court rejects the Administrator's categorical position that converted rooming-house premises can never qualify for decontrol \u2014 a holding favorable to the landlord's letting/conversion rights in principle \u2014 yet ultimately denies the petition and sustains continued rent control because the landlord failed to prove timely conversion, minimum unit size, and a net increase in accommodations. That combination of a favorable legal ruling with an adverse factual/practical outcome is better captured as mixed than as purely adverse.",
+  "supporting_quote": "I hold, in short, that there is no absolute bar to decontrol by reason of the fact that the conversion involved premises from rooming house accommodations and that the Administrator was in error in so assuming."
+ },
+ {
+  "case_id": 10222986,
+  "field": "relevant",
+  "recommendation": "False",
+  "justification": "The case is a liquor-possession/search-warrant appeal; the fact that appellant rented his house from a landlady is mentioned solely to establish his control of the premises for constructive-possession purposes, not to adjudicate any issue about the legal character or regulation of letting.",
+  "supporting_quote": "he rented the same, paid the rent and lived there"
+ },
+ {
+  "case_id": 10222986,
+  "field": "polarity",
+  "recommendation": "irrelevant",
+  "justification": "The tenancy fact is incidental background used only to prove possession of the searched premises; the court never reaches any question of whether letting is protected or restricted, so there is no favorable/adverse/mixed bearing on compensated occupancy.",
+  "supporting_quote": "Paul Peters was the person in charge of these premises, that it was his residence"
+ },
+ {
+  "case_id": 10222986,
+  "field": "characterization",
+  "recommendation": "None",
+  "justification": "The court never classifies the arrangement as a lease, license, lodging, or innkeeping in any legally operative way; it simply notes appellant rented and lived in the house as an evidentiary fact.",
+  "supporting_quote": "Paul Peters approached me to rent the house and he has paid me the rent during this time"
+ },
+ {
+  "case_id": 10223380,
+  "field": "relevant",
+  "recommendation": "False",
+  "justification": "This is a sufficiency-of-evidence theft appeal; the tourist camp is only the crime scene, and the opinion never analyzes the legal nature of the guest-camp relationship, so it does not bear on compensated occupancy doctrine.",
+  "supporting_quote": "all the rooms at this tourist court were occupied by guests, and of course during the hours of the soldier's sleep anyone of these different occupants of these rooms could have had access"
+ },
+ {
+  "case_id": 10223380,
+  "field": "polarity",
+  "recommendation": "irrelevant",
+  "justification": "Because the case never turns on or discusses the legal character of the lodging arrangement itself (it turns purely on circumstantial-evidence sufficiency for theft), it has no favorable, adverse, or mixed bearing on compensated occupancy.",
+  "supporting_quote": "we are of the opinion that same do not exclude every other reasonable hypothesis than that of appellant's guilt"
+ },
+ {
+  "case_id": 10223380,
+  "field": "characterization",
+  "recommendation": "None",
+  "justification": "The court applies no legal classification to the tourist-camp stay (lease, license, lodging, or innkeeping); 'registered' and 'guests' are used descriptively, not as part of any holding about the nature of the occupancy.",
+  "supporting_quote": "appellant refused to register at such camp, directing the person in charge thereof to let the soldier register"
+ },
+ {
+  "case_id": 10225079,
+  "field": "relevant",
+  "recommendation": "True",
+  "justification": "The underlying suit is a tourist-camp operator's action against a guest for unpaid rent and foreclosure of a landlord's lien on the guest's household goods \u2014 a direct compensated-occupancy dispute \u2014 even though the appellate opinion resolves it purely on appeal-bond and cost-bond procedure without reaching the merits.",
+  "supporting_quote": "the appellant, J. W. Webster, operator of a tourist camp, sued the appellee, W. A. Moore, for a debt of $42, for past due rent and for foreclosure of an alleged lien upon certain household goods"
+ },
+ {
+  "case_id": 10225079,
+  "field": "polarity",
+  "recommendation": "irrelevant",
+  "justification": "Although the underlying claim concerns rent and a landlord's lien, the Court of Civil Appeals decides only procedural questions (cost bonds, appeal bonds, a lost sequestration writ) and remands without ruling on the tenancy dispute's merits, so the opinion itself takes no favorable, adverse, or mixed position on compensated occupancy.",
+  "supporting_quote": "We thus conclude that the trial court erred in dismissing the cause. The judgment is therefore reversed and the cause remanded."
+ },
+ {
+  "case_id": 10225434,
+  "field": "relevant",
+  "recommendation": "True",
+  "justification": "The defense turned on the fact that the appellant's son had rented a room in the house to a third-party couple, which was offered to show that appellant and her son lacked control over the room where contraband was found \u2014 squarely implicating the legal effect of letting a room to a tenant.",
+  "supporting_quote": "about two months prior to the search, he had rented the room where the wine was found to a man and his wife, whose names he gave as Mr. and Mrs. Roy Jones"
+ },
+ {
+  "case_id": 10225434,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court treats the act of letting the room to tenants as legally significant and legitimate \u2014 it is precisely what could sever the owner's control and knowledge, supporting reversal for insufficient circumstantial proof of the owner's possession, i.e., letting is treated as an ordinary, lawful incident of ownership that can defeat imputed possession.",
+  "supporting_quote": "He denied that either he or his mother had any control over the room at the time the search was made, and said that Mr. and Mrs. Jones were away at the time of the search"
+ },
+ {
+  "case_id": 10225434,
+  "field": "characterization",
+  "recommendation": "lease",
+  "justification": "The son's arrangement with the Joneses \u2014 renting a room for a period of about two months until they vacated \u2014 is described as a tenancy (renting), i.e., a lease of a room, not a license, lodging-house, or innkeeping relationship.",
+  "supporting_quote": "he had rented the room ... to a man and his wife ... and that they vacated the room about a week after the search"
+ },
+ {
+  "case_id": 10228629,
+  "field": "relevant",
+  "recommendation": "False",
+  "justification": "This is a single-family-zoning dispute over using part of a home as a dentist's office; it concerns regulation of professional/business use of a residence, not compensated occupancy of another's dwelling or rooms (lodging, boarding, or letting to another occupant).",
+  "supporting_quote": "no building or premises shall be used ... for other than one or more of the following uses ... including one private office of a physician, surgeon, dentist, musician, or artist ... incidental to the enjoyment of such premises as a bona fide home"
+ },
+ {
+  "case_id": 10228629,
+  "field": "polarity",
+  "recommendation": "irrelevant",
+  "justification": "Because the case does not involve letting rooms or the dwelling to another person for compensation at all \u2014 it is about a homeowner's own professional use of his residence under zoning law \u2014 it has no bearing, favorable or adverse, on compensated occupancy.",
+  "supporting_quote": "the governing body of the City, in the exercise of its police power, was justified in prohibiting the use of premises in the residential district for the practice of dentistry"
+ },
+ {
+  "case_id": 10232188,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The court squarely analyzes whether the railroad's furnishing of outfit-car quarters to its section foreman in exchange for his labor created a landlord-tenant relationship, working through licensee, invitee, and tenant frameworks before rejecting all of them in favor of an employment-incident theory. That is a direct engagement with the legal character of compensated occupancy of another's dwelling, even though the 'compensation' is labor rather than cash rent.",
+  "supporting_quote": "The compensation for their use was in the labor performed on the section of railroad under Mills' jurisdiction. When the labor ceased the right to occupy the outfit cars came to an end and in no sense can this be construed to be a relationship of landlord and tenant."
+ },
+ {
+  "case_id": 10232188,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The opinion cuts both ways: it entertains and largely endorses the pro-owner rule that a landlord owes no repair duty absent agreement or concealment (favorable to unrestricted letting), yet its ultimate holding strips the occupancy of tenant status altogether, treating it as a bare incident of employment rather than a protected leasehold. Neither a clean 'favorable' nor 'adverse' regulatory outcome fits.",
+  "supporting_quote": "It is well-established law in this state ... that in the absence of a statute or an agreement by the landlord to make improvements or repairs ... the tenant takes the risk of the safety of the premises and the landlord is not liable to him."
+ },
+ {
+  "case_id": 10232188,
+  "field": "characterization",
+  "recommendation": "other",
+  "justification": "The court explicitly declines to classify the arrangement as a lease, license, lodging, or innkeeping relationship; it lands on an employer-employee/company-housing theory that doesn't map onto any of the four enumerated categories.",
+  "supporting_quote": "As we interpret the allegations and proof presented by the record the relationship existing between appellant and appellee throughout was that of employer and employee."
+ },
+ {
+  "case_id": 10232312,
+  "field": "relevant",
+  "recommendation": false,
+  "justification": "Although the decedent died in a paid tourist-camp cabin, the opinion's entire legal analysis is devoted to workers'-compensation 'course of employment' doctrine (causal connection, risk incidental to employment); it never addresses the legal character, classification, or regulation of the lodging arrangement itself. The cabin is incidental scenery for a carbon-monoxide injury, not the subject of legal analysis.",
+  "supporting_quote": "The only inquiries we think necessary to make are whether the injury received by Goss D. Cobb is one having to do with, and originating in, the work, business, trade or profession of his employer."
+ },
+ {
+  "case_id": 10232312,
+  "field": "polarity",
+  "recommendation": "irrelevant",
+  "justification": "Because the case does not adjudicate any dispute over the lawfulness, protection, or regulation of the lodging relationship, neither the 'favorable' nor 'adverse' polarity categories apply; the lodging is merely the situs of a workers'-comp accident.",
+  "supporting_quote": "We have concluded from the agreed facts that the injury to Cobb was the result of an accident within the meaning of the Workmen's Compensation Law of this State."
+ },
+ {
+  "case_id": 10232312,
+  "field": "characterization",
+  "recommendation": null,
+  "justification": "The court never characterizes the tourist-camp stay in landlord-tenant, license, lodging, or innkeeping terms; it is treated only as a place of overnight lodging incidental to travel, with no legal classification analysis performed.",
+  "supporting_quote": "Cobb arrived in El Paso on Sunday night, November 8, 1936, and went to the Del Norte Tourist Camp, in which his employer owned no interest and over which it had no control."
+ },
+ {
+  "case_id": 3764406,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The case turns entirely on a written lease of a single-family dwelling to seven unrelated tenants and a zoning board's power to restrict that letting arrangement by classifying occupants as 'separate roomers' rather than a family equivalent, directly implicating the legal character and municipal regulation of compensated occupancy.",
+  "supporting_quote": "On June 15, 2009, petitioner entered into a written agreement to lease the property to seven Binghamton University students, for a term of approximately two years."
+ },
+ {
+  "case_id": 3764406,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The court affirms the zoning board's restriction on the letting arrangement (occupants found not a family equivalent, upholding the violation) \u2014 an adverse outcome for the landlord's freedom to let \u2014 but then denies the City's attempt to use RPAPL 715 to force eviction, protecting the tenants' continued occupancy. The result is genuinely split rather than uniformly restrictive or protective.",
+  "supporting_quote": "Respondents are hereby permanently enjoined from any use of RPAPL 715 to enforce the decision of the ZBA ... and the petition is otherwise dismissed, with prejudice."
+ },
+ {
+  "case_id": 3764406,
+  "field": "characterization",
+  "recommendation": "lease",
+  "justification": "The occupancy at issue was created and governed throughout by a formal written lease naming a 'head of the family' tenant and a monthly rent figure, and the court's zoning analysis (roomers vs. family) is conducted entirely within that leasehold framework.",
+  "supporting_quote": "While recognizing that the lease designates Kim as 'head of the family,' the ZBA found little evidence that he functions in the role of a traditional head of household."
+ },
+ {
+  "case_id": 3765287,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The case decides whether a Loft Law tenant's vacatur of a leased unit constitutes 'abandonment' for purposes of removing rent-regulatory protection \u2014 a direct dispute over the legal character and regulatory treatment of a compensated leasehold in a dwelling unit.",
+  "supporting_quote": "Apartment 205 was rented to nonparty Kelly Bush for a term from September 2000 to August 2002 pursuant to a written lease."
+ },
+ {
+  "case_id": 3765287,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court upheld the Loft Board's regulatory finding that an ordinary end-of-tenancy turnover is not abandonment, thereby preserving rent-regulation coverage against the owner's attempt to decontrol the unit \u2014 this is a restriction on the owner's letting prerogatives being upheld, not letting being treated as a protected incident of ownership, so 'favorable' is the wrong label.",
+  "supporting_quote": "Rather than an abandonment, the Loft Board found that 'the [Tenant's] departure was in the nature of a departure at the expiration of a lease term ... by a tenant in good standing in the ordinary course.'"
+ },
+ {
+  "case_id": 3765287,
+  "field": "characterization",
+  "recommendation": "lease",
+  "justification": "The occupancy throughout is expressly a written lease followed by a month-to-month tenancy, and the entire abandonment analysis is conducted in leasehold terms (lease expiration, rent owed, security deposit return).",
+  "supporting_quote": "Bush left the apartment at the end of her month-to-month tenancy; did not owe any rent; cooperated with petitioner's superintendent as to the vacatur of the apartment."
+ },
+ {
+  "case_id": 3786837,
+  "field": "characterization",
+  "recommendation": "other",
+  "justification": "The court invokes innkeeper fire-safety duties only by analogy to justify why transient occupants need heightened protections, but it never holds that defendants are legally operating as innkeepers; the actual arrangement is an illegal, unlicensed short-term rental scheme in residential multiple dwellings that the court treats as its own hybrid category rather than a recognized innkeeping relationship.",
+  "supporting_quote": "Although defendants harp on the idea that the apartments at issue are 'private property' ... they are available, indeed advertised, to the general public, more like hotel rooms than private apartments."
+ },
+ {
+  "case_id": 4268287,
+  "field": "characterization",
+  "recommendation": "lodging",
+  "justification": "The court resolved the case under RPAPL 711, which defines a protected 'tenant' to include 'an occupant of one or more rooms in a rooming house,' and rejected BOT's argument that occupants were mere licensees. The petitioner occupied a single bed in a shared room in a supervised 'three-quarter house' rather than holding a discrete leasehold unit, which is the classic rooming-house/lodging fact pattern the statute addresses.",
+  "supporting_quote": "A tenant shall include an occupant of one or more rooms in a rooming house or a resident, not including a transient occupant, of one or more rooms in a hotel who has been in possession for thirty consecutive days or longer"
+ },
+ {
+  "case_id": 5311532,
+  "field": "characterization",
+  "recommendation": "None",
+  "justification": "This is a short per curiam insurance-coverage decision that construes a policy exclusion for rental of a single-family unit to more than two 'roomers or boarders,' but the court expressly declines to elaborate, holding only that 'under the particular facts of this case it cannot be said that the exclusionary clause applies.' There is no findings-level characterization of an actual lodging, lease, or license relationship for the court to have adopted.",
+  "supporting_quote": "Under the particular facts of this case it cannot be said that the exclusionary clause applies."
+ },
+ {
+  "case_id": 5487598,
+  "field": "characterization",
+  "recommendation": "other",
+  "justification": "The dispute concerns regulatory reporting obligations of a Private Proprietary Home for Adults (PPHA), a statutorily defined institutional adult-care facility that provides 'lodging and board' plus attendant/care services under the Social Services Law and Executive Law, not an ordinary compensated-occupancy arrangement between an owner and a roomer/boarder. The court's analysis is entirely about the state's police-power authority to regulate such licensed care facilities, so 'lodging' as a bilateral occupancy relationship is not the court's actual classification.",
+  "supporting_quote": "which provide suitable care, for compensation and profit, to persons who ... require, in addition to lodging and board, the services of attendants"
+ },
+ {
+  "case_id": 5735453,
+  "field": "characterization",
+  "recommendation": "lodging",
+  "justification": "The opinion repeatedly frames the buildings' short-term units in terms of transient lodging \u2014 'overnight lodgers,' rooms 'rented on a daily basis,' and Multiple Dwelling Law's class B definition of dwellings 'occupied ... transiently ... who are lodged with or without meals.' The court's entire analysis turns on whether the rented rooms constitute lawful lodging-style transient occupancy alongside permanent tenancy, making 'lodging' the closest fit among the enumerated categories, more so than the generic 'other.'",
+  "supporting_quote": "the more or less temporary abode of individuals or families who are lodged with or without meals"
+ },
+ {
+  "case_id": 2137661,
+  "field": "relevant",
+  "recommendation": "True",
+  "justification": "The case centers on a yearly letting of a house to Humphreys for rent, a dispute between two claimants to the right to receive that rent, and whether the paying occupant (lodger/tenant) is bound by an arbitration resolving which party could lawfully let the premises to him. This bears directly on the legal character of a compensated occupancy arrangement (a letting for rent), so it is relevant to the corpus topic.",
+  "supporting_quote": "Ross had let a house to Humphreys for a year, and who was then about to enter and take possession of it"
+ },
+ {
+  "case_id": 2137661,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court treats the letting itself as an ordinary, valid incident of property ownership \u2014 the entire dispute is about which owner-claimant was entitled to receive the rent, not whether the letting or Humphreys's occupancy could be restricted or regulated. The decision reinforces the tenant's ordinary obligation to pay rent under a lease he took with notice, consistent with letting being a lawful and protected transaction rather than one subject to adverse regulation.",
+  "supporting_quote": "he entered into possession with the knowledge of that interpleader and submission, and at the time it took place"
+ },
+ {
+  "case_id": 2137661,
+  "field": "characterization",
+  "recommendation": "lease",
+  "justification": "The pleadings and evidence describe a classic yearly leasehold: the avowry recites Humphreys occupied the house 'as tenant of the defendant, under a demise, for the yearly rent of 100 dollars,' and the dispute concerns which party was the true lessor entitled to that rent. This is squarely a lease/demise relationship, not a mere license, lodging, or innkeeping arrangement.",
+  "supporting_quote": "occupied the house in which, &c. as tenant of the defendant, under a demise, for the yearly rent of 100 dollars"
+ },
+ {
+  "case_id": 2140956,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The case is an action for use and occupation of 'a lot of ground, dwelling house, and premises,' turning entirely on what a holdover tenant owes for occupying a rented dwelling. This is squarely compensated occupancy of another's dwelling, not a tangential property dispute.",
+  "supporting_quote": "This was an action for the use and occupation of a lot of ground, dwelling house, and premises, situate in the town of Catskill"
+ },
+ {
+  "case_id": 2140956,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court enforces the landlord's entitlement to the full rental value of the dwelling against the occupying tenant, treating the right to rent for occupied premises as an ordinary and lawful incident of ownership. Nothing in the opinion restricts or disfavors letting; it protects the lessor's expectation of compensation.",
+  "supporting_quote": "I am, therefore, of opinion, that the plaintiffs are entitled to judgment for three hundred dollars for which the verdict was taken by consent."
+ },
+ {
+  "case_id": 2140956,
+  "field": "characterization",
+  "recommendation": "lease",
+  "justification": "The relationship originated in a written ten-year lease and continued as a holdover tenancy under implied lease terms; both parties and the court analyze it expressly as landlord and tenant.",
+  "supporting_quote": "The premises had been leased by the plaintiffs to Van Bergen, by deed dated the 1st April, 1793, for the term of ten years"
+ },
+ {
+  "case_id": 2142410,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The dispute is a suit for rent on a written lease of 'a house and lot,' occupied by the defendant as tenant \u2014 direct compensated occupancy of a dwelling, with the legal question being who may lawfully collect that rent (mortgagor vs. mortgagee).",
+  "supporting_quote": "to recover one quarter's rent of a house and lot, formerly owned by Gilbert Stewart, due August 1, 1821"
+ },
+ {
+  "case_id": 2142410,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court upholds the tenant's right to attorn to the party lawfully entitled to possession and treats the leasehold relationship as a normal, enforceable property interest running with title; it does not restrict or penalize the letting arrangement itself.",
+  "supporting_quote": "he may attorn to a mortgagee after the mortgage is forfeited... it is not an act injurious to the just rights of the mortgagor, nor disloyal towards him"
+ },
+ {
+  "case_id": 2142410,
+  "field": "characterization",
+  "recommendation": "lease",
+  "justification": "The court repeatedly refers to a 'written lease of the premises,' rent payable quarterly, and analyzes the case using landlord-tenant and lessor-lessee doctrine throughout.",
+  "supporting_quote": "the plaintiffs gave in evidence a written lease of the premises, from them to the defendant and Maltby Howel, for one year"
+ },
+ {
+  "case_id": 2161480,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The case concerns a tenant occupying a house and lot for rent and the landlord's right to distrain for that rent \u2014 a core compensated-occupancy dispute about the terms of an oral/holdover residential tenancy.",
+  "supporting_quote": "the plaintiff held and occupied the premises, as tenant, from year to year, (of the defendant,) for several years previous to the drawing of the lease... at a rent of 140 dollars"
+ },
+ {
+  "case_id": 2161480,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court upholds the landlord's remedy (distress) for rent arising from the tenancy and treats a parol demise as fully capable of creating an enforceable tenancy, favoring the lessor's ability to collect compensation for occupancy.",
+  "supporting_quote": "Rent being due by the terms of the parol demise, the landlord's right to distrain was perfect... the defendant must have judgment."
+ },
+ {
+  "case_id": 2161480,
+  "field": "characterization",
+  "recommendation": "lease",
+  "justification": "The court frames the occupancy alternately as holding under a lease or under a parol demise that 'enures as a tenancy from year to year,' both squarely leasehold concepts.",
+  "supporting_quote": "it enures as a tenancy from year to year... and must regulate the terms on which the tenancy subsists in other respects; as the rent, the time of the year when the tenant must quit"
+ },
+ {
+  "case_id": 2172545,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "Although the immediate dispute is a lien over horses, the opinion is a lengthy doctrinal exposition of when compensated occupancy at an inn makes someone a 'guest,' directly addressing the legal character of innkeeping as a form of compensated occupancy/lodging.",
+  "supporting_quote": "The innkeeper is bound to receive and entertain travellers, and is answerable for the goods of the guest... On account of this extraordinary liability the law gives the innkeeper a lien on the goods of the guest"
+ },
+ {
+  "case_id": 2172545,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The opinion is not about restricting or protecting letting generally; it narrows the innkeeper's special lien/liability regime to true guests and denies it to a mere neighbor's bailment, so it neither uniformly favors nor disfavors compensated-occupancy arrangements \u2014 it draws a boundary around when the special (favorable-to-innkeeper) rules apply.",
+  "supporting_quote": "Tyler, who owned the property, was not a traveller, nor was he in any sense a guest in the plaintiff's house; and I think it quite clear that the plaintiff was not bound to receive and take care of the horses."
+ },
+ {
+  "case_id": 2172545,
+  "field": "characterization",
+  "recommendation": "innkeeping",
+  "justification": "The court's entire analytical frame is innkeeper-guest doctrine (versus livery-stable/agistor bailment), even though it ultimately holds the innkeeping regime inapplicable to this particular occupant; 'innkeeping' best captures the legal category the court is applying and distinguishing.",
+  "supporting_quote": "The inquiry then is, whether the plaintiff received and kept the horses as an innkeeper... The lien and the liability must stand or fall together."
+ },
+ {
+  "case_id": 626324,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The petitioner occupied a specific residential address as tenant under a lease with monthly rent, and the case turns on apportioning that rent between successive owners \u2014 directly implicating compensated occupancy of a dwelling and the legal treatment of rent obligations tied to it.",
+  "supporting_quote": "Rosina E. Eddy occupied the premises No. 110 West One Hundred and Twenty-third Street, in New York city, as the tenant of James D. Fish, the receiver"
+ },
+ {
+  "case_id": 626324,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court protects the tenant's payment as tied strictly to actual occupancy/benefit received, ordering restitution of rent paid for a period she did not occupy under that landlord \u2014 treating the tenant's compensated-occupancy obligation as calibrated to genuine use, favorable to the occupant/lessee's equities.",
+  "supporting_quote": "There must be an order to restore to the petitioner such proportion of the rent of the month of June, 1881, as was earned by the property after the eleventh day of that month."
+ },
+ {
+  "case_id": 626324,
+  "field": "characterization",
+  "recommendation": "lease",
+  "justification": "The opinion repeatedly refers to 'the lease,' rent 'payable on the first day of each month,' and the assignment of 'the lease' along with the deed \u2014 standard leasehold terminology throughout.",
+  "supporting_quote": "By the terms of the lease the rent was payable on the first day of each month, in advance. With the transfer of the property by deed on June 11, 1881, the lease was also assigned"
+ },
+ {
+  "case_id": 1992977,
+  "field": "characterization",
+  "recommendation": "license",
+  "justification": "Although the church's grant to Smith is a ground lease, the contested arrangement is the sub-occupancy of the apartments by monthly tenants, and the court analyzed that specifically as a license rather than a true sub-letting: it held the landlord's acceptance of rent 'construed as a license to use and occupy the building as an apartment house,' and equated the apartment occupants' status with lodgers, whose occupancy does not breach a covenant against under-letting.",
+  "supporting_quote": "should, if necessary, be construed as a license to use and occupy the building as an apartment house, and not as a mere waiver from time to time of a particular antecedent breach of the covenant."
+ },
+ {
+  "case_id": 1993037,
+  "field": "relevant",
+  "recommendation": "False",
+  "justification": "The opinion is a fire-insurance coverage dispute turning on the policy's 'occupied'/'unoccupied' clause and agency/waiver doctrine; the fact that a portion of the house was at one point rented to a tenant is incidental background to the occupancy question, not an issue the court analyzes for its legal character as compensated occupancy.",
+  "supporting_quote": "if the dwelling house or houses hereby insured shall cease to be occupied by the owner or occupant in the usual and ordinary manner in which dwelling houses are occupied as such * * * this policy shall be void until the written consent of the company at the home office is obtained."
+ },
+ {
+  "case_id": 1993037,
+  "field": "polarity",
+  "recommendation": "irrelevant",
+  "justification": "Because the case does not adjudicate the legal character of letting/lodging (it construes an insurance occupancy clause), neither 'favorable' nor 'adverse' to compensated occupancy applies; the rent-a-portion fact is not treated by the court as raising any letting-regulation question.",
+  "supporting_quote": "Consent given to rent part of said dwelling."
+ },
+ {
+  "case_id": 1993037,
+  "field": "characterization",
+  "recommendation": "None",
+  "justification": "The court never classifies the tenant's occupancy of part of the house as a lease, license, lodging, or innkeeping arrangement \u2014 that occupancy is mentioned only to establish facts about whether the house was 'occupied' for insurance purposes, so no characterization value is supported by the opinion.",
+  "supporting_quote": "After that a tenant occupied a portion of the house, and the children occupied the remainder as before."
+ },
+ {
+  "case_id": 1997119,
+  "field": "relevant",
+  "recommendation": "True",
+  "justification": "The core dispute is squarely about compensated occupancy of another's dwelling \u2014 whether a flat hired 'at the rate of' $35 a month created a yearly or monthly tenancy, and whether the tenant validly surrendered \u2014 which directly implicates the legal character of a residential letting.",
+  "supporting_quote": "Where premises were hired \"at the rate of\" $35 a month, without specifying the term, the hiring was for an indefinite term."
+ },
+ {
+  "case_id": 1997119,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court enforces the landlord's yearly letting against the tenant's claims of a monthly tenancy and an effective surrender, treating the lease terms as binding and the landlord's property/contract rights as protected rather than restricting the letting itself; this is not a government regulation of letting, so 'favorable' (protection of the letting as a lawful incident of ownership) fits better than 'adverse.'",
+  "supporting_quote": "it seems clear to us that the hiring was by the year, that there was no valid surrender, and that the landlord was entitled to a verdict."
+ },
+ {
+  "case_id": 1997119,
+  "field": "characterization",
+  "recommendation": "lease",
+  "justification": "The court repeatedly frames the arrangement in landlord-tenant/lease terms \u2014 'hiring,' 'tenancy,' 'letting,' 'landlord and tenant' \u2014 and resolves the case by classifying the flat rental as a yearly lease/tenancy rather than a license or lodging arrangement.",
+  "supporting_quote": "Landlord and tenant\u2014Term of lease. ... it becomes necessary to consider the effect of the statute providing that 'agreements for the occupation of land or tenements, in the city of New York, which shall not particularly specify the duration of such occupation, shall be deemed valid until the first day of May next.'"
+ },
+ {
+  "case_id": 2380155,
+  "field": "relevant",
+  "recommendation": "True",
+  "justification": "The opinion directly examines the legal character of compensated occupancy of an inn \u2014 specifically what conduct is necessary to create a guest relationship \u2014 and holds that merely leaving property without seeking room, food, or drink does not create that status, which bears on the boundary between lodging/innkeeping and mere storage.",
+  "supporting_quote": "one who is not to be entertained, and who has not adopted the inn as a temporary home, is not a guest, within the meaning of the law, so as to entitle him to the severe remedies enforced against innkeepers."
+ },
+ {
+  "case_id": 2380155,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The decision cuts against the party seeking to invoke innkeeper liability (narrowing who counts as a protected guest) while simultaneously explaining the innkeeper's countervailing lien/liability structure as a benefit tied to lodging status, so it is neither cleanly protective of nor restrictive on compensated occupancy generally.",
+  "supporting_quote": "As a compensation for their extraordinary liability, and because they are under obligations to receive and entertain travelers, the law gives to the innkeeper a lien upon the property of his guest for the satisfaction of his charges."
+ },
+ {
+  "case_id": 2380155,
+  "field": "characterization",
+  "recommendation": "other",
+  "justification": "The court affirmatively holds that no innkeeper-guest (innkeeping) relationship was formed on these facts, so classifying it as 'innkeeping' would misstate the holding; 'other' better captures that the court is defining the outer boundary of lodging status rather than applying lease, license, lodging, or innkeeping to an actual relationship.",
+  "supporting_quote": "the relation of innkeeper and guest was not created, and that the peddler could not recover from the innkeeper because of the loss of the goods."
+ },
+ {
+  "case_id": 4770066,
+  "field": "relevant",
+  "recommendation": "True",
+  "justification": "The case squarely addresses the scope and duration of an innkeeper's legal duty toward a guest's property, which is a core doctrine governing compensated lodging occupancy and its incidents.",
+  "supporting_quote": "An innkeeper's liability for the baggage of his guest is not terminated the instant the guest pays his bill and leaves the hotel, but continues for such a reasonable time thereafter as may be necessary to enable the guest to secure its removal."
+ },
+ {
+  "case_id": 4770066,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court extends and protects the guest's rights arising from the lodging relationship (continuing the innkeeper's protective duty past checkout), treating the incidents of compensated lodging as protected rather than curtailed, which aligns with 'favorable' rather than a restriction on the arrangement.",
+  "supporting_quote": "defendant's liability as innkeeper continued until he should have delivered the baggage to the expressman, which he promised to do immediately on the departure of his guest."
+ },
+ {
+  "case_id": 4770066,
+  "field": "characterization",
+  "recommendation": "innkeeping",
+  "justification": "The opinion is framed entirely in innkeeper-guest terms, expressly analogizing the innkeeper's duty to that of a common carrier toward a passenger's baggage, confirming the court classified the relationship as innkeeping.",
+  "supporting_quote": "We see no reason for applying a different rule as between innkeeper and guest, and our attention has not been called to any case in this State commanding us to do so."
+ },
+ {
+  "case_id": 4801809,
+  "field": "relevant",
+  "recommendation": "False",
+  "justification": "The opinion turns entirely on whether a dwelling house was 'vacant' or 'unoccupied' under a fire-insurance policy's vacancy clause. Although the plaintiff was a month-to-month tenant, the court never analyzes the legal character, validity, or regulation of that letting relationship \u2014 the tenancy is mere background to a pure insurance-coverage question.",
+  "supporting_quote": "This entire policy... shall be void if a building herein described, whether intended for occupancy by owner or tenant, be or become vacant or unoccupied and so remain for ten days."
+ },
+ {
+  "case_id": 4801809,
+  "field": "polarity",
+  "recommendation": "irrelevant",
+  "justification": "Because the case never reaches the legal character or regulation of compensated occupancy (letting, lodging, or boarding), it cannot be scored as favorable or adverse to letting; the entire dispute is about the meaning of 'occupied'/'vacant' for insurance purposes.",
+  "supporting_quote": "occupation of a dwelling house is living in it, not mere supervision over it."
+ },
+ {
+  "case_id": 4801809,
+  "field": "characterization",
+  "recommendation": "None",
+  "justification": "The court classifies nothing about the plaintiff's tenancy as a lease, license, lodging, or innkeeping arrangement; its sole analytical category is insurance 'occupancy' versus 'vacancy.'",
+  "supporting_quote": "for a dwelling house to be in a state of occupation, there must be in it the presence of human beings as at their customary place of abode"
+ },
+ {
+  "case_id": 4809200,
+  "field": "characterization",
+  "recommendation": "lodging",
+  "justification": "The contested factual issue at trial was whether keeping workmen as paying boarders in the insured house increased the fire risk; the arrangement described \u2014 men fed and housed while working on a nearby court house, with no fires kept in their rooms \u2014 is a boarding/lodging arrangement rather than a sublease of premises.",
+  "supporting_quote": "they kept boarders; did not keep it as a general boarding house; only boarded men at work for Welch... upon an average had ten boarders"
+ },
+ {
+  "case_id": 4809245,
+  "field": "relevant",
+  "recommendation": "True",
+  "justification": "The entire opinion adjudicates the rights and liabilities arising from the relationship of hotel guest and innkeeper \u2014 a core form of compensated occupancy alongside lodging and boarding \u2014 including the scope of an innkeeper's duty toward a paying guest's property.",
+  "supporting_quote": "the plaintiff went to said hotel or inn and became a guest thereof"
+ },
+ {
+  "case_id": 4809245,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The decision is protective of the guest (allowing even a gratuitous bailee-guest to sue and holding the innkeeper to a near-strict custody duty), which cuts against reading it as simply 'favorable' to the letting/hosting party's autonomy; at the same time it is not a case about upholding an external regulation restricting the innkeeping business, so 'adverse' also overstates it. It protects the occupant's interest while burdening the host, which is best captured as mixed rather than a one-directional pole.",
+  "supporting_quote": "innkeepers are obliged to keep the goods and chattels of their guests, which are within their inns, without subtraction or loss, day and night"
+ },
+ {
+  "case_id": 4809245,
+  "field": "characterization",
+  "recommendation": "innkeeping",
+  "justification": "The court repeatedly and explicitly frames the dispute as governed by the common-law relation of innkeeper and guest, invoking the customary duties unique to that status rather than ordinary bailment, lease, or license doctrine.",
+  "supporting_quote": "If then there is any remedy against defendant for the loss of the goods, resulting from the relation of innkeeper and guest, it exists only in favor of the plaintiff."
+ },
+ {
+  "case_id": 446050,
+  "field": "relevant",
+  "recommendation": "True",
+  "justification": "The dispute arises from two written leases \u2014 one of a planing mill with machinery, one of two dwelling-houses \u2014 from the same landlord to the same tenant, and the court decides doctrine central to letting: whether a holdover continues a tenancy by the landlord's implied consent and whether rent can issue from leased personalty. The dwelling-house lease and the holdover/rent doctrine make this squarely about the legal character of letting.",
+  "supporting_quote": "should the said party of the second part continue to occupy the said tenement after the expiration of the term above limited, by consent of the said party of the first part... then the amount of rent... shall be continued"
+ },
+ {
+  "case_id": 446050,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court presumes the landlord's assent to the tenant's continued occupancy from mere silence and enforces the lease (including rent chargeable against leased personalty) in the landlord's favor, treating the letting and its extension as a lawful, enforceable incident of ownership rather than something requiring restriction.",
+  "supporting_quote": "Simon continued to occupy the premises, and as Reineman did not dissent to such occupancy his assent must be presumed."
+ },
+ {
+  "case_id": 446197,
+  "field": "relevant",
+  "recommendation": "True",
+  "justification": "This is a landlord-tenant case about a leased dwelling house, deciding whether a tenant who vacates and hands back the keys is discharged from his covenant to pay rent when the landlord re-lets to a new occupant \u2014 a direct question about the legal character and consequences of letting a dwelling.",
+  "supporting_quote": "the plaintiff leased a certain house to one Jacob Brown, for the term of five years, at the yearly rent of $360"
+ },
+ {
+  "case_id": 446197,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court upholds the landlord's contractual rent rights against the tenant/surety despite the tenant's abandonment, holding that re-letting the vacated house to protect the landlord's interest does not discharge the original tenant absent an accepted surrender \u2014 reinforcing the lessor's letting-based property rights as legally protected.",
+  "supporting_quote": "one party to a contract cannot rescind it at pleasure. And the landlord may accept the keys, take possession, put a bill on the house for rent, and at the same time apprise his tenant that he still holds him liable for the rent."
+ },
+ {
+  "case_id": 981864,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "Defendant Losch sublet a portion of the demised premises to another occupant while retaining the rest for himself, and personally collected rent from the sub-occupant \u2014 a genuine letting-within-a-letting arrangement of the kind this corpus tracks, even though the litigated dispute is about agent authority to accept surrender rather than the letting itself.",
+  "supporting_quote": "During his absence defendant authorized Helms to sublet a portion of the premises and collect the rent. On his return defendant lived in the reserved portion, and himself collected the rent from the portion which was sublet."
+ },
+ {
+  "case_id": 981864,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The court neither endorses nor restricts the subletting practice itself \u2014 it affirms the jury's fact-finding role over agency and surrender without commenting on the legality or character of the underlying sublet \u2014 so it doesn't cleanly fall into favorable or adverse for STR purposes, but it isn't wholly irrelevant either since a subletting arrangement is squarely part of the facts adjudicated.",
+  "supporting_quote": "This was a case for a jury, and we find no fault with the manner of its submission."
+ },
+ {
+  "case_id": 981864,
+  "field": "characterization",
+  "recommendation": "lease",
+  "justification": "Throughout the opinion the arrangement between the parties, and between defendant and his sub-occupant, is consistently termed a lease/tenancy with written and oral leases, rent, and subletting \u2014 the court never treats it as a license, lodging, or innkeeping relationship.",
+  "supporting_quote": "On April 1, 1886, defendant procured from plaintiff, as agent of his wife, a written lease for the premises for three years."
+ },
+ {
+  "case_id": 983305,
+  "field": "relevant",
+  "recommendation": true,
+  "justification": "The case turns on a landlord's express permission for his tenant to sublet the dwelling to a third party and a companion agreement shielding the original tenant's goods from distress for the subtenant's rent \u2014 this is directly about the legal character and protection of a subletting/letting arrangement, core STR-relevant subject matter.",
+  "supporting_quote": "Desiring to move west, he obtained permission from his landlord to sublet the demised premises to H. W. Harris."
+ },
+ {
+  "case_id": 983305,
+  "field": "polarity",
+  "recommendation": "favorable",
+  "justification": "The court upheld the enforceability of the landlord's agreement protecting the subletting tenant's property, holding the landlord liable in trespass for violating it \u2014 this favors and protects the sublet occupant's negotiated rights rather than favoring landlord regulation or restriction of the arrangement.",
+  "supporting_quote": "If a landlord permits a tenant to sublet the demised premises, and agrees that the tenant's personal property shall not be distrained for rent, he will be a trespasser if he afterwards distrains."
+ },
+ {
+  "case_id": 983305,
+  "field": "characterization",
+  "recommendation": "lease",
+  "justification": "The relationship is consistently described using leasehold vocabulary \u2014 demised premises, sublet, rent, distress \u2014 with no suggestion of a license, lodging, or innkeeping relationship at issue.",
+  "supporting_quote": "That the defendants leased to Harris at the instance and special request of plaintiff for the purpose of enabling plaintiff to sublet the premises and lease his own household goods"
+ },
+ {
+  "case_id": 994121,
+  "field": "relevant",
+  "recommendation": false,
+  "justification": "This is an ordinary single-family lease with no subletting, lodging, or boarding component at all \u2014 the entire dispute concerns whether a tenant's wife's separately-owned furniture is exempt from distress under the Married Women's Act, a question of marital property law incidental to, but not illuminating, the legal character of compensated occupancy arrangements this corpus targets.",
+  "supporting_quote": "Louis Blanche leased a house in Sansom street, in Philadelphia, of Vincent L. Bradford, at an annual rental of $425, which he afterwards occupied with his family."
+ },
+ {
+  "case_id": 994121,
+  "field": "polarity",
+  "recommendation": "irrelevant",
+  "justification": "Because the case doesn't bear on the legal character or regulation of lodging/letting arrangements distinct from ordinary head-tenancy, it has no bearing on the favorable/adverse axis this corpus is built to track; the holding is purely about distress rights against a spouse's separate chattels.",
+  "supporting_quote": "The special law, called the Married Woman's Act of 1848, was evidently not intended to alter this general law of landlord and tenant."
+ },
+ {
+  "case_id": 994121,
+  "field": "characterization",
+  "recommendation": null,
+  "justification": "No characterization value is appropriate since the case is out of scope for this corpus \u2014 while the arrangement is nominally a lease, tagging it would misleadingly suggest the opinion addresses the lease/license/lodging distinction that matters for STR research, when in fact it addresses only distress-for-rent and marital property law.",
+  "supporting_quote": "she is no stranger to the lease, but one of the family for whom it was obtained, and therefore one of the tenants under it"
+ }
+]
