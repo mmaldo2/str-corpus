@@ -60,15 +60,29 @@ def load_data(run_id: str) -> dict:
     adj_by = {(a["case_id"], a["field"]): a for a in adj}
 
     A = queue["householder_nights"]
-    B = []
+    # Fuzzy auto-accept policy (user-approved 2026-08-31): items where the
+    # mechanical classifier says trivial-ocr AND the reader pass says ocr-ok
+    # are accepted without human review (audit trail in
+    # runs/<run>/fuzzy-auto-accepted.json); only conflicts reach the queue.
+    B, auto_accepted = [], []
     for e in queue["fuzzy"]:
         d = diff_by.get((e["case_id"], e["quote"]), {})
-        B.append({**e, "source": d.get("source"),
-                  "classification": d.get("classification", "needs-human"),
-                  "coverage": d.get("quote_coverage"),
-                  "recommendation": d.get("recommendation"),
-                  "justification": d.get("justification"),
-                  "corrected_quote": d.get("corrected_quote")})
+        item = {**e, "source": d.get("source"),
+                "classification": d.get("classification", "needs-human"),
+                "coverage": d.get("quote_coverage"),
+                "recommendation": d.get("recommendation"),
+                "justification": d.get("justification"),
+                "corrected_quote": d.get("corrected_quote")}
+        if (item["classification"] == "trivial-ocr"
+                and item["recommendation"] == "ocr-ok"):
+            auto_accepted.append(item)
+        else:
+            B.append(item)
+    (ROOT / "runs" / run_id / "fuzzy-auto-accepted.json").write_text(
+        json.dumps(auto_accepted, indent=1), encoding="utf-8")
+    if auto_accepted:
+        print(f"fuzzy auto-accept: {len(auto_accepted)} double-confirmed "
+              f"items removed from queue ({len(B)} remain)")
     C = []
     for e in queue["disagreements"]:
         a = adj_by.get((e["case_id"], e["field"]), {})
@@ -230,8 +244,8 @@ const SECTIONS = [
    extra:[['citator','Citator checked']],
    render:e=>`${head(e)}<div class="meta">court called it: ${esc(e.characterization)}</div><p>${esc(e.holding)}</p>`+
      (e.quotes||[]).map(q=>`<blockquote>&ldquo;${esc(q.t)}&rdquo;<span class="meta"> — p. ${esc(q.p)} (${esc(q.s)})</span></blockquote>`).join('')},
-  {key:'B', title:'Fuzzy quotes — AI quote vs. corpus text',
-   blurb:'Top (amber): what the AI reader quoted. Bottom (blue): what the corpus actually says at that spot. 22 are pre-classified as trivial scan noise — one click to confirm.',
+  {key:'B', title:'Fuzzy quotes — conflicts only',
+   blurb:'Items where the mechanical check and the reader pass BOTH said scan-noise-OK were auto-accepted (audit file in the run directory). What remains is only where the two signals conflict or a real mismatch is suspected.',
    opts:[['ocr-ok','Scan noise — OK'],['mismatch','Real mismatch','neg']],
    render:e=>`${head(e)}<span class="chip ${e.classification==='trivial-ocr'?'triv':'hum'}">${e.classification==='trivial-ocr'?'mechanical: trivial OCR':'mechanical: needs judgment'}</span>
      <blockquote>&ldquo;${esc(e.quote)}&rdquo;<span class="meta"> — as quoted (p. ${esc(e.page)}, supports ${esc(e.supports)})</span></blockquote>
