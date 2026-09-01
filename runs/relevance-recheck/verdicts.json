@@ -1,0 +1,47 @@
+{
+ "1262336": {
+  "case_id": 1262336,
+  "relevant": false,
+  "justification": "Succession/donation and legitimacy dispute; daughter's boarders/lodgers are mentioned only as background evidence of her income sources, with no holding on the legal character of letting."
+ },
+ "8744140": {
+  "case_id": 8744140,
+  "relevant": true,
+  "justification": "Trial court directly decides whether boarders/roomers in a rooming house qualify as 'tenants' of a 'residential building' under a tenant-protection statute, reasoning extensively about the legal character of compensated room occupancy."
+ },
+ "7875109": {
+  "case_id": 7875109,
+  "relevant": true,
+  "justification": "Appellate affirmance squarely holding that a boarding house with individually let rooms qualifies as a 'residential building' under USTRA, addressing the legal character and regulation of compensated lodging."
+ },
+ "1008633": {
+  "case_id": 1008633,
+  "relevant": false,
+  "justification": "Dispute over the proper remedy (trespass vs. covenant) for a tenant's wrongful eviction from rented rooms; the letting itself is undisputed background to a purely remedial/procedural holding."
+ },
+ "1862300": {
+  "case_id": 1862300,
+  "relevant": false,
+  "justification": "Ordinary lease of an entire furnished house to a single tenant, turning on implied warranty of habitability due to vermin; not a lodger/boarder/rooming-house letting or its regulation."
+ },
+ "595850": {
+  "case_id": 595850,
+  "relevant": false,
+  "justification": "Tort suit for injury from a defective wharf at a rented camp; the rental relationship is mere background to a premises-liability holding, with no reasoning about the letting's legal character."
+ },
+ "3281527": {
+  "case_id": 3281527,
+  "relevant": false,
+  "justification": "Damages suit over a landlord's unlawful self-help eviction of a room/kitchen tenant; the holding concerns remedies for illegal ejectment, not the legal character of the letting itself."
+ },
+ "768978": {
+  "case_id": 768978,
+  "relevant": true,
+  "justification": "Court decides the legal character of a room-with-board tenancy (weekly rate payable every four weeks) to determine the notice required to terminate it, directly addressing compensated room occupancy."
+ },
+ "954276": {
+  "case_id": 954276,
+  "relevant": true,
+  "justification": "Declaratory judgment action turning on rent-control regulation of a furnished-room house and subletting of individual rooms to subtenants, with the court applying regulations specific to room letting/subletting."
+ }
+}
