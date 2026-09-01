@@ -70,16 +70,14 @@ def apply_patch(state: State, p: Patch, *, judged: tuple[str, ...] = JUDGED_DEFA
         return UNSET
     if p.op == "drop_quote":
         before = rec.get("quotes", [])
-        to_drop = [q for q in before if q.get("text") == p.new]
         rec["quotes"] = [q for q in before if q.get("text") != p.new]
         if cascade:
-            dropped_fields = {q.get("supports") for q in to_drop}
             supported = {q.get("supports") for q in rec["quotes"]}
-            for f in dropped_fields:
-                if f in SUPPORTED and rec.get(f) is not None and f not in supported:
+            for f in SUPPORTED:
+                if rec.get(f) is not None and f not in supported:
                     rec[f] = None
                     rec.setdefault("nulled_fields", []).append(f)
-        return to_drop
+        return [q for q in before if q.get("text") == p.new]
     if p.op == "migrate":
         rec["schema_version"] = p.new["schema_version"]
         for k, v in p.new.items():

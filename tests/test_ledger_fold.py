@@ -34,7 +34,19 @@ def test_drop_quote_cascades_only_when_asked():
     apply_patch(s, Patch(5, "drop_quote", "quotes", "A", "mismatch", Basis(reviewer="m")), cascade=False)
     assert s.records[5]["polarity"] == "favorable" and len(s.records[5]["quotes"]) == 1
     apply_patch(s, Patch(5, "drop_quote", "quotes", "B", "mismatch", Basis(reviewer="m")), cascade=True)
-    assert s.records[5]["characterization"] is None and s.records[5]["nulled_fields"] == ["characterization"]
+    assert s.records[5]["characterization"] is None
+    assert s.records[5]["polarity"] is None
+    assert s.records[5]["holding_summary"] is None
+    assert s.records[5]["nulled_fields"] == ["characterization", "polarity", "holding_summary"]
+
+def test_drop_quote_does_not_append_field_twice():
+    s = State(); apply_patch(s, Patch(5, "admit", "", REC, "v", Basis(), cycle="c"))
+    apply_patch(s, Patch(5, "drop_quote", "quotes", "A", "mismatch", Basis(reviewer="m")), cascade=True)
+    apply_patch(s, Patch(5, "drop_quote", "quotes", "B", "mismatch", Basis(reviewer="m")), cascade=True)
+    # Sequential cascading nulls fields, but no field appears twice in nulled_fields
+    nulled = s.records[5]["nulled_fields"]
+    assert len(nulled) == len(set(nulled))  # no duplicates
+    assert set(nulled) == {"characterization", "polarity", "holding_summary"}
 
 def test_migrate_appends_v2_fields_at_end():
     s = State(); apply_patch(s, Patch(5, "admit", "", REC, "v", Basis(), cycle="c"))
