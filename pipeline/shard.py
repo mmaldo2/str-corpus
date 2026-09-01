@@ -338,6 +338,12 @@ def emit_batches(conn, run_id: str, exclude_mapped: bool = False) -> int:
     return len(pending)
 
 
+def missing_jurisdictions(conn, jurisdictions) -> list[str]:
+    """Domain jurisdictions with no cases in the corpus; sharding them would poison coverage."""
+    present = {r[0] for r in conn.execute("SELECT DISTINCT jurisdiction FROM cases WHERE is_duplicate_of IS NULL")}
+    return [j for j in jurisdictions if j not in present]
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--run-id", required=True)
@@ -349,6 +355,11 @@ def main() -> int:
     conn = sqlite3.connect(DB, timeout=120)
     conn.execute("PRAGMA busy_timeout=120000")
     conn.executescript(SCHEMA)
+
+    missing = missing_jurisdictions(conn, JURISDICTIONS)
+    if missing:
+        sys.exit(f"refusing to shard: no cases ingested for {missing}; ingest them first "
+                  f"(Stage 2 replaces this guard with fingerprinted coverage)")
 
     if args.batches_only:
         emit_batches(conn, args.run_id, args.exclude_mapped)
