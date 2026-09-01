@@ -115,7 +115,12 @@ def download_volume(client: httpx.Client, slug: str, vol: str) -> dict:
                 try:
                     tmp.replace(dest)
                     break
-                except PermissionError:
+                except (PermissionError, FileNotFoundError):
+                    # AV can hold a transient lock on, or briefly quarantine,
+                    # the .part file. If the destination already landed, the
+                    # rename raced with itself and we are done.
+                    if dest.exists() and dest.stat().st_size > 0:
+                        break
                     if rename_try == 5:
                         raise
                     time.sleep(1 + rename_try)
@@ -169,7 +174,12 @@ def main() -> int:
                 pool.submit(download_volume, client, s, v): (s, v) for s, v in todo
             }
             for i, fut in enumerate(as_completed(futures), 1):
-                row = fut.result()
+                try:
+                    row = fut.result()
+                except Exception as e:  # one volume must not end the run
+                    s, v = futures[fut]
+                    row = {"key": f"{s}/{v}", "url": f"{BASE}/{s}/{v}.zip",
+                           "error": f"{type(e).__name__}: {e}"[:200]}
                 with _manifest_lock:
                     mf.write(json.dumps(row) + "\n")
                     mf.flush()
