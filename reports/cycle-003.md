@@ -27,9 +27,10 @@ Selectors v3 (36 active): **5,761 new signals**; 630 batches of unread
 cases after excluding 3,397 already mapped.
 
 ### Extraction & verification
-150 batches approved; 148 mapped at time of Reduce (2 JSON-parse retries in
-flight). **2,637 cases read → 175 relevant (6.6%)** — precision falling as
-expected deeper into the candidate pool (28% → 12% → 6.6% across cycles).
+150 batches approved; **150 mapped** — one batch failed JSON parsing on
+three attempts and was mapped as two 9-case halves. **2,673 cases read →
+~177 relevant (6.6%)** — precision falling as expected deeper into the
+candidate pool (28% → 12% → 6.6% across cycles).
 Quote gate: **443 exact, 37 fuzzy, 2 dropped; 0 invalid.**
 Credits interruption mid-run; resumed from cache with no loss.
 
