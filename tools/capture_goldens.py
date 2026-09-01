@@ -2,8 +2,17 @@
 """One-time golden capture at the pre-refactor commit. Run once:
     .venv\\Scripts\\python tools\\capture_goldens.py
 Idempotent: re-running overwrites the same files with the same bytes.
+
+Digests are computed over CRLF->LF-normalized bytes (git's stored, canonical
+form) so they are stable regardless of the checkout platform's line-ending
+translation (core.autocrlf). Any test hashing a file to compare against
+digests.json must normalize the same way before hashing.
+
+Use --digests-only to regenerate just tests/golden/digests.json (skips
+prompts, the signals fixture, the already-read set, and the batch
+reproduction check).
 """
-import hashlib, json, shutil, sqlite3, sys, tempfile
+import argparse, hashlib, json, shutil, sqlite3, sys, tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -16,7 +25,7 @@ RUN = "cycle-003-shard-01"
 
 
 def sha(p: Path) -> str:
-    return hashlib.sha256(p.read_bytes()).hexdigest()
+    return hashlib.sha256(p.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def digests() -> dict:
@@ -108,10 +117,18 @@ def verify_batches_reproduce(fixture: Path, already: list[int]) -> dict:
 
 
 def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--digests-only", action="store_true",
+                     help="regenerate only tests/golden/digests.json; skip prompts, "
+                          "the signals fixture, the already-read set, and the "
+                          "reproduction check")
+    args = ap.parse_args()
     GOLDEN.mkdir(parents=True, exist_ok=True)
+    (GOLDEN / "digests.json").write_text(json.dumps(digests(), indent=1, sort_keys=True), encoding="utf-8")
+    if args.digests_only:
+        return 0
     conn = sqlite3.connect(ROOT / "data" / "db" / "corpus.db")
     conn.execute("PRAGMA busy_timeout=120000")
-    (GOLDEN / "digests.json").write_text(json.dumps(digests(), indent=1, sort_keys=True), encoding="utf-8")
     prompts(conn)
     already = already_read_at_cycle_003()
     (FIX / "cycle-003-already-read.json").write_text(json.dumps(already), encoding="utf-8")

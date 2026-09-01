@@ -1,23 +1,13 @@
-import hashlib, json, sqlite3, tempfile
-from pathlib import Path
+import hashlib, json, sqlite3
 import pytest
 from corpus_engine.verification import verify_record
 
 def _replay(conn, repo_root, run, batch_names):
-    # Hash the bytes verify_quotes.py's own write_text(..., encoding="utf-8") would
-    # produce, not an in-memory json.dumps() string: on Windows, write_text with no
-    # newline= applies universal-newline translation (\n -> \r\n), and that is what
-    # tools/capture_goldens.py hashed from the real runs/*/verified/*.json files. A
-    # bare json.dumps(...).encode("utf-8") is LF-only and would never match those
-    # goldens on this platform, for every file, regardless of verify_record's output.
     out = {}
-    with tempfile.TemporaryDirectory() as td:
-        for name in batch_names:
-            recs = json.loads((repo_root / "runs" / run / "extractions" / name).read_text(encoding="utf-8"))
-            verified = [verify_record(conn, dict(r)) for r in recs]
-            p = Path(td) / name
-            p.write_text(json.dumps(verified, indent=1), encoding="utf-8")
-            out[name] = hashlib.sha256(p.read_bytes()).hexdigest()
+    for name in batch_names:
+        recs = json.loads((repo_root / "runs" / run / "extractions" / name).read_text(encoding="utf-8"))
+        verified = [verify_record(conn, dict(r)) for r in recs]
+        out[name] = hashlib.sha256(json.dumps(verified, indent=1).encode("utf-8")).hexdigest()
     return out
 
 def test_verified_files_reproduce_on_fixture_subset(fixture_db, repo_root, golden_dir):

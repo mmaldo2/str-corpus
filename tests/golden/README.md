@@ -1,5 +1,17 @@
 # tests/golden
 
+## Byte convention
+
+`digests.json` hashes are computed over CRLF->LF-normalized bytes (git's stored,
+canonical form for these text files) — `tools/capture_goldens.py`'s `sha()` does
+`p.read_bytes().replace(b"\r\n", b"\n")` before hashing. This makes digests stable
+regardless of the checkout platform's line-ending translation (`core.autocrlf`
+turns the LF blobs stored in git into CRLF on a Windows working-tree checkout, and
+back on commit). Any test that hashes a file — or an in-memory reproduction of one
+— to compare against `digests.json` must normalize `\r\n` -> `\n` the same way
+before hashing, whether it's hashing bytes read from disk or a freshly-serialized
+`json.dumps(...)` string.
+
 Snapshots captured by `tools/capture_goldens.py` at commit
 `e9f6f48d0922ca81bc999bfed2bcad171fe47af3` before the Stage 1 refactor. They
 are the characterization targets:

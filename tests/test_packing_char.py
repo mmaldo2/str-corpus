@@ -25,5 +25,5 @@ def test_pack_batches_reproduces_cycle_003_byte_for_byte(repo_root, golden_dir, 
     n = pack_batches(conn, params["run_id"], tmp_path, gold_ids=_gold_ids(repo_root),
                      exclude_ids=exclude, batch_size=params["batch_size"])
     assert n == params["n_batches"] == len(want)
-    got = {f.name: hashlib.sha256(f.read_bytes()).hexdigest() for f in tmp_path.glob("batch-*.json")}
+    got = {f.name: hashlib.sha256(f.read_bytes().replace(b"\r\n", b"\n")).hexdigest() for f in tmp_path.glob("batch-*.json")}
     assert got == want
