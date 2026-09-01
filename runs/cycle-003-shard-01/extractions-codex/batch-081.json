@@ -1,0 +1,480 @@
+[
+ {
+  "case_id": 383466,
+  "cite": "In re Wheeler, 62 Misc. 37",
+  "court": "New York Supreme Court, Kings Special Term",
+  "year": 1909,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "The case concerns municipal ferry franchises and the public letting of ferry leases, not compensated occupancy of dwellings or rooms."
+ },
+ {
+  "case_id": 386486,
+  "cite": "Harrison v. McClellan, 64 Misc. 430",
+  "court": "County Court of New York, Otsego County",
+  "year": 1909,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "The case concerns a one-year agricultural share lease and liability for trespassing cattle, not dwelling occupancy."
+ },
+ {
+  "case_id": 386567,
+  "cite": "Kaplan v. Titus, 64 Misc. 81",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1909,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.78,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that the innkeeper-guest relationship had existed and that the innkeeper remained liable for the guest's baggage for a reasonable time after the guest paid and departed.",
+  "doctrinal_concepts": [
+   "innkeeper_guest_relation",
+   "innkeeper_liability"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "From the evidence, and according to the running and refreshing definition of the relation as appearing in Crapo v. Rockwell, 48 Misc. Rep. 1, the trial justice was justified in finding that the relation of innkeeper and guest, with its consequent rights and obligations, had existed between the parties, and that, when the latter settled his account and departed and sent for his baggage within an hour thereafter, the liability of the former, as innkeeper, for that baggage had not ceased, the guest, the plaintiff herein, having acted with reasonable promptitude.",
+    "supports": "characterization"
+   },
+   {
+    "text": "An innkeeper\u2019s liability for his guest\u2019s baggage continues for such reasonable time after the guest\u2019s departure and payment of his bill as may be necessary to enable him to secure its removal.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The judgment must, therefore, he affirmed.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "The length of the guest's completed stay is not stated; only the one-hour interval before he sent for his baggage is given."
+ },
+ {
+  "case_id": 386591,
+  "cite": "Eddy v. Church, 64 Misc. 7",
+  "court": "County Court of New York, Saratoga County",
+  "year": 1909,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.12,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "Although the facts mention a boarding house and rent collected from boarders, the decision concerns evidentiary treatment of bookkeeping entries in a milk-debt action."
+ },
+ {
+  "case_id": 389033,
+  "cite": "Lurch v. Brown, 65 Misc. 190",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1909,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "An innkeeper acquired no lien on a rented piano brought into a guest's hotel apartment because notice that the piano belonged to another was delivered to the servant responsible for receiving guest deliveries.",
+  "doctrinal_concepts": [
+   "innkeeper_lien",
+   "guest_property"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The Lien Law (Laws of 1909, chapter 38), section 181, provides that an innkeeper shall have a lien upon the goods brought into his premises by a guest, but it also provides: \u201c If the keeper of such hotel, apartment hotel, inn, boarding or lodging house knew that the property brought upon his premises was not, when brought, legally in possession of such guest, boarder or lodger * * * a lien thereon does not exist.\u201d",
+    "supports": "characterization"
+   },
+   {
+    "text": "While neither the proprietor nor the manager received this notice personally, yet since, at the very time when the property was brought upon the premises, notice that it did not belong to the guests was served upon the person whose duty it was to receive the property, the hotel keeper never obtained a lien.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The Lien Law (Laws of 1909, chapter 38), section 181, provides that an innkeeper shall have a lien upon the goods brought into his premises by a guest, but it also provides: \u201c If the keeper of such hotel, apartment hotel, inn, boarding or lodging house knew that the property brought upon his premises was not, when brought, legally in possession of such guest, boarder or lodger * * * a lien thereon does not exist.\u201d",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "Mixed because the court recognized the statutory innkeeper's lien generally but enforced the statutory exception against the hotel keeper."
+ },
+ {
+  "case_id": 445341,
+  "cite": "Champlain Stone & Sand Co. v. State of New York, 66 Misc. 434",
+  "court": "New York State Court of Claims",
+  "year": 1910,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "The case concerns a commercial quarry lease and eminent-domain compensation, not lodging or dwelling occupancy."
+ },
+ {
+  "case_id": 450189,
+  "cite": "Manley v. Winkler, 75 Misc. 637",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1912,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "The case concerns corporate possession and assignment of a commercial lease, with no dwelling or lodging occupancy."
+ },
+ {
+  "case_id": 450245,
+  "cite": "People ex rel. Higgins v. Hegeman, 75 Misc. 163",
+  "court": "New York County Court, Nassau County, Special Term",
+  "year": 1912,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.91,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "The court sustained the refusal of a liquor tax certificate because the proposed premises failed the statutory structural requirements for a hotel and the governing population ratio barred another certificate. It also upheld the transferred certificate for the commercially operated Thorne Manor hotel.",
+  "doctrinal_concepts": [
+   "hotel_licensing",
+   "statutory_hotel_definition"
+  ],
+  "new_terms_observed": [
+   "temporary home"
+  ],
+  "quotes": [
+   {
+    "text": "the term \u2018 hotel \u2019 as used in this chapter shall mean a building regularly used and kept open as such for the feeding and lodging of guests, where all who conduct themselves properly and who are able and ready to pay for their entertainment, are received if there be accommodations for them, and who, without any stipulated engagement as to the duration of their stay, or as to the rate of compensation, are, while there, supplied, at a reasonable charge, with their meals, lodgings, refreshment and such service and attention as are necessarily incident to the use of the place as a temporary home",
+    "supports": "characterization"
+   },
+   {
+    "text": "I find from the record before me that' the action of the county treasurer of Nassau county was correct in refusing a liquor tax certificate to the relator Higgins for the various reasons hereinbefore discussed, and the application of the relator must, therefore, he denied.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "It clearly appears from the evidence that the relator\u2019s building does not comply with the statutory requirements of a hotel.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "No particular guest's actual length of stay is identified; the case addresses whether premises and operators qualified for hotel-related liquor licensing."
+ },
+ {
+  "case_id": 450339,
+  "cite": "Leerburger v. Watson, 75 Misc. 3",
+  "court": "New York Supreme Court, New York Special Term",
+  "year": 1911,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "The case concerns marketability of title and building encroachments in a real-estate sale, not compensated dwelling occupancy."
+ },
+ {
+  "case_id": 452339,
+  "cite": "In re the Probate of a Paper Propounded as the Last Will & Testament of Van Den Heuvel, 76 Misc. 137",
+  "court": "New York Surrogate's Court, New York County",
+  "year": 1912,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "A furnished-room or boarding establishment appears only as background in a probate dispute over testamentary capacity and influence."
+ },
+ {
+  "case_id": 452420,
+  "cite": "In re Bennett, 76 Misc. 310",
+  "court": "New York Supreme Court, Suffolk Special Term",
+  "year": 1912,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "The case determines whether a seasonally operated laundry was occupied exclusively as a dwelling for liquor-license consent calculations; compensated lodging was not at issue."
+ },
+ {
+  "case_id": 452491,
+  "cite": "Byrns v. Pierce, 76 Misc. 176",
+  "court": "New York Supreme Court, Appellate Term, Second Department",
+  "year": 1912,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.59,
+  "polarity": "mixed",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "A seven-month cottage tenant whose term ran through May 1 and who vacated before midnight on that date did not hold over so as to become liable for another term.",
+  "doctrinal_concepts": [
+   "lease_term",
+   "holdover_tenancy"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The plaintiff agreed to let, and the defendant agreed to take, a one-family cottage for a term- expressed as follows: \u201cFor a term of s.even months, to commence on the first day of October, 1909, and to end on the first day of May, 1910.\u201d",
+    "supports": "characterization"
+   },
+   {
+    "text": "A reasonable construction of the terms of the lease and of the agreement continuing it requires the court to hold that under the provisions of both writings the term of the tenant was to end, as a matter of explicit arrangement, on the first day of Hay, 1911. This, of course, extended his tenancy until midnight of that day, and under the conceded facts he had vacated the premises within that time.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "It has not, however, been pushed to the point of applying it to the fraction of a day as it has been by the judgment under review.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "Mixed because the court treated the fixed-term cottage letting as an ordinary lease but rejected the landlord's asserted holdover liability."
+ },
+ {
+  "case_id": 452495,
+  "cite": "Barnard Realty Co. v. Bonwit, 76 Misc. 464",
+  "court": "New York Supreme Court, Appellate Term, First Department",
+  "year": 1912,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.62,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court held that an apartment rendered untenantable by dead rats did not produce a constructive eviction absent an act, omission, or fault of the landlord, so the tenant remained obligated to pay rent.",
+  "doctrinal_concepts": [
+   "constructive_eviction",
+   "rent_obligation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "These' facts are that defendant rented an apartment from plaintiff.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Where the premises are rendered untenantable without the fault of the landlord there can be no eviction.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Under such circumstances the tenant must continue .to bear his obligation to pay rent, however great the hardship, unless he has been relieved of this obligation by statute.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "The opinion does not state the apartment tenant's term or actual duration of occupancy."
+ },
+ {
+  "case_id": 452505,
+  "cite": "Scully v. Roche, 76 Misc. 458",
+  "court": "New York Supreme Court, Appellate Term, First Department",
+  "year": 1912,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.63,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The tenant's holding over and payment of the announced increased rent continued the tenancy for a term equal to the original eleven-month lease. The landlord could recover the unpaid rent for July and August.",
+  "doctrinal_concepts": [
+   "holdover_tenancy",
+   "rent_increase"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Plaintiff\u2019s assignor entered into a lease with the defendant, dated October 23, 1909, for certain premises therein described, for a period of eleven months from November 1, 1909, at a rental of $462, payable in instalments of $42 monthly in advance.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Where a tenant holds'over after the expiration of a lease, without any other or new agreement with his landlord, the law implies a continuance of the tenancy on the same terms and subject to the same covenants as those contained in the original lease, and the option was with the landlord to treat him as a trespasser or as a tenant.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "If, however, the tenant has notice from the landlord that if he retains possession he must, pay a higher rent, he must he deemed to assent to pay such increased rent; he cannot hold the premises after, such notice and fix his own-terms for .the rent.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "The premises included an apartment, but the record does not establish whether the lessor was a resident householder or a commercial operator."
+ },
+ {
+  "case_id": 708095,
+  "cite": "Burchell v. Burchell, 96 Misc. 600",
+  "court": "New York Supreme Court, Kings Special Term for Motions",
+  "year": 1916,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "The case concerns possession and rental liability among tenants in common of seasonal commercial booths, not dwellings or lodging."
+ },
+ {
+  "case_id": 711100,
+  "cite": "Muench v. Enright, 97 Misc. 711",
+  "court": "New York Supreme Court, Appellate Term, Second Department",
+  "year": 1916,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "The occupancy involved a factory loft supplied as compensation for employment, not a dwelling or lodging arrangement."
+ },
+ {
+  "case_id": 714508,
+  "cite": "Huskisson v. Lipp, 98 Misc. 1",
+  "court": "New York Supreme Court, Erie Equity Term",
+  "year": 1916,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.68,
+  "polarity": "adverse",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court refused to vary by parol a sealed covenant prohibiting rental or use of adjoining premises for restaurant or rooming-house purposes and granted judgment restraining its violation.",
+  "doctrinal_concepts": [
+   "restrictive_covenant",
+   "rooming_house_use"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "\u201c Now, therefore, in consideration of the premises and of the sum of one dollar, paid to the parties of the first part by the party of the second part, it is hereby agreed that the said parties of the first part will not rent the premises located at No. 1675 Broadway, Buffalo, N. Y., or themselves use for restaurant or rooming house purposes for a period of ten years.\u201d",
+    "supports": "characterization"
+   },
+   {
+    "text": "It cannot be impeached by oral conditions hostile to its plain import.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The plaintiff must have judgment restraining the violation of defendants\u2019 agreement.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "It is to be observed that the inducement to plaintiff to purchase the restaurant business at 1677 Broadway was the fact that the adjoining premises, 1675 Broadway, were not to be used for a like purpose.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "The relevance is limited to enforcement of a private restriction against rooming-house use; no actual rooming-house occupants or stays are described."
+ },
+ {
+  "case_id": 716348,
+  "cite": "Colly v. Thomas, 99 Misc. 158",
+  "court": "New York Supreme Court, Erie Trial Term",
+  "year": 1917,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-081",
+  "notes": "A rooming house is mentioned only as the location of sexual assaults; no compensated occupancy or rooming-house regulation was adjudicated."
+ }
+]

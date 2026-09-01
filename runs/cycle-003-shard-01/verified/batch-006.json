@@ -1,0 +1,660 @@
+[
+ {
+  "case_id": 3937380,
+  "cite": "61 A.D.3d 505",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2009,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "HPD must provide relocation assistance to tenants displaced by a vacate order regardless of whether the dwelling units were lawfully configured. The illegality of the rooming/SRO conversion does not defeat tenant status under the Administrative Code and RPAPL definitions.",
+  "doctrinal_concepts": [
+   "sro_regulation",
+   "illegal_conversion",
+   "tenant_status"
+  ],
+  "new_terms_observed": [
+   "three-quarter house"
+  ],
+  "quotes": [
+   {
+    "text": "The vacate order charged that the dwelling had conditions rendering it dangerous to life and unfit for human habitation, including an illegal apartment created in the basement and illegal rooming units and/or single room occupancies on the first and second floors.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2751,
+     3015
+    ],
+    "reporter_page": "506"
+   },
+   {
+    "text": "RPAPL 711 [\u201ctenant\u201d includes \u201can occupant of one or more rooms in a rooming house\u201d]",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     13168,
+     13251
+    ],
+    "reporter_page": "510"
+   },
+   {
+    "text": "tenants in buildings subject to orders to vacate are entitled to relocation services by HPD, pursuant to Administrative Code \u00a7 26-301 (1), regardless of whether the dwelling units which are subject to the vacate orders are lawful.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7476,
+     7706
+    ],
+    "reporter_page": "508"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4038330,
+  "cite": "24 Misc. 3d 940",
+  "court": "Civil Court of the City of New York",
+  "year": 2009,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "A resident who continuously occupies an SRO hotel room as a principal residence for at least six months is a \"permanent tenant\" entitled to rent-stabilization protection, regardless of who pays the rent, while transient hotel occupants remain outside coverage.",
+  "doctrinal_concepts": [
+   "sro_regulation",
+   "duration_based_tenant_status",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Section 2520.6 (j) of the RSC defines a \u201cpermanent tenant\u201d for hotel-housing purposes as an individual who continuously resides in the same building as a principal residence for at least six months.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1905,
+     2103
+    ],
+    "reporter_page": "941"
+   },
+   {
+    "text": "The existence of an agreement that HRA would pay petitioner rent on respondent\u2019s behalf, if petitioner could prove it, would not preclude respondent from being a permanent rent-stabilized tenant.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3128,
+     3323
+    ],
+    "reporter_page": "942"
+   },
+   {
+    "text": "the RSC does not apply to hotels or rooms for transient occupants",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1811,
+     1876
+    ],
+    "reporter_page": "941"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "Turns on the hotel/transient-occupant carve-out from rent stabilization; bears on duration-of-occupancy classification.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 171288,
+  "cite": "184 Misc. 2d 271",
+  "court": "Civil Court of the City of New York",
+  "year": 2000,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "license",
+  "holding_summary": "An ambiguous Occupancy Agreement for a licensed SRO/community residence, construed against its drafter, required the operator to commence legal eviction proceedings rather than use self-help to remove a resident terminated from the program.",
+  "doctrinal_concepts": [
+   "license_vs_lease",
+   "sro_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "\u201c[n]othing contained herein shall be construed to create a relationship of landlord and tenant between the owner/operator of the [residence] and the resident.\u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4223,
+     4382
+    ],
+    "reporter_page": "273"
+   },
+   {
+    "text": "this court determines that they were required to commence legal proceedings against petitioner in order to obtain legal possession of the premises.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7661,
+     7808
+    ],
+    "reporter_page": "275"
+   },
+   {
+    "text": "Petitioner moved into the premises in May 1998 pursuant to an Occupancy Agreement",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1141,
+     1222
+    ],
+    "reporter_page": "272"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "Licensed community residence/SRO for the mentally disabled; occupant paid occupancy fees; not a for-profit boarding arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 185534,
+  "cite": "307 A.D.2d 94",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2003,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "Zoning 'home occupation' dispute over renting a home recording studio to nonresident musicians; concerns ancillary commercial use, not lodging/boarding of occupants.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 267566,
+  "cite": "271 A.D.2d 733",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2000,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "Labor Law \u00a7 240/241(6) homeowner-exception case turning on rental of a two-family house as income property; doesn't address lodging/boarding-house doctrine.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 387311,
+  "cite": "287 A.D.2d 157",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2001,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "No-pet-clause waiver dispute in a cooperative apartment; unrelated to letting or boarding-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 717741,
+  "cite": "252 A.D.2d 898",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1998,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "Shoreline-setback dispute over whether a boathouse's second floor was 'designed or used for lodging or residency'; no compensated occupancy or letting relationship involved.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 806684,
+  "cite": "117 Misc. 2d 952",
+  "court": "New York City Civil Court",
+  "year": 1983,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a 1982 amendment to the Rent Stabilization Law repealed the statutory authority underlying the owner-use-recovery ground in both the Rent Stabilization Code and the METHISA hotel/rooming-house code, so an owner could not recover a roomer's single-room unit for the owner's own use under either regulatory scheme.",
+  "doctrinal_concepts": [
+   "sro_regulation",
+   "rent_stabilization",
+   "police_power_licensing"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "In this holdover proceeding petitioner seeks possession of respondent\u2019s single-room dwelling unit for her own personal use.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     337,
+     460
+    ],
+    "reporter_page": "952"
+   },
+   {
+    "text": "the METHISA Code applies not only to these hotel premises but to \u201csimilar dwelling units which are subject to regulations pursuant to the ETPA [Emergency Tenant Protection Act of 1974] including units in hotels, single room occupancy facilities and rooming houses, or rooming units\u201d",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4290,
+     4572
+    ],
+    "reporter_page": "954"
+   },
+   {
+    "text": "Whether governed by the Rent Stabilization Code or by the METHISA Code petitioner has no right to recover respondent\u2019s unit for her own use.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7199,
+     7339
+    ],
+    "reporter_page": "956"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 824949,
+  "cite": "123 Misc. 2d 378",
+  "court": "New York Supreme Court",
+  "year": 1984,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "Special-exception zoning dispute over converting a restaurant/motel to condominiums, turning on the validity of a decades-old certificate of occupancy; not about the letting-of-rooms/boarding-house doctrine.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 854032,
+  "cite": "133 Misc. 2d 626",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1986,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The Appellate Term held that buildings designed and intended as two-family private dwellings cannot be unilaterally converted into multiple dwellings/rooming houses for single-room occupants, reversing a trial court that had allowed such a conversion and rebuking it for legitimizing illegal, hazardous overcrowded conversions.",
+  "doctrinal_concepts": [
+   "sro_regulation",
+   "illegal_conversion",
+   "police_power_licensing"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "this case involves the issue of whether buildings designed and intended to be used as two-family homes (private dwellings) can be unilaterally converted to multiple dwellings for single room occupants.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     832,
+     1033
+    ],
+    "reporter_page": "627"
+   },
+   {
+    "text": "Administrative Code of the City of New York \u00a7 D26-33.07 (a) prohibits the creation of a \"rooming unit\" if it was not so created or classified prior to April 30, 1956 in a \"tenement, converted dwelling or private dwelling\".",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1039,
+     1261
+    ],
+    "reporter_page": "627"
+   },
+   {
+    "text": "the trial court exalted and legitimized illegal conversions by landlords to overcrowded residences without any consideration for the ensuing danger to life and health.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2476,
+     2643
+    ],
+    "reporter_page": "627"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 856994,
+  "cite": "134 Misc. 2d 871",
+  "court": "Civil Court of the City of New York",
+  "year": 1987,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.45,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court held the owners of a single-room-occupancy rooming house in willful civil and criminal contempt for failing to comply with consent orders requiring repair of numerous Housing Maintenance Code violations affecting the habitability and security of the rooming house.",
+  "doctrinal_concepts": [
+   "sro_regulation",
+   "police_power_licensing"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The premises is a single-room occupancy (SRO) rooming house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1491,
+     1551
+    ],
+    "reporter_page": "872"
+   },
+   {
+    "text": "the respondents are each guilty of both criminal and civil contempt for their willful disobedience of the court\u2019s orders of October 18, November 15 and November 27, 1985.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3866,
+     4036
+    ],
+    "reporter_page": "873"
+   },
+   {
+    "text": "The complete failure to do the mandated repairs according to the schedule and the creation of new unsafe conditions establishes beyond question the willfulness of the owners\u2019 conduct.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3341,
+     3524
+    ],
+    "reporter_page": "873"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 874008,
+  "cite": "140 Misc. 2d 912",
+  "court": "New York City Civil Court",
+  "year": 1988,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "Public-housing licensee holdover turning on RPAPL 711(1) rent-acceptance-in-window-period waiver doctrine; not about lodging/boarding-house letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 923910,
+  "cite": "161 Misc. 2d 1031",
+  "court": "New York City Civil Court",
+  "year": 1994,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "Commercial yacht-club lease dispute over rent/use-and-occupancy acceptance during the window period before a holdover proceeding; no residential lodging or boarding involved.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1215562,
+  "cite": "62 Misc. 2d 888",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1970,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "Premises-liability suit by a social guest who tripped in defendant's home; a licensee-invitee tort case with no compensated occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1224193,
+  "cite": "217 A.D.2d 47",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1995,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The court held a municipal planning board exceeded its authority by denying a not-for-profit's special-use permit to continue operating a boarding house providing SRO units for low-income and homeless individuals, where the sole stated grounds were the property's tax-exempt status rather than any zoning-relevant harm from the boarding-house use.",
+  "doctrinal_concepts": [
+   "police_power_licensing",
+   "sro_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "petitioner acquired a boarding house located at 24 Roberts Street in the City of Middletown, Orange County, and has used it continuously as a boarding house since that time.",
+    "supports": "characterization",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     664,
+     837
+    ],
+    "reporter_page": "49",
+    "fuzzy_score": 99.42196531791907
+   },
+   {
+    "text": "Testimony revealed that the boarders at 24 Roberts Street pay rent in the amount of $229.00 per month.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3221,
+     3323
+    ],
+    "reporter_page": "50"
+   },
+   {
+    "text": "it is equally clear that the operation of the property as a boarding house did not, by its use and character, adversely affect the public health, safety or welfare of the surrounding neighborhood or the City as a whole",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5771,
+     5989
+    ],
+    "reporter_page": "51"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1226214,
+  "cite": "65 Misc. 2d 15",
+  "court": "Civil Court of the City of New York",
+  "year": 1971,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "Landmark warranty-of-habitability/rent-withholding case for ordinary multiple-dwelling tenants; not about the letting-of-rooms or boarding-house doctrine specifically.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1242227,
+  "cite": "69 Misc. 2d 592",
+  "court": "New York City Civil Court",
+  "year": 1972,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "Rent-control decontrol dispute involving fraudulent inducement to switch apartments within the same building; no boarding/lodging house or short-term letting practice at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1932707,
+  "cite": "100 Misc. 2d 1048",
+  "court": "New York City Civil Court",
+  "year": 1979,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "A former employee who continued to reside and pay rent in his employer's rooming house for six months after his employment ended became a statutory tenant under RPAPL 711, entitled to legal process before eviction; the employer's self-help lockout and removal of his belongings constituted an unlawful eviction supporting an award of damages for emotional distress.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "sro_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Section 711 of the Real Property Actions and Proceedings Law provides that an occupant of one or more rooms in a rooming house in a city having a population of one million or more, who has been in possession for 30 consecutive days or longer is a tenant.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2236,
+     2490
+    ],
+    "reporter_page": "1049"
+   },
+   {
+    "text": "Section 711 further provides that a tenant shall not be removed from possession except in a special proceeding.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2624,
+     2735
+    ],
+    "reporter_page": "1050"
+   },
+   {
+    "text": "He was later discharged in July, 1978, but was permitted to stay on as a tenant. He paid rent for these lodgings.",
+    "supports": "polarity",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     825,
+     938
+    ],
+    "reporter_page": "1049",
+    "fuzzy_score": 99.11504424778761
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-006",
+  "notes": "",
+  "extraction_status": "ok"
+ }
+]

@@ -1,0 +1,582 @@
+[
+ {
+  "case_id": 5342902,
+  "cite": "275 A.D.2d 352",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1949,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.72,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court reversed criminal convictions of a building owner and manager for permitting unlawful single-room occupancy under Multiple Dwelling Law section 248, holding that they could not be forced to make costly alterations to legalize the occupancy after exhausting every lawful means to terminate it, when civil and administrative agencies had blocked their eviction efforts.",
+  "doctrinal_concepts": [
+   "sro_regulation",
+   "multiple_dwelling_law",
+   "police_power_regulation"
+  ],
+  "new_terms_observed": [
+   "single-room occupancy",
+   "prime tenants"
+  ],
+  "quotes": [
+   {
+    "text": "The defendants-appellants have been convicted for permitting single-room occupancy in a class A multiple dwelling in violation of law (Multiple Dwelling Law, \u00a7 248).",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     470,
+     635
+    ],
+    "reporter_page": "353"
+   },
+   {
+    "text": "It appears that forty-four of the apartments are rented to three prime tenants, who sublet the rooms furnished and provide the customary utilities and some of the services usually supplied in a rooming house.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1083,
+     1291
+    ],
+    "reporter_page": "353"
+   },
+   {
+    "text": "Accordingly, the judgments of conviction should be reversed, the fines remitted, and the informations against the defendants-appellants dismissed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     10826,
+     10972
+    ],
+    "reporter_page": "357"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Case centers on Multiple Dwelling Law regulation of SRO occupancy (statutory prohibition upheld); reversal turns on inequity of prosecuting a compliant landlord, not on invalidity of the SRO restriction itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8838448,
+  "cite": "153 Misc. 781",
+  "court": "New York City Magistrates' Court",
+  "year": 1934,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that an apartment hotel manager's innkeeper's lien on a guest's baggage under the Lien Law was not waived merely because he extended the guest additional time and credit to pay her bill, and dismissed the larceny complaint against him for withholding the baggage.",
+  "doctrinal_concepts": [
+   "innkeepers_lien",
+   "lodger_status",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The Hotel Gladstone concededly is an apartment hotel within the meaning of the Lien Law.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     710,
+     798
+    ],
+    "reporter_page": "781"
+   },
+   {
+    "text": "boarding-house keepers shall have a Hen on the baggage and effects brought to their houses belonging to their guests or boarders, except mariners, for all proper charges due for fare and board.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2601,
+     2794
+    ],
+    "reporter_page": "782"
+   },
+   {
+    "text": "The complaint is dismissed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4321,
+     4348
+    ],
+    "reporter_page": "783"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Sustains the boarding-house/innkeeper's lien and distinguishes it from a landlord-tenant lease relationship (citing Kuszewska); guest occupied hotel roughly two months (April 6-June 5).",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 797972,
+  "cite": "136 Misc. 449",
+  "court": "New York Supreme Court",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Martin Act securities-fraud action over bonds financing an apartment hotel building; the property is only incidental to a bond-fraud/receivership dispute, no discussion of lodging or letting practice.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 807388,
+  "cite": "139 Misc. 824",
+  "court": "New York Supreme Court",
+  "year": 1931,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Street-parking ordinance dispute; no connection to letting or lodging of dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 807460,
+  "cite": "139 Misc. 808",
+  "court": "New York Supreme Court",
+  "year": 1931,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Coal-mining lease dispute over trade fixtures (rail removal) and waste/breach-of-covenant timing; unrelated to residential letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 807487,
+  "cite": "139 Misc. 156",
+  "court": "New York City Municipal Court",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Commercial office-building lease/setoff and assignment dispute; no lodging or short-term letting issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 807490,
+  "cite": "139 Misc. 793",
+  "court": "New York Supreme Court",
+  "year": 1931,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court held that the instrument by which defendants transferred premises to plaintiff was a sublease rather than an assignment, and that $5,000 paid by plaintiff was consideration for the furniture and goodwill of defendants' furnished rooming house business rather than a promise of a twenty-one-year lease renewal, dismissing both of plaintiff's causes of action.",
+  "doctrinal_concepts": [
+   "sublease_vs_assignment",
+   "rooming_house_business"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It seems clear that the lease by the Wards to plaintiff is not an assignment, but a sublease.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2581,
+     2674
+    ],
+    "reporter_page": "794"
+   },
+   {
+    "text": "It further appears from the allegations of his complaint, as amplified by his bill, that the said $5,000 was to be paid by plaintiff to defendants for the furniture and good will of the rooming business of defendants on the premises.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3634,
+     3867
+    ],
+    "reporter_page": "795"
+   },
+   {
+    "text": "The second cause of action is dismissed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4863,
+     4903
+    ],
+    "reporter_page": "795"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Confirms a furnished rooming house as an ordinary transferable commercial business (furniture and goodwill sold via bill of sale) operated under a sublease.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 810379,
+  "cite": "140 Misc. 185",
+  "court": "New York Surrogate's Court",
+  "year": 1931,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Domicile-for-probate dispute; passing mention that the Curtiss family resided in an 'apartment hotel' from 1915-1917 is incidental biography, not a letting/lodging issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 810451,
+  "cite": "140 Misc. 294",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1931,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court reversed a contempt fine imposed on a judgment debtor for disposing of income from furnished rooms after service of a supplementary-proceedings order, holding that such income is not equivalent to rent reserved under an existing lease and that no proof showed an enforceable agreement with any subtenant or lodger for future income at the time of service.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "furnished_rooms_income"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Income from furnished rooms is not in the category of rent reserved to the debtor as landlord under an existing lease as in the case of Stevens v. Dewey (13 App. Div. 312).",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     533,
+     705
+    ],
+    "reporter_page": "294"
+   },
+   {
+    "text": "There was no proof herein that at the time of the service of the supplementary order the debtor had any enforeible agreement with any subtenant or lodger to receive future rents or income from the property.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     706,
+     912
+    ],
+    "reporter_page": "294"
+   },
+   {
+    "text": "Order reversed, with ten dollars costs and disbursements, and motion denied, with ten dollars costs to be applied upon the judgment, without prejudice to a further motion to punish for contempt with relation to any preacquired property.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     918,
+     1154
+    ],
+    "reporter_page": "294"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Short per curiam opinion distinguishing furnished-room/lodger income from formal lease rent for supplementary-proceedings purposes; who_was_letting left unclear as the opinion does not identify the debtor as householder or commercial operator.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 810590,
+  "cite": "140 Misc. 581",
+  "court": "New York Surrogate's Court",
+  "year": 1931,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "adverse",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "Construing a will providing the testator's widow a home at the family residence, the court held that her right was a personal charge for her own use only, not a life estate carrying the right to rent, and that occupancy by others was not contemplated, so she could not let the home to others.",
+  "doctrinal_concepts": [
+   "right_to_let_restriction",
+   "life_estate_vs_personal_charge"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "I will hold that the widow, by virtue of her personal right under the 8th paragraph of the will, may not rent the home.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     12329,
+     12448
+    ],
+    "reporter_page": "587"
+   },
+   {
+    "text": "The charge was created for her use of the place as a home, the living to be as it had been when husband and wife lived there together. Occupancy by others was not contemplated.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     12449,
+     12625
+    ],
+    "reporter_page": "587"
+   },
+   {
+    "text": "A legal fife estate was not created, with the right to rent.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     12626,
+     12686
+    ],
+    "reporter_page": "587"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Private testamentary restriction (not police-power regulation) denying a householder-beneficiary the right to let her dwelling; included as adverse analogous authority on the scope of a right to let. Quote 3 preserves OCR 'fife' for 'life'.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 810620,
+  "cite": "140 Misc. 800",
+  "court": "County Court of New York, Livingston County",
+  "year": 1931,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Vendor/vendee contract-of-sale dispute; summary proceeding dismissed for lack of a landlord-tenant relation. No lodging or short-term letting issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 810642,
+  "cite": "140 Misc. 797",
+  "court": "New York Surrogate's Court",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": null,
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "In apportioning a wrongful-death settlement between a widow and her minor children, the court favorably weighed that the widow had taken in as many as six boarders to help support the family both before and after her husband's death, awarding her the largest share of the fund.",
+  "doctrinal_concepts": [
+   "boarder_income",
+   "householder_letting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Afterwards she took in boarders, averaging as many as six, to assist her husband in the maintenance of the family, and the record discloses that she is still taking in boarders.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3458,
+     3635
+    ],
+    "reporter_page": "799"
+   },
+   {
+    "text": "In view of the special circumstances of this case, the fund of $12,500 shall be distributed as follows: To the widow, subject to the expenses of this accounting, $8,500;",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3788,
+     3957
+    ],
+    "reporter_page": "799"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Treats a householder taking in boarders as an ordinary, legitimate means of family support that favorably influenced the court's equitable distribution.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 814094,
+  "cite": "141 Misc. 316",
+  "court": "New York City Municipal Court",
+  "year": 1931,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Concerns Multiple Dwelling Law certificate-of-occupancy requirements and the tenement-house-versus-multiple-dwelling classification (turning on whether tenants cook on the premises) for subletting of self-contained apartments occupied 'separately and apart'; no lodger/boarder or short-term room-letting arrangement at issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 814112,
+  "cite": "141 Misc. 201",
+  "court": "New York City Municipal Court",
+  "year": 1931,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Foreclosure receiver's summary proceeding against a mortgagor dismissed for lack of a conventional landlord-tenant relation; no lodging issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 814172,
+  "cite": "141 Misc. 166",
+  "court": "New York City Municipal Court",
+  "year": 1931,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Ordinary month-to-month landlord-tenant nonpayment proceeding turning on the validity of a colorable rent assignment; no lodger, boarder, or lodging-house content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 814325,
+  "cite": "141 Misc. 319",
+  "court": "New York Supreme Court",
+  "year": 1931,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Zoning-ordinance mandamus case regarding gasoline station permits; unrelated to dwelling letting or lodging regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 814421,
+  "cite": "141 Misc. 453",
+  "court": "New York Surrogate's Court",
+  "year": 1931,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Estate administration/next-of-kin dispute; 'lodger' appears only inside dictionary definitions of 'inhabitant' used to assess an administrator's residency qualification, not as an actual letting arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 816982,
+  "cite": "142 Misc. 636",
+  "court": "New York City Municipal Court",
+  "year": 1932,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-017",
+  "notes": "Commercial store lease security-deposit conversion dispute (pledgor/pledgee relationship); no lodging or residential letting issue.",
+  "extraction_status": "ok"
+ }
+]

@@ -1,0 +1,630 @@
+[
+ {
+  "case_id": 619026,
+  "cite": "63 Tex. Civ. App. 186",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1910,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "Corporate stock-reorganization breach-of-contract dispute; 'rent houses' is one incidental clause in a business letter about tenant housing management, unrelated to lodging/boarding doctrine.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2888579,
+  "cite": "27 Tex. Civ. App. 290",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1901,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "rent_houses",
+   "homestead_segregation_by_renting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Since the houses were erected they have been rented whenever tenants could be obtained.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2123,
+     2210
+    ],
+    "reporter_page": "291"
+   },
+   {
+    "text": "We rented them by the month, sometimes by the week, just as it happened.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5688,
+     5760
+    ],
+    "reporter_page": "293"
+   },
+   {
+    "text": "I had no other means for providing for my family, and put up the houses on B and A for renting, and used this money for supplying my family.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2503,
+     2643
+    ],
+    "reporter_page": "292"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "Primarily a homestead-exemption case; letting the extra houses is treated as an ordinary, unremarkable income-producing use of the property (no suggestion it was unlawful), though it defeated the homestead claim. Only tangentially bears on the corpus's core letting doctrine.",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 4370298,
+  "cite": "31 Tex. Civ. App. 31",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1902,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "Homestead-exemption case about a father renting out farm land/crops on behalf of his minor children; concerns agricultural land rental, not letting of rooms or dwellings to lodgers/boarders.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4391043,
+  "cite": "45 Tex. Civ. App. 159",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1907,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court held that two rent houses built and let by a brother and sister on part of their family homestead did not work an abandonment of the homestead, because the renting was temporary and not intended to permanently segregate the lot, the family retained partial use of the ground, and tenants performed household services (washing) in exchange for occupancy.",
+  "doctrinal_concepts": [
+   "rent_houses",
+   "homestead_temporary_renting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Where there is only a temporary renting of a part of the homestead and no segregation made or intended, it does not constitute a divestiture of the homestead character as to such portion.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     6672,
+     6859
+    ],
+    "reporter_page": "161"
+   },
+   {
+    "text": "he had never abandoned the idea of -using any part of the west lot upon which the rent houses were situated as a home",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8729,
+     8846
+    ],
+    "reporter_page": "161"
+   },
+   {
+    "text": "these houses were occupied by families who did his sister\u2019s washing and other services for the family, presumably, in payment for their use, which tends to show a home or family use of the houses, as contradistinguished from the independent use of them by renters.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     9388,
+     9652
+    ],
+    "reporter_page": "161"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "Homestead-abandonment case; treats temporary letting of extra houses on the family lot as ordinary, non-disqualifying use. Tangential to the core letting doctrine but supports the 'ordinary incident of ownership' framing.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8252310,
+  "cite": "184 S.W. 761",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1916,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "General premises-liability licensee/invitee doctrine involving a tramroad and tie inspection; the 'license' discussion is generic negligence law, unconnected to letting rooms/dwellings or lodging-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8255221,
+  "cite": "210 S.W. 710",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1919,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "Covenant-against-incumbrances dispute concerning a farm tenant's unexpired lease at the time of a land sale; not about letting rooms/dwellings or boarding/lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8265608,
+  "cite": "204 S.W. 883",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1918,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "Fraud-based lease-cancellation suit over a landlord's ordinary rental houses managed by an agent; whole-house month-to-month tenancies, not lodging/boarding or room-letting within an occupied dwelling.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8279864,
+  "cite": "149 S.W. 300",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1912,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "Ordinary month-to-month residential house lease and rent dispute between owner and tenant; no lodging, boarding, or room-letting element.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8283987,
+  "cite": "157 S.W. 247",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1913,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "Farm-lease and option-to-renew/tenancy-at-will dispute over a large tract; unrelated to letting of dwelling rooms or lodging/boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10285692,
+  "cite": "6 S.W.2d 151",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1928,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "Fire-insurance dispute over whether a rented dwelling was 'vacant or unoccupied' for policy purposes; ordinary tenant occupancy of a house, not lodging/boarding-house doctrine.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10291705,
+  "cite": "2 S.W.2d 285",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1928,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.35,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that a building permit issued and relied on before a later fire-prevention ordinance took effect vested the permittee's right to complete construction, and denied a mandatory injunction to remove the completed building because the plaintiff's nearby family hotel was not shown to face any material fire hazard from it.",
+  "doctrinal_concepts": [
+   "family_hotel",
+   "innkeeping"
+  ],
+  "new_terms_observed": [
+   "family hotel"
+  ],
+  "quotes": [
+   {
+    "text": "there was located on plaintiff\u2019s lots an 18-room, two-story frame building, owned by plaintiff, and operated by her as a family hotel.",
+    "supports": "characterization",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     4927,
+     5061
+    ],
+    "reporter_page": "286",
+    "fuzzy_score": 99.25373134328358
+   },
+   {
+    "text": "there was located on plaintiff\u2019s lots an 18-room, two-story frame building, owned by plaintiff, and operated by her as a family hotel.",
+    "supports": "polarity",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     4927,
+     5061
+    ],
+    "reporter_page": "286",
+    "fuzzy_score": 99.25373134328358
+   },
+   {
+    "text": "If the building of plaintiff was found not to be subject to any material fire hazard by reason of the construction of the said building, she is shown to be without injury, and this finding of the court concludes her on the issue of damages",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     12853,
+     13092
+    ],
+    "reporter_page": "288"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "The plaintiff's family hotel is background fact (she is the injured party seeking an injunction against a neighbor's building), not the object of the legal dispute; the hotel's own operation is treated as an ordinary, legitimate business entitled to protection. Tangential relevance.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10292784,
+  "cite": "291 S.W. 194",
+  "court": "Texas Commission of Appeals",
+  "year": 1927,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "Commercial lease-assignment dispute over subletting a building for use as a garage; unrelated to residential lodging or room-letting doctrine.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10296227,
+  "cite": "12 S.W.2d 633",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1928,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that the statutory liability cap for hotel/boarding house keepers (Tex. Rev. Civ. Stat. art. 4592) applies only where every lock or bolt placed on a guest's door is suitable; because the hotel's supplemental night-latch bolt was defective and a guest's property was stolen through it, the $50 statutory limitation did not apply and the hotel was liable for the full loss.",
+  "doctrinal_concepts": [
+   "innkeeper_liability",
+   "boarding_house_regulation",
+   "lodging"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Any hotel, apartment hotel or boarding house keeper, who constantly has in his hotel, apartment hotel or boarding house a metal safe or vault in good order and fit for the custody of money, jewelry, articles of gold or silver manufacture, precious stones, personal ornaments, or documents of any kind, and who keeps on the doors of the sleeping rooms used by guests suitable locks or bolts and proper fastenings on the transom and window of said room, shall not be liable for the loss or injury suffered by any guest on account of the loss of said valuables in excess of the sum of Fifty Dollars",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7649,
+     8244
+    ],
+    "reporter_page": "635"
+   },
+   {
+    "text": "Any hotel, apartment hotel or boarding house keeper, who constantly has in his hotel, apartment hotel or boarding house a metal safe or vault in good order and fit for the custody of money, jewelry, articles of gold or silver manufacture, precious stones, personal ornaments, or documents of any kind, and who keeps on the doors of the sleeping rooms used by guests suitable locks or bolts and proper fastenings on the transom and window of said room, shall not be liable for the loss or injury suffered by any guest on account of the loss of said valuables in excess of the sum of Fifty Dollars",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7649,
+     8244
+    ],
+    "reporter_page": "635"
+   },
+   {
+    "text": "We do not believe that a hotel keeper, under the law, can place more than one lock or bolt, or both a lock and a bolt, on the door of his sleeping room doors, one of which may be unsuitable or unsafe",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     15819,
+     16018
+    ],
+    "reporter_page": "636",
+    "fuzzy_score": 94.14893617021276
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "Applies a statute regulating hotel/apartment-hotel/boarding-house keepers' liability for guests' property; the regulation is enforced strictly against the operator, so it is coded adverse (regulation of the lodging business sustained and applied against the keeper).",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10309839,
+  "cite": "228 S.W. 299",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1921,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "Cotenancy/adverse-possession land-partition dispute; the 'rents and revenues' referenced are from farm land collected by a family member, not from letting rooms or dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10313166,
+  "cite": "273 S.W. 642",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1925,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.45,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The court held that a landlord's breach of a covenant to repair a leaking roof did not excuse the tenant's rent obligation for months he continued to use and occupy the building as a grocery store and rooming house, absent proof the leaks rendered the building unfit for use or any counterclaim for offsetting damages.",
+  "doctrinal_concepts": [
+   "rooming_house",
+   "lease_covenant_to_repair"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "J. A. Woolly occupied and used the building as a grocery store on the first floor, and as a rooming house on the second floor.",
+    "supports": "characterization",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     2331,
+     2457
+    ],
+    "reporter_page": "642",
+    "fuzzy_score": 99.20634920634922
+   },
+   {
+    "text": "J. A. Woolly occupied and used the building as a grocery store on the first floor, and as a rooming house on the second floor.",
+    "supports": "polarity",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     2331,
+     2457
+    ],
+    "reporter_page": "642",
+    "fuzzy_score": 99.20634920634922
+   },
+   {
+    "text": "appellee was liable for the rent for the three months' admitted use and occupancy of the building.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8184,
+     8282
+    ],
+    "reporter_page": "643"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "The tenant's operation of a rooming house on the leased premises' second floor is undisputed background fact; the court's actual holding concerns the repair covenant and rent liability, not the legality of the rooming house use itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10330074,
+  "cite": "225 S.W. 780",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1920,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The court affirmed a temporary mandatory injunction restoring possession of a residence to its owners, finding that the occupants (who used the premises as a boarding and rooming house) held over after their month-to-month tenancy expired without any enforceable right to an extension, and were therefore naked trespassers wrongfully in possession.",
+  "doctrinal_concepts": [
+   "boarding_house",
+   "rooming_house",
+   "trespass"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "that said premises are being used for a boarding and rooming house, to the detriment and injury of the plaintiffs",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     8226,
+     8339
+    ],
+    "reporter_page": "781"
+   },
+   {
+    "text": "that said premises are being used for a boarding and rooming house, to the detriment and injury of the plaintiffs",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     8226,
+     8339
+    ],
+    "reporter_page": "781"
+   },
+   {
+    "text": "said defendants are wrongfully in possession of said premises, and without any legal right or claim thereto, and are naked trespassers wrongfully in possession of said premises",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     14334,
+     14510
+    ],
+    "reporter_page": "782"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "Plaintiffs' petition frames the defendants' use of the residence as a boarding and rooming house as a source of injury/detriment to the owners, and the court's judgment treats the occupants as unlawful trespassers rather than protected tenants; coded adverse.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10331653,
+  "cite": "133 S.W. 714",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1910,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "Same underlying dispute as case_id 619026 (Jef Chaison Townsite Co. v. Beaumont Sawmill Co.), reported in a different reporter; 'rent houses' is again only an incidental phrase in a quoted business letter, unrelated to lodging/boarding doctrine.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10335445,
+  "cite": "228 S.W. 989",
+  "court": "Texas Courts of Civil Appeals",
+  "year": 1921,
+  "jurisdiction": "Tex.",
+  "relevant": true,
+  "relevance_score": 0.45,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a house and lot bought and operated by an unmarried daughter as a boarding/rooming house, separately titled, taxed, insured, and mortgaged in her name alone, never became part of her father's homestead simply because the family moved into it after their original home burned, since no member of the household was shown to be dependent on any single member as head of a family.",
+  "doctrinal_concepts": [
+   "rooming_house",
+   "business_homestead"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "This house was at 1003 Washington street, and was used as a boarding house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4066,
+     4141
+    ],
+    "reporter_page": "989"
+   },
+   {
+    "text": "This house was at 1003 Washington street, and was used as a boarding house.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4066,
+     4141
+    ],
+    "reporter_page": "989"
+   },
+   {
+    "text": "was never any part of the homestead at No. 927 Washington Street, and was never owned by the parents of the three women named in this suit, and consequently up to the time that the home at 927 was burned had not been impressed with the homestead character.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6288,
+     6544
+    ],
+    "reporter_page": "990"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-013",
+  "notes": "A homestead/mechanic's-lien case in which the daughter's independent operation of a boarding/rooming house (renting rooms, paying taxes, mortgaging in her own name) is what keeps the property outside the homestead exemption; the rooming house business itself is treated as an ordinary, lawful commercial enterprise.",
+  "extraction_status": "ok"
+ }
+]

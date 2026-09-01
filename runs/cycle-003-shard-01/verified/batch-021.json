@@ -1,0 +1,611 @@
+[
+ {
+  "case_id": 1935677,
+  "cite": "101 Misc. 2d 586",
+  "court": "New York City Civil Court",
+  "year": 1979,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Ordinary residential landlord-tenant dispute over attorney's fees and a warranty-of-habitability rent setoff for an elevator outage; no letting/lodging-house issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3158646,
+  "cite": "20 Misc. 3d 40",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 2008,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "License-vs-lease dispute over a commercial corner store between competing commercial claimants; premises is retail space, not a dwelling, so outside scope despite license/lease doctrine overlap.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3190580,
+  "cite": "17 Misc. 3d 57",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 2007,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "Because the housing was a government-regulated SRO facility operated under a DHS contract 'entwined' with the City, the eviction petition needed to allege the contract's regulatory status and a cause for removal other than mere expiration of the month-to-month tenancy; the landlord's failure to do so required dismissal.",
+  "doctrinal_concepts": [
+   "sro_regulation",
+   "police_power_licensing"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Where, as here, the tenancy is subject to a specific form of regulation, albeit in the form of a government contract, the petition must set forth the regulatory status of the premises, because this status may determine the scope of the rights of the parties",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2534,
+     2791
+    ],
+    "reporter_page": "59"
+   },
+   {
+    "text": "Dismissal of the petition is also required because landlord failed to allege a cause for removal other than the expiration of the tenancy.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3331,
+     3469
+    ],
+    "reporter_page": "59"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "characterization left null: court addresses pleading/regulatory-status requirements for a government-contract SRO facility, not the lease/license/lodging character of the occupancy itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3322171,
+  "cite": "93 A.D.2d 883",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1983,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Zoning dispute over condominium conversion of a motel; issue is form of ownership, not the right to let rooms or regulation of lodging practice.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3344688,
+  "cite": "96 A.D.2d 17",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1983,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The court held that the Commissioner improperly denied petitioner's application for a rooming-house special residence facility license because he failed to properly weigh the certificate of good conduct's statutory presumption of rehabilitation and relied on speculative, unsupported findings, and remitted the matter for a new determination with specific findings.",
+  "doctrinal_concepts": [
+   "police_power_licensing",
+   "rooming_house_regulation"
+  ],
+  "new_terms_observed": [
+   "special residence facility license"
+  ],
+  "quotes": [
+   {
+    "text": "In order to continue to operate the premises as a rooming house, the local ordinance required a transfer of the vendor\u2019s special residence facility license to the vendees (see An Ordinance Licensing and Regulating Buildings Containing Rooming Units in the City of White Plains [adopted Nov. 1, 1976]).",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1626,
+     1927
+    ],
+    "reporter_page": "19"
+   },
+   {
+    "text": "In view of the errors made by respondents in interpreting and applying the standards contained in article 23-A of the Correction Law and the speculative nature of their findings and conclusions, the matter must be remitted to the Commissioner of the Department of Building.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     21013,
+     21286
+    ],
+    "reporter_page": "27"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "characterization left null: dispute concerns ex-offender licensing eligibility under Correction Law art. 23-A, not lease/license/lodging classification of individual room occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3350427,
+  "cite": "97 A.D.2d 390",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1983,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Dispute over a lease clause restricting occupancy to tenant's immediate family (roommate law, RPL 235-f); no facts of compensated lodging or letting for pay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3559534,
+  "cite": "142 A.D.2d 72",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1988,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The Appellate Division held that Local Law No. 9's five-year moratorium on SRO demolition, alteration and conversion, together with its anti-warehousing, replacement, and buy-out provisions, is a constitutional exercise of the police power to combat homelessness and does not effect an unconstitutional taking, since it leaves SRO owners an economically viable use of their property.",
+  "doctrinal_concepts": [
+   "sro_regulation",
+   "police_power_licensing",
+   "taking_clause"
+  ],
+  "new_terms_observed": [
+   "warehousing"
+  ],
+  "quotes": [
+   {
+    "text": "This law establishes a five-year moratorium on conversion, alteration, and, demolition of SRO units (see, Administrative Code \u00a7 27-198.2), and requires SRO owners to maintain their units in a habitable condition and make a good-faith effort to rent them",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     16400,
+     16653
+    ],
+    "reporter_page": "80"
+   },
+   {
+    "text": "we find that Local Law No. 9 is constitutional in all respects, since it does not either constitute an unconstitutional taking of property or violate due process, in view of the fact that the provisions of that law are intended to accomplish the legitimate governmental goal of preventing homelessness, and do not deny the plaintiffs the opportunity to earn a reasonable rate of return on their property",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     34569,
+     34972
+    ],
+    "reporter_page": "87"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "characterization left null: case is a constitutional takings/police-power challenge to SRO regulation, not a determination of lease/license/lodging status of any individual occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3611288,
+  "cite": "157 A.D.2d 138",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1990,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Takings/rent-stabilization dispute over a hospital's renewal-lease rights to apartments sublet long-term to nurse employees; concerns employer-provided permanent housing, not short-term lodging or boarding-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3613690,
+  "cite": "157 A.D.2d 15",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1990,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Dispute over a local law requiring updated certificates of occupancy before condominium conversion of an apartment complex; no letting/lodging-house issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3725970,
+  "cite": "106 A.D.3d 178",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2013,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The First Department held that a person who continuously resides in an SRO hotel room for more than six months is a 'permanent tenant' entitled to Rent Stabilization Code protections regardless of whether an express or implied landlord-tenant relationship existed with the hotel owner, since RSC 2520.6(j)'s sole criterion is six months of continuous residence, not payment of rent or a lease.",
+  "doctrinal_concepts": [
+   "sro_regulation",
+   "permanent_tenant_status",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "A plain reading of RSC \u00a7 2520.6 (j) reveals that the only requirement to be a \u201cpermanent tenant\u201d is six months or more of continuous residence in a particular hotel building",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6541,
+     6714
+    ],
+    "reporter_page": "182"
+   },
+   {
+    "text": "Pitt\u2019s status as a \u201cpermanent tenant\u201d was established by his long-term residence in the hotel, not by the agreement.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     9321,
+     9437
+    ],
+    "reporter_page": "183"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "who_was_letting: Branic is described as owner of a rent-stabilized SRO hotel operated commercially, not a resident householder.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 3761627,
+  "cite": "26 Misc.3d 170",
+  "court": "Civil Court of the City of New York",
+  "year": 2009,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "The court found that petitioner consented to respondent's continued occupancy of a room in his multi-unit SRO building from October 2008 onward, and that under RSC 2520.6(j) respondent's six months of continuous residence made him the permanent, rent-stabilized tenant of the room regardless of any rent payment, so the squatter petition was dismissed.",
+  "doctrinal_concepts": [
+   "sro_regulation",
+   "permanent_tenant_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Section 2520.6 (j) of the Rent Stabilization Code (9 NYCRR) defines a permanent tenant as an individual who has \u201ccontinuously resided in the same building as a principal residence for a period of at least six months.\u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     8466,
+     8683
+    ],
+    "reporter_page": "174"
+   },
+   {
+    "text": "Based on the undisputed facts as established at trial, respondent is entitled to the protections of rent stabilization as the permanent tenant for the subject premises.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8684,
+     8852
+    ],
+    "reporter_page": "174"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Building is a deteriorated multi-unit SRO with dozens of code violations, run as rental property rather than an owner-occupied household.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 3771346,
+  "cite": "30 Misc. 3d 29",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 2010,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "license",
+  "holding_summary": "The Appellate Term held that because HRA placed respondent in the SRO unit and paid the room rate directly to the owner, with no express or implied landlord-tenant relationship between owner and occupant, respondent was merely a licensee of HRA rather than a Rent Stabilization Code 'permanent tenant,' and his license having been revoked, the owner was entitled to summary judgment for possession. (Later reversed on this point in 106 A.D.3d 178.)",
+  "doctrinal_concepts": [
+   "sro_regulation",
+   "license_vs_lease",
+   "permanent_tenant_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "respondent was merely a licensee of HRA",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2534,
+     2573
+    ],
+    "reporter_page": "31"
+   },
+   {
+    "text": "Since respondent\u2019s license was revoked and he has no right to continued possession (see RPAPL 713 [7]), petitioner\u2019s cross motion for summary judgment on its claim for possession should have been granted.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2845,
+     3049
+    ],
+    "reporter_page": "31"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "polarity marked mixed: this decision denies SRO occupant tenancy protection (license, not permanent tenant), the opposite conclusion later reached on the same facts by the First Department in Branic v Pitt, 106 A.D.3d 178.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 3786955,
+  "cite": "54 A.D.3d 109",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2008,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.12,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Non-primary-residence/abandonment dispute over a long-term rent-stabilized tenant's own SRO room; concerns whether the tenant's mental-illness-driven absence excuses non-use of his unit, not letting practice or lodging-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3787987,
+  "cite": "39 Misc. 3d 1005",
+  "court": "New York City Civil Court",
+  "year": 2013,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "The court held that respondent's studio apartment in a government-funded supportive-housing building for the formerly homeless is not a 'rooming unit' or SRO under the Housing Maintenance Code, since it has a private kitchen and bathroom and is classified as a studio by the Department of Buildings, and that neither the governing HUD/HPD contracts nor the lease barred her infant child from residing with her; the eviction proceeding was dismissed.",
+  "doctrinal_concepts": [
+   "sro_regulation",
+   "rooming_unit_definition"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "HMC \u00a7 27-2076 (b) prohibits, in pertinent part, families with children under the age of 16 from residing in SRO units, which are defined in turn as \u201crooming units\u201d that lack either an in-unit kitchen or an in-unit bathroom.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     10197,
+     10420
+    ],
+    "reporter_page": "1011"
+   },
+   {
+    "text": "In this instance, it is clear that the premises are not an SRO as defined by the HMC. Not only does it have a private kitchen and bathroom but it is categorized as a studio apartment by the New York City Department of Buildings.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     12285,
+     12513
+    ],
+    "reporter_page": "1012"
+   },
+   {
+    "text": "Respondent\u2019s motion for summary judgment is granted and the proceeding is dismissed with prejudice.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     28493,
+     28592
+    ],
+    "reporter_page": "1019"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Petitioner is a limited partnership operating a HUD/HPD-financed supportive-housing SRO building, not a resident householder.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3928767,
+  "cite": "21 Misc. 3d 758",
+  "court": "New York Supreme Court",
+  "year": 2008,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Sidewalk trip-and-fall premises-liability case involving DASNY's landlord-out-of-possession status for a CUNY campus; unrelated to letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3971519,
+  "cite": "70 A.D.3d 427",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2010,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.45,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The Appellate Division held that plaintiff's claim challenging tenant Pillsbury's primary residence in the third-floor loft, given her subtenant's occupancy, was barred by res judicata based on a prior Appellate Term ruling that the arrangement was a longstanding sublet contemplated and permitted under her lease, but reinstated a separate, non-precluded rent-profiteering claim regarding the sublease for trial.",
+  "doctrinal_concepts": [
+   "sublease",
+   "additional_occupant",
+   "rent_profiteering"
+  ],
+  "new_terms_observed": [
+   "rent profiteering"
+  ],
+  "quotes": [
+   {
+    "text": "the \u201csubletting of part of the space was always contemplated and permitted,\u201d and that the landlord could not \u201cexcise a portion of the leasehold for nonprimary residence purposes.\u201d",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5544,
+     5723
+    ],
+    "reporter_page": "430"
+   },
+   {
+    "text": "in a decision replete with references to the arrangement between the defendants as a sublet or subtenancy",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2713,
+     2818
+    ],
+    "reporter_page": "428"
+   },
+   {
+    "text": "the rent-profiteering cause of action is separate and distinct from the residence claim; it is not precluded by res judicata or collateral estoppel, and must be reinstated.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5737,
+     5909
+    ],
+    "reporter_page": "430"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "who_was_letting left unclear: letting party is a rent-stabilized loft tenant subletting part of her leasehold to a paying occupant for years, not an owner-householder or a business operator within the schema's categories.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3996841,
+  "cite": "80 A.D.3d 206",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2010,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Constitutional/jurisdictional challenge to the NYC Tenant Protection Act's harassment remedies and Housing Part authority; single passing reference to SRO no-harassment certifications, but no substantive letting/lodging-regulation holding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4021331,
+  "cite": "86 A.D.3d 18",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2011,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Dispute over tenants' statutory right to assemble in an SRO building's hallways (RPL 230(2)) versus fire/building code overcrowding limits; concerns assembly rights, not the legal character or regulation of the letting/lodging arrangement itself.",
+  "extraction_status": "ok"
+ }
+]

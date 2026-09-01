@@ -1,0 +1,461 @@
+[
+ {
+  "case_id": 4625103,
+  "cite": "Jackson v. Grey, 197 A.D. 656",
+  "court": "New York Supreme Court, Appellate Division, First Department",
+  "year": 1921,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.95,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "A tenant who did not reside in the leased portion of a private house but operated it as a business by subletting furnished rooms was not occupying it for dwelling purposes within the statutory protection. She could therefore be dispossessed after her month-to-month tenancy ended.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "monthly-tenants"
+  ],
+  "quotes": [
+   {
+    "text": "The tenant thereupon subleased portions of the premises, furnished, to four different persons as monthly-tenants.",
+    "supports": "characterization"
+   },
+   {
+    "text": "In my opinion, the provision of the statute prohibiting the dispossession when the house is \u201c occupied for dwelling purposes \u201d means \u201c where it is occupied by the tenant for such purposes;\u201d and where the premises are leased to a tenant not for the purposes of a residence but for the purposes of a business of subleasing to others, the statute does not apply.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "In my opinion, the provision of the statute prohibiting the dispossession when the house is \u201c occupied for dwelling purposes \u201d means \u201c where it is occupied by the tenant for such purposes;\u201d and where the premises are leased to a tenant not for the purposes of a residence but for the purposes of a business of subleasing to others, the statute does not apply.",
+    "supports": "polarity"
+   },
+   {
+    "text": "The Appellate Term in the case of May v. Dermont (114 Misc. Rep. 106), decided January 20,1921, and, therefore, subsequent to the decision in this case, assumed for the purposes of that case that this was the correct interpretation of the statute, but as the tenant resided in the premises as well as rented out rooms, it was held that she could not be dispossessed.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "The holding is adverse to a nonresident room-letting business, but the court expressly distinguished resident household room letting as protected."
+ },
+ {
+  "case_id": 5492024,
+  "cite": "Alsberg v. Lucerne Hotel Co., 92 N.Y.S. 851",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1905,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "An apartment or family hotel offering suites under annual leases and not soliciting transient guests was not a hotel under the public-accommodations statute. Its proprietor retained the ordinary landlord's right to select tenants.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "family hotel"
+  ],
+  "quotes": [
+   {
+    "text": "These apartments are rented upon annual leases, and transient tenants are not solicited.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Tested by this definition, The Lucerne is certainly not a hotel; and, when the defendants refused to lease apartments to the plaintiff, they exercised only the right which every landlord undoubtedly has to make his own selection of tenants.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Tested by this definition, The Lucerne is certainly not a hotel; and, when the defendants refused to lease apartments to the plaintiff, they exercised only the right which every landlord undoubtedly has to make his own selection of tenants.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Relevant principally for the court's distinction between annual apartment leases and transient innkeeping."
+ },
+ {
+  "case_id": 5637879,
+  "cite": "Stewart v. Briggs, 123 N.Y.S. 803",
+  "court": "New York Supreme Court, Appellate Division, Third Department",
+  "year": 1910,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.62,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "An owner who remained in possession of condemned property could lease its house and collect the agreed rent until the city actually took possession. The residential tenant could not deny the lessor's title and remained bound by the one-year lease.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "on the 11th day of November plaintiff leased to the defendant, in writing, for residential purposes only, the house and outbuildings on said land for the period of one year commencing the 1st day of December, 1907, at a yearly rental of $420, payable monthly in advance.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The defendant, having chosen to bargain with the plaintiff to lease from her the temporary and uncertain possession which the city might accord to her through inaction on its part, should be held to his bargain, and not having been disturbed in such occupancy by the city, he must pay the rent as agreed.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Whether the plaintiff at the time of making the lease had any title or not, as to the defendant she had perfect title and full right to lease because he is not in position to dispute in that regard.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Relevant to the right to let a dwelling, but the occupancy was a one-year whole-house tenancy rather than short-term room letting."
+ },
+ {
+  "case_id": 7664563,
+  "cite": "Ticehurst v. Beinbrink, 129 N.Y.S. 838",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1911,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.12,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "The dispute concerns an innkeeper's liability for a horse left overnight, and the plaintiff neither lodged nor intended to lodge at the inn."
+ },
+ {
+  "case_id": 7672303,
+  "cite": "Shotland v. Mulligan, 111 N.Y.S. 642",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1908,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "A tenant operating bachelor apartments and furnished rooms could assert the landlord's breach of heating, hot-water, and sanitation covenants as a counterclaim in a summary nonpayment proceeding. The damages could offset the landlord's rent claim and defeat dispossession to that extent.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [
+   "bachelor apartments"
+  ],
+  "quotes": [
+   {
+    "text": "Also that the tenant entered into possession of said premises and rented out the rooms, to be used as bachelor apartments and furnished rooms, as provided in said lease.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Damages for breach of covenant by the landlord cannot only be recouped by the tenant in an action for rent; but, under section 2244 of the Code, can be set off to the extent of the landlord\u2019s claim for rent, to defeat a summary proceeding for nonpayment of rent.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The tenant\u2019s damages may be offset by way of counterclaim to the extent of the claim of the landlord, and, if the damages are in excess of such claim, the excess may still be recovered in another action.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "The court protected the room-letting enterprise procedurally by allowing damages caused by the landlord's breaches to offset rent."
+ },
+ {
+  "case_id": 7700512,
+  "cite": "Department of Health v. Wendel, 67 N.Y.S. 129",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1900,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "The case allocates responsibility for garbage receptacles between a fee owner and a long-term lessee of a tenement house; it does not concern compensated room occupancy or lodging-house operation."
+ },
+ {
+  "case_id": 8297895,
+  "cite": "Frank v. Mandel, 78 N.Y.S. 855",
+  "court": "New York Supreme Court, Appellate Division, Second Department",
+  "year": 1902,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.18,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "The plaintiff is described alternatively as a lodger, visitor, or family member, with no showing of compensated occupancy; the case concerns tort liability for a fallen ceiling."
+ },
+ {
+  "case_id": 65116,
+  "cite": "Morningstar v. Lafayette Hotel Co., 211 N.Y. 465",
+  "court": "New York Court of Appeals",
+  "year": 1914,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.82,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "An innkeeper could refuse further service to a guest who refused to pay a lawful charge, although whether the disputed charge was excessive was for the jury. A new trial was required because evidence that other hotelkeepers considered the guest a chronic faultfinder was improperly admitted.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "An innkeeper is not required to entertain a guest who has refused to pay a lawful charge.",
+    "supports": "characterization"
+   },
+   {
+    "text": "An innkeeper is not required to entertain a guest who has refused to pay a lawful charge. Whether the charge in controversy was excessive, was a question for the jury.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "It is impossible to justify the ruling. The plaintiff, if wrongfully ejected from the caf\u00e9, was entitled to recover damages for injury to his feelings as a result of the humiliation (Aaron v. Ward, 203 N. Y. 351; Gillespie v. B. H. R. R. Co., 178 N. Y. 347); but his reputation as a faultfinder was certainly not at issue.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "An innkeeper is not required to entertain a guest who has refused to pay a lawful charge. Whether the charge in controversy was excessive, was a question for the jury.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Mixed because the court recognized both the innkeeper's right to terminate service for nonpayment and the guest's claim if the charge and resulting exclusion were wrongful."
+ },
+ {
+  "case_id": 65348,
+  "cite": "McIntosh v. Johnson, 211 N.Y. 265",
+  "court": "New York Court of Appeals",
+  "year": 1914,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "The case concerns a police-power restriction on a gasoline garage near a school, not lodging or compensated residential occupancy."
+ },
+ {
+  "case_id": 67030,
+  "cite": "In re City of New York Relative to Acquiring Title to Lands Required for the Purpose of Opening West Farm Road in the Borough of the Bronx, 212 N.Y. 325",
+  "court": "New York Court of Appeals",
+  "year": 1914,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "The case concerns stream boundaries, riparian rights, and condemnation awards, not letting or lodging."
+ },
+ {
+  "case_id": 68691,
+  "cite": "People v. Delaware & Hudson Co., 213 N.Y. 194",
+  "court": "New York Court of Appeals",
+  "year": 1914,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "The case concerns obstructions, filling, and a railroad bridge in navigable waters, not residential occupancy."
+ },
+ {
+  "case_id": 72194,
+  "cite": "Minister, Elders & Deacons of the Reformed Protestant Dutch Church v. Madison Avenue Building Co., 214 N.Y. 268",
+  "court": "New York Court of Appeals",
+  "year": 1915,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "A restrictive covenant allowing only dwelling houses did not prohibit construction of an apartment house. The term dwelling house was broad enough to include a building occupied by many families.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It seems very clear that the simple term \u201c dwelling house \u201d used in this covenant is broad enough to include and permit an apartment house.",
+    "supports": "characterization"
+   },
+   {
+    "text": "There is no way in which we can fairly engraft upon these particular words considered by themselves any further limitations of definition which would make a structure used for ordinary dwelling purposes more or less a dwelling house merely because of the number of people who dwelt in it.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "There must, however, be considered the rights of those who desire, or feel compelled to, devote their property to such latter uses and who have an absolute right to invoke the principle that they may thus do unless such right has been clearly restricted by some binding covenant or limitation and this, as we have held, does not exist against the present proposed use of the respondent\u2019s lot.",
+    "supports": "polarity"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Characterization is 'other' because the court classified the proposed apartment house as a dwelling house, a classification not separately available in the schema."
+ },
+ {
+  "case_id": 72221,
+  "cite": "Phipps Estates v. Tong Phong, 214 N.Y. 308",
+  "court": "New York Court of Appeals",
+  "year": 1915,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "The premises were leased for mercantile purposes, and the dispute concerns renewal and holding over rather than dwelling or room occupancy."
+ },
+ {
+  "case_id": 74243,
+  "cite": "Tenement House Department v. McDevitt, 215 N.Y. 160",
+  "court": "New York Court of Appeals",
+  "year": 1915,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.2,
+  "polarity": "irrelevant",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Although the statute's separate lodging-house prohibition is discussed by analogy, the actual case concerns prostitution by apartment occupants and does not adjudicate lodging-house use."
+ },
+ {
+  "case_id": 74316,
+  "cite": "People v. Ferola, 215 N.Y. 285",
+  "court": "New York Court of Appeals",
+  "year": 1915,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.06,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "The defendant's boarding house and the victim's status as a boarder are background facts in a murder and confession case, not subjects of adjudication."
+ },
+ {
+  "case_id": 75618,
+  "cite": "People ex rel. Lehigh & New York Railroad v. Sohmer, 217 N.Y. 443",
+  "court": "New York Court of Appeals",
+  "year": 1916,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "The case concerns whether a railroad lessor was doing business for franchise-tax purposes, not residential letting."
+ },
+ {
+  "case_id": 75734,
+  "cite": "Woollcott v. Shubert, 217 N.Y. 212",
+  "court": "New York Court of Appeals",
+  "year": 1916,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Hotels and transient guests appear only in the quoted Civil Rights Act; the dispute concerns exclusion of a critic from a theatre."
+ },
+ {
+  "case_id": 77931,
+  "cite": "Flynn v. New York, Westchester & Boston Railway Co., 218 N.Y. 140",
+  "court": "New York Court of Appeals",
+  "year": 1916,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.14,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "The restrictive covenants mention hotels, inns, and tenement houses, but the litigated use was construction and operation of a railroad."
+ }
+]

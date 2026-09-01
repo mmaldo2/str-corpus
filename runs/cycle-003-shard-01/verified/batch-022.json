@@ -1,0 +1,514 @@
+[
+ {
+  "case_id": 4029857,
+  "cite": "89 A.D.3d 10",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2011,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Premises-liability case about an out-of-possession commercial landlord's duty of care for a slip-and-fall; no bearing on compensated short-term occupancy or lodging-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4231240,
+  "cite": "142 Misc.2d 548",
+  "court": "New York Supreme Court",
+  "year": 1989,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.25,
+  "polarity": null,
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The court dismissed the City's petition to vacate a multi-unit dwelling containing rooming units as unfit for habitation, holding that the City could not rely on its local Code of Ordinances abatement procedure without also complying with the procedural prerequisites of Multiple Residence Law \u00a7 305 that the Code itself incorporated by reference.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "this proceeding is defective and the petition is, therefore, dismissed without prejudice.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6869,
+     6958
+    ],
+    "reporter_page": "551"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Municipal enforcement action against a rooming-house/multiple dwelling for code violations, but resolved entirely on procedural notice grounds; no ruling reached on the merits of regulating the lodging use, so characterization/polarity strength is weak.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 4413960,
+  "cite": "74 N.Y.2d 92",
+  "court": "New York Court of Appeals",
+  "year": 1989,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The Court of Appeals struck down Local Law No. 9, which barred demolition or conversion of single-room-occupancy (SRO) buildings and compelled owners to rehabilitate and permanently rent all SRO units to bona fide tenants, holding that the mandatory rent-up and antiwarehousing provisions effected both a per se physical taking and a regulatory taking of the SRO owners' property without just compensation.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Local Law No. 9 prohibits the demolition, alteration, or conversion of single-room occupancy (SRO) properties and obligates the owners to restore all units to habitable condition and lease them at controlled rents for an indefinite period.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     11885,
+     12124
+    ],
+    "reporter_page": "99"
+   },
+   {
+    "text": "In our view, Local Law No. 9 is facially invalid as both a physical and regulatory taking in violation of the Federal and State Constitutions and we, therefore, declare it null and void.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     12452,
+     12638
+    ],
+    "reporter_page": "99"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Core SRO regulation case: municipality's mandatory-occupancy scheme for lodging-house-type units struck down as a taking; bears on police-power regulation of SRO/lodging stock even though the outcome favors the commercial owners rather than sustaining the regulation. characterization left null because the court addresses takings doctrine, not lease/license/lodging classification of individual tenancies.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 4421125,
+  "cite": "78 N.Y.2d 880",
+  "court": "New York Court of Appeals",
+  "year": 1991,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "rooming_house_characterization",
+   "commercial_letting"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Thus, rather than a \"one [or] two-family [house]\" as contemplated by the legislative exemption, the premises here is a commercial enterprise, a rooming house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4412,
+     4570
+    ],
+    "reporter_page": "883"
+   },
+   {
+    "text": "Thus, rather than a \"one [or] two-family [house]\" as contemplated by the legislative exemption, the premises here is a commercial enterprise, a rooming house.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4412,
+     4570
+    ],
+    "reporter_page": "883"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Squarely adverse to treating letting of rooms in a dwelling as an ordinary incident of ownership: court reclassifies a house let entirely to unrelated boarders as a commercial rooming house rather than an owner-occupied one/two-family home.",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 5677642,
+  "cite": "117 A.D.2d 74",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1986,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Rent-stabilization succession/primary-residence dispute over a nonprofit's group-home tenancy for psychiatric patients; not about compensated short-term letting or boarding-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5716833,
+  "cite": "18 N.Y.3d 617",
+  "court": "New York Court of Appeals",
+  "year": 2012,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Commercial movie-theater lease dispute over partial actual eviction and de minimis rent abatement; no residential lodging or short-term letting issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12282850,
+  "cite": "57 Misc. 3d 835",
+  "court": "New York Supreme Court",
+  "year": 2017,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": null,
+  "holding_summary": "The court held that, following the 2010-2011 amendment requiring class A multiple dwellings to be used only for permanent residence purposes, an SRO hotel's long-standing practice of renting units for stays as short as seven days is illegal, though it denied the long-term tenant-plaintiffs' request to reargue their motion for a preliminary injunction against that use for failure to show a likelihood of success on their private nuisance/habitability theories.",
+  "doctrinal_concepts": [
+   "sro_regulation",
+   "thirty_day_minimum_occupancy",
+   "class_a_multiple_dwelling"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Defendants concede that, prior to amendments to the Multiple Dwelling Law that took effect in 2010 and 2011, they rented out SRO units at the Imperial Court for periods of as few as seven days.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1818,
+     2011
+    ],
+    "reporter_page": "838"
+   },
+   {
+    "text": "Thus, it is now beyond any dispute that rentals of less than 30 days at the Imperial Court violate the Multiple Dwelling Law.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4437,
+     4562
+    ],
+    "reporter_page": "839"
+   },
+   {
+    "text": "A class A multiple dwelling shall only be used for permanent residence purposes.",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     3155,
+     3235
+    ],
+    "reporter_page": "838",
+    "fuzzy_score": 98.75
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Directly on point: statutory 30-day minimum occupancy requirement makes seven-day SRO rentals illegal; characterization left as 'other' because the court's focus is statutory classification (permanent-residence use) rather than lease/license/lodging/innkeeping doctrine for an individual tenancy.",
+  "nulled_fields": [
+   "characterization"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 12297412,
+  "cite": "54 Misc. 3d 63",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 2017,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Nuisance holdover against a long-term SRO tenant for hoarding/unsanitary conditions under a stipulation; the SRO setting is incidental to a habitability/nuisance dispute, not to short-term letting doctrine.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 12434344,
+  "cite": "54 Misc. 3d 659",
+  "court": "Mount Vernon City Court",
+  "year": 2016,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Property-maintenance-code bedbug extermination dispute between landlord and tenant; unrelated to compensated short-term occupancy or lodging-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 32696,
+  "cite": "180 Misc. 2d 75",
+  "court": "New York Supreme Court",
+  "year": 1999,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Murder prosecution/due-process-delay case that merely mentions an SRO building as the crime location; passing reference only.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 38819,
+  "cite": "255 A.D.2d 671",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1998,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Fraud/breach-of-contract dispute over the sale of a motor lodge business (unit count, air conditioning, leased telephone system); concerns sale-of-business misrepresentation, not the legal character or regulation of short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 82318,
+  "cite": "3 Misc. 3d 193",
+  "court": "New York City Civil Court",
+  "year": 2004,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Rent-stabilization succession dispute turning on forged lease renewals; no bearing on short-term letting or boarding-house doctrine.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 82722,
+  "cite": "236 A.D.2d 11",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1997,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Zoning covenant/restoration enforcement case (trees, garage, mansion, fire alarm) tied to a real estate development permit; no lodging or short-term occupancy issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 87882,
+  "cite": "10 Misc. 3d 473",
+  "court": "New York Supreme Court",
+  "year": 2005,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Property tax assessment case concerning a marina's riparian rights and dockage; unrelated to compensated occupancy of dwellings/rooms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 97564,
+  "cite": "290 A.D.2d 607",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2002,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Real property tax assessment appraisal-methodology dispute over a single-family residence; no lodging/letting issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 97746,
+  "cite": "290 A.D.2d 792",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 2002,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Bank financing/promissory estoppel dispute over a loan for renovating resort cottages and a planned bed-and-breakfast conversion; the B&B is mentioned only as a financed project, not as the subject of any letting-characterization or regulatory holding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 108096,
+  "cite": "261 A.D.2d 190",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1999,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "roommate_letting",
+   "rent_profiteering",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "roommate agreement"
+  ],
+  "quotes": [
+   {
+    "text": "Even though the rental contracts were styled as \u201croommate\u201d agreements, the parties essentially stood in a landlord-tenant relationship.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2728,
+     2863
+    ],
+    "reporter_page": "191"
+   },
+   {
+    "text": "There is no cause of action for rent profiteering with respect to a roommate (520 E. 81st St. Assocs. v Roughton-Hester, 157 AD2d 199).",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3302,
+     3437
+    ],
+    "reporter_page": "191"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Favorable-leaning: a resident letting part of her leased dwelling to a paying occupant under successive short-term 'roommate' agreements is treated as an ordinary landlord-tenant arrangement not subject to rent-profiteering liability.",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 109837,
+  "cite": "94 N.Y.2d 842",
+  "court": "New York Court of Appeals",
+  "year": 1999,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-022",
+  "notes": "Zoning variance case upholding a caretaker's apartment as a permitted accessory use to a beach club, distinguishing it from the club's own lodging/sleeping prohibitions; involves no compensated occupancy arrangement and no boarding/lodging-house licensing scheme at issue.",
+  "extraction_status": "ok"
+ }
+]

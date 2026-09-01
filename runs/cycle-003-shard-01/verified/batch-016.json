@@ -1,0 +1,550 @@
+[
+ {
+  "case_id": 1047010,
+  "cite": "17 Misc. 2d 587",
+  "court": "Municipal Court of the City of New York, Borough of Manhattan",
+  "year": 1959,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Business Rent Law dispute over whether a physician's ground-floor office is a 'store' for statutory-tenant eviction purposes; no bearing on lodging/boarding/short-term occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1134305,
+  "cite": "41 Misc. 2d 580",
+  "court": "New York Supreme Court",
+  "year": 1963,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.2,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Article 78 review of a certificate-of-eviction denial in a rent-control reconversion dispute; the prior single-room-occupancy use is background fact only, not adjudicated doctrine on letting/lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1141177,
+  "cite": "43 Misc. 2d 928",
+  "court": "New York Supreme Court",
+  "year": 1964,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Rent decontrol dispute turning on successive co-tenant owner-occupancy; no lodging, boarding, or short-term letting issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1156185,
+  "cite": "46 Misc. 2d 1010",
+  "court": "New York Supreme Court",
+  "year": 1965,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.72,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "Landlord rented a six-room apartment as two separate portions to unrelated tenants who each paid rent directly to him; the court upheld the Rent Administrator's finding that this constituted occupancy 'other than single family,' functioning like a rooming house, which triggered recontrol under the Rent Regulations.",
+  "doctrinal_concepts": [
+   "rooming_house_regulation",
+   "single_family_occupancy_restriction"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It is the sharing of housing accommodations in the same manner as a rooming house that is barred by the regulation and in this connection a single individual can be considered a family unit.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4250,
+     4440
+    ],
+    "reporter_page": "1012"
+   },
+   {
+    "text": "The record establishes a pattern of renting to individuals unrelated to each other, resulting in occupancy for other than single family within the purview of the Bent Regulations. The Administrator therefore finds that recontrol was effected by such renting to unrelated individuals.",
+    "supports": "holding_summary",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     2027,
+     2310
+    ],
+    "reporter_page": "1011",
+    "fuzzy_score": 99.64664310954063
+   },
+   {
+    "text": "It is the sharing of housing accommodations in the same manner as a rooming house that is barred by the regulation and in this connection a single individual can be considered a family unit.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4250,
+     4440
+    ],
+    "reporter_page": "1012"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1167291,
+  "cite": "49 Misc. 2d 331",
+  "court": "Long Beach City Court",
+  "year": 1966,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "adverse",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "A municipal housing-code prosecution charging defendant with owning, operating, controlling, managing and maintaining a substandard dwelling unit was dismissed because the People proved only ownership and failed to prove operation/control/management or, in the alternative, that defendant let or rented a noncomplying unit as required by the ordinance.",
+  "doctrinal_concepts": [
+   "boarding_house_regulation",
+   "police_power_regulation"
+  ],
+  "new_terms_observed": [
+   "rooming unit"
+  ],
+  "quotes": [
+   {
+    "text": "No person shall occupy as owner-occupant, or agent of the owner, or let or rent to another for occupancy any dwelling, rooming house, dwelling unit, or rooming unit for the purpose of living, sleeping, cooking, or eating therein which does not comply with the requirements of this ordinance.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3453,
+     3744
+    ],
+    "reporter_page": "332"
+   },
+   {
+    "text": "There is neither proof nor contention here of either owner or agent occupancy; neither is there any satisfactory legal evidence of letting or renting.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4053,
+     4203
+    ],
+    "reporter_page": "332"
+   },
+   {
+    "text": "No person shall occupy as owner-occupant, or agent of the owner, or let or rent to another for occupancy any dwelling, rooming house, dwelling unit, or rooming unit for the purpose of living, sleeping, cooking, or eating therein which does not comply with the requirements of this ordinance.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3453,
+     3744
+    ],
+    "reporter_page": "332"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Regulatory scheme licensing/conditioning letting of dwelling and rooming units is squarely at issue, though this particular prosecution failed on proof.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1174052,
+  "cite": "51 Misc. 2d 218",
+  "court": "Long Beach City Court",
+  "year": 1966,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Zoning prosecution over an unlicensed restaurant parking lot; the quoted 'apartment hotel' passage is an incidental citation to another case, not this case's subject matter.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1177933,
+  "cite": "52 Misc.2d 199",
+  "court": "New York Supreme Court",
+  "year": 1966,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "Landlords sought decontrol of apartments converted from a rooming house into a five-family Class A multiple dwelling; the court held that the regulation barring decontrol for post-April 1962 conversions of rooming house or single-room-occupancy accommodations did not apply as a matter of law because this conversion predated the amendment, and remanded to the Administrator for reconsideration on the substandard-conditions record.",
+  "doctrinal_concepts": [
+   "rooming_house_regulation",
+   "single_room_occupancy",
+   "decontrol_conversion"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "no order shall be issued by the Administrator decontrolling housing accommodations (1) of any type resulting from conversion after April 30, 1962 of rooming house accommodations or of single room occupancy accommodations",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2545,
+     2765
+    ],
+    "reporter_page": "201"
+   },
+   {
+    "text": "I seriously doubt whether the amendment under subdivision d of section 11 justifies the Administrator in exercising her discretion because the conversion was from a rooming house.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4663,
+     4842
+    ],
+    "reporter_page": "202"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 1200070,
+  "cite": "58 Misc. 2d 354",
+  "court": "Civil Court of the City of New York",
+  "year": 1968,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Ordinary nonpayment/holdover proceeding on a noncontrolled residential lease turning on implied-contract rent increase; not a lodging or boarding-house case.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2058561,
+  "cite": "291 N.Y. 35",
+  "court": "New York Court of Appeals",
+  "year": 1943,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Conversion-of-personal-property action following a synagogue's eviction after a lease holdover; the 'hotel supplies' reference is an incidental citation to Reich v. Cochran, not this case's facts.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2426665,
+  "cite": "238 A.D. 313",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1933,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Mortgage-foreclosure receivership dispute over a receiver's power to fix occupational rent against the mortgagor-owner; no lodging/boarding issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2790652,
+  "cite": "274 A.D. 628",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1949,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "Landlord sought eviction certificates against single-room occupants in an old-law tenement on the ground their occupancy was illegal single-room occupancy under Multiple Dwelling Law section 248. The Appellate Division held that section 261's wartime emergency provisions barred eviction of such occupants except on limited enumerated grounds, and that the landlord could cure the violation without evicting anyone by having a 'family' occupy each apartment while retaining the others as roomers/lodgers under section 4(5), limited to four per household.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "single_room_occupancy",
+   "rooming_house_regulation",
+   "family_definition_boarders"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "A \u2018 family \u2019 is either a person occupying a dwelling and maintaining a household, with not more than four boarders, roomers or lodgers, or two or more persons occupying a dwelling, living together and maintaining a common household, with not more than four boarders, roomers or lodgers.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     10977,
+     11263
+    ],
+    "reporter_page": "634"
+   },
+   {
+    "text": "it is clear under the statute that a landlord may not remove single-room occupants therein except upon the limited grounds stated in the statute.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     15119,
+     15264
+    ],
+    "reporter_page": "635"
+   },
+   {
+    "text": "Section 248 of the Multiple Dwelling Law is included within article 7 referred to in the above subdivision 2 of the act. A single-room occupancy in violation of section 248, therefore, appears to fall squarely within the express terms of that subdivision.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     14800,
+     15055
+    ],
+    "reporter_page": "635"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Mixed: heavy regulation of SRO conversion (adverse) combined with express statutory protection allowing a family to keep up to four roomers/lodgers as a lawful incident of occupancy (favorable-leaning).",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2910178,
+  "cite": "2 A.D.2d 354",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1956,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Social-guest licensee/invitee personal injury case at a private country home; no lodging-for-pay issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2914334,
+  "cite": "286 A.D. 780",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1955,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Commercial Rent Law dispute over whether a year-to-year tenancy was validly terminated; not a lodging or boarding-house matter.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3054701,
+  "cite": "15 A.D.2d 320",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1962,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Tax-classification case (capital gain vs. ordinary income, unincorporated business tax) turning on the scale of an apartment-hotel's commercial operations; does not address the legal character of short-term letting or its regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3110839,
+  "cite": "18 A.D.2d 118",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1963,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Roof-access personal injury case turning on licensee/invitee status of a commercial tenant's employee; unrelated to lodging or letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3173274,
+  "cite": "24 A.D.2d 91",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1965,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Mortgage-foreclosure receiver's authority to evict the mortgagor-occupant of her own residence; no lodging/boarding issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4299097,
+  "cite": "192 Misc. 122",
+  "court": "City Magistrate's Court of New York",
+  "year": 1948,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "Defendant corporation, operator of a 97-unit apartment hotel (73 units rented monthly/yearly, 24 rented by the day or week), was convicted for failing to comply with the fire commissioner's order to install a fire alarm and watchman detector system under the Administrative Code; the court held review of the reasonableness of such police-power safety orders lies with the Board of Standards and Appeals, not this court, following prior decisions sustaining like sprinkler/fire-safety orders against summer boarding and rooming houses.",
+  "doctrinal_concepts": [
+   "police_power_regulation",
+   "boarding_house_regulation",
+   "innkeeping"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Number 70 Park Avenue, in tbe borough of Manhattan, is a fifteen-story brick apartment hotel containing ninety-seven one- and two-room residential units and a restaurant.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     392,
+     562
+    ],
+    "reporter_page": "123"
+   },
+   {
+    "text": "Inasmuch as there was no such compliance, I must find the defendant guilty as charged.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3073,
+     3159
+    ],
+    "reporter_page": "124"
+   },
+   {
+    "text": "where an order was sought directing the fire commissioner to rescind his ruling requiring the installation of an automatic sprinkler system in a summer rooming house, it was likewise held that there was authority in the fire commissioner to require an automatic sprinkler system to be installed",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     10402,
+     10696
+    ],
+    "reporter_page": "127"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Building mixes short-term (day/week) and longer-term lettings; case itself decided on exhaustion-of-remedies grounds but relies on precedent sustaining fire-safety police-power orders against boarding/rooming houses.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5056781,
+  "cite": "239 A.D. 504",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1933,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-016",
+  "notes": "Dispossess proceeding over a dance-hall sublease turning on attornment and the Statute of Frauds; not a lodging or short-term letting case.",
+  "extraction_status": "ok"
+ }
+]

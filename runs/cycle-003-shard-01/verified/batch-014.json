@@ -1,0 +1,491 @@
+[
+ {
+  "case_id": 3155002,
+  "cite": "204 La. 575",
+  "court": "Louisiana Supreme Court",
+  "year": 1943,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Succession partition-in-kind case (580-acre tract); 'suitable for a dwelling for her' refers to the widow needing a house, not compensated lodging/boarding. No lodging or letting issue at all.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5526977,
+  "cite": "184 La. 66",
+  "court": "Louisiana Supreme Court",
+  "year": 1936,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Venue dispute over a dog-bite tort action; 'trespass' language matched selectors but has nothing to do with lodging or letting of dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5534612,
+  "cite": "217 La. 392",
+  "court": "Louisiana Supreme Court",
+  "year": 1950,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "A householder who registered part of her apartment as two sleeping rooms with kitchen privileges under OPA rent regulations, rather than as a single apartment, did not thereby commit an unlawful 'evasion' of the lower apartment rent ceiling; she was entitled to rent the space either way, and the higher ceiling for the sleeping-room registration governed.",
+  "doctrinal_concepts": [
+   "householder_letting_rooms",
+   "rent_control_registration"
+  ],
+  "new_terms_observed": [
+   "sleeping rooms with kitchen privileges",
+   "Hotel and Roominghouse Regulation"
+  ],
+  "quotes": [
+   {
+    "text": "I want to rent out individual rooms in my apartment as sleeping rooms only. Can I do this? A. Generally, if your apartment is vacant, you may rent out rooms for sleeping purposes only. However, you must register under the Hotel and Roominghouse Regulation and you are subject to its provisions if you rent to more than two paying tenants.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2082,
+     2420
+    ],
+    "reporter_page": "397"
+   },
+   {
+    "text": "In renting her quarters to these plaintiffs defendant performed no wrongful, fraudulent or illegal act. Her actions amounted only to the legally permitted avoidance of an alternate and a lower rental' ceiling.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     10213,
+     10422
+    ],
+    "reporter_page": "403"
+   },
+   {
+    "text": "the three plaintiffs took possession of the accommodations at a rental of $75 per month, to the payment of which they had agreed two days previously.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3551,
+     3700
+    ],
+    "reporter_page": "399"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Householder rented two rooms of her own apartment (with shared kitchen privileges) as sleeping accommodations under OPA rent control; court upheld her right to structure the letting this way as an ordinary, lawful exercise of ownership, not an evasion of rent regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9861067,
+  "cite": "173 So. 2d 832",
+  "court": "Louisiana Court of Appeal",
+  "year": 1965,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [
+   "rent house (dictum analogy)"
+  ],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Zoning non-conforming-use case about renting space for house trailers on a residential lot; occupants live in their own trailers, not the landowner's dwelling/rooms. 'Rent house' appears only as a rejected analogy in argument, not as an adjudicated holding about letting rooms/dwellings.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9870743,
+  "cite": "110 So. 2d 172",
+  "court": "Louisiana Court of Appeal",
+  "year": 1959,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Mandamus suit over a building-permit refusal to relocate a residence within a zoning district; the phrase 'rent house' appears only as a label handwritten on the permit application describing intended future use. Case turns entirely on zoning procedure/police power for permits, not on any adjudicated lodging or letting arrangement.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9911469,
+  "cite": "68 So. 2d 159",
+  "court": "Louisiana Court of Appeal",
+  "year": 1953,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Premises-liability case involving a trespasser/licensee injured in a lumber yard. 'License' terminology matched selectors but concerns tort licensee doctrine, not lodging or dwelling letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 9921587,
+  "cite": "60 So. 2d 717",
+  "court": "Louisiana Court of Appeal",
+  "year": 1952,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": null,
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The owner of a double dwelling, who lived in one half and let the other half to a month-to-month tenant for seventeen years, could not unilaterally strip the tenant's yard access after the fact; the yard was part of the leased premises by longstanding local custom and course of dealing, and the tenant's possessory right under the lease was protected by injunction.",
+  "doctrinal_concepts": [
+   "householder_letting_dwelling_portion",
+   "lease_scope_by_custom"
+  ],
+  "new_terms_observed": [
+   "double dwelling"
+  ],
+  "quotes": [
+   {
+    "text": "We are, therefore, of the opinion that the plaintiff is entitled to injunctive relief to prevent the disturbance oif a real right possessed by virtue of his contract of lease and enjoyed by him for a period in excess of seventeen years.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4524,
+     4760
+    ],
+    "reporter_page": "718"
+   },
+   {
+    "text": "The record reflects that the plaintiff occupied 6423 West End Boulevard for seventeen years under oral and written leases, neither of which ever revealed that the right to the use or possession of the rear yard was ever intended to be excluded, limited or restricted",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3836,
+     4102
+    ],
+    "reporter_page": "718"
+   },
+   {
+    "text": "Defendant is the occupant of the other one-half of the premises \u2014 No. 6425 West End Boulevard.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1641,
+     1735
+    ],
+    "reporter_page": "717"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Occupancy here spanned seventeen years under an oral/written month-to-month lease; none of nights/weeks/months captures this accurately, so duration_of_occupancy is left unclear rather than forced into a mismatched bucket. Householder (owner-occupant of the other half) letting portion of her dwelling; enforced as ordinary lease incident of ownership.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 10026157,
+  "cite": "157 So. 130",
+  "court": "Louisiana Court of Appeal",
+  "year": 1934,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.2,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [
+   "rooming-houses",
+   "boarding-houses",
+   "rent houses"
+  ],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "A rezoning petition alleges the neighborhood is already full of apartments, rooming-houses, boarding-houses, and rent houses, but the court never reaches that factual characterization \u2014 the suit is dismissed on exception of no cause of action on separation-of-powers grounds (courts cannot control legislative zoning amendment procedure). No judicial holding on the lodging/letting practice itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10028036,
+  "cite": "175 So. 137",
+  "court": "Louisiana Court of Appeal",
+  "year": 1937,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Petitory action against multiple land occupants/trespassers turning on misjoinder of parties defendant; some defendants had paid 'rent' but the case is entirely about joinder/title procedure, not lodging or dwelling letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10031823,
+  "cite": "18 So. 2d 64",
+  "court": "Louisiana Court of Appeal",
+  "year": 1944,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Bond-for-deed/title dispute over a vacant lot used for gardening and livestock; 'use and occupancy' rent claim relates to land, not a dwelling or rooms let for lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10032639,
+  "cite": "178 So. 190",
+  "court": "Louisiana Court of Appeal",
+  "year": 1938,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Lessor's lien dispute over a victrola removed from a commercially leased storefront; no dwelling/lodging issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10047995,
+  "cite": "43 So. 2d 271",
+  "court": "Louisiana Court of Appeal",
+  "year": 1949,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Servitude-by-acquiescence dispute over a drainage canal on plaintiff's land; discussion of 'rent' concerns whether a public utility must pay rent for land use, unrelated to dwelling lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10051230,
+  "cite": "166 So. 640",
+  "court": "Louisiana Court of Appeal",
+  "year": 1936,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Personal-injury case about a pedestrian's licensee status on a railroad bridge; 'license' matched selectors but has no connection to lodging or dwelling letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 10054373,
+  "cite": "145 So. 561",
+  "court": "Louisiana Court of Appeal",
+  "year": 1933,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "rooming_house_lease",
+   "rent_collection"
+  ],
+  "new_terms_observed": [
+   "assignation house"
+  ],
+  "quotes": [
+   {
+    "text": "This is a suit by a landlord against a tenant to recover, the sum of $225 representing rent alleged to be due for the months of May, June, and July, 1932, at the rate of $75 per month, under an oral month to month lease, and for recognition and maintenance of the lessor's lien and privilege on the furniture and effects in the premises.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     275,
+     612
+    ],
+    "reporter_page": "561"
+   },
+   {
+    "text": "the record shows that the plaintiff stated that the building was used as a rooming house, whereas the defendant said that she had used the premises for immoral purposes.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1894,
+     2063
+    ],
+    "reporter_page": "561"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Whole building was leased by plaintiff to defendant, who apparently operated it as a rooming house; court enforced the ordinary month-to-month lease/rent claim without adjudicating the rooming-house or immoral-use characterization (excluded for failure to specially plead). Marked mixed given the unresolved assignation-house allegation alongside routine lease enforcement.",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 10081285,
+  "cite": "32 So. 2d 467",
+  "court": "Louisiana Court of Appeal",
+  "year": 1947,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Eviction action under the Share Croppers Act turning on a void interracial marriage and a homestead declaration; no lodging/letting issue despite selector match on 'renting her quarters'-style embedding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1190024,
+  "cite": "191 La. 436",
+  "court": "Louisiana Supreme Court",
+  "year": 1938,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Separation from bed and board / custody / alimony case; no lodging or dwelling-letting content.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1192695,
+  "cite": "195 La. 492",
+  "court": "Louisiana Supreme Court",
+  "year": 1940,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Police-power zoning/permit dispute over operation of an oil filling station and garage; ordinance-publication procedure case, unrelated to lodging or dwelling letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1192699,
+  "cite": "195 La. 507",
+  "court": "Louisiana Supreme Court",
+  "year": 1940,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-014",
+  "notes": "Mandamus suit to compel a city council to act on a proposed ordinance regulating firemen's working hours; wholly unrelated to lodging or dwelling letting.",
+  "extraction_status": "ok"
+ }
+]

@@ -1,0 +1,504 @@
+[
+ {
+  "case_id": 1935677,
+  "cite": "Bay Park One Co. v. Crosby, 101 Misc. 2d 586",
+  "court": "Civil Court of the City of New York, Kings County",
+  "year": 1979,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Ordinary apartment rent-arrears proceeding concerning attorney fees and habitability damages, not short-term room letting, lodging status, or lodging-house regulation."
+ },
+ {
+  "case_id": 3158646,
+  "cite": "Sherhan v. Numyal Food, Inc., 20 Misc. 3d 40",
+  "court": "Supreme Court, Appellate Term, Second Department",
+  "year": 2008,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "The lease-versus-license dispute concerned exclusive possession of a commercial corner store, not compensated residential occupancy."
+ },
+ {
+  "case_id": 3190580,
+  "cite": "Volunteers of America-Greater New York, Inc. v. Almonte, 17 Misc. 3d 57",
+  "court": "Supreme Court, Appellate Term, Second Department",
+  "year": 2007,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.72,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "A regulated SRO operator could not remove an eight-year resident merely by terminating a purported month-to-month tenancy; the petition had to disclose the governing government contract and plead cause for eviction.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The contract also specifically provides that landlord \u201cis responsible for using, and renewing annually, the DHS approved tenant lease, which describes the terms of the tenancy.\u201d",
+    "supports": "characterization"
+   },
+   {
+    "text": "In these circumstances, eviction requires a cause other than mere expiration of the tenancy, and this cause must be pleaded in the petition (id.; 157 W. 123rd St. Tenants Assn. v Hickson, 142 Misc 2d 984 [App Term, 1st Dept 1989]; Hudsonview Terrace v Maury, 100 Misc 2d 331, 332 [App Term, 1st Dept 1979] [\u201cEviction . . . requires a cause other than mere expiration of the lease\u201d]).",
+    "supports": "polarity"
+   },
+   {
+    "text": "Thus, it was incumbent upon landlord to allege that the tenancy was subject to the contract between landlord and DHS. In view of landlord\u2019s failure to do so and tenant\u2019s timely objection to the failure, the petition should have been dismissed.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "The court characterized the resident's status as a regulated tenancy; because the schema lacks a general tenancy value distinct from lease, characterization is recorded as other."
+ },
+ {
+  "case_id": 3322171,
+  "cite": "North Fork Motel, Inc. v. Grigonis, 93 A.D.2d 883",
+  "court": "Supreme Court, Appellate Division, Second Department",
+  "year": 1983,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.18,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "The decision concerns conversion of a motel's ownership to condominium form while its use remained unchanged, not the legality or regulation of compensated occupancy."
+ },
+ {
+  "case_id": 3344688,
+  "cite": "Marra v. City of White Plains, 96 A.D.2d 17",
+  "court": "Supreme Court, Appellate Division, Second Department",
+  "year": 1983,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.91,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The court annulled the denial of a rooming-house license and remitted for a fair hearing and new determination because the agency inadequately applied statutory standards governing ex-offenders and relied on speculation and inapplicable construction requirements.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "In order to continue to operate the premises as a rooming house, the local ordinance required a transfer of the vendor\u2019s special residence facility license to the vendees (see An Ordinance Licensing and Regulating Buildings Containing Rooming Units in the City of White Plains [adopted Nov. 1, 1976]).",
+    "supports": "polarity"
+   },
+   {
+    "text": "Accordingly, the judgment should be reversed, on the law, without costs or disbursements, and the matter remitted to the Commissioner of the Department of Building of the City of White Plains for a hearing and new determination in accordance herewith which should include specific findings of fact based on the evidence presented.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Mixed because the court accepted that operation required a municipal license but invalidated this applicant-specific denial. No individual occupancy agreement was classified, so characterization is null."
+ },
+ {
+  "case_id": 3350427,
+  "cite": "420 East 80th Co. v. Chin, 97 A.D.2d 390",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 1983,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.16,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "The case protects an additional residential occupant from an immediate-family lease restriction, but contains no compensated letting or lodging arrangement."
+ },
+ {
+  "case_id": 3559534,
+  "cite": "Seawall Associates v. City of New York, 142 A.D.2d 72",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 1988,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.94,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The court upheld Local Law No. 9, including its SRO conversion moratorium, antiwarehousing duties, replacement requirements, and obligation to make habitable rooms available for rent, as a constitutional response to homelessness.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "This law establishes a five-year moratorium on conversion, alteration, and, demolition of SRO units (see, Administrative Code \u00a7 27-198.2), and requires SRO owners to maintain their units in a habitable condition and make a good-faith effort to rent them (see, Administrative Code \u00a7\u00a7 27-2150 \u2014 27-2152).",
+    "supports": "polarity"
+   },
+   {
+    "text": "Based upon our analysis of the law and the facts supra, we find that Local Law No. 9 is constitutional in all respects, since it does not either constitute an unconstitutional taking of property or violate due process, in view of the fact that the provisions of that law are intended to accomplish the legitimate governmental goal of preventing homelessness, and do not deny the plaintiffs the opportunity to earn a reasonable rate of return on their property (see, Agins v Tiburon, supra).",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Adverse because this court sustained extensive regulation compelling commercial SRO owners to preserve, rehabilitate, and offer units. The opinion did not classify a particular occupant's legal arrangement, so characterization is null."
+ },
+ {
+  "case_id": 3611288,
+  "cite": "520 East 81st Street Associates v. Lenox Hill Hospital, 157 A.D.2d 138",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 1990,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.79,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The hospital itself was not entitled to perpetual renewal leases, but hospital employees using the apartments as their primary residences when the prior leases expired were individually entitled to renewal leases.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Between 1968 and 1970, and pursuant to a series of leases relating to each specific apartment, which were subsequently renewed at their respective expirations, Associates rented the subject apartments to Lenox Hill.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Thus, we interpret chapter 940 as requiring Associates to offer a renewal lease to those Lenox Hill employees who occupied the subject apartment as a primary residence at the expiration of the March 9, 1982 renewal lease.2 Such an interpretation results in the continued occupancy of these apartments by those persons occupying them as their primary residence for as long as they continue to do so.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Accordingly, the order and judgment (one paper) of the Supreme Court, New York County (Edward J. Greenfield, J.), entered June 15, 1988, should be reversed, on the law, without costs or disbursements, plaintiffs motion for partial summary judgment granted, a declaration made that defendant Lenox Hill is not entitled to renewal leases with respect to the subject apartments and that Lenox Hill employees who occupied said apartments as their primary residences at the expiration of the March 9, 1982 leases are so entitled, and the cross motion denied.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Mixed because the court rejected an institutional perpetual tenancy while preserving renewal rights for actual employee occupants."
+ },
+ {
+  "case_id": 3613690,
+  "cite": "P.O.K. RSA, Inc. v. Village of New Paltz, 157 A.D.2d 15",
+  "court": "Supreme Court, Appellate Division, Third Department",
+  "year": 1990,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.07,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "The challenge concerned building-code conditions imposed on condominium conversion without any change in residential use, not lodging or compensated short-term occupancy."
+ },
+ {
+  "case_id": 3725970,
+  "cite": "Branic International Realty Corp. v. Pitt, 106 A.D.3d 178",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 2013,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.98,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "A homeless person housed in an SRO hotel at a nightly rate became a permanent rent-stabilized tenant after six months of continuous residence, even without an express or implied landlord-tenant relationship.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "permanent tenant"
+  ],
+  "quotes": [
+   {
+    "text": "A plain reading of RSC \u00a7 2520.6 (j) reveals that the only requirement to be a \u201cpermanent tenant\u201d is six months or more of continuous residence in a particular hotel building (see Kanti-Savita Realty Corp. v Santiago, 18 Misc 3d 74 [App Term, 2d Dept 2007] [criterion is not the payment of rent but continuous residence in the unit for six months]).",
+    "supports": "characterization"
+   },
+   {
+    "text": "Thus, even if Pitt and Branic did not have an express or implied landlord-tenant relationship, Pitt nevertheless qualified as a \u201cpermanent tenant,\u201d entitling him to the enumerated protections of the Rent Stabilization Code.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Accordingly, respondent-appellant was a \u201cpermanent tenant,\u201d as defined by Rent Stabilization Code \u00a7 2520.6 (j).",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Characterization is other because the court's operative classification was permanent tenant, a status not represented by a more specific schema value."
+ },
+ {
+  "case_id": 3761627,
+  "cite": "Smiley v. Williams, 26 Misc. 3d 170",
+  "court": "Civil Court of the City of New York, New York County",
+  "year": 2009,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.92,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "The occupant of an owner-controlled SRO became a permanent rent-stabilized tenant through more than six months of continuous residence, notwithstanding the owner's denial of rent payments or a formal agreement.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [
+   "permanent tenant"
+  ],
+  "quotes": [
+   {
+    "text": "Based on the undisputed facts as established at trial, respondent is entitled to the protections of rent stabilization as the permanent tenant for the subject premises.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The fact that petitioner denies receiving any payment of rent or entering any formal agreement with respondent, even if true, does not deprive respondent of rights under the statute; the sole criterion used under the statute is continuous residence for a six-month period, which is not disputed here (Kanti-Savita Realty Corp. v Santiago, 18 Misc 3d 74 [App Term, 2d Dept 2007]; Brianic Intl. Realty Corp. v Pitt, 24 Misc 3d 940 [2009]).",
+    "supports": "polarity"
+   },
+   {
+    "text": "Based on the foregoing, the court finds that Monroe Williams is the permanent tenant of the subject premises, and is entitled to have a lease issued in his name. The petition is dismissed.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "The owner asserted owner occupancy and family use, but the evidence did not establish that he personally resided in the building; who_was_letting is therefore unclear. Characterization is other because the court classified respondent as a permanent tenant."
+ },
+ {
+  "case_id": 3771346,
+  "cite": "Branic International Realty Corp. v. Pitt, 30 Misc. 3d 29",
+  "court": "Supreme Court, Appellate Term, First Department",
+  "year": 2010,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.97,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "license",
+  "holding_summary": "The court held that an HRA-referred SRO occupant was merely HRA's licensee rather than a permanent rent-stabilized tenant and awarded the hotel owner possession after the license was revoked.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Therefore, respondent was merely a licensee of HRA (see Rosenstiel v Rosenstiel, 20 AD2d 71 [1963]; see also Helping Out People Everywhere v Deich, 155 Misc 2d 707 [1992], affd 160 Misc 2d 1052 [1994]), not a \u201cpermanent tenant\u201d entitled to the protections afforded by the Rent Stabilization Code (see 9 NYCRR 2520.6 \u00a3j]).",
+    "supports": "characterization"
+   },
+   {
+    "text": "Since respondent\u2019s license was revoked and he has no right to continued possession (see RPAPL 713 [7]), petitioner\u2019s cross motion for summary judgment on its claim for possession should have been granted.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Order, dated June 9, 2009, reversed, with $10 costs, respondent\u2019s motion for summary judgment denied, petitioner\u2019s cross motion for summary judgment granted and final judgment directed in favor of petitioner upon its claim for possession.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "This Appellate Term holding was later reversed in Branic International Realty Corp. v. Pitt, 106 A.D.3d 178 (2013)."
+ },
+ {
+  "case_id": 3786955,
+  "cite": "TOA Construction Co. v. Tsitsires, 54 A.D.3d 109",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 2008,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.63,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The court reinstated a judgment awarding the SRO landlord possession because the long-term rent-stabilized tenant lacked a substantial physical nexus to the room for actual living purposes and showed no intent or ability to resume residence.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Respondent has been a rent-stabilized tenant in the SRO since 1970.",
+    "supports": "characterization"
+   },
+   {
+    "text": "We conclude that petitioner\u2019s claim is established, based upon the facts as found by the trial court, that respondent does not, and will not in the future, use the subject premises \u201cfor actual living purposes,\u201d and that therefore it is not his residence.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Accordingly, the order of the Appellate Term of the Supreme Court of the State of New York, First Department, entered December 21, 2006, which reversed a final judgment of the Civil Court, New York County (Gerald Lebovits, J.), entered July 7, 2005, awarding possession after nonjury trial to petitioner landlord in a nonprimary residence proceeding, and awarded final judgment to respondent tenant dismissing the petition, should be reversed, on the law, without costs, and the judgment of possession awarded in favor of petitioner landlord reinstated.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Relevant as an SRO occupancy-protection decision, although the immediate issue was abandonment and primary residence rather than the initial right to let rooms."
+ },
+ {
+  "case_id": 3787987,
+  "cite": "560 West 165th Street Associates L.P. v. Figueroa, 39 Misc. 3d 1005",
+  "court": "Civil Court of the City of New York, New York County",
+  "year": 2013,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The court dismissed with prejudice a supportive-housing landlord's attempt to evict a subsidized tenant for living with her infant, holding that the unit was not a prohibited rooming unit and that the occupancy restriction and agreement to vacate violated fair-housing law and public policy.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Respondent took occupancy of the premises pursuant to a \u201cLandlord-Tenant Lease Agreement for Single Occupancy,\u201d dated August 15, 2005, at a monthly rent of $554.",
+    "supports": "characterization"
+   },
+   {
+    "text": "In this instance, the agreement entered between petitioner and respondent is not only based upon a false presumption, i.e., that the lease, regulatory and contractual agreements bar children from occupying the premises, but also is void as against public policy.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Based upon the foregoing, petitioner\u2019s motion for summary judgment is denied. Respondent\u2019s motion for summary judgment is granted and the proceeding is dismissed with prejudice.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "The premises was contractually labeled an SRO but physically was a self-contained studio with a private kitchen and bathroom."
+ },
+ {
+  "case_id": 3928767,
+  "cite": "Morris v. City of New York, 21 Misc. 3d 758",
+  "court": "Supreme Court, Kings County",
+  "year": 2008,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Sidewalk personal-injury action addressing whether a public financing authority owed an owner's maintenance duty; dormitory leasing appears only as financing context."
+ },
+ {
+  "case_id": 3971519,
+  "cite": "Ginezra Associates LLC v. Ifantopoulos, 70 A.D.3d 427",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 2010,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "mixed",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "A prior judgment precluded the landlord from relitigating whether the tenant's authorized subtenant defeated primary residence, but a distinct claim that the tenant commercially exploited or profited from the sublease was reinstated for factual determination.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Thereafter, Pillsbury became aware of Ifantopoulos\u2019s occupancy and he has been paying rent to Pillsbury for the third-floor loft since that time.",
+    "supports": "characterization"
+   },
+   {
+    "text": "While finding that there was one leasehold for the two-floor unit, it also found that the \u201csubletting of part of the space was always contemplated and permitted,\u201d and that the landlord could not \u201cexcise a portion of the leasehold for nonprimary residence purposes.\u201d",
+    "supports": "polarity"
+   },
+   {
+    "text": "Accordingly, the rent-profiteering cause of action is separate and distinct from the residence claim; it is not precluded by res judicata or collateral estoppel, and must be reinstated.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "Mixed because the decision preserved the authorized subtenancy against the renewed primary-residence theory while permitting litigation of alleged rent profiteering. Pillsbury was a tenant-sublessor, a category not represented by the who_was_letting enum."
+ },
+ {
+  "case_id": 3996841,
+  "cite": "Prometheus Realty Corp. v. City of New York, 80 A.D.3d 206",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 2010,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.14,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "The case concerns Civil Court jurisdiction over statutory tenant-harassment claims generally, not a particular compensated room or dwelling occupancy arrangement."
+ },
+ {
+  "case_id": 4021331,
+  "cite": "1234 Broadway LLC v. West Side SRO Law Project, 86 A.D.3d 18",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 2011,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-021",
+  "notes": "The dispute concerns SRO tenants' statutory right to hold meetings in common hallways subject to fire and access restrictions, not compensated occupancy or its legal character."
+ }
+]

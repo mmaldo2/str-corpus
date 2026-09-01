@@ -1,0 +1,498 @@
+[
+ {
+  "case_id": 4625103,
+  "cite": "197 A.D. 656",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1921,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "license_vs_lease",
+   "dwelling_purposes_exemption"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "This portion of the house was rented to the tenant for the propose of subletting the same to roomers or lodgers.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     2259,
+     2371
+    ],
+    "reporter_page": "657"
+   },
+   {
+    "text": "where the premises are leased to a tenant not for the purposes of a residence but for the purposes of a business of subleasing to others, the statute does not apply.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3128,
+     3293
+    ],
+    "reporter_page": "657"
+   },
+   {
+    "text": "The tenant thereupon subleased portions of the premises, furnished, to four different persons as monthly-tenants.",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     2372,
+     2485
+    ],
+    "reporter_page": "657"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Mixed: subletting rooms to roomers is treated as an ordinary (implicitly lawful) landlord-permitted use, but the master tenant's business of subletting is expressly denied the statutory 'dwelling purposes' protection given to residential occupants -- a distinction between residing and running a letting business.",
+  "nulled_fields": [
+   "polarity",
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 5492024,
+  "cite": "92 N.Y.S. 851",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1905,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "hotel_vs_apartment_house",
+   "innkeeper_duty"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The apartments are arranged in small suites, differing in no essential respect from those in an ordinary apartment house furnishing similar accommodations for small families. These apartments are rented upon annual leases, and transient tenants are not solicited.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1681,
+     1944
+    ],
+    "reporter_page": "852"
+   },
+   {
+    "text": "the Appellate Term of this court held that the relations between a lessee of apartments in an apartment hotel and the lessors were those of landlord and tenant",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3444,
+     3603
+    ],
+    "reporter_page": "852"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Occupancy is annual (long-term), not short-term letting; included for its bearing on the boundary between innkeeping/public-accommodation duties and ordinary landlord-tenant leasing of rooms/apartments for pay.",
+  "nulled_fields": [
+   "polarity",
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 5637879,
+  "cite": "123 N.Y.S. 803",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1910,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Dispute over a farmhouse lease during a municipal water-supply condemnation proceeding; concerns landlord's title, tenant estoppel, and rent obligations, with no bearing on short-term room letting or boarding/lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7664563,
+  "cite": "129 N.Y.S. 838",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1911,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Innkeeper's liability for a horse left overnight in the inn's stable; concerns the guest/host relationship for stabling animals, not the letting of rooms or dwellings to human occupants.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7672303,
+  "cite": "111 N.Y.S. 642",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1908,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "A tenant who leased floors of a building to be used and occupied as bachelor apartments and furnished rooms could, in a landlord's summary nonpayment proceeding, set off damages for lost roomer rental income caused by the landlord's failure to perform covenants to install steam heat, hot water, and toilets.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the said lease contained a provision that the said premises should be used and occupied as bachelor apartments and furnished rooms",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     3022,
+     3152
+    ],
+    "reporter_page": "643"
+   },
+   {
+    "text": "roomers, whom tenant had obtained in said premises, refused to stay in said apartments, and had vacated the same",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     4380,
+     4492
+    ],
+    "reporter_page": "643"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Court did not characterize the legal nature of the roomer occupancy (lease/license/lodging); the opinion addresses the landlord's covenant breach and the tenant's right to set off resulting lost-rent damages against rent owed in summary proceedings -- characterization left null accordingly.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 7700512,
+  "cite": "67 N.Y.S. 129",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1900,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Allocates penalty liability between owner and 21-year lessee under the Tenement House Law for failing to supply garbage/ash receptacles; addresses municipal sanitary-code liability allocation, not the practice or character of compensated room/dwelling letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 8297895,
+  "cite": "78 N.Y.S. 855",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1902,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Personal-injury demurrer case about a landlord's tort liability, if any, to a tenant's 'lodger, visitor, or member of the tenant's family' injured by a falling ceiling covered under a repair covenant; 'lodger' is used only as a status label for a tenant's household member, not to address compensated room-letting arrangements.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 65116,
+  "cite": "211 N.Y. 465",
+  "court": "New York Court of Appeals",
+  "year": 1914,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Innkeeper-guest dispute over a disputed caf\u00e9 bill and the admissibility of reputation evidence in a suit for wrongful exclusion from the dining room; concerns innkeeper's right to refuse service for nonpayment and evidentiary rules, not the character or regulation of room/dwelling letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 65348,
+  "cite": "211 N.Y. 265",
+  "court": "New York Court of Appeals",
+  "year": 1914,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Mandamus proceeding over denial of a garage permit near a school under a fire-prevention ordinance; a police-power case about gasoline storage, unrelated to lodging/boarding house letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 67030,
+  "cite": "212 N.Y. 325",
+  "court": "New York Court of Appeals",
+  "year": 1914,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Condemnation-award dispute over riparian boundary lines and title to land under a creek; no bearing on room/dwelling letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 68691,
+  "cite": "213 N.Y. 194",
+  "court": "New York Court of Appeals",
+  "year": 1914,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Public nuisance action over a railroad trestle bridge and fill obstructing a navigable creek; concerns navigable-waters law, not lodging or dwelling letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 72194,
+  "cite": "214 N.Y. 268",
+  "court": "New York Court of Appeals",
+  "year": 1915,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.35,
+  "polarity": null,
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "A restrictive covenant limiting a lot to 'dwelling houses' is not confined to single-family residences; an apartment house occupied by multiple families falls within the ordinary meaning of 'dwelling house,' so its construction does not violate such a covenant.",
+  "doctrinal_concepts": [
+   "restrictive_covenant_dwelling_scope"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The term \u201c dwelling house,\u201d used in this covenant, is broad enough to include and permit the erection of an apartment house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1771,
+     1895
+    ],
+    "reporter_page": "269"
+   },
+   {
+    "text": "a dwelling house is a house or structure in which people dwell and such, concededly, are the character and purpose of an apartment house.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     9343,
+     9480
+    ],
+    "reporter_page": "273"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Concerns the right to construct a multi-family apartment building under a restrictive covenant, not compensated short-term letting by a resident householder; included as background bearing on how broadly courts read 'dwelling' to include multi-occupant, paying-tenant buildings.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 72221,
+  "cite": "214 N.Y. 308",
+  "court": "New York Court of Appeals",
+  "year": 1915,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Dispute over whether a mercantile tenant renewed a commercial store lease or held over without landlord consent; ordinary commercial landlord-tenant dispute with no lodging/boarding dimension.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 74243,
+  "cite": "215 N.Y. 160",
+  "court": "New York Court of Appeals",
+  "year": 1915,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Construes the Tenement House Law penalty for a tenement 'used ... for the purpose of prostitution,' holding a single undiscovered act of vice by occupants is insufficient absent some continuity of use; concerns illegal use of tenement rooms, not the character or regulation of lawful compensated room-letting/lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 74316,
+  "cite": "215 N.Y. 285",
+  "court": "New York Court of Appeals",
+  "year": 1915,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Murder appeal turning on admissibility of the defendant's confessions before a coroner and district attorney; that the defendant 'kept a boarding house' and the victim was her boarder is a passing background fact, not a holding about boarding-house letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 75618,
+  "cite": "217 N.Y. 443",
+  "court": "New York Court of Appeals",
+  "year": 1916,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Franchise-tax dispute over whether a railroad holding company that leased its railroad to another corporation was 'doing business' in New York; corporate tax law, no bearing on room/dwelling letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 75734,
+  "cite": "217 N.Y. 212",
+  "court": "New York Court of Appeals",
+  "year": 1916,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Civil Rights Act case holding a theatre may exclude a dramatic critic for reasons other than race, creed, or color; the statutory definition of 'place of public accommodation' it construes lists inns/hotels for transient or health/rest guests, but the dispute itself concerns theatre admission, not room/dwelling letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 77931,
+  "cite": "218 N.Y. 140",
+  "court": "New York Court of Appeals",
+  "year": 1916,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-011",
+  "notes": "Damages action over a railroad's construction and operation of a rail line across lots restricted by covenant to private-dwelling use only; concerns eminent domain/restrictive-covenant compensation for railroad construction, not compensated room or dwelling letting.",
+  "extraction_status": "ok"
+ }
+]

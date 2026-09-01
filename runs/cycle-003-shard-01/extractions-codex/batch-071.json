@@ -1,0 +1,445 @@
+[
+ {
+  "case_id": 2705106,
+  "cite": "127 La. 701",
+  "court": "Louisiana Supreme Court",
+  "year": 1910,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "The case concerns an invalid lease of land used for a cotton gin, not compensated occupancy of a dwelling or rooms."
+ },
+ {
+  "case_id": 2707132,
+  "cite": "127 La. 848",
+  "court": "Louisiana Supreme Court",
+  "year": 1911,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "This negligence pleading case merely identifies one defendant as a tenant and does not address compensated residential occupancy."
+ },
+ {
+  "case_id": 2813283,
+  "cite": "9 Teiss. 186",
+  "court": "Louisiana Court of Appeal",
+  "year": 1912,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.56,
+  "polarity": "adverse",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "A lease of a house for immoral purposes outside the restricted district was illegal and void from its inception. The court affirmed judgment for the occupants after the police forced them to leave.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Plaintiff sues for rent under a written lease and notes. Defendant pleads that the house was leased for immoral purposes, and being outside the \u201crestricted district, \u2019 \u2019 they were forced by the police to move away.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Now the lease of a house for immoral purposes cannot but be \u201cContra bonos mores,\u2019\u2019 and altogether such lease may be legal where the house is situated in the district set aside for prostitutes (Lyman vs. Townsend, 24 An. 625), nevertheless it is clearly illegal as well as \u201ccontra bonos mores\u201d where the house is situated outside of that district.",
+    "supports": "polarity"
+   },
+   {
+    "text": "We therefore think that the lease was void from the beginning; but if the facts of defendant\u2019s enforced removal from the premises has any bearing, then the circumstances of this case are much the same as in Huntington vs. Livingston, No. 1637 of our docket (reported in Op. Book, 12 Fol. 138-141) wherein the defendant was released from liability.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "Relevant as regulation invalidating a compensated house occupancy because of the premises' prohibited use, although it does not concern ordinary lodging or boarding."
+ },
+ {
+  "case_id": 2926711,
+  "cite": "167 La. 208",
+  "court": "Louisiana Supreme Court",
+  "year": 1928,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.12,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "The claimed rent concerned a separated spouse's occupancy of the marital dwelling in lieu of alimony, not a compensated letting to a tenant, lodger, or boarder."
+ },
+ {
+  "case_id": 2928729,
+  "cite": "167 La. 287",
+  "court": "Louisiana Supreme Court",
+  "year": 1928,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.68,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court found that Josephine Giles built the larger dwelling with her earnings and her husband's wages. It offset the coheirs' rent claim in full against the value of that improvement.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The defendant, Josephine Giles, lived with her mother during the last twenty years of her life. She worked as a laundress, and had boarders and lodgers on the premises, for whom she did the cooking.",
+    "supports": "characterization"
+   },
+   {
+    "text": "The defendant, Josephine Giles, lived with her mother during the last twenty years of her life. She worked as a laundress, and had boarders and lodgers on the premises, for whom she did the cooking.",
+    "supports": "polarity"
+   },
+   {
+    "text": "It is clear that the house must have been built by the defendant with her own earnings and out of the wages of her husband, as this is the only satisfactory and adequate source of revenue disclosed by the evidence in the case, out of which the cost of the building could have been defrayed, as it was completed in about three years.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The total rent claimed by plaintiffs equals the value of the larger house erected on the property by defendant, to wit, the sum of $1,200. We are therefore of the opinion that the claim for rents made by plaintiffs should be compensated in full by the value of this improvement.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "The court treated a resident family member's keeping of boarders and lodgers as part of the evidence concerning her earnings, but did not adjudicate the occupants' particular rights or length of stay."
+ },
+ {
+  "case_id": 2928955,
+  "cite": "167 La. 771",
+  "court": "Louisiana Supreme Court",
+  "year": 1929,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "The case sustains removal of railroad bridge piers under municipal police power and has no connection to dwelling occupancy."
+ },
+ {
+  "case_id": 2930116,
+  "cite": "167 La. 527",
+  "court": "Louisiana Supreme Court",
+  "year": 1928,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "The reference to rental concerns the rental value of pledged corporate stock, not real-property occupancy."
+ },
+ {
+  "case_id": 2932491,
+  "cite": "167 La. 791",
+  "court": "Louisiana Supreme Court",
+  "year": 1929,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.18,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "The dispute concerns whether a deed restriction barred construction of a triplex apartment house, with no compensated occupancy or letting actually at issue."
+ },
+ {
+  "case_id": 2934725,
+  "cite": "167 La. 674",
+  "court": "Louisiana Supreme Court",
+  "year": 1929,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "The case upholds reporting requirements for movers of household goods and does not regulate letting, lodging, or boarding."
+ },
+ {
+  "case_id": 3279321,
+  "cite": "1 La. App. 3",
+  "court": "Louisiana Court of Appeal",
+  "year": 1924,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "This boundary and servitude dispute includes a claim for use of a fourteen-inch strip but no compensated occupancy of dwelling space."
+ },
+ {
+  "case_id": 3281527,
+  "cite": "1 La. App. 283",
+  "court": "Louisiana Court of Appeal",
+  "year": 1924,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.94,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "The court held that the landlords unlawfully excluded their tenant from two leased rooms and a kitchen and could not recover possession through self-help. It reversed the judgment and awarded the tenant $150 for physical and mental suffering.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The testimony leaves no doubt that the plaintiff was the tenant of the defendants and that they closed the doors upon him and prevented him from having access to the premises leased by him or to his furniture and clothing contained on said premises, and that he had to resort to legal proceedings to sequester and recover the property.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Ever since the case of Thayer vs. Littlejohn, 1 Rob. 140, in the year 1842, the jurisprudence has been constant that a landlord has no right to move the property of his tenant and to obtain possession of leased premises by ejecting the tenants without resorting to the means provided by law.",
+    "supports": "polarity"
+   },
+   {
+    "text": "The plaintiff was by defendants\u2019 fault put to the expense of prosecuting the suit to final judgment instead of immediately confessing judgment, and kept plaintiff out of his property until his judgment became final, a period of over fifteen days; also ejected him from the leased premises without process of law.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "It is therefore ordered that the judgment herein be reversed and set aside; and it is now ordered that the defendants, Mr. and Mrs. Joseph Silva, be condemned in solido to pay to the plaintiffs the sum of One Hundred and Fifty Dollars with five per cent per annum interest from June 24, 1922, till paid,' and all costs of suit.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "The tenant rented two rooms and a kitchen for $8 per month and had resided there with his family for more than a year; the record does not establish whether the landlords also occupied the building."
+ },
+ {
+  "case_id": 3281696,
+  "cite": "1 La. App. 216",
+  "court": "Louisiana Court of Appeal",
+  "year": 1924,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "The phrase 'right to let the sale stand' concerns an illegally sold horse and not the letting of real property."
+ },
+ {
+  "case_id": 3283108,
+  "cite": "1 La. App. 179",
+  "court": "Louisiana Court of Appeal",
+  "year": 1924,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "The case concerns enforcement of a release bond arising from a farm lease and does not address occupancy of a dwelling or rooms."
+ },
+ {
+  "case_id": 3285716,
+  "cite": "2 La. App. 425",
+  "court": "Louisiana Court of Appeal",
+  "year": 1925,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "The proceeding concerns a one-year agricultural lease of a large tract and the tenant's ability to contest title, not residential lodging."
+ },
+ {
+  "case_id": 3286349,
+  "cite": "1 La. App. 591",
+  "court": "Louisiana Court of Appeal",
+  "year": 1925,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "This construction-lien case concerns materials used to build a residence and contains no letting or compensated occupancy."
+ },
+ {
+  "case_id": 3286689,
+  "cite": "2 La. App. 21",
+  "court": "Louisiana Court of Appeal",
+  "year": 1925,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "The case concerns trespass by road contractors across private land and has no connection to residential occupancy."
+ },
+ {
+  "case_id": 3287271,
+  "cite": "2 La. App. 112",
+  "court": "Louisiana Court of Appeal",
+  "year": 1925,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.83,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court held that a tenant who sublet part of the residential premises was also the plaintiffs' lessor and was answerable for injuries caused by failure to keep the premises safe. It reduced the damages award to $350 and otherwise affirmed.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "This argument completely ignores the fact that Ferro, while a lessee of the owner of the property, was also a lessor of plaintiffs.",
+    "supports": "characterization"
+   },
+   {
+    "text": "A tenant who sublets a portion of the leased premises is answerable for damages suffered by his sub-lessee due to the failure to keep the premises in safe repair.",
+    "supports": "polarity"
+   },
+   {
+    "text": "This argument completely ignores the fact that Ferro, while a lessee of the owner of the property, was also a lessor of plaintiffs. The exception was properly overruled.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "For the reasons assigned the judgment appealed from is amended so as to reduce the sum awarded plaintiffs to $350.00 and in all other respects it is affirmed.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "The court enforced duties arising from a residential subletting, but the opinion does not reveal whether Ferro lived on the premises or the duration of the subtenancy."
+ },
+ {
+  "case_id": 3287839,
+  "cite": "2 La. App. 286",
+  "court": "Louisiana Court of Appeal",
+  "year": 1925,
+  "jurisdiction": "La.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "mixed",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "The court affirmed judgment for the defendant company because it did not own the house and was not shown to have authorized anyone to lease it in the company's name. It also held that the plaintiff herself was not the lessee and that the cited Civil Code protections extended only to lessees.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The learned counsel for plaintiff is in error in drguing that the plaintiff was a tenant of the defendant. She states in her petition that the premises had been \u201cleased by her husband\u201d.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Nor has she any right of action under C. C. 2692-2695, because she was not the \u201clessee\u201d of said premises, and that those articles extend their protection only to lessees.",
+    "supports": "polarity"
+   },
+   {
+    "text": "The record shows affirmatively that the defendant never owned the property 1015 Dupre Street. ' Nor is there anything to show that the defendant held itself out as owner, or authorized Miss Gillin or any one else to sign rent receipts in its name.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "Nor has she any right of action under C. C. 2692-2695, because she was not the \u201clessee\u201d of said premises, and that those articles extend their protection only to lessees.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-071",
+  "notes": "The case bears on the proof required to establish the lessor-lessee relationship for an occupied house, but neither the occupancy duration nor the actual lessor's operating character is established."
+ }
+]

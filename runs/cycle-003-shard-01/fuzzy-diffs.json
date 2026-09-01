@@ -1,0 +1,456 @@
+[
+ {
+  "case_id": 1224193,
+  "quote": "petitioner acquired a boarding house located at 24 Roberts Street in the City of Middletown, Orange County, and has used it continuously as a boarding house since that time.",
+  "source": "sions of the Not-For-Profit Corporation Law since 1983. In August 1983 petitioner acquired a boarding house located at 24 Roberts Street in the City of-Middletown, Orange County, and has used it continuously as a boarding house since that time. After acquiring th",
+  "score": 99.42196531791907,
+  "page": "49",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 1932707,
+  "quote": "He was later discharged in July, 1978, but was permitted to stay on as a tenant. He paid rent for these lodgings.",
+  "source": "with a room in the defendant\u2019s rooming house. Stiles was later discharged in July, 1978, but was permitted to stay on as a tenant. He paid rent for these lodgings.      In November, 1978, the defendants ",
+  "score": 99.11504424778761,
+  "page": "1049",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 3299925,
+  "quote": "A lessor guarantees the lessee against all the defects of the leased premises even in case it should appear he knew nothing of the existence of such defects and he is bound to indemnify the lessee for any loss resulting from those defects.",
+  "source": "ndlord and Tenant \u2014Par. 65, 66.      A lessor guarantees the lessee against all the defects of the leased premises even in case it should appear he knew nothing of the existence of such defects and he is bound to indemnify, the lessee for any loss resulting from those defects.      2. Louisiana Digest\u2014Evidence\u2014Par. 344.      An",
+  "score": 99.581589958159,
+  "page": "228",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 10291705,
+  "quote": "there was located on plaintiff\u2019s lots an 18-room, two-story frame building, owned by plaintiff, and operated by her as a family hotel.",
+  "source": "bout 70 feet from plaintiff\u2019s lots; that there was located on plaintiff\u2019s lots an 18-room, two-story frame building, owned by plaintiff, and operated by her as a family hotel, and occupied by her and her family as their resi",
+  "score": 99.25373134328358,
+  "page": "286",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 10291705,
+  "quote": "there was located on plaintiff\u2019s lots an 18-room, two-story frame building, owned by plaintiff, and operated by her as a family hotel.",
+  "source": "bout 70 feet from plaintiff\u2019s lots; that there was located on plaintiff\u2019s lots an 18-room, two-story frame building, owned by plaintiff, and operated by her as a family hotel, and occupied by her and her family as their resi",
+  "score": 99.25373134328358,
+  "page": "286",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 10296227,
+  "quote": "We do not believe that a hotel keeper, under the law, can place more than one lock or bolt, or both a lock and a bolt, on the door of his sleeping room doors, one of which may be unsuitable or unsafe",
+  "source": " suitable and, safe. We do not believe that a hotel keeper, under the law, can place more than one lock or bolt, or both a lock and a bolt, on his sleeping room doors, one of which may be unsuitable or unsafe, and require a guest at his peril to elect which one, the lock or the bolt, he w",
+  "score": 94.14893617021276,
+  "page": "636",
+  "supports": "holding_summary",
+  "classification": "needs-human",
+  "quote_coverage": 0.634,
+  "miss_runs": [
+   8,
+   11,
+   52
+  ]
+ },
+ {
+  "case_id": 10313166,
+  "quote": "J. A. Woolly occupied and used the building as a grocery store on the first floor, and as a rooming house on the second floor.",
+  "source": "ing the roof of the building and making it leak proof. J. A. Woolly occupied and used the building as a grocery store on the first floor, and as \u00e1 rooming house on the second floor. J. A. Woolly paid the rent for 15 ",
+  "score": 99.20634920634922,
+  "page": "642",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.984,
+  "miss_runs": [
+   2
+  ]
+ },
+ {
+  "case_id": 10313166,
+  "quote": "J. A. Woolly occupied and used the building as a grocery store on the first floor, and as a rooming house on the second floor.",
+  "source": "ing the roof of the building and making it leak proof. J. A. Woolly occupied and used the building as a grocery store on the first floor, and as \u00e1 rooming house on the second floor. J. A. Woolly paid the rent for 15 ",
+  "score": 99.20634920634922,
+  "page": "642",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.984,
+  "miss_runs": [
+   2
+  ]
+ },
+ {
+  "case_id": 1156185,
+  "quote": "The record establishes a pattern of renting to individuals unrelated to each other, resulting in occupancy for other than single family within the purview of the Bent Regulations. The Administrator therefore finds that recontrol was effected by such renting to unrelated individuals.",
+  "source": "dual in nature \u2014 rather than single. On these facts, the respondent found: \u201c The record establishes a pattern of renting to individuals unrelated to each other, resulting in occupancy for other than single family within the purview of the Bent Begulations. The Administrator therefore finds that recontrol was effected by such renting to unrelated individuals.\u201d      This f",
+  "score": 99.64664310954063,
+  "page": "1011",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.996,
+  "miss_runs": [
+   1
+  ]
+ },
+ {
+  "case_id": 12282850,
+  "quote": "A class A multiple dwelling shall only be used for permanent residence purposes.",
+  "source": "Law to provide, among other things, that \u201c[a] class A multiple dwelling shall only be used for permanent residence purposes.\u201d (Multiple Dwelling Law \u00a7 4 [8] [a]; see L 20",
+  "score": 98.75,
+  "page": "838",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 4530608,
+  "quote": "We do not wish to be understood, however, as declaring it to be our judgment that the defendant would have no right to build upon the party-wall,\" if the object were to enlarge his house as a private residence.",
+  "source": "vate residence, but for business purposes, namely, as part of a family hotel. We do not wish to he understood, however, as declaring it to be our judgment that the defendant would have no right to build upon the party-wall,\" if the object were to enlarge his house as a private residence. We think th",
+  "score": 99.52380952380952,
+  "page": "366",
+  "supports": "polarity",
+  "classification": "needs-human",
+  "quote_coverage": 0.907,
+  "miss_runs": [
+   19
+  ]
+ },
+ {
+  "case_id": 2186819,
+  "quote": "Soon after I bought I sold a lot off the east end of the block to Mrs. Armstead, and after that I sold off to A. A. Barnes a lot off the west end of the block",
+  "source": "d of Caddo Street, and has always resided on the block since. After I bought I sold a lot off the east end of the block to Mrs. Armstead, and after that I sold off to A. A. Barnes a lot off the west end of the block and retained that portion lying ",
+  "score": 98.10126582278481,
+  "page": "155",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.974,
+  "miss_runs": [
+   4
+  ]
+ },
+ {
+  "case_id": 4464507,
+  "quote": "an inn, tavern or hotel means a place for the general entertainment and lodging of all travelers and strangers who apply, paying suitable compensation, A hotel \u201cguest\u201d is one who lives at board or lodging in a hired room, and \u201clodging\u201d is a place of rest for a night, or a residence for a time\u2014 a temporary habitation.",
+  "source": "3. Same\u2014Definitions\u2014Pact Case.\u2014In statutory parlance, an inn, tavern or hotel means a place for the general entertainment and lodging of all travelers and strangers who apply, paying suitable compensation,, A hotel \u201cguest\u201d is one who lives at board or lodging in a hired room, and \u201clodging\u201d is a place of rest for a night, or a residence for a time\u2014 a temporary habitation. An unappropriated guest room in an",
+  "score": 99.68553459119497,
+  "page": "509",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 4464507,
+  "quote": "an inn, tavern or hotel means a place for the general entertainment and lodging of all travelers and strangers who apply, paying suitable compensation, A hotel \u201cguest\u201d is one who lives at board or lodging in a hired room, and \u201clodging\u201d is a place of rest for a night, or a residence for a time\u2014 a temporary habitation.",
+  "source": "3. Same\u2014Definitions\u2014Pact Case.\u2014In statutory parlance, an inn, tavern or hotel means a place for the general entertainment and lodging of all travelers and strangers who apply, paying suitable compensation,, A hotel \u201cguest\u201d is one who lives at board or lodging in a hired room, and \u201clodging\u201d is a place of rest for a night, or a residence for a time\u2014 a temporary habitation. An unappropriated guest room in an",
+  "score": 99.68553459119497,
+  "page": "509",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 595850,
+  "quote": "The owner is\u2018bound to know whether his building is safe for the purposes for which he rents it, or authorizes its use, or is rotten and unsafe, and is answerable, in damages, to those who, being lawfully therein, are injured by reason of its defects, whether of original construction or caused by failure to make proper repairs.",
+  "source": " Tenant >&wkey;167(2) \u2014 Injury to One on Premises \u2014 Liability.      The owner is\u2018bound to know whether his building is safe for the purposes for which he rents it or authorizes its use, or is rotten and unsafe, and is answerable, in damages, to those who, being lawfully therein, are injured by reason of its defects, whether of original construction or caused by failure to make proper repairs.      [Ed. Note. \u2014 For ",
+  "score": 99.6951219512195,
+  "page": "981",
+  "supports": "characterization",
+  "classification": "needs-human",
+  "quote_coverage": 0.934,
+  "miss_runs": [
+   21
+  ]
+ },
+ {
+  "case_id": 595850,
+  "quote": "The owner is\u2018bound to know whether his building is safe for the purposes for which he rents it, or authorizes its use, or is rotten and unsafe, and is answerable, in damages, to those who, being lawfully therein, are injured by reason of its defects, whether of original construction or caused by failure to make proper repairs.",
+  "source": " Tenant >&wkey;167(2) \u2014 Injury to One on Premises \u2014 Liability.      The owner is\u2018bound to know whether his building is safe for the purposes for which he rents it or authorizes its use, or is rotten and unsafe, and is answerable, in damages, to those who, being lawfully therein, are injured by reason of its defects, whether of original construction or caused by failure to make proper repairs.      [Ed. Note. \u2014 For ",
+  "score": 99.6951219512195,
+  "page": "981",
+  "supports": "holding_summary",
+  "classification": "needs-human",
+  "quote_coverage": 0.934,
+  "miss_runs": [
+   21
+  ]
+ },
+ {
+  "case_id": 595850,
+  "quote": "The owner is\u2018bound to know whether his building is safe for the purposes for which he rents it, or authorizes its use, or is rotten and unsafe, and is answerable, in damages, to those who, being lawfully therein, are injured by reason of its defects, whether of original construction or caused by failure to make proper repairs.",
+  "source": " Tenant >&wkey;167(2) \u2014 Injury to One on Premises \u2014 Liability.      The owner is\u2018bound to know whether his building is safe for the purposes for which he rents it or authorizes its use, or is rotten and unsafe, and is answerable, in damages, to those who, being lawfully therein, are injured by reason of its defects, whether of original construction or caused by failure to make proper repairs.      [Ed. Note. \u2014 For ",
+  "score": 99.6951219512195,
+  "page": "981",
+  "supports": "polarity",
+  "classification": "needs-human",
+  "quote_coverage": 0.934,
+  "miss_runs": [
+   21
+  ]
+ },
+ {
+  "case_id": 3281527,
+  "quote": "The plaintiff alleges that he leased two rooms and a kitchen at No. 1112 Frenchmen Street from the defendants for $8 a month and resided there with his wife and family for more than a year prior to March 4, 1922",
+  "source": "ment from rented premises and for loss of wearing apparel.      The plaintiff ' alleges that he leased two rooms and a kitchen at No. 1112 Frenchmen Street from the defendants for $8 a month and resided there with his wife and family for more than a year prior to March 4, 1922; that on February 11, 1",
+  "score": 99.0521327014218,
+  "page": "283",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 5607484,
+  "quote": "It was the duty of the plaintiffs to have placed a hook on the screen and not the duty of the defendants, owners",
+  "source": " of that kind, according to the custom of the place.\u201d      It was the duty of the plaintiffs to have placed a hook on the screen and not the duty of the defendants, and that the plaintiffs cannot recove",
+  "score": 95.53571428571429,
+  "page": "218",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.964,
+  "miss_runs": [
+   2,
+   2
+  ]
+ },
+ {
+  "case_id": 741720,
+  "quote": "the chattels described in the complaint in replevin were brought to the house of the said Cora M. Bice by Samuel J. Budracco, and that the chattels were detained by the defendant Rice under and by virtue of her lien for food and lodging",
+  "source": "e sum of $132 due and owing. The said answer then set out that the chattels described in the complaint in replevin were brought to the house of the said Cora M. Bice by Samuel J. Budracco, and that the chattels were detained by the defendant Bice under and by virtue of her lien for food and lodging. In legal effect, this set",
+  "score": 99.57627118644068,
+  "page": "135",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.996,
+  "miss_runs": [
+   1
+  ]
+ },
+ {
+  "case_id": 743824,
+  "quote": "The respondent urges that as between the landlords and this particular tenant the tenant \u201cmade a business \u201d of subletting furnished apartments. The statute does not, however, recognize the nice distinction thus sought to be superimposed upon it.",
+  "source": "of the\u201d statute quoted, and that, therefore, summary proceedings will not lie. The respondent urges that as between the landlords and this particular tenant the tenant \u201cmade a business \u201d of subletting furnish\u00e9d apartments. The statute does not, however, recognize the nice distinction thus sought to be superimposed upon it. In my opin",
+  "score": 99.59183673469387,
+  "page": "93",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 0.996,
+  "miss_runs": [
+   1
+  ]
+ },
+ {
+  "case_id": 747819,
+  "quote": "The tenant as principal lessee either lets out the floors of the building as apartments to subtenants, or uses the premises for a rooming house.",
+  "source": "edly does not live in the demised premises. The tenant as principal lessee either lets out the floors of the building as apartments to subtenants, or uses the premises for a rooming house/ It matters not in this proceeding which of th",
+  "score": 99.30555555555556,
+  "page": "120",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 1084005,
+  "quote": "husband and wife lived together in the house No. 351 Forty-sixth street, in the borough of Brooklyn, where they eked out a livelihood by renting furnished rooms.",
+  "source": "     For over forty years Thomas Jamison and Mary A. Jamison, husband and wife, lived together in the house No. 351 Forty-sixth street, in the borough of Brooklyn, where they eked out a livelihood by renting furnished rooms. There they raised a family",
+  "score": 99.37888198757764,
+  "page": "463",
+  "supports": "who_was_letting",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 1832770,
+  "quote": "the defendant had used the premises owned by her for a private hotel or boarding-house for the entertainment of gentlemen and their families, who desired to spend the heated term in the country.",
+  "source": " Larchmont Manor Tract      Down to about June, 1905, the defendant had used the premises owned by her for a private hotel or boarding-house for the entertainment of gentlemen and their families, who> desired to spend the heated term in the country. The large majority of the patrons ",
+  "score": 99.48453608247422,
+  "page": "172",
+  "supports": "characterization",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 2386198,
+  "quote": "The plaintiffs bought of the defendants a lease of premises containing a rooming house and the business therein conducted, and the furniture therein, and claim that it was represented that the house could be used for the purpose of a rooming house and that the furniture therein was the defendant-seller\u2019s property.",
+  "source": "ants.             William S. Jackson, for the respondents.             McAvoy, J.:      The'plaintiffs bought of the defendants a lease of premises containing a rooming house and the business therein conducted, and the furniture therein, and claim that it was represented that the house could be used for the purpose of a rooming house and that the furniture therein was the defendant-seller\u2019s property.  ",
+  "score": 99.68253968253968,
+  "page": "414",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 2439741,
+  "quote": "The plaintiff brings this action to recover certain trunks containing her personal wardrobe, or- their value, such trunks being retained by the defendant, a boarding-house keeper, who claims a lien upon the same for the amount of a board bill aggregating something over $150.",
+  "source": "ant.             Frederick Klein, for the respondent.             Woodward, J.:      The plaintiff brings this action to recover certain trunks containing her personal wardrobe, or- their value, such trunks being retained by the defendant, a boarding-house keeper, who claims a lien upon the same for-the amount of a board bill aggregating something over $150. Th",
+  "score": 99.63369963369964,
+  "page": "443",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 2580389,
+  "quote": "He said he had three rooms in the rear house, access to which was through a passageway from the street and by an outside stairway and along the landing to the door. Upon payment of the rent he gave her a receipt to show to the janitress who, he said, would give her the key.",
+  "source": "e defendant\u2019s agent and asked him what rooms he had to let. He said he had-three rooms in the rear house, access to which was through a passageway from the street and by an outside stairway and along the landing to the door. Upon payment of the rent he gave her a receipt to show to the janitress who, he said, would give her the key. This evidence did not-show a ",
+  "score": 99.63503649635037,
+  "page": "291",
+  "supports": "who_was_letting",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 2580389,
+  "quote": "This evidence did not show a hiring of the yard adjacent to the house, and the stairway and the landing together with the rooms, but only a hiring of the rooms themselves. This being so it followed that the landlord retained control of the stairway and landing.",
+  "source": "eipt to show to the janitress who, he said, would give her the key. This evidence did not-show a hiring of the yard adjacent to the house, and the stairway and the landing together with the rooms, hut only a hiring of the rooms themselves. This being so it followed that the landlord retained control of the stairway and landing. Having retained such ",
+  "score": 99.23371647509579,
+  "page": "291",
+  "supports": "characterization",
+  "classification": "needs-human",
+  "quote_coverage": 0.482,
+  "miss_runs": [
+   6,
+   93,
+   34
+  ]
+ },
+ {
+  "case_id": 3296470,
+  "quote": "The evidence shows that the defendant Manze is the proprietor of a saloon at No. 133 Main street in the city of Buffalo, and in connection with the saloon runs a sort of hotel or lodging house for the accommodation of guests.",
+  "source": "falo, for appellants.      Harold J. Tillou, of Buffalo, for respondent.             WHFELER, J.      The evidence shows that the defendant Manze is the proprietor of a saloon at No. 133 Main street in the city of Buffalo', and in connection with the saloon runs a sort of hotel or lodging house for the accommodati",
+  "score": 99.55555555555556,
+  "page": "623",
+  "supports": "polarity",
+  "classification": "needs-human",
+  "quote_coverage": 0.946,
+  "miss_runs": [
+   12
+  ]
+ },
+ {
+  "case_id": 4907537,
+  "quote": "Held, that the wife was entitled to recover from her husband\u2019s estate the amount specified in the acknowledgment of indebtedness, no objection having been made that such amount did not represent the value of the board and lodging so furnished;",
+  "source": "ed the paper to the wife after her bus-hand\u2019s death.             Held, that the wife was entitled to recover from her husband\u2019s estate the amount specified in the acknowledgment of indebtedness, no objection having been made' that such amount did not represent the value of the board and lodging so furnished;      That where a wife ",
+  "score": 99.58847736625515,
+  "page": "74",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 5016789,
+  "quote": "The fact that hotels, boarding houses or houses of that character which were then common in New York were not prohibited would seem to show that the parties did not intend to restrict the premises to residences of a particular kind",
+  "source": " to one particular residential use, viz., a tenement house. The fact that hotels, boarding houses or houses of that character which were then common in New York were not prohibited would seem to show that the parties did not intend to restrict the premises to residences'of a particular kind ; what was contemplated was t",
+  "score": 99.56709956709958,
+  "page": "5",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 5264343,
+  "quote": "and the term \u2018 hotel \u2019 as used in this act shall mean a building regularly used and kept open as such for the feeding and lodging of guests, where all who conduct themselves properly and who are able and ready to pay for their entertainment, are received if there be accommodations for, them, and who, without any stipulated engagement as to the duration of their stay, or as to the rate of compensation, are, while there, supplied, at a reasonable charge, with their meals, lodgings, refreshment and such service and attention as are necessarily incident to the use of the place as a temporary home, and in which the only other dwellers shall be the family and servants .of the hotel keeper.",
+  "source": " may sell liquor to the guests of such hotel, * * * with tlieir meals, or in their rooms therein * * *; and the term \u2018hotel\u2019 as used in this act shall mean a building regularly used and kept open as such for the feeding and lodging of guests, where all who conduct themselves properly and who are able and ready to pay for their entertainment, are received if there be accommodations for, them, and who, without any stipulated engagement as to the duration of their stay, or as to the rate of compensation, are, while there, supplied, at a reasonable charge, with their meals, lodgings, refreshment and such service and attention as are necessarily incident to the use of the place as a temporary home,-and in which the only other dwellers shall be the family and servants .of the h",
+  "score": 99.56647398843931,
+  "page": "8",
+  "supports": "characterization",
+  "classification": "needs-human",
+  "quote_coverage": 0.984,
+  "miss_runs": [
+   11
+  ]
+ },
+ {
+  "case_id": 5364138,
+  "quote": "In order to entitle a son-in-law to recover from the estate of his mother-in-law moneys alleged to be due for board and lodging furnished to the decedent, a contract to pay therefor must be established, either by written evidence, or, if established by parol, it must be by the testimony of disinterested witnesses, or the contract must be corroborated by them in all substantial particulars.",
+  "source": "vidence not justifying recovery.      In order to entitle a son-in-law to recover from the estate of his mother-in-law moneys alleged to be due for hoard and lodging furnished to the decedent, a contract to pay therefor must be established, either by written evidence, or, if established by parol, it must be by the testimony of disinterested witnesses, or the contract must be corroborated by them in all substantial particulars.      Where a son-in-law receives his mother-in-law ",
+  "score": 99.74489795918367,
+  "page": "253",
+  "supports": "holding_summary",
+  "classification": "needs-human",
+  "quote_coverage": 0.681,
+  "miss_runs": [
+   40,
+   51,
+   30,
+   2
+  ]
+ },
+ {
+  "case_id": 7664513,
+  "quote": "He said he had three rooms in the rear house to let, access to which was by an outside stairway and along the landing to the door.",
+  "source": "hat rooms he had to let. He said he had three rooms in the rear house, access to which was by an outside stairway and along the landing to the door. Upon payment of the rent he gave her a. receipt to show to the janitres",
+  "score": 94.73684210526316,
+  "page": "358",
+  "supports": "polarity",
+  "classification": "needs-human",
+  "quote_coverage": 0.797,
+  "miss_runs": [
+   19,
+   7
+  ]
+ },
+ {
+  "case_id": 7667949,
+  "quote": "The defendant went into possession on the 16th of April 1908, and moved out on the 9th of May.",
+  "source": "ver there was any pressure of steam. The' defendant went into possession on the 16th of April 1908, and moved out on the 9th of May. Before doing so, however, she notified the plaintif",
+  "score": 98.93617021276596,
+  "page": "822",
+  "supports": "polarity",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ },
+ {
+  "case_id": 7689601,
+  "quote": "by which it was agreed that the latter was to pay $ioo per week for the exclusive possession and use of said Beatty Cottage, and stables and premises, for the said period from June 1st to November 1st, 1900, upon condition that the plaintiff's assignor would provide the service and board and have the general care of the said premises during the said period.",
+  "source": "ent.                    INGRAHAM, J.      The plaintiff seeks to recover under a contract made by the defendant\u2019s testator by which it was agreed that the latter was to pay $ioo per week.for the exclusive possession and use \u2022of \u201csaid Beatty Cottage, and stables and premises, for the said period from June ist to November ist, 1900,\u201d upon condition that the plaintiff\u2019s assignor would provide the service and board and have the general care of the s",
+  "score": 98.60724233983287,
+  "page": "260",
+  "supports": "characterization",
+  "classification": "needs-human",
+  "quote_coverage": 0.895,
+  "miss_runs": [
+   1,
+   1,
+   35
+  ]
+ },
+ {
+  "case_id": 7689601,
+  "quote": "I think it was a fair question for the jury, from the circumstances proved by the plaintiff, whether there was an obligation to occupy the premises under the agreement, and that such occupation was to be for the whole period, from the ist of June to the ist of November.",
+  "source": "pose of furnishing a home for the defendant\u2019s testator and his family for the summer. I .think it was a fair question for the jury, from the circumstances proved by the plaintiff, whether there was an obligation to occupy the premises under the agreement, and that such occupation was to be for the whole period, from the ist of June to the ist of November. Ob",
+  "score": 99.62962962962963,
+  "page": "262",
+  "supports": "holding_summary",
+  "classification": "trivial-ocr",
+  "quote_coverage": 1.0,
+  "miss_runs": []
+ }
+]

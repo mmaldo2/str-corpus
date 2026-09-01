@@ -1,0 +1,622 @@
+[
+ {
+  "case_id": 824816,
+  "cite": "145 Misc. 635",
+  "court": "New York City Municipal Court",
+  "year": 1932,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.03,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Dispute over a rent receiver's authority to bring summary nonpayment proceedings after a foreclosure receivership was vacated; ordinary commercial lease dispute with no bearing on short-term letting or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 827639,
+  "cite": "146 Misc. 700",
+  "court": "New York Supreme Court",
+  "year": 1933,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Restrictive-covenant construction case over whether 'first class private residences' bars apartment houses/hotels; rooming/lodging houses are mentioned only in passing as evidence of neighborhood change, never adjudicated.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 827706,
+  "cite": "146 Misc. 833",
+  "court": "New York City Municipal Court",
+  "year": 1932,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that the defendant's building was an apartment hotel supplying customary hotel services within the meaning of Lien Law section 181, so the landlord held both a statutory and a contractual lien on the tenant's furniture, and dismissed the former tenants' replevin action to recover it.",
+  "doctrinal_concepts": [
+   "apartment_hotel",
+   "innkeepers_lien"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "An apartment hotel within the meaning of this section includes a hotel wherein apartments are rented for fixed periods of time, either furnished or unfurnished, to the occupants of which the keeper of such hotel supplies food, if required.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     5570,
+     5809
+    ],
+    "reporter_page": "835"
+   },
+   {
+    "text": "An apartment hotel within the meaning of this section includes a hotel wherein apartments are rented for fixed periods of time, either furnished or unfurnished, to the occupants of which the keeper of such hotel supplies food, if required.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5570,
+     5809
+    ],
+    "reporter_page": "835"
+   },
+   {
+    "text": "It, therefore, appears clearly to me that the defendant in these two cases has a hen on ah the property of the plaintiffs contained in their apartment, both under the provisions of the Lien Law and also by virtue of the expressed stipulation in the lease itself. The complaint will, therefore, be dismissed on the merits, without prejudice to another action by the plaintiffs, after they shah have paid or tendered the amount due to the defendant.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6613,
+     7060
+    ],
+    "reporter_page": "835"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Bears on legal character of compensated occupancy: whether an unfurnished suite in a building offering extensive hotel services counts as an 'apartment hotel' (innkeeping) for landlord's-lien purposes, not on the legitimacy of householder letting itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 843695,
+  "cite": "152 Misc. 107",
+  "court": "New York City Municipal Court",
+  "year": 1934,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Summary proceeding over a stockholder's rent-free occupancy of an apartment in lieu of corporate dividends; ordinary tenancy-at-will/foreclosure dispute, not lodging or short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 896352,
+  "cite": "175 Misc. 475",
+  "court": "New York Supreme Court",
+  "year": 1940,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Restrictive-covenant dispute over a cocktail lounge/bar in a 'family hotel'; addresses covenant construction and competitive-use limits, not the legality or regulation of short-term room letting generally.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 934747,
+  "cite": "189 Misc. 915",
+  "court": "New York Supreme Court, Appellate Term",
+  "year": 1947,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court held that the tenant's subletting of five apartments for single-room occupancy did not violate the Multiple Dwelling Law where the landlord had long acquiesced in the arrangement, and that rent regulation's protection against removal extended to the subtenants because subletting the accommodations was within the parties' contemplation from the outset.",
+  "doctrinal_concepts": [
+   "single_room_occupancy",
+   "sublease_protection",
+   "multiple_dwelling_law"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "In this proceeding for dispossession of tenant and undertenants on the ground that the demised premises in a class A fireproof multiple dwelling are being used illegally for single-room occupancy and do not conform with section 248 of the Multiple Dwelling Law, no notice of violation of that section was served by the department of housing and buildings.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     389,
+     744
+    ],
+    "reporter_page": "917"
+   },
+   {
+    "text": "There is no occupancy for \u201c an immoral or illegal purpose \u201d here. Further it is fair to assume that when these five or more \u2022apartments were let to the tenant Nelson a subleasing of the accommodations or units was within the contemplation of the parties, the subtenants or other occupants being thus brought within the protection of the regulation by the amendment of paragraph (1) of subdivision (c) of section 6.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1477,
+     1891
+    ],
+    "reporter_page": "917"
+   },
+   {
+    "text": "The final order should be reversed, with $30 costs, and final order directed for tenant and undertenants, with costs.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2993,
+     3110
+    ],
+    "reporter_page": "918"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Single-room-occupancy subletting protected against removal; landlord's long acquiescence defeated the illegality claim.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 937042,
+  "cite": "190 Misc. 255",
+  "court": "New York Court of Special Sessions",
+  "year": 1947,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "The court found the arrangement between a practical nurse occupying part of her own two-family house and an invalid boarder's family was primarily a contract for nursing services with incidental use of rooms, not a landlord-tenant relationship subject to rent regulation, and reversed the appellant's convictions for rent overcharge, unlawful removal, and failure to register.",
+  "doctrinal_concepts": [
+   "license_vs_lease",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "In our view, the agreement was an entire contract for services and accommodations and it could not be said beyond a reasonable doubt on the evidence adduced that, the agreement provided an apportionment as between rent and services. It is plainly evident that the primary purpose , of the arrangement was to secure nursing services and personal attention for complainant\u2019s mother.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     6841,
+     7221
+    ],
+    "reporter_page": "259"
+   },
+   {
+    "text": "Considered as a contract for personal services, appellant could terminate it at will.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7222,
+     7307
+    ],
+    "reporter_page": "259"
+   },
+   {
+    "text": "Accordingly, the three judgments are reversed and the complaints dismissed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     11284,
+     11359
+    ],
+    "reporter_page": "261"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Householder taking in a paying occupant along with personal-care services held outside rent-regulation's landlord-tenant framework entirely.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 939516,
+  "cite": "191 Misc. 270",
+  "court": "New York Supreme Court",
+  "year": 1948,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.6,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "innkeeping",
+  "holding_summary": "The court annulled the city rent commission's 30% rent increase for permanent hotel guests granted under a local law regulating hotel, apartment hotel, rooming house, and lodging house rents, holding the commission's 'hardship formula' and denial of a hearing to tenants were arbitrary and unlawful.",
+  "doctrinal_concepts": [
+   "hotel_rent_regulation",
+   "police_power_housing_emergency",
+   "lodging_house_regulation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It is hereby declared that a serious emergency exists in the city of New York by reason of the shortage of housing accommodations, hotel, apartment hotel, rooming house and lodging house accommodations, by reason of which the safety and health of the inhabitants are seriously menaced.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1151,
+     1436
+    ],
+    "reporter_page": "272"
+   },
+   {
+    "text": "The action of the commission was arbitrary and unlawful, and not in consonance with the purpose of the local law.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3681,
+     3794
+    ],
+    "reporter_page": "273"
+   },
+   {
+    "text": "Accordingly, the application of the petitioner is granted, the determination of the commission is annulled and the matter remitted to the commission to proceed on the owner\u2019s application in accordance with this opinion.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8397,
+     8616
+    ],
+    "reporter_page": "274"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Local law imposing rent stabilization on hotel/rooming/lodging house accommodations as a police-power emergency measure; this particular commission order was annulled on due-process grounds, but the underlying regulatory scheme is treated as legitimate.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 954276,
+  "cite": "197 Misc. 891",
+  "court": "New York Supreme Court",
+  "year": 1949,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "The court denied the landlord's motion for a declaratory judgment terminating the tenant's lease of a furnished-room house and requiring surrender of the rooms occupied by subtenants, holding that federal rent regulation barred removal of the tenant (and derivatively the subtenants) absent a certificate from the local rent commission, since the premises were not entirely sublet.",
+  "doctrinal_concepts": [
+   "lodging_house",
+   "sublease_protection",
+   "furnished_room_house"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "By the terms of the lease the premises were to be occupied for dwelling purposes, or as a quiet, orderly, respectable furnished-room house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1484,
+     1623
+    ],
+    "reporter_page": "892"
+   },
+   {
+    "text": "Clearly, in the light of the Federal regulation cited, plaintiff fails to make out a case for the declaratory judgment demanded, for notwithstanding his assertion that he has no intention to evict the defendant, the result of such a declaration would be to evict him.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3452,
+     3719
+    ],
+    "reporter_page": "893"
+   },
+   {
+    "text": "The plaintiff\u2019s motion is accordingly denied in all respects.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     5512,
+     5573
+    ],
+    "reporter_page": "894"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "A licensed furnished-room house's subtenants (lodgers) protected from removal under rent-regulation's subletting-protection exception.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 961844,
+  "cite": "199 Misc. 259",
+  "court": "New York Supreme Court",
+  "year": 1950,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Roof-sign license/ejectment dispute over commercial billboard space; discusses license-vs-lease doctrine generally but involves no dwelling, room, or lodging occupancy.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 964488,
+  "cite": "200 Misc. 156",
+  "court": "New York City Municipal Court",
+  "year": 1951,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Public-housing-authority rent dispute with a former owner remaining in occupancy after conveyance; concerns rent-control exemptions for public housing, not short-term room letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 964706,
+  "cite": "200 Misc. 540",
+  "court": "New York City Municipal Court",
+  "year": 1951,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Business Rent Law holdover for combined office-studio/residence space; concerns apportionment of business vs. dwelling space, not boarding or lodging.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 971269,
+  "cite": "202 Misc. 931",
+  "court": "New York City Municipal Court",
+  "year": 1952,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "innkeeping",
+  "holding_summary": "The court held that the plaintiff's weekly-rate apartment was located within a bona fide hotel providing customary hotel services (maid service, linen, desk and bellboy service), and that the premises had been properly decontrolled as a hotel under federal and state rent laws, dismissing the tenant's rent-overcharge claim.",
+  "doctrinal_concepts": [
+   "hotel_decontrol_exemption",
+   "apartment_hotel"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "housing accommodations in any establishment commonly regarded as a hotel in the community in which it is located and which customarily provides hotel services such as maid service, furnishing and laundering of linen, telephone and secretarial or desk service, use and upkeep of furniture and fixtures, and bellboy service",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2484,
+     2805
+    ],
+    "reporter_page": "932"
+   },
+   {
+    "text": "It appears that the plaintiff occupied an apartment in the premises situated in the city of Syracuse known and described as Four Hundred James Street, having entered into possession pursuant to an oral agreement on or about the 23d day of May, 1951, and agreed to pay the sum of $18 per week rental; pursuant to such agreement he remained in possession until December 31, 1951.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     448,
+     825
+    ],
+    "reporter_page": "932"
+   },
+   {
+    "text": "I therefore find that the premises in question are decontrolled and not subject to the regulations of the Temporary State Housing Rent Commission. Plaintiff\u2019s complaint dismissed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8785,
+     8964
+    ],
+    "reporter_page": "935"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Weekly-paying occupant of a hotel providing full hotel services held decontrolled/exempt from residential rent regulation, distinguishing regulated apartment tenancy from hotel-style short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 971276,
+  "cite": "202 Misc. 336",
+  "court": "New York City Municipal Court",
+  "year": 1951,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Holdover proceeding over a gas station/repair-shop tenancy and Business Rent Law decontrol-on-vacancy; purely commercial space, no dwelling or lodging involved.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 974428,
+  "cite": "203 Misc. 1027",
+  "court": "New York Supreme Court",
+  "year": 1952,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court denied the landlord a certificate of eviction, finding her claimed need for a personal residence was not made in good faith where she had, in violation of the Multiple Dwelling Law, converted a vacant apartment into furnished single-room-occupancy units and advertised and rented them to outsiders rather than occupying available space herself.",
+  "doctrinal_concepts": [
+   "single_room_occupancy",
+   "multiple_dwelling_law",
+   "furnished_rooms"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "the following alterations have been made: 2nd sty. apt. 2 \u2014 former door ways between rooms of apt. have been closed up with lath and plaster partitions. Note: Booms used for single occupancy. Bestore the above premises to the legal condition existing prior to the making of said alterations \u201d, and that as of March 11, 1952, the owner was directed \u201c permanently [to] discontinue the unlawful use as furnished rooms of the 5-room apt. now used for single-room occupancy, at the 2nd sty, apt. 2. Sec. 9 and subd. 1 of Sec. 248.\u201d",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2137,
+     2663
+    ],
+    "reporter_page": "1028"
+   },
+   {
+    "text": "In the case at bar, unlike the situation in Matter of Rosenbluth v. Finkelstein (supra, pp. 405-406) there is \u201c evidence to cast doubt upon the petitioner\u2019s bona fides.\u201d",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5560,
+     5729
+    ],
+    "reporter_page": "1029"
+   },
+   {
+    "text": "The application is denied, and the petition is dismissed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8019,
+     8076
+    ],
+    "reporter_page": "1030"
+   }
+  ],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Illegal conversion of an apartment into furnished single-room-occupancy units in violation of the Multiple Dwelling Law, used as evidence the landlord's true motive was rental profit rather than personal need.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 976895,
+  "cite": "204 Misc. 174",
+  "court": "New York City Municipal Court",
+  "year": 1953,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.06,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Eviction proceeding concerning the number of families occupying a building versus its certificate of occupancy; involves family-unit density, not boarders, lodgers, or short-term letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1016648,
+  "cite": "7 Misc. 2d 892",
+  "court": "New York City Municipal Court",
+  "year": 1957,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Commercial Rent Law dispute over renewal terms of a basement repair-shop/gas-station lease; no dwelling or lodging use involved.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1046596,
+  "cite": "17 Misc. 2d 661",
+  "court": "New York City Municipal Court",
+  "year": 1959,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude",
+  "batch_id": "cycle-003-shard-01-batch-015",
+  "notes": "Mortgage-foreclosure receiver's summary proceeding against a mortgagor's commercial elevator-repair business for rent; no dwelling or lodging occupancy involved.",
+  "extraction_status": "ok"
+ }
+]

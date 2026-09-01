@@ -1,0 +1,440 @@
+[
+ {
+  "case_id": 4700964,
+  "cite": "207 A.D. 151",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1923,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "innkeeping",
+  "holding_summary": "The religious corporation's property was not tax-exempt because it was operated as a business resembling an ordinary hotel for paying public guests rather than used exclusively for religious purposes.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [
+   "permanent guests"
+  ],
+  "quotes": [
+   {
+    "text": "So, from the uncontradicted evidence in this case, produced by the relator\u2019s own employe\u00e9s, it appears that Wallace Lodge is run just as any other hotel is run, and we find nothing in the evidence in this case to distinguish the Wallace Lodge property from any other hotel enterprise, except, perhaps, the provision that certain religious workers and missionaries were given preference over the public at large.",
+    "supports": "characterization"
+   },
+   {
+    "text": "Having regard to the evidence disclosed by the record in these cases we are of the opinion that the relator cannot claim exemption from taxation, although it is a corporation clearly entitled to exemption under the provisions of the Tax Law.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "This burden, we conclude, the relator has not sustained, for we think it clearly appears that its property was used for business, rather than for religious purposes.",
+    "supports": "polarity"
+   },
+   {
+    "text": "Some of these people had been living there at various times for over two years, who had no connection with the society at all, and one of them had stayed there for three years.",
+    "supports": "duration_of_occupancy"
+   },
+   {
+    "text": "The testimony shows that the building known as Wallace Lodge has, really been devoted to hotel purposes, with its one hundred guest rooms, parlors, reception rooms and public dining room, and that it was used almost entirely for the registering of guests who came there.",
+    "supports": "who_was_letting"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The court treated a mission-owned lodge accepting paying members of the public as an ordinary commercial hotel for tax purposes."
+ },
+ {
+  "case_id": 4703164,
+  "cite": "205 A.D. 797",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1923,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The case concerns an alleged equitable mortgage on farmland and contains no compensated dwelling occupancy."
+ },
+ {
+  "case_id": 4722254,
+  "cite": "209 A.D. 368",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1924,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The dispute concerns quarterly rent under a sixty-year industrial land lease, not occupancy of a dwelling or rooms."
+ },
+ {
+  "case_id": 4724793,
+  "cite": "209 A.D. 161",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1924,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.58,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The court reversed and ordered a new trial because the jury was improperly permitted to find that the landlords used a fraudulent scheme to oust the rooming-house operator; the controlling issue was whether a sale had occurred under the lease's cancellation clause.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "During the month of July, 1919, the plaintiff took possession of the premises for the purpose of conducting a rooming house therein.",
+    "supports": "who_was_letting"
+   },
+   {
+    "text": "The sole question before the court was whether there had been a sale of the premises as provided for in the lease.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "We believe that there was no warrant, either on the evidence or on plaintiff\u2019s theory of her own case, for leaving the jury free to find the entire transaction with the Payne Construction Company to be a fraudulent scheme, and that the submission of the case on that basis was prejudicial to defendants before the jury.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The premises were expressly leased for operation as a rooming house, but the court did not classify the occupants or address the legality of room letting; therefore characterization and polarity are null."
+ },
+ {
+  "case_id": 4725205,
+  "cite": "209 A.D. 151",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1924,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The case invalidates a general apartment-density restriction and does not concern compensated short-term occupancy or lodging-house regulation."
+ },
+ {
+  "case_id": 4736928,
+  "cite": "51 A.D. 271",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1900,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The case concerns municipal authority to require vestibules on streetcars."
+ },
+ {
+  "case_id": 4742145,
+  "cite": "211 A.D. 633",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1925,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The phrase about the State's right to let contracts concerns highway construction contracts, not property occupancy."
+ },
+ {
+  "case_id": 4748465,
+  "cite": "211 A.D. 90",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1924,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The case concerns rent security after dispossession under an unidentified lease and supplies no facts about dwelling, room, or lodging occupancy."
+ },
+ {
+  "case_id": 4754578,
+  "cite": "206 A.D. 761",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1923,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The case enforces a restrictive covenant against construction of a private garage."
+ },
+ {
+  "case_id": 4755456,
+  "cite": "208 A.D. 163",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1924,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.16,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "Furnished rooms and boarding houses appear only as evidence in a common-law-marriage dispute; the court decided no occupancy or lodging doctrine."
+ },
+ {
+  "case_id": 4759044,
+  "cite": "52 A.D. 6",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1900,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The case concerns municipal control of telephone conduits in public streets."
+ },
+ {
+  "case_id": 4759817,
+  "cite": "212 A.D. 751",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1925,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.84,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court reversed and remitted a lump-sum workers' compensation award because the widow had not established by legal evidence the facts needed to show that purchasing a house and supporting her family through roomers and boarders was in the interests of justice.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "It may well be in the interest of justice to commute to a lump sum to permit the purchase of this house, in order to permit her to support herself and her young children at home by taking roomers and boarders.",
+    "supports": "polarity"
+   },
+   {
+    "text": "It may well be in the interest of justice to commute to a lump sum to permit the purchase of this house, in order to permit her to support herself and her young children at home by taking roomers and boarders.",
+    "supports": "characterization"
+   },
+   {
+    "text": "She stated in her application that she intended to provide room and board in the new house for her brother-in-law and his two small children for $100 per month; that her father would live with her and pay $15 per week for board and room; that she would have an extra room which she would rent to a friend of her father for $5 per week; that she would have a yard for the children to play in; and that she believed it to be a sound investment.",
+    "supports": "who_was_letting"
+   },
+   {
+    "text": "It seems to us that the claimant has failed to prove by legal evidence many necessary facts and circumstances relied upon to show that this lump sum payment is in the interest of justice.",
+    "supports": "holding_summary"
+   },
+   {
+    "text": "The award should be reversed and the claim remitted to the State Industrial Board, with costs against said Board to abide the event.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The proposed arrangement involved a widow living in the purchased house and supporting her family by compensated room-and-board arrangements; no occupancy had begun, so duration is unclear."
+ },
+ {
+  "case_id": 4765333,
+  "cite": "54 A.D. 489",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1900,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The case concerns renewal rights under a commercial lease of land used by horse dealers."
+ },
+ {
+  "case_id": 4767429,
+  "cite": "214 A.D. 665",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1925,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.04,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The case addresses recovery of lease security after assignment and dispossession without identifying any dwelling or lodging use."
+ },
+ {
+  "case_id": 4767930,
+  "cite": "212 A.D. 366",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1925,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.18,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The apartment-hotel stay and unpaid bills are only the factual setting for a libel-publication ruling; the court did not decide the legal character or regulation of the occupancy."
+ },
+ {
+  "case_id": 4769093,
+  "cite": "213 A.D. 155",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1925,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.01,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The zoning dispute concerns separately leased automobile garages rather than dwelling or room occupancy."
+ },
+ {
+  "case_id": 4774852,
+  "cite": "214 A.D. 263",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1925,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.57,
+  "polarity": null,
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lodging",
+  "holding_summary": "The court reversed the divorce judgment and ordered a new trial because the husband failed to prove that he was a New York resident when the adultery occurred.",
+  "doctrinal_concepts": [],
+  "new_terms_observed": [
+   "stag hotel"
+  ],
+  "quotes": [
+   {
+    "text": "His alleged residence in New York city is based on his six weeks\u2019 stay during said employment there, at a Turkish bath establishment in West One Hundred and Twenty-fifth street, which he described as \u201c a stag hotel with the baths in connection.\u201d",
+    "supports": "duration_of_occupancy"
+   },
+   {
+    "text": "His alleged residence in New York city is based on his six weeks\u2019 stay during said employment there, at a Turkish bath establishment in West One Hundred and Twenty-fifth street, which he described as \u201c a stag hotel with the baths in connection.\u201d",
+    "supports": "who_was_letting"
+   },
+   {
+    "text": "He was an occupier of furnished rooms with no settled domicile.",
+    "supports": "characterization"
+   },
+   {
+    "text": "I am of the opinion that respondent utterly failed to prove that he was a resident of New York at the time of the commission of the adultery by appellant; and that the finding to that effect should be reversed.",
+    "supports": "holding_summary"
+   }
+  ],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The furnished-room occupancy was substantive to the residence inquiry, but the court took no favorable or adverse position on the right to let rooms or its regulation; therefore polarity is null."
+ },
+ {
+  "case_id": 4775257,
+  "cite": "213 A.D. 595",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1925,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.0,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "codex",
+  "batch_id": "cycle-003-shard-01-batch-111",
+  "notes": "The case concerns the marketability of title and the release of deed restrictions against intoxicating liquor."
+ }
+]

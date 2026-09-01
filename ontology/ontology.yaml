@@ -54,7 +54,12 @@ incident_of_ownership:
     level-of-generality claim's direct evidence.
   surface_forms:
     all: [incident of ownership, incidents of property, right to lease,
-          right to let, jus disponendi]
+          right to let, jus disponendi, rent houses, rent house,
+          rent cottages]  # cycle 003: Texas homestead-letting vernacular
+  anchor_cases_cycle003:
+    - {name: rent houses on homestead not abandonment, cite: 45 Tex. Civ. App. 159, year: 1907, jur: TX}
+    - {name: householder lets two rooms under ordinary L-T law, cite: 68 Pa. Super. 593, year: 1918, jur: PA}
+    - {name: In re Veeder (rooms by the week keep dwelling status), cite: 31 Misc. 569, year: 1900, jur: NY}
   anchor_cases:   # populated cycle-001 (citator-check pending on all)
     - {name: Tarr v. Timberwood Park, cite: 556 S.W.3d 274, year: 2018, jur: TX}
     - {name: Von Behren camp case, cite: 119 La. 1025, year: 1907, jur: LA}
