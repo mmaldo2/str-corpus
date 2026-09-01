@@ -17,7 +17,7 @@
 - `data/ledger/*.jsonl` are written only by `corpus_engine.ledger` after Task 9. No other module may open them for writing.
 - JSON rendering of ledger records is `json.dumps(record)` with defaults (`ensure_ascii=True`, separators `", "` and `": "`, no indent), one record per line, `"\n"` terminated; record key order is insertion order and must be preserved.
 - Every published count is a `TierCount(human_reviewed, machine_only)`; never add the two tiers.
-- **Canonical bytes are LF** (git's stored form; `core.autocrlf=true` makes the Windows working copy CRLF). Golden digests are computed over CRLF→LF-normalized bytes; every characterization test normalizes (`b.replace(b"
+- **Canonical bytes are LF** (git's stored form; `core.autocrlf=true` makes the Windows working copy CRLF). Golden digests are computed over CRLF→LF-normalized bytes; every characterization test normalizes (`b.replace(b"
 ", b"
 ")`) before hashing or comparing; the ledger renders LF and writes files in binary mode. (Ruling 2026-09-01, Task 5.)
 - Judged fields: `relevant`, `polarity`, `who_was_letting`, `duration_of_occupancy`, `characterization`, `holding_summary`, `under_30_days`, `restriction_nature`, `right_characterization`. A judged field changes only under a `Basis` with `reviewer`, or with all of `model`, `prompt_version`, `run_id`.
