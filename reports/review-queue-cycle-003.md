@@ -1,0 +1,181 @@
+# cycle-003 — Human review queue (with recommendations)
+
+
+## A. Householder x nights priority cases (0)
+
+## B. Fuzzy quotes (side-by-side) (14)
+- [ ] 100 Misc. 2d 1048 Stiles v. Donovan — trivial-ocr
+- [ ] 12 S.W.2d 633 Dallas Hotel Co. v. Davidson — needs-human
+- [ ] 60 How. Pr. 339 Musgrave v. Sherwood — needs-human
+- [ ] 74 Tex. 155 Langston v. Maxey — trivial-ocr
+- [ ] 140 La. 982 Allain v. Frigola — needs-human
+- [ ] 140 La. 982 Allain v. Frigola — needs-human
+- [ ] 140 La. 982 Allain v. Frigola — needs-human
+- [ ] 5 La. App. 214 Yates v. Tessier — trivial-ocr
+- [ ] 129 A.D. 290 Peters v. Kelly — needs-human
+- [ ] 157 N.Y.S. 623 McKeon v. Manze — needs-human
+- [ ] 117 A.D. 5 In re the Petition of Clement — needs-human
+- [ ] 168 A.D. 253 In re the Judicial Settlement of the Account of Dole — needs-human
+- [ ] 113 N.Y.S. 357 Peters v. Kelly — needs-human
+- [ ] 73 N.Y.S. 259 Healy v. Malcolm — needs-human
+
+## C. Disagreements (with third-reader recommendation) (100)
+- [ ] 57 Pa. 271 Schuylkill & Dauphin Improvement & Railroad v. Schmoele — characterization: rec=None
+- [ ] 71 Pa. 429 Moore v. Weber — characterization: rec=None
+- [ ] 123 N.Y.S. 803 Stewart v. Briggs — relevant: rec=True
+- [ ] 123 N.Y.S. 803 Stewart v. Briggs — polarity: rec=favorable
+- [ ] 123 N.Y.S. 803 Stewart v. Briggs — characterization: rec=lease
+- [ ] 111 N.Y.S. 642 Shotland v. Mulligan — characterization: rec=lease
+- [ ] 211 N.Y. 465 Morningstar v. Lafayette Hotel Co. — relevant: rec=True
+- [ ] 211 N.Y. 465 Morningstar v. Lafayette Hotel Co. — polarity: rec=mixed
+- [ ] 211 N.Y. 465 Morningstar v. Lafayette Hotel Co. — characterization: rec=innkeeping
+- [ ] 72 Pa. 326 Everson v. Fry — relevant: rec=True
+- [ ] 72 Pa. 326 Everson v. Fry — polarity: rec=favorable
+- [ ] 72 Pa. 326 Everson v. Fry — characterization: rec=other
+- [ ] 93 Pa. 367 Biery v. Ziegler — relevant: rec=True
+- [ ] 93 Pa. 367 Biery v. Ziegler — polarity: rec=mixed
+- [ ] 93 Pa. 367 Biery v. Ziegler — characterization: rec=lease
+- [ ] 104 Pa. 514 Hilke v. Eisenbeis — relevant: rec=True
+- [ ] 104 Pa. 514 Hilke v. Eisenbeis — polarity: rec=mixed
+- [ ] 104 Pa. 514 Hilke v. Eisenbeis — characterization: rec=lease
+- [ ] 74 Tex. 155 Langston v. Maxey — polarity: rec=mixed
+- [ ] 74 Tex. 155 Langston v. Maxey — characterization: rec=lease
+- [ ] 73 Tex. 515 Gross v. Hays — relevant: rec=True
+- [ ] 73 Tex. 515 Gross v. Hays — polarity: rec=favorable
+- [ ] 73 Tex. 515 Gross v. Hays — characterization: rec=other
+- [ ] 71 Tex. 264 Lee v. Turner — relevant: rec=True
+- [ ] 71 Tex. 264 Lee v. Turner — polarity: rec=adverse
+- [ ] 71 Tex. 264 Lee v. Turner — characterization: rec=lease
+- [ ] 144 La. 95 Malmore v. Martinez — characterization: rec=lease
+- [ ] 144 La. 285 Rapon v. Pays — relevant: rec=True
+- [ ] 144 La. 285 Rapon v. Pays — polarity: rec=favorable
+- [ ] 9 Teiss. 186 Stock & Co. v. Riley — relevant: rec=True
+- [ ] 9 Teiss. 186 Stock & Co. v. Riley — polarity: rec=adverse
+- [ ] 9 Teiss. 186 Stock & Co. v. Riley — characterization: rec=lease
+- [ ] 2 La. App. 112 Morgan v. Cusimano — relevant: rec=True
+- [ ] 2 La. App. 112 Morgan v. Cusimano — polarity: rec=favorable
+- [ ] 2 La. App. 112 Morgan v. Cusimano — characterization: rec=lease
+- [ ] 2 La. App. 286 Levi v. Crescent City Seltzer & Mineral Water Co. — relevant: rec=False
+- [ ] 2 La. App. 286 Levi v. Crescent City Seltzer & Mineral Water Co. — polarity: rec=irrelevant
+- [ ] 2 La. App. 286 Levi v. Crescent City Seltzer & Mineral Water Co. — characterization: rec=None
+- [ ] 17 Misc. 3d 57 Volunteers of America-Greater New York, Inc. v. Almonte — polarity: rec=adverse
+- [ ] 17 Misc. 3d 57 Volunteers of America-Greater New York, Inc. v. Almonte — characterization: rec=lease
+- [ ] 96 A.D.2d 17 Marra v. City of White Plains — polarity: rec=mixed
+- [ ] 157 A.D.2d 138 520 East 81st Street Associates v. Lenox Hil Hospitall — relevant: rec=True
+- [ ] 157 A.D.2d 138 520 East 81st Street Associates v. Lenox Hil Hospitall — polarity: rec=mixed
+- [ ] 157 A.D.2d 138 520 East 81st Street Associates v. Lenox Hil Hospitall — characterization: rec=lease
+- [ ] 106 A.D.3d 178 Branic International Realty Corp. v. Pitt — polarity: rec=adverse
+- [ ] 106 A.D.3d 178 Branic International Realty Corp. v. Pitt — characterization: rec=other
+- [ ] 26 Misc.3d 170 Smiley v. Williams — polarity: rec=favorable
+- [ ] 26 Misc.3d 170 Smiley v. Williams — characterization: rec=lease
+- [ ] 30 Misc. 3d 29 Branic International Realty Corp. v. Pitt — polarity: rec=adverse
+- [ ] 54 A.D.3d 109 TOA Construction Co. v. Tsitsires — relevant: rec=False
+- [ ] 54 A.D.3d 109 TOA Construction Co. v. Tsitsires — polarity: rec=irrelevant
+- [ ] 54 A.D.3d 109 TOA Construction Co. v. Tsitsires — characterization: rec=None
+- [ ] 39 Misc. 3d 1005 560 West 165th Street Associates L.P. v. Figueroa — polarity: rec=favorable
+- [ ] 39 Misc. 3d 1005 560 West 165th Street Associates L.P. v. Figueroa — characterization: rec=lease
+- [ ] 70 A.D.3d 427 Ginezra Associates LLC v. Ifantopoulos — polarity: rec=mixed
+- [ ] 64 Misc. 81 Kaplan v. Titus — relevant: rec=False
+- [ ] 64 Misc. 81 Kaplan v. Titus — polarity: rec=irrelevant
+- [ ] 64 Misc. 81 Kaplan v. Titus — characterization: rec=None
+- [ ] 65 Misc. 190 Lurch v. Brown — relevant: rec=False
+- [ ] 65 Misc. 190 Lurch v. Brown — polarity: rec=irrelevant
+- [ ] 65 Misc. 190 Lurch v. Brown — characterization: rec=None
+- [ ] 76 Misc. 176 Byrns v. Pierce — relevant: rec=True
+- [ ] 76 Misc. 176 Byrns v. Pierce — polarity: rec=mixed
+- [ ] 76 Misc. 176 Byrns v. Pierce — characterization: rec=lease
+- [ ] 76 Misc. 464 Barnard Realty Co. v. Bonwit — relevant: rec=True
+- [ ] 76 Misc. 464 Barnard Realty Co. v. Bonwit — polarity: rec=favorable
+- [ ] 76 Misc. 464 Barnard Realty Co. v. Bonwit — characterization: rec=lease
+- [ ] 76 Misc. 458 Scully v. Roche — relevant: rec=True
+- [ ] 76 Misc. 458 Scully v. Roche — polarity: rec=favorable
+- [ ] 76 Misc. 458 Scully v. Roche — characterization: rec=lease
+- [ ] 43 Misc. 498 In re Patterson — relevant: rec=False
+- [ ] 43 Misc. 498 In re Patterson — polarity: rec=irrelevant
+- [ ] 43 Misc. 498 In re Patterson — characterization: rec=None
+- [ ] 45 Misc. 97 Delaney v. Flood — characterization: rec=innkeeping
+- [ ] 49 Misc. 171 de Lima v. Mitchell — characterization: rec=lodging
+- [ ] 53 Misc. 36 Salmon v. M. E. Blasier Manufacturing Co. — relevant: rec=False
+- [ ] 53 Misc. 36 Salmon v. M. E. Blasier Manufacturing Co. — polarity: rec=irrelevant
+- [ ] 53 Misc. 36 Salmon v. M. E. Blasier Manufacturing Co. — characterization: rec=None
+- [ ] 170 A.D. 237 Sullivan v. Sprung — relevant: rec=False
+- [ ] 170 A.D. 237 Sullivan v. Sprung — polarity: rec=irrelevant
+- [ ] 207 A.D. 151 People ex rel. Board of Foreign Missions of the Methodist Episcopal Church v. Board of Assessors — relevant: rec=True
+- [ ] 207 A.D. 151 People ex rel. Board of Foreign Missions of the Methodist Episcopal Church v. Board of Assessors — polarity: rec=adverse
+- [ ] 207 A.D. 151 People ex rel. Board of Foreign Missions of the Methodist Episcopal Church v. Board of Assessors — characterization: rec=innkeeping
+- [ ] 209 A.D. 161 Andrews v. Connick — relevant: rec=False
+- [ ] 209 A.D. 161 Andrews v. Connick — polarity: rec=irrelevant
+- [ ] 214 A.D. 263 Jenkinson v. Jenkinson — relevant: rec=False
+- [ ] 214 A.D. 263 Jenkinson v. Jenkinson — polarity: rec=irrelevant
+- [ ] 214 A.D. 263 Jenkinson v. Jenkinson — characterization: rec=None
+- [ ] 87 N.Y.S. 1086 Willes v. Loomis — relevant: rec=False
+- [ ] 87 N.Y.S. 1086 Willes v. Loomis — polarity: rec=irrelevant
+- [ ] 87 N.Y.S. 1086 Willes v. Loomis — characterization: rec=None
+- [ ] 127 A.D. 854 O'Connor v. Bauer — relevant: rec=False
+- [ ] 127 A.D. 854 O'Connor v. Bauer — polarity: rec=irrelevant
+- [ ] 127 A.D. 854 O'Connor v. Bauer — characterization: rec=None
+- [ ] 136 N.Y.S. 293 Byrns v. Pierce — relevant: rec=False
+- [ ] 136 N.Y.S. 293 Byrns v. Pierce — polarity: rec=irrelevant
+- [ ] 136 N.Y.S. 293 Byrns v. Pierce — characterization: rec=None
+- [ ] 136 N.Y.S. 364 De Negro v. Christman — relevant: rec=False
+- [ ] 136 N.Y.S. 364 De Negro v. Christman — polarity: rec=irrelevant
+- [ ] 136 N.Y.S. 364 De Negro v. Christman — characterization: rec=None
+
+## D. Re-mapped records (re-verified) (57)
+- [ ] 197 A.D. 656 Jackson v. Grey — remapped: None/None/None
+- [ ] 111 N.Y.S. 642 Shotland v. Mulligan — remapped: None/None/None
+- [ ] 54 Pa. Super. 168 Martin's Estate — remapped: None/None/None
+- [ ] 60 So. 2d 717 Eddy v. Monaghan — remapped: None/None/None
+- [ ] 60 So. 2d 717 Eddy v. Monaghan — remapped: None/None/None
+- [ ] 60 So. 2d 717 Eddy v. Monaghan — remapped: None/None/None
+- [ ] 52 Misc.2d 199 Wasserstein v. Gabel — remapped: None/None/None
+- [ ] 52 Misc.2d 199 Wasserstein v. Gabel — remapped: None/None/None
+- [ ] 106 A.D.3d 178 Branic International Realty Corp. v. Pitt — remapped: None/None/None
+- [ ] 26 Misc.3d 170 Smiley v. Williams — remapped: None/None/None
+- [ ] 30 Misc. 3d 29 Branic International Realty Corp. v. Pitt — remapped: None/None/None
+- [ ] 74 N.Y.2d 92 Seawall Associates v. City of New York — remapped: None/None/None
+- [ ] 20 La. 73 Grace v. Haas — remapped: None/None/None
+- [ ] 20 La. 73 Grace v. Haas — remapped: None/None/None
+- [ ] 20 La. 73 Grace v. Haas — remapped: None/None/None
+- [ ] 55 N.Y. St. Rep. 145 Nash v. Springstead — remapped: None/None/None
+- [ ] 55 N.Y. St. Rep. 145 Nash v. Springstead — remapped: None/None/None
+- [ ] 55 N.Y. St. Rep. 145 Nash v. Springstead — remapped: None/None/None
+- [ ] 144 La. 95 Malmore v. Martinez — remapped: None/None/None
+- [ ] 144 La. 95 Malmore v. Martinez — remapped: None/None/None
+- [ ] 144 La. 95 Malmore v. Martinez — remapped: None/None/None
+- [ ] 109 La. 440 Coffee v. Smith — remapped: None/None/None
+- [ ] 109 La. 440 Coffee v. Smith — remapped: None/None/None
+- [ ] 109 La. 440 Coffee v. Smith — remapped: None/None/None
+- [ ] 7 La. App. 637 Rogers v. Wood — remapped: None/None/None
+- [ ] 7 La. App. 637 Rogers v. Wood — remapped: None/None/None
+- [ ] 7 La. App. 637 Rogers v. Wood — remapped: None/None/None
+- [ ] 98 Misc. 1 Huskisson v. Lipp — remapped: None/None/None
+- [ ] 98 Misc. 1 Huskisson v. Lipp — remapped: None/None/None
+- [ ] 135 Misc. 39 People v. Botto — remapped: None/None/None
+- [ ] 135 Misc. 39 People v. Botto — remapped: None/None/None
+- [ ] 135 Misc. 39 People v. Botto — remapped: None/None/None
+- [ ] 11 Mills Surr. 462 Seaman v. Jamison — remapped: None/None/None
+- [ ] 11 Mills Surr. 462 Seaman v. Jamison — remapped: None/None/None
+- [ ] 11 Mills Surr. 462 Seaman v. Jamison — remapped: None/None/None
+- [ ] 113 Misc. 346 Orville Realty Co. v. Warnick — remapped: None/None/None
+- [ ] 113 Misc. 346 Orville Realty Co. v. Warnick — remapped: None/None/None
+- [ ] 113 Misc. 346 Orville Realty Co. v. Warnick — remapped: None/None/None
+- [ ] 113 Misc. 538 Ullmann Realty Co. v. Tamur — remapped: None/None/None
+- [ ] 113 Misc. 538 Ullmann Realty Co. v. Tamur — remapped: None/None/None
+- [ ] 113 Misc. 538 Ullmann Realty Co. v. Tamur — remapped: None/None/None
+- [ ] 77 Misc. 139 Morgenthau v. Ehrich — remapped: None/None/None
+- [ ] 172 N.Y. 1 Bly v. Edison Electric Illuminating Co. — remapped: None/None/None
+- [ ] 158 A.D. 832 Seaman v. Jamison — remapped: None/None/None
+- [ ] 158 A.D. 832 Seaman v. Jamison — remapped: None/None/None
+- [ ] 158 A.D. 832 Seaman v. Jamison — remapped: None/None/None
+- [ ] 160 A.D. 781 Blair v. Blair — remapped: None/None/None
+- [ ] 160 A.D. 781 Blair v. Blair — remapped: None/None/None
+- [ ] 181 A.D. 665 Keesey v. O'Reilly — remapped: None/None/None
+- [ ] 145 N.Y.S. 976 Blair v. Blair — remapped: None/None/None
+- [ ] 145 N.Y.S. 976 Blair v. Blair — remapped: None/None/None
+- [ ] 214 A.D. 102 Stern v. Mautner — remapped: None/None/None
+- [ ] 214 A.D. 102 Stern v. Mautner — remapped: None/None/None
+- [ ] 214 A.D. 102 Stern v. Mautner — remapped: None/None/None
+- [ ] 70 A.D. 73 In re the Judicial Settlement of the Account of Hamilton — remapped: None/None/None
+- [ ] 70 A.D. 73 In re the Judicial Settlement of the Account of Hamilton — remapped: None/None/None
+- [ ] 70 A.D. 73 In re the Judicial Settlement of the Account of Hamilton — remapped: None/None/None

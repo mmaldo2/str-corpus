@@ -129,8 +129,9 @@ its facts would find it — accept as a known miss.
 
 ## 7. Human-review queue (page: reports/review-queue-cycle-003.html)
 - A: householder × nights — 0.
-- B: 37 fuzzy quotes (26 mechanical-trivial; double-confirmed ones
-  auto-accepted per policy).
+- B: 37 fuzzy quotes → reader pass 32 ocr-ok / 5 mismatch; **23
+  double-confirmed items auto-accepted** (audit: fuzzy-auto-accepted.json);
+  14 reach the human queue.
 - C: 100 disagreements with third-reader recommendations.
 - D: 45 nulled → 44 re-mapped and re-verified (77 quotes exact, 1 fuzzy,
   0 dropped); Codex contested 57 fields across 27 cases (17 fully-agreed

@@ -1,0 +1,1801 @@
+[
+ {
+  "case_id": 578085,
+  "cite": "147 La. 804",
+  "court": "Supreme Court of Louisiana",
+  "year": 1920,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "Chattel-mortgage foreclosure dispute over furniture/fixtures sold with a rooming house business; the 'rooming house' is incidental background to a mortgage-description and negotiable-instruments holder-in-due-course dispute, not a ruling on the legal character or regulation of room-letting itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 769025,
+  "cite": "125 Misc. 30",
+  "court": "Supreme Court, New York Special Term",
+  "year": 1925,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "innkeeping",
+  "holding_summary": "A 1887 restrictive covenant barring 'tenement, flat or apartment house' construction does not bar an apartment hotel of small suites without kitchens and with centralized hotel management, even though some suites might be rented for lengthy periods alongside transient guests; the covenant must be construed strictly against the grantor, and the complaint to enjoin the building was dismissed on the merits.",
+  "doctrinal_concepts": [
+   "apartment_hotel_classification",
+   "restrictive_covenant_construction"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "An apartment hotel like the one here proposed is akin to a hotel and not to an apartment house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4960,
+     5055
+    ],
+    "reporter_page": "32"
+   },
+   {
+    "text": "The fact that apartment hotels may rent small suites for somewhat lengthy periods, in addition to providing for possible transient accommodations, does not convert them into apartment houses as such",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     5274,
+     5472
+    ],
+    "reporter_page": "32"
+   },
+   {
+    "text": "The defendant is, therefore, entitled to judgment dismissing the plaintiff\u2019s complaint upon the merits.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6033,
+     6136
+    ],
+    "reporter_page": "32"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "Marginal: primarily a deed-covenant construction case, but the court's reasoning turns on characterizing an operation that rents suites to both lengthy-stay and transient occupants as hotel-like rather than residential apartment use.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4625103,
+  "cite": "197 A.D. 656",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 1921,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": "A tenant who leased floors of a private house not to reside in but to sublet furnished rooms to roomers/lodgers as a business does not occupy the premises 'for dwelling purposes only' under the 1920 anti-dispossession statute, and so may be removed as a holdover even though subtenants were in monthly possession.",
+  "doctrinal_concepts": [
+   "dispossession_dwelling_purpose",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "This portion of the house was rented to the tenant for the propose of subletting the same to roomers or lodgers.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2259,
+     2371
+    ],
+    "reporter_page": "657"
+   },
+   {
+    "text": "The tenant thereupon subleased portions of the premises, furnished, to four different persons as monthly-tenants.",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     2372,
+     2485
+    ],
+    "reporter_page": "657"
+   },
+   {
+    "text": "and where the premises are leased to a tenant not for the purposes of a residence but for the purposes of a business of subleasing to others, the statute does not apply.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3124,
+     3293
+    ],
+    "reporter_page": "657"
+   },
+   {
+    "text": "The determination of the Appellate Term should be reversed, with costs in this court and in the Appellate Term, and the final order of the Municipal Court affirmed.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3844,
+     4008
+    ],
+    "reporter_page": "657"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "Court draws a sharp line between personal residential occupancy and a commercial room-subletting operation, denying the latter statutory dwelling-purpose protection.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5492024,
+  "cite": "92 N.Y.S. 851",
+  "court": "Supreme Court, Appellate Term",
+  "year": 1905,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "An apartment/family hotel that rents small suites on annual leases without soliciting transients is not a 'hotel' under the 1895 equal-accommodations statute; the operator is an ordinary landlord free to select tenants, and refusal to lease to a prospective tenant on discriminatory grounds was not actionable under that statute.",
+  "doctrinal_concepts": [
+   "apartment_hotel_classification",
+   "landlord_selection_of_tenants"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The apartments are arranged in small suites, differing in no essential respect from those in an ordinary apartment house furnishing similar accommodations for small families. These apartments are rented upon annual leases, and transient tenants are not solicited.",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     1681,
+     1944
+    ],
+    "reporter_page": "852"
+   },
+   {
+    "text": "The defendant does not keep a hotel, within the meaning of the statute.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2415,
+     2486
+    ],
+    "reporter_page": "852"
+   },
+   {
+    "text": "and, when the defendants refused to lease apartments to the plaintiff, they exercised only the right which every landlord undoubtedly has to make his own selection of tenants.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3173,
+     3348
+    ],
+    "reporter_page": "852"
+   },
+   {
+    "text": "The judgment should be affirmed, with costs. All concur.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3735,
+     3791
+    ],
+    "reporter_page": "852"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "duration_of_occupancy left unclear: the arrangement is annual leasing, which falls outside the nights/weeks/months buckets rather than matching any of them.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 7672303,
+  "cite": "111 N.Y.S. 642",
+  "court": "Supreme Court, Appellate Term",
+  "year": 1908,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "A tenant who leased floors for use as bachelor apartments and furnished rooms could set off, against a landlord's summary nonpayment proceeding, damages caused by the landlord's failure to perform heating/hot-water/toilet covenants which drove out the tenant's roomers; judgment for the landlord was reversed and a new trial granted.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "landlord_covenant_breach",
+   "counterclaim_summary_proceeding"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "also that the said lease contained a provision that the said premises should be used and occupied as bachelor apartments and furnished rooms",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3012,
+     3152
+    ],
+    "reporter_page": "643"
+   },
+   {
+    "text": "the tenant entered into possession of said premises and rented out the rooms, to be used as bachelor apartments and furnished rooms, as provided in said lease.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     3760,
+     3919
+    ],
+    "reporter_page": "643"
+   },
+   {
+    "text": "roomers, whom tenant had obtained in said premises, refused to stay in said apartments, and had vacated the same, and that the said tenant had been unable to keep the rooms and apartments\" in said house rented, to her loss and damage",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4380,
+     4613
+    ],
+    "reporter_page": "643"
+   },
+   {
+    "text": "The judgment and final order must be reversed, and a new trial granted, with costs to appellant to abide the event.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     9073,
+     9188
+    ],
+    "reporter_page": "645"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "duration_of_occupancy for the individual room-lettings to roomers is not stated in the opinion (only the master lease term, 4 years 8 months, is given), so left unclear.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 72194,
+  "cite": "214 N.Y. 268",
+  "court": "Court of Appeals of New York",
+  "year": 1915,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "Restrictive-covenant case construing 'dwelling house' to permit multi-family apartment houses; concerns permanent multi-family residential construction, not compensated short-term occupancy, lodging, or boarding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 437531,
+  "cite": "54 Pa. Super. 168",
+  "court": "Superior Court of Pennsylvania",
+  "year": 1913,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "lodger_status",
+   "boarder_compensation"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The decedent, William C. Martin, had resided for a long term of years with the family of the appellant, Mary L. Moorhead",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1583,
+     1703
+    ],
+    "reporter_page": "169"
+   },
+   {
+    "text": "the appellant claimed for board for the decedent at the rate of $20.00 per month from October, 1907, to May 9, 1909, \u2014 nineteen months \u2014 amounting to $380.",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     1820,
+     1975
+    ],
+    "reporter_page": "169"
+   },
+   {
+    "text": "We think the testimony was sufficient to establish the fact that the decedent boarded with the appellant during the period above stated under an agreement to pay $20.00 per month to the appellant and that the evidence overcame the presumption of periodical payments, such as are usually made under the circumstances.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2272,
+     2588
+    ],
+    "reporter_page": "169"
+   },
+   {
+    "text": "We have reached the conclusion that appellant\u2019s claim of $380 for boarding the decedent nineteen months should be allowed",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     12742,
+     12863
+    ],
+    "reporter_page": "174"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "Clean example of a householder boarding a paying lodger in the family home, with the boarding arrangement enforced against the boarder's estate.",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 9921587,
+  "cite": "60 So. 2d 717",
+  "court": "Court of Appeal of Louisiana, Orleans",
+  "year": 1952,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-00",
+  "notes": "Ordinary month-to-month residential lease dispute over a landlord's right to fence off part of the leased rear yard; no lodging/boarding arrangement or compensated short-term occupancy issue is presented.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1177933,
+  "cite": "Wasserstein v. Gabel, 52 Misc.2d 199 (N.Y. 1966)",
+  "court": "Supreme Court, Special Term, Kings County",
+  "year": 1966,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-01",
+  "notes": "Article 78 proceeding over administrative decontrol procedure for a building converted from a rooming house to a multiple dwelling; 'rooming house accommodations' appears only as a regulatory classification for decontrol timing, with no discussion of the legal character of letting rooms or short-term occupancy. Procedural, not doctrinal.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 810642,
+  "cite": "In re the Estate of Gilbride, 140 Misc. 797 (N.Y. 1930)",
+  "court": "Surrogate's Court, Livingston County",
+  "year": 1930,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.02,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-01",
+  "notes": "Wrongful-death fund apportionment proceeding; the fact that the widow 'took in boarders' is mentioned only once, as evidence of financial hardship and effort supporting her share of the award. No discussion of the legal character of the boarding arrangement itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3725970,
+  "cite": "Branic International Realty Corp. v. Pitt, 106 A.D.3d 178 (N.Y. 2013)",
+  "court": "Supreme Court, Appellate Division, First Department",
+  "year": 2013,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "The Appellate Division held that a resident who continuously occupied a room in an SRO hotel for more than six months became a \"permanent tenant\" under Rent Stabilization Code \u00a7 2520.6(j), entitled to rent-stabilization protections, regardless of whether any landlord-tenant relationship existed with the owner or whether an agency (HRA) rather than the resident had been paying for the room. The court reversed the Appellate Term and reinstated dismissal of the licensee holdover proceeding.",
+  "doctrinal_concepts": [
+   "license_vs_lease",
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "We find that the record amply demonstrates that respondent \u201ccontinuously resided\u201d in a room within petitioner Branic International Realty Corp.\u2019s (Branic) hotel for more than six months. Accordingly, respondent-appellant was a \u201cpermanent tenant,\u201d as defined by Rent Stabilization Code \u00a7 2520.6 (j).",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     758,
+     1056
+    ],
+    "reporter_page": "180"
+   },
+   {
+    "text": "A hotel\u2019s \u201cpermanent tenant,\u201d on the other hand, by definition, is not necessarily a party to a landlord-tenant relationship, but merely a hotel occupant who has resided there for six months (RSC \u00a7 2520.6 [j], [m]).",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7927,
+     8142
+    ],
+    "reporter_page": "183"
+   },
+   {
+    "text": "We find that the record amply demonstrates that respondent \u201ccontinuously resided\u201d in a room within petitioner Branic International Realty Corp.\u2019s (Branic) hotel for more than six months. Accordingly, respondent-appellant was a \u201cpermanent tenant,\u201d as defined by Rent Stabilization Code \u00a7 2520.6 (j).",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     758,
+     1056
+    ],
+    "reporter_page": "180"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-01",
+  "notes": "'permanent tenant' is a sui generis statutory status under RSC 2520.6(j)/(m) distinct from lease/license/lodging/innkeeping at common law, hence characterization coded 'other' rather than forced into a common-law bucket; court expressly holds it need not rest on a landlord-tenant relationship.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3761627,
+  "cite": "Smiley v. Williams, 26 Misc.3d 170 (N.Y. 2009)",
+  "court": "Civil Court of the City of New York, New York County",
+  "year": 2009,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "other",
+  "holding_summary": "In a squatter holdover proceeding for a room in petitioner's four-floor SRO building, the court held that respondent, who had continuously resided there since October 2008 (more than six months) with petitioner's acquiescence, became a rent-stabilized \"permanent tenant\" under RSC \u00a7 2520.6(j) regardless of nonpayment of rent or absence of any formal agreement, and dismissed the petition.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Section 2520.6 (j) of the Rent Stabilization Code (9 NYCRR) defines a permanent tenant as an individual who has \u201ccontinuously resided in the same building as a principal residence for a period of at least six months.\u201d Based on the undisputed facts as established at trial, respondent is entitled to the protections of rent stabilization as the permanent tenant for the subject premises.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     8466,
+     8852
+    ],
+    "reporter_page": "174"
+   },
+   {
+    "text": "The fact that petitioner denies receiving any payment of rent or entering any formal agreement with respondent, even if true, does not deprive respondent of rights under the statute; the sole criterion used under the statute is continuous residence for a six-month period, which is not disputed here (Kanti-Savita Realty Corp. v Santiago, 18 Misc 3d 74 [App Term, 2d Dept 2007]; Brianic Intl. Realty Corp. v Pitt, 24 Misc 3d 940 [2009]).",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     8858,
+     9295
+    ],
+    "reporter_page": "174"
+   },
+   {
+    "text": "The fact that petitioner denies receiving any payment of rent or entering any formal agreement with respondent, even if true, does not deprive respondent of rights under the statute; the sole criterion used under the statute is continuous residence for a six-month period, which is not disputed here (Kanti-Savita Realty Corp. v Santiago, 18 Misc 3d 74 [App Term, 2d Dept 2007]; Brianic Intl. Realty Corp. v Pitt, 24 Misc 3d 940 [2009]).",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     8858,
+     9295
+    ],
+    "reporter_page": "174"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-01",
+  "notes": "Note OCR artifact 'Brianic' (for Branic) preserved verbatim from source in the second quote. 'who_was_letting' coded commercial_operator: petitioner is an individual owner of a multi-floor SRO rental building he does not himself occupy, not a householder letting part of his own residence.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3771346,
+  "cite": "Branic International Realty Corp. v. Pitt, 30 Misc. 3d 29 (N.Y. 2010)",
+  "court": "Supreme Court, Appellate Term, First Department",
+  "year": 2010,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "license",
+  "holding_summary": "The Appellate Term reversed the Civil Court and held that because a city agency (HRA), not respondent, had placed respondent in petitioner's SRO hotel room and paid the room charge directly to petitioner, no express or implied landlord-tenant relationship arose; respondent was merely a licensee of HRA whose license had been revoked, not a rent-stabilized 'permanent tenant,' and petitioner was granted summary judgment on its claim for possession.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "HRA placed respondent in the SRO unit and paid the rent for the room, and no express or implied landlord-tenant relationship existed between petitioner and respondent (see 9 NYCRR 2520.6 [d], [j]; but see Kanti-Savita Realty Corp. v Santiago, 18 Misc 3d 74 [2007]). Therefore, respondent was merely a licensee of HRA (see Rosenstiel v Rosenstiel, 20 AD2d 71 [1963]; see also Helping Out People Everywhere v Deich, 155 Misc 2d 707 [1992], affd 160 Misc 2d 1052 [1994]), not a \u201cpermanent tenant\u201d entitled to the protections afforded by the Rent Stabilization Code (see 9 NYCRR 2520.6 \u00a3j]).",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2257,
+     2844
+    ],
+    "reporter_page": "30"
+   },
+   {
+    "text": "Order, dated June 9, 2009, reversed, with $10 costs, respondent\u2019s motion for summary judgment denied, petitioner\u2019s cross motion for summary judgment granted and final judgment directed in favor of petitioner upon its claim for possession.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     424,
+     662
+    ],
+    "reporter_page": "30"
+   },
+   {
+    "text": "HRA placed respondent in the SRO unit and paid the rent for the room, and no express or implied landlord-tenant relationship existed between petitioner and respondent (see 9 NYCRR 2520.6 [d], [j]; but see Kanti-Savita Realty Corp. v Santiago, 18 Misc 3d 74 [2007]). Therefore, respondent was merely a licensee of HRA (see Rosenstiel v Rosenstiel, 20 AD2d 71 [1963]; see also Helping Out People Everywhere v Deich, 155 Misc 2d 707 [1992], affd 160 Misc 2d 1052 [1994]), not a \u201cpermanent tenant\u201d entitled to the protections afforded by the Rent Stabilization Code (see 9 NYCRR 2520.6 \u00a3j]).",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2257,
+     2844
+    ],
+    "reporter_page": "30"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-01",
+  "notes": "Note OCR artifact '\u00a3j])' (for [j]) preserved verbatim from source in the characterization/polarity quote. This is the Appellate Term decision later itself reversed by the First Department in Branic v. Pitt, 106 A.D.3d 178 (case_id 3725970); recorded here on its own terms as instructed. Duration coded 'unclear' because this opinion turns on the absence of a landlord-tenant relationship, not on length of stay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4231240,
+  "cite": "City of Poughkeepsie v. Bastille Development Corp., 142 Misc.2d 548 (N.Y. 1989)",
+  "court": "Supreme Court, Dutchess County",
+  "year": 1989,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-01",
+  "notes": "Dispute solely over whether the City followed the correct procedural steps under Multiple Residence Law \u00a7 305 versus local ordinance before seeking a vacate order for an unfit building; 'rooming house' appears only in the text of the vacate-order ordinance as one type of covered accommodation. No discussion of letting practices or their legal character; petition dismissed on procedural grounds without reaching the merits.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4413960,
+  "cite": "Seawall Associates v. City of New York, 74 N.Y.2d 92 (N.Y. 1989)",
+  "court": "Court of Appeals of New York",
+  "year": 1989,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.9,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "The Court of Appeals held that Local Law No. 9, which barred SRO owners from demolishing, altering, or converting their buildings and compelled them to rehabilitate every unit and rent it to a bona fide tenant on pain of heavy penalties, effected both a per se physical taking and a regulatory taking of the owners' property because it stripped them of their fundamental rights to possess, use, and exclude, without a sufficiently close nexus to alleviating homelessness; the law was declared facially unconstitutional under the Takings Clauses of the Federal and State Constitutions.",
+  "doctrinal_concepts": [
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [
+   "warehousing",
+   "antiwarehousing",
+   "rent-up obligation"
+  ],
+  "quotes": [
+   {
+    "text": "The order of the Appellate Division should be reversed, with costs, Local Law No. 9 declared to be unconstitutional as stated in this opinion, and defendants enjoined from implementing the law\u2019s provisions.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     47806,
+     48012
+    ],
+    "reporter_page": "117"
+   },
+   {
+    "text": "Local Law No. 9 requires the owners to rent their rooms or be subject to severe penalties; it compels them to admit persons as tenants with all of the possessory and other rights that that status entails; it compels them to surrender the most basic attributes of private property, the rights of possession and exclusion.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     19551,
+     19871
+    ],
+    "reporter_page": "102"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-01",
+  "notes": "characterization left null: the opinion is a facial takings challenge to a mandatory-rental statute, not a classification of any specific occupant's arrangement into lease/license/lodging/innkeeping. Coded 'favorable' because the court treats an owner's right to decide whether and to whom to let rooms/units as one of the 'most treasured strands' of the ownership bundle, and holds that commandeering that letting decision without compensation is unconstitutional -- i.e., letting (or not letting) is treated as an incident of ownership the state cannot simply seize. duration_of_occupancy coded 'unclear': the case concerns the regulatory scheme generally, not a specific occupant's length of stay. doctrinal_concepts limited to the one example term that plausibly applies (license_vs_lease, via the physical-occupation/possessory-rights analysis); no ontology.yaml was provided in this batch to check for closer ids such as a takings- or police-power-specific concept, so none were guessed beyond that.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 5795630,
+  "cite": "20 La. 73",
+  "court": "Supreme Court of Louisiana",
+  "year": 1868,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-02",
+  "notes": "Landlord double-let a house already under a one-month lease before the term expired; ordinary breach-of-lease damages dispute, no lodger, boarder, or licensing/regulation issue present.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 694753,
+  "cite": "55 N.Y. St. Rep. 145",
+  "court": "Supreme Court, General Term, Fifth Department",
+  "year": 1893,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-02",
+  "notes": "House-rental holdover dispute turning on an evidentiary rule (rebutting the presumption that continued occupancy accepted a new rent term); no discussion of lodger/license status or boarding-house regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2071485,
+  "cite": "42 N.Y. St. Rep. 911",
+  "court": "Supreme Court, General Term, Second Department",
+  "year": 1891,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The court held that a complaint pleading a balance due for \"board and lodging\" was sufficient to support recovery for rent of a room kept for the defendant during his long absences, even though no board was furnished for that period. The court also approved allowing the plaintiff, who had testified she was present at a settlement between her husband and the defendant and never authorized her husband to accept less than the full bill, to be asked whether she believed the board bill was paid at that time. The judgment for the plaintiff, a woman who kept a boarding house at the home she shared with her husband, was affirmed.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "A recovery for rent of a room kept for defendant during long absences may be had under a complaint alleging a balance due for \u201cboard and lodging.\u201d",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     230,
+     376
+    ],
+    "reporter_page": "911"
+   },
+   {
+    "text": "The complaint claims for board and lodging. There is a sufficient averment to recover for a room when no board was furnished.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1508,
+     1633
+    ],
+    "reporter_page": "911"
+   },
+   {
+    "text": "There was proof that the defendant had a room which was kept for him during absences, and \u2022some washing was done for him. The objection to the proof of the room rent was not good.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1328,
+     1507
+    ],
+    "reporter_page": "911"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-02",
+  "notes": "duration_of_occupancy left 'unclear': the opinion states boarding lasted 1,336 days (~3.7 years), which does not fit the nights/weeks/months categories.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1207815,
+  "cite": "1 Tex. L. R. 965",
+  "court": "Supreme Court of Texas",
+  "year": 1883,
+  "jurisdiction": "Tex.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-02",
+  "notes": "Premises-liability case on landlord vs. occupant tort duty for a defective passageway; second-floor rooms let as 'bed rooms and offices' are incidental background facts, not the holding.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 608729,
+  "cite": "144 La. 95",
+  "court": "Supreme Court of Louisiana",
+  "year": 1918,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-02",
+  "notes": "Wrongful seizure of a subtenant's furniture during a landlord's rent-distress proceeding against the tenant; concerns distress/seizure remedy, not the character or regulation of letting rooms.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2469362,
+  "cite": "112 La. 861",
+  "court": "Supreme Court of Louisiana",
+  "year": 1904,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-02",
+  "notes": "Separation/divorce suit; the couple's boarding-house keeping is background fact to the marital-fault dispute and is never itself adjudicated.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2489543,
+  "cite": "109 La. 440",
+  "court": "Supreme Court of Louisiana",
+  "year": 1903,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-02",
+  "notes": "Libel and lease-formation dispute over a house plaintiff intended to run as a boarding house; the holding concerns whether a lease was completed and whether letters were defamatory, not the letting's legal character or its regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3310463,
+  "cite": "7 La. App. 637",
+  "court": "Louisiana Court of Appeal, Orleans",
+  "year": 1928,
+  "jurisdiction": "La.",
+  "relevant": false,
+  "relevance_score": 0.08,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-02",
+  "notes": "Wrongful self-help repossession of a month-to-month apartment tenancy; ordinary landlord-tenant damages dispute over lease-term length, no lodger/license or boarding-house regulation issue.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 714508,
+  "cite": "98 Misc. 1",
+  "court": "Supreme Court, Erie Equity Term",
+  "year": 1916,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-03",
+  "notes": "Parol-evidence/covenant-under-seal dispute over a restaurant business sale; the restrictive covenant merely lists 'rooming house purposes' alongside restaurant use as a forbidden category, with no discussion of the legality or character of letting rooms/dwellings for lodgers.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 795860,
+  "cite": "135 Misc. 39",
+  "court": "Court of Special Sessions, City of New York, Appellate Part, First Judicial Department",
+  "year": 1929,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.15,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-03",
+  "notes": "Vagrancy conviction reversed for insufficient evidence that a lodging-house keeper knowingly rented a room for prostitution; the case turns entirely on proof of guilty knowledge, not on the legal character or regulation of room-letting itself.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1084005,
+  "cite": "11 Mills Surr. 462",
+  "court": "Supreme Court, Second Department",
+  "year": 1913,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-03",
+  "notes": "Daughter's suit for services rendered to parents; the parents' running of a furnished-rooms/lodgers business is background fact only, the holding rests solely on the parent-child gratuitous-services presumption.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1406448,
+  "cite": "113 Misc. 346",
+  "court": "Supreme Court, Appellate Term, First Department",
+  "year": 1920,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.05,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-03",
+  "notes": "Ordinary summer-home landlord-tenant holdover dispute (implied renewal doctrine); no lodger, boarder, or short-term-letting-of-rooms issue present.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1406461,
+  "cite": "113 Misc. 538",
+  "court": "Supreme Court, New York Special Term",
+  "year": 1920,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.2,
+  "polarity": "irrelevant",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-03",
+  "notes": "Upholds constitutionality of the 1920 Housing Laws restricting ejectment/rent increases against an ordinary monthly apartment tenant in a dwelling house; concerns general rent regulation, not lodger/boarder status or boarding-house licensing specifically, so left out of the lodging-house file despite extensive police-power discussion.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1832770,
+  "cite": "49 Misc. 171",
+  "court": "Supreme Court, Westchester Special Term",
+  "year": 1906,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.8,
+  "polarity": "mixed",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lodging",
+  "holding_summary": null,
+  "doctrinal_concepts": [
+   "boarding_house_keeping"
+  ],
+  "new_terms_observed": [
+   "private hotel"
+  ],
+  "quotes": [
+   {
+    "text": "Down to about June, 1905, the defendant had used the premises owned by her for a private hotel or boarding-house for the entertainment of gentlemen and their families, who> desired to spend the heated term in the country. The large majority of the patrons of the house were permanent guests who not only lodged and took their meals there, but remained for a considerable period of time.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     3250,
+     3636
+    ],
+    "reporter_page": "172"
+   },
+   {
+    "text": "In that case, the court held that the maintenance of a private hotel or boarding-house, in which the furnishing of food and liquor to its guests, to be served with their meals or in their private rooms, was only incidental to the principal business there carried on, was not a violation of the covenants in question.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3875,
+     4191
+    ],
+    "reporter_page": "173"
+   },
+   {
+    "text": "It was, to all intents and purposes, a restaurant and drinking saloon, and nothing else.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     4975,
+     5063
+    ],
+    "reporter_page": "173"
+   },
+   {
+    "text": "The plaintiff is therefore entitled to a judgment again.-1 the defendant, Harriet E. Mitchell, perpetually enjoining- and restraining her and her servants, agents, and all persons claiming through or under her, from carrying on upon the premises owned by her the business of a restaurant, or saloon for the sale of intoxicating liquors, or from carrying on upon the said premises the business of furnishing and-selling to- persons indiscriminately food or liquor, or from furnishing: or selling to any person either food or liquor; except to persons who are regular guests of a private hotel or boardinghouse carried on upon said premises, or their invited friends, such liquors to be served only to such guests with their meals or in their private rooms.",
+    "supports": "characterization",
+    "status": "verified-fuzzy",
+    "raw_span": [
+     10439,
+     11190
+    ],
+    "reporter_page": "176",
+    "fuzzy_score": 99.6005326231691
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-03",
+  "notes": "doctrinal_concepts assigned from ontology.yaml as best fit (boarding_house_keeping); 'private hotel' not among existing surface forms for that concept (closest listed is 'family hotel'/'residential hotel').",
+  "nulled_fields": [
+   "holding_summary"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 1840213,
+  "cite": "53 Misc. 36",
+  "court": "Supreme Court, Oneida Trial Term",
+  "year": 1907,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-03",
+  "notes": "Motion to treble damages for forcible entry; plaintiff's occupation as 'a boarding-house keeper' is mentioned only as part of the damages pleading, the holding is purely about pleading requirements for treble damages under Code Civ. Pro. section 1669.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1862300,
+  "cite": "77 Misc. 139",
+  "court": "Supreme Court, Appellate Term, First Department",
+  "year": 1912,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.65,
+  "polarity": null,
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "Where a tenant immediately upon taking possession of a furnished house rented for the winter season found the beds and furniture so overrun with vermin as to be untenantable, he was justified in abandoning the premises, because a short lease of a furnished house for immediate seasonal occupancy carries an implied warranty that the furniture is fit for use.",
+  "doctrinal_concepts": [
+   "letting_transaction"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Plaintiff sued for an instalment due on account of rent of a furnished house on Long Island, rented by plaintiff to defendant for the winter season.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     870,
+     1018
+    ],
+    "reporter_page": "139"
+   },
+   {
+    "text": "The lease in this case, made in August, 1911, included the furniture \u2014 which is repeatedly referred to \u2014 and was by all its terms shown to be a short lease for a term beginning October 15, 1911, and ending May 15, 1912, for seasonable_immediate occupation. Under these circumstances, there was an implied warranty that the furniture at least was clean and suitable for use.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3109,
+     3482
+    ],
+    "reporter_page": "140"
+   },
+   {
+    "text": "I think that the evidence sufficiently established a situation warranting the abandonment of the premises by defendant,",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2848,
+     2967
+    ],
+    "reporter_page": "140"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-03",
+  "notes": "Owner-plaintiff letting his own furnished house for a defined winter season is treated as an ordinary lease with an implied warranty running in the tenant's favor; classed favorable as letting-as-ordinary-incident-of-ownership, though case centers on habitability rather than a licensing/regulatory question.",
+  "nulled_fields": [
+   "polarity"
+  ],
+  "extraction_status": "partial"
+ },
+ {
+  "case_id": 2307032,
+  "cite": "Bly v. Edison Electric Illuminating Co., 172 N.Y. 1",
+  "court": "New York Court of Appeals",
+  "year": 1902,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.35,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "The Court of Appeals held that a tenant in possession under a lease made during the existence of a nuisance may nonetheless maintain an action to abate it and recover her own damages, rejecting the elevated-railroad rule that only a landlord who leased before the nuisance arose could sue. The plaintiff's business of keeping a boarding house and renting rooms to lodgers was treated as an ordinary possessory interest whose diminished rental income was a compensable, legally protected loss distinct from any injury to the landlord's reversion.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "In order to determine the question of law presented by this appeal, it becomes necessary to understand more fully the situation of the parties. In the year 1888 the plaintiff rented the premises known as No. 33 West 26th street, Hew York city, until the first of May, 1890, and occupied the same as tenant keeping a boarding house.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     35715,
+     36046
+    ],
+    "reporter_page": "17"
+   },
+   {
+    "text": "That the aforesaid acts have prevented the plaintiff from renting the rooms of her house, have injured her furniture and household effects and have caused her an expense for laundry work.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7268,
+     7455
+    ],
+    "reporter_page": "4"
+   },
+   {
+    "text": "That the aforesaid acts have prevented the plaintiff from renting the rooms of her house, have injured her furniture and household effects and have caused her an expense for laundry work.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7268,
+     7455
+    ],
+    "reporter_page": "4"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-04",
+  "notes": "Core holding concerns tenant standing to sue for nuisance, not the legality of boarding-house letting itself; the boarding-house/lodger facts are background, but the court treats the plaintiff's rental income from lodgers as an ordinary, legally protected business interest (not a nuisance or intrusion), which is why polarity is coded favorable rather than irrelevant.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2580389,
+  "cite": "Peters v. Kelly, 129 A.D. 290",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1908,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lease",
+  "holding_summary": "Where a tenant merely rented three rooms in the rear of a house, reached by an outside stairway and landing, the letting did not include the stairway and landing themselves; the landlord retained control of those areas and owed a legal, non-contractual duty to keep them in reasonable repair. A visitor injured when the landing collapsed therefore stated a valid negligence claim, and dismissal of her complaint was reversed.",
+  "doctrinal_concepts": [
+   "letting_transaction"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "He said he had-three rooms in the rear house, access to which was through a passageway from the street and by an outside stairway and along the landing to the door. Upon payment of the rent he gave her a receipt to show to the janitress who, he said, would give her the key.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     2906,
+     3180
+    ],
+    "reporter_page": "291"
+   },
+   {
+    "text": "This evidence did not-show a hiring of the yard adjacent to the house, and the stairway and the landing together with the rooms, hut only a hiring of the rooms themselves. This being so it followed that the landlord retained control of the stairway and landing.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     3181,
+     3442
+    ],
+    "reporter_page": "291"
+   },
+   {
+    "text": "This evidence did not-show a hiring of the yard adjacent to the house, and the stairway and the landing together with the rooms, hut only a hiring of the rooms themselves. This being so it followed that the landlord retained control of the stairway and landing.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     3181,
+     3442
+    ],
+    "reporter_page": "291"
+   },
+   {
+    "text": "Having retained such control it became her duty to exercise reasonable care to keep the stairway and landing in suitable repair for use.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3443,
+     3579
+    ],
+    "reporter_page": "292"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-04",
+  "notes": "Letting of rooms in a rear building is treated by the court as an ordinary, unremarkable hiring (lease) of rooms only, with the landlord retaining and being duty-bound over the common stairway/landing; coded favorable because the letting itself is treated as an unquestioned ordinary transaction, not because the holding turns on the letting's legality. who_was_letting coded commercial_operator because defendant owned and let through an agent/janitress with no indication of owner-occupancy; the term of the tenancy itself is not stated in the opinion, so duration is unclear. OCR artifacts ('had-three', 'did not-show', 'hut only') preserved verbatim from source.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2718682,
+  "cite": "Seaman v. Jamison, 158 A.D. 832",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1913,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.5,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "lodging",
+  "holding_summary": "A daughter sued her deceased parents' estate for wages for years spent caring for them and managing their house of furnished rooms let to lodgers, their sole livelihood for over forty years. Because the relationship was that of parent and child, the law presumed the services gratuitous absent proof of an express promise to pay, and the plaintiff's evidence of such a promise was held insufficient, so the judgment in her favor was reversed and a new trial ordered.",
+  "doctrinal_concepts": [
+   "lodger_status"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "For over forty years Thomas Jamison and Mary A. Jamison, husband and wife, lived together in the house No. 351 Forty-sixth street, in the borough of Brooklyn, where they eked out a livelihood by renting furnished rooms.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2366,
+     2585
+    ],
+    "reporter_page": "833"
+   },
+   {
+    "text": "For over forty years Thomas Jamison and Mary A. Jamison, husband and wife, lived together in the house No. 351 Forty-sixth street, in the borough of Brooklyn, where they eked out a livelihood by renting furnished rooms.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2366,
+     2585
+    ],
+    "reporter_page": "833"
+   },
+   {
+    "text": "in and about the renting, cleaning, management and care of the premises No. 351 46th Street, Borough of Brooklyn, City of New York, as a house with furnished rooms for lodgers.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1785,
+     1961
+    ],
+    "reporter_page": "832"
+   },
+   {
+    "text": "The general rule is that, where the relationship between the parties is that of parent and child, the law presumes that where there is no proof of a contract under which the services were performed there was no promise or agreement to pay for them; that is, that they were rena'ered gratuitously.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6613,
+     6909
+    ],
+    "reporter_page": "835"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-04",
+  "notes": "Central holding is a quantum-meruit/gratuitous-services question, not the legality of letting, but the facts describe an ordinary, unquestioned decades-long householder practice of letting furnished rooms to lodgers for income, hence favorable. duration_of_occupancy left unclear -- individual lodgers' terms are not specified. Quote 'rena'ered' is an OCR artifact for 'rendered', preserved verbatim.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2721901,
+  "cite": "Blair v. Blair, 160 A.D. 781",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1914,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "In a wife's suit for judicial separation, the court found she had taken a boarder and let a furnished room to supplement household income, over her husband's objection. The court held that a husband who maintains the family has the right to decide who resides in the home and may refuse boarders whose presence disturbs family comfort, and that this objection did not amount to cruel and inhuman conduct, so the separation judgment was reversed and the complaint dismissed.",
+  "doctrinal_concepts": [
+   "boarder_status",
+   "incident_of_ownership"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "To eke out the income the wife took a boarder and let out a furnished room.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1345,
+     1420
+    ],
+    "reporter_page": "782"
+   },
+   {
+    "text": "But the husband who maintains the family has a right to say who shall reside with them in the home, and may refuse to have boarders whose requirements interfere with the family comfort and whose presence excites comment on the part of the neighbors.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1854,
+     2103
+    ],
+    "reporter_page": "782"
+   },
+   {
+    "text": "But the husband who maintains the family has a right to say who shall reside with them in the home, and may refuse to have boarders whose requirements interfere with the family comfort and whose presence excites comment on the part of the neighbors.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     1854,
+     2103
+    ],
+    "reporter_page": "782"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-04",
+  "notes": "Letting a boarder/furnished room by a householder to supplement income is treated as an unremarkable, lawful practice (favorable element), but the holding upholds the husband's power to stop it via domestic authority rather than police-power regulation (adverse element) -- hence polarity mixed. characterization left null: the court never classifies the arrangement as lease/license/lodging/innkeeping, only as a domestic-economy fact; the holding turns on marital law. duration_of_occupancy unclear -- no term specified for the boarder's stay.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2767330,
+  "cite": "Goodhue v. Pennell, 164 A.D. 821",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1914,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.75,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "nights",
+  "characterization": "innkeeping",
+  "holding_summary": "A restrictive covenant limiting use of villa lots to buildings used or occupied as a private dwelling house or habitation was held to exclude hotel and inn use. Because the defendant converted his building into a 24-bedroom hotel with a bar, the court held the covenant violated and enjoined use of the building for any purpose other than a private dwelling.",
+  "doctrinal_concepts": [
+   "boarding_house_keeping"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Private dwelling houses do not include an inn or a hotel.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     4766,
+     4823
+    ],
+    "reporter_page": "823"
+   },
+   {
+    "text": "put another story upon the building and, in his own words, made \u201ca first class hotel of it.\u201d",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     4068,
+     4160
+    ],
+    "reporter_page": "822"
+   },
+   {
+    "text": "the judgment must be amended so as to restrain the defendants from using the building or permitting it to be used for any purpose other than a private dwelling",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     9546,
+     9705
+    ],
+    "reporter_page": "825"
+   },
+   {
+    "text": "the judgment must be amended so as to restrain the defendants from using the building or permitting it to be used for any purpose other than a private dwelling",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     9546,
+     9705
+    ],
+    "reporter_page": "825"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-04",
+  "notes": "Adverse in the sense relevant to the corpus: commercial paid-guest lodging (a 24-bedroom hotel with bar service) is excluded by, and enjoined under, a residential-only restrictive covenant -- treated as a commercial intrusion into a private-dwelling scheme rather than an ordinary incident of ownership.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 2925718,
+  "cite": "Keesey v. O'Reilly, 181 A.D. 665",
+  "court": "New York Supreme Court, Appellate Division",
+  "year": 1918,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "favorable",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "weeks",
+  "characterization": "lease",
+  "holding_summary": "The lessee of three upper floors rented out furnished rooms by the week to various occupants, including the plaintiff's decedent, notwithstanding a covenant against housekeeping that the owner tacitly permitted to be violated. The court held that a weekly subtenant of furnished rooms acquired no easement over the roof as an appurtenance to her lease, so her presence there while hanging laundry was that of a mere licensee, and the judgment for the plaintiff-administrator was reversed and the complaint dismissed.",
+  "doctrinal_concepts": [
+   "lodger_status",
+   "license_vs_lease"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "The lessee Haas rented out parts of the leased premises as furnished rooms to various people.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     2975,
+     3068
+    ],
+    "reporter_page": "666"
+   },
+   {
+    "text": "The lessee Haas rented out parts of the leased premises as furnished rooms to various people.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2975,
+     3068
+    ],
+    "reporter_page": "666"
+   },
+   {
+    "text": "Plaintiff, his wife and child occupied two rooms on the top floor, hired by the week.",
+    "supports": "duration_of_occupancy",
+    "status": "verified",
+    "raw_span": [
+     3069,
+     3154
+    ],
+    "reporter_page": "666"
+   },
+   {
+    "text": "The plaintiff as a subtenant by the week of two furnished rooms had no easement over this roof as an appurtenance to his lease, and the mere fact that his immediate landlord, in violation of the principal lease, even with the acquiescence of the owner, permitted housekeeping in these furnished rooms, did not create an easement over the roof.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7966,
+     8309
+    ],
+    "reporter_page": "668"
+   },
+   {
+    "text": "The plaintiff as a subtenant by the week of two furnished rooms had no easement over this roof as an appurtenance to his lease, and the mere fact that his immediate landlord, in violation of the principal lease, even with the acquiescence of the owner, permitted housekeeping in these furnished rooms, did not create an easement over the roof.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     7966,
+     8309
+    ],
+    "reporter_page": "668"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-04",
+  "notes": "Core holding is a premises-liability/licensee ruling as to the roof, not the legality of letting, but the weekly furnished-room subtenancy itself is treated throughout as an unremarkable, lawful arrangement (favorable).",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3288237,
+  "cite": "Blair v. Blair, 145 N.Y.S. 976",
+  "court": "Supreme Court, Appellate Division, Second Department",
+  "year": 1914,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "mixed",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": null,
+  "holding_summary": "In a wife's action for judicial separation, the court held that a husband who supports the family has the right to decide who may reside in the home and may refuse to let his wife keep a boarder or let a furnished room to supplement household income. His exercise of that right, including throwing down a teacup and similar acts, did not amount to cruel and inhuman treatment justifying separation.",
+  "doctrinal_concepts": [
+   "boarder_status",
+   "incident_of_ownership"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "To eke out the income, the wife took a boarder, and let out a furnished room.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     1701,
+     1778
+    ],
+    "reporter_page": "976"
+   },
+   {
+    "text": "To eke out the income, the wife took a boarder, and let out a furnished room.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     1701,
+     1778
+    ],
+    "reporter_page": "976"
+   },
+   {
+    "text": "But the husband who maintains the family has a right to say who shall reside with them in the home, and may refuse to have boarders whose requirements interfere with the family comfort and whose presence excites comment on the part of the neighbors.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     2209,
+     2458
+    ],
+    "reporter_page": "977"
+   },
+   {
+    "text": "But the husband who maintains the family has a right to say who shall reside with them in the home, and may refuse to have boarders whose requirements interfere with the family comfort and whose presence excites comment on the part of the neighbors.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2209,
+     2458
+    ],
+    "reporter_page": "977"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-04",
+  "notes": "Household-economy letting (a boarder plus a let furnished room) is treated by the court as an ordinary, unobjectionable domestic practice (favorable element), but the holding sustains the husband's power to end it (adverse element) -- hence mixed, matching the companion A.D. report of the same case (case_id 2721901). characterization left null: the court never legally classifies the arrangement (lease/license/lodging/innkeeping); the holding turns on matrimonial law, not property or regulatory doctrine.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 3343457,
+  "cite": "Wilkes-Barre Realty Co. v. Levy, 114 N.Y.S. 713",
+  "court": "Supreme Court, Appellate Term",
+  "year": 1909,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.4,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "unclear",
+  "characterization": "other",
+  "holding_summary": "An apartment tenant was not constructively evicted by noise and odors from a ground-floor occupant's table-boarding arrangement, because the landlord neither caused, authorized, nor knew of the disturbance. Constructive eviction cannot rest on acts or conduct, however wrongful or distressing, unless committed, encouraged, or connived at by the landlord.",
+  "doctrinal_concepts": [
+   "boarder_status"
+  ],
+  "new_terms_observed": [
+   "table boarders"
+  ],
+  "quotes": [
+   {
+    "text": "the agent of the plaintiff gave to a Mrs. Hunter, who occupied the ground floor of the building at the time the defendant made the lease, permission to keep \u201ctable boarders\u201d; that the rooms were not leased as a boarding house, but as a private apartment, with the privilege of taking in such boarders.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     2373,
+     2674
+    ],
+    "reporter_page": "713"
+   },
+   {
+    "text": "the agent of the plaintiff gave to a Mrs. Hunter, who occupied the ground floor of the building at the time the defendant made the lease, permission to keep \u201ctable boarders\u201d; that the rooms were not leased as a boarding house, but as a private apartment, with the privilege of taking in such boarders.",
+    "supports": "who_was_letting",
+    "status": "verified",
+    "raw_span": [
+     2373,
+     2674
+    ],
+    "reporter_page": "713"
+   },
+   {
+    "text": "the agent of the plaintiff gave to a Mrs. Hunter, who occupied the ground floor of the building at the time the defendant made the lease, permission to keep \u201ctable boarders\u201d; that the rooms were not leased as a boarding house, but as a private apartment, with the privilege of taking in such boarders.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     2373,
+     2674
+    ],
+    "reporter_page": "713"
+   },
+   {
+    "text": "an eviction cannot be predicated of acts or conduct, however wrongful or distressing, unless committed, encouraged, or connived at by the landlord.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3798,
+     3945
+    ],
+    "reporter_page": "714"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-04",
+  "notes": "Landlord expressly permitted a residential occupant to keep 'table boarders' in her private apartment (not a boarding house) as an ordinary, unregulated incident of the lease -- favorable. Core holding is about constructive eviction, so polarity attaches to the underlying factual premise rather than a squarely litigated point; characterization coded 'other' because the court's own contrast (private apartment with a boarding privilege vs. a boarding house) does not map cleanly onto lease/license/lodging/innkeeping. Duration left unclear -- meal-boarding, not overnight lodging, and no term specified.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4775259,
+  "cite": "214 A.D. 102",
+  "court": "N.Y. App. Div., First Department",
+  "year": 1925,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-05",
+  "notes": "Case holds a statutory tenant's widow may continue possession under the Emergency Rent Laws after his death; lodger/boarder treatment is dicta quoted from May v. Dermont, not this case's holding, so it does not itself decide the character of a letting.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4795972,
+  "cite": "216 A.D. 295",
+  "court": "N.Y. App. Div., First Department",
+  "year": 1926,
+  "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.7,
+  "polarity": "adverse",
+  "who_was_letting": "commercial_operator",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "Defendant, who as a landlord had sublet a furnished apartment to a third party for profit and was not himself in occupation, was not a statutory tenant entitled to Emergency Rent Law protection; because he permitted his subtenant to hold over and plaintiff elected to hold him liable, he was a holdover tenant as a matter of law and owed rent for the two months after his lease expired.",
+  "doctrinal_concepts": [
+   "statutory_tenant_protection",
+   "business_use_classification"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "Where a tenant occupies rooms in a dwelling leased by him and leases rooms by weekly or monthly letting, \u201c it is not a house used for dwelling purposes, but is a house used for business \u201d (Nystad & Krassner, Inc., v. Zerbe, 210 App. Div. 217), and he is not \u201c a statutory tenant \u201d as to the.rooms or floors sublet.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     7069,
+     7383
+    ],
+    "reporter_page": "298"
+   },
+   {
+    "text": "Where a tenant occupies rooms in a dwelling leased by him and leases rooms by weekly or monthly letting, \u201c it is not a house used for dwelling purposes, but is a house used for business \u201d (Nystad & Krassner, Inc., v. Zerbe, 210 App. Div. 217), and he is not \u201c a statutory tenant \u201d as to the.rooms or floors sublet.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     7069,
+     7383
+    ],
+    "reporter_page": "298"
+   },
+   {
+    "text": "Defendant Was not a statutory tenant, but a landlord who leased the apartment to a third party for profit. This is not disputable on the proof of both parties.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6453,
+     6612
+    ],
+    "reporter_page": "297"
+   },
+   {
+    "text": "To entitle a tenant to the protection provided by the Emergency Rent Laws, there must be an actual occupation of the premises by the tenant who claims the benefits of the laws. This defendant had neither possession nor right to possession so long as his subtenant continued to live in the apartment and paid rent.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     6618,
+     6931
+    ],
+    "reporter_page": "297"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-05",
+  "notes": "",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4860799,
+  "cite": "220 A.D. 276",
+  "court": "N.Y. App. Div., First Department",
+  "year": 1927,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-05",
+  "notes": "Probate dispute over an inter vivos gift of Liberty bonds and mortgage assignments; that testator rented rooms from and boarded fourteen years with legatee Clara Pallehner is background fact only, not the litigated issue of the letting's legal character or regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 4907537,
+  "cite": "70 A.D. 73",
+  "court": "N.Y. App. Div.",
+  "year": 1902,
+  "jurisdiction": "N.Y.",
+  "relevant": false,
+  "relevance_score": 0.1,
+  "polarity": "irrelevant",
+  "who_was_letting": null,
+  "duration_of_occupancy": null,
+  "characterization": null,
+  "holding_summary": null,
+  "doctrinal_concepts": [],
+  "new_terms_observed": [],
+  "quotes": [],
+  "worker": "claude-remap",
+  "batch_id": "remap-05",
+  "notes": "Claim by widow against husband's estate for reimbursement of board/lodging she furnished to her own husband; her separate boarding-house business (taking boarders and lodgers) is background context, not the litigated question of a letting's legal character or regulation.",
+  "extraction_status": "ok"
+ },
+ {
+  "case_id": 1008633,
+  "cite": "227 Pa. 305",
+  "court": "Pa.",
+  "year": 1910,
+  "jurisdiction": "Pa.",
+  "relevant": true,
+  "relevance_score": 0.55,
+  "polarity": "favorable",
+  "who_was_letting": "unclear",
+  "duration_of_occupancy": "months",
+  "characterization": "lease",
+  "holding_summary": "Plaintiff, who held two rooms and a bath in a residence under a written lease at monthly rent paid in advance, was wrongfully evicted by the landlord's self-help acts (cutting off heat and light) before the paid-up period expired; the court held he could sue in trespass rather than solely on the covenant for quiet enjoyment, that a finding of wrongful eviction supports at least nominal damages, and reversed the compulsory nonsuit.",
+  "doctrinal_concepts": [
+   "wrongful_eviction_remedy"
+  ],
+  "new_terms_observed": [],
+  "quotes": [
+   {
+    "text": "At the trial it appeared that the plaintiff occupied two rooms and a bath in a residence in the city of Philadelphia. He was in possession under a written lease at rental of 116.00 per month payable in advance.",
+    "supports": "characterization",
+    "status": "verified",
+    "raw_span": [
+     1330,
+     1540
+    ],
+    "reporter_page": "306"
+   },
+   {
+    "text": "One who wrongfully invades the rights of another is a trespasser, and this rule applies to the unlawful invasion of the rights of a tenant by his landlord.",
+    "supports": "polarity",
+    "status": "verified",
+    "raw_span": [
+     138,
+     293
+    ],
+    "reporter_page": "305"
+   },
+   {
+    "text": "If the jury should determine that the tenant had been wrongfully evicted, nominal damages at least would follow, even if no other elements of damage had been proved.",
+    "supports": "holding_summary",
+    "status": "verified",
+    "raw_span": [
+     3588,
+     3753
+    ],
+    "reporter_page": "307"
+   }
+  ],
+  "worker": "claude-remap",
+  "batch_id": "remap-05",
+  "notes": "",
+  "extraction_status": "ok"
+ }
+]

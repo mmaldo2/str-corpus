@@ -10,7 +10,7 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Only difference is a stray OCR hyphen in 'City of-Middletown'; wording is identical.",
+  "justification": "Only difference is a stray OCR hyphen in 'City of-Middletown', otherwise identical wording.",
   "corrected_quote": null
  },
  {
@@ -24,7 +24,7 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "mismatch",
-  "justification": "Quote substitutes the pronoun 'He' for the source's subject 'Stiles', altering the wording rather than just OCR noise.",
+  "justification": "The quote substitutes the pronoun 'He' for the name 'Stiles' found in the source, altering the actual wording rather than just OCR noise.",
   "corrected_quote": "Stiles was later discharged in July, 1978, but was permitted to stay on as a tenant. He paid rent for these lodgings."
  },
  {
@@ -38,7 +38,7 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Only difference is a stray comma after 'indemnify' in the source, a trivial punctuation artifact.",
+  "justification": "Only difference is a trivial comma placement after 'indemnify', wording is identical.",
   "corrected_quote": null
  },
  {
@@ -52,7 +52,7 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Quote is a faithful verbatim excerpt that simply stops mid-sentence before the source continues; no words altered.",
+  "justification": "Quote matches the source text verbatim at the point it ends.",
   "corrected_quote": null
  },
  {
@@ -66,7 +66,7 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Quote is a faithful verbatim excerpt that simply stops mid-sentence before the source continues; no words altered.",
+  "justification": "Quote matches the source text verbatim at the point it ends.",
   "corrected_quote": null
  },
  {
@@ -84,7 +84,7 @@
    52
   ],
   "recommendation": "mismatch",
-  "justification": "Quote adds the phrase 'the door of' before 'his sleeping room doors', which is not present in the source.",
+  "justification": "The quote inserts the phrase 'the door of' before 'his sleeping room doors', which does not appear in the source.",
   "corrected_quote": "We do not believe that a hotel keeper, under the law, can place more than one lock or bolt, or both a lock and a bolt, on his sleeping room doors, one of which may be unsuitable or unsafe"
  },
  {
@@ -100,7 +100,7 @@
    2
   ],
   "recommendation": "ocr-ok",
-  "justification": "Source's 'as \u00e1 rooming house' is an OCR-garbled rendering of 'as a rooming house', which the quote correctly reads.",
+  "justification": "Only difference is an OCR-garbled accented '\u00e1' rendered as 'a', wording is identical.",
   "corrected_quote": null
  },
  {
@@ -116,7 +116,7 @@
    2
   ],
   "recommendation": "ocr-ok",
-  "justification": "Source's 'as \u00e1 rooming house' is an OCR-garbled rendering of 'as a rooming house', which the quote correctly reads.",
+  "justification": "Only difference is an OCR-garbled accented '\u00e1' rendered as 'a', wording is identical.",
   "corrected_quote": null
  },
  {
@@ -132,7 +132,7 @@
    1
   ],
   "recommendation": "ocr-ok",
-  "justification": "Only difference is an OCR letter confusion 'Begulations' vs 'Regulations'; wording otherwise identical.",
+  "justification": "'Begulations' is an OCR misread of 'Regulations' (R/B confusion), otherwise the quote matches exactly.",
   "corrected_quote": null
  },
  {
@@ -146,7 +146,7 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Quote matches the source's quoted statutory text exactly aside from the bracketed capitalization convention '[a]'.",
+  "justification": "Quote matches the source text verbatim aside from bracketing/capitalization of the statutory citation markers.",
   "corrected_quote": null
  },
  {
@@ -162,7 +162,7 @@
    19
   ],
   "recommendation": "ocr-ok",
-  "justification": "The only difference is an OCR letter confusion ('he' for 'be'); the wording is otherwise identical.",
+  "justification": "QUOTE's \"be understood\" is a corrected reading of the source's OCR-garbled \"he understood\" (b/h letter confusion); wording is otherwise identical.",
   "corrected_quote": "We do not wish to he understood, however, as declaring it to be our judgment that the defendant would have no right to build upon the party-wall,\" if the object were to enlarge his house as a private residence."
  },
  {
@@ -178,7 +178,7 @@
    4
   ],
   "recommendation": "mismatch",
-  "justification": "The quote inserts the word 'Soon' before 'after I bought,' which does not appear in the source.",
+  "justification": "QUOTE adds the word \"Soon\" before \"After I bought,\" which does not appear in the source.",
   "corrected_quote": "After I bought I sold a lot off the east end of the block to Mrs. Armstead, and after that I sold off to A. A. Barnes a lot off the west end of the block"
  },
  {
@@ -192,7 +192,7 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Wording matches exactly aside from a doubled comma OCR artifact in the source.",
+  "justification": "The only difference is the source's doubled OCR comma (\"compensation,,\") versus a single comma in the quote; wording is identical.",
   "corrected_quote": "an inn, tavern or hotel means a place for the general entertainment and lodging of all travelers and strangers who apply, paying suitable compensation,, A hotel \u201cguest\u201d is one who lives at board or lodging in a hired room, and \u201clodging\u201d is a place of rest for a night, or a residence for a time\u2014 a temporary habitation."
  },
  {
@@ -206,7 +206,7 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Wording matches exactly aside from a doubled comma OCR artifact in the source.",
+  "justification": "The only difference is the source's doubled OCR comma (\"compensation,,\") versus a single comma in the quote; wording is identical.",
   "corrected_quote": "an inn, tavern or hotel means a place for the general entertainment and lodging of all travelers and strangers who apply, paying suitable compensation,, A hotel \u201cguest\u201d is one who lives at board or lodging in a hired room, and \u201clodging\u201d is a place of rest for a night, or a residence for a time\u2014 a temporary habitation."
  },
  {
@@ -222,7 +222,7 @@
    21
   ],
   "recommendation": "ocr-ok",
-  "justification": "Only difference is an extra comma after 'it' in the quote, a trivial punctuation variance.",
+  "justification": "QUOTE inserts a trivial comma after \"rents it\" that is absent in the source; wording is otherwise identical.",
   "corrected_quote": "The owner is\u2018bound to know whether his building is safe for the purposes for which he rents it or authorizes its use, or is rotten and unsafe, and is answerable, in damages, to those who, being lawfully therein, are injured by reason of its defects, whether of original construction or caused by failure to make proper repairs."
  },
  {
@@ -238,7 +238,7 @@
    21
   ],
   "recommendation": "ocr-ok",
-  "justification": "Only difference is an extra comma after 'it' in the quote, a trivial punctuation variance.",
+  "justification": "QUOTE inserts a trivial comma after \"rents it\" that is absent in the source; wording is otherwise identical.",
   "corrected_quote": "The owner is\u2018bound to know whether his building is safe for the purposes for which he rents it or authorizes its use, or is rotten and unsafe, and is answerable, in damages, to those who, being lawfully therein, are injured by reason of its defects, whether of original construction or caused by failure to make proper repairs."
  },
  {
@@ -254,7 +254,7 @@
    21
   ],
   "recommendation": "ocr-ok",
-  "justification": "Only difference is an extra comma after 'it' in the quote, a trivial punctuation variance.",
+  "justification": "QUOTE inserts a trivial comma after \"rents it\" that is absent in the source; wording is otherwise identical.",
   "corrected_quote": "The owner is\u2018bound to know whether his building is safe for the purposes for which he rents it or authorizes its use, or is rotten and unsafe, and is answerable, in damages, to those who, being lawfully therein, are injured by reason of its defects, whether of original construction or caused by failure to make proper repairs."
  },
  {
@@ -268,8 +268,8 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "The quote simply omits a stray OCR apostrophe present after 'plaintiff' in the source; wording is otherwise identical.",
-  "corrected_quote": "The plaintiff alleges that he leased two rooms and a kitchen at No. 1112 Frenchmen Street from the defendants for $8 a month and resided there with his wife and family for more than a year prior to March 4, 1922"
+  "justification": "The only difference is a stray OCR apostrophe after \"plaintiff\" in the source that the quote correctly omits; wording is otherwise identical.",
+  "corrected_quote": "The plaintiff ' alleges that he leased two rooms and a kitchen at No. 1112 Frenchmen Street from the defendants for $8 a month and resided there with his wife and family for more than a year prior to March 4, 1922"
  },
  {
   "case_id": 5607484,
@@ -285,8 +285,8 @@
    2
   ],
   "recommendation": "mismatch",
-  "justification": "The quote replaces the source's continuation ('and that the plaintiffs cannot recove[r]') with the fabricated word 'owners', which is not in the source.",
-  "corrected_quote": "It was the duty of the plaintiffs to have placed a hook on the screen and not the duty of the defendants"
+  "justification": "QUOTE ends with the fabricated word \"owners,\" replacing the source's actual continuation \"and that the plaintiffs cannot recove[r].\"",
+  "corrected_quote": "It was the duty of the plaintiffs to have placed a hook on the screen and not the duty of the defendants, and that the plaintiffs cannot recove"
  },
  {
   "case_id": 741720,
@@ -301,7 +301,7 @@
    1
   ],
   "recommendation": "ocr-ok",
-  "justification": "The only difference is an OCR letter confusion ('Rice' for 'Bice'), matching the same defendant named earlier in the passage as 'Cora M. Bice'.",
+  "justification": "QUOTE's \"defendant Rice\" is an R/B letter-confusion OCR misread of the source's \"defendant Bice,\" the same party named earlier in the passage as \"Cora M. Bice.\"",
   "corrected_quote": "the chattels described in the complaint in replevin were brought to the house of the said Cora M. Bice by Samuel J. Budracco, and that the chattels were detained by the defendant Bice under and by virtue of her lien for food and lodging"
  },
  {
@@ -331,7 +331,7 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Source ends the sentence with a stray slash instead of a period, a scan artifact; the words match exactly.",
+  "justification": "Wording matches exactly; only a stray OCR punctuation mark ('/' vs '.') at the end differs.",
   "corrected_quote": "The tenant as principal lessee either lets out the floors of the building as apartments to subtenants, or uses the premises for a rooming house/"
  },
  {
@@ -345,7 +345,7 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Quote drops a comma after 'wife' present in source; trivial punctuation difference, wording identical.",
+  "justification": "Quote matches source verbatim aside from a dropped comma after 'wife', a trivial transcription difference.",
   "corrected_quote": "husband and wife, lived together in the house No. 351 Forty-sixth street, in the borough of Brooklyn, where they eked out a livelihood by renting furnished rooms."
  },
  {
@@ -359,8 +359,8 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Source has a stray '>' OCR artifact after 'who' that the quote silently omits; otherwise identical wording.",
-  "corrected_quote": "the defendant had used the premises owned by her for a private hotel or boarding-house for the entertainment of gentlemen and their families, who> desired to spend the heated term in the country."
+  "justification": "Identical wording; source has a stray OCR character '>' after 'who' that the quote simply omits.",
+  "corrected_quote": "the defendant had used the premises owned by her for a private hotel or boarding-house for the entertainment of gentlemen and their families, who desired to spend the heated term in the country."
  },
  {
   "case_id": 2386198,
@@ -373,8 +373,8 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Source has a stray apostrophe OCR artifact in \"The'plaintiffs\"; wording otherwise matches exactly.",
-  "corrected_quote": "The'plaintiffs bought of the defendants a lease of premises containing a rooming house and the business therein conducted, and the furniture therein, and claim that it was represented that the house could be used for the purpose of a rooming house and that the furniture therein was the defendant-seller\u2019s property."
+  "justification": "Wording is identical; source shows an OCR-mangled apostrophe in 'The'plaintiffs'.",
+  "corrected_quote": "The plaintiffs bought of the defendants a lease of premises containing a rooming house and the business therein conducted, and the furniture therein, and claim that it was represented that the house could be used for the purpose of a rooming house and that the furniture therein was the defendant-seller\u2019s property."
  },
  {
   "case_id": 2439741,
@@ -387,7 +387,7 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Source has a stray hyphen in 'for-the' where quote has a space; trivial OCR hyphenation noise, wording identical.",
+  "justification": "Wording matches exactly; differences are OCR hyphen/spacing artifacts ('or-' and 'for-the').",
   "corrected_quote": "The plaintiff brings this action to recover certain trunks containing her personal wardrobe, or- their value, such trunks being retained by the defendant, a boarding-house keeper, who claims a lien upon the same for-the amount of a board bill aggregating something over $150."
  },
  {
@@ -401,7 +401,7 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Source has a stray hyphen in 'had-three' where quote has a space; trivial OCR noise, wording identical.",
+  "justification": "Wording is identical; source has a stray OCR hyphen in 'had-three' where quote reads 'had three'.",
   "corrected_quote": "He said he had-three rooms in the rear house, access to which was through a passageway from the street and by an outside stairway and along the landing to the door. Upon payment of the rent he gave her a receipt to show to the janitress who, he said, would give her the key."
  },
  {
@@ -419,7 +419,7 @@
    34
   ],
   "recommendation": "ocr-ok",
-  "justification": "Source has OCR letter confusion 'hut' for 'but' and a stray hyphen in 'not-show'; wording otherwise identical.",
+  "justification": "Wording matches exactly aside from an OCR letter confusion ('hut' for 'but') and a stray hyphen in 'did not-show'.",
   "corrected_quote": "This evidence did not-show a hiring of the yard adjacent to the house, and the stairway and the landing together with the rooms, hut only a hiring of the rooms themselves. This being so it followed that the landlord retained control of the stairway and landing."
  },
  {
@@ -435,7 +435,7 @@
    12
   ],
   "recommendation": "ocr-ok",
-  "justification": "Source has a stray apostrophe OCR artifact after 'Buffalo'; wording otherwise matches (source excerpt truncated but continuous with quote).",
+  "justification": "Wording is identical; source has a stray OCR apostrophe after 'Buffalo'.",
   "corrected_quote": "The evidence shows that the defendant Manze is the proprietor of a saloon at No. 133 Main street in the city of Buffalo', and in connection with the saloon runs a sort of hotel or lodging house for the accommodation of guests."
  },
  {
@@ -449,7 +449,7 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Source has a stray apostrophe OCR artifact after 'made'; wording otherwise identical.",
+  "justification": "Wording matches exactly; source has a stray OCR apostrophe after 'made'.",
   "corrected_quote": "Held, that the wife was entitled to recover from her husband\u2019s estate the amount specified in the acknowledgment of indebtedness, no objection having been made' that such amount did not represent the value of the board and lodging so furnished;"
  },
  {
@@ -463,8 +463,8 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Quote matches source verbatim aside from a stray apostrophe/OCR artifact in 'residences'of'.",
-  "corrected_quote": "The fact that hotels, boarding houses or houses of that character which were then common in New York were not prohibited would seem to show that the parties did not intend to restrict the premises to residences of a particular kind"
+  "justification": "Text matches source exactly aside from a stray apostrophe OCR artifact in 'residences'of'.",
+  "corrected_quote": null
  },
  {
   "case_id": 5264343,
@@ -479,8 +479,8 @@
    11
   ],
   "recommendation": "ocr-ok",
-  "justification": "Quote matches source text word-for-word with only OCR letter noise (e.g. 'tlieir').",
-  "corrected_quote": "and the term \u2018hotel\u2019 as used in this act shall mean a building regularly used and kept open as such for the feeding and lodging of guests, where all who conduct themselves properly and who are able and ready to pay for their entertainment, are received if there be accommodations for, them, and who, without any stipulated engagement as to the duration of their stay, or as to the rate of compensation, are, while there, supplied, at a reasonable charge, with their meals, lodgings, refreshment and such service and attention as are necessarily incident to the use of the place as a temporary home, and in which the only other dwellers shall be the family and servants .of the hotel keeper."
+  "justification": "Text matches source aside from minor OCR noise (e.g. 'tlieir' for 'their', stray hyphen) and the source snippet being truncated at the end.",
+  "corrected_quote": null
  },
  {
   "case_id": 5364138,
@@ -498,8 +498,8 @@
    2
   ],
   "recommendation": "ocr-ok",
-  "justification": "Quote matches source except an OCR letter confusion ('hoard' vs 'board').",
-  "corrected_quote": "In order to entitle a son-in-law to recover from the estate of his mother-in-law moneys alleged to be due for board and lodging furnished to the decedent, a contract to pay therefor must be established, either by written evidence, or, if established by parol, it must be by the testimony of disinterested witnesses, or the contract must be corroborated by them in all substantial particulars."
+  "justification": "Text matches source exactly aside from an OCR letter confusion ('hoard' for 'board').",
+  "corrected_quote": null
  },
  {
   "case_id": 7664513,
@@ -515,7 +515,7 @@
    7
   ],
   "recommendation": "mismatch",
-  "justification": "The quote inserts the phrase 'to let' before 'access to which', words not present in the source sentence at that point.",
+  "justification": "The quote inserts 'to let' after 'rear house' where the source has only a comma, adding words not present at that point in the source.",
   "corrected_quote": "He said he had three rooms in the rear house, access to which was by an outside stairway and along the landing to the door."
  },
  {
@@ -529,8 +529,8 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Quote matches source aside from a stray OCR apostrophe after 'The'.",
-  "corrected_quote": "The defendant went into possession on the 16th of April 1908, and moved out on the 9th of May."
+  "justification": "Text matches source exactly aside from a stray OCR apostrophe on 'The''.",
+  "corrected_quote": null
  },
  {
   "case_id": 7689601,
@@ -547,8 +547,8 @@
    35
   ],
   "recommendation": "ocr-ok",
-  "justification": "Quote reproduces the source faithfully; differences are OCR/punctuation noise (e.g. 'ist' vs '1st', stray quote marks).",
-  "corrected_quote": "by which it was agreed that the latter was to pay $ioo per week for the exclusive possession and use of said Beatty Cottage, and stables and premises, for the said period from June ist to November ist, 1900, upon condition that the plaintiff's assignor would provide the service and board and have the general care of the said premises during the said period."
+  "justification": "Text matches source aside from OCR variants (e.g. 'ist' rendered as '1st') and quotation-mark/spacing artifacts.",
+  "corrected_quote": null
  },
  {
   "case_id": 7689601,
@@ -561,7 +561,7 @@
   "quote_coverage": 1.0,
   "miss_runs": [],
   "recommendation": "ocr-ok",
-  "justification": "Quote matches source verbatim aside from a trivial OCR spacing artifact ('I .think').",
-  "corrected_quote": "I think it was a fair question for the jury, from the circumstances proved by the plaintiff, whether there was an obligation to occupy the premises under the agreement, and that such occupation was to be for the whole period, from the ist of June to the ist of November."
+  "justification": "Text matches source exactly aside from a stray space/period OCR artifact in 'I .think'.",
+  "corrected_quote": null
  }
 ]
