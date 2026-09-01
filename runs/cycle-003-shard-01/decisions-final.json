@@ -1,0 +1,692 @@
+{
+ "B-0": {
+  "decision": "mismatch",
+  "at": "2026-09-01T14:46:11.759Z"
+ },
+ "B-1": {
+  "decision": "mismatch",
+  "at": "2026-09-01T14:46:29.237Z"
+ },
+ "B-2": {
+  "decision": "ocr-ok",
+  "at": "2026-09-01T14:46:53.284Z"
+ },
+ "B-3": {
+  "decision": "mismatch",
+  "at": "2026-09-01T14:47:01.718Z"
+ },
+ "B-4": {
+  "decision": "ocr-ok",
+  "at": "2026-09-01T14:47:07.843Z"
+ },
+ "B-5": {
+  "decision": "ocr-ok",
+  "at": "2026-09-01T14:47:10.834Z"
+ },
+ "B-6": {
+  "decision": "ocr-ok",
+  "at": "2026-09-01T14:47:12.271Z"
+ },
+ "B-7": {
+  "decision": "mismatch",
+  "at": "2026-09-01T14:47:18.628Z"
+ },
+ "B-8": {
+  "decision": "ocr-ok",
+  "at": "2026-09-01T14:47:20.858Z"
+ },
+ "B-9": {
+  "decision": "ocr-ok",
+  "at": "2026-09-01T14:47:23.262Z"
+ },
+ "B-10": {
+  "decision": "ocr-ok",
+  "at": "2026-09-01T14:47:24.489Z"
+ },
+ "B-11": {
+  "decision": "ocr-ok",
+  "at": "2026-09-01T14:47:44.220Z"
+ },
+ "B-12": {
+  "decision": "mismatch",
+  "at": "2026-09-01T14:47:45.809Z"
+ },
+ "B-13": {
+  "decision": "ocr-ok",
+  "at": "2026-09-01T14:47:54.714Z"
+ },
+ "C-0": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:48:05.254Z"
+ },
+ "C-1": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:48:27.402Z"
+ },
+ "C-2": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:48:40.838Z"
+ },
+ "C-3": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:48:42.610Z"
+ },
+ "C-4": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:48:43.845Z"
+ },
+ "C-5": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:49:05.097Z"
+ },
+ "C-6": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:49:07.218Z"
+ },
+ "C-7": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:50:28.914Z"
+ },
+ "C-8": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:50:37.755Z"
+ },
+ "C-9": {
+  "decision": "claude",
+  "at": "2026-09-01T14:51:01.488Z"
+ },
+ "C-10": {
+  "decision": "claude",
+  "at": "2026-09-01T14:51:02.997Z"
+ },
+ "C-11": {
+  "decision": "claude",
+  "at": "2026-09-01T14:51:04.149Z"
+ },
+ "C-12": {
+  "decision": "claude",
+  "at": "2026-09-01T14:51:34.616Z"
+ },
+ "C-13": {
+  "decision": "claude",
+  "at": "2026-09-01T14:51:35.725Z"
+ },
+ "C-14": {
+  "decision": "claude",
+  "at": "2026-09-01T14:51:36.690Z"
+ },
+ "C-15": {
+  "decision": "claude",
+  "at": "2026-09-01T14:51:57.110Z"
+ },
+ "C-16": {
+  "decision": "claude",
+  "at": "2026-09-01T14:51:58.027Z"
+ },
+ "C-17": {
+  "decision": "claude",
+  "at": "2026-09-01T14:51:59.907Z"
+ },
+ "C-18": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:52:17.536Z"
+ },
+ "C-19": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:52:20.244Z"
+ },
+ "C-20": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:52:34.293Z"
+ },
+ "C-21": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:52:37.119Z"
+ },
+ "C-22": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:52:38.188Z"
+ },
+ "C-23": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:54:06.768Z"
+ },
+ "C-24": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:54:08.925Z"
+ },
+ "C-25": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:54:10.038Z"
+ },
+ "C-26": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:54:40.294Z"
+ },
+ "C-27": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:54:53.035Z"
+ },
+ "C-28": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T14:54:55.052Z"
+ },
+ "C-29": {
+  "decision": "claude",
+  "at": "2026-09-01T14:57:45.695Z"
+ },
+ "C-30": {
+  "decision": "claude",
+  "at": "2026-09-01T14:57:47.586Z"
+ },
+ "C-31": {
+  "decision": "claude",
+  "at": "2026-09-01T14:57:48.418Z"
+ },
+ "C-32": {
+  "decision": "claude",
+  "at": "2026-09-01T14:58:10.467Z"
+ },
+ "C-33": {
+  "decision": "claude",
+  "at": "2026-09-01T14:58:11.665Z"
+ },
+ "C-34": {
+  "decision": "claude",
+  "at": "2026-09-01T14:58:12.681Z"
+ },
+ "C-35": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:05:50.484Z"
+ },
+ "C-36": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:05:51.962Z"
+ },
+ "C-37": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:05:52.761Z"
+ },
+ "C-39": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:10:59.439Z"
+ },
+ "C-40": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:11:08.590Z"
+ },
+ "C-41": {
+  "decision": "claude",
+  "at": "2026-09-01T15:22:58.102Z"
+ },
+ "C-42": {
+  "decision": "claude",
+  "at": "2026-09-01T15:23:00.032Z"
+ },
+ "C-43": {
+  "decision": "claude",
+  "at": "2026-09-01T15:23:01.029Z"
+ },
+ "C-44": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:23:15.988Z"
+ },
+ "C-45": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:23:28.059Z"
+ },
+ "C-46": {
+  "decision": "claude",
+  "at": "2026-09-01T15:28:59.431Z",
+  "note": "We do not care about \"tenancy rights;\" we only care about the property right to let. Typically, but not always, pro-occupant results are adverse. "
+ },
+ "C-47": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:30:15.138Z"
+ },
+ "C-48": {
+  "decision": "claude",
+  "at": "2026-09-01T15:30:30.322Z",
+  "note": "Not sure how we lost this in translation, but this would obviously be favorable because it supports the owner's property right."
+ },
+ "C-49": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:31:24.296Z"
+ },
+ "C-50": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:31:26.273Z"
+ },
+ "C-51": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:31:27.228Z"
+ },
+ "C-52": {
+  "decision": "claude",
+  "at": "2026-09-01T15:31:41.271Z",
+  "note": "Obviously adverse. We aren't concerned *at all* about tenant \"right to occupy\" YUCK"
+ },
+ "C-53": {
+  "decision": "codex",
+  "at": "2026-09-01T15:32:21.810Z"
+ },
+ "C-54": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:32:42.619Z"
+ },
+ "C-55": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:43:50.229Z"
+ },
+ "C-56": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:43:52.335Z"
+ },
+ "C-57": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:43:53.469Z"
+ },
+ "C-58": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:45:43.600Z"
+ },
+ "C-59": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:45:44.736Z"
+ },
+ "C-60": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:45:46.051Z"
+ },
+ "C-61": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:46:16.531Z"
+ },
+ "C-62": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:46:19.742Z"
+ },
+ "C-63": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:46:21.847Z"
+ },
+ "C-64": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:46:31.514Z"
+ },
+ "C-65": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:46:33.399Z"
+ },
+ "C-66": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:46:47.425Z"
+ },
+ "C-67": {
+  "decision": "claude",
+  "at": "2026-09-01T15:47:08.863Z"
+ },
+ "C-68": {
+  "decision": "claude",
+  "at": "2026-09-01T15:47:09.786Z"
+ },
+ "C-69": {
+  "decision": "claude",
+  "at": "2026-09-01T15:47:10.780Z"
+ },
+ "C-70": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:47:14.548Z"
+ },
+ "C-71": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:47:15.852Z"
+ },
+ "C-72": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:47:17.316Z"
+ },
+ "C-73": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:47:30.795Z"
+ },
+ "C-74": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:48:11.862Z"
+ },
+ "C-75": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:48:28.591Z"
+ },
+ "C-76": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:48:30.807Z"
+ },
+ "C-77": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:48:32.365Z"
+ },
+ "C-78": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:48:37.146Z"
+ },
+ "C-79": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:48:38.509Z"
+ },
+ "C-80": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:48:48.599Z"
+ },
+ "C-81": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:48:53.549Z"
+ },
+ "C-82": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:49:11.331Z"
+ },
+ "C-83": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:49:14.788Z"
+ },
+ "C-84": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:49:15.954Z"
+ },
+ "C-85": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:49:17.807Z"
+ },
+ "C-86": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:49:18.859Z"
+ },
+ "C-87": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:49:24.291Z"
+ },
+ "C-88": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:49:35.784Z"
+ },
+ "C-89": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:49:37.055Z"
+ },
+ "C-90": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:49:38.231Z"
+ },
+ "C-91": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:51:18.893Z"
+ },
+ "C-92": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:51:20.010Z"
+ },
+ "C-93": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:51:35.198Z"
+ },
+ "C-94": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:51:42.900Z"
+ },
+ "C-95": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:51:44.167Z"
+ },
+ "C-96": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:51:45.114Z"
+ },
+ "C-97": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:51:58.864Z"
+ },
+ "C-98": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:51:59.956Z"
+ },
+ "C-99": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:52:00.908Z"
+ },
+ "D-0": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:58:52.826Z"
+ },
+ "D-1": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:59:00.256Z"
+ },
+ "D-2": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:59:02.691Z"
+ },
+ "D-3": {
+  "decision": "claude",
+  "at": "2026-09-01T15:59:15.546Z"
+ },
+ "D-4": {
+  "decision": "claude",
+  "at": "2026-09-01T15:59:18.171Z"
+ },
+ "D-5": {
+  "decision": "claude",
+  "at": "2026-09-01T15:59:19.992Z"
+ },
+ "D-6": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:59:31.999Z"
+ },
+ "D-7": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:59:33.034Z"
+ },
+ "D-8": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T15:59:54.064Z"
+ },
+ "D-9": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:00:04.451Z"
+ },
+ "D-10": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:04:08.008Z"
+ },
+ "D-11": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:04:16.669Z"
+ },
+ "D-12": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:04:34.495Z"
+ },
+ "D-13": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:04:47.770Z"
+ },
+ "D-14": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:04:51.542Z"
+ },
+ "D-15": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:04:59.800Z"
+ },
+ "D-16": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:05:02.179Z"
+ },
+ "D-17": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:05:03.376Z"
+ },
+ "D-18": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:05:40.319Z"
+ },
+ "D-19": {
+  "decision": "claude",
+  "at": "2026-09-01T16:07:17.818Z"
+ },
+ "D-20": {
+  "decision": "claude",
+  "at": "2026-09-01T16:07:19.335Z"
+ },
+ "D-21": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:07:29.164Z"
+ },
+ "D-22": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:07:32.971Z"
+ },
+ "D-23": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:07:35.226Z"
+ },
+ "D-24": {
+  "decision": "claude",
+  "at": "2026-09-01T16:08:34.881Z"
+ },
+ "D-25": {
+  "decision": "claude",
+  "at": "2026-09-01T16:08:36.246Z"
+ },
+ "D-26": {
+  "decision": "claude",
+  "at": "2026-09-01T16:08:37.306Z"
+ },
+ "D-27": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:08:56.056Z"
+ },
+ "D-28": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:08:55.546Z"
+ },
+ "D-29": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:08:58.245Z"
+ },
+ "D-30": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:09:00.619Z"
+ },
+ "D-31": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:09:03.776Z"
+ },
+ "D-32": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:09:19.875Z"
+ },
+ "D-33": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:09:20.762Z"
+ },
+ "D-34": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:09:21.898Z"
+ },
+ "D-35": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:10:24.171Z"
+ },
+ "D-36": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:10:26.866Z"
+ },
+ "D-37": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:10:29.370Z"
+ },
+ "D-38": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:10:44.087Z"
+ },
+ "D-39": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:10:45.290Z"
+ },
+ "D-40": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:10:46.293Z"
+ },
+ "D-41": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:11:29.802Z"
+ },
+ "D-42": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:11:35.476Z"
+ },
+ "D-43": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:11:38.186Z"
+ },
+ "D-44": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:11:39.818Z"
+ },
+ "D-45": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:11:41.987Z"
+ },
+ "D-46": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:11:44.469Z"
+ },
+ "D-47": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:11:47.330Z"
+ },
+ "D-48": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:12:09.888Z"
+ },
+ "D-49": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:12:51.916Z"
+ },
+ "D-50": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:13:06.500Z"
+ },
+ "D-51": {
+  "decision": "claude",
+  "at": "2026-09-01T16:14:00.780Z"
+ },
+ "D-52": {
+  "decision": "claude",
+  "at": "2026-09-01T16:14:01.958Z"
+ },
+ "D-53": {
+  "decision": "claude",
+  "at": "2026-09-01T16:14:03.038Z"
+ },
+ "D-54": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:14:05.342Z"
+ },
+ "D-55": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:14:06.481Z"
+ },
+ "D-56": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:14:07.500Z"
+ },
+ "C-38": {
+  "decision": "accept-rec",
+  "at": "2026-09-01T16:15:02.317Z"
+ },
+ "_meta": {
+  "savedAt": "2026-09-01T16:15:08.871Z"
+ }
+}

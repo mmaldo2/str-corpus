@@ -19,6 +19,14 @@ The pipeline hunts two files of authority in pre-1990 American case law:
   or nuisances in residential contexts.
 Both matter. Mark polarity honestly; a case can be mixed.
 
+POLARITY IS JUDGED FROM THE PROPERTY OWNER'S RIGHT TO LET — never from the
+occupant's interests. A ruling that expands an occupant's or tenant's
+rights AGAINST the owner (rent control, eviction protection, "permanent
+tenant" status, statutory tenancy, habitability duties) is ADVERSE unless it
+also affirms the owner's freedom to let. "Pro-tenant" is not "favorable."
+Favorable means the owner's liberty to let, on the owner's terms, was
+recognized, protected, or assumed as lawful.
+
 ## Output schema — one record per case, ALL cases in the batch
 
 ```json

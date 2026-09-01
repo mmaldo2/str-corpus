@@ -139,3 +139,30 @@ its facts would find it — accept as a known miss.
 
 ## 8. Citator
 `[ ] citator-checked` on every case. Pre-screen tooling available.
+
+---
+
+## Amendment — human adjudication complete (2026-09-01)
+
+171 decisions applied (data/adjudications/cycle-003.json; ledger
+data/ledger/cycle-003.jsonl, 168 relevant: 94 favorable / 45 adverse / 25
+mixed). 75 of 100 disagreement recommendations accepted, **24 overridden to
+reader A, 1 to B**; 9 fuzzy ocr-ok + 5 mismatch quotes removed (23 more
+auto-accepted by policy); 46 of 57 remap recommendations accepted, 11
+overridden.
+
+**Cumulative record (cycles 1–3): 715 relevant cases, 1799–2019 — 400
+favorable / 173 adverse / 124 mixed; 148 favorable householder cases
+(12 nights / 20 weeks / 50 months). N.Y. 410, Pa. 108, Tex. 99, La. 98.**
+
+### Finding from review: polarity definition drift
+The reviewer's notes exposed a systematic reader bias: outcomes expanding
+occupant/tenant rights against the owner (rent control, eviction
+protection, statutory tenancy) were being marked *favorable*. Per the
+litigation theory, polarity is judged from the OWNER'S right to let;
+pro-tenant results are adverse unless they also affirm that right. Fixed in
+prompts/mapper.md and the adjudicator prompt (effective cycle 004). Cycles
+1–2 ledgers carry the same drift in an unknown number of "favorable"
+records — **recommend a targeted polarity re-review of favorable records
+in the rent-control / statutory-tenancy / habitability lines before the
+cumulative favorable count is cited anywhere.**
