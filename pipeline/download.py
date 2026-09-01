@@ -22,7 +22,15 @@ from pathlib import Path
 import httpx
 
 BASE = "https://static.case.law"
-TARGET_JURISDICTIONS = {"Tex.", "Pa.", "La.", "N.Y."}
+# Cycle 001-003 states plus cycle 004 (ADR-0008): founding-era depth (Mass.,
+# Conn., N.J., D.C.) and zoning-era/modern STR dockets (Cal., Ohio).
+TARGET_JURISDICTIONS = {"Tex.", "Pa.", "La.", "N.Y.",
+                        "Mass.", "Conn.", "N.J.", "Cal.", "Ohio", "D.C."}
+# Federal tradition set (ADR-0008): fetched by reporter slug because the "U.S."
+# jurisdiction would otherwise pull all 1.84M federal cases.
+#   f-cas = Federal Cases (circuit courts 1779-1894), us = United States Reports,
+#   dc = Supreme Court of the District of Columbia (1801-1893).
+TARGET_REPORTER_SLUGS = {"f-cas", "us", "dc"}
 RAW_DIR = Path(__file__).resolve().parent.parent / "data" / "raw"
 MANIFEST = RAW_DIR / "manifest.jsonl"
 
@@ -54,7 +62,8 @@ def select_reporters(client: httpx.Client) -> list[dict]:
         (
             r
             for r in reporters
-            if any(j["name"] in TARGET_JURISDICTIONS for j in r["jurisdictions"])
+            if r["slug"] in TARGET_REPORTER_SLUGS
+            or any(j["name"] in TARGET_JURISDICTIONS for j in r["jurisdictions"])
         ),
         key=lambda r: r["slug"],
     )
@@ -136,7 +145,7 @@ def main() -> int:
     headers = {"User-Agent": "str-corpus-research/0.1 (legal-history pipeline; polite bulk fetch)"}
     with httpx.Client(headers=headers, timeout=120, follow_redirects=True) as client:
         reporters = select_reporters(client)
-        log(f"{len(reporters)} reporters cover {sorted(TARGET_JURISDICTIONS)}")
+        log(f"{len(reporters)} reporters cover {sorted(TARGET_JURISDICTIONS)} + {sorted(TARGET_REPORTER_SLUGS)}")
 
         work: list[tuple[str, str]] = []
         for rep in reporters:

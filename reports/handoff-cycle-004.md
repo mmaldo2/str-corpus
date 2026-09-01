@@ -1,134 +1,121 @@
-# Handoff — start of cycle 004 (jurisdiction expansion)
+# Handoff — pre-run phase before cycle 004
 
-**Written 2026-09-01 for a fresh session.** Authoritative spec remains
-`sprint-one-handoff-corpus-pipeline (1).md` incl. its Amendments block;
-this document is the operational state and the agreed direction.
+**Rewritten 2026-09-01 (evening) after the strategy grilling session.**
+Authoritative spec remains `sprint-one-handoff-corpus-pipeline (1).md`
+including its Amendments blocks (2026-08-28 and 2026-09-01); the decisions
+themselves live in `docs/adr/`; the vocabulary in `CONTEXT.md`. This
+document is the operational state and the order of work.
 
-## Where the record stands (cycles 001–003, fully human-adjudicated)
+## Where the record stands (cycles 001–003)
 
-- Corpus: TX/PA/LA/NY, 1,301,147 unique cases (1799–2020), FTS + Qwen3
-  embeddings (3.88M chunks), `data/db/corpus.db` (~30 GB).
-- Ledgers: `data/ledger/cycle-00{1,2,3}.jsonl`. **Cumulative: 710
-  relevant cases — 368 favorable / 196 adverse / 128 mixed; 138 favorable
-  householder cases (12 nights / 19 weeks / 46 months).** N.Y. 409,
-  Pa. 107, Tex. 99, La. 95. 150 records carry human adjudication.
-- Polarity is judged from the OWNER'S right to let (pro-tenant = adverse);
-  prompts fixed 2026-09-01; ledgers re-reviewed (31 flips applied) and
-  9 reviewer-flagged records relevance-rechecked (5 dropped).
-- Recall (post-hygiene gold set): brief-letting 6/9 = 66.7%, treatise
-  22/29 = 75.9%. Remaining misses: Smith v. Decker, Latimer v. Hess
-  (recommend doctrine re-tag), Ruhl v. Kauffman & Runge (accepted miss).
-- Precision trend on this corpus: 28% → 12% → 6.6% — the lexicon net is
-  near its floor here; do not run a fourth deep read of the same pool.
-- Citator: NOTHING is citator-checked. Pre-screen memo for 13 priority
-  cases at `reports/citator-prescreen.md` (Shvekh confirmed overruled per
-  Slice of Life; Tarr healthy at 59 citing).
+- Corpus: TX/PA/LA/NY, 1,301,147 unique cases (1799–2020), FTS + Qwen3-0.6B
+  embeddings (3.88M chunks, 512d int8), `data/db/corpus.db` (~30 GB).
+- Ledgers: `data/ledger/cycle-00{1,2,3}.jsonl`, 715 records, 710 relevant.
+  Raw ledger polarity: 368 favorable / 196 adverse / 128 mixed / 15 null /
+  3 irrelevant. Review status: 560 machine-only, 138 human-adjudicated,
+  11 human-accepted, 1 needs-work. **Until ADR-0002's two-tier counts
+  exist, do not cite a single cumulative number.**
+- Tradition matrix (favorable, by jurisdiction × era):
+  La. 2/9/28/11/3, N.Y. 14/89/68/22/16, Pa. 2/11/16/10/16, Tex. 2/8/20/13/8
+  for pre-1860 / 1860-1900 / 1900-1930 / 1930-1970 / 1970-2020.
+  Favorable householder (138) by era × duration (nights/weeks/months/unclear):
+  pre-1860 1/0/0/1; 1860-1900 0/1/16/22; 1900-1930 4/10/12/27;
+  1930-1970 0/5/11/7; 1970-2020 7/3/7/4. **The founding and antebellum era
+  is the empty cell.**
+- Recall (gold v1, development set): brief-letting 6/9, treatise 22/29.
+  Precision trend 28% → 12% → 6.6%.
+- Citator: nothing is citator-checked (`reports/citator-prescreen.md`).
+- Known integrity issues, all addressed by ADRs: ontology loop never closed
+  (~300 free-text concepts per cycle vs 10 ontology ids); three live
+  cumulative counts; gold set single-source (Zaatari) with a 9-case
+  denominator; polarity drift in cycles 1–2 only partially re-reviewed;
+  adverse ontology concepts have empty anchor lists; `model_rev` absent
+  from embedding selectors; duplicate selector ids across version bumps.
 
-## Agreed direction
+## Decisions (see docs/adr/ for reasoning)
 
-Objective is an eventual **federal** suit (Glucksberg framing), which
-rewards national breadth over four-state depth. Order of work:
-1. **Cycle 004 — jurisdiction expansion** (this handoff).
-2. Cycle 005 — English Reports (CommonLII) for the common-law inheritance.
-3. Federal argument-side pass (F./F.2d/F.3d zoning + property-rights line,
-   STR losses, CourtListener post-2020) once the record has breadth.
-4. Citation-graph expansion after breadth exists.
+| ADR | Decision |
+|---|---|
+| 0001 | Tradition matrix with no empty cells is the definition of done |
+| 0002 | Ledger module owns writes; patch log; per-cycle manifest; two-tier counts |
+| 0003 | Gold set frozen v1; re-tags logged; development (Zaatari) vs held-out split |
+| 0004 | Schema v2: version field, non-resident owner, under-30-days, restriction nature, right characterization; targeted remap |
+| 0005 | Citation graph from CAP `cites_to` at ingest, backfilled; one-hop bidirectional selector, seed hash |
+| 0006 | Qwen3-Embedding-4B, hosted bulk embed (~$18 now, ~$45 at 10M chunks), local queries, full-dim int8 + rescoring, metadata prefix |
+| 0007 | API-key access through one provider-neutral module; model by pre-registered kit measurement; Codex stays checker |
+| 0008 | Cycle 004 = Mass., Conn., N.J., Cal., Ohio + Fed. Cas., U.S., D.C.; English Reports alongside; Ill./Mo. deferred |
+| 0009 | Frozen codebook + stability check; generated methods appendix; certification plan; page-image pin-cite gate |
+| 0010 | Staged package refactor along audited seams; domains/ directory; characterization tests; fixture DB; parallel ingest |
 
-## Proposed states for cycle 004 (ranked)
+Also agreed (not ADR-worthy): candidate-generation additions in order —
+relevance-feedback selector type, classifier ranking of the candidate pool,
+convex fusion, trigram side-index, optional reranker; ontology becomes a
+versioned closed enum with a proposals field and a merge step that runs;
+review page publishable as an artifact; reviewer identity recorded.
 
-Criteria: treatise-anchor density (`data/gold/treatise_anchors_full.md`),
-reporter depth on static.case.law (case counts), regional diversity for a
-"national tradition" showing, and STR-litigation salience.
+## Order of work (pre-run phase)
 
-| Rank | State | CAP cases | Why |
-|---|---|---|---|
-| 1 | Massachusetts | 93k | Densest treatise anchors (White v. Maynard, Porter, Swain, Dutton, Peaks, Bianchi); founding-era colonial lodging law |
-| 2 | Illinois | 187k | Large reporter; Cochran v. Tuttle anchor; Chicago rooming-house/zoning era; Koch/De Lano region |
-| 3 | California | 144k | Polack v. Shafer anchor; large modern STR docket; western tradition |
-| 4 | Ohio | 154k | Linwood Park v. Van Dusen anchor; Euclid's home state (zoning-era origin) |
-| 5 | Missouri | 140k | Messerly v. Mercer anchor; Hoffmann v. Kinealy (nonconforming-use) cited in STR briefs |
-| 6 | Florida | 329k | Largest non-NY reporter; STR-heavy jurisdiction today; Southern-region coverage |
-| 7 | Washington | 106k | Kohne v. White anchor; Pacific NW; active STR ordinances |
-| 8 | New Jersey | 116k | Nekrilov venue; Downs v. Sea Bright zoning anchor |
-| 9 | Georgia / N. Carolina | 172k / 118k | Southern breadth; Atlantic coastal vacation-rental tradition |
-| 10 | Connecticut | 58k | Osborn v. Darien anchor; small, cheap |
+1. **Download for cycle 004** — started 2026-09-01 in the background
+   (`runs/download-cycle-004.log`; 5,888 volumes across 209 reporters).
+   `pipeline/download.py` now carries the new jurisdictions and the federal
+   reporter slugs (`f-cas`, `us`, `dc`).
+2. **Refactor** (ADR-0010) with characterization tests first: shard dry-run
+   must reproduce cycle-003 batches; verify must reproduce `verified/`;
+   apply_adjudications must reproduce ledgers. Fixture DB of a few hundred
+   cases. Modules cycle 004 needs first: store, domain, ledger, selector
+   engine (+ citation-graph and relevance-feedback types), reader driver.
+3. **Ledger reconciliation** (ADR-0002): patch log, manifest, two-tier
+   counts, null-polarity records resolved, hard-coded corrections moved to
+   patch events.
+4. **Schema v2 + codebook v2** (ADR-0004, 0009): prompt-stability check on a
+   50-case sample; targeted remap of favorable + adverse records feeding the
+   review queue.
+5. **Gold set** (ADR-0003): freeze v1; split; wire the CourtListener rate
+   limiter into `build_gold.fetch_recap`; RECAP harvest for Nekrilov
+   (D.N.J. 16646707), Marfil (W.D. Tex. 17024209), Bodin (E.D. La.
+   69644320); harvest historical citations from the federal STR opinions
+   themselves; add treatise anchors for the new states.
+6. **Citation graph** (ADR-0005): metadata-only ingest stage; backfill the
+   existing 1.3M cases (also PageRank, OCR confidence); run the selector on
+   the four existing states.
+7. **Reader-model measurement** (ADR-0007): fix the experiment kit's
+   reference to human-adjudicated records; run the approved ten candidates
+   through OpenRouter; record endpoints and quantization; choose per the
+   pre-registered bar; write the result into the methods appendix.
+8. **DC demo report**: refreshed attorney report built on the tradition
+   matrix drilling to verified quotes with pin cites, plus a one-case
+   walkthrough and a methodology page. Ships before cycle 004 maps.
+9. **Argument-side file** (side task A, unchanged): ~50 federal framing
+   cases, separate ledger `data/ledger/argument-file.jsonl`.
+10. **Ingest + index** for cycle 004 + federal tradition set + English
+    Reports; hosted 4B embedding of new partitions and backfill of old.
+11. Shard, recall gate, map (user approves budget), review pipeline.
 
-Recommendation: **cycle 004 = ranks 1–5** (Mass., Ill., Cal., Ohio, Mo. —
-~720k cases, five regions, five treatise-anchored lines). Six states in one
-cycle is fine if disk/GPU time allows (≈ 1.5 days embedding total at the
-observed ~90 chunks/s).
+## Watch-outs (unchanged)
 
-Note: CAP also carries **"United States" — 1.84M federal cases** from the
-same source; the federal argument-side pass (step 3) can use the identical
-download/ingest path with a jurisdiction filter of "U.S.".
-
-## How to run cycle 004
-
-```powershell
-# 1. extend targets and download (add jurisdictions to TARGET_JURISDICTIONS
-#    in pipeline/download.py and pipeline/ingest.py; names as in
-#    ReportersMetadata: "Mass.", "Ill.", "Cal.", "Ohio", "Mo.")
-.venv\Scripts\python pipeline\download.py --concurrency 4
-.venv\Scripts\python pipeline\ingest.py                  # incremental; dedupe pass at end
-.venv\Scripts\python pipeline\index.py fts               # rebuild both FTS tables
-.venv\Scripts\python pipeline\index.py embed --batch 48  # incremental: only new cases
-# 2. gold: add treatise anchors for the new states (treatise_anchors_full.md
-#    OOC table) via build_gold.py add-treatise after extending the md table
-# 3. selectors: v3 (36 active) shards the new partitions automatically via
-#    the coverage matrix — add JURISDICTIONS to shard.py ERAS/JURISDICTIONS
-#    lists first. Retire sro-35 or scope to 1930-1970 (cycle-003 §4).
-.venv\Scripts\python pipeline\shard.py --run-id cycle-004-shard-01 --exclude-mapped
-.venv\Scripts\python pipeline\eval_recall.py             # gate: non-decreasing
-# 4. Map (user approves budget), then the standard review pipeline (README)
-```
-
-Watch-outs learned the hard way: OOM if any step `fetchall()`s the whole
-corpus (stream); SQLite writer contention between shard and embed (use
-busy_timeout, don't run both); `build_review_queue` must not clobber reader
-verdicts (fixed); a JSON-parse-failing batch is mapped as two halves;
-credits exhaustion looks like `claude exited 1` — re-run, cache resumes.
-
-## Decided 2026-09-01
-- **Cycle 004 states: Massachusetts, Illinois, California, Ohio, Missouri**
-  (D.C. considered and declined). The next session will open with a
-  high-level strategy conversation (grilling) before the run; the two side
-  tasks below are intended to be knocked out during that pre-run phase.
-
-## Side tasks for the pre-run phase (cheap; no corpus build)
-
-### A. Argument-side file (federal framing authority)
-Not tradition evidence — the cases a federal brief is *framed* with: the
-level-of-generality line (Moore v. East Cleveland, Belle Terre, Euclid,
-Penn Central), Glucksberg/Dobbs/Bruen methodology, and the STR decisions
-(Nekrilov 3d Cir.; Hignell-Stark I & II, Marfil, Bodin 5th Cir.; Zaatari
-Tex. App.; Ladd Pa.; Slice of Life Pa.; Tarr Tex.). ~50 cases. Fetch
-individually via CourtListener (token in `.env`, respect the 125/day
-limiter in `citator_prescreen.py`), run each through the mapper for the
-structured record + verified quotes, and keep them in a SEPARATE ledger
-(`data/ledger/argument-file.jsonl`) — never mixed into the tradition
-evidence counts. Half a day. Reason it's built by hand: federal courts
-don't make lodging law; this material is small, known, and not hidden
-behind vocabulary drift, so the pipeline's recall machinery adds nothing.
-
-### B. RECAP brief harvest (gold-set breadth)
-`build_gold.py fetch` with `COURTLISTENER_API_TOKEN` set pulls the free
-district-court RECAP filings for Nekrilov (D.N.J. 16646707), Marfil
-(W.D. Tex. 17024209), Bodin (E.D. La. 69644320); then `harvest` adds their
-historical citations (with cited_for contexts and domain tags) to
-`gold.jsonl`. Wire the rate limiter into `build_gold.fetch_recap` first
-(it currently has none). Filter docket entries to briefs/memoranda before
-downloading. Appellate briefs remain absent from RECAP; PACER only via a
-user-approved purchase list (Amendment A10).
+OOM if any step `fetchall()`s the whole corpus; SQLite writer contention
+between shard and embed; `build_review_queue` must not clobber reader
+verdicts; a JSON-parse-failing batch is mapped as two halves (structured
+outputs should retire this); OpenRouter batch mode cannot pin a provider.
 
 ## Pending / optional
-- Relevance/doctrine re-tag of Smith v. Decker and Latimer in the gold set.
-- Mapper-model experiment kit for Codex/Qwen at
-  `C:\Users\marcu\Desktop\str-mapper-experiment` (self-contained).
-- CourtListener token in `.env` (125 req/day limiter in
-  `citator_prescreen.py`); RECAP brief harvest for Nekrilov/Marfil/Bodin
-  district dockets still not run.
-- Attorney-facing report artifact needs refresh with corrected cumulative
-  numbers (`reports/attorney-report.html`).
+
+- Relevance/doctrine re-tag of Smith v. Decker and Latimer (logged per
+  ADR-0003 when done).
+- Experiment kit at `C:\Users\marcu\Desktop\str-mapper-experiment`
+  (reference must be rebuilt from human-adjudicated records).
+- CourtListener token in `.env`; 125 req/day limiter in
+  `citator_prescreen.py`.
+- Colonial and early state lodging/innkeeping statutes as a small
+  hand-curated source (ADR-0008).
+
+## Research on file
+
+`reports/research/2026-09-01-retrieval-embedding-and-defensibility.md`,
+`2026-09-01-reader-model-frontier.md`,
+`2026-09-01-ocr-longcontext-and-provider-mechanics.md`.
 
 ## Remote
-Code lives at https://github.com/mmaldo2/str-corpus (branch main). Data (corpus.db, raw volumes) and .env are local-only and gitignored — a fresh clone needs the README's reproduce steps (download → ingest → index) or a copy of data/db/corpus.db.
+
+Code at https://github.com/mmaldo2/str-corpus (branch main). Data
+(corpus.db, raw volumes) and `.env` are local-only and gitignored.

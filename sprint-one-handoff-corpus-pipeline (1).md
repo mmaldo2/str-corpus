@@ -354,4 +354,100 @@ The companion doc's §4.1 table describes CAP as a live service; per A3 it is fr
 
 ---
 
+## Amendments — grilling session 2026-09-01
+
+Strategy session before cycle 004 (Claude Code + user), covering the
+corpus project's objectives, its role in a fundamental-right-to-let federal
+suit, and the architecture pass to precede the next runs. Each decision is
+recorded as an ADR in `docs/adr/`; the entries below are the spec-level
+consequences. Where an amendment conflicts with the body text or an earlier
+amendment, the later amendment governs. Vocabulary is fixed in `CONTEXT.md`.
+
+### A12. Definition of done (new) — ADR-0001
+The corpus is done when the tradition matrix (favorable cases by era
+partition × region × letting tier × duration) has no empty cells at an
+agreed minimum; the §9 recall gate remains a per-cycle guard. Sprint-one
+acceptance (§13) is unchanged and satisfied.
+
+### A13. Deliverable and consumers (§1 clarified)
+Primary: a litigation-grade evidentiary record for a federal Glucksberg-
+framed suit, presented as a historical survey with a methods appendix, with
+the state-by-state authority matrix as a first-class output. The engine is
+kept reusable behind a domain seam (ADR-0010). First consumer: a property-
+rights litigator in D.C. showing non-technical colleagues the method.
+
+### A14. Ledger as system of record; two-tier counts — ADR-0002
+The JSONL ledger stays canonical; one module owns writes with an append-only
+patch log; a per-cycle manifest records every case read; every published
+count is stated for human-reviewed and machine-only records separately.
+§11's "every case accounted for" is now checkable from the repository.
+
+### A15. Gold set (§9, A9 extended) — ADR-0003
+Gold set frozen as v1; re-tags are versioned, logged events; Zaatari-derived
+entries are the development set; held-out set from RECAP briefs, the
+historical citations in the federal STR opinions, and half the treatise
+anchors; recall claims cite held-out. A9's two-tier reporting stands.
+
+### A16. Extraction schema v2 (§8) — ADR-0004
+Adds `schema_version`, a third `who_was_letting` value (non-resident owner
+of a single dwelling), `under_30_days` (yes/no/unclear), `restriction_nature`
+on adverse records, and the court's characterization of the owner's freedom;
+`reporter_page` returns to the reader instructions. Existing records keep
+null v2 fields; favorable and adverse records are remapped.
+
+### A17. Citation graph (§12 item advanced) — ADR-0005
+`cites_to`, PageRank, and OCR confidence from the CAP volume metadata are
+stored at ingest and backfilled; a citation-graph selector type (one hop,
+both directions, seeded from human-reviewed favorable + treatise anchors,
+seed hash in the coverage matrix) joins the selector vocabulary of §6.
+
+### A18. Embedding (supersedes A5's size and storage) — ADR-0006
+Qwen3-Embedding-4B at a pinned revision; bulk embedding through a hosted
+endpoint serving the same open weights (paid inference is permitted for
+embedding only); query-time embeddings local; a thousand-chunk agreement
+check before trust; full-dimension int8 with float rescoring; chunk
+metadata prefix; `shard.py` refuses embedding selectors across
+mixed-model partitions.
+
+### A19. Reader execution (supersedes A6's mapper tier and CLI execution) — ADR-0007
+Readers run through API-key access behind one provider-neutral module
+(OpenAI-compatible transport via OpenRouter; native Anthropic backend only
+if a Claude model wins). Subscription-CLI execution is retired: it exhausted
+the usage window, made cost unmeasurable, and falls outside Anthropic's
+terms for automated use. Reader model chosen by a pre-registered experiment-
+kit measurement against human-adjudicated references (quote fidelity ≥ 97%,
+agreement ≥ 85% on relevance/polarity/who-was-letting, then cheapest per
+accepted record) over the approved ten candidates. Codex remains the checker
+(A6's checker rules survive); Planner and Reducer remain top-tier sessions.
+
+### A20. Jurisdictions and sources (supersedes A7) — ADR-0008
+Cycle 004: Massachusetts, Connecticut, New Jersey, California, Ohio; plus
+Federal Cases, United States Reports, and the D.C. reporters fetched by
+reporter slug; English Reports ingested alongside as their own partition.
+Illinois and Missouri deferred; F./F.2d/F.3d reached via the citation graph
+and the hand-built argument-side file. D.C. included on the merits.
+
+### A21. Methodology defensibility (new hard requirement) — ADR-0009
+Schema v2 + reader prompt v2 are a frozen codebook, changed only with a
+version bump and a 50-case stability check; a methods appendix is generated
+from run metadata; the manifest records each read's stratum for a later
+classifier-stratified recall certification; quotes destined for work product
+pass a page-image pin-cite check against static.case.law's case PDFs.
+
+### A22. Package structure (§3 extended) — ADR-0010
+`pipeline/` scripts become a package along the audited seams (store, ingest,
+indexer, selector engine, reader driver, verification, review, ledger,
+evaluation, domain loader) with a `domains/` directory for everything
+STR-specific; staged; characterization tests and a fixture database gate
+the refactor; ingest parallelized; scripts kept as thin wrappers one cycle.
+
+### A23. Session facts
+The `citations` table holds each case's own reporter citations, not a
+citation graph; the raw metadata does (`cites_to` with CAP ids). static.
+case.law serves per-case PDFs under each volume's `case-pdfs/`. Hosted
+Qwen3-Embedding costs $0.01 per M tokens (~$45 at 10M chunks). Anthropic's
+legal page reserves subscription credentials for interactive use.
+
+---
+
 *Companion references: Cognition, "Agentic MapReduce" (https://devin.ai/blog/agentic-map-reduce); Caselaw Access Project (https://case.law/, Hugging Face `free-law/Caselaw_Access_Project`); CourtListener/RECAP (https://www.courtlistener.com/); eyecite citation parser (Free Law Project).*
