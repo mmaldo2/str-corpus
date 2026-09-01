@@ -1,0 +1,104 @@
+"""Corpus store: repo paths, SQLite connection policy, schema, era partitions.
+
+Every other module gets its paths and connections from here; nothing else
+re-declares ROOT or opens corpus.db directly (ADR-0010).
+"""
+from __future__ import annotations
+import sqlite3
+from dataclasses import dataclass
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
+@dataclass(frozen=True)
+class Paths:
+    root: Path
+    db: Path
+    raw: Path
+    runs: Path
+    ledger: Path
+    adjudications: Path
+    gold: Path
+    domains: Path
+
+
+def paths(root: Path = ROOT) -> Paths:
+    return Paths(root=root, db=root / "data" / "db" / "corpus.db", raw=root / "data" / "raw",
+                 runs=root / "runs", ledger=root / "data" / "ledger",
+                 adjudications=root / "data" / "adjudications", gold=root / "data" / "gold",
+                 domains=root / "domains")
+
+
+SCHEMA = """
+CREATE TABLE IF NOT EXISTS cases (
+    case_id INTEGER PRIMARY KEY,
+    name TEXT, name_abbreviation TEXT,
+    cite TEXT,
+    court TEXT, jurisdiction TEXT,
+    decision_date TEXT, decision_year INTEGER, era_partition TEXT,
+    reporter TEXT, volume TEXT, file_name TEXT,
+    first_page TEXT, last_page TEXT,
+    raw_text TEXT, norm_text TEXT,
+    page_map TEXT,
+    norm_version INTEGER,
+    ocr_confidence REAL, source_sha256 TEXT,
+    cl_cluster_id INTEGER,
+    is_duplicate_of INTEGER REFERENCES cases(case_id)
+);
+CREATE TABLE IF NOT EXISTS citations (
+    case_id INTEGER REFERENCES cases(case_id),
+    cite TEXT, cite_norm TEXT, type TEXT,
+    PRIMARY KEY (case_id, cite)
+);
+CREATE INDEX IF NOT EXISTS idx_citations_norm ON citations(cite_norm);
+CREATE INDEX IF NOT EXISTS idx_cases_partition ON cases(era_partition, jurisdiction);
+CREATE TABLE IF NOT EXISTS ingest_log (
+    zip_key TEXT PRIMARY KEY,
+    n_cases_total INTEGER, n_cases_ingested INTEGER,
+    norm_version INTEGER, ts TEXT
+);
+CREATE TABLE IF NOT EXISTS signals (
+    signal_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    case_id INTEGER REFERENCES cases(case_id),
+    selector_id TEXT, selector_version INTEGER,
+    matched_text TEXT, char_span_start INTEGER, char_span_end INTEGER,
+    chunk_id INTEGER, cosine REAL,
+    era_partition TEXT, jurisdiction TEXT,
+    run_id TEXT, ts TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_signals_case ON signals(case_id);
+CREATE INDEX IF NOT EXISTS idx_signals_selector ON signals(selector_id, selector_version);
+CREATE TABLE IF NOT EXISTS coverage (
+    selector_id TEXT, selector_version INTEGER,
+    era_partition TEXT, jurisdiction TEXT,
+    run_id TEXT, ts TEXT, n_signals INTEGER,
+    PRIMARY KEY (selector_id, selector_version, era_partition, jurisdiction)
+);
+"""
+
+
+def connect(db_path: Path | None = None, *, busy_timeout_ms: int = 120_000,
+            wal: bool = True) -> sqlite3.Connection:
+    """One connection policy for the whole engine: long busy_timeout because
+    shard and embed contend for the writer lock; WAL so readers never block."""
+    conn = sqlite3.connect(db_path or paths().db)
+    conn.execute(f"PRAGMA busy_timeout={int(busy_timeout_ms)}")
+    if wal:
+        conn.execute("PRAGMA journal_mode=WAL")
+    return conn
+
+
+def ensure_schema(conn: sqlite3.Connection) -> None:
+    conn.executescript(SCHEMA)
+    conn.commit()
+
+
+def era_partition(year: int | None, bounds) -> str:
+    """bounds: [(upper_exclusive_year, label), ...] ascending, last is a sentinel."""
+    if year is None:
+        return "unknown"
+    for upper, label in bounds:
+        if year < upper:
+            return label
+    return bounds[-1][1]

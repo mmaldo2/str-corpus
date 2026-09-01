@@ -52,8 +52,11 @@ CREATE TABLE IF NOT EXISTS coverage (
 );
 """
 
-ERAS = ["pre-1860", "1860-1900", "1900-1930", "1930-1970", "1970-2020"]
-JURISDICTIONS = ["Tex.", "Pa.", "La.", "N.Y."]
+sys.path.insert(0, str(ROOT))
+from corpus_engine.domain import load_domain  # noqa: E402
+_DOMAIN = load_domain()
+ERAS = list(_DOMAIN.eras)
+JURISDICTIONS = list(_DOMAIN.jurisdictions)
 
 
 def load_selectors() -> list[dict]:

@@ -1,0 +1,36 @@
+name: str-right-to-let
+era_bounds:            # upper bound exclusive; last entry is the sentinel
+  - {upper: 1860, label: pre-1860}
+  - {upper: 1900, label: 1860-1900}
+  - {upper: 1930, label: 1900-1930}
+  - {upper: 1970, label: 1930-1970}
+  - {upper: 10000, label: 1970-2020}
+jurisdictions: [Tex., Pa., La., N.Y., Mass., Conn., N.J., Cal., Ohio, D.C.]
+reporter_slugs: [f-cas, us, dc]          # federal tradition set (ADR-0008)
+regions:
+  Mass.: northeast
+  Conn.: northeast
+  N.Y.: northeast
+  N.J.: northeast
+  Pa.: northeast
+  D.C.: mid-atlantic
+  Ohio: midwest
+  Tex.: south
+  La.: south
+  Cal.: west
+  U.S.: federal
+letting_tiers:                            # who_was_letting value -> tier
+  householder: householder
+  owner_nonresident: owner
+  commercial_operator: commercial
+  unclear: unclear
+judged_fields: [relevant, polarity, who_was_letting, duration_of_occupancy,
+                characterization, holding_summary, under_30_days,
+                restriction_nature, right_characterization]
+curatorial_fields: [review.status, review.flags, review.notes, citator_status]
+paths:
+  selectors: selectors/selectors.yaml
+  ontology: ontology/ontology.yaml
+  prompts: prompts
+  gold: data/gold/gold.jsonl
+reviewer_default: mmaldo2
