@@ -1,0 +1,1417 @@
+# Mapper prompt — extraction worker (spec §8)
+
+You are an extraction worker in a legal-history pipeline recovering
+historical case law on the right to let one's property short-term. You
+receive one batch file (JSON) of candidate cases with retrieval provenance
+(which selector fired, on what matched text), plus the full opinion text of
+each case, fetched with the provided tool/command. You emit one JSON record
+per case. You do doctrinal READING, not doctrinal ARGUING — record what the
+court said, not what a litigant would wish it said.
+
+## Context
+
+The pipeline hunts two files of authority in pre-1990 American case law:
+- FAVORABLE: householders lawfully letting rooms/dwellings for short periods
+  for pay; courts treating letting as an ordinary incident of ownership;
+  lodger/boarder arrangements enforced or protected.
+- ADVERSE: licensing/regulation of lodging or boarding houses sustained
+  under the police power; boarding houses treated as commercial intrusions
+  or nuisances in residential contexts.
+Both matter. Mark polarity honestly; a case can be mixed.
+
+POLARITY IS JUDGED FROM THE PROPERTY OWNER'S RIGHT TO LET — never from the
+occupant's interests. A ruling that expands an occupant's or tenant's
+rights AGAINST the owner (rent control, eviction protection, "permanent
+tenant" status, statutory tenancy, habitability duties) is ADVERSE unless it
+also affirms the owner's freedom to let. "Pro-tenant" is not "favorable."
+Favorable means the owner's liberty to let, on the owner's terms, was
+recognized, protected, or assumed as lawful.
+
+## Output schema — one record per case, ALL cases in the batch
+
+```json
+{
+  "case_id": 123456,
+  "cite": "...", "court": "...", "year": 1897, "jurisdiction": "N.Y.",
+  "relevant": true,
+  "relevance_score": 0.85,
+  "polarity": "favorable",
+  "who_was_letting": "householder",
+  "duration_of_occupancy": "weeks",
+  "characterization": "license",
+  "holding_summary": "<= 3 sentences, plain statement of the holding",
+  "doctrinal_concepts": ["lodger_status", "license_vs_lease"],
+  "new_terms_observed": ["mesne lodger"],
+  "quotes": [
+    {"text": "verbatim passage copied from the opinion text",
+     "supports": "characterization"}
+  ],
+  "worker": "claude", "batch_id": "...", "notes": ""
+}
+```
+
+Field values:
+- `relevant`: does the case bear on compensated occupancy of another's
+  dwelling/rooms, its legal character, or its regulation? Procedural cases
+  that merely mention a boarding house in passing are `false`.
+- `polarity`: `favorable` | `adverse` | `mixed` | `irrelevant` (see Context).
+- `who_was_letting`: `householder` (owner/family letting part of their own
+  dwelling) | `commercial_operator` (business: hotel, boarding house run as
+  enterprise, multiple properties) | `unclear`.
+- `duration_of_occupancy`: `nights` | `weeks` | `months` | `unclear` —
+  the occupancy actually at issue, from the facts.
+- `characterization`: how the COURT classified the arrangement:
+  `lease` | `license` | `lodging` | `innkeeping` | `other`.
+- `doctrinal_concepts`: from ontology.yaml concept ids where applicable.
+- `new_terms_observed`: recurring period terms for the practice that are NOT
+  in the current lexicon (check the selector provenance you received). This
+  feeds the Planner. Empty list if none.
+
+## Hard requirements
+
+1. Every non-null `characterization`, `polarity`, and `holding_summary` MUST
+   be supported by at least one entry in `quotes[]` whose `supports` names
+   that field. No supporting quote -> leave the field null and say why in
+   `notes`.
+2. `quotes[].text` is copied VERBATIM from the opinion text provided to you
+   — no paraphrase, no ellipsis insertions, no cleanup of OCR errors. The
+   verifier does exact matching against source text; an "improved" quote is
+   a discarded quote.
+3. `who_was_letting` and `duration_of_occupancy` are first-class: the
+   level-of-generality argument runs on them. Dig for them in the facts;
+   use `unclear` only after actually looking.
+4. Return a record for EVERY case in the batch, including `"relevant":
+   false` ones — accounting for every candidate is part of the coverage
+   guarantee. For irrelevant cases: `relevant: false`, `polarity:
+   "irrelevant"`, no quotes required, one-line `notes` saying why.
+5. Output: a single JSON array of records, nothing else. No markdown fences,
+   no commentary outside the JSON.
+
+
+# Batch cycle-003-shard-01-batch-005 (1930-1970 x Pa.)
+Set "worker": "claude" and "batch_id": "cycle-003-shard-01-batch-005" on every record.
+
+## case_id 1276897 — Lopez v. Gukenback, 391 Pa. 359 (Supreme Court of Pennsylvania, Pa. 1958)
+Retrieval provenance:
+  - roomers-boarders-14 v1: ...ciple of jurisprudence. * for instance, the philadelphia housing code, approved august 5, 1954, provides: "no person shall occupy as owner occupant or shall let...
+  - sro-35 v1: ...tance, the philadelphia housing code, approved august 5, 1954, provides: "no person shall occupy as owner occupant or shall let to another for occupancy any dwe...
+  - embed-householder-letting-21 v2: ... and possession of the window are retained by the landlord rather than the tenant?3 a window has been defined as "an opening in the wall of a building for admis...
+
+### Opinion text
+
+  
+    Lopez, Appellant, v. Gukenback.
+
+    
+      Argued November 12, 1957.
+
+    Before Jones, C. J., Bell, Chidsey, Musmanno, Arnold, Jones and Cohen, JJ.
+
+    
+      ■ A. Leon Higginbotham, Jr. with him William H. Brown, III, Doris M. Harris and Norris, Schmidt, Green, Harris & Higginbotham, for appellants.
+
+    
+      John J. TinagUa, with him Michael A. Foley, for appellee.
+
+    January 16, 1958:
+
+  
+
+  
+    Opinion by
+
+    Mr. Justice Benjamin R. Jones,
+
+    
+      This is an appeal from the refusal of the court below to take off a judgment of compulsory nonsuit entered in an action for damages for personal injuries.
+
+    On this review we adhere to the rule that on an appeal from a refusal to take off a compulsory nonsuit we must view the evidence and all reasonable inferences arising therefrom in the light most favorable to the plaintiffs (appellants) : Auel v. White, 389 Pa. 208, 210, 132 A. 2d 350; Layman v. Gearhart, 389 Pa. 187, 190, 191, 132 A. 2d 228; Seng v. American Stores Co., 384 Pa. 338, 121 A. 2d 123; Finnin v. Neubert, 378 Pa. 40, 41, 42, 105 A. 2d 77.
+
+    In September 1953 appellants leased1 a two-room— bedroom and kitchen — apartment for themselves and their six children on the second floor of a building owned by appellee. This building — three story in height and located at 1724 Wallace Street, Philadelphia— contained six apartments.
+
+    Approximately two months later — November 8, 1953 —'while in the bedroom, the wife-appellant heard her husband shouting to her from the kitchen: “rush to the windows, put the windows up, that the children are being overcome with gas . . .” and she rushed to the window, lifted it and the window glass fell on her right hand and wrist inflicting very serious injuries.
+
+    At the time appellants leased the apartment this window — one of two bedroom windows — was cracked; there was.a one-inch hole in the center of the window glass and two cracks extending the full width of the lower pane, the cracks being in the shape of a cross. The window frame appeared old and the putty very dry. Each week as the husband-appellant paid his rent he told the appellee’s agent of the condition of the window and glass; on several occasions the appellee’s agent promised to repair the defective condition. The appellants were aware of the window’s condition when they rented the apartment and throughout the weeks which followed. During appellants’ occupancy of the apartment prior to the accident the window was never opened.
+
+    When the court below granted the compulsory non-suit exceptions were properly and promptly filed. Thereafter the court refused appellants’ motion to take off the compulsory nonsuit and this appeal ensued.
+
+    Appellants’ argument is twofold: (1) that the appellee, by his failure to file an answer to the complaint, admitted possession and control of the window; (2) that, under the facts of the case, appellee was shown to be in possession and control of the window and the court should have submitted that issue to the jury.
+
+    Pa. E.C.P. 1045(a) provides as follows: “(a) A party who fails to file a responsive pleading shall be deemed to admit all averments relating to the identity of the person by whom a material act was committed, the agency or employment of such person or the ownership, possession or control of the property or instrumentality involved. All other averments shall be deemed to be denied.”
+
+    . This rule draws a distinction between averments; it classifies the averments which do and the. averments which do not require responsive pleading. The clear, import of the rule is that before any responsive pleading is required there must be an averment. Failure to file a responsive pleading does not constitute an admission of an unvoiced charge; a. response or answer presupposes a charge or accusation made.. Absent an averment of any fact delineated by the rule as requiring a responsive pleading, a failure to respond: does not amount to an admission.2 Did appellants aver that the appellee owned, possessed or controlled the “property or instrumentality” involved, to wit, the -window?
+
+    An examination of the complaint reveals that appellants did aver appellee’s ownership of the building; therefore, appellee, by failing to respond to this averment, is deemed to have admitted ownership of the building. However, appellants did not expressly aver either possession or control of the window by appellee. Appellants rely on implications from Paragraph 8 of the complaint to establish an averment of both possession and control of the window. Paragraph 8 alleges that appellants notified appellee through his named agent of the defective condition of the window, and that the appellee, through the said agent, promised and agreed to make the necessary repairs. From this, appellants argue: “Inherent in such allegation of agency is the fact that the agent was in control of the window, and, therefore, had the right to make such promise to repair or that the agent was assuming control by the fact of making such offers” and, in the absence of any denial by the appellee that his agent had the authority to be in control of the defective window, control and possession are thus admitted. We acknowledge the ingenuity, but not the soundness of this argument.
+
+    Even though the appellee himself, rather than his agent, had agreed to repair this window, such an agreement, even if proved, let alone averred, would neither impose upon appellee a tort liability to appellants nor indicate a retention of possession or control of the window by him: Harris et ux. v. Lewistown Trust Co. et al., 326 Pa. 145, 147, 148, 149, 191 A. 34. Neither Paragraph 8 nor any other paragraph of the complaint contains any averment that the appellee was in possession or control of the window; therefore, the penalty of a deemed admission of possession or control cannot be imposed upon appellee under Pa. R.C.P. 1045(a). This question, although properly and promptly raised in the court below, must be resolved against appellants.
+
+    On the question of the general liability of a landlord to his tenant for injuries received by the tenant on the premises certain legal propositions are well settled: (1) in the absence of any provision in the lease, a landlord is under no obligation to repair the leased premises, to see to it that they are fit for rental or to keep the premises in repair: Levin et al. v. Philadelphia, 277 Pa. 560, 121 A. 331; Wood v. Carson, 257 Pa. 522, 101 A. 811; Levine v. McClenathan, 246 Pa. 374, 92 A. 317; Bussman et al. v. Ganster, 72 Pa. 285; Smith v. Kravitz, 173 Pa. Superior Ct. 11, 93 A. 2d 889; Adler v. Sklaroff, 154 Pa. Superior Ct. 444, 36 A. 2d 231; (2) a tenant takes the premises as he finds them and the landlord is not liable for existing defects of which the tenant knows or can ascertain by a reasonable inspection: Irish, Trustee et al. v. Rosenbaum Company of Pittsburgh, 348 Pa. 194, 34 A. 2d 486; Stein v. Bell Telephone Co., 301 Pa. 107, 151 A. 690; Federal Metal Bed Co. v. Alpha Sign Co., 289 Pa. 175, 137 A. 189; Levin v. Philadelphia, supra; (3) a landlord out of possession, however, may be liable (a) where he conceals a dangerous condition of which he has knowledge and of which the tenant has no knowledge or cannot be expected to discover and (b) where he knows or should know of a dangerous condition and leases the premises for a purpose involving a “public use” and has reasóñ to believe the tenant will not first correct the condition: Parquet v. Blahunka, 368 Pa. 626, 84 A. 2d 187; Doyle, Admrx. et al. v. Atlantic Refining Company et al., 357 Pa. 92, 98, 53 A. 2d 68; Bouy v. Fidelity-Philadelphia Trust Company et al., 338 Pa. 5, 7, 12 A. 2d 7; Hayden et ux. v. Second National Bank of Allentown, 331 Pa. 29, 199 A. 218; (4) a landlord of a multiple-tenanted building, reserving control of the common approaches, such as sidewalks, passageways, etc., or parts of the building common to all tenants, such as the roof and walls, is bound to keep such approaches and parts reasonably safe for the use of tenants and their invitees and a landlord becomes liable where he either had actual notice of a defective condition therein or was chargeable with constructive notice, because had he exercised reasonable inspection he would have become aware of it: Bowser et ux. v. Artman et al., 363 Pa. 388, 69 A. 2d 836; Goodman et al. v. Corn Exchange National Bank and Trust Company et al., 331 Pa. 587, 200 A. 642; Baldwin v. McEldowney, 324 Pa. 399, 188 A. 154; Lerner v. Bergdoll, 285 Pa. 193, 131 A. 670; Sloan v. Hirsch, 283 Pa. 230, 128 A. 831; Williams v. Wolf, 169 Pa. Superior Ct. 628, 84 A. 2d 215; Adler v. Sklaroff, supra; Germansen v. Egan, 130 Pa. Superior Ct. 21, 196 A. 881.
+
+    Appellants’ counsel, conceding the validity of these legal principles, presents a novel and interesting proposition — one of first impression in this Court. This proposition is that the window in appellants’ apartment was a part of the wall of the building, and, therefore, in appellee’s control and possession so' as to render him liable to the appellants because he knew of the window’s defective condition.
+
+    Is a window located in a tenant’s apartment an inherent and integral part of the wall of the building— a defect in which might affect other tenants and parts of the bpilding — so that control and possession of the window are retained by the landlord rather than the tenant?3 A window has been defined as “an opening in the wall of a building for admission of light and- air, usually closed by casements or sashes containing transparent material, as glass, and capable of being opened and shut”: Webster’s New International Dictionary (2nd Ed.) (The Merriam-Webster). See also: Benner v. Benner, 119 Me. 79, 109 A. 376, 377; Hale v. Springfield Fire and Marine Insurance Co., 46 Mo. App. 508, 510; 2 Bouvier Law Dictionary, p. 3741 (Rawle’s 3rd Rev.); American College Dictionary; 97 C.J.S., p. 325. Appellants contend that a window contributes structurally to the support of the building and must be considered part of the wall. The contribution of support, if any, furnished by a window to a building is infinitesimally slight; that a windowless wall will and does support a building is self-evident. Appellants point out that in modern buildings, such as the Penn Center Plaza, glass is used extensively on the exterior portions of the structures. We can take judicial recognition of the fact that modern architecture does utilize and employ glass on .the walls and exterior portions of modern day buildings and, perhaps, such glass is so interwoven into the construction of these buildings as to justify a finding that the glass is part of, if not the whole, wall. However, that is definitely 'not the instant situation because there is no proof that this is a modern day building in which glass has been utilized as in the Penn Center Plaza. What we are dealing with in the instant situation is a regular old-fashioned window — a window placed in a building not for aesthetic or support purposes, but simply and. solely for the function of transmitting light and air into a particular apartment. The glass which fell upon the wife-appellant’s hand came from a window and not from a modern glass wall or partition. The presence of this window in the building contributed nothing to, nor had it any functional use in connection with the other apartments or parts of the building; it was not part of, but simply an opening in the wall to serve and make livable this particular apartment.
+
+    Appellants place great reliance on Germansen x>. Egan, supra. In that case the building was a multiple-tenancy building. Plaintiff’s employer leased from the defendant a workroom in which there was a skylight made of glass. The skylight fell and injured the plaintiff and the Superior Court sustained a recovery by the plaintiff. The theory upon which liability Avas imposed was clearly expressed by the late President Judge Kellbr (p. 23) : “It is established, therefore, that the defendant-landlord used this roof, of which the skylight Avas a part, to collect and carry away the rain water falling on the rest of her building — the four story part — and was in possession, custody and control of it for the general benefit of her building . . . She alone had authority to repair or improve it. It follows that she was responsible for any damages naturally resulting from her negligent maintenance of the roof and skylight.” The Germansen case is entirely inapposite. Granted that both a skylight and a window admit light and air, that both are made of glass, that the breaking of glass caused the injury in both cases, that the glass in both instances was cracked before and repaired after the accident, yet there is an essential difference between the two situations. The skylight was integrally part and parcel of the roof, as well as a medium for the entrance of light and air; it was functionally a component part of the roof. The instant window was primarily a medium for the entry of light and air into this particular apartment; any function, if any, served in connection with the wall was purely incidental. It was the landlord’s duty to keep the skylight in repair; there was no duty upon the landlord to keep this window in repair: (Cf: Rotte v. Meierjohan, 78 Ohio App. 387, 70 NE 2d 681). The roof of a multiple-tenancy building protects and acts as a common ceiling for all the separate tenements in the building; it is a part of the premises which remains in the landlord’s control for the common use of all his tenants: Adler v. Sklaroff, supra.
+
+    Neither the Koplo case, supra, nor the Adler case, supra, supports appellants’ position. The Koplo case simply holds that a landlord exercises control over the exterior wall of a building while the Adler case holds a landlord responsible for maintenance of the roof of a building. The argument that because a skylight is a part of a roof a window must be considered part of a wall is a non sequitur.
+
+    Appellants cite the Restatement of Torts, §360 as further authority for their position. That section provides as follows: “A possessor of land, who leases a part thereof and retains in his own possession any other part which the lessee is entitled to use as appurtenant to the part leased to him, is subject to liability to his lessee and others lawfully upon the land with the consent of the lessee or a sub-lessee for bodily harm caused to them by a dangerous condition upon that part of the land retained in the lessor’s control, if the lessor by the exercise of reasonable care could have discovered the condition and the unreasonable risk involved therein and could have made the condition safe.” There is absolutely no evidence to support the invocation of this section of the Restatement.
+
+    
+      ■In conclusion, we agree entirely with the court below in its analysis of this situation: “The window in the Lopez apartment was not such an integral part of the wall as to render it under the control of the defendant owner. This window was not necessary for the support of any part of the structure of the building. It does not serve as a common benefit to all occupants of the building, nor may anyone other than the tenant, in whose apartment it is located, use it. The lessees in the case at bar had complete control over the window. Only the lessees had the right or necessity to open, close or put shades on their window. The purpose of an apartment window is to give the tenant and only the particular tenant the benefit of light and ventilation. Actually, the owner of the building or any other occupant of the building could not have demanded that the plaintiffs keep the window open or closed. This window was for the sole use and convenience of the plaintiffs.
+
+    “Therefore, there being no possession or control of the window in question by the defendant, he cannot be held liable in tort for injuries received by the wife-plaintiff because of its defective condition.”
+
+    Judgment affirmed.
+
+    Mr. Justice Cohen dissents.
+
+    
+      1
+       Ttte lease was an oral lease.
+
+    
+
+    
+      2
+       “If the Complaint does not aver identity, ownership, possession or control there cannot, of course, be any admission of these”: Goodrich-Amram Standard Penna. Practice, §1045 (b)-1, p. 289; Smith v. Lit Brothers, 174 Pa. Superior Ct. 102, 105, 106, 100 A. 2d 390; Mazzo v. F. W. Woolworth Co.; Inc., 139 Pa. Superior Ct. 242, 252, 11 A. 2d 683.
+
+    
+
+    
+      3
+       That the waU of a building remains in the control and possession of the owner of a multiple-tenancy building has been recognized: Soplo and Koplo v. Mtenff&r, 84 Pa. Superior C3t. 358.
+
+    
+
+  
+
+  
+    Dissenting Opinion by
+
+    Me. Justice Musmanno :
+
+    On November 8, 1953, Mrs. Paula Lopez, while in the bedroom of a two-room apartment, which she occupied with her husband and six children, heard her husband shout from the kitchen: “. . . Bush to the windows, put the windows up, the children are being overcome with gas.” She flew to a window, threw up the sash, and in the instant, the glass fell from its frame and gashed her arm severely, causing her eventually to lose the use of her right hand, fingers, and forearm. The fateful window had been a disturbing factor for some time. From the day, six weeks previously, that Mrs. Lopez and her husband had rented the two rooms from the defendant, Edward W. Gukenback, she had complained that the window was defective: the glass was cracked, the sills rotted, the surrounding putty dry and non-adhering. The renting agents for the defendant promised to repair the window, but never did — until after the accident.
+
+    Mrs. Lopez and her husband brought an action against the owner of the building and they were non-suited in the Court below. This Court has affirmed the nonsuit. Was the question of defendant’s liability or nonliability under the circumstances a question of fact for the jury to decide, or one for the Court to determine in limine ?
+
+    The building in which the plaintiffs lived is a three-story structure with multiple tenants, and, as well stated by the Majority, the proprietor of such a structure is. bound to keep the parts of the building, which are common to all tenants, such as roofs and walls, in a reasonably safe condition.
+
+    It is the contention of the plaintiffs that the defective window in their apartment formed part of the wall of the building and that, since the landlord is liable for defects in the walls, he is liable to Mrs. Lopez for the serious injuries she sustained. The defendant refutes this contention, and the Majority precisely states the resulting issue as follows: “Is a window located in a tenant’s apartment an inherent and integral part of the wall of the building — a defect which might affect other tenants and parts of the building— so that control and possession of the window are retained by the landlord rather than the tenant?”
+
+    The Majority answers this question in the negative.
+
+    
+      If, prior to today, there had been no decision in the Pennsylvania appellate courts on the question before us, this Court could say, if it so wished, that, examining the entire subject it is satisfied not to take that step which would make landlords liable for a defect in any opening of a building, on the theory that an opening or portal is not part of the building’s fundamental structure for which the landlord would be responsible if defective. Or, if, after declaring that a window is not an integral part of the wall of the building, it went further and said that it overruled the authority of the case of Germansen v. Egan, 130 Pa. Superior Ct. 21, its logic would then be impeccable, even though it might be said that it had failed to recognize changing conditions.*
+    
+
+    But this Court does not overrule the Germcmsen case. It stands squarely upon it, and explains how it differs from this case. Let us see if these two cases can be distinguished one from the other or if they belong, as I believe, under the same roof of landlord liability. The plaintiff in the cited case, Miss German-sen, was injured when glass from a skylight, hung over a room rented by her employer from the defendant-owner, fell and injured her. She sued the owner of the building, Mrs. Egan, and obtained a verdict which was affirmed by our Superior Court. In an excellently reasoned opinion, President Judge Keller, speaking for the Court, pointed out that the defendant Mrs. Egan knew that one of the panes in the skylight was cracked, she knew that snow could accumulate over the skylight, and she knew that the damaged glass would not be strong enough to bear the Aveight of the snoAV. He then Avent on specifically: “She [Mrs. Egan, the defendant] kneAV that the room under the light Avell, which she leased to the plaintiffs employer, Avas a work room occupied by people at work and liable to be injured by a broken skylight, and the duty rested on her as the OAvner in charge and custody of a building rented to various tenants to see that an instrumentality used for the general benefit of the building was in a reasonably safe condition, and when her attention Avas drawn to the cracked pane of glass in the skylight she should have been reasonably diligent in replacing it with a sound pane before the accident, as she. was immediately after it. Her negligence, in the circumstances, was a question of fact .for the jury.”
+
+    This Court expresses approval of the verdict obtained by Miss Germansen in her case but rejects the claim of Mrs. Lopez in the case at bar. The Majority differentiates the Germansen case from the Lopez case by stating that a window supplies no functional support to the wall of a building but that a skylight is, in effect, muscle and sinew to a roof. But wherein is the structural difference between a skylight and á window? Viewed from above, below, or the side, a skylight is a window, and nothing móre. Webster’s International Dictionary defines a skylight as “A window in a roof.” Thus, it can be correctly said that a skylight is a roof window, while a window is a wall skylight. Both the skylight and the window receive light from but one source, the sky, that is to say, the sun. If the skylight is an inseparable segment of the roof, as Germcmsen says, and this Court emphasizes, how can it be said that a window does not form part of a wall? A window is as much an integral part of a wall as the skylight is an integral part of the roof. They differ only in that a skylight is horizontal and a window is vertical.
+
+    The Majority Opinion, in attempting to distinguish the Germcmsen case from the one at bar, says: “The skylight was integrally part and parcel of the roof, as well as a medium for the entrance of light and air; it was functionally a component part of the roof. The instant window was primarily a medium for the entry of light and air into this particular apartment; any function, if any, served in connection with the wall was purely incidental.” But can it really be said that the function of a skylight, in serving as part of the roof, is any less incidental than a window supporting a wall? Are they not both indispensable pieces of mosaic in their respective pictures?
+
+    Are they not equally as strong and equally as weak? Will a skylight support the kick of a foot any more than a window can withstand the thrust of a fist? Will an ancient, battered, and cracked skylight be any safer than an ancient, battered, and cracked window? Will a broken skylight sustain the vibration and push of pressure any more than a broken window? In the Germcmsen case the glass fell only because of the snow which had descended on it. No one struck it, no one kicked it, no. one pushed it. . The skylight gave way . because.the glass in.it-was cracked.- The window here. gave way because the glass in it was cracked. Where is the difference between the two cases?
+
+    If the Majority can make of a window something less than part of a wall, it cannot make of a skylight something more than a lamp on the roof.
+
+    And so long as a window remains only a medium for light and air and an aperture through which to look at the outside world, I cannot look through it and see in a skylight anything more than that. If Germansen is right, the decision in this case is something less than right. If this decision is right, Germansen is wrong.
+
+    While consistency has ceased to be a jewel, I would still like to see on the escutcheon of the law the shining-gem of uniformity between decisions which involve the same principle of jurisprudence.
+
+    
+      *
+       For instance, the Philadelphia Housing Code, approved August 5, 1954, provides: “No person shall occupy as owner occupant or shall let to another for occupancy any dwelling, rooming house, dwelling unit, or rooming unit which does not comply with the following minimum standard for safe and sanitary maintenance: 8.3 Every window, exterior door and basement or cellar door and hatchway shall be substantially weathertight, watertight and rodent proof; and shall he kept in sound working condition and good repair.” Of course, this code was approved after the date of the accident in this case and, therefore, can have no application to the litigation. I cite it only for the purpose of showing the trend of the times. The Multiple Dwelling Daw of New York, (Sec. 78, Consolidated Daws, Annotated Book 35-A, as amended, effective April 22, 1946, provides: “Every multiple dwelling including its roof or roofs and every part thereof, and the lot upon which it is situated, shall be kept in good repair. The owner .shall be responsible for compliance with the provisions of this section. . ) .” (Emphasis supplied).
+
+    
+
+  
+
+
+
+
+## case_id 467280 — Pfingstl v. Chenot, 165 Pa. Super. 222 (Superior Court of Pennsylvania, Pa. 1949)
+Retrieval provenance:
+  - embed-short-letting-23 v1: ...1, 1943 3 to february 15, 1948, as holdover tenants from year to year at a monthly rental of $60.00, that they did not agree to new terms, i. e. the increased r...
+  - embed-householder-letting-21 v2: ...1, 1943 3 to february 15, 1948, as holdover tenants from year to year at a monthly rental of $60.00, that they did not agree to new terms, i. e. the increased r...
+
+### Opinion text
+
+  
+    Pfingstl v. Chenot et ux., Appellants.
+
+    
+      Argued April 19, 1949.
+
+    Before Rhodes, P. J., Hirt, Reno, Dithrich, Arnold and Pine, JJ. (Ross, J., absent).
+
+    
+      Alexander D. Rosenbaum, for appellants.
+
+    
+      John J. McGrath, with him McGrath, McGrath é McGrath, for appellee.
+
+    
+      July 15, 1949:
+
+  
+
+  
+    Opinion by
+
+    Fink, J.,
+
+    Isabelle Pfingstl, appellee, instituted an action in assumpsit against John Chenot and his wife, appellants, for $20.00 additional monthly rent due for a fourteen month period beginning March 1, 1946. The case was heard by the court below without a jury and, after hearing, judgment was entered for appellee in the sum of $280.00. This appeal is from the order and judgment of the court below dismissing appellants’ motions for a new trial and for judgment on the whole record. Appellants contend that during the period in question they continued as tenants from year to year under a written lease containing a covenant to pay only $60.00 a month, and not as appellee and the court below concluded, as tenants under an oral lease at an agreed rental of $80.00 a month.
+
+    Appellants and appellee entered into a written lease dated January, 1940, for premises situate at 1080 Steuben Street, Pittsburgh. The premises consisted of a store on the first floor and an apartment over the store. The term of said lease was stated to be from February 1, 1940, to January 31, 1941. The covenants contained in the lease gave to appellants the option of renting the premises at $55.00 per month the second year and at $60.00 per month for the third year. Appellants expressly waived to appellee the benefit of the Acts of Assembly requiring usual notice to vacate said premises at the end of the term, January 31, 1941, or at the end of any subsequent term for which the lease would be renewed, and covenanted and agreed to give up quiet and peaceful possession without further notice from said lessor or her agent. The following covenant related to continued occupancy of the premises after the end of the term: “If the Tenant lawfully occupies the premises after the end of the term, this Lease and all its terms, provisions, conditions, covenants, confession or confessions of judgment, waivers, remedies and any and all of Lessor’s rights herein specially given and agreed to, shall be in force for another Year and so on from Year to Year as long as the relation of Landlord and Tenant continues.”
+
+    On December 21, 1942, approximately six weeks before the expiration of the third year of the tenancy, the appellee wrote to appellants, inter alia: “I want to notify you that your lease will not be renewed this coming February unless you pay the amount of Seventy-five dollars . . and again, on December 28, 1942, appellants were similarly notified: “Please be advised that when your present lease expires on the 31st of January, 1943, I will not renew this lease. . . . However, if you wish to continue to occupy my property, a new lease will be drawn up by Mr. Koch, of the Carl Koch Co., Realtors, Wabash Ave., West End, Pgh., Pa. for a one year period at a rental of Seventy-five Dollars ($75.00) per month. . . . All arrangements concerning a new lease is to be taken up with Mr. Koch.” Appellants signed no such lease, continued to occupy the premises, and paid as previously $60.00 monthly rental. Levy issued for the unpaid balance of $15.00 monthly, to and including January 31, 1946, and is still in litigation.
+
+    As the tenants apparently did none of the things required of them in the letter from their landlord to effect the proffered renewal of the lease, their continued occupancy after February 1, 1943, could have been treated by the lessor as a tenancy at sufferance or tenancy from year to year as a holdover, or perhaps on new terms, dependent, of course, upon evidence which may be offered on retrial. Three years later or about December, 1945,1 and apparently before February 1, 1946, the appellants were orally advised that the rentals would be $80.00. There is no evidence of any oral acceptanee of increased rentals by the tenants who refused to execute a written lease containing such terms. Later, by letter dated February 1, 1946, appellee advised appellants in writing that beginning March 1, 1946, the monthly rental would be $80.00 and that: “Unless I hear from you before the 15th day of February, 1946,1 shall assume that you do not intend to make a lease, and proceed to secure a new tenant.” Notwithstanding this letter, appellants, continued to occupy the premises until February 15, 1948, and tendered to appellee the sum of $60.00 per month.
+
+    The court below concluded that the written lease [dated January, 1940] and successive holdovers- had been “supplanted by the subsequent notice of February, 1946 raising the rent”; that since the appellants had “continued in possession and use of the property after notice of the increased rent” that a new oral agreement had been consummated and that appellants were liable for the increased amount. Assuming, arguendo, that the written lease was in effect when the notice of February, 1946, was given, how could that lease be supplanted by such late notice, as under the holdover clause in said lease a tenancy for another year had already been created, beginning February 1, 1946, and the tenants’ rights under the terms of the written lease had then been vested by the holdover? Moreover, there was no such meeting of minds as to constitute an oral lease. The landlord informed the tenants that she would assume they did not wish to contract if they did not contact her on a certain date. That day passed without word from the tenants, who merely continued in possession, apparently at the former rentals as holdover tenants. Such occupancy did not impliedly consummate an agreement to pay the increased rentals, which increase the tenants refused. “When the defendant held over the law gave a choice of remedies to the landlord. He might have looked upon the tenant as a, trespasser and summarily ejected Mm, or lie might have treated him in holding over as a tenant by sufferance, or he might have regarded the holding over as a continuance under the terms of the lease. The law will not, by implication, infer an acceptance by the defendant of the terms which he had so persistently refused and which plaintiff had so insistently demanded as a condition” :2
+      Abrams v. Sherwin, 269 Pa. 31, 33, 112 A. 235; also, 32 Am. Jur. Landlord and Tenant, §950. Cf. Jawer v. Borner, 273 Pa. 6, 116 A. 520.
+
+    The tenants (appellants) contend that they remained in possession of the premises under the hold-over clause in the written lease; that they so continued in occupancy and possession from February 1, 1943 3 to February 15, 1948, as holdover tenants from year to year at a monthly rental of $60.00, that they did not agree to new terms, i. e. the increased rentals, but on the contrary refused to heed the lessor’s requests. The intentions and actions of the lessor negative a tenancy at sufferance at any time; the tenure was treated by the parties as from year to year, however, at disputed terms of rental. In Phillips v. Monges, 4 Whart. 226, 229, the Court said: “When a landlord suffers the tenant to remain in possession, after the expiration of the tenancy, and receives rent from him, a new tenancy from year to year is established. And if no new agreement be entered into, the law will presume, in the silence of the parties, that the tenant holds the premises, subject to all such covenants contained in the original lease, as apply to his present situation, (citing cases) Although payment of the rent is evidence of a tenancy, yet it is not the only evidence.” See Trickett on Landlord and Tenant, §§488, 490, 491.
+
+    There is evidence that appellants paid rentals subsequent to February 1, 1943, at amounts fixed in the prior written lease, which were accepted by the landlord, all of which is indicative of a concession by her of the lessees’ right to remain from year to year on previous terms. Wilcox v. Montour Iron and Steel Co., 147 Pa. 540, 23 A. 840; Harvey v. Gunzberg, 148 Pa. 294, 23 A. 1005. The landlord cannot escape the continuance of a tenancy from year to year by giving notice she was terminating the lease conditionally but later ignoring the conditions of the termination. Actions speak louder and more effectively than words. The landlord’s levy to collect the increased rentals during the period from February 1,1943, to February 1,1946, may be repugnant to the creation for that period of tenancy from year to year on previous terms, and may indicate her intent to establish a new oral lease from year to year commencing February 1, 1943. We are unable to fairly and justly determine the nature of the tenancy from the meagre and confused evidence before us. If determined a tenancy from year to year on previous terms [written lease], there can be no recovery on the record before us, as the appellants continued to hold over after February 1,1946, on the fixed rental of $60.00 per month, extended by prior holdovers from year to year; if found to be a tenancy from year to year on new terms, commencing February 1, 1943, recovery would be on the terms of that new oral lease as established by evidence at a second trial.
+
+    As the case seems to depend primarily upon the nature of the tenancy, prior to February 1, 1946, which cannot be gleaned from the present record, this action with appropriate pleadings must be further proceeded with in the lower court. However, on retrial the appellee is not precluded from showing still another tenancy, i. e. a tenancy from year to year on new terms after February 1, 1946, by adducing clear, competent and sufficient evidence, lacking on the first trial, for that purpose and to that effect. To the facts determined on retrial, the applicable law will determine the character of the tenancy and the nature of the verdict.
+
+    Judgment reversed, with a venire.
+
+    
+      1
+       Lessor’s notices of 1942 and of 1945 followed identical patterns.
+
+    
+
+    
+      2
+       Where a tenant from year to year holds over, in absence of a binding agreement superseding the lease he becomes liable on the terms of the original lease notwithstanding more than thirty days before termination he notified landlord he did not wish to renew the lease: Snyder v. Henry, 32 Pa. Superior Ct. 167; McBrier v. Marshall, 126 Pa. 390.
+
+    
+
+    
+      3
+       Actually the rental at $60.00 monthly commenced February 1, 1942.
+
+    
+
+  
+
+
+
+
+## case_id 695540 — American Coat, Apron & Towel Supply Co. v. Grant Building, Inc., 102 Pa. Super. 373 (Superior Court of Pennsylvania, Pa. 1931)
+Retrieval provenance:
+  - embed-short-letting-23 v1: ... with tenants of the grant building in that building was derived through the tenants: harris v. keystone c. & c. co., supra; com. v. shapiro, 41 pa. superior ct...
+  - embed-householder-letting-21 v2: ... with tenants of the grant building in that building was derived through the tenants: harris v. keystone c. & c. co., supra; com. v. shapiro, 41 pa. superior ct...
+
+### Opinion text
+
+  
+    American Coat, Apron and Towel Supply Co., Appellant, v. Grant Building, Inc.
+
+    
+      Argued April 28, 1931.
+
+    Before Trexler, P. J., Keller, Linn, Gawthrop, Cunningham, Baldrige and Drew, JJ.
+
+    
+      Arthur B. Van Buskirk, and with him George 8. Goldstein and Reed, Smith, Shaw & McClay, for appellant,
+
+    cited: Conneaut Lake Ice Company v. Quigley, 225 Pa. 605; Thousand Island Park Association v. Tucker, 173 N. Y. 203; Harris v. Keystone Coal & Coke Company, 255 Pa. 372; Nester v. Brewing Company, 161 Pa. 473.
+
+    
+      E. B. Strassburger, and with him Messrs. McKenna & McKenna, for appellees,
+
+    cited: Walsh v. The Bourse, 15 Pa. Superior Ct. 219; Donovan v. Pennsylvania Railroad, 199 U. S. 279.
+
+    
+      July 8, 1931:
+
+  
+
+  
+    Opinion by
+
+    Keener, J.,
+
+    The Grant Building is ■ a new, modern thirty-seven story office building located in the business district of Pittsburgh. It was opened to tenants in February, 1?29. , , .......
+
+    All leases for rooms in the building contain the .following provisions:.
+
+    “ The above letting is upon the following terms and conditions:
+
+    
+      Rules and Regulations.
+    
+
+    6. The rules and regulations in regard to Grant Building, printed upon the reverse of this lease, and such alterations, additions and modifications thereof as may be from time to time made by .lessor, shall be considered a-part of this agreement, with the same effect as though written herein, and lessee covenants that said rules and regulations shall be faithfully observed by lessee, the employees of lessee and all persons invited by lessee into said building. The right being hereby expressly reserved by lessor to add to, alter, modify or rescind from time to time, said rules and regulations. The lessor, however, shall have the right to change said rules and regulations and to waive in writing any or all of said rules and regulations in the case of any one or more lessees and the lessor shall not be responsible to the lessee for the non-observance or'violation of any of said rules and regulations by any other lessee. ”
+
+    Among the rules and regulations so printed on the back of the lease is the following:
+
+    
+      “22. Only persons authorized by the Lessor will be permitted to furnish towels and other similar services to tenants, and only at hours and under regulations fixed by the lessor.”
+
+    Incidental to the erection and operation of the building, the owner installed a laundry for the purpose of supplying towels to its tenants; the purpose in view being to give better service to the tenants and better to discharge its responsibility with respect to those entering the offices on such service. The laundry is conducted for profit but is run exclusively for tenants of the building. No complaint is made that the prices charged for this laundry work are excessive or more than those obtaining in outside laundries.
+
+    The plaintiff is engaged in the business of renting cabinets for supplying towels, etc., to customers in Pittsburgh, under yearly contracts. Seven of its customers became tenants of the Grant Building. It was notified by the management of the Grant Building on July 22, 1929 that it could continue to deliver towels at reasonable hours to' its customers under its existing contracts until the respective expirations thereof, but thereafter would not be permitted to deliver towels in the building. On July 25,1929 it filed this bill praying for an injunction restraining the defendants from interfering with or refusing to allowit to deliver towels to its customers in the Grant Building, or from hindering the renewal of such contracts, and soliciting and making new contracts with tenants of said building for the delivery of towels. A preliminary injunction was granted, which on final hearing was dissolved and the bill dismissed. Plaintiff appealed.
+
+    At the outset appellant contends that the findings of fact of the chancellor, approved by the court in banc, are not within the rule that such findings have the force and effect of the verdict of a jury and will not be disturbed except for clear error, because the judge who made the findings was not the judge who heard the testimony orally and saw the witnesses — ■ (Judge Martin died before final hearing). It overlooks the fact that prior to. the amendments to the Equity Rules of January 15, 1894, hearings in equity were not had before a judge, but before masters, whose report even on the facts was not conclusive (Phillips’ App., 68 Pa. 130, 138), unless approved by the court (Sproull’s App., 71 Pa. 137); and that in England and some other jurisdictions evidence was received by way of depositions and even affidavits. But the point is immaterial, for a careful review of the evidence in the case leads us to agree with the findings of fact of the lower court. It is not necessary to restate them. Reference is hereby made to them as if incorporated herein. On the basis of the facts thus found we shall discuss the legal questions raised by the appeal.
+
+    1. We do not understand that Regulation 22, appearing on the back of the lease and incorporated into it by clause 6, supra, is equivalent to an agreement or covenant that persons (in the plural) other than the lessor itself shall be authorized to furnish towels to the tenants of the building. The word “only,” as it appears in the 22nd rule or regulation, is a word of restriction or exclusion — of restriction as to that which it qualifies, and, of exclusion as to other things ' (46 C. J. 1105). One of its primary meanings as defined in the Century Dictionary is “Nobody else than;” and in Webster’s International Dictionary, “No other than;” its meaning in this regulation being, “No persons other than such as may be authorized by the lessor will be permitted to furnish towels,” etc. It excludes all who are not authorized, but is in no respect a covenant or agreement that, “persons” other than the lessor will be authorized to furnish towels, etc. There is no doubt that the plaintiff — except as respects fulfilling its existing contracts — was not so authorized.
+
+    2. The regulation was in the circumstances of the case reasonable, valid and enforceable.
+
+    The court found, (18) “Grant Building, Inc., has in-, stalled in Grant Building a fully equipped modern laundry plant, and pursuant to the terms of its leases with, its tenants, as part of the service in said building supplies towels to its tenants at a reasonable cost by uniformed employees and attendants and at regular fixed times,” and (19) “The distribution of towels by Grant Building employees makes for the efficient operation of Grant Building and the convenience of its tenants and is in accordance with the best practice in modern office buildings. It avoids confusion in the operation of the building, annoyance to the users of the building, congestion in the elevator and halls, the presence of unsightly receptacles, controls unauthorized entry into offices, and promotes the safety of the property of tenants theréin.” No question relating to monopoly or unlawful restraint of trade arises here. The regulation applies only to the corporate appellee’s own building on its own land, was not adopted arbitrarily, but for good and sufficient reasons incidental to and connected with the efficient management and operation of its building, and was in force when all its leases were entered into. The defendant company had no knowledge of the plaintiff’s contract with its customers, when the regulation was made, or even who its customers were, and did not know; or foresee that any of the plaintiff’s customers would become tenants of its building. The regulation was not directed ¿gainst the plaintiff or any other laundry concern, with intent to do it harm or injure its business or deprive it of trade but solely by way of the efficient conduct of the defendant’s own business of operating its building and as ancillary to the relation between landlord and tenant (United States v. Addyston Pipe & Steel Co., 85 Fed. 271, 281, affirmed 175 U. S. 211). Hence malice is not involved in the régulation. The defendant is not a competitor of the plaintiff, for it does not seek or do any laundry business apart from the efficient operation of its own building; and the regulation does not deal with the necessities of life, but only with conveniences or adjuncts to the efficient conduct of business offices. The case, in.our opinion, is within the principle recognized and upheld by our Supreme Court in Harris v. Keystone Coal & Coke Co., 255 Pa. 372, which was followed in Alabama Fuel & Iron Co. v. Courson, 212 Ala. 573, 103 So. 667; and by this court in Walsh v. The Bourse, 15 Pa. Superior Ct. 219.
+
+    Appellant founds its case chiefly, on the decision in Thousand Island Park Assn. v. Tucker, 173 N. Y. 203, 65 N. E. 975, where a park association laid out a, tract of 800 acres.of land for camp.meeting purposes and for summer residences, and after houses had been built on the lots by lessees under ninety-nine year leases, adopted a regulation which restricted the lessees, in purchasing supplies for consumption, to stores operated by the association. The court held the regulation to be unreasonable and unenforceable. But two things are to be noted: (1) The regulation dealt with the necessities of life and was attempted to be applied, in what was in effect a community, to persons who had built their own homes for summer residence; (2) the regulation was adopted after the leases had been made. It was this latter circumstance that ruled the case against the park association; for the court said (p. 977) “When the plaintiff leased or granted the cottage plots, it might have subjected the leases to such conditions and the tenants to such covenants as it saw fit to impose. If it had been provided in. the leases that the tenant or occupant should purchase all his supplies from the plaintiff, or from such shop or market as it might establish, and should obtain no supplies from any other source, I am not prepared to say that such a covenant would not be enforced, or rather, that damages could not be recovered for its .violation. The exclusive privilege reserved by the landlord would fairly be a part of the consideration for the. demise of the premises. But to impose such a restriction on the tenant, some condition or covenant to that effect must be found in the lease. Otherwise the dominion of the tenant is as absolute during the demised term as that of the owner previous to the demise.” See, however, Round Lake Assn. v. Kellogg, 141 N. Y. 348, 36 N. E. 326; Chautauqua Assembly v. Alling, 46 Hun 582. So, also, in Williams v. Lubbering, 73 N. J. L. 317, 63 Atl. 90, cited by appellant, the court in considering the right of a tenant of an apartment house to use an entrance way for the delivery of ice, etc., said that the landlord cannot deny him the use of any of the ordinary adjuncts of such apartments, “unless it be otherwise stipulated at the time of taking the apartments.”
+
+    3. No privity of contract existed between the appellant and the corporate defendant. Any right which the former had to do business with tenants of the Grant Building in that building was derived through the tenants: Harris v. Keystone C. & C. Co., supra; Com. v. Shapiro, 41 Pa. Superior Ct. 96; and, except to the extent of fulfilling its existing contracts with such tenants, plaintiff’s agents and employees were not invitees, but merely licensees as respects the Grant Building. In their efforts to renew contracts or solicit business they were not calling on the tenants of the building for some purpose connected with the business in which the latter were there.engaged, but in furtherance of the plaintiff’s laundry business; and solicitors for business who call on tenants of a building are not invitees but mere licensees (Gasch v. Rounds, 93 Wash. 317, 160 Pac. 962; Stanwood v. Clancey, 106 Me. 72, 75 Atl. 293; Konick v. Champneys, 183 Pac. 75 (Wash.), 6 A. L. R. 459; Com. v. Shapiro, supra, p. 102); and may be excluded under reasonable regulations of the landlord, from attempting to pursue their business in the building, if the lease between the parties so provides and the regulation is based on good and sufficient grounds connected with the efficient management and operation of the building.
+
+    4. Strictly speaking the Act of June 19, 1871, P. L. 1360, is not involved in this case, for the plaintiff, while averring that Grant Building, Inc., had set up a laundry in the Grant Building, and was supplying towels to its tenants, did not allege, either in its bill or amended bill, that it was without authority so to do, which is the basis for a private citizen invoking said act of assembly: Gring v. Sinking Spring Water Co., 270 Pa. 232; Alexander v. Wilkes-Barre Anthracite Coal Co., 254 Pa. 1; Williams v. D. L. & W. R. Co., 255 Pa. 133; Blankenburg v. Phila. R. T. Co., 228 Pa. 338; Vinton Colliery Co. v. B. & Y. C. R. Co., 226 Pa. 131; or ask that it be enjoined from so doing. But apart from whether it is properly before us, we are of opinion that the operation of the laundry as limited and described in the evidence, and under the findings of the court, is so intimately connected with, so incidental or auxiliary to, the operation of the defendant’s building as not to be beyond the corporate and charter powers of the corporate defendant. “Corporations may transact, in addition to their main undertaking, all such subordinate and connected matters as are, if not essential, at least very convenient to the due prosecution of the former”: Malone v. Lancaster Gas, Light & Fuel Co., 182 Pa. 309, 322. It is well known that in the operation and management of great modern office buildings, for the convenience of the tenants electric light is manufactured on the premises, a corps of janitors, window cleaners and other workers are employed, lunch rooms are operated, and other activities engaged in which if done apart from the building would be outside the corporate powers of the owner of the building, but when done in connection with the building and limited in their scope and purpose to the convenience and comfort of the tenants are ancillary to and in furtherance of the corporate purpose. If the sale of appliances for the use of gas, is within the corporate powers of a corporation chartered for the manufacture and supply of gas for light and heat (Malone v. Lancaster Gas Light & Fuel Co., supra), and if the building of saw mills and the construction of dwellings and boarding houses and of a hotel for the accommodation of those having business relations with it, was within the powers of a corporation chartered to aid in the development of minerals and other materials and to promote the clearing and settlement of the country (Watt’s App., 78 Pa. 370), we think the conduct of a laundry limited to supplying tenants with towels, under the circumstances of this case, is, under modern business conditions, within the powers of the corporate'defendant. Department stores are now conducting restaurants, beauty parlors and , hair dressing establishments as part of their activities. Transportation companies are operating restaurants, barber shops, soap and towel cabinets, (similar to the plaintiff’s), shoe-shining stands and pay toilet rooms, under the principle that “railway companies may erect refreshment rooms and book stalls and adopt other similar measures for both providing for the comfort of their customers and adding to their own receipts”: Malone v. Lancaster Gas Light & Fuel Co., supra. Hotels have public stenographers, news stands, cigar and tobacco stores, barber shops and laundries in connection with their main business. All of these are intended to produce revenue, but their main purpose is the comfort and convenience of patrons. We think the present case falls within the same class and that the regulation complained of is incidental to the efficient operation and management of defendant’s building and with the ultimate purpose in view of safety, convenience and efficient service to the tenants of the building.
+
+    The assignments of error are overruled. The decree is affirmed at the costs of the appellant.
+
+  
+
+
+
+
+## case_id 753596 — Blasi v. Alexander, 195 Pa. Super. 634 (Superior Court of Pennsylvania, Pa. 1961)
+Retrieval provenance:
+  - embed-short-letting-23 v1: ... court below for the purpose of a decree in favor of the defendants. 1 the proviso was eliminated by the act of may 6, 1955, p. l. 46 §1. dissenting opinion by ...
+  - embed-householder-letting-21 v2: ... court below for the purpose of a decree in favor of the defendants. 1 the proviso was eliminated by the act of may 6, 1955, p. l. 46 §1. dissenting opinion by ...
+
+### Opinion text
+
+  
+    Blasi v. Alexander et al., Appellants.
+
+    
+      Argued March 22, 1961.
+
+    June 15, 1961:
+
+    Before Rhodes, P. J., Ervin, Wright, Woodside, Watkins, Montgomery, and Flood, JJ.
+
+    
+      Joseph F. Mulcahy, Jr., with him Edward D. McLaughlin, for appellants.
+
+    
+      Harry J. Martin, Jr., for appellee.
+
+  
+
+  
+    Opinion by
+
+    Flood, J.,
+
+    In this case the plaintiff purchased lots Nos. 24 and 25 known as 800 Burton Street, Darby Township, Pennsylvania, at a treasurer’s sale, on August 26, 1953, for unpaid taxes due to the County of Delaware for the year 1951 for the sum of $68.70. The property was assessed in the name of Charles Alexander Estate. On February 20, 1957, plaintiff commenced this action to quiet title against the defendants who are the surviving children and legal heirs of Charles Alexander.
+
+    
+      Charles Alexander owned this property at the date of his death in 1943, his wife having predeceased him. No will of either parent Was filed and no administration of the estates of Charles or Edith Alexander was ever raised, nor was anything filed in any county office showing the succession of the defendants to the title.
+
+    Two of the heirs, Edward Alexander and Joseph Alexander, were living in the property in 1951. Taxes up to and including 1950 were paid in full. The records in the assessment office showed that they were paid for the last years before 1951 by Sarah Alexander, who is the wife of Joseph Alexander.
+
+    No notice of the tax sale was sent or delivered to any of the heirs. The notice was directed to “Charles Alexander Estate, c/o Sarah Alexander”, 800 Burton Street, Sharon Hill, Delaware County. Sarah Alexander was not one of the heirs although she was the wife of one of them. The notice was actually delivered to a young child, Josephine Alexander, daughter of Joseph and Sarah, upon the property at 800 Burton Street.
+
+    The General County Assessment Law of May 22, 1933, P. L. 853, §407(b), 72 PS 5020-407(b), requires the county commissioners or the board for assessment and revision of taxes to give to the local assessor before he enters upon the discharge of his duty as assessor a statement of all conveyances of real estate in his district to be used by him in making the assessment in the name of the owners and ascertaining the value of the real estate. Section 407(c) of this act, 72 PS 5020-407(c), makes it the duty of the assessor to ascertain the owner or owners of each parcel of ground assessed, at the time of such assessment, and to assess it “in the name of the then owner or owners, as thus appears in such statement, unless to his personal knowledge there has been thereafter a change in the ownership go that such . . . parcel ... of real estate shall be assessed in the name of the then owner or owners.”.
+
+    
+      The fact that the property was listed on the tax assessors’ rolls not in the name of Charles Alexander, but in the name of Charles Alexander Estate, makes it appear that some change of ownership was known to the tax assessor at the time of the tax assessment for 1951 and the tax sale in 1953. But presumably the assessor never took it upon himself to find out who the heirs of Charles Alexander were and therefore never assessed the property to the real owners who are the defendants in this case.
+
+    Section 417 of The General County Assessment Law of 1933, 72 PS 5020-417, provides that a property may be assessed in the name of deceased only so long as the same shall belong to the estate. The Supreme Court held in Shafer v. Hansen, 389 Pa. 500, 133 A. 2d 538 (1957), that by allowing ten years to go by after the former owner’s death without ascertaining the name of the then owner or owners “It is too evident for discussion that the assessor failed to ascertain timely the owner of the property here in question as The General County Assessment Law required him to do”. Here the death was in 1943, the assessment was for 1951, the sale was held in 1953, and no change had yet been made on the assessment roll by 1960.
+
+    The governing statute as to notice of sale is the Act of May 29, 1931, P. L. 280, §7, 72 PS 5971(g). The act as it existed in 1951, and at the time of the sale on August 26, 1953, read:
+
+    “In addition to such advertisement, at least ten days before any such sale, written notice thereof shall be served by the county treasurer, by registered mail, upon the owner of such land, and if the whereabouts of the owner is unknown, such notice shall be served by registered mail upon the terre tenant, if any: Provided, however, That no such sale shall be prejudiced or defeated and no title to property sold at such sale shall be invalidated by proof that such written notice was not served by the treasurer, or that such notice was not received by the owner or terre tenant as herein provided.” The language of the proviso of this act seems clearly to make plaintiff’s title good because under its terms no sale shall be invalidated or prejudiced by proof that the notice was not served by the treasurer upon, or received by, the owner or terre-tenant. However the Supreme Court has held that this provision, if taken literally, is unconstitutional. Hess v. Westerwick, 366 Pa. 90, 76 A. 2d 745 (1950). It held that the proviso insofar as it attempted to validate tax sales when no notice was served, was inoperative as a violation of due process.1
+    
+
+    Later the question came before the Supreme Court in Shafer v. Hansen, supra, in a situation so much like the one before us that we think it governs this case. There the testatrix died in 1942 leaving certain property by will to her two sons who were named as executors. Although the will was probated, nothing was done to change the record ownership on the county assessor’s rolls and the property continued in the name of the decedent. In the Shafer case, the defendants, as in this ease, failed to seek out the tax collectors and pay the taxes for the years in question. They took no steps to have the ownership of the property changed on the tax rolls. The records in the county treasurer’s office indicated that the taxes were paid during the. years following the testatrix’ death by various persons —in one year by the dead woman. In no instance did it appear that they were paid by either of the heirs. The Court seemed to be impressed by the fact that the deed had not been put on record until December 9, 1954, almost two years after the tax sale and just before redemption period expired. (In this case the tax' deed had not been put on record by the plaintiff inore than six years after the tax sale, the plaintiff has not paid any taxes since the sale to him, and nothing in the record appears to indicate any attempt to collect the taxes by sale or otherwise in this seven-year period.)
+
+    The court, in addition to finding that the assessor had not timely ascertained the owner of the real estate, also held that in any event before a valid sale for unpaid taxes could be made some form of notice would first have to be given to the owner or, if this could not be accomplished, then to the terre-tenant of the property. It is to be noted that it is not notice to the “tenant” which is required but notice to the “terre-tenant”.. In Pennsylvania law terre-tenant is one who becomes the legal owner of a debtor’s real estate after the lien has attached: Hulett v. Mutual Insurance Co., 114 Pa. 142, 6 A. 554 (1886) ; Lipshutz v. Plawa, 393 Pa. 268, 271, 141 A. 2d 226 (1958). Act of July 3, 1947, P. L. 1234, §3(d), 12 PS §879. As Chief Justice Gibson expressed it, “only the debtor’s subsequent grantee of the fee simple is a terre-tenant.” Mitchell v. Hamilton, 8 Pa. 486, 491 (1848). Here there was no terre-tenant in 1953 at the time of the sale other than heirs.
+
+    The Court in Shafer v. Hansen, supra, also said that the registered mail notice of the proposed tax sale was not mailed to either of the co-owners of the property and it was noted that by stipulation “ ‘[n]o notice of the intended sale of December 8, 1952 was given to any tenant of the premises in question.”’ As to the fact “that, more than ten days before the sale, notice thereof by registered mail was addressed to ‘Elizabeth Hansen’ (the name of testatrix) at the street and number, of the property, and the. return receipt therefor bore the signature ‘Walter J. Hansen’ ”, the Court said: ..
+
+    “Whether the receipt was actually signed by Walter J. Hansen, one of the co-owners of the property, or that it ever came to Ms attention, does not appear. In any event, no notice of the intended sale was ever given by registered mail or otherwise, to James T. Hansen, the other co-owner of the property.” The Court held that the requirements of the act above-quoted were not complied with and therefore the sale was invalid.
+
+    In the case before us the registered mail notice was addressed to the estate of the deceased owner, and delivered to the street and number of the property, but there was no evidence that notice actually reached any of the co-owners or terre-tenants. The return receipt did not even bear the purported signature of one of the co-owners as it did in the case of Shafer v. Hansen, supra. The only testimony on this point is that of James Alexander, one of the two co-owners living on the property, who said that he was never notified before the sale. There was no evidence of any attempt to bring the notice of the proposed sale to the attention of the other co-owner then living on the property, Edward Alexander, or any of the other heirs. The notice was actually directed to the attention of Sarah Alexander, James’ wife, who was not one of the terre-tenants although she resided on the property. There is no evidence that even Sarah received the notice. The return receipt bore the signature of her young daughter. It thus appears that we have here an attempted notice that was even further from compliance with the statute than the notice held insufficient in Shafer v. Hansen, supra. We conclude that the tax sale under which the plaintiff claims title in this case was invalid and the decree of the court below must be reversed.
+
+    The decree of the court below is reversed and the complaint and the record is remanded to the court below for the purpose of a decree in favor of the defendants.
+
+    
+      1
+       The proviso was eliminated by the Act of May 6, 1955, P. L. 46 §1.
+
+    
+
+  
+
+  
+    
+      Dissenting Opinion by
+
+    Ervin, J.:
+
+    I am concerned about the definition given to a terretenant in the majority opinion. The governing statute as to notice of sale is the Act of May 29, 1931, P. L. 280, §7, 72 PS §5971 (g). The act as it existed in 1951, and at the time of the sale on August 26, 1953, read: “In addition to such advertisement, at least ten days before any such sale, written notice thereof shall be served by the county treasurer, by registered mail, upon the owner of such land, and if the whereabouts of the owner is unknown, such notice shall be served by registered mail upon the terre-tenant, if any. . .”
+
+    I do not believe that the legislature intended that a terre-tenant was “the legal owner of the debtor’s real estate after the lien has attached.” I believe that the legislature meant that “if the whereabouts of the owner is unknown,” the notice was to be served by registered mail upon the occupant or possessor of the property, if any. The majority’s interpretation of this act leads to a ridiculous result. Surely the legislature could not have meant: Serve the owner but if you can’t find him serve the owner. The interpretation which I have given to the act at least makes sense. This interpretation is in accord with the preferred meaning of the word “terre-tenant”.
+
+    In Webster’s Unabridged Dictionary, 2d edition, a terre-tenant is defined as follows: “Law. One who has the actual possession of land; the occupant of land; often, one seized and in possession of land.
+
+    “A terre-tenant in a general sense is one who is seized or actually possessed of lands as the owner thereof. 114 Pa. 146.”
+
+    In Bouvier’s Law Dictionary Unabridged, Rawle’s Third Revision, a terre-tenant is defined as follows: “One who has the actual possession of land; but, in a more technical sense, he who is seised of the land; and in the latter sense the owner of the land, or the person seised, is the terre-tenant, and not the'lessee. ... It has been holden that mere occupiers of the land are not terre-tenants. See Chahoon v. Hollenback, 16 S. & R. (Pa.) 432, 16 Am. Dec. 587 ; 2 Bla. Com. 91, 328; Hulett v. Ins. Co., 114 Pa. 146, 6 Atl. 554.”
+
+    Terre-tenant, in 31 C.J.S., p. 11, is defined as follows: “A person in actual possession or occupation of land; a tenant, holder, or occupier of land; also, but less frequently, the owner of the legal, as distinguished from the equitable estate. In a general sense, one who is seized or actually possessed of lands as the owner thereof.”
+
+    In Hulett v. Mutual Life Ins. Co., 114 Pa. 142, 6 A. 554, the opinion starts as follows: “A terre tenant, in a general sense, is one who is seised or actually possessed of lands as the owner thereof. In a scire facias sur mortgage or judgment, a terre-tenant is, in a more restricted sense, one,- other than the debtor, who becomes seised or possessed of the debtor’s lands, subject to the lien thereof. Those only are terre-tenants therefore, in a technical sense, whose title is subsequent to the incumbrance: Chahoon v. Hollenbach, 16 S. & R. 425.”
+
+    “Words . . . shall be construed . . . according to their common and approved usage. . .” A.ct of May 28, 1937, P. L. 1019, art. III, §33, 46 PS §533.
+
+    Statutes are presumed to employ words in their popular sense: Com. v. Bay State Milling Co., 312 Pa. 28, 167 A. 307.
+
+    This was not a scire facias sur mortgage proceeding. So far as the record discloses there was no mortgage upon the. property. This was merely a. treasurer’s sale for unpaid taxes. According to the majority, you could never have a terre-tenant .except where there was a prior lien and a taking by a subsequent owner subject to that lien. Certainly the legislature intended to supply a method of service to fit all sales — not merely those where you had a prior lien.
+
+    
+      It would invalidate too many treasurers’ sales ii service on the occupier of the land in the absence of the owner were not held to be good and would greatly discourage purchasers at treasurers’ sales. In the present case the notice got to the wife of one of the present owners, who was an occupant of the property, and I would affirm the decree of the court below.
+
+    Rhodes, P. J., joins in this dissenting opinion.
+
+  
+
+
+
+
+## case_id 1136924 — Yeager v. Traylor, 306 Pa. 530 (Supreme Court of Pennsylvania, Pa. 1932)
+Retrieval provenance:
+  - embed-zoning-paying-occupants-22 v1: ...yeager et al. v. traylor, appellant. march 14, 1932: argued february 2, 1932. before frazer, c. j., simpson, kephart, sohapper, maxey and drew, jj. fred b. gern...
+  - embed-zoning-paying-occupants-22 v2: ...yeager et al. v. traylor, appellant. march 14, 1932: argued february 2, 1932. before frazer, c. j., simpson, kephart, sohapper, maxey and drew, jj. fred b. gern...
+  - apartment-hotel-34 v1: ...yeager et al. v. traylor, appellant. march 14, 1932: argued february 2, 1932. before frazer, c. j., simpson, kephart, sohapper, maxey and drew, jj. fred b. gern...
+
+### Opinion text
+
+  
+    Yeager et al. v. Traylor, Appellant.
+
+    
+      March 14, 1932:
+
+    Argued February 2, 1932.
+
+    Before Frazer, C. J., Simpson, Kephart, Sohapper, Maxey and Drew, JJ.
+
+    
+      Fred B. Gernerd, for appellant.
+
+    A garage is a necessary appurtenance to a modern hotel.
+
+    A building used for the parking of automobiles attached to a hotel and apartment house and exclusively used by its guests and patrons, without servicing or a rental charge, is a private garage.
+
+    The proposed building and the uses for which it is intended is not a nuisance per se: Burke v. Hollinger, 296 Pa. 510, 520.
+
+    
+      L. H. Rupp, of Buts & Rupp, for appellee.
+
+    The proposed structure is a public garage: Burke v. Hollinger, 296 Pa. 510; Nesbit v. Riesenman, 298 Pa. 475.
+
+  
+
+  
+    Opinion by
+
+    Mr. Chief Justice Frazer,
+
+    Appellant is owner of a hotel and apartment house building located at the corner of 15th and Hamilton Streets, in the City of Allentown. The building, originally constructed and used as an apartment house, is now used partly as a hotel, having 138 rooms, and partly as an apartment house containing 19 apartments with 103 rooms. The newer part of the building, containing 80 rooms, is used almost exclusively for transient hotel guests. The average stay of transients of whom, 85% arrive in motor cars, is overnight. Appellant proposes to construct and attach to the rear of the building a garage as a parking place to be used both by his hotel patrons and by the apartment house tenants. The proposed building is to front 70 feet on 15th Street and 180 feet on Maple Street, and to be constructed of steel with concrete floors. The front on 15th Street and the side for 25 feet back on Maple Street to be brick and precast stone construction. Except for this part, the garage building is to be entirely unenclosed, the roof or second floor being supported by steel columns. One of the entrances is located on 15th Street; the other, at the southeast corner of the garage on Maple Street, gives access to the ramp 82 feet long leading to the roof, where cars are to be stored. The ramp runs along Maple Street just opposite the dwelling house of Sheldon, one of complainants.
+
+    Appellant was about to proceed with construction work when this bill to enjoin the erection was filed. The court below, in addition to the above facts, found the neighborhood to be exclusively residential. The adjacent houses were of an expensive character, all being of brick construction with deep lots surrounded by large shade trees, green lawns, and artistic landscaping. The chancellor found the proposed building to be an open air parking place with unenclosed floors and roof; that a building of that kind, with the character of construction intended, would, under any scheme of operation, be a nuisance per se because of noise, gas, and vapors coming from the cars at any season of the year, but particularly in winter weather. The proposed construction was enjoined as likely to injure the health and disturb the quiet and peace of the neighborhood. This appeal followed.
+
+    The court below correctly stated the rule that a public garage in a strictly residential neighborhood is a nuisance per se. Mitchell v. Guaranty Corp., 283 Pa. 361, Carney v. Penn Oil Co., 291 Pa. 371, and a host of other cases, Avhich have been rigidly adhered to, enunciate this doctrine, nor does the court now intend to depart from this rule. Furthermore, we are of the opinion that the court below properly applied this doctrine to the facts of the case before it.
+
+    There have been many garage cases before this court involving the rights of home owners as opposed to attempts by others to put adjacent property to uses which have a tendency to impair health or safety, or which work a destruction of property values; in each case the courts have consistently endeavored to prevent such nuisances.
+
+    Originally a public garage for the storage of cars, with its noises and gases, was held to create such a nuisance that, on complaint of a number of home owners, the erection of the building or the use contemplated would be enjoined. This was first held in Prendergast v. Walls, 257 Pa. 547. There the general public were invited to store their cars. Injunctions were granted in other instances, as in Hohl v. Modell, 264 Pa. 516 [24 cars to be stored]; and in Slingluff v. Tyson, 280 Pa. 206, where only owners of Paige cars who lived within a designated radius were to store their cars. A similar injunction was granted to restrain the erection of a building for the storage of Hudson-Essex cars in Mitchell v. Guaranty Corp., 283 Pa. 361; and in George v. Goodovich, 288 Pa. 48, a community garage for the storage of 20 cars was enjoined. In this latter case, each stall was intended for lease to an individual car owner, and servicing, sale of supplies, or attendants were not permitted.
+
+    
+      In the cases referred to we restrained construction because of “The proposed use, the location of the building in a particular section, the accompanying disturbances, ......the damages resulting to adjoining property and the injury to the health of the people living within the radius of active operations.” But in Burke v. Hollinger, 296 Pa. 510, recognizing that places must be provided for the storage or parking of cars, we held, where the objectionable features of noise and gases are eliminated, as they were in that case, a garage for the general public may be operated though the district be partly residential and partly given over to business and in fact bordering on a business locality. There the circumstances were entirely different from those now before us and that case has practically no application here. This was followed by Ladner v. Siegel, 296 Pa. 585, where a district theretofore strictly residential had been given over to apartment house uses, and we held the owners of such houses should be permitted to attach to their respective buildings garages for the exclusive use of tenants in each building, but not for the use of the general public. In such cases the controlling reason was not that the district had been turned into a commercial one by the advent of apartment houses, but that the district had to a degree lost its exclusive character through the erection of such apartment houses, and that tenants of these respective houses should be afforded reasonable accommodation for their cars consistent with the character of the neighborhood as thus changed.
+
+    In Peirce v. Kelner, 304 Pa. 509, and in Pilling v. Moore, 306 Pa. 406, we held that where the character of the neighborhood had changed substantially to that of an apartment locality, garages in connection with the separate buildings for use of tenants were permissible under proper regulations, and that apartment house owners have the right to construct and attach to their buildings other structures for the exclusive use of tenants of the apartment house for the parking or storing of their automobiles. This reasoning is properly applicable to the case before us, and the owner of the apartment-hotel in question should have the privilege of erecting a parking garage suitable to the requirements of its permanent tenants. This right, however, is not to be exercised without limitations, which must be under supervision of the proper court. The proposed building in the case before us, if erected, must be enclosed entirely and conform in architectural design to the building to which it is attached. Ramps and other devices having a tendency to disturb the peace and quiet of the neighborhood must be avoided, and all means for raising and lowering cars must be within the walls of the building. If it is proposed to supply parking space upon the roof, an effective screen must be provided by means of a suitable balustrade or other device to hide the unsightly appearance which would be the result of such practice. No repairs of any character accompanied by noise should be carried on, and the sale of gasoline and oil should be limited strictly to tenants occupying the apartments and having cars stored in the garage.
+
+    The decree of the court below is modified to the extent herein indicated for the erection of a garage of modern construction, of suitable and proper proportions, and architecture such as will be in keeping with the general character of the community, the garage to be used exclusively by appellant’s apartment house tenants and not for other purposés. If a garage is erected, it shall conform to what we have indicated in this opinion, and the court below shall retain the bill for further action lest the use and operation of the garage in fact becomes a nuisance.
+
+    Decree as modified herein is affirmed, with leave to appellant to proceed as here indicated. Appellant to pay the costs.
+
+  
+
+
+
+
+## case_id 1199898 — Fox v. Sumerson, 338 Pa. 545 (Supreme Court of Pennsylvania, Pa. 1940)
+Retrieval provenance:
+  - embed-zoning-paying-occupants-22 v1: ... none the less a dwelling house though occupied by a number of families but it is not a private dwelling house. the term 'private' in that connection means limi...
+  - embed-zoning-paying-occupants-22 v2: ... none the less a dwelling house though occupied by a number of families but it is not a private dwelling house. the term 'private' in that connection means limi...
+  - embed-householder-letting-21 v2: ... none the less a dwelling house though occupied by a number of families but it is not a private dwelling house. the term 'private' in that connection means limi...
+
+### Opinion text
+
+  
+    Fox et al. v. Sumerson et ux., Appellants, et al.
+
+    Argued April 18, 1940.
+
+    Before Schaffer, C. J., Maxey, Drew, Linn, Stern and Patterson, JJ.
+
+    
+      Emil F. Goldhaber, for appellants.
+
+    
+      Joseph H. IAeberman, for appellees.
+
+    May 6, 1940:
+
+  
+
+  
+    Opinion by
+
+    Mr. Justice Maxey,
+
+    This is an appeal from a final decree entered by the court below enjoining defendants from the use of certain premises “other than as a private dwelling house for the use of a single family.” The court adjudged such use to be violative of the following building restrictions contained in defendants’ deed: “That the buildings to be erected upon the land herein described shall be nothing other than private dwelling houses; . . . that no building or buildings tó be erected shall be at any time hereafter forever altered into or used for any other purpose than as above designated.”
+
+    Defendants, Jacob Sumerson and his wife, the owners of premises at 5636 Woodbine Avenue, Philadelphia, applied for and were granted a permit to make certain alterations to their property, and thereafter proceeded through the Federal Home Improvement Company to make these alterations. The entrance to the premises remains the same except two doors on an enclosed porch now afford entrance to the interior of the house, one of which leads to the ground floor and the other to the second floor. On the ground floor there has been added' a bathroom and on the'second floor a kitchen has been constructed. Accordingly the house can now accommodate two families. No changes whatsoever were made to the exterior of the premises.
+
+    Defendants’ exceptions to the findings of fact and the conclusions of law granting a permanent injunction were dismissed and a final decree entered. This appeal followed.
+
+    This case is not ruled by Johnson v. Jones, 244 Pa. 386, 90 A. 649, as appellant contends. In that case the restriction invoked limited the buildings to be erected, “to church or dwelling-house, together with the outbuildings necessary.” It was held that the erection of a building containing “two separate apartments or flats” was not violative of this restriction.
+
+    The facts of this case are so closely related to the facts in Taylor v. Lambert, 279 Pa. 514, 124 A. 169, as to make our decision in' that case controlling here. In that case the restriction limited buildings to be erected to “a private dwelling house.” We held that the erection of “an apartment house” on the restricted land would be violative of the restriction. We said: “An apartment house is not a number of private dwellings, built one upon another, but a collection of dwellings. . . . An apartment house is not strictly a private dwelling ; it is a place for housing a number of people grouped in families assigned to different sections in the same structure.” We declared that the restriction of land to the erection of “a private dwelling house” is violated “by three families living separate and apart” in the same building, citing Levy v. Schreyer, 27 App. Div. 282, 50 N. Y. Supp. 584, 586. We said further: “The distinction between a private dwelling house or a private residence, on the one hand, and a house built or occupied as a residence for two or more families, is quite obvious. In the one case it is single, private and personal; in the other, it is a sort of tenement affair. While the families occupy separate apartments distinct from each other, they are not private residences as the term is ordinarily understood.”
+
+    
+      In Re James & Cutts, 52 Ont. Law Reports 453, it was held that a restriction against the erection of other than “a private dwelling house” is effective to prevent the use of a building by other than a single family. The court said: “An apartment house is none the less a dwelling house though occupied by a number of families but it is not a private dwelling house. The term ‘private’ in that connection means limitation for use privately, that is, apart from others, or in other words, singly by one family.”
+
+    In Koch v. Gorruflo, 77 N. J. E. 172, 75 Atl. 767, the Court of Chancery of New Jersey held that a covenant by a grantee not to use the premises for any other purpose except for a private residence, is violated by constructing a dwelling house designed to accommodate two families and allowing two families to occupy the same. In that case Yice Chancellor Howell said in substance that a house occupied by two or more families is a corny munity house; “the families living there occupy apartments separate and distinct from each other and the house becomes not a private residence . . . but a collection of apartments leased to different tenants, and if the defendant may be allowed to put two families in her bouse where shall she stop? She would be as well entitled to put a family in each room and then claim that her property was being occupied as a private residence. The covenant in question gives no such privilege.” See also Pocono Manor Assn. v. Allen et al., 337 Pa. 442.
+
+    The decree is affirmed at appellants’ cost.
+
+  
+
+
+
+
+## case_id 1237995 — Menger v. Lyon, 372 Pa. 326 (Supreme Court of Pennsylvania, Pa. 1953)
+Retrieval provenance:
+  - tourist-home-15 v1: ...laintiffs sought in the court below a mandamus to compel the public officials of the city of harrisburg to revoke the building permit previously issued to the i...
+  - tourist-home-15 v2: ...laintiffs sought in the court below a mandamus to compel the public officials of the city of harrisburg to revoke the building permit previously issued to the i...
+  - motel-near-36 v1: ...tern, plaintiffs sought in the court below a mandamus to compel the public officials of the city of harrisburg to revoke the building permit previously issued t...
+
+### Opinion text
+
+  
+    Menger, Appellant, v. Lyon.
+
+    Argued November 17, 1952.
+
+    Before Stern, C. J., Stearns, Jones, Bell, Chidsey and Musmanno, JJ.
+
+    
+      Mark T. Milnor, for appellants.
+
+    
+      Stanley G-. Stroup, with him Joseph Nissley and Livengood and Nissley, for intervening appellees.
+
+    January 5, 1953:
+
+  
+
+  
+    Opinion by
+
+    Mr. Chief Justice Horace Stern,
+
+    Plaintiffs sought in the court below a mandamus to compel the public officials of the City of Harrisburg to revoke the building permit previously issued to the intervenors for the erection of a motel (tourist court) which was the subject of litigation in the case of Harrisburg v. Pass, 372 Pa. 318, 93 A. 2d 447.
+
+    Under , the decision in that case the present intervenors have no right to construct the motel in question because of the provisions of the Harrisburg Zoning Ordinance of 1950. The issue presented in the present case is therefore obviously moot. Accordingly the decree of the court below is affirmed, pro forma, at the cost of appellants.
+
+  
+
+
+
+
+## case_id 1499716 — McKnight v. Kling, 15 Pa. D. & C. 316 (Blair County Court of Common Pleas, Pa. 1930)
+Retrieval provenance:
+  - embed-short-letting-23 v1: ...mcknight v. kling. john j. haberstroh, for plaintiff; robert a. henderson, for defendant. july 17, 1930. patterson, p. j., this is a rule to show cause why a ju...
+  - embed-householder-letting-21 v2: ...mcknight v. kling. john j. haberstroh, for plaintiff; robert a. henderson, for defendant. july 17, 1930. patterson, p. j., this is a rule to show cause why a ju...
+
+### Opinion text
+
+  
+    McKnight v. Kling.
+
+    
+      John J. Haberstroh, for plaintiff; Robert A. Henderson, for defendant.
+
+    July 17, 1930.
+
+  
+
+  
+    Patterson, P. J.,
+
+    This is a rule to show cause why a judgment to No. 163, January Term, 1929, in the Court of Common Pleas of Blair County, wherein C. C. McKnight is plaintiff and William Kling, Sr., is defendant, should not be opened and defendant allowed to put in his defense.
+
+    On January 20, 1928, the parties plaintiff and defendant entered into a written lease agreement for certain premises known as Cross Keys Inn, situate in the Township of Allegheny, County of Blair and State of Pennsylvania, for a term of one year at a rental of $780, payable at the rate of $65 per month. The defendant occupied the premises until some time early in the following year, 1929, when he was prosecuted for violating the liquor law and committed other acts which the plaintiff alleges were contrary to the terms of the lease and in effect a forfeiture of the same. On February 6, A929, plaintiff, through his counsel, confessed judgment to the above stated number and term for rent in the sum of $477, being the amount due for the full term of the lease from October 20, 1928, to the end thereof, averring that this amount is due as a result of the breach of contract on the part of defendant. Defendant, however, contends that he owed rent amounting to $152 on January 21, 1929. On January 19th he received a notice from plaintiff to vacate and remove from said premises within ten days thereafter, and on the following day and pursuant to said notice he withdrew from said premises and was, therefore, relieved from the payment of rent on and after that date. ■
+
+    The testimony on the part of the plaintiff is to the effect that defendant had removed his goods and vacated the premises with the exceptions of several items of personal property on January 17th, or two days before receiving the notice from plaintiff. The plaintiff testifies that he did not get possession until June 20, 1929, and that judgment was entered for the amount due to that date.
+
+    The lessor will not be permitted to terminate a lease and collect rent for the full term. Neither can a tenant by his unlawful acts work a forfeiture and escape liability for the rent for the full term. It is an undisputed fact that this lease was terminated, either by defendant or plaintiff or by both parties. The judgment should be opened and defendant allowed to put in his defense and the questions at issue between the parties shall be:
+
+    (1) Did the lessee, by his unlawful acts, forfeit his right to the premises and make himself liable for the rent for the unexpired term of the lease?
+
+    (2) Did the lessor, by serving notice on lessee on January 19, 1929, terminate the lease as of that date and thereby bar his right to recover rent after January 21, 1929, or did he have a right to serve the notice to quit and collect the amount of rent due for the unexpired term of the lease?
+
+    (3) Did both parties to this lease terminate the same, and if so, what day was such termination effective?
+
+    (4) ' What rent is now due and unpaid, if any?
+
+    Rule to open judgment is hereby made absolute, and defendant allowed to put in his defense in accordance with the prayer of the petition. No other pleadings to be filed, and the cause to be tried upon the petition and answer as though a statement of claim and affidavit of defense had been filed.
+
+    Prom Robert W. Smith, Hollidaysburg, Pa. '
+
+  
+
+
+
+
+## case_id 1501641 — Timinski v. Meskinis, 16 Pa. D. & C. 635 (Luzerne County Court of Common Pleas, Pa. 1931)
+Retrieval provenance:
+  - embed-short-letting-23 v1: ... outside this commonwealth involving the interpretation of the latter term that residence in the county is the essential qualification, in others that it is the...
+  - embed-householder-letting-21 v2: ... outside this commonwealth involving the interpretation of the latter term that residence in the county is the essential qualification, in others that it is the...
+
+### Opinion text
+
+  
+    Timinski et ux. v. Meskinis et ux.
+
+    
+      Albert B. Carozza, for plaintiffs; Leo B. White, for defendants.
+
+    April 27, 1931.
+
+  
+
+  
+    Coughlin, J.,
+
+    — On February 18, 1931, a capias was issued against Anthony Meskinis in the aforesaid action of trespass for wilful and malicious arrest. Anthony Meskinis furnished a capias bond February 20, 1931, in the sum of $1000.
+
+    On March 7, 1931, a rule was granted upon Stanley and Nellie Timinski, plaintiffs, to show cause why the capias issued should not be abated. A rule to abate capias raises the question as to whether the defendant is a freeholder. The defendant and his wife jointly own real estate in the county by virtue of a deed to them dated August 5, 1926. They, therefore, hold an estate by entireties, such an estate being one conveyed to two persons, they being, at the time, husband and wife. It is an interest held by a husband and wife together so long as both live and, after the death of either, by the survivor so long as the estate lasts: Gasner v. Pierce et al., 286 Pa. 529. The property is jointly vested in them. Neither can dispose of their rights therein without the other joining: Beihl v. Martin, 236 Pa. 519. Each has a right to the present enjoyment of it: Meyers Estate (No. 1), 232 Pa. 89.
+
+    Defendant is a freeholder entitling him to exemption. from arrest on a capias ad respondendum in a civil action, if he is a freeholder within the meaning of the Act of March 20, 1725, 1 Sm. Laws 164, section 1. At common law, an estate of freehold liberum tenementum, a frank tenement, is defined to be the possession of the soil by a freeman. At common law, he who has the actual possession of land for life or a greater estate is a freeholder: Mountville Borough, 31 Pa. Superior Ct. 18; Clippinger v. Creps, 2 Watts 45. He who holds and not he who will hold an estate is a freeholder.
+
+    The Act of March 20, 1725, 1 Sm. Laws 164, section 1, provides that no freeholder shall be arrested or detained in prison by any writ of arrest or capias ad respondendum in any civil action. The act defines the freeholder who is thus exempt as one “who hath resided therein [in the state] for the space of two years, and has fifty acres of land, or more, in fee-simple, well seated, and twelve acres thereof, or more, well cleared or improved, or hath a dwelling-house worth fifty pounds current money of America, in some city or township within this province, clear estate, or hath unimproved land to the value of fifty pounds like money.” The only question here involved is whether the husband, as a tenant by the entirety, can be counted a freeholder. Diligence of counsel and of the court has failed to find any case in which the courts of this state have held that a tenant by the entirety is or is not a freeholder.
+
+    As stated by Judge Rice, in considering the qualifications of appraisers in distress for rent, and the law providing that they should be reputable freeholders: “An examination of the decisions defining the terms ‘freeholder,’ and ‘freeholder of the county,’ shows that the meaning to be ascribed to them in the construction of statutes depends to some extent on the context, and the purpose for which the qualification is prescribed. For example, having regard to these considerations, it has been held in some cases outside this commonwealth involving the interpretation of the latter term that residence in the county is the essential qualification, in others that it is the ownership of a freehold situate in the county. So in interpreting the term ‘freeholder’ in the section of the Act of March 20,1810, 5 Sm. Laws 161, relating to stay of execution it was held in Clippinger v. Creps, 2 Watts 45, that it was to be presumed that the legislature intended it to be understood as it was defined in the earlier act of 1725. ‘When a subsequent act,’ said Rogers, J., ‘dispenses with bail from a freeholder, which it exacts from others, we are to take it that the legislature has reference to freeholders as understood in the statute:’ ” Singer Sewing Machine Co. v. Follett, 30 Pa. Superior Ct. 429;
+
+    While it has been held that a tenancy by the entirety constitutes a freeholder under certain statutes: Village of Holcomb, in Ontario County, 162 N. Y. Supp. 848; and residence has been held sufficient under other statutes: Singer Sewing Machine Co. v. Follett, 39 Pa. Superior Ct. 429; the Act of 1725 defines the freeholder who is exempt, and an estate by the entireties does not bring one within its provisions.
+
+    Rule to show cause why the capias issued should not be abated is denied.
+
+    Prom Prank P. Slattery, Wilkes-Barre, Pa.
+
+  
+
+
+
+
+## case_id 1538053 — Dubin v. City of Philadelphia, 34 Pa. D. & C. 61 (Philadelphia County Court of Common Pleas, Pa. 1938)
+Retrieval provenance:
+  - embed-short-letting-23 v1: ...gagor is the owner, even of the legal title: bulger v. wilderman et al., supra, and cases cited. if the instant proceedings were between mortgagor and mortgagee...
+  - embed-householder-letting-21 v2: ...gagor is the owner, even of the legal title: bulger v. wilderman et al., supra, and cases cited. if the instant proceedings were between mortgagor and mortgagee...
+
+### Opinion text
+
+  
+    Dubin v. City of Philadelphia et al.
+
+    
+      
+      Morris B. Levitt, for plaintiff.
+
+    
+      Joseph Sharfsin, city solicitor, and John J. K. Caskie and Israel K. Levy, assistant city solicitors, for defendant.
+
+    
+      Ulysses S. Koons, for additional defendant.
+
+    September 16, 1938.
+
+  
+
+  
+    Bok, P. J.,
+
+    Plaintiff sued the city for damages when she fell on a broken sidewalk. The city has joined Mabel G. Lesher, additional defendant, by scire facias proceedings, alleging that she “owned and controlled the abutting property, and therefore was primarily responsible.” She lives in New Jersey, and the writ was served on her by substituted service under the Act of July 2, 1937, P. L. 2747, 12 PS §331. This reads as follows:
+
+    “That, from and after the passage of this act, any nonresident of this Commonwealth being the owner, tenant, or user, of real estate located within the Commonwealth of Pennsylvania, and the footways and curbs adjacent thereto, or any such resident of this Commonwealth who shall subsequently become a nonresident, shall, by the ownership, possession, occupancy, control, maintenance, and use, of such real estate, footways, and curbs, make and constitute the Secretary of the Commonwealth of Pennsylvania his, her, its, or their agent for the service of process in any civil action or proceedings instituted in the courts of the Commonwealth of Pennsylvania against such owner, tenant, or user of such real estate, footways, and curbs, arising out of or by reason of any accident or injury occurring within the Commonwealth in which such real estate, footways, and curbs are involved.
+
+    “Section 2. Such process shall be served, by the officer to whom the same shall be directed, upon the Secretary of the Commonwealth of Pennsylvania, by sending by registered mail, postage prepaid, at least fifteen (15) days before the return day of such process, a true and attested copy thereof, and by sending to the defendant, by registered mail, postage prepaid, a like true and attested copy, with an endorsement thereon of the service upon said Secretary of the Commonwealth, addressed to such defendant at his last known address. The registered mail return receipts of the Secretary of the Commonwealth and of such defendant shall be attached to and made a part of the return of service of such process.
+
+    “Section 4. The court in which the action is pending may order such continuances as may be necessary to afford the defendant reasonable opportunity to appear and defend the action.”
+
+    The additional defendant appears de bene esse, saying that she is a mortgagee in possession, and asking us to set aside the serviceJEot1 two'reasons: (1) The Act of 1937 is unconstitutional; (2) even if it is constitutional, it does not include mortgagees in possession. I will consider these in order.
+
+    I
+
+    T.Mrs. Lesher asserts that she is being denied due process of law because a tort action is in personam and must come to her if she is to answer at all. Certainly the law is that personal service within the jurisdiction must generally be had in personal actions: Pennoyer v. Neff, 95 U. S. 714 (1877); Huntingdon v. Supreme Commandery, etc., 261 Pa. 168 (1918). This is the common law, and statutes which derogate it must be construed strictly: Williams et ux. v. Meredith, 326 Pa. 570 (1937).
+
+    There is now a well-settled exception to this rule. In motor vehicle cases, a nonresident defendant can be reached by constructive service, and this procedure is upheld as a proper exercise of police power: Hess v. Pawloski, 274 U. S. 352 (1927); Vaughn v. Love et al., 324 Pa. 276, 281 n. 4 (1936); Wax v. Van Marter, 124 Pa. Superior Ct. 573 (1937); see Culp, Process in Actions Against Non-Resident Motorists, 32 Mich. L. R. 325 (1932). This constructive service takes the form of serving the writ upon the Secretary of the Commonwealth, whose appointment as defendant’s agent follows automatically from defendant’s use of the State highways. Provided means are employed to insure actual notice to the nonresident defendant of such service (Wuchter v. Pizzutti, 276 U. S. 13 (1928)), it is upheld as a valid service within the State upon defendant’s agent.
+
+    The authority for such constructive service in automobile cases appears in the Act of May 14,1929, P. L. 1721, sec. 1, as amended by the Act of April 24, 1931, P. L. 50, 75 PS §1201.
+
+    ' jf^The Act of 1937, involved in the instant case, provides the same method of service as in the automobile cases just discussed. The precise question before me is whether the legal philosophy which supports the one should also support the other. The case is apparently one of first impression, here or elsewhere.
+
+    I think the act must be upheld. This creates another exception to the rule of personal service in personal actions. Modern life is breaking down State barriers, and as it becomes easier to travel, or to do business, or to own property in other States, one must also expect the obligations arising out of such activities to follow more easily. It is just as important that nonresident owners of Philadelphia real estate should keep their property in such shape as not to injure our citizens as it is that nonresident owners of cars should drive about our streets with equal care. It is only a short step beyond this to assert that defendants in both classes of cases should be answerable in this forum. If it be argued that it would be unfair to make Philadelphians chase car owners to distant States in order to sue them, whereas Philadelphians who fall on streets can stay here and sue the city, the answer is that they are interested as taxpayers in preventing the expense incident upon the city’s bringing^ suit against foreign property owners in foreign forums. (■ f ;
+
+    The additional defendant seeks to distinguish this case from the automobile cases by saying that here plaintiff and the city have the owners and tenants of the building to fall back on. The record is devoid of any such facts. Although the city has also brought in other additional defendants who “controlled, possessed and had the right to possession of the property”, I cannot tell whether this building is occupied or vacant. A vacant building would force the city abroad to find the owners and recoup a judgment against it.
+
+    Owners are primarily liable: Philadelphia v. Reading Co., 295 Pa. 183 (1929) ; Philadelphia v. Merchant & Evans Co., 296 Pa. 126 (1929); Bruder v. Philadelphia et al., 302 Pa. 378 (1931). The sidewalk is part of the highway which the public has the right to use; McLaughlin v. Kelly, 230 Pa. 251 (1911). Abutting owners owe definite duties to the public using the sidewalk, as to repair (Fisher et ux. v. City of Philadelphia, 112 Pa. Superior Ct. 226 (1934)), to pay for the laying of the pavement (Philadelphia v. Pennsylvania Hospital, 143 Pa. 367 (1891)), and to remove obstructions (Brown v. White, 202 Pa. 297 (1902)). Owners of real estate are subject to reasonable governmental regulation in the interests of the health, safety, morals, and general welfare of the community in which the property- is located: White’s Appeal, 287 Pa. 259 (1926); Perrin’s Appeal, 305 Pa. 42 (1931); Farmers-Kissinger Market House Co., Inc., v. Reading et al., 310 Pa. 493 (1933).
+
+    The State may lawfully impose conditions upon nonresidents prerequisite to doing business here, such as requiring thereto appoint an agent for the service of process: Stoner v. Higginson et al., 316 Pa. 481 (1934); Doherty & Co. v. Goodman, 294 U. S. 623 (1935). I regard the legislation before me as a reasonable procedural requirement of a nonresident who elects to own or hold mortgages upon real estate here. It does not-affect such owner’s rights but only regulates the procedure by which he must meet existing obligations. As Mr. Justice Brandeis said in Kane v. State of New Jersey, 242 U. S. 160, 167 (1916) :
+
+    “There is nothing to show that the requirement is unduly burdensome in practice. It is not a discrimination against nonresidents, denying them equal protection of the law. On the contrary, it puts nonresident owners upon an equality with resident owners.”
+
+    I therefore hold the act to be constitutionally
+
+    II.
+
+    The additional defendant contends that the act cannot apply to mortgagees in possession.
+
+    This point is confusing because her status as mortgagee in possession affects both the question of her liability in the action and the question of the validity of the service. As to her liability, I express no opinion, for that must await the trial. As to the jurisdictional point, the case is properly before me in limine: Snyder et al. v. McCanless, 23 D. & C. 551 (1935).
+
+    In Sansotta v. Pittsburgh et al., 330 Pa. 199 (1938), the court held that a mortgagee in possession may or may not be liable, depending on the facts, and .that a scire facias which averred liability merely because the additional defendant was a mortgagee in possession was defective.
+
+    Here the scire facias avers that Mrs. Leshner “owned and controlled” the property and therefore was primarily responsible. In her petition, she denies that she was an “owner, tenant, or user”,' fails to deny that she “controlled” the property, and merely avers that she was the mortgagee in possession.
+
+    I view her allegation as a conclusion and, therefore, insufficient to avoid the service. It may refer to a factual situation where the possession is actual, as in the case of physical occupancy and management, or it may refer to the legalistic “right to possession” which inures to the mortgagee at the moment of executing the mortgage: Fluck v. Replogle, 13 Pa. 405 (1850); Bulger v. Wilderman et al., 101 Pa. Superior Ct. 168 (1931).
+
+    I think it is fruitless at this stage of the proceedings to consider whether the meanings of the word “user” include “possession” and “right to possession”. Between the mortgagor and mortgagee, a mortgage is a conveyance of title to the extent necessary to make it the effective security of a debt, and the mortgagee’s right to possession inures at the moment of executing the instrument. Between the mortgagee and outsiders, however, a mortgage is merely the security for a debt, and the mortgagor is the owner, even of the legal title: Bulger v. Wilderman et al., supra, and cases cited. If the instant proceedings were between mortgagor and mortgagee, Mrs. Lesher’s tenure, as mortgagee in possession or mortgagee with right to possession, would be a limited but substantial estate in the land. She could assert it by entry, by ejectment, or by notice to the tenants to pay the rent to her. Since the suit is between her, as mortgagee,, and the city, as a third party, the incidents of her tenure are very different. So far as the city is concerned her tenure does not exist until she has converted her right to> possession into some form of actual possession: her mere right, unexercised, gives the city no hold on her what-, ever, jurisdictionally or substantively.
+
+    A mortgage, therefore, has two faces, like Janus, one for the mortgagor and another for third parties. It follows that whether a mortgagee is “using” the property depends very much on what face one is looking at, and on what the mortgagee is talking about. Despite the activity implied in the word “user” and the passivity implied in the word “possession”, it may be that legalistically the two are synonymous: my purchase and consequent possession of land would be a use of it even if I never went near the place. That is not the point. A mortgagee’s! “right to possession” of the property means nothing to a third party. Only actual possession has any significance, and that requires the mortgagee’s overt act.
+
+    For all I know, Mrs. Lesher is talking mortgagor-mortgagee language and referring to her right to possession only. If so, it has no meaning for the city. If she has done an overt act and her possession is actual, she may well be a “user”, so far as the city is concerned. The phrase “mortgagee in possession” sheds no light. It is at best a conclusion and therefore insufficient pleading: it is no pleading at all if it be considered as a legal conclusion, and it is ambiguous if it be considered as a conclusion of fact. I believe this to be in line with the decision in Sansotta v. Pittsburgh et ah, supra, where the court said:
+
+    “. . . there would have to be more set forth in the scire facias to make out a prima facie case against the additional defendant other than merely that he was mortgagee in possession. The scire facias was defective on its face, so far as importing liability upon Stoner is concerned and therefore was properly quashed.
+
+    “We do not mean to say that there can be no liability on the part of mortgagees in possession of property: Fuller v. French, 51 Mass. 359; Ferman v. Lombard Investment Co., 56 Minn. 166, 57 N. W. 309; 41 C. J., Sec. 581. Under circumstances where a mortgagee is in actual control and possession, there may well be, but facts showing this or other necessary requirements must appear in the pleading, otherwise it is demurrable.”
+
+    It might also be pointed out that the word “tenant” carries a destiny of its own. In 2 Blackstone’s Commentaries (Lewis’ ed. 1897) 623, sec. 158, the following appears:
+
+    “But, so long as it [i. e. the mortgagee’s estate] continues conditional, that is, between the time of lending the money and the time allotted for payment, the mortgagee is called tenant in mortgage”: (Italics supplied), citing 2 Coke upon Littleton, sec. 332.
+
+    
+      See also Myers et al. v. White, 1 Rawle 353, 355 (1829), where Justice Rogers said: “The mortgagee is entitled to an estate in the land as tenant in mortgage, in fee, or for a term of years, as the case may be,” (Italics supplied). This case is cited in Abraham Rosenblatt B. & L. Assn. v. Miller et al., 13 D. & C. 73, 75 (Phila., 1930), where the term “tenant in fee” appears in the syllabus, and in Bulger v. Wilderman et al., supra, at page 172. Compare also the current use of the term “terre-tenant”.
+
+    In sum, I cannot decide whether a “mortgagee in possession” is a “user” without knowing more about the character of the possession. The case will present a clearer issue on appeal if Mrs. Lesher will amplify her petition in this particular and give me a basis for decision. Leave is hereby given her to do so within 15 days. If she does not care to do so, her rule to set aside the service and quash the writ of scire facias is discharged.
+
+    Bok, P. J.,
+
+    December 9, 1938. — Mabel G. Lesher, the additional defendant, has filed a supplemental petition to set aside the service on her. In it she sets forth certain facts to explain what sort of “mortgagee in possession” she is.
+
+    These facts show that she has never been physically on the mortgaged premises and has not exercised actual possession of it; that she has been collecting rents for several years because of the mortgagor’s default in payment of interest and taxes; that she has applied the rents to the payment of city taxes and water rents; that the property has been occupied continuously since before the accident by tenants under lease from her, and she attaches a copy of that lease; and that the pavement was in good condition when the lease was executed.
+
+    It may be that Mrs. Lesher can avoid liability because & Evans Co., 296 Pa. 126 (1929). That is not for my possession is primarily liable: Philadelphia v. Merchant of this lease. Generally, the tenant or occupier in actual consideration now, as I cannot pass upon questions of fact, in a preliminary proceeding, which are properly for a jury at the trial: Lackawanna County v. James et al., 296 Pa. 225 (1929); Koontz v. Messer et al., 314 Pa. 434 (1934); Lewis v. Beatty, 306 Pa. 242 (1932).
+
+    It seems unfair to bring a nonresident into this forum in face of a state of pleaded facts which, if established in the absence of any countervailing facts that the city may have, would automatically relieve her of liability at the trial. She has pleaded a lease to the same persons whom the city has already brought on the record as additional defendants, saying that they “controlled, possessed, and had the right of possession” of the property. Even from this meagre pleading, it looks as though the city knows about the lease and is doing a useless thing in joining Mrs. Lesher. It would be better if the city did not use its power under the act to annoy nonresidents needlessly, or if the act were so drawn as to prevent its doing so. While the court has nothing to do with these considerations, they are mentioned because this proceeding has all the earmarks of a test case.
+
+    The precise question now is whether Mrs. Lesher is a “user” of the property. The city does not pretend that she is either an “owner” or a “tenant”. I hold that she is a “user”. While her use is not based on possessio pedis, it is shown by her collecting rents, by her using them to pay city taxes and water rents, and by her leasing the property to the present tenants. This, in my opinion, is an active exercise of the “right to possession” which inured in her when the mortgage was executed.
+
+    It is not every use that will justify the city in proceeding under the act. The use of property by a trespasser, being without right, would not do so; nor would its use as a permissive crossing, since the users would have no interest in the property. The same can be said of certain kinds of easements, such as the right of a telephone company to maintain its poles on the property. And so of guests, invitees, and licensees. None of these “possesses” the property, with right to do so. “Use” must stem from some form of rightful possession, which contemplates some of the perquisites of ownership or control, even if temporary.
+
+    Mrs. Lesher, as mortgagee, does “possess”, in this sense, particularly as she has exercised her right after default. She collected rents and leased the property, both acts of dominion under sanction óf law.
+
+    The duty of a mortgagee in possession is that of a “provident owner”, with obligations analogous to those of a trustee: Integrity Trust Co. v. St. Rita B. & L. Assn., 112 Pa. Superior Ct. 343 (1934).
+
+    In Tryon et al. v. Munson et al., 77 Pa. 250 (1875), the court, by Mr. Chief Justice Agnew, said (p. 262) :
+
+    “The mortgage passes to the mortgagee the title and right of possession to hold till payment shall be made. He may, therefore, enter at pleasure, and take actual possession — use the land and reap its profits. Now this title or lawful right to possess, and actual pedis possessio, are not ideal or contemplative merely, but are real and tangible. True, the right is conditional, and will cease on payment of the debt; but until the condition is performed, the title and possession are as substantial and real as though they were absolute. The evidence of this is that the mortgagee may dispossess and hold out the mortgagor until he performs the condition, or until the perception of the profits reaches the same result. Thus we perceive an interest or estate in the land itself, capable of enjoyment, and enabling the mortgagor to grasp and hold it actually, and not a mere lien or potentiality, to follow it by legal process and condemn it for payment. The land passes to the mortgagee by the act of the party himself, and needs no legal remedy to enforce the right.”
+
+    In Bulger v. Wilderman et al., 101 Pa. Superior Ct. 168 (1931), the court said, at page 176:
+
+    “. . . the weight of authority seems to be that the equivalent of entry may be obtained by the mortgagee making demand on the tenants for the rent”.
+
+    
+      This is what Mrs. Lesher says she did. Her collecting the rent is, therefore, the same as though she took actual physical possession.
+
+    That such possession is a use seems clear. In Philadelphia v. Merchant & Evans Co., supra, the court said: “In general ‘use’ has been defined as ‘the right to enjoy, hold or occupy and have the fruits thereof.’ If the thing used is in the form of real estate, the ‘use’ includes the occupancy or cultivation, or the rent which can be obtained therefrom”. See also Commonwealth v. Stofchek, 322 Pa. 513 (1936).
+
+    The rule is discharged.
+
+  
+
+
+
+
+## case_id 1567333 — Bidzila v. McGibbeny, 58 Pa. D. & C. 10 (Washington County Court of Common Pleas, Pa. 1946)
+Retrieval provenance:
+  - embed-short-letting-23 v1: ... who leases all or part of rented premises from an original lessee for a term less than that held by the original lessee, and "subletting" is where lessee demis...
+  - embed-householder-letting-21 v2: ... who leases all or part of rented premises from an original lessee for a term less than that held by the original lessee, and "subletting" is where lessee demis...
+
+### Opinion text
+
+  
+    Bidzila et ux. v. McGibbeny et ux.
+
+    
+      Stahlman & Carson, for petitioners.
+
+    
+      P. V. Marino, for defendants.
+
+    October 16, 1946.
+
+  
+
+  
+    Cummins, J.,
+
+    On May 6, 1946, petitioners made an agreement with James Wilbur Nelson to purchase certain premises located at 441 Carson Street, Monongahela, Washington County, Pa., and petitioners did, on May 8, 1946, make such a purchase and said property was conveyed to petitioners by deed which is of record in the recorder’s office of Washington County, Pa., in Deed Book, vol. 707, page 626.
+
+    Defendants herein occupy said premises by virtue of an article of agreement with one James Wilbur Nelson, dated May 10, 1938. The rights of said James Wilbur Nelson, assignor to plaintiffs herein, were assigned to petitioners by an assignment attached to said article of agreement, dated May 15, 1946.
+
+    There was contained in said article of agreement a covenant which reads as follows:
+
+    “In consideration whereof, the tenant covenants to pay his rent in monthly installments, without demand in advance . . to remove no additions . . .; nor sublet the same or any part thereof . . . without the written consent of the lessor, under penalty of instant forfeiture of this lease . . .”
+
+    Another provision in the article of agreement provides for certain procedure to be followed by plaintiffs in case of any default in the payment of rent by tenant under said lease or on any and every breach of covenant or agreement by tenant. Plaintiffs claim in their petition that defendants underlet these premises and did not pay their rent in advance, and that these constituted a breach of covenant and they ask that judgment in ejectment be entered and that a writ of hab. fa. with fi. fa. for rent due and costs, be issued upon the confession of judgment referred to in their petition.
+
+    Plaintiffs, according to their petition, claim that they have complied with all the requirements of the regulations of the Office of Price Administration relating to eviction.
+
+    Defendants filed their answer to this petition, denying certain material allegations, and in particular denying that there was any breach of covenant of the lease in that they had underlet said premises or failed to pay the rent in advance, saying that the rent was offered by them, but the same was refused by plaintiffs. It is denied further by defendants that plaintiffs complied with all the regulations of the Office of Price Administration relating to evictions. Defendants have asked that plaintiffs’ petition be dismissed at the cost of plaintiffs.
+
+    The sole question to be decided by the court under all the testimony and the pleadings in this case is: “Was there a subletting of the premises in question on the part of defendants?”
+
+    The definition of the term “subletting” is found to be: “A lease by a tenant or lessee to another person of part or all of the leased premises.”
+
+    
+      In Bowling v. Garber, 250 Ky. 137, 61 S. W. (2d) 1102, “subletting” was defined as a grant of portion of term with some reversionary interest in sublessor.
+
+    The test whether a transaction constitutes “assignment of a lease” or “subletting” is: If tenant parts with the entire term of his lease, it is an assignment; but when the tenant, by terms, conditions or limitations in the instrument, does not part with the entire term, so that there remains in him a reversionary interest, it is a “subletting”: Davis v. First National Bank of El Paso, 258 S. W. 241, 242 (Texas).
+
+    In Elliott v. Dodson et al., 297 S. W. 520, 522 (Texas), “subtenant” was held to be one who leases all or part of rented premises from an original lessee for a term less than that held by the original lessee, and “subletting” is where lessee demises the whole or a part of premises for a portion of the unexpired term. See also Beall v. Everson, 34 A. (2d) 41 (D. C.), and Grassham v. Robertson et al., 277 Ky. 605, 126 S. W.(2d) 1063, 1064.
+
+    In the case at bar, briefly, plaintiffs claim that defendants permitted a son-in-law to live with them after his marriage to the daughter, who was a member of the original household, and that this constituted a subletting.
+
+    The testimony of the defense shows that the son-in-law stayed with his wife after their marriage, from on or about May 10, 1946, to August 15, 1946, and that following that he came to the home on weekends.
+
+    This temporary change in the original household of defendants cannot be considered under the law as it now stands to be a subletting.
+
+    Therefore, we make the following
+
+    
+      Order
+    
+
+    And now, October 16, 1946, the petition of plaintiffs is hereby dismissed at the cost of plaintiffs.
+
+  
+
+
+
+
+## case_id 1603597 — Driebe v. Davis, 86 Pa. D. & C. 552 (Pennsylvania Court of Common Pleas, Pa. 1953)
+Retrieval provenance:
+  - embed-short-letting-23 v1: ... are turned here, the landlord attempting to enforce, rather than resist, the holdover renewal, but the principle must be the same for both parties. we hold, th...
+  - embed-householder-letting-21 v2: ... are turned here, the landlord attempting to enforce, rather than resist, the holdover renewal, but the principle must be the same for both parties. we hold, th...
+
+### Opinion text
+
+  
+    Driebe v. Davis et al.
+
+    
+      Philip V. Mattes and Roger Mattes, for plaintiff.
+
+    
+      John P. Mahon and Ellis Berger, for defendants.
+
+    October 28, 1953.
+
+  
+
+  
+    Hoban, P. J.,
+
+    This is a petition for declaratory judgment. The facts are stipulated.
+
+    Driebe demised premises in Scranton to defendants for commercial purposes for a term of five years from March 1, 1948. Inserted in the lease after the description was this clause:
+
+    “Lessee to have privilege of renewal for five additional years at same rent upon giving 90 days written notice to Lessor prior to expiration of the term.”
+
+    The familiar clause authorizing lessor to hold the tenant to a renewal for a similar term in the event of the lessee holding over past the term as it appeared in the printed lease used, was stricken from the lease before execution.
+
+    Defendants did not give any notice whatever, written or oral, to plaintiff of intention to renew prior to the expiration of the term. Defendants, however, continued in possession after March 1, 1953, and have paid to plaintiff monthly installments of rent at the rate provided in the lease, which payments were received by plaintiff without comment.
+
+    On April 30, 1953, defendants through their lawyer informed plaintiff that they intended to surrender possession of the premises to plaintiff on May 31, 1953. This notice concluded with this: “This 30-day notice is being given to you in accordance with the month-to-month occupancy of said premises by my clients.”
+
+    Plaintiff’s lawyer promptly replied to the notice of intent to surrender, rejected the month-to-month theory, asserted that the current leasehold now runs to March 1, 1958, and suggested that if defendants wanted an earlier termination they should negotiate with plaintiff for that purpose.
+
+    In the petition for declaratory judgment plaintiff states that he “claims no right of option to regard defendants either as trespassers or as tenants from year to year.” The petition seeks to have the court declare whether under the written instrument and the facts and circumstances recited defendants now hold the premises as tenants from month to month, or whether defendants are bound to a renewed term of five years from March 1, 1953. Defendants have joined in the petition for declaratory judgment upon the terms as stated.
+
+    The case seems to be an appropriate one for declaratory judgment and we so accept it.
+
+    The intention of the parties must be gathered from the lease, which in this case is the only instrument governing the relationship between the parties. Examining the lease we find that the parties at execution expressly eliminated from the lease any form of lessor’s option to be exercised at the end of the term. Not considering for the minute any obligation to lessor created by the option reserved to lessee, the landlord finds himself with nothing reserved but the right to have his rent paid in full and to regain possession at the end of the term. For we know of no case in which a landlord enforced a renewal of a lease for a period of more than a year where an option was not reserved to the landlord expressly or by necessary implication, and the circumstances indicated an effective exercise of that option, very often by implication through acquiescence in a holding over.
+
+    If otherwise the landlord has no option to enforce a renewal by holdover, does the privilege reserved to the tenant to renew upon written notice create an option to the landlord by mere holding over without such notice? To read such an implication into the words of this lease would be to strain the meaning of English words. In a case where the tenant attempted to claim a holdover renewal on a similar clause, our Supreme Court held the mere holding over by the tenant will not be considered an exercise of the option of renewal of the term for the period specified in the option, when the option called for its exercise by formal notice: Murtland v. English, 214 Pa. 325. See also Grothe v. Mehring, 44 York 205. The tables are turned here, the landlord attempting to enforce, rather than resist, the holdover renewal, but the principle must be the same for both parties.
+
+    We hold, therefore, that the option in this lease running in favor of the tenant and requiring positive action to exercise it created no right in favor of the landlord, since he has failed to reserve to himself any holdover rights in any form. There is nothing in the case to indicate any effort by the tenant to give notice to renew other than as provided by the option, such as informal statements of intention. As stated in the petition, the tenants gave no notice whatever that they desired to renew the lease.
+
+    
+      In the absence of any right reserved to the landlord to declare a holdover renewal, and upon an unauthorized holding over by the tenant, the landlord would have the right to declare the tenant a trespasser, hold him to a lease for a year, or hold him to a monthly tenancy. The acceptance of rent without protest would seem to preclude treating the tenants as trespassers. In any event, plaintiff in the petition for declaratory judgment disclaims any intent to hold defendants as trespassers or to a lease for a year. His remaining option, therefore, is to hold defendants to a month-to-month tenancy.
+
+    Judgment, therefore, is declared as follows:
+
+    Now, October 28, 1953, upon considering the petition for declaratory judgment, the joinder therein and the terms of the lease entered into between plaintiff as lessor and defendants as lessees, dated February 18, 1948, it is hereby adjudged: That from and after March 1, 1953, defendants hold of plaintiff the premises at 210 North Main Avenue in the City of Scranton, as described in the lease, as tenants from month to month.
+
+  
+
+
+
+
+## case_id 1636517 — Harris v. Greenberg, 17 Pa. D. & C.2d 166 (Philadelphia County Court of Common Pleas, Pa. 1958)
+Retrieval provenance:
+  - roomers-boarders-14 v1: ...et . . . any . . . rooming unit which does not comply with the following minimum standards for light. . . . "(g) every public hall and stairway in every two-fam...
+  - sro-35 v1: ...e code of general ordinances of the city of philadelphia. this code was enacted "to protect the public health, safety and welfare": §7-101. it provides that "no...
+
+### Opinion text
+
+  
+    Harris v. Greenberg
+
+    
+      Norris, Schmidt, Green, Harris & Higginbotham, for plaintiff.
+
+    
+      Ambler & Detweiler, for defendant.
+
+    September 30, 1958.
+
+  
+
+  
+    Flood, J.,
+
+    The complaint asks damages for injuries sustained by plaintiff as a result of defendant’s negligence in allowing the existence of a dangerous and defective condition of stairs and lighting system in an apartment house owned and operated by defendant in which plaintiff was a tenant. Defendant set up as new matter that the lease entered into by the parties released the lessor “from all liability by reason of any damage ... to lessee . . . which may arise from . . . the use . . . of . . . any . . . stairways . . . or . . . from . . . defective . . . light” as well as a number of other defective condtions. Plaintiff 'delayed for a long time before filing a reply to this new matter. When he did file it, his reply was found insufficient by Judge Bok who gave him the right to amend within 20 days. No amendment was filed within this period. Shortly before the end of this period counsel for plaintiff called counsel for defendant who agreed to give him an extension of two weeks. However, no reply was filed within six weeks thereafter and defendant then filed this motion for judgment on the pleadings which was followed the next day by an amended reply by plaintiff.
+
+    1. It is quite obvious that this reply came too late and there is inadequate excuse given for the delay. There is nothing to show that defendant’s counsel agreed to wait beyond the two weeks, unless it is to be inferred from plaintiff’s counsel’s letter stating his understanding that he would be given “a reasonable time” to file his reply, but also expressing “trust that this will be filed in less than two weeks.” Defendant did actually wait almost six weeks.
+
+    Plaintiff had no right to expect further indulgence. In any event the agreement is a verbal agreement and the court cannot recognize it. Pa. R. C. P. 201 requires all agreements of attorneys relating to court business to be in writing unless made at the bar and noted in the prothonotary’s office or upon the notes of the court stenographer. The rule is mandatory and should be strictly enforced. A court of common pleas has no right to waive compliance with Procedural Rules adopted by the Supreme Court. Strict adherence to this rule is important because otherwise the court would be compelled to go into a collateral issue as to whether the alleged oral agreement of counsel was made and enter upon a separate subtrial in which the parties would not be the original parties but their counsel.
+
+    It appears to us particularly important that an amended pleading should be filed within the time allowed by the court if we are to make any progress toward the ideal set up in Pa. R. C. P. 126 of securing a just, speedy and inexpensive determination of any action or proceeding to which the rules are applicable. Certainly the rules are not to be liberally construed in a way the plaintiff here suggests to thwart this ideal. It is to be noted that a party who files a pleading, other than a preliminary objection, to which preliminary objections are sustained, has no absolute right to file an amended pleading unless allowed or required by the court. Even though the Supreme Court has said that such amendment should generally be allowed if it appears that the party’s substantive position is meritorious, yet the court, in allowing the amendment, must fix the time within which the amended pleading shall be filed. If the spirit of the rules as set forth in Pa. R. C. P. 126 is to be observed, the court would be justified in requiring an amended pleading to be filed in less than 20 days thereafter and should rarely, if ever, allow a longer period. It should be similarly unwilling to permit extensions of the period fixed for the filing of the amended pleadings.
+
+    2. This does not mean, however, that we may grant defendant’s motion on the pleadings. One of the averments of the amended reply is that the agreement in the lease which defendant has pleaded is contrary to public policy and void. In this we believe that plaintiff stands upon good ground: Boyd v. Smith, 372 Pa. 306 (1953). In that case the provision in the lease relieving the landlord of his responsibility for fire hazards was held void because it was contrary to public policy as set forth in a statute intended “To protect the public health and safety”: Boyd v. Smith, supra, 310. We feel that the provision here relied upon is equally illegal and unenforceable because it is contrary to the public policy enunciated in the Philadelphia Housing Code: Title 7 of the Code of General Ordinances of the City of Philadelphia. This code was enacted “to protect the public health, safety and welfare”: §7-101. It provides that “no person shall . . . let . . . any . . . rooming unit which does not comply with the following minimum standards for light. . . .
+
+    “(g) Every public hall and stairway in every two-family dwelling, multi-family dwelling and rooming house shall be adequately lighted at all times except that in a two-family dwelling an adequate lighting system which may be turned on when needed by conveniently located light switches shall be permitted instead of a full-time lighting system . . .”: §7-202(1).
+
+    The code also provides that no person shall let to another any rooming unit unless: “Every inside and outside stair . . . shall be safe to use and capable of supporting the load that normal use may cause to be placed thereon; and shall be kept in sound condition and good repair”: §7-205(Id). Under article 1-100 of the Philadelphia Home Rule Charter, these provisions have the force of statutes.
+
+    It appears to us therefore that the averment that a dangerous and defective condition of the stairs and lighting system in the property owned and operated by defendant caused plaintiff’s injury cannot be successfully met by an allegation in the answer that the lease contained a clause exculpating the landlord from liability for such condition. The invalidity of such clause is a matter of law and need not be pleaded by plaintiff in a reply. It follows that defendant is not entitled to judgment on the pleadings even if the reply is disregarded.
+
+    The motion for judgment on the pleadings is dismissed.
+
+  
+
+
+
+
+## case_id 1668346 — Gagliardi v. Shender, 28 Pa. D. & C.2d 164 (Philadelphia County Court of Common Pleas, Pa. 1962)
+Retrieval provenance:
+  - embed-zoning-paying-occupants-22 v1: ...., 303 pa. 257 (1931); satterthwait v. gibbs, 288 pa. 428 (1927); henry v. eves, 306 pa. 250 (1932); taylor v. lambert, 279 pa. 514 (1924); desanno v. earle, 27...
+  - embed-zoning-paying-occupants-22 v2: ...., 303 pa. 257 (1931); satterthwait v. gibbs, 288 pa. 428 (1927); henry v. eves, 306 pa. 250 (1932); taylor v. lambert, 279 pa. 514 (1924); desanno v. earle, 27...
+  - apartment-hotel-34 v1: ... within the language "residential purposes". webster's new international dictionary, 2nd ed., defines "residential" as: "used, serving, or designed as a residen...
+
+### Opinion text
+
+  
+    Gagliardi v. Shender
+
+    
+      
+      Mesirov, Gelman & Levin, for plaintiffs.
+
+    
+      Fell & Spalding, for defendants.
+
+    January 17, 1962.
+
+  
+
+  
+    Sporkin, J.,
+
+    Plaintiffs’1 complaint in equity prays for an injunction to restrain defendants, Rose Shender and Robert Shender,2 from constructing an apartment house on premises 5017 Wissahickon Avenue, Philadelphia, Pennsylvania.
+
+    Plaintiffs’ cause of action is based upon a restrictive covenant contained in a deed from the common grantor of premises 5017 Wissahickon Avenue, and of the respective properties owned by plaintiffs. Certain other bases for relief averred in their complaint were withdrawn by plaintiffs at the trial.
+
+    
+      Defendants filed an answer, denying that premises 5017 Wissahickon Avenue are subject to the restrictive covenant, and averring, in the alternative, that if the restriction is applicable, the erection of the proposed apartment house would not be in violation thereof. Issue having been joined, the matter was heard by the writer of this adjudication on September 25, 1961, and October 4, 1961. Prom the facts admitted in the pleadings, testimony adduced at trial, the stipulation of the parties, and the exhibits admitted into evidence, we make the following:
+
+    
+      Findings of Fact
+    
+
+    1. Plaintiffs are Frank Gagliardi, David S. Gans, Vincent Filograna, John F. Mann, Frank J. Hayes, Rudolph Anton and Mildred Anton, his wife, H. Glenn Clare, Bruno Philipp, Querino Teti, Joseph Olfren, Edward J. Hicks, Mary Ethel Fitzpatrick, Robert Hitchings, Jr., Domenic Buonfiglio, Edward J. Smith, John J. Regan and Harold Bradley, and are the owners of the properties appearing below their respective names in the caption of the complaint, all of which properties are situate and located in the city of Philadelphia, State of Pennsylvania.
+
+    2. Plaintiffs are the successors in a chain of title which, originated in a deed from Nelson Z. Graves and Ida Johnson Graves, his wife, to Emmett C. Roop, dated July 7, 1923, and recorded in Deed Book J.M.H. 1827, page 194 (referred to as the “Roop” deed).
+
+    3. At the time of the conveyance to Emmett C. Roop, Ida Johnson Graves, said wife of Nelson Z. Graves, retained title to premises 5017 Wissahickon Avenue, Philadelphia, Pennsylvania.3
+    
+
+    
+      4. Rose Shender acquired title to and ownership of premises 5017 Wissahickon Avenue, Philadelphia, Pennsylvania, from Frank Kolongowski, et ux., by virtue of a deed dated June 15, 1960. This title, after various prior conveyances, derived from Ida Johnson Graves and her husband.
+
+    5. The “Roop” deed provides, inter alia:
+
+    “And the said grantors, for themselves and their heirs, executors, administrators and assigns hereby covenant to and with the said grantee, his heirs and assigns, that they will hold, grant and convey the property remaining in the said Ida Johnson Graves, wife of Nelson Z. Graves . . . Under and subject to the following conditions and building restrictions, to wit: that no hotel, tavern, drinking saloon, blacksmith, carpenter or wheelright shop or public garage, steam mill, tannery, slaughterhouse, skin dressing establishment, livery stable, glue, soap, candle or starch manufacturing or other building for offensive purpose or occupation shall at any time here forever be erected on any part of the above described lots. That no building or buildings or part of any building or buildings erected on the above described tract of land shall be used for any other purpose whatever except as for private dwellings or residential purposes and the necessary usual outbuildings to be used in connection with the said buildings except that said buildings may be used as consulting office of a licensed doctor of medicine or licensed doctor of dentistry.”
+
+    6. Premises 5017 Wissahickon Avenue, Philadelphia, Pennsylvania, are embraced within the parcels of land which were subjected to the foregoing provision of the “Roop” deed, and are, therefore, subject to the said restrictions.
+
+    7. Robert Shender proposes to erect an 11-unit apartment building upon premises 5017 Wissahickon Avenue, Philadelphia, Pennsylvania.
+
+    
+      8. The parties stipulated and agreed that defendants, their heirs and assigns, have no rights in and to the use of the driveway to the rear of the premises of 5017 Wissahickon Avenue, Philadelphia, Pennsylvania, and that the court shall enter a decree permanently enjoining the owners, occupiers and guests of owners and occupiers of 5017 Wissahickon Avenue from using this driveway for any purpose whatsoever.
+
+    
+      Discussion
+    
+
+    On July 7, 1923, Ida Johnson Graves and her husband, Nelson Z. Graves, by the “Roop” deed, conveyed to Emmett C. Roop a tract of ground upon which are now located the properties belonging to complaining plaintiffs. At that time, Ida Johnson Graves retained title to three parcels of land, one of which is the site presently owned by defendant Rose Shender, known as 5017 Wissahickon Avenue. In the “Roop” deed, the Graveses specifically convenanted, for themselves and their heirs, executors, administrators and assigns, that they would hold, grant and convey the three tracts of land, subject to the restrictions which are set forth in finding of fact no. 5, supra.4
+    
+
+    Defendant, Robert Shender, proposes to erect upon this site an 11-unit apartment house. Such use of the premises is opposed by plaintiffs, who. predicate their opposition upon the restrictions contained in the “Roop” deed.
+
+    Plaintiffs offered evidence tracing defendant Rose Shender’s title to premises 5017 Wissahickon Avenue through a deed from Frank Kolongowski, et ux., dated June 15, 1960. The Kolongowskis acquired their title on April 29, 1959, from Alfred R. Beckley, et ux., who took title on March 19, 1957, from Thomas Ryan, et ux. Plaintiffs failed to establish the-identity of the intermediate owners of premises 5017 Wissahickon Avenue between the time the Graveses conveyed this tract, and the time the Ryans acquired it. Although such evidence, if produced, would further tend to illuminate this record, its absence does not constitute a fatal defect in plaintiffs’ cause.
+
+    Defendants contend, first, that plaintiffs’ evidence does not sufficiently establish the applicability of the restrictions contained in the “Roop” deed to premises 5017 Wissahickon Avenue, since plaintiffs failed to trace each link in the chain of title from the Graveses to defendant Rose Shender. We find no merit in this contention: Finley v. Glenn, 303 Pa. 131 (1931). Plaintiffs’ evidence, which was not contradicted, established that: the Graveses were the predecessors in title to the properties of all the parties to this action; the Graveses retained ownership of premises 5017 Wissahickon Avenue at the time the “Roop” deed was entered of record; and the premises thus retained by the Graveses were expressly subjected to the restrictions contained in the “Roop” deed, — thus demonstrating that the restrictions contained in the deed are applicable to premises 5017 Wissahickon Avenue.
+
+    In Finley v. Glenn, supra, it was held that where an owner of lots conveys several of them by a deed containing building restrictions, with a covenant that he will impose the same restrictions in deeds for the remaining lots owned by him, and the deed is recorded, and therafter he conveys the remaining lots by deeds without such building restrictions, his subsequent grantees are bound by the terms of the prior recorded deed, although these grantees have no actual notice of said terms. The court said (page 136) :
+
+    “ The weight of authority is to the effect that if a deed or a contract for the conveyance of one parcel of land, with a covenant or easement affecting another parcel of land owned by the same grantor, is duly recorded, the record is constructive notice to a subsequent purchaser of the latter parcel. The rule is based generally upon the principle that a grantee is chargeable with notice of everything affecting his title which could be discovered by an examination of the records of the deeds or other muniments of title of his grantor.’ ”
+
+    Since a search of the conveyances made by the Graveses during their tenure of ownership of the subject premises would have disclosed the restrictions embodied in the duly recorded “Roop” deed, defendant Rose Shender is deemed to have been apprised of said restrictions at the time she acquired title.
+
+    Defendants, in their briefs, contend that had the entire chain of title from the Graveses to defendant Rose Shender been introduced in evidence, it might have disclosed that the restrictions, although originally applicable to premises 5017 Wissahickon Avenue, had in some manner become extinguished. This, “being an affirmative defense, the burden of proof was on the defendants . . .”: Beato v. DiPilato, 175 Pa. Superior Ct. 602, 605 (1954); Baldwin v. Devereux Schools, Inc., 302 Pa. 569 (1931). Defendants failed to meet this burden.
+
+    We therefore conclude that premises 5017 Wissahickon Avenue, being subject to the restrictions, may be used only “for private dwellings or residential purposes and the necessary usual private garages and other necessary and usual outbuildings to be used in connection with the said buildings except that said building may be used as a consulting office of a licensed doctor of dentistry.”
+
+    Secondly, defendants argue that even if the restrictions are held applicable to the subject property, they do not prohibit the erection of any building thereon for use as an apartment house. Accordingly, we are now obliged to construe the phrase “private dwellings or residential purposes” in order to ascertain whether or not an apartment house use is permitted thereunder. Our inquiry, therefore, is directed to the intention of the parties to the “Roop” deed as evidenced by the language which they employed, interpreted in the light of the subject matter, the apparent object or purpose of the parties, and the conditions existing at the time the deed was executed: McCandless v. Burns, 377 Pa. 18, 19 (1954).
+
+    We are mindful of the rules of construction enunciated by the courts of this Commonwealth regarding use restrictions. Building restrictions and similar covenants which restrain individuals in the fair enjoyment of their property are not favored in the law. They are strictly construed, and may not be extended by implication unless the parties to the instrument clearly so understood and intended: Food Fair Stores, Inc. v. Kline, 396 Pa. 397 (1959); Jones v. Park Lane for Convalescents, Inc., 384 Pa. 268 (1956); McCandless v. Burns, supra; Baederwood, Inc. v. Moyer, 370 Pa. 35 (1952); Gerstell v. Knight, 345 Pa. 83 (1942); Culp v. Firestone Tire & Rubber Co., 303 Pa. 257 (1931); Satterthwait v. Gibbs, 288 Pa. 428 (1927); Henry v. Eves, 306 Pa. 250 (1932); Taylor v. Lambert, 279 Pa. 514 (1924); DeSanno v. Earle, 273 Pa. 265 (1922). The applicable legal principles were succinctly stated in Jones v. Park Lane For Convalescents, Inc., supra, at page 272:
+
+    “. . . restrictions on the use of land are not favored by the law because they are an interference with an owner’s free and full enjoyment of his property; that nothing will be deemed a violation of a restriction that is not in plain disregard of its express words; that there are no implied rights arising from a restriction which the courts will recognize; that a restriction is not to be extended or enlarged by implication; that every restriction will be construed most strictly against the grantor and every doubt and ambiguity in its language resolved in favor of the owner.”
+
+    Had the “Roop” deed phrased the restriction to allow only “private dwellings” without more, we should have no doubt but that an apartment house use would be excluded. In Taylor v. Lambert, 279 Pa. 514, 516-18 (1924), the Supreme Court held that an apartment house use is prohibited under a restriction limiting usage of the premises to “a private dwelling house”, using the following pertinent language:
+
+    “In the term ‘a private dwelling’ the word ‘dwelling’ restricts the character of building by eliminating all buildings for business purposes . . . The word ‘private’ further restricts the buildings to be placed thereon by excluding all such as are used for residential purposes of a public character, like hotels and general public boarding or apartment houses. An apartment house is not a number of private dwellings, built one upon another, but a collection of dwellings objectionable to the restriction, which called for a single dwelling . . . An apartment house is not strictly a private dwelling; it is a place for housing a number of people grouped in families assigned to different sections in the same structure. Carried to its logical conclusion (as the size increases so does the population), it would embrace a building twenty stories high, or forty stories high. Ordinarily everyone knows the difference between a private dwelling house and an apartment house.
+
+    “Such restriction is violated by the use of a building on the premises as a public boarding house ... or by three families living separate and apart . . . The distinction between a private dwelling house or a private residence, on the one hand, and a house built or occupied as a residence for two or more families, is quite obvious. In the one case it is single, private and personal; in the other it is a sort of tenement affair. While the families occupy separate apartments distinct from each other, they are not private residences as the term is ordinarily understood.
+
+    “The restriction in this deed prohibits the erection of an apartment house.”
+
+    Taylor was followed by the Supreme Court in Fox v. Sumerson, 338 Pa. 545 (1940). There the court affirmed a lower court decision enjoining defendant from converting a private home into a duplex apartment where the restriction limited the use of the premises to “private dwelling houses”.
+
+    In the instant case, however, the parties to the “Roop” conveyance enlarged the scope of permitted uses beyond that contained in the deeds construed in either the Taylor or Fox cases. In addition to “private dwellings”, the parties expressly added the words “or residential purposes”. The use of the conjunction “or” is significant, in that it clearly manifests the intention of the parties that the stated uses be alternative to one another: Shorter Oxford English Dictionary, Vol. 2, at pages 1378-79. “Or” is also defined in Black’s Law Dictionary, Fourth Ed., page 1246, as “a disjunctive particle used to express an alternative or to give a choice of one among two or more things.” Cf. Garratt v. Philadelphia, 387 Pa. 442, 446 (1956). It is therefore obvious that the parties intended that the use of the premises be restricted to private dwellings or residential purposes and the stated accessory uses.
+
+    Plaintiffs urge that the term “residential purposes” must be interpreted according to the familiar maxim of ejusdem generis. This rule of construction holds that “where specific expressions are followed by those which are general, the latter will be confined to things of the same class as the former”: Burns v. Coyne, 294 Pa. 512, 516 (1928).
+
+    
+      Ejusdem generis is merely a guide in the construction of statutes and written instruments. The doctrine should never be applied to override the real purpose of the writing to be construed: Commonwealth v. Klucher, 326 Pa. 587 (1937). Thus, in Pocono Manor Association v. Allen, 337 Pa. 442 (1940) (strongly relied upon by plaintiffs), the Supreme Court applied the maxim to a restriction permitting “cottage residences and dwelling purposes” so as to exclude the erection of a duplex apartment house. Justice Maxey noted (at page 445) that no apartment houses had ever been built in the community and that “Houses adapted to the occupancy of several families are incongruous to the characteristic charm of rural life”.
+
+    In Pocono Manor, ejusdem generis did no more than effectuate the true intention of the parties as gleaned from extrinsic circumstances. No similar conditions appear in this record. The subject parcel is located in the midst of an urban community where residence in apartment dwellings is neither uncommon nor uncharacteristic. To employ the maximum ejusdem generis here would contradict the clear intention of the parties to permit alternative usage of the premises through the use of the conjunction “or”. A court may not redraft an instrument under the guise of judicial construction.
+
+    Moreover, it is manifest that unlike “cottage residences”, the term “private dwellings” embodies all species of the genus, “single family dwelling”. In such a situation, it has been stated that the doctrine of ejusdem generis does not control, since the general words (in this case “residential purposes”) must bear a different meaning from the specific words or be surplusage: Weiss v. Swift & Company, 36 Pa. Superior Ct. 376 (1908). In Pocono Manor, “cottage residences and dwelling purposes” was construed to mean “cottage residences” and dwellings like “cottage residences”. In the instant case, to interpret the restriction to allow “private dwellings” or residences similar to “private dwellings” would render the “or” clause meaningless. Certainly the parties to the “Roop” deed did not intend the latter result for it could have been more readily accomplished by merely omitting “residential purposes” altogether. Accordingly, we reject the rigid application of the maxim of ejusdem generis in construing the subject restriction.
+
+    We are convinced that an apartment house use is permitted within the language “residential purposes”. Webster’s New International Dictionary, 2nd Ed., defines “residential” as: “used, serving, or designed as a residence or for occupation by residents; as a residential hotel. Adapted to or occupied by residences; as a residential quarter. Of, pertaining to, or connected with, residence or residences; as residential trade, qualifications or zones. Of or pertaining to a resident.” Significantly, the same source defines “apartment house” as “a building containing a number of separate residential suites ...” It is clear beyond doubt that use of the subject premises for 11 apartments constitutes a residential purpose. The term “residential purposes” is employed in contradistinction to “business”, “industrial”, and “commercial” purposes. To narrow further the restriction to exclude multi-family residences would do violence to the clear intent of the parties to permit alternative usage. Of course, an apartment house development may be so large and extensive as to constitute a business enterprise. Since the 11 unit structure proposed by defendants does not approach this magnitude, this consideration is not operative here. Cf. Bennett v. Lane Homes, Inc., 369 Pa. 509, 514 (1952).
+
+    Although we have not been referred to a single Pennsylvania decision construing the precise language here involved: “It is the weight of authority that such a restriction in and of itself does not prohibit use of the land for various types of multiple dwellings . . including apartment houses: Annotation: Multiple Residence as Violation of Restrictive Covenant, 14 A. L. R. 2d 1376, 1403. Courts in other jurisdictions which have construed “residential purposes” have found that an apartment house use is not violative of the restriction: Virgin v. Garrett, 233 Ala. 34, 169 So. 711 (1936); Lewenstein v. Brown, 200 Ga. 433, 37 S. E. 2d 332 (1946); Brandenburg v. Country Club Building Corp., 332 Ill. 136, 163 N. E. 440 (1928); Ulmer v. Ulrey, 280 Ky. 457, 133 S. W. 2d 744 (1939); Yorkway Apartments v. Dundalk Co., 180 Md. 647, 26 A. 2d 398 (1942); Davis v. Sarvari, 250 Mich. 427, 230 N. W. 176 (1930); Jones v. Mulligan, 121 A. 608 (1923; NJ Eq.); Bennett v. Petrino, 235 N. Y. 474, 139 N. E. 578 (1923); Charlotte Consol. Constr. Co. v. Cobb, 195 N. C. 690, 143 S. E. 522 (1928); Arnoff v. Williams, 94 Ohio 145, 113 N. E. 661 (1916); Jernigan v. Capps, 187 Va. 73, 45 S. E. 2d 886 (1947).
+
+    Pennsylvania cases which are seemingly contra to those cited above are all readily distinguishable. In Kauffman v. Dishler, 380 Pa. 63 (1955), in the footnote at page 68, the court stated:
+
+    “In Taylor v. Lambert, 379 Pa. 514, 124 A. 169, Fox v. Sumerson, 338 Pa. 545, 13 A. 2d 1, and Pehlert v. Neff, 152 Pa. Superior Ct. 84, 31 A. 2d 446, the restriction was against any building designed for any purpose other than a ‘private dwelling house’, or ‘a private residence’, and it was held that the word ‘private’ excluded buildings used for residential purposes of a public character, such as hotels and general public boarding or apartment houses, an apartment house not being strictly a private dwelling. In Pocono Manor Association v. Allen, 337 Pa. 442, 12 A. 2d 32, the restriction allowed only buildings ‘for cottage residences and dwelling purposes’, and it was held that the dominant idea of ‘cottage residences’ excluded apartment houses or multiple dwelling houses. In Gerstell v. Knight, 345 Pa. 83, 26 A. 2d 329, it was held that a covenant that ‘one residence only shall be built’ on the tract was a restriction on the use of the land and that the word ‘residence’ meant that only one place of abode should be built for occupation by one person alone or with his family . . .”
+
+    To adopt plaintiffs’ contention and interpretation of the word “residential” would require the insertion of the words “single family” before “residential”. The rules of construction referred to, supra, make such a broadening of the restriction inappropriate.
+
+    Had the parties to the “Roop” conveyance intended to limit the use of the subject premises to single family dwellings, they would not have inserted the phrase “or residential purposes” after “private dwellings”, the latter term being sufficient to accomplish that purpose: Taylor v. Lambert, supra; Fox v. Sumerson, supra. See Kauffman v. Dishler, supra, at page 20. Moreover, the parties in the “Roop” deed expressly set forth in the restriction a list of objectionable uses, without including apartment houses therein. We therefore conclude that the proposed 11-unit structure is not violative of the restrictions contained in the “Roop” deed, and render the following . . .
+
+    
+      Decree Nisi
+    
+
+    And now, to wit, January 17,1962, it is ordered and decreed that plaintiffs’ complaint be and the same is dismissed, all parties to pay their own costs; and by stipulation of the parties the owners, occupiers and guests of owners and occupiers of premises 5017 Wissahickon Avenue, Philadelphia, Pennsylvania, are permanently enjoined from using the driveway located at the rear of said premises.
+
+    
+      The prothonotary will enter this decree nisi and give notice thereof to the parties or their attorneys, and unless exceptions thereto are filed within 20 days, this decree nisi shall be entered as the final decree of the court.
+
+    
+      1
+       Plaintiffs are owners of properties located in an area bounded by the 5000 block of the northeasterly side of Wissahickon Avenue, the 5000 block of the southwesterly side of Copley Road, and the 500 block of the northwesterly side of Clapier Street, in the City and County of Philadelphia.
+
+    
+
+    
+      2
+       Originally, the parties defendant in the complaint were Robert Shender and Sandra Hollander. At a hearing for a preliminary injunction held on August 3, 1960, by stipulation, the caption was amended to substitute Rose Shender in place of Sandra Hollander, the said Rose Shender being the record owner of premises 5017 Wissahickon Avnue.
+
+    
+
+    
+      3
+       Ida Johnson Graves was the owner of a large tract of land, of which the land conveyed to Roop was a part. She retained title to three parcels, one of which is 5017 Wissahickon Avenue.
+
+    
+
+    
+      4
+       In the “Roop” deed, the Graveses imposed similar restrictions upon the ground which was conveyed by them’ to Roop.
+
+    
+
+  
+
+
+
+
+## case_id 1885942 — Kern v. Board of Adjustment, 411 Pa. 581 (Supreme Court of Pennsylvania, Pa. 1963)
+Retrieval provenance:
+  - embed-zoning-paying-occupants-22 v2: ...26, 1962, the decision of the board of adjustment of plymouth township is affirmed, subject to full compliance by the applicant, or his assigns, with the set-ba...
+  - apartment-hotel-34 v1: ...ial special districts, a "building may be erected or used, and a lot may be used or occupied, for . . . the following purposes . . . . b. when authorized as a s...
+
+### Opinion text
+
+  
+    Kern v. Board of Adjustment (et al., Appellant).
+
+    
+      Argued April 17, 1963.
+
+    Before Bell, C. J., Musmanno, Jones, Cohen, Eagen, O’Brien and Roberts, JJ.
+
+    
+      Alphonso Santangelo, for appellants.
+
+    
+      Victor J. Roberts, with him High, Swartz, Roberts & Seidel, for appellee.
+
+    
+      Joseph J. McQrory, with him A. Benjamin Scirica, Township Solicitor, for township, appellee.
+
+    
+      July 2, 1963:
+
+  
+
+  
+    Opinion by
+
+    Mr. Justice Roberts,
+
+    The Zoning Board of Adjustment of Plymoutli Township granted a special exception, subject to 13 restrictions, for the construction of six apartment buildings containing 98 units in a Residential Special District.1 The land to be used is a 6-1/2 acre triangular shaped parcel bounded by Sandy Hill Road and Germantown Pike, two of the busiest thoroughfares in the township, and Hallowell Road, with frontages of 1230 feet, 976 feet and 776 feet respectively. It is from the court’s affirmance of the board’s action, without taking additional testimony, that certain- property owners in the vicinity, protestants before the board, take this appeal.
+
+    The zoning ordinance (§900) provides that in Residential Special Districts, a “building may be erected or used, and a lot may be used or occupied, for . . . the following purposes . . . . B. When authorized as a special exception, an apartment house or apartment hotel .. . .” The ordinance in §2102 B sets forth the standards to be applied by the board in granting special exceptions.
+
+    In Residential Special Districts, the ordinance by §902 establishes the minimum lot area and width requirements, as well as the front, side and rear yard depths and widths. It likewise limits the building coverage “not to exceed twenty-five (25) percent” of the lot.
+
+    Appellants’ chief complaint is that the plot plan submitted with the application is “inaccurate, incomplete, vague and misleading” and “fails to meet the requirements” of the zoning ordinance and that the board “manifestly abused its discretion” in granting the exception. The effect of appellants’ argument is to require of the plot plan the particularity of a building permit. While it may perhaps be desirable and helpful to have the plan meet that standard of dimensional detail,2 surely no party in interest is misled or prejudiced by a plan which discloses the essential dimensions of the area to be used and the basic locations of the structures and other facilities to be constructed. This is especially so here, since the submitted plan together with the board’s order as corrected’ and clarified by the court below describe with definiteness and certainty the precise use of the area.
+
+    Appellants quite properly and successfully maintained that three of the board’s conditions required setbacks (from the rights of way) below the minimum mandated by Section 902 of the zoning ordinance. The court below corrected each of those conditions to conform to the zoning ordinance. The court below properly concluded: “. . . the appellants contend that some of the conditions are illegal, particularly No. 1, which provides that ‘No building . . . shall be erected or constructed closer than 30 feet to . . : Germantown Pike,’ and No. 2, which provides that ‘No building . . . shall be erected or constructed closer than 15 feet to . .'. Hallo-well Road,’ and No. 3, which provides that ‘No building . . . shall be erected or constructed closer than 15 feet to . . . Sandy Hill Road.’ These conditions conflict with Section 902 of the Ordinance providing for setbacks, and would grant the owner of the premised rights in excess of those which, according to. his plan, he seeks. Subject to the modification of these three conditions, the decision of the Board of Adjustment should be affirmed.”
+
+    “and now, November 26, 1962, the decision of the Board of Adjustment of Plymouth Township is affirmed, subject to full compliance by the applicant, or his assigns, with the set-back requirements of Section 902 of the Plymouth Township Zoning Ordinance of 1959____”
+
+    Our review satisfies us that the proposed apartments clearly come within the exceptional use authorized by the ordinance. The sole error committed by the board was corrected by the court below. Therefore, finding no abuse of discretion or error of law, we affirm the decision of the court below.
+
+    Order affirmed.
+
+    Mr. Justice Benjamin E. Jones and Mr. Justice Cohen would remand for the purpose of securing a more appropriate and specific plan.
+
+    
+      1
+       The Board concluded that the garden type apartment use would “not be detrimental to the appropriate use of adjacent property,” nor, with proper restrictions would it cause “undue congestion of pedestrian or vehicular traffic nor endanger the safety of persons or property.” The conditions imposed by the Board fixed the distances of building and parking areas from the rights of way of the three surrounding streets, the location of parking areas and surface type, and the ratio of parking spaces to units; provided for sidewalks and curbs “of such a width and placed in such a location as designated by the Township Engineer,” and a plan of storm drainage; regulated outdoor lighting and maintenance of the tract; and further provided that “all other requirements of the Plymouth Township Zoning, Building and Plumbing Ordinances shall be fulfilled.”
+
+    
+
+    
+      2
+       The record fails to disclose whether the zoning ordinance imposes such a requirement, and apparently it does not do so.
+
+    
+
+  
+
+
+
+
+## case_id 1898547 — Polizzi v. Zoning Board of Adjustment, 420 Pa. 405 (Supreme Court of Pennsylvania, Pa. 1966)
+Retrieval provenance:
+  - embed-zoning-paying-occupants-22 v2: ...polizzi, appellant, v. zoning board of adjustment. march 22, 1966 : argued january 14, 1966. before bell, c. j., musmanno, jones, cohen, eagen, o'brien and robe...
+  - sro-35 v1: ..., all the units to be apartments with separate baths and kitchen facilities. the property was then being used legally under a variance allowed in 1940 for nine ...
+
+### Opinion text
+
+  
+    Polizzi, Appellant, v. Zoning Board of Adjustment.
+
+    
+      March 22, 1966 :
+
+    Argued January 14, 1966.
+
+    Before Bell, C. J., Musmanno, Jones, Cohen, Eagen, O’Brien and Roberts, JJ.
+
+    
+      Charles L. Guerin, Jr., for appellant.
+
+    
+      Matthew W. Bullock, Jr., Second Deputy City Solicitor, with him Gerald Gornish, Assistant City Solicitor, and Edward G. Bauer, Jr., City Solicitor, for zoning board, appellee.
+
+    
+      Samuel Diamond, with him Stanley W. Bluestine, Irving Koffler, and Bluestine, Diamond, Polshy & Bauer, for intervenors.
+
+  
+
+  
+    Opinion
+
+    Per Curiam,
+
+    The owners of real estate at 4231 Walnut Street, Philadelphia, extending back to Sansom Street, applied to the Philadelphia board of adjustment for a variance to permit the use of the property as a six-family dwelling, all the units to be apartments with separate baths and kitchen facilities. The property was then being used legally under a variance allowed in 1940 for nine units (two housekeeping units and seven rooming units).
+
+    The portion of the property fronting on Walnut Street is zoned R5, and multiple family occupancy is not permitted in such a zone. The rear 94 feet of the over-all 194 feet of the property, going back to Sansom Street, is zoned R9, and multiple family occupancy is permitted in such a zone.
+
+    The board of adjustment allowed the variance requested, and appellant, the next door neighbor, whose property contains six apartments, appealed to the court below which, without taking testimony, affirmed the action of the board of adjustment. We allowed an appeal under Rule 68%.
+
+    Since the court below took no additional testimony, our function is to determine whether the board of adjustment clearly abused its discretion or committed an error of law. Mulac Appeal, 418 Pa. 207, 210 A. 2d 275 (1965); Cleaver v. Bd. of Adjustment, 414 Pa. 367, 200 A. 2d 408 (1964); Jasy Corp. v. Board of Adjustment, 413 Pa. 563, 198 A. 2d 854 (1964). Finding neither a clear abuse of discretion nor an error of law in the determination of the board of adjustment, its conclusion will be affirmed.
+
+    Order affirmed.
+
+    Mr. Justice Musmanno dissents.
+
+  
+
+
+
+
+## case_id 458936 — Search Estate, 160 Pa. Super. 488 (Superior Court of Pennsylvania, Pa. 1947)
+Retrieval provenance:
+  - embed-householder-letting-21 v1: ...search estate. argued march 4, 1947. before rhodes, p. j., reno, dithrich, ross and arnold, jj. (hirt, j., absent). t. g. wadzinsmj for appellant. stanley b. jo...
+  - embed-householder-letting-21 v2: ...search estate. argued march 4, 1947. before rhodes, p. j., reno, dithrich, ross and arnold, jj. (hirt, j., absent). t. g. wadzinsmj for appellant. stanley b. jo...
+
+### Opinion text
+
+  
+    Search Estate.
+
+    Argued March 4, 1947.
+
+    Before Rhodes, P. J., Reno, Dithrich, Ross and Arnold, JJ. (Hirt, J., absent).
+
+    
+      
+      T. G. WadzinsMj for appellant.
+
+    
+      Stanley B. Jones filed a brief for appelleé.
+
+    April 16, 1947:
+
+  
+
+  
+    Opinion by
+
+    Ross, J.,
+
+    This is an appeal by a tenant in common from a rent charge against his distributive share in the proceeds of a sale of the property in a partition proceedings, and involves section 20 of the Orphans’ Court Partition Act of June 7, 1917, P. L. 337, 20 PS 1284, which provides as follows: “In case of partition of real estate now or hereafter held by two or more persons as tenants in common, where one or more of the said tenants shall have been or shall hereafter be in possession of said real estate, the parties in possession shall have deducted from their distributive shares of said real estate the proportional part of the rental value thereof to which their cotenant or cotenants are entitled for the time such real estate shall have been in possession as aforesaid.”
+
+    On September 2,1933, Sterling E. Search died intestate as to certain real estate, leaving to survive him his widow, Abbie Search, and various other heirs. The widow continued to live on the premises until she died intestate on June 2, 1944, her son, Osborne Shultz, the appellant, residing with her, and after her death he continued to live on the premises. On March 28, 1945, partition proceedings were brought in the Orphans’ Court of Luzerne County. The trustee appointed by the court, after due notice, etc., sold the property to Osborne Shultz and Dorothy Shultz, his wife, and at the audit of the trustee’s account the court, inter alia, made the following finding: “7. Because of the fact that Osborne Shultz had exclusive possession of the premises from the date of his mother’s death, to-wit: June 2,1944, until title to the property vested in him by virtue of the sale, to-wit: November 14th, 1945, he will be surcharged the value of the rents for this period. By agreement of all the parties the rental value fixed is $14.00 per month or $238.00.” After the appellant’s exceptions to this finding were dismissed by the court below, this appeal was taken.
+
+    Although admitting that after the death of his mother he was in possession of the property, appellant contends that he is not liable for the rental value thereof because he did not deny “the same right to the other tenants in common”. This contention is ruled against appellant and this case is controlled by Huffman Estate (No. 1), 349 Pa. 18, 36 A. 2d 638. In that case Elizabeth Huffman died possessed of a resort hotel property. In marshalling the assets after the property was sold in a partition proceedings, one of the heirs, Norman Huffman, was charged with rent for use and occupation on the basis that he was in possession of the premises. In affirming the charge for rent, the Supreme Court, in an opinion by Mr. Justice Hughes, stated: “The court found that in 1907 the parents of Norman Huffman were in financial trouble and Norman Huffman, his father and another brother made a contract of partnership for the operation of the several businesses formerly operated by the father. The father ‘gave up shortly’ and the brother died in 1912. Thereafter Norman Huffman carried on the business and assumed the obligations. The hotel became the home of all the family whenever they chose to stay or return. They entertained their guests there. One brother lived there free of charge and one sister helped about the hotel until her death. Norman Huffman expended some $20,000 in repairs to the hotel. Since the death of Elizabeth Huffman, the mother, none of the family except the brother and sister before mentioned lived there or undertook to manage the business or assert ownership or possession. Norman Huffman carried on the same as before the mother’s death and there was no change in the attitude of the tenants in common toward him and the property. The court found the foregoing facts and then concluded: ‘We cannot infer from these facts, a family arrangement whereby there was to be no charge for use and occupation.’ . . . These findings of fact are fully supported by the evidence and have the effect of a verdict of a jury and will not be disturbed on appeal: Myers, Admx., et al. v. Marquette, 311 Pa. 198, 201, 166 A. 361; Phila. v. Phila. Sub. Water Co., 309 Pa. 130, 142, 163 A. 297. The auditor in accordance with the foregoing facts determined the amount due for use and occupation of the hotel by Norman Huffman, and having correctly made this determination and the court below having affirmed it, we shall not disturb it.”
+
+    In this case the evidence sustains the auditing judge’s finding of fact that appellant “had exclusive possession of the premises”. The appellant testified that he paid the taxes on the property, made repairs to the building for his own accommodation and that since the death of his mother he had been “in exclusive possession of this property — no one else”. The circumstances that none of the other tenants tried “to move in” or objected to appellant’s “occupation of the place” are not material, under the authority of the Huffman case, supra.
+
+    Decree is affirmed at the cost of appellant.
+
+  
+
+
+
+
+## case_id 459175 — Dougherty v. Bernstein & Son, 160 Pa. Super. 587 (Superior Court of Pennsylvania, Pa. 1947)
+Retrieval provenance:
+  - embed-householder-letting-21 v2: ... had, of necessity, to cross the "reservation". from the public thoroughfare to the doorway of the building there was no other means of access to her place of w...
+
+### Opinion text
+
+  
+    Dougherty, Appellant, v. Bernstein & Son et al.
+
+    
+      Argued March 4, 1947.
+
+    Before Rhodes, P. J., Reno, Dithrich, Ross and Arnold, JJ. (Hirt, J., absent).
+
+    
+      Gomer W. Morgan, for appellant.
+
+    
+      Frank M. Walsh, for appellee.
+
+    April 16, 1947:
+
+  
+
+  
+    Opinion by
+
+    Arnold, J.,
+
+    In this workmen’s compensation case the question is whether the claimant-appellant was injured in the course of her employment, on the premises of her employer, within the meaning of §301 (c) of the Workmen’s Compensation Act, 77 P. S. §411.- The compensation authorities made an award which the court below reversed. While the undisputed facts are novel, the rules of law are familiar.
+
+    The employer-defendant was a fourth-floor tenant of premises at 312 Penn Avenue in the city of Scranton, under a sublease from the lessee of the whole building. Such claimant, on her way to work in the fourth-floor business place of her employer, is “on the premises of the [her] employer” while in the halls, stairs or elevators of the buildings in which the business is: DiCicco v. Downs Carpet Company, Inc., 137 Pa. Superior Ct. 483, 9 A. 2d 183; Black v. Herman et al., 297 Pa. 230, 146 A. 550. Generally speaking, the usual means of access, within the landlord’s building, to the tenant's place of business, are the premises of the tenant-employer. When the employe enters the master’s premises to take up work, she is within the protection of the Act, although the implements of the work are not yet in her hands: Black v. Herman et al., 297 Pa. 230, 146 A. 550.
+
+    A peculiar situation exists in a part of the city of Scranton, including the 300 block of Penn Avenue, as to lots laid out in the original town plot. Therein each lot includes what is colloquially called a “ten-foot reservation”,1 between the lot proper and its building and the street as laid out. Thus, there is a cartway, paralleled by a ten-foot sidewalk (the two constituting Penn Avenue), in turn paralleled by the “reservation” ten feet wide, which thus separates the lots from the street, i. e., cartway and sidewalk. The owner of each lot along this “reservation” has the right, under the deeds, “to enclose, occupy ancl use ten (10) feet in front of the front line of said lots for yard, vault, porch, piazza, bay-window and cellarway.” (Emphasis supplied.) The lot owner may therefore not erect a building upon the “reservation”, but he must cross it to reach his building from the sidewalk of the street. It is as though the lot lines extended to the street, with a building restriction as to the front ten feet.
+
+    
+      Some of the lot and building owners in the 300 block of Penn Avenue have erected skylights, trapdoors and cellarways on the “reservation”.2 The owner of 312 Penn Avenue has built no structures on it, but instead has extended the paving from the city sidewalk to his building line, and this is usable by pedestrians. It is conceded that this owner has not lost his right to use the reservation or to erect the allowed structures thereon, or to inclose it completely or fence it, at any time desired.
+
+    Mary Dougherty, the claimant, was an employe of the defendant, whose place of business was on the fourth floor of 312 Penn Avenue, subleased from the lessee of the whole building. She was on her way to work and in order to get from the sidewalk to the building she had, of necessity, to cross the “reservation”. From the public thoroughfare to the doorway of the building there was no other means of access to her place of work. It was analogous to an uninclosed hallway to or in the building.
+
+    Whether the claimant was, when injured, “employed” within the statutory definition of “premises of the employer” is a question of law where the facts are undisputed : DiCicco v. Downs Carpet Company, Inc., 137 Pa. Superior Ct. 483, 9 A. 2d 183.
+
+    If the “reservation” had been inclosed by a fence with a wicket therein (as the owner concededly has the right) it would be apparent that after the employe passed through the gate she was on the premises of her employer. In such respect there is no difference between the employe of the occupier of the whole building and the employe of a tenant thereof. The “reservation” was the only means of ingress, egress and regress of the building and her employer’s place of business. The benefits of the Act cannot turn upon whether the owner inclosed it, as he had a right to do, or left it open, as he did.
+
+    
+      The “ten-foot reservation” being the exclusive access to the building in which the claimant was employed, she was, in this case, injured on the premises of her employer and was entitled to compensation, unless, and only unless, there was evidence that the public had an actual, enforcible right to use the “reservation” longitudinally,' at its will, i. e., a dedication or right in the public by prescription, or some similar right. Of this there was no evidence. It therefore follows that the public use of the “reservation” longitudinally, and as if it were a sidewalk, was permissive by the owner of the “reservation”, who in turn was the owner of the building in which defendant was a tenant. If the halls, stairways and elevators within the building were permissively used by members of the public having no business there, such public use could not deprive the claimant of compensation if she was on her way to work and injured thereon.
+
+    The referee and board found the facts, which are not in dispute, and correctly awarded compensation.
+
+    The judgment of the court below is reversed, and the record is remitted with directions to enter judgment on the award in favor of the claimant and against the defendants.
+
+    
+      1
+       The incidents of this are discussed by Judge Edwards in Commonwealth ex rel. John Jermyn v. John Nelson, Inspector of Buildings, 3 Lack. Jur. 261, 263: “ ‘This lot is rectangular; and there is conveyed therewith the privilege to fence in and occupy ten feet in front of the front line of the lot both upon Wyoming avenue and Spruce street for purposes of yard, piazza, porches, cellar-ways, vaults, and bay-windows.’ Then foUow the usual clauses, by which the appurtenances, reversions and remainders, and all the estate of the grantor in the premises are assured to the grantee, his heirs and assigns. It wiU be observed that as to the ten foot privilege the use of it is unrestricted as to time; it vests in the grantee, his heirs and assigns forever; nothing is expressly reserved or excepted for the benefit of the grantor; and there is no act to be performed by the grantee upon the performance of which the conveyance of the privilege is to depend or the enjoyment of it continued. We think the conveyance of the ten foot privilege is a fee simple title, burdened with a restricted use running with and inseparably attached to the land.”
+
+    
+
+    
+      2
+       Referee’s 17th finding of fact aflirmed by the board.
+
+    
+
+  
+
+
+
