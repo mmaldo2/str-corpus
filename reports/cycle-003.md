@@ -132,7 +132,9 @@ its facts would find it — accept as a known miss.
 - B: 37 fuzzy quotes (26 mechanical-trivial; double-confirmed ones
   auto-accepted per policy).
 - C: 100 disagreements with third-reader recommendations.
-- D: 45 nulled → re-mapped; contested fields with recommendations.
+- D: 45 nulled → 44 re-mapped and re-verified (77 quotes exact, 1 fuzzy,
+  0 dropped); Codex contested 57 fields across 27 cases (17 fully-agreed
+  cases auto-accepted); all 57 carry third-reader recommendations.
 
 ## 8. Citator
 `[ ] citator-checked` on every case. Pre-screen tooling available.

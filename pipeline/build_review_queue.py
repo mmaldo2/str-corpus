@@ -84,7 +84,20 @@ def main() -> int:
     (run / "review-queue.json").write_text(json.dumps(
         {"fuzzy": fuzzy, "disagreements": dis, "nulled": nulled,
          "householder_nights": hxn}, indent=1), encoding="utf-8")
-    (run / "fuzzy-diffs.json").write_text(json.dumps(diffs, indent=1), encoding="utf-8")
+    # preserve classifications/recommendations from earlier passes when
+    # regenerating (a rebuild must never erase reader verdicts)
+    dpath = run / "fuzzy-diffs.json"
+    if dpath.exists():
+        prev = {(d["case_id"], d["quote"]): d
+                for d in json.loads(dpath.read_text(encoding="utf-8"))}
+        for d in diffs:
+            old = prev.get((d["case_id"], d["quote"]))
+            if old:
+                for k in ("classification", "quote_coverage", "miss_runs",
+                          "recommendation", "justification", "corrected_quote"):
+                    if k in old:
+                        d[k] = old[k]
+    dpath.write_text(json.dumps(diffs, indent=1), encoding="utf-8")
     print(f"fuzzy {len(fuzzy)} | disagreements {len(dis)} | nulled {len(nulled)} "
           f"| householder x nights {len(hxn)}")
     return 0
