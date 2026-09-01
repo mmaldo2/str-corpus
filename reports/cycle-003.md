@@ -166,3 +166,12 @@ prompts/mapper.md and the adjudicator prompt (effective cycle 004). Cycles
 records — **recommend a targeted polarity re-review of favorable records
 in the rent-control / statutory-tenancy / habitability lines before the
 cumulative favorable count is cited anywhere.**
+
+### Polarity re-review applied (2026-09-01)
+65 suspect favorable records re-judged under the owner-right-to-let
+definition; 33 confirmed favorable, 32 flips recommended, user accepted 31
+(28 adverse, 3 mixed; 1 open). **Corrected cumulative: 715 relevant —
+369 favorable / 200 adverse / 128 mixed; 139 favorable householder
+(12 nights / 19 weeks / 46 months).** Reviewer flagged ~10 of the flipped
+rent-control/SRO records as possibly irrelevant to the ledger altogether —
+relevance re-check pending.
