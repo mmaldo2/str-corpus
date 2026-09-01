@@ -1,0 +1,226 @@
+[
+ {
+  "case_id": 8256748,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The owner (plaintiff) ultimately prevailed on trespass to try title and recovered possession of the property, which affirms her underlying property right, but she was also held liable for actual damages \u2014 including lost boarding-house business profits \u2014 because her agent wrongfully sued out a sequestration writ to dispossess the tenant without probable cause. This protects the occupant's business interest against premature or wrongful owner action, even as it reverses the more punitive humiliation and exemplary damages awards.",
+  "supporting_quote": "Her business was thereby destroyed, and the actual damages sought to be recovered in this action and awarded by the jury to her as a consequence thereof were the proximate and natural result of the wrongful act charged."
+ },
+ {
+  "case_id": 743968,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The landlord's summary proceeding to recover possession from the tenant was barred by New York's 1920 emergency rent-suspension statute, with the court broadly construing the statute to protect a tenant who supported herself by subletting most of the rooms to lodgers. This is eviction protection limiting the owner's recovery of possession, without any corresponding affirmation of the owner's freedom to let \u2014 squarely adverse under the owner's-right-to-let framework, even though the tenant's own letting activity was found lawful.",
+  "supporting_quote": "the legislative intent to protect tenants of premises 'occupied for dwelling purposes' cannot be given its proper force and effect, unless we include within the protection of the statute all tenants who occupy the premises for the purposes of dwelling therein with their households, including lodgers"
+ },
+ {
+  "case_id": 1262336,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "This is a succession/collation dispute over legitimacy of an heir and the validity of a disguised donation; the reference to the daughter having taken in boarders and lodgers is purely incidental background used to explain her finances, with no holding recognizing, protecting, or restricting any owner's right to let. Because the opinion contains no affirmation of the owner's freedom to let, the prior 'favorable' tag is unsupported and should not stand.",
+  "supporting_quote": "The daughter, Josephine, before and after her marriage, worked as a laundress and had boarders and lodgers, for whom she did the cooking."
+ },
+ {
+  "case_id": 10032728,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court classifies the small rooming-type hotel as an innkeeper and imposes innkeeper liability under Civil Code arts. 2965-2967 for a guest's stolen property, rejecting the operator's argument that renting by the week to a local resident converted the relationship to landlord-tenant. This imposes a liability duty on the person who lets rooms for compensation, burdening the owner/operator, without affirming any freedom to let on the owner's own terms \u2014 the letting itself was never in dispute, only the scope of liability attached to it.",
+  "supporting_quote": "The defendant, being an innkeeper, is responsible for the effects of his guest which are stolen or damaged either by his servants or his agents, or strangers coming to or going from the hotel."
+ },
+ {
+  "case_id": 828076,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court held that a hotel occupant who had resided and paid intermittently for months, despite registering for a short stay, was not a 'transient' and thus qualified as a statutory tenant who could not be removed without legal process, ordering her restored to possession after a self-help lockout. This expands occupant/tenant protection against the owner's ability to recover possession without affirming any corresponding freedom of the owner to let or remove occupants on the owner's own terms.",
+  "supporting_quote": "the hotel acted improperly in locking Ms. Mann out of her rooms. If money was owing to it, the hotel had the obligation of instituting legal proceedings to recover possession."
+ },
+ {
+  "case_id": 886816,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court held that a motel occupant placed there by social services and residing over two years was not a transient but a month-to-month tenant under RPAPL 711, entitled to a 30-day notice before eviction, and dismissed the owner's summary proceeding for failing to give that notice. This restricts the owner's ability to recover possession on the owner's own terms and expands tenant protections against the owner without recognizing any offsetting freedom to let.",
+  "supporting_quote": "Not affording respondent at least one month's notice, the statutory requirement for termination of her tenancy has not been met."
+ },
+ {
+  "case_id": 921144,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court held that a lodging-house 'cubicle' is a rent-stabilized housing accommodation, dismissing the owner's holdover proceeding and rejecting the landlord's theory of an unregulated nightly tenancy. This is a straightforward extension of rent stabilization's eviction and rent protections against the owner, with no corresponding recognition of the owner's freedom to let on his own terms.",
+  "supporting_quote": "Civil Court correctly concluding that the tenancy is covered by rent stabilization."
+ },
+ {
+  "case_id": 313487,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court held that a hotel guest who registered for a single night became a rent-stabilized 'permanent tenant' upon requesting a lease, making the hotel's self-help removal an illegal eviction and ordering restoration to possession. This expands statutory tenancy and eviction-protection rights against the owner, including estopping the owner from enforcing its stated no-lease policy, without affirming any owner liberty to let on its own terms.",
+  "supporting_quote": "respondent acted illegally in utilizing self-help to remove petitioner from the premises. Pursuant to Administrative Code \u00a7 26-521 (b), respondent is obligated to restore petitioner to occupancy."
+ },
+ {
+  "case_id": 2037440,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court held that a landlord's own misconduct (housing prostitutes in adjoining rooms, causing intolerable disturbance) could constitute a constructive eviction barring the landlord from recovering rent, even without physical expulsion. This bars the owner's contractual remedy (rent) in favor of the tenant's right to quiet, undisturbed enjoyment, limiting the owner's recovery against the tenant without affirming any owner freedom to let on the owner's own terms.",
+  "supporting_quote": "the lessor would thereby be barred of his rent, the same as on an actual or physical entry and expulsion of the tenant."
+ },
+ {
+  "case_id": 5303699,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "Although the case touches on a lease, its holding runs against the owner's right to recover possession: after O'Hern obtained a valid eviction judgment and later sought to enforce it, the court found his pursuit of ejectment (despite the tenant's payment) malicious and awarded the tenant enhanced damages including for mental suffering and humiliation. This restricts the owner's freedom to exercise his adjudicated right to repossess and penalizes him for attempting to do so, expanding tenant protection against the owner without affirming any owner's-right-to-let interest.",
+  "supporting_quote": "When a lessor, in illegally issuing a writ of ejectment was actuated by malice, he is liable to a lessee for damages, as a recompense for an outrage upon his rights and feelings as a citizen and a man"
+ },
+ {
+  "case_id": 8503953,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court upheld a lessee's (boarding-house operator's) cause of action against her lessor for breach of the statutory warranty against vices and defects, allowing her to recover lost profits and property damage when the leased premises became uninhabitable. This affirms a habitability-type duty running against the owner in favor of the occupant's business interests, without affirming any owner liberty to let on the owner's own terms.",
+  "supporting_quote": "We cannot construe article 2700 so as to nullify the lessor's warranty as provided in -article 2695."
+ },
+ {
+  "case_id": 760923,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The court treated the owner's temporary letting of vacant rooms to transients, pending long-term leasing, as consistent with the building's character as an apartment house entitled to a tax exemption \u2014 implicitly recognizing the owner's freedom to let short-term for income. But the court's reasoning expressly ties that exemption to the building's continued subjection to the rent-control ('housing legislation') scheme, invoking the principle that partial transient use does not exempt the owner from Rent Law restrictions either, so the opinion simultaneously reinforces regulatory constraints on the owner's letting freedom.",
+  "supporting_quote": "the tax exemption and the control of rent were correlative provisions in effectuating the purpose of the legislature in the so-called \"housing legislation\""
+ },
+ {
+  "case_id": 10072991,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The immediate holding favors the owner \u2014 no liability was found because the injury occurred in an attic space the owner had deliberately excluded from habitable use \u2014 recognizing an owner's right to designate and restrict portions of a dwelling from letting or use. However, the opinion also affirmatively expands occupant remedies against owners by holding that a sub-occupant renting a room from a tenant may recover from the owner under Civil Code arts. 670, 2315, and 2322 even where the tenant could not, extending owner liability beyond privity of the lease.",
+  "supporting_quote": "there may be circumstances in which a third person rightfully in the premises as a sublessee of the tenant, or as a guest of the tenant, may recover from the owner of the building, even though the tenant, himself, could not have recovered."
+ },
+ {
+  "case_id": 937195,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The landlord sought to evict tenants for violating a lease covenant restricting occupancy to the tenant's immediate family after tenants took in roomers; the court held the landlord's own prior conduct had waived that restriction and reversed the eviction orders in the tenants' favor. This expands occupant/subletting freedom against the owner's attempt to enforce restrictive letting terms, defeating rather than affirming the owner's control over how the premises may be used and let.",
+  "supporting_quote": "the evidence establishes that the prior owner permitted the occupancy of the apartments by roomers and thus expressly waived the covenant of the leases that the premises be occupied \"osa strictly private family dwelling apartment by said tenant, and the tenant's immediate family only-\"."
+ },
+ {
+  "case_id": 945584,
+  "field": "polarity",
+  "recommendation": "mixed",
+  "justification": "The court does affirm that subletting furnished rooms to individual roomers under a lease expressly authorizing that use is a lawful, contemplated arrangement rather than an 'illegal purpose,' which recognizes the letting arrangement as legitimate. But the operative holding blocks the property owner from recovering possession from the sub-letting tenants and their roomers under federal rent control, extending occupancy protection against the owner without vindicating the owner's own freedom to let or regain control of the premises.",
+  "supporting_quote": "Unless the landlord establishes its right to possession under one of the several enumerated exceptions of subdivision (a) of section 209 of the act as amended, the tenants may not be removed from the demised premises."
+ },
+ {
+  "case_id": 5340954,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The decision turns entirely on limiting the property owner's ability to recover possession: first by construing a lease-cancellation clause narrowly against the owner, and second, independently, by holding federal rent control bars eviction of the sub-letting tenant regardless of lease expiration. No part of the opinion affirms the owner's own freedom to let the property; it exclusively expands the occupant/sub-lessee's security of tenure against the owner's recovery rights.",
+  "supporting_quote": "No action or proceeding to recover possession of any controlled housing accommodations with respect to which a maximum rent is in effect under this title shall be maintainable by any landlord against any tenant in any court, notwithstanding the fact that the tenant has no lease or that his lease has expired."
+ },
+ {
+  "case_id": 8744140,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "This is a pure tenant/occupant-protection ruling: it extends the Utility Service Tenant's Rights Act to boarders in a rooming house, forcing continued utility service despite the landlord's nonpayment and overriding the landlord's/owner's control over the arrangement. Nothing in the opinion recognizes or protects the owner's freedom to let; it exclusively expands statutory protections available to occupants against the owner's (and utility's) actions.",
+  "supporting_quote": "the court finds that the Utility Service Tenant's Rights Act applies to plaintiffs Mark Sisco and Van Thompson and the defendant Williamsport Municipal Water Authority must comply with this act and allow plaintiffs the opportunity to be availed of this act."
+ },
+ {
+  "case_id": 7875109,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "Affirming the trial court, this appellate decision holds that boarding-house occupants qualify as protected tenants under USTRA and are entitled to enforce that protection against the landlord's nonpayment of utilities, further entrenching occupant rights against the owner. It contains no recognition of the owner's own liberty to let the property on the owner's terms.",
+  "supporting_quote": "Appellees live as tenants in the building and pay the landlord rent for the right to do so. Therefore, if the Authority could simply ignore USTRA in this case, the Appellees would innocently suffer the loss of water service to the residence."
+ },
+ {
+  "case_id": 3956648,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court reclassified a bunk-bed occupant of a 'three-quarter house' as a protected tenant rather than a licensee, holding that the operator's self-help removal after 97 days was an illegal eviction requiring judicial process. This expands occupant protections against the owner/operator's ability to recover possession without also affirming any owner liberty to let on the owner's own terms.",
+  "supporting_quote": "the court holds that petitioner's eviction was illegal and the court grants petitioner a judgment of possession"
+ },
+ {
+  "case_id": 3958158,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court held a monthly-rented bunk space was a protected 'dwelling unit' under RPAPL 711 and the NYC Admin Code after the occupant had resided there for six months, so the operator's extrajudicial removal for nonpayment of rent was an unlawful eviction and the occupant was restored to possession. This limits the owner/operator's ability to recover possession outside of court process, expanding occupant rights against the owner.",
+  "supporting_quote": "The court holds that the bunk was a \"residential accommodation\" and that in contravention of the foregoing statutes BOT wrongfully deprived petitioner of his tenancy."
+ },
+ {
+  "case_id": 4268287,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court voided a 17-page license agreement by which the operator sought to exempt bunk-bed occupants from landlord-tenant law as an unconscionable contract of adhesion, and held that self-help eviction of a 30+-day occupant violated RPAPL 711 and NYC Admin Code \u00a7 26-521. This directly restricts the owner's contractual freedom to define the letting relationship on the owner's own terms and expands statutory tenant protections against eviction.",
+  "supporting_quote": "said license agreement, as an unconscionable contract of adhesion, is unenforceable as a waiver of the statutory protections afforded the petitioner by the RPAPL and the Administrative Code"
+ },
+ {
+  "case_id": 7689018,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "This is a landlord's failed attempt to dispossess a boarding-house tenant on the theory that the premises were used as a disorderly house; the court found the evidence insufficient and reversed the order removing the tenant, so the owner's attempt to recover possession was denied. That is a limit on the owner's recovery of possession without any affirmation of the owner's freedom to let, making it adverse rather than favorable.",
+  "supporting_quote": "The granting of the order herein was clearly against the weight of evidence, and must be reversed."
+ },
+ {
+  "case_id": 1008633,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The opinion is not about the owner's freedom to let property but about restricting a landlord's ability to use self-help against a tenant in possession: the court holds that a landlord who cuts off heat and light and forces a paying tenant out before the paid period expires is a trespasser and the tenant may recover damages. This expands tenant protection against owner self-help eviction without affirming any owner liberty to let on his own terms, so it is adverse under the owner's-right-to-let definition.",
+  "supporting_quote": "One who wrongfully invades the rights of another is a trespasser, and this rule applies to the unlawful invasion of the rights of a tenant by his landlord."
+ },
+ {
+  "case_id": 1862300,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court imposes an implied warranty of tenantability/fitness on the owner for a short-term furnished letting, ruling that vermin-infested furniture justified the tenant's abandonment of the premises and excused him from rent. This creates a habitability-type duty running against the landlord's terms rather than affirming the owner's freedom to let as-is, so it falls on the adverse side of the definition.",
+  "supporting_quote": "Under these circumstances, there was an implied warranty that the furniture at least was clean and suitable for use."
+ },
+ {
+  "case_id": 595850,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court holds the lessor strictly answerable in damages for defects in the leased premises, whether from original construction or failure to repair, imposing an affirmative duty of safety on the owner toward lawful occupants. This is a duty/liability expansion against the owner rather than a recognition of the owner's liberty to let on his own terms, so it is adverse under the definition.",
+  "supporting_quote": "The owner is bound to know whether his building is safe for the purposes for which he rents it, or authorizes its use, or is rotten and unsafe, and is answerable, in damages, to those who, being lawfully therein, are injured by reason of its defects."
+ },
+ {
+  "case_id": 743824,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court applies a 1920 emergency housing statute barring summary proceedings against dwelling occupants, holding it protects even a tenant who sublet floors to numerous subtenants for dwelling use, and rejects the landlord's argument that the tenant's subletting business should permit eviction. This directly upholds a statutory limit on the owner's ability to recover possession, the paradigmatic adverse case under this definition.",
+  "supporting_quote": "no summary proceeding shall be maintainable to recover the possession of real property * * * occupied for dwelling purposes"
+ },
+ {
+  "case_id": 749404,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The case enforces emergency rent-control legislation that bars the landlord from recovering possession of premises even where the tenant runs a business and sublets a room for profit, treating the tenant's own subletting as merely incidental protected conduct. The holding expands tenant occupancy protection against the owner's right to regain or condition possession, with no corresponding recognition of the owner's freedom to let on his own terms.",
+  "supporting_quote": "Such a subletting is merely incidental to the occupancy by the tenant of the entire premises for dwelling purposes."
+ },
+ {
+  "case_id": 3281527,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court holds the landlord liable in damages for locking the tenant out and seizing his belongings instead of using legal process to regain possession, reinforcing that an owner has no self-help right to repossess leased premises. This restricts the owner's means of recovering possession without any corresponding affirmation of the owner's freedom to let.",
+  "supporting_quote": "a landlord has no right to obtain possession of leased premises by ejecting the tenants without resorting to the means provided by law"
+ },
+ {
+  "case_id": 768978,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The owner sought to dispossess boarders/tenants from a let room but was denied because her notice of termination did not satisfy the statutory thirty-day requirement for an indefinite tenancy, so the dispossession petition was dismissed. This restricts the owner's ability to recover possession on her own timetable without affirming any broader freedom to let.",
+  "supporting_quote": "the lease in question is for an indefinite period and is analogous to one at will or at sufferance, which requires thirty days' notice of termination under section 228 of the Real Property Law"
+ },
+ {
+  "case_id": 934747,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court extends rent-regulation protection against removal to subtenants of single-room occupancy units, barring the landlord from dispossessing the tenant or undertenants despite an arguable violation of the Multiple Dwelling Law, because subletting had been within the parties' contemplation. This is a statutory expansion of occupant protection that limits the owner's recovery of possession, with no affirmation of the owner's own right to let on his terms.",
+  "supporting_quote": "the subtenants or other occupants being thus brought within the protection of the regulation by the amendment of paragraph (1) of subdivision (c) of section 6"
+ },
+ {
+  "case_id": 954276,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court denied the landlord's request for a declaratory judgment terminating the tenant's lease and recovering possession, holding that federal rent regulation barred removal of the tenant (and derivative subtenants) absent a certificate from the local rent commission. This upholds a restriction on the owner's ability to recover possession and terminate the letting arrangement, without any corresponding affirmation of the owner's right to let on her own terms.",
+  "supporting_quote": "Clearly, in the light of the Federal regulation cited, plaintiff fails to make out a case for the declaratory judgment demanded, for notwithstanding his assertion that he has no intention to evict the defendant, the result of such a declaration would be to evict him."
+ },
+ {
+  "case_id": 1932707,
+  "field": "polarity",
+  "recommendation": "adverse",
+  "justification": "The court held that a former employee who continued paying rent became a statutory tenant under RPAPL 711, requiring the owner to bring a summary proceeding rather than use self-help to remove him, and awarded damages against the owner for the unlawful lockout. This expands occupant protections against the owner's ability to recover possession without affirming any owner right to let freely.",
+  "supporting_quote": "Section 711 further provides that a tenant shall not be removed from possession except in a special proceeding. The purpose of this provision is to create a substantive right in a roomer by prohibiting his eviction except upon a court order following a suitable proceeding."
+ }
+]
