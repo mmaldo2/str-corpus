@@ -129,3 +129,6 @@ user-approved purchase list (Amendment A10).
   district dockets still not run.
 - Attorney-facing report artifact needs refresh with corrected cumulative
   numbers (`reports/attorney-report.html`).
+
+## Remote
+Code lives at https://github.com/mmaldo2/str-corpus (branch main). Data (corpus.db, raw volumes) and .env are local-only and gitignored — a fresh clone needs the README's reproduce steps (download → ingest → index) or a copy of data/db/corpus.db.
