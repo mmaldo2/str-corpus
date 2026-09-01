@@ -88,6 +88,38 @@ busy_timeout, don't run both); `build_review_queue` must not clobber reader
 verdicts (fixed); a JSON-parse-failing batch is mapped as two halves;
 credits exhaustion looks like `claude exited 1` — re-run, cache resumes.
 
+## Decided 2026-09-01
+- **Cycle 004 states: Massachusetts, Illinois, California, Ohio, Missouri**
+  (D.C. considered and declined). The next session will open with a
+  high-level strategy conversation (grilling) before the run; the two side
+  tasks below are intended to be knocked out during that pre-run phase.
+
+## Side tasks for the pre-run phase (cheap; no corpus build)
+
+### A. Argument-side file (federal framing authority)
+Not tradition evidence — the cases a federal brief is *framed* with: the
+level-of-generality line (Moore v. East Cleveland, Belle Terre, Euclid,
+Penn Central), Glucksberg/Dobbs/Bruen methodology, and the STR decisions
+(Nekrilov 3d Cir.; Hignell-Stark I & II, Marfil, Bodin 5th Cir.; Zaatari
+Tex. App.; Ladd Pa.; Slice of Life Pa.; Tarr Tex.). ~50 cases. Fetch
+individually via CourtListener (token in `.env`, respect the 125/day
+limiter in `citator_prescreen.py`), run each through the mapper for the
+structured record + verified quotes, and keep them in a SEPARATE ledger
+(`data/ledger/argument-file.jsonl`) — never mixed into the tradition
+evidence counts. Half a day. Reason it's built by hand: federal courts
+don't make lodging law; this material is small, known, and not hidden
+behind vocabulary drift, so the pipeline's recall machinery adds nothing.
+
+### B. RECAP brief harvest (gold-set breadth)
+`build_gold.py fetch` with `COURTLISTENER_API_TOKEN` set pulls the free
+district-court RECAP filings for Nekrilov (D.N.J. 16646707), Marfil
+(W.D. Tex. 17024209), Bodin (E.D. La. 69644320); then `harvest` adds their
+historical citations (with cited_for contexts and domain tags) to
+`gold.jsonl`. Wire the rate limiter into `build_gold.fetch_recap` first
+(it currently has none). Filter docket entries to briefs/memoranda before
+downloading. Appellate briefs remain absent from RECAP; PACER only via a
+user-approved purchase list (Amendment A10).
+
 ## Pending / optional
 - Relevance/doctrine re-tag of Smith v. Decker and Latimer in the gold set.
 - Mapper-model experiment kit for Codex/Qwen at
