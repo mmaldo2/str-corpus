@@ -6,7 +6,7 @@ from corpus_engine.domain import Domain, load_domain
 from corpus_engine.ledger.fold import State, apply_patch
 from corpus_engine.ledger.log import PatchLog, patch_id
 from corpus_engine.ledger.render import render_cycle
-from corpus_engine.ledger.types import Patch, SeedSet, StaleSnapshot, NotTraditionEvidence
+from corpus_engine.ledger.types import Patch, SeedSet, StaleSnapshot, NotTraditionEvidence, LedgerError
 from corpus_engine.store import paths
 
 
@@ -129,7 +129,11 @@ class Ledger:
             return ApplyResult(fresh, skipped, [], True)
         self.dir.mkdir(parents=True, exist_ok=True)
         lock = self.dir / ".lock"
-        fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        try:
+            fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        except FileExistsError:
+            raise LedgerError(f"stale lock {lock}: a previous apply() did not finish; "
+                              "remove it after confirming no other process is writing")
         try:
             applied = self.log.append([replace(p, old=o) for p, o in zip(fresh, stamped_old)], at=at)
             self._views.clear()

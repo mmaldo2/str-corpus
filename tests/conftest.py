@@ -4,9 +4,6 @@ import pytest
 
 REPO = Path(__file__).resolve().parent.parent
 
-def pytest_configure(config):
-    config.addinivalue_line("markers", "live_db: needs data/db/corpus.db")
-
 @pytest.fixture(scope="session")
 def repo_root() -> Path:
     return REPO
