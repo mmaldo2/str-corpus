@@ -39,6 +39,14 @@ def test_apply_is_atomic_and_idempotent(tmp_path):
     assert led.view().record(1)["polarity"] == "adverse"
     assert led.view().reviewed(1) is True
 
+def test_drop_quote_alone_does_not_count_as_reviewed(tmp_path):
+    led = open_ledger(tmp_path, domain=load_domain())
+    led.apply([Patch(1, "admit", "", _rec(1, 1850), "v", Basis(model="m", prompt_version="v", run_id="r"), cycle="cycle-001")], note="seed")
+    led.apply([Patch(1, "drop_quote", "quotes", "q", "mismatch", Basis(reviewer="m"))], note="drop")
+    assert led.view().reviewed(1) is False
+    led.apply([Patch(1, "set", "review.status", "human-adjudicated", "x", Basis(reviewer="m"))], note="status")
+    assert led.view().reviewed(1) is True
+
 def test_view_as_of_replays_history(tmp_path):
     led = open_ledger(tmp_path, domain=load_domain())
     led.apply([Patch(1, "admit", "", _rec(1, 1850), "v", Basis(model="m", prompt_version="v", run_id="r"), cycle="cycle-001")], note="seed")

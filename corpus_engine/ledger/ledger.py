@@ -42,8 +42,8 @@ class LedgerView:
 
     def reviewed(self, case_id: int) -> bool:
         judged = set(self.domain.judged_fields) | {"review.status"}
-        return any(p.basis.reviewer and p.op in ("set", "append", "drop_quote") and
-                   (p.field in judged or p.op == "drop_quote") for p in self.history(case_id))
+        return any(p.basis.reviewer and p.op in ("set", "append") and p.field in judged
+                   for p in self.history(case_id))
 
     def render(self) -> dict[str, bytes]:
         by_cycle: dict[str, list[dict]] = {}

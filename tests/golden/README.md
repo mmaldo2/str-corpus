@@ -92,29 +92,31 @@ message):
 +                       room-letting from boarding-house business (Cady/Howth line)"]}
 ```
 
-## Known discrepancy: `LedgerView.reviewed()` count in `test_ledger_bootstrap.py`
+## Resolved: `LedgerView.reviewed()` semantics (159-vs-150 finding)
 
-`test_bootstrap_counts_match_published_figures` (added in the Task 9 bootstrap)
-asserts `sum(1 for r in relevant if v.reviewed(r["case_id"])) == 150`, a figure
-carried over from the task brief. The actual bootstrapped count is **159**, and
-this is not a derivation bug: `LedgerView.reviewed()` (Task 8, `ledger.py`)
-counts any `drop_quote` patch with a human `basis.reviewer` as "reviewed"
-*regardless of the record's `field` or final `review.status`*
-(`p.field in judged or p.op == "drop_quote"`). Section B of the old scripts
-(`apply_adjudications.py`'s fuzzy-quote "mismatch" resolution) drops a quote and
-appends a note, but — faithfully to the original script — never touches
-`review.status`. There are 13 such human-confirmed mismatch drops across the
-three cycles (1 in cycle-001, 7 in cycle-002, 5 in cycle-003, verified against
-each run's `decisions-final.json`); 9 of the affected records were never
-otherwise touched by a status-setting adjudication, so their `review.status`
-stays `"machine"` even though `reviewed()` correctly reports them as reviewed.
-150 is exactly the count of `relevant` records whose `review.status !=
-"machine"` (`138 + 11 + 1`, the same three non-machine buckets asserted two
-lines earlier in the same test) — a different, narrower question than "was this
-record ever touched by a human reviewer," which is what `reviewed()` answers.
-150 appears to be a miscount in the task-9 brief that conflated the two
-quantities (mirroring the brief's own "8 passed" vs. actual-9 miscount noted in
-`task-8-report.md`), not a defect in the bootstrap or in `reviewed()`. The
-byte-for-byte reproduction test — the actual gate — passes cleanly; this
-count-only assertion is left exactly as specified in the brief rather than
-weakened, and is flagged here per that finding.
+The Task 9 bootstrap originally found `sum(1 for r in relevant if
+v.reviewed(r["case_id"]))` returning 159 against a published figure of 150 in
+the task brief. Investigation (see the bootstrap task report) found
+`LedgerView.reviewed()` counted any `drop_quote` patch with a human
+`basis.reviewer` as "reviewed" *regardless of the record's `field` or final
+`review.status`* — so a Section B fuzzy-quote "mismatch" call alone (drop a
+quote, append a note, never touch `review.status` — faithful to
+`apply_adjudications.py`) counted as human review. There are 13 such
+human-confirmed mismatch drops across the three cycles (1 in cycle-001, 7 in
+cycle-002, 5 in cycle-003, verified against each run's `decisions-final.json`);
+9 of the affected records were otherwise untouched, so they contributed the
+full 159-vs-150 gap.
+
+Controller ruling: per `CONTEXT.md`, "human-reviewed" means a human confirmed
+the record's *judgments* — a fuzzy-quote mismatch call alone does not qualify.
+The rule in `LedgerView.reviewed()` was wrong, not the published 150 figure.
+Fixed in `corpus_engine/ledger/ledger.py`: `reviewed()` now requires a patch
+with `basis.reviewer` and `op in ("set", "append")` whose `field` is in the
+domain's judged fields or equals `"review.status"`; `drop_quote` no longer
+qualifies on its own (a human must also make a judged-field or status decision
+on that case for it to count). `tests/test_ledger_apply.py` covers this
+directly: after an admit, a human `drop_quote` alone leaves `reviewed()`
+`False`, and a subsequent human `set review.status "human-adjudicated"` makes
+it `True`. With the fixed rule, `test_bootstrap_counts_match_published_figures`
+passes unchanged — the bootstrapped `reviewed()` count is 150, matching the
+published figure.
