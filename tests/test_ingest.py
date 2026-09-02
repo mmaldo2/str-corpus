@@ -4,7 +4,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "pipeline"))
 
-from ingest import era_partition, extract_text_and_pages, parse_year
+from corpus_engine.ingest.parse import extract_text_and_pages, parse_year
+from ingest import era_partition
 from textnorm import normalize, normalize_cite, normalize_text
 
 PAGE_BREAK_HTML = b"""
