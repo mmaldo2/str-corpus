@@ -7,7 +7,18 @@ from corpus_engine.ledger.types import Patch
 
 
 def patch_id(p: Patch) -> str:
-    canon = json.dumps([p.case_id, p.op, p.field, p.new, p.why, p.basis.to_json(), p.cycle],
+    """Content-addressed id from the patch's semantic fields (not `note`, which
+    is batch-level provenance, not part of what the patch does).
+
+    Known hazard: because the id is content-addressed, two legitimately
+    distinct patches that happen to carry identical case_id/op/field/new/why/
+    basis/cycle/cascade collide on the same id, and `apply()` treats the
+    later one as a duplicate to skip. 175 such rows exist in the bootstrap
+    log, all effect-idempotent status sets (e.g. two `set review.status
+    human-adjudicated` patches for the same case and cycle) where the
+    collision is harmless.
+    """
+    canon = json.dumps([p.case_id, p.op, p.field, p.new, p.why, p.basis.to_json(), p.cycle, p.cascade],
                        sort_keys=True, ensure_ascii=True, separators=(",", ":"))
     return hashlib.sha256(canon.encode("utf-8")).hexdigest()[:16]
 

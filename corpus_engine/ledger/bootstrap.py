@@ -2,6 +2,7 @@
 order they applied them. One-time; every why starts with 'bootstrap:'."""
 from __future__ import annotations
 import json, sys
+from dataclasses import replace
 from pathlib import Path
 from corpus_engine.ledger.fold import State, apply_patch
 from corpus_engine.ledger.types import Basis, Patch
@@ -250,4 +251,8 @@ def patches_from_artifacts(root: Path, *, reviewer: str = "mmaldo2") -> list[Pat
         if cycle == "cycle-001":
             ps.extend(_drift_patches(reviewer, state))
     ps.extend(_hygiene_patches(root, reviewer, state))
-    return ps
+    # Bootstrap replay runs with the cascade off for byte fidelity with the
+    # pre-ledger scripts (which never enforced the retraction cascade); the
+    # internal trial folds above already pass cascade=False to apply_patch,
+    # this makes it true of the logged patches themselves too.
+    return [replace(p, cascade=False) for p in ps]

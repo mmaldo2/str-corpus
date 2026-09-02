@@ -1,6 +1,6 @@
 from __future__ import annotations
 import copy, json, os
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 from corpus_engine.domain import Domain, load_domain
 from corpus_engine.ledger.fold import State, apply_patch
@@ -99,8 +99,7 @@ class Ledger:
     def _replay(self, patches: list[Patch]) -> State:
         state = State()
         for p in patches:
-            apply_patch(state, p, judged=tuple(self.domain.judged_fields),
-                        cascade=not p.why.startswith("bootstrap:"))
+            apply_patch(state, p, judged=tuple(self.domain.judged_fields), cascade=p.cascade)
         return state
 
     def view(self, as_of: int | None = None) -> LedgerView:
@@ -115,6 +114,7 @@ class Ledger:
 
     def apply(self, patches: list[Patch], *, note: str, at: str | None = None,
               dry_run: bool = False) -> ApplyResult:
+        patches = [replace(p, note=note) if not p.note else p for p in patches]
         self._views.clear()                                # the log is the only truth: never
         existing = {p.patch_id for p in self.log.read()}    # validate against a view a caller
         fresh = [p for p in patches if patch_id(p) not in existing]  # may have mutated via a
@@ -123,8 +123,7 @@ class Ledger:
         trial = copy.deepcopy(head.state)
         stamped_old = []
         for p in fresh:                                    # validate everything before writing
-            old = apply_patch(trial, p, judged=tuple(self.domain.judged_fields),
-                              cascade=not p.why.startswith("bootstrap:"))
+            old = apply_patch(trial, p, judged=tuple(self.domain.judged_fields), cascade=p.cascade)
             stamped_old.append(old)
         if dry_run:
             return ApplyResult(fresh, skipped, [], True)
@@ -132,7 +131,6 @@ class Ledger:
         lock = self.dir / ".lock"
         fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
         try:
-            from dataclasses import replace
             applied = self.log.append([replace(p, old=o) for p, o in zip(fresh, stamped_old)], at=at)
             self._views.clear()
             written = self._write_snapshot(self.view())

@@ -56,11 +56,17 @@ class Patch:
     at: str = ""
     patch_id: str = ""
     old: Any = UNSET
+    cascade: bool = True
+    note: str = ""
 
     def to_json(self) -> dict:
         d = {"seq": self.seq, "patch_id": self.patch_id, "at": self.at, "case_id": self.case_id,
              "cycle": self.cycle, "op": self.op, "field": self.field, "new": self.new,
              "why": self.why, "basis": self.basis.to_json()}
+        if not self.cascade:
+            d["cascade"] = False
+        if self.note:
+            d["note"] = self.note
         if self.old is not UNSET:
             d["old"] = self.old
         return d
@@ -68,7 +74,8 @@ class Patch:
     @staticmethod
     def from_json(d: dict) -> "Patch":
         return Patch(case_id=d["case_id"], op=d["op"], field=d["field"], new=d["new"], why=d["why"],
-                     basis=Basis(**d.get("basis", {})), cycle=d.get("cycle"), seq=d.get("seq", 0),
+                     basis=Basis(**d.get("basis", {})), cascade=d.get("cascade", True),
+                     note=d.get("note", ""), cycle=d.get("cycle"), seq=d.get("seq", 0),
                      at=d.get("at", ""), patch_id=d.get("patch_id", ""),
                      old=d["old"] if "old" in d else UNSET)
 
