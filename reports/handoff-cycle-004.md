@@ -12,9 +12,15 @@ document is the operational state and the order of work.
   embeddings (3.88M chunks, 512d int8), `data/db/corpus.db` (~30 GB).
 - Ledgers: `data/ledger/cycle-00{1,2,3}.jsonl`. Per
   `open_ledger().view().counts().total.as_claim("relevant cases")`: **710
-  relevant cases (150 human-reviewed, 560 machine-only; lower bound)**.
+  relevant cases (158 human-reviewed, 552 machine-only; lower bound)**.
   Tradition-matrix pre-1860 householder count (favorable, from
-  `view().matrix()`): 2 (1 human-reviewed, 1 machine-only).
+  `view().matrix()`): 2 (1 human-reviewed, 1 machine-only). The 150/560
+  split above was superseded by `tools/apply_retraction_cascade.py`
+  (Stage 1 final-review fix wave): 11 records left with a judged field
+  unsupported by a dropped quote after the bootstrap's cascade-off replay
+  were nulled and routed to human review, moving 8 records from
+  machine-only to human-reviewed (favorable count 368 -> 367; case
+  7664513's polarity was one of the fields nulled).
 - Tradition matrix (favorable, by jurisdiction × era):
   La. 2/9/28/11/3, N.Y. 14/89/68/22/16, Pa. 2/11/16/10/16, Tex. 2/8/20/13/8
   for pre-1860 / 1860-1900 / 1900-1930 / 1930-1970 / 1970-2020.

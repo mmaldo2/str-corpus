@@ -31,3 +31,21 @@ which the human corrected directly. The retraction cascade is nonetheless
 enforced for every future quote drop. Characterization tests reproduce the cycle-003 batches,
 verified files, and ledgers byte for byte before either module is
 replaced.
+
+The final Stage 1 review pass (`Patch.cascade`/`Patch.note` made explicit,
+`corpus_engine/ledger/log.py`, `ledger.py`) re-checked every human-confirmed
+quote drop across the bootstrap log for this same hazard. 13 human-confirmed
+quote drops existed in total (section B "mismatch" adjudications). Shvekh's
+(12315742) was the only one that affected `who_was_letting`, which is not
+one of the support-rule's supported fields (`characterization`, `polarity`,
+`holding_summary`) and so was never in scope for the cascade regardless.
+One more (10029864) dropped a quote while every supported field on that
+record was still separately backed by another surviving quote, so nothing
+was left unsupported. Of the remaining 11 records, each had at least one
+judged field (`characterization`, `polarity`, or `holding_summary`) left
+standing with no surviving quote supporting it, because the bootstrap
+replay ran with the cascade off. Those 11 records were nulled and flagged
+`needs-review:<field>` by `tools/apply_retraction_cascade.py` on this
+branch, applied as one logged patch batch
+(`note="retraction cascade backfill"`); see `reports/handoff-cycle-004.md`
+for the resulting counts.

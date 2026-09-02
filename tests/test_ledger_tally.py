@@ -5,9 +5,13 @@ from corpus_engine.domain import load_domain
 def test_counts_and_matrix_on_the_real_ledger(repo_root):
     v = open_ledger(domain=load_domain()).view()
     c = v.counts()
-    assert c.total == TierCount(human_reviewed=150, machine_only=560)
+    # 150/560 -> 158/552 and favorable 368 -> 367 after the retraction cascade
+    # backfill (tools/apply_retraction_cascade.py): 11 records left unsupported
+    # by the bootstrap's cascade=False replay got a judged field nulled and
+    # routed to human review, including 7664513 (was favorable polarity).
+    assert c.total == TierCount(human_reviewed=158, machine_only=552)
     pol = v.counts(by=("polarity",))
-    assert pol[("favorable",)].human_reviewed + pol[("favorable",)].machine_only == 368
+    assert pol[("favorable",)].human_reviewed + pol[("favorable",)].machine_only == 367
     hh = v.counts(polarity="favorable", who_was_letting="householder")
     assert hh.total.human_reviewed + hh.total.machine_only == 138
     m = v.matrix()
