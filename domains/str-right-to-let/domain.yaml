@@ -37,7 +37,7 @@ reviewer_default: mmaldo2
 embedding:
   run_key: qwen3-4b-1024-int8
   model: Qwen/Qwen3-Embedding-4B
-  revision: main            # pinned to a commit sha by tools/estimate_embed_cost.py --pin (Task 6)
+  revision: 5cf2132abc99cad020ac570b19d031efec650f2b            # pinned to a commit sha by tools/estimate_embed_cost.py --pin (Task 6)
   dim: 1024
   quant: int8-symmetric-pervector
   chunk_tokens: 400

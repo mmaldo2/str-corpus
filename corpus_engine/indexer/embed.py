@@ -51,6 +51,27 @@ def partition_runs(conn: sqlite3.Connection) -> dict[tuple[str, str], set[str]]:
     return out
 
 
+def estimate_tokens(conn, tokenizer, run: EmbedRun, *, sample: int = 500, partitions=None) -> tuple[int, int]:
+    import random
+    where = ["is_duplicate_of IS NULL", "norm_text != ''", "case_id NOT IN (SELECT case_id FROM chunks WHERE embed_run = ?)"]
+    params: list = [run.run_key]
+    if partitions:
+        where.append("(" + " OR ".join("(era_partition=? AND jurisdiction=?)" for _ in partitions) + ")")
+        for e, j in partitions:
+            params += [e, j]
+    ids = [r[0] for r in conn.execute(f"SELECT case_id FROM cases WHERE {' AND '.join(where)}", params)]
+    if not ids:
+        return 0, 0
+    pick = random.Random(0).sample(ids, min(sample, len(ids)))
+    total = 0
+    for cid in pick:
+        text, name, court, year = conn.execute("SELECT norm_text, name_abbreviation, court, decision_year FROM cases WHERE case_id=?", (cid,)).fetchone()
+        for s, e in chunk_offsets(tokenizer, text, run.chunk_tokens, run.chunk_overlap):
+            total += len(tokenizer(embedding_input(run.prefix_template, {"name": name, "court": court, "year": year}, text[s:e]),
+                                   add_special_tokens=False, return_offsets_mapping=True)["offset_mapping"])
+    return len(ids), int(total * len(ids) / len(pick))
+
+
 def build_embeddings(conn: sqlite3.Connection, embedder: Embedder, tokenizer, run: EmbedRun, *, batch_size: int = 64,
                      limit: int = 0, partitions=None, log=print) -> int:
     register_run(conn, run)
