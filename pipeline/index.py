@@ -68,6 +68,7 @@ def main() -> int:
     ap.add_argument("--hosted", action="store_true", help="embed via a hosted API instead of local weights")
     ap.add_argument("--partitions", default=None, help='restrict embed to "era|jur,era|jur"')
     ap.add_argument("--confirm", action="store_true", help="required with --hosted; acknowledges the cost estimate")
+    ap.add_argument("--concurrency", type=int, default=4, help="parallel requests for --hosted (default 4)")
     args = ap.parse_args()
 
     conn = store.connect(Path(args.db))
@@ -97,7 +98,8 @@ def main() -> int:
         key = store.env_value(f"{spec.hosted_provider.upper()}_API_KEY")
         if not key:
             sys.exit(f"no {spec.hosted_provider.upper()}_API_KEY in env or .env")
-        embedder = HostedEmbedder(spec.hosted_provider, spec.hosted_model_id, spec.dim, key)
+        embedder = HostedEmbedder(spec.hosted_provider, spec.hosted_model_id, spec.dim, key,
+                                  concurrency=args.concurrency)
         tokenizer = tokenizer_for(spec.model, spec.revision)
         run = EmbedRun.from_spec(spec, provider=spec.hosted_provider)
     elif args.legacy:
@@ -112,7 +114,7 @@ def main() -> int:
         run = EmbedRun.from_spec(spec, provider="local")
 
     build_embeddings(conn, embedder, tokenizer, run, batch_size=args.batch, limit=args.limit,
-                     partitions=partitions, log=print)
+                     partitions=partitions, flush_batches=max(8, 2 * args.concurrency), log=print)
     conn.close()
     return 0
 

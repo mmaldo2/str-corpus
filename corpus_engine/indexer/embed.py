@@ -73,7 +73,7 @@ def estimate_tokens(conn, tokenizer, run: EmbedRun, *, sample: int = 500, partit
 
 
 def build_embeddings(conn: sqlite3.Connection, embedder: Embedder, tokenizer, run: EmbedRun, *, batch_size: int = 64,
-                     limit: int = 0, partitions=None, log=print) -> int:
+                     limit: int = 0, partitions=None, flush_batches: int = 8, log=print) -> int:
     register_run(conn, run)
     where = ["c.is_duplicate_of IS NULL", "c.norm_text != ''",
              "c.case_id NOT IN (SELECT case_id FROM chunks WHERE embed_run = ?)"]
@@ -124,7 +124,7 @@ def build_embeddings(conn: sqlite3.Connection, embedder: Embedder, tokenizer, ru
             break
         if item[0] == "CASE_DONE":
             n_done += 1
-            if len(texts) >= batch_size * 8:
+            if len(texts) >= batch_size * flush_batches:
                 flush()
             if n_done % 1000 == 0:
                 flush(); log(f"{n_done}/{len(todo)} cases, {written} chunks written")
