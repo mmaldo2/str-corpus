@@ -37,3 +37,17 @@ four are backfilled; embedding selectors on the old states pause until the
 backfill lands while lexical, citation-graph, and relevance-feedback
 selectors continue. Re-embedding on demand becomes cheap enough that a
 fine-tune or OCR-noise adaptation can be applied corpus-wide later.
+
+## Amendment 2026-09-02
+
+The full-corpus estimate came in higher than the original $60 ceiling:
+1,874,141 cases, ~6.11B tokens, ~$61.13 at $0.01/M tokens. By user decision
+the ceiling is raised from $60 to $65 to cover this single run, rather than
+splitting it into a two-phase run (existing four states first, new states
+second) that would leave the index straddling two runs for longer and cost
+more in wall-clock and operational risk than the $1.13 overage is worth.
+
+Before spending, the hosted/local consistency gate this ADR requires was
+run: n=1000, mean cosine 0.9999, p5 0.9999, min 0.9998 -- comfortably above
+the bar for trusting the hosted vectors. The full-corpus hosted run then
+launched as a single pass under the raised $65 ceiling.

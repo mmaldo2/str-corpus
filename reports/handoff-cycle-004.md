@@ -117,7 +117,11 @@ review page publishable as an artifact; reviewer identity recorded.
 9. **Argument-side file** (side task A, unchanged): ~50 federal framing
    cases, separate ledger `data/ledger/argument-file.jsonl`.
 10. **Ingest + index** for cycle 004 + federal tradition set + English
-    Reports; hosted 4B embedding of new partitions and backfill of old.
+    Reports; hosted 4B embedding — status: hosted/local consistency gate
+    passed (n=1000, mean cosine 0.9999, min 0.9998); full-corpus hosted run
+    launched 2026-09-02, resumed at concurrency 8 after two restarts.
+    Figures (tokens, cost, elapsed) to be written into
+    `reports/build-cycle-004.md` when the run completes.
 11. Shard, recall gate, map (user approves budget), review pipeline.
 
 ## Watch-outs (unchanged)
