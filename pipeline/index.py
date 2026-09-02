@@ -33,12 +33,14 @@ from corpus_engine.indexer.embed import EmbedRun, build_embeddings  # noqa: E402
 from corpus_engine.indexer.embedders import LocalEmbedder, HostedEmbedder, tokenizer_for  # noqa: E402
 
 # Old model/dim, kept for --legacy-0.6b comparison runs against the current default.
+# Revision pinned to what store.migrate recorded for the pre-existing chunks under this
+# same run key (store.LEGACY_EMBED_REVISION) -- never "main".
 LEGACY_MODEL = "Qwen/Qwen3-Embedding-0.6B"
-LEGACY_REVISION = "main"
+LEGACY_REVISION = store.LEGACY_EMBED_REVISION
 LEGACY_DIM = 512
 LEGACY_CHUNK_TOKENS = 1000
 LEGACY_CHUNK_OVERLAP = 150
-LEGACY_RUN_KEY = "qwen3-0.6b-512-int8"
+LEGACY_RUN_KEY = store.LEGACY_EMBED_RUN
 
 
 def _parse_partitions(spec: str | None) -> list[tuple[str, str]] | None:
@@ -89,7 +91,10 @@ def main() -> int:
     domain = load_domain(args.domain)
     partitions = _parse_partitions(args.partitions)
 
-    if not args.legacy and domain.embedding.revision == "main":
+    # Every embed path is pinned -- no --legacy exemption. The default/hosted paths are
+    # pinned via domain.yaml (checked here); the legacy path is pinned by construction
+    # (LEGACY_REVISION == store.LEGACY_EMBED_REVISION, never "main").
+    if domain.embedding.revision == "main":
         sys.exit("pin the model revision first: tools/estimate_embed_cost.py --pin (Task 6)")
 
     if args.hosted:

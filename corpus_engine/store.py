@@ -111,6 +111,12 @@ CREATE VIRTUAL TABLE IF NOT EXISTS fts_raw USING fts5(
 """
 
 LEGACY_EMBED_RUN = "qwen3-0.6b-512-int8"
+# Revision the pre-refactor pipeline recorded for the legacy 0.6B run when it embedded
+# the corpus (see the migrate() legacy-run insert below, and selectors.yaml's comment on
+# embed_meta). pipeline/index.py's --legacy-0.6b comparison run must reuse this exact
+# constant so it never records the literal string "main" under the already-claimed
+# LEGACY_EMBED_RUN key.
+LEGACY_EMBED_REVISION = "97b0c614be4d"
 
 
 def connect(db_path: Path | None = None, *, busy_timeout_ms: int = 120_000,
