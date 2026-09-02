@@ -1,6 +1,7 @@
 import shutil, sqlite3
+import pytest
 from corpus_engine import store
-from corpus_engine.indexer.embed import EmbedRun, build_embeddings, partition_runs, quantize
+from corpus_engine.indexer.embed import EmbedRun, build_embeddings, partition_runs, quantize, register_run
 from corpus_engine.indexer.embedders import FakeEmbedder
 import numpy as np
 
@@ -59,3 +60,28 @@ def test_partitions_filter_limits_scope(tmp_path, fixture_db):
     build_embeddings(conn, e, e.tokenizer, RUN_A, partitions=[tuple(part)], log=lambda *_: None)
     got = conn.execute("""SELECT DISTINCT c.era_partition, c.jurisdiction FROM chunks ch JOIN cases c ON c.case_id=ch.case_id""").fetchall()
     assert got == [tuple(part)]
+
+# --- I2: register_run must reject a run_key whose recorded parameters have drifted ---
+
+def test_register_run_matching_row_is_a_noop(tmp_path, fixture_db):
+    conn = _db(tmp_path, fixture_db)
+    register_run(conn, RUN_A)
+    register_run(conn, RUN_A)  # identical params again: no raise, no duplicate row
+    assert conn.execute("SELECT count(*) FROM embed_runs WHERE run_key=?", (RUN_A.run_key,)).fetchone()[0] == 1
+
+def test_register_run_rejects_a_key_with_drifted_parameters(tmp_path, fixture_db):
+    conn = _db(tmp_path, fixture_db)
+    register_run(conn, RUN_A)
+    drifted = EmbedRun(RUN_A.run_key, RUN_A.model, "different-revision", RUN_A.dim, RUN_A.quant,
+                       RUN_A.chunk_tokens, RUN_A.chunk_overlap, RUN_A.prefix_template, RUN_A.provider)
+    with pytest.raises(ValueError, match=f"embed_run {RUN_A.run_key} already registered with different parameters"):
+        register_run(conn, drifted)
+
+def test_register_run_flags_provider_drift_specifically(tmp_path, fixture_db):
+    # provider is the field the review called out as not part of the key at all.
+    conn = _db(tmp_path, fixture_db)
+    register_run(conn, RUN_A)
+    drifted = EmbedRun(RUN_A.run_key, RUN_A.model, RUN_A.revision, RUN_A.dim, RUN_A.quant,
+                       RUN_A.chunk_tokens, RUN_A.chunk_overlap, RUN_A.prefix_template, "other-provider")
+    with pytest.raises(ValueError, match="provider: 'test' != 'other-provider'"):
+        register_run(conn, drifted)

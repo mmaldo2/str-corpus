@@ -26,9 +26,26 @@ def quantize(vecs: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
     return np.round(vecs / scales[:, None]).astype(np.int8), scales.astype(np.float32)
 
 
+_RUN_FIELDS = ("model", "revision", "dim", "quant", "chunk_tokens", "chunk_overlap", "prefix_template", "provider")
+
+
 def register_run(conn: sqlite3.Connection, run: EmbedRun) -> None:
+    """Register `run` under its run_key. A fresh key is inserted. An existing key is a
+    no-op only if every stored field matches `run` exactly; a mismatch on any field
+    raises, because a stale row would otherwise launder a changed model/chunking/prefix
+    past the coverage fingerprint that depends on this table (see final-review I2)."""
+    existing = conn.execute(f"SELECT {', '.join(_RUN_FIELDS)} FROM embed_runs WHERE run_key = ?",
+                            (run.run_key,)).fetchone()
+    if existing is not None:
+        incoming = tuple(getattr(run, f) for f in _RUN_FIELDS)
+        mismatches = [f"{field}: {stored!r} != {new!r}"
+                     for field, stored, new in zip(_RUN_FIELDS, existing, incoming) if stored != new]
+        if mismatches:
+            raise ValueError(f"embed_run {run.run_key} already registered with different parameters: "
+                             + ", ".join(mismatches))
+        return
     conn.execute(
-        """INSERT OR IGNORE INTO embed_runs
+        """INSERT INTO embed_runs
            (run_key, model, revision, dim, quant, chunk_tokens, chunk_overlap, prefix_template, provider, created)
            VALUES (:run_key, :model, :revision, :dim, :quant, :chunk_tokens, :chunk_overlap, :prefix_template, :provider, :created)""",
         {"run_key": run.run_key, "model": run.model, "revision": run.revision, "dim": run.dim, "quant": run.quant,
