@@ -108,16 +108,23 @@ def build_embeddings(conn: sqlite3.Connection, embedder: Embedder, tokenizer, ru
     qu: queue.Queue = queue.Queue(maxsize=4000)
 
     def producer():
-        rc = sqlite3.connect(db_path); rc.execute("PRAGMA busy_timeout=120000")
-        for cid in todo:
-            row = rc.execute("SELECT norm_text, name_abbreviation, court, decision_year FROM cases WHERE case_id=?", (cid,)).fetchone()
-            if not row or not row[0]:
-                qu.put(("CASE_DONE", cid)); continue
-            meta = {"name": row[1], "court": row[2], "year": row[3]}
-            for seq, (s, e) in enumerate(chunk_offsets(tokenizer, row[0], run.chunk_tokens, run.chunk_overlap)):
-                qu.put((cid, seq, s, e, embedding_input(run.prefix_template, meta, row[0][s:e])))
-            qu.put(("CASE_DONE", cid))
-        qu.put(None)
+        rc = None
+        try:
+            rc = sqlite3.connect(db_path); rc.execute("PRAGMA busy_timeout=120000")
+            for cid in todo:
+                row = rc.execute("SELECT norm_text, name_abbreviation, court, decision_year FROM cases WHERE case_id=?", (cid,)).fetchone()
+                if not row or not row[0]:
+                    qu.put(("CASE_DONE", cid)); continue
+                meta = {"name": row[1], "court": row[2], "year": row[3]}
+                for seq, (s, e) in enumerate(chunk_offsets(tokenizer, row[0], run.chunk_tokens, run.chunk_overlap)):
+                    qu.put((cid, seq, s, e, embedding_input(run.prefix_template, meta, row[0][s:e])))
+                qu.put(("CASE_DONE", cid))
+        except BaseException as exc:  # noqa: BLE001 -- any producer-thread failure must reach the consumer, not hang it
+            qu.put(("PRODUCER_FAILED", exc))
+        finally:
+            qu.put(None)
+            if rc is not None:
+                rc.close()
 
     threading.Thread(target=producer, daemon=True).start()
     texts, rows, written = [], [], 0
@@ -139,6 +146,8 @@ def build_embeddings(conn: sqlite3.Connection, embedder: Embedder, tokenizer, ru
         item = qu.get()
         if item is None:
             break
+        if item[0] == "PRODUCER_FAILED":
+            raise RuntimeError("producer failed") from item[1]
         if item[0] == "CASE_DONE":
             n_done += 1
             if len(texts) >= batch_size * flush_batches:

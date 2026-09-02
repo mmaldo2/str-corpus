@@ -1,6 +1,7 @@
-import shutil, sqlite3
+import shutil, sqlite3, threading
 import pytest
 from corpus_engine import store
+from corpus_engine.indexer import chunking
 from corpus_engine.indexer.embed import EmbedRun, build_embeddings, partition_runs, quantize, register_run
 from corpus_engine.indexer.embedders import FakeEmbedder
 import numpy as np
@@ -85,3 +86,44 @@ def test_register_run_flags_provider_drift_specifically(tmp_path, fixture_db):
                        RUN_A.chunk_tokens, RUN_A.chunk_overlap, RUN_A.prefix_template, "other-provider")
     with pytest.raises(ValueError, match="provider: 'test' != 'other-provider'"):
         register_run(conn, drifted)
+
+# --- I3: a producer-thread failure must raise, not hang, and must not lose already-committed work ---
+
+def test_build_embeddings_raises_on_producer_failure_without_hanging_and_keeps_prior_flush(tmp_path, fixture_db, monkeypatch):
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p)
+    setup = store.connect(p); store.migrate(setup)
+    setup.execute("DELETE FROM chunks"); setup.execute("DELETE FROM embed_runs"); setup.execute("DELETE FROM embed_meta")
+    setup.commit(); setup.close()
+
+    calls = {"n": 0}
+    def flaky_chunk_offsets(tokenizer, text, chunk_tokens, chunk_overlap):
+        calls["n"] += 1
+        if calls["n"] == 2:
+            raise RuntimeError("boom")
+        return chunking.chunk_offsets(tokenizer, text, chunk_tokens, chunk_overlap)
+    monkeypatch.setattr("corpus_engine.indexer.embed.chunk_offsets", flaky_chunk_offsets)
+
+    e = FakeEmbedder(dim=16)
+    result: dict = {}
+
+    def run():
+        conn = store.connect(p)
+        try:
+            # batch_size=1, flush_batches=1: the first successful case's chunks cross
+            # the flush threshold on its own CASE_DONE, so they are committed before
+            # the second case's chunk_offsets call raises.
+            build_embeddings(conn, e, e.tokenizer, RUN_A, batch_size=1, flush_batches=1, log=lambda *_: None)
+        except BaseException as exc:  # noqa: BLE001 -- capture across the thread boundary for the assertions below
+            result["exc"] = exc
+        finally:
+            conn.close()
+
+    t = threading.Thread(target=run, daemon=True)
+    t.start()
+    t.join(timeout=5)
+    assert not t.is_alive(), "build_embeddings hung instead of raising on a producer failure"
+    assert isinstance(result.get("exc"), RuntimeError)
+    assert "producer failed" in str(result["exc"])
+
+    check = store.connect(p)
+    assert check.execute("SELECT count(*) FROM chunks WHERE embed_run=?", (RUN_A.run_key,)).fetchone()[0] > 0
