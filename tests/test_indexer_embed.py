@@ -2,9 +2,21 @@ import shutil, sqlite3, threading
 import pytest
 from corpus_engine import store
 from corpus_engine.indexer import chunking
-from corpus_engine.indexer.embed import EmbedRun, build_embeddings, partition_runs, quantize, register_run
+from corpus_engine.indexer.embed import BudgetExceeded, EmbedRun, build_embeddings, partition_runs, quantize, register_run
 from corpus_engine.indexer.embedders import FakeEmbedder
 import numpy as np
+
+
+class _TokenCountingFakeEmbedder(FakeEmbedder):
+    """FakeEmbedder plus a tokens_used attribute, for I4's spend-accounting tests
+    (build_embeddings reads tokens via getattr(embedder, "tokens_used", None))."""
+    def __init__(self, dim: int = 16, tokens_per_text: int = 1_000_000):
+        super().__init__(dim=dim)
+        self.tokens_used = 0
+        self._tokens_per_text = tokens_per_text
+    def encode(self, texts, batch_size: int = 64):
+        self.tokens_used += len(texts) * self._tokens_per_text
+        return super().encode(texts, batch_size=batch_size)
 
 RUN_A = EmbedRun("fake-a-16-int8", "fake", "r", 16, "int8-symmetric-pervector", 60, 10, "{name}\n", "test")
 RUN_B = EmbedRun("fake-b-16-int8", "fake", "r", 16, "int8-symmetric-pervector", 60, 10, "{name}\n", "test")
@@ -127,3 +139,45 @@ def test_build_embeddings_raises_on_producer_failure_without_hanging_and_keeps_p
 
     check = store.connect(p)
     assert check.execute("SELECT count(*) FROM chunks WHERE embed_run=?", (RUN_A.run_key,)).fetchone()[0] > 0
+
+# --- I4: spend accounting (tokens/usd in the log lines; --max-usd stops cleanly after a commit) ---
+
+def test_build_embeddings_final_line_reports_tokens_and_usd_when_price_known(tmp_path, fixture_db):
+    conn = _db(tmp_path, fixture_db)
+    e = _TokenCountingFakeEmbedder(dim=16)
+    logs = []
+    build_embeddings(conn, e, e.tokenizer, RUN_A, usd_per_m_tokens=0.01, log=logs.append)
+    assert e.tokens_used > 0
+    final = logs[-1]
+    assert final.startswith("done:") and "tokens=" in final and "usd=" in final
+    expected_usd = e.tokens_used / 1e6 * 0.01
+    assert f"usd={expected_usd:.2f}" in final
+
+def test_build_embeddings_final_line_omits_usd_when_price_unknown(tmp_path, fixture_db):
+    conn = _db(tmp_path, fixture_db)
+    e = _TokenCountingFakeEmbedder(dim=16)
+    logs = []
+    build_embeddings(conn, e, e.tokenizer, RUN_A, log=logs.append)  # usd_per_m_tokens defaults to None
+    final = logs[-1]
+    assert "tokens=" in final and "usd=" not in final
+
+def test_build_embeddings_persists_tokens_used_on_the_embed_runs_row(tmp_path, fixture_db):
+    conn = _db(tmp_path, fixture_db)
+    e = _TokenCountingFakeEmbedder(dim=16)
+    build_embeddings(conn, e, e.tokenizer, RUN_A, log=lambda *_: None)
+    stored = conn.execute("SELECT tokens_used FROM embed_runs WHERE run_key=?", (RUN_A.run_key,)).fetchone()[0]
+    assert stored == e.tokens_used
+
+def test_build_embeddings_stops_for_budget_after_committing_the_triggering_flush(tmp_path, fixture_db):
+    conn = _db(tmp_path, fixture_db)
+    e = _TokenCountingFakeEmbedder(dim=16, tokens_per_text=1_000_000)
+    logs = []
+    with pytest.raises(BudgetExceeded):
+        build_embeddings(conn, e, e.tokenizer, RUN_A, batch_size=1, flush_batches=1,
+                         usd_per_m_tokens=1000.0, max_usd=0.01, log=logs.append)
+    assert any("stopping: spend" in m for m in logs)
+    # the flush that pushed spend over budget already committed its chunks and its
+    # contribution to embed_runs.tokens_used before BudgetExceeded was raised
+    assert conn.execute("SELECT count(*) FROM chunks WHERE embed_run=?", (RUN_A.run_key,)).fetchone()[0] > 0
+    stored = conn.execute("SELECT tokens_used FROM embed_runs WHERE run_key=?", (RUN_A.run_key,)).fetchone()[0]
+    assert stored == e.tokens_used > 0

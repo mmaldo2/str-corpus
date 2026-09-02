@@ -98,7 +98,8 @@ CREATE INDEX IF NOT EXISTS idx_chunks_case ON chunks(case_id);
 CREATE TABLE IF NOT EXISTS embed_meta (key TEXT PRIMARY KEY, value TEXT);
 CREATE TABLE IF NOT EXISTS embed_runs (
     run_key TEXT PRIMARY KEY, model TEXT, revision TEXT, dim INTEGER, quant TEXT,
-    chunk_tokens INTEGER, chunk_overlap INTEGER, prefix_template TEXT, provider TEXT, created TEXT
+    chunk_tokens INTEGER, chunk_overlap INTEGER, prefix_template TEXT, provider TEXT, created TEXT,
+    tokens_used INTEGER
 );
 CREATE TABLE IF NOT EXISTS graph_log (zip_key TEXT PRIMARY KEY, ts TEXT);
 """
@@ -151,7 +152,7 @@ def migrate(conn: sqlite3.Connection) -> list[str]:
     before = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
     chunks_had_run = "chunks" in before and "embed_run" in _columns(conn, "chunks")
     for table, col, decl in (("cases", "pagerank", "REAL"), ("cases", "pagerank_pct", "REAL"),
-                             ("chunks", "embed_run", "TEXT")):
+                             ("chunks", "embed_run", "TEXT"), ("embed_runs", "tokens_used", "INTEGER")):
         if table in before and col not in _columns(conn, table):
             conn.execute(f"ALTER TABLE {table} ADD COLUMN {col} {decl}")
             actions.append(f"added {table}.{col}")

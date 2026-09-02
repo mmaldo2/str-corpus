@@ -29,7 +29,7 @@ sys.path.insert(0, str(ROOT))
 from corpus_engine import store  # noqa: E402
 from corpus_engine.domain import load_domain  # noqa: E402
 from corpus_engine.indexer.fts import build_fts  # noqa: E402
-from corpus_engine.indexer.embed import EmbedRun, build_embeddings  # noqa: E402
+from corpus_engine.indexer.embed import EmbedRun, BudgetExceeded, build_embeddings, estimate_tokens, usd_for_tokens  # noqa: E402
 from corpus_engine.indexer.embedders import LocalEmbedder, HostedEmbedder, tokenizer_for  # noqa: E402
 
 # Old model/dim, kept for --legacy-0.6b comparison runs against the current default.
@@ -71,6 +71,9 @@ def main() -> int:
     ap.add_argument("--partitions", default=None, help='restrict embed to "era|jur,era|jur"')
     ap.add_argument("--confirm", action="store_true", help="required with --hosted; acknowledges the cost estimate")
     ap.add_argument("--concurrency", type=int, default=4, help="parallel requests for --hosted (default 4)")
+    ap.add_argument("--max-usd", dest="max_usd", type=float, default=None,
+                     help="stop cleanly after the flush that pushes accumulated spend over this many USD "
+                          "(requires the domain's embedding.hosted_usd_per_m_tokens; ignored otherwise)")
     args = ap.parse_args()
 
     conn = store.connect(Path(args.db))
@@ -82,14 +85,9 @@ def main() -> int:
         conn.close()
         return 0
 
-    if args.hosted and not args.confirm:
-        print("refusing: --hosted requires --confirm (acknowledging the cost estimate)")
-        print("estimate: see tools/estimate_embed_cost.py (Task 6)")
-        conn.close()
-        return 1
-
     domain = load_domain(args.domain)
     partitions = _parse_partitions(args.partitions)
+    price = domain.embedding.hosted_usd_per_m_tokens
 
     # Every embed path is pinned -- no --legacy exemption. The default/hosted paths are
     # pinned via domain.yaml (checked here); the legacy path is pinned by construction
@@ -99,14 +97,21 @@ def main() -> int:
 
     if args.hosted:
         spec = domain.embedding
-        print("estimate: see tools/estimate_embed_cost.py (Task 6)")
+        tokenizer = tokenizer_for(spec.model, spec.revision)
+        run = EmbedRun.from_spec(spec, provider=spec.hosted_provider)
+        cases, tokens = estimate_tokens(conn, tokenizer, run, partitions=partitions)
+        usd = usd_for_tokens(tokens, price)
+        usd_text = f"${usd:.2f}" if usd is not None else "unknown (embedding.hosted_usd_per_m_tokens not set)"
+        print(f"estimate: {cases} cases, ~{tokens:,} tokens, ~{usd_text}")
+        if not args.confirm:
+            print("refusing: --hosted requires --confirm (acknowledging the cost estimate above)")
+            conn.close()
+            return 1
         key = store.env_value(f"{spec.hosted_provider.upper()}_API_KEY")
         if not key:
             sys.exit(f"no {spec.hosted_provider.upper()}_API_KEY in env or .env")
         embedder = HostedEmbedder(spec.hosted_provider, spec.hosted_model_id, spec.dim, key,
                                   concurrency=args.concurrency)
-        tokenizer = tokenizer_for(spec.model, spec.revision)
-        run = EmbedRun.from_spec(spec, provider=spec.hosted_provider)
     elif args.legacy:
         embedder = LocalEmbedder(LEGACY_MODEL, LEGACY_REVISION, LEGACY_DIM)
         tokenizer = embedder.tokenizer
@@ -118,8 +123,18 @@ def main() -> int:
         tokenizer = embedder.tokenizer
         run = EmbedRun.from_spec(spec, provider="local")
 
-    build_embeddings(conn, embedder, tokenizer, run, batch_size=args.batch, limit=args.limit,
-                     partitions=partitions, flush_batches=max(8, 2 * args.concurrency), log=print)
+    try:
+        build_embeddings(conn, embedder, tokenizer, run, batch_size=args.batch, limit=args.limit,
+                         partitions=partitions, flush_batches=max(8, 2 * args.concurrency),
+                         usd_per_m_tokens=price, max_usd=args.max_usd, log=print)
+    except BudgetExceeded as exc:
+        print(str(exc))
+        conn.close()
+        return 0
+
+    tokens = getattr(embedder, "tokens_used", None) or 0
+    usd = usd_for_tokens(tokens, price)
+    print(f"tokens={tokens} usd={usd:.2f}" if usd is not None else f"tokens={tokens}")
     conn.close()
     return 0
 

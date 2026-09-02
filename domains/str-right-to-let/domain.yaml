@@ -45,3 +45,4 @@ embedding:
   prefix_template: "{name} | {court} | {year}\n"
   hosted_provider: openrouter   # openrouter | deepinfra
   hosted_model_id: qwen/qwen3-embedding-4b
+  hosted_usd_per_m_tokens: 0.01

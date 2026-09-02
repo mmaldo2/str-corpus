@@ -89,8 +89,23 @@ def estimate_tokens(conn, tokenizer, run: EmbedRun, *, sample: int = 500, partit
     return len(ids), int(total * len(ids) / len(pick))
 
 
+class BudgetExceeded(RuntimeError):
+    """Raised by build_embeddings after a flush has already committed, when accumulated
+    spend for this run_key (persisted in embed_runs.tokens_used, which accumulates
+    across resumed processes) exceeds --max-usd. The triggering flush's chunks and
+    token count are safely on disk before this is raised; build_embeddings otherwise
+    keeps its plain `-> int` contract on normal completion."""
+
+
+def usd_for_tokens(tokens: int | None, usd_per_m_tokens: float | None) -> float | None:
+    if tokens is None or usd_per_m_tokens is None:
+        return None
+    return tokens / 1e6 * usd_per_m_tokens
+
+
 def build_embeddings(conn: sqlite3.Connection, embedder: Embedder, tokenizer, run: EmbedRun, *, batch_size: int = 64,
-                     limit: int = 0, partitions=None, flush_batches: int = 8, log=print) -> int:
+                     limit: int = 0, partitions=None, flush_batches: int = 8,
+                     usd_per_m_tokens: float | None = None, max_usd: float | None = None, log=print) -> int:
     register_run(conn, run)
     where = ["c.is_duplicate_of IS NULL", "c.norm_text != ''",
              "c.case_id NOT IN (SELECT case_id FROM chunks WHERE embed_run = ?)"]
@@ -127,10 +142,17 @@ def build_embeddings(conn: sqlite3.Connection, embedder: Embedder, tokenizer, ru
                 rc.close()
 
     threading.Thread(target=producer, daemon=True).start()
-    texts, rows, written = [], [], 0
+    texts, rows, written, last_tokens = [], [], 0, 0
+
+    def progress_suffix(tokens_now: int | None) -> str:
+        suffix = f", tokens={tokens_now or 0}"
+        usd = usd_for_tokens(tokens_now, usd_per_m_tokens)
+        if usd is not None:
+            suffix += f", usd={usd:.2f}"
+        return suffix
 
     def flush():
-        nonlocal written
+        nonlocal written, last_tokens
         if not texts:
             return
         q8, scales = quantize(embedder.encode(texts, batch_size=batch_size))
@@ -138,8 +160,28 @@ def build_embeddings(conn: sqlite3.Connection, embedder: Embedder, tokenizer, ru
         conn.executemany("DELETE FROM chunks WHERE case_id=?", [(c,) for c in case_ids])
         conn.executemany("INSERT INTO chunks (case_id, seq, char_start, char_end, embedding, embed_scale, embed_run) VALUES (?,?,?,?,?,?,?)",
                          [(cid, seq, s, e, q8[i].tobytes(), float(scales[i]), run.run_key) for i, (cid, seq, s, e) in enumerate(rows)])
+        tokens_now = getattr(embedder, "tokens_used", None)
+        if tokens_now is not None:
+            delta = tokens_now - last_tokens
+            last_tokens = tokens_now
+            if delta:
+                # Accumulate rather than overwrite: a resumed process starts its own
+                # embedder's tokens_used at 0, so only the per-flush delta is added to
+                # the total this run_key has spent across every process that has run it.
+                conn.execute("UPDATE embed_runs SET tokens_used = COALESCE(tokens_used, 0) + ? WHERE run_key = ?",
+                             (delta, run.run_key))
         conn.commit()
         written += len(rows); texts.clear(); rows.clear()
+
+    def check_budget():
+        if max_usd is None:
+            return
+        row = conn.execute("SELECT tokens_used FROM embed_runs WHERE run_key = ?", (run.run_key,)).fetchone()
+        total_tokens = (row[0] if row else None) or 0
+        usd = usd_for_tokens(total_tokens, usd_per_m_tokens)
+        if usd is not None and usd > max_usd:
+            log(f"stopping: spend {usd:.2f} exceeds --max-usd {max_usd:.2f}")
+            raise BudgetExceeded(f"spend {usd:.2f} exceeds --max-usd {max_usd:.2f}")
 
     n_done = 0
     while True:
@@ -151,12 +193,14 @@ def build_embeddings(conn: sqlite3.Connection, embedder: Embedder, tokenizer, ru
         if item[0] == "CASE_DONE":
             n_done += 1
             if len(texts) >= batch_size * flush_batches:
-                flush()
+                flush(); check_budget()
             if n_done % 1000 == 0:
-                flush(); log(f"{n_done}/{len(todo)} cases, {written} chunks written")
+                flush()
+                log(f"{n_done}/{len(todo)} cases, {written} chunks written" + progress_suffix(getattr(embedder, "tokens_used", None)))
+                check_budget()
             continue
         cid, seq, s, e, text = item
         texts.append(text); rows.append((cid, seq, s, e))
     flush()
-    log(f"done: {written} chunks under {run.run_key}")
+    log(f"done: {written} chunks under {run.run_key}" + progress_suffix(getattr(embedder, "tokens_used", None)))
     return written

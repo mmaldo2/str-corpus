@@ -13,6 +13,7 @@ class EmbeddingSpec:
     run_key: str; model: str; revision: str; dim: int; quant: str
     chunk_tokens: int; chunk_overlap: int; prefix_template: str
     hosted_provider: str; hosted_model_id: str
+    hosted_usd_per_m_tokens: float | None = None  # corpus_engine stays domain-agnostic: None if the domain omits it
 
 
 @dataclass(frozen=True)

@@ -36,3 +36,16 @@ def test_migrate_tags_existing_chunks_and_is_idempotent(tmp_path):
     row = conn.execute("SELECT model, dim, chunk_tokens FROM embed_runs WHERE run_key='qwen3-0.6b-512-int8'").fetchone()
     assert row == ("Qwen/Qwen3-Embedding-0.6B", 512, 400)
     assert store.migrate(conn) == []
+
+def test_migrate_adds_tokens_used_to_an_existing_embed_runs_table(tmp_path):
+    conn = sqlite3.connect(tmp_path / "v1-embed-runs.db")
+    conn.executescript("""
+        CREATE TABLE embed_runs (run_key TEXT PRIMARY KEY, model TEXT, revision TEXT, dim INTEGER, quant TEXT,
+            chunk_tokens INTEGER, chunk_overlap INTEGER, prefix_template TEXT, provider TEXT, created TEXT);
+        INSERT INTO embed_runs (run_key, model) VALUES ('k', 'm');
+    """)
+    conn.commit()
+    actions = store.migrate(conn)
+    assert "added embed_runs.tokens_used" in actions
+    assert conn.execute("SELECT tokens_used FROM embed_runs WHERE run_key='k'").fetchone() == (None,)
+    assert store.migrate(conn) == []
