@@ -12,6 +12,7 @@ records whose recommended polarity DIFFERS reach the human queue; the rest
 auto-keep and are logged in runs/polarity-review/unchanged.json.
 """
 
+import copy
 import json
 import re
 import sqlite3
@@ -26,7 +27,6 @@ sys.path.insert(0, str(ROOT))
 from corpus_engine.domain import load_domain
 from corpus_engine.ledger import open_ledger
 from corpus_engine.ledger.bootstrap import _polarity_patches
-from corpus_engine.ledger.fold import State
 
 DB = ROOT / "data" / "db" / "corpus.db"
 LEDGERS = sorted((ROOT / "data" / "ledger").glob("cycle-*.jsonl"))
@@ -135,9 +135,7 @@ def cmd_stage() -> None:
 
 def cmd_apply() -> None:
     led = open_ledger()
-    head = led.view()
-    trial = State(records=dict(head.state.records), order=list(head.state.order),
-                  cycles=dict(head.state.cycles), in_file=dict(head.state.in_file))
+    trial = copy.deepcopy(led.view().state)
     patches = _polarity_patches(ROOT, load_domain().reviewer_default, trial,
                                 why_prefix="polarity re-review:")
     res = led.apply(patches, note="polarity re-review")

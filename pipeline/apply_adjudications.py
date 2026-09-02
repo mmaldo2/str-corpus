@@ -10,6 +10,7 @@ Outputs:
                                        written by the ledger itself
 """
 
+import copy
 import json
 import sys
 from dataclasses import replace
@@ -23,7 +24,6 @@ sys.path.insert(0, str(ROOT))
 from corpus_engine.domain import load_domain
 from corpus_engine.ledger import open_ledger
 from corpus_engine.ledger.bootstrap import _cycle_patches
-from corpus_engine.ledger.fold import State
 
 import argparse as _ap
 
@@ -60,9 +60,7 @@ def main() -> int:
 
     # ---- build and apply the ledger patches for this cycle
     led = open_ledger()
-    head = led.view()
-    trial = State(records=dict(head.state.records), order=list(head.state.order),
-                  cycles=dict(head.state.cycles), in_file=dict(head.state.in_file))
+    trial = copy.deepcopy(led.view().state)
     patches = _cycle_patches(ROOT, CYCLE, RUN, load_domain().reviewer_default, trial)
     patches = [replace(p, why=p.why.replace("bootstrap:", f"{CYCLE} close:", 1)) for p in patches]
     res = led.apply(patches, note=f"{CYCLE} adjudication")

@@ -115,9 +115,10 @@ class Ledger:
 
     def apply(self, patches: list[Patch], *, note: str, at: str | None = None,
               dry_run: bool = False) -> ApplyResult:
-        existing = {p.patch_id for p in self.log.read()}
-        fresh = [p for p in patches if patch_id(p) not in existing]
-        skipped = [p for p in patches if patch_id(p) in existing]
+        self._views.clear()                                # the log is the only truth: never
+        existing = {p.patch_id for p in self.log.read()}    # validate against a view a caller
+        fresh = [p for p in patches if patch_id(p) not in existing]  # may have mutated via a
+        skipped = [p for p in patches if patch_id(p) in existing]    # shallow-copied trial state
         head = self.view()
         trial = copy.deepcopy(head.state)
         stamped_old = []

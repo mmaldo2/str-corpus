@@ -1,6 +1,7 @@
 import json
 import pytest
 from corpus_engine.ledger import open_ledger, Basis, Patch, MissingBasis
+from corpus_engine.ledger.fold import State, apply_patch
 from corpus_engine.domain import load_domain
 
 def _rec(cid, year, pol="favorable", relevant=True):
@@ -54,3 +55,20 @@ def test_view_as_of_replays_history(tmp_path):
     assert led.view(as_of=1).record(1)["polarity"] == "favorable"
     assert led.view().record(1)["polarity"] == "adverse"
     assert [p.field for p in led.view().history(1)] == ["", "polarity"]
+
+def test_apply_validates_on_a_fresh_replay_not_a_mutated_trial(tmp_path):
+    # A caller that builds its trial state by shallow-copying a cached view's
+    # dicts (the old, wrong pattern from the three pipeline scripts) mutates
+    # the record dicts the ledger's memoized head view still points at, since
+    # a shallow dict copy shares the nested record dicts, not new ones. apply()
+    # must not trust that possibly-mutated cached view for its own validation
+    # pass -- it must re-replay from the log, the only truth.
+    led = open_ledger(tmp_path, domain=load_domain())
+    led.apply([Patch(1, "admit", "", _rec(1, 1850, pol="unclear"), "v",
+                     Basis(model="m", prompt_version="v", run_id="r"), cycle="cycle-001")], note="seed")
+    trial = State(records=dict(led.view().state.records), order=list(led.view().state.order),
+                  cycles=dict(led.view().state.cycles), in_file=dict(led.view().state.in_file))
+    patch = Patch(1, "set", "polarity", "favorable", "x", Basis(reviewer="m"))
+    apply_patch(trial, patch)                  # mutates the shared record dict in place
+    led.apply([patch], note="t")
+    assert led.view().history(1)[-1].old == "unclear"
