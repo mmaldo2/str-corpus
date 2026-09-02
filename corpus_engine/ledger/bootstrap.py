@@ -43,11 +43,12 @@ def _cycle_patches(root: Path, cycle: str, run: str, reviewer: str, state: State
     remap_records = _records(root / "runs" / f"{cycle}-remap" / "verified")
     remap_ids = {r["case_id"] for r in remap_records}
     for r in _records(root / "runs" / run / "verified"):
+        # remap replaces the original outright (apply_adjudications.py:67-71):
+        # the shadowed original never enters the ledger, so it never holds a
+        # position for the remap record to "replace in place" -- the remap
+        # record is admitted fresh below and lands at the end, in remap order.
         if r["case_id"] in remap_ids:
-            continue  # remap replaces the original outright (apply_adjudications.py:67-71):
-            # the shadowed original never enters the ledger, so it never holds a
-            # position for the remap record to "replace in place" -- the remap
-            # record is admitted fresh below and lands at the end, in remap order.
+            continue
         emit(Patch(r["case_id"], "admit", "", r, "bootstrap: verified extraction", reader, cycle=cycle))
     remap_basis = Basis(model="sonnet@claude-cli", prompt_version="mapper-v1", run_id=f"{cycle}-remap")
     for r in remap_records:
@@ -123,8 +124,13 @@ def _cycle_patches(root: Path, cycle: str, run: str, reviewer: str, state: State
             continue
         want = bool(state.records[cid].get("relevant"))
         if want != state.in_file.get(cid, False):
+            # An admit asserts where the record came from; keep the same origin
+            # basis this cid's most recent real admit used in this cycle (the
+            # human's contribution already lives in the adjacent `set relevant`
+            # patch). `admit` never checks can_judge, so nothing else changes.
+            origin = remap_basis if cid in remap_ids else reader
             emit(Patch(cid, "admit", "", state.records[cid],
-                       "bootstrap: cycle build closes with current relevant value", human, cycle=cycle))
+                       "bootstrap: cycle build closes with current relevant value", origin, cycle=cycle))
     return ps
 
 
