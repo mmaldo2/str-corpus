@@ -22,15 +22,11 @@ from pathlib import Path
 import httpx
 
 BASE = "https://static.case.law"
-# Cycle 001-003 states plus cycle 004 (ADR-0008): founding-era depth (Mass.,
-# Conn., N.J., D.C.) and zoning-era/modern STR dockets (Cal., Ohio).
-TARGET_JURISDICTIONS = {"Tex.", "Pa.", "La.", "N.Y.",
-                        "Mass.", "Conn.", "N.J.", "Cal.", "Ohio", "D.C."}
-# Federal tradition set (ADR-0008): fetched by reporter slug because the "U.S."
-# jurisdiction would otherwise pull all 1.84M federal cases.
-#   f-cas = Federal Cases (circuit courts 1779-1894), us = United States Reports,
-#   dc = Supreme Court of the District of Columbia (1801-1893).
-TARGET_REPORTER_SLUGS = {"f-cas", "us", "dc"}
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from corpus_engine.domain import load_domain  # noqa: E402
+_DOMAIN = load_domain()
+TARGET_JURISDICTIONS = set(_DOMAIN.jurisdictions)
+TARGET_REPORTER_SLUGS = set(_DOMAIN.reporter_slugs)
 RAW_DIR = Path(__file__).resolve().parent.parent / "data" / "raw"
 MANIFEST = RAW_DIR / "manifest.jsonl"
 

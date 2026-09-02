@@ -10,3 +10,6 @@ runs/*/extractions/
 .treatise-scratch/
 
 .env
+
+data/ledger/.lock
+data/ledger/**/*.tmp

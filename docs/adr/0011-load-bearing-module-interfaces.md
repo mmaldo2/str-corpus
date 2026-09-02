@@ -22,9 +22,39 @@ driver, so no unverified record can cross that seam.
 
 ## Consequences
 
-Two latent bugs surfaced by the design pass are fixed as logged version
-bumps rather than silently: the unstable candidate sort in the embedding
-runner, and the hard-coded quote drop that leaves a judged field standing
-without support. Characterization tests reproduce the cycle-003 batches,
+One latent bug surfaced by the design pass is fixed as a logged version
+bump rather than silently: the unstable candidate sort in the embedding
+runner (Stage 2). A second suspected bug, that the hard-coded Shvekh quote
+drop left a judged field standing without support, was inspected in Stage
+1 and found not to exist: the dropped quote supported only who_was_letting,
+which the human corrected directly. The retraction cascade is nonetheless
+enforced for every future quote drop. Characterization tests reproduce the cycle-003 batches,
 verified files, and ledgers byte for byte before either module is
 replaced.
+
+The final Stage 1 review pass (`Patch.cascade`/`Patch.note` made explicit,
+`corpus_engine/ledger/log.py`, `ledger.py`) re-checked every human-confirmed
+quote drop across the bootstrap log for this same hazard. 13 human-confirmed
+quote drops existed in total (section B "mismatch" adjudications). Shvekh's
+(12315742) was the only one that affected `who_was_letting`, which is not
+one of the support-rule's supported fields (`characterization`, `polarity`,
+`holding_summary`) and so was never in scope for the cascade regardless.
+One more (10029864) dropped a quote while every supported field on that
+record was still separately backed by another surviving quote, so nothing
+was left unsupported. Of the remaining 11 records, each had at least one
+judged field (`characterization`, `polarity`, or `holding_summary`) left
+standing with no surviving quote supporting it, because the bootstrap
+replay ran with the cascade off. Those 11 records were nulled and flagged
+`needs-review:<field>` by `tools/apply_retraction_cascade.py` on this
+branch, applied as one logged patch batch
+(`note="retraction cascade backfill"`); see `reports/handoff-cycle-004.md`
+for the resulting counts.
+
+The support rule's judging-authority check applies to a *value* a reader
+or human sets on a judged field, not to retracting one: a human decision
+is its own basis, so `fold.py`'s `set` branch permits nulling a judged
+field under any basis (including the backfill's rule-only
+`Basis(rule_id="retraction-cascade-v1")`) while still requiring a
+reviewer or model+prompt_version+run_id for any non-null value, since a
+retraction to `None` removes a claim rather than judging the case and
+needs no judging authority.

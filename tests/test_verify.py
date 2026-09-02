@@ -4,7 +4,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "pipeline"))
 
 from textnorm import normalize_text
-from verify_quotes import page_for_offset, verify_quote
+from corpus_engine.verification import page_for_offset, verify_quote
 
 RAW = (
     "The owner's right to temporarily alienate possession of his property "

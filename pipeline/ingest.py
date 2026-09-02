@@ -34,10 +34,11 @@ ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = ROOT / "data" / "raw"
 DEFAULT_DB = ROOT / "data" / "db" / "corpus.db"
 
-TARGET_JURISDICTIONS = {"Tex.", "Pa.", "La.", "N.Y."}
-
-ERA_BOUNDS = [(1860, "pre-1860"), (1900, "1860-1900"), (1930, "1900-1930"),
-              (1970, "1930-1970"), (10_000, "1970-2020")]
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from corpus_engine.domain import load_domain  # noqa: E402
+_DOMAIN = load_domain()
+TARGET_JURISDICTIONS = set(_DOMAIN.jurisdictions) | {"U.S."}   # U.S. for the federal reporter slugs
+ERA_BOUNDS = list(_DOMAIN.era_bounds)
 
 BLOCK_TAGS = {"p", "h1", "h2", "h3", "h4", "h5", "blockquote", "section",
               "article", "aside", "div", "tr"}

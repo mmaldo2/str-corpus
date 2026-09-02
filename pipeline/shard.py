@@ -52,8 +52,11 @@ CREATE TABLE IF NOT EXISTS coverage (
 );
 """
 
-ERAS = ["pre-1860", "1860-1900", "1900-1930", "1930-1970", "1970-2020"]
-JURISDICTIONS = ["Tex.", "Pa.", "La.", "N.Y."]
+sys.path.insert(0, str(ROOT))
+from corpus_engine.domain import load_domain  # noqa: E402
+_DOMAIN = load_domain()
+ERAS = list(_DOMAIN.eras)
+JURISDICTIONS = list(_DOMAIN.jurisdictions)
 
 
 def load_selectors() -> list[dict]:
@@ -268,32 +271,7 @@ def already_mapped_ids() -> set[int]:
 
 
 def emit_batches(conn, run_id: str, exclude_mapped: bool = False) -> int:
-    """Group all signal-bearing cases (across all runs) that are not yet in
-    any batch file for this run, homogeneous by era x jurisdiction."""
-    rows = conn.execute(
-        """SELECT s.case_id, s.era_partition, s.jurisdiction,
-                  s.selector_id, s.selector_version, s.matched_text,
-                  s.char_span_start, s.char_span_end, s.chunk_id, s.cosine, s.run_id
-           FROM signals s ORDER BY s.era_partition, s.jurisdiction, s.case_id"""
-    ).fetchall()
-    by_case: dict = {}
-    for r in rows:
-        e = by_case.setdefault(
-            r[0], {"case_id": r[0], "era_partition": r[1], "jurisdiction": r[2],
-                   "signals": []}
-        )
-        e["signals"].append(
-            {"selector_id": r[3], "selector_version": r[4], "matched_text": r[5],
-             "char_span": [r[6], r[7]], "chunk_id": r[8], "cosine": r[9],
-             "run_id": r[10]}
-        )
-    groups: dict = {}
-    for e in by_case.values():
-        groups.setdefault((e["era_partition"], e["jurisdiction"]), []).append(e)
-    out_dir = RUNS / run_id / "batches"
-    out_dir.mkdir(parents=True, exist_ok=True)
-    for old in out_dir.glob("batch-*.json"):
-        old.unlink()
+    from corpus_engine.selector.packing import pack_batches
     gold_ids: set[int] = set()
     gold_file = ROOT / "data" / "gold" / "gold.jsonl"
     if gold_file.exists():
@@ -304,35 +282,17 @@ def emit_batches(conn, run_id: str, exclude_mapped: bool = False) -> int:
                     gold_ids.add(cid)
     skip_ids = already_mapped_ids() if exclude_mapped else set()
     if skip_ids:
-        for key in groups:
-            groups[key] = [e for e in groups[key] if e["case_id"] not in skip_ids]
-        groups = {k: v for k, v in groups.items() if v}
         print(f"excluding {len(skip_ids)} already-mapped cases")
-    pending = []
-    for (era, jur), cases in sorted(groups.items(), key=lambda kv: str(kv[0])):
-        # within a group: multi-selector cases first (signal density, §7)
-        cases.sort(key=lambda e: (-len({s["selector_id"] for s in e["signals"]}), e["case_id"]))
-        for i in range(0, len(cases), BATCH_SIZE):
-            chunk = cases[i : i + BATCH_SIZE]
-            pending.append(
-                {
-                    "era_partition": era, "jurisdiction": jur, "cases": chunk,
-                    "_gold": sum(1 for e in chunk if e["case_id"] in gold_ids),
-                    "_density": max(
-                        len({s["selector_id"] for s in e["signals"]}) for e in chunk
-                    ),
-                }
-            )
-    # across groups: gold-bearing batches first (§7 priority a), then density
-    pending.sort(key=lambda b: (-b["_gold"], -b["_density"]))
-    for n, batch in enumerate(pending, 1):
-        batch.pop("_gold"), batch.pop("_density")
-        batch["batch_id"] = f"{run_id}-batch-{n:03d}"
-        (out_dir / f"batch-{n:03d}.json").write_text(
-            json.dumps(batch, indent=1), encoding="utf-8"
-        )
-    print(f"{len(pending)} batches -> {out_dir}")
-    return len(pending)
+    n = pack_batches(conn, run_id, RUNS / run_id / "batches", gold_ids=gold_ids,
+                     exclude_ids=skip_ids, batch_size=BATCH_SIZE)
+    print(f"{n} batches -> {RUNS / run_id / 'batches'}")
+    return n
+
+
+def missing_jurisdictions(conn, jurisdictions) -> list[str]:
+    """Domain jurisdictions with no cases in the corpus; sharding them would poison coverage."""
+    present = {r[0] for r in conn.execute("SELECT DISTINCT jurisdiction FROM cases WHERE is_duplicate_of IS NULL")}
+    return [j for j in jurisdictions if j not in present]
 
 
 def main() -> int:
@@ -346,6 +306,11 @@ def main() -> int:
     conn = sqlite3.connect(DB, timeout=120)
     conn.execute("PRAGMA busy_timeout=120000")
     conn.executescript(SCHEMA)
+
+    missing = missing_jurisdictions(conn, JURISDICTIONS)
+    if missing:
+        sys.exit(f"refusing to shard: no cases ingested for {missing}; ingest them first "
+                  f"(Stage 2 replaces this guard with fingerprinted coverage)")
 
     if args.batches_only:
         emit_batches(conn, args.run_id, args.exclude_mapped)
