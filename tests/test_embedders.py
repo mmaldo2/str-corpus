@@ -50,3 +50,23 @@ def test_hosted_embedder_raises_on_missing_item(monkeypatch):
     monkeypatch.setattr("corpus_engine.indexer.embedders.httpx.post", fake_post)
     with pytest.raises(EmbedError):
         HostedEmbedder("openrouter", "m", 4, api_key="k").encode(["a", "b"])
+
+
+def test_hosted_embedder_retries_transport_errors_then_gives_up(monkeypatch):
+    import httpx
+    calls = []
+    def fake_post(url, json=None, headers=None, timeout=None):
+        calls.append(1)
+        if len(calls) == 1:
+            raise httpx.ReadTimeout("The read operation timed out")
+        return _Resp(200, {"data": [{"embedding": [0.5] * 1024} for _ in json["input"]]})
+    monkeypatch.setattr("corpus_engine.indexer.embedders.httpx.post", fake_post)
+    monkeypatch.setattr("corpus_engine.indexer.embedders.time.sleep", lambda s: None)
+    e = HostedEmbedder("openrouter", "qwen/qwen3-embedding-4b", 1024, api_key="k", batch=4, concurrency=1)
+    assert e.encode(["a", "b"]).shape == (2, 1024) and len(calls) == 2
+
+    def always_timeout(url, json=None, headers=None, timeout=None):
+        raise httpx.ConnectTimeout("connect timed out")
+    monkeypatch.setattr("corpus_engine.indexer.embedders.httpx.post", always_timeout)
+    with pytest.raises(EmbedError, match="transport error after 4 attempts"):
+        e.encode(["a"])

@@ -60,7 +60,7 @@ BASES = {"openrouter": "https://openrouter.ai/api/v1", "deepinfra": "https://api
 
 class HostedEmbedder:
     def __init__(self, provider: str, model_id: str, dim: int, api_key: str, *, batch: int = 64,
-                 concurrency: int = 4, timeout: int = 120):
+                 concurrency: int = 4, timeout: int = 300):
         self.base, self.model_id, self.dim, self.key = BASES[provider], model_id, dim, api_key
         self.batch, self.concurrency, self.timeout = batch, concurrency, timeout
         self.name, self.tokens_used = f"hosted:{provider}:{model_id}", 0
@@ -68,8 +68,13 @@ class HostedEmbedder:
 
     def _one(self, texts: list[str]) -> np.ndarray:
         for attempt, delay in enumerate((2, 8, 30, 0)):
-            r = httpx.post(f"{self.base}/embeddings", json={"model": self.model_id, "input": texts},
-                           headers={"Authorization": f"Bearer {self.key}"}, timeout=self.timeout)
+            try:
+                r = httpx.post(f"{self.base}/embeddings", json={"model": self.model_id, "input": texts},
+                               headers={"Authorization": f"Bearer {self.key}"}, timeout=self.timeout)
+            except httpx.TransportError as exc:  # timeouts, resets: retry like a 5xx
+                if attempt == 3:
+                    raise EmbedError(f"transport error after 4 attempts: {exc!r}") from exc
+                time.sleep(delay); continue
             if r.status_code == 200:
                 p = r.json()
                 # the OpenAI-shaped embeddings schema does not guarantee response
