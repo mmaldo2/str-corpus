@@ -15,8 +15,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from pre_review import claude_call, parse_json_array
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+from corpus_engine.domain import load_domain
+from corpus_engine.ledger import open_ledger
+from corpus_engine.ledger.bootstrap import _relevance_patches
+from corpus_engine.ledger.fold import State
+
 DB = ROOT / "data" / "db" / "corpus.db"
-LEDGERS = sorted((ROOT / "data" / "ledger").glob("cycle-*.jsonl"))
 
 
 def main() -> int:
@@ -45,28 +50,17 @@ def main() -> int:
     out_dir = ROOT / "runs" / "relevance-recheck"
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "verdicts.json").write_text(json.dumps(verdicts, indent=1), encoding="utf-8")
-    dropped = 0
-    for f in LEDGERS:
-        rows = [json.loads(l) for l in f.read_text(encoding="utf-8").splitlines() if l.strip()]
-        for row in rows:
-            v = verdicts.get(row["case_id"])
-            if v is None:
-                continue
-            rv = row.setdefault("review", {"status": "machine", "flags": [], "notes": []})
-            if v.get("relevant") is False:
-                row["relevant"] = False
-                rv["notes"].append(
-                    f"relevance re-check 2026-09-01 -> irrelevant (user flag + reader): "
-                    f"{v.get('justification')}")
-                dropped += 1
-            else:
-                rv["notes"].append(
-                    f"relevance re-check 2026-09-01 -> relevant confirmed: {v.get('justification')}")
-            rv["status"] = "human-adjudicated"
-        f.write_text("\n".join(json.dumps(r) for r in rows) + "\n", encoding="utf-8")
+
+    led = open_ledger()
+    head = led.view()
+    trial = State(records=dict(head.state.records), order=list(head.state.order),
+                  cycles=dict(head.state.cycles), in_file=dict(head.state.in_file))
+    patches = _relevance_patches(ROOT, load_domain().reviewer_default, trial,
+                                 why_prefix="relevance re-check:")
+    res = led.apply(patches, note="relevance re-check")
     for cid, v in verdicts.items():
         print(f"{cid}: {'IRRELEVANT' if v.get('relevant') is False else 'relevant'} — {v.get('justification')}")
-    print(f"dropped {dropped} of {len(ids)}")
+    print(f"{len(res.applied)} patches applied, {len(res.skipped)} already present; replay_ok={res.replay_ok}")
     return 0
 
 

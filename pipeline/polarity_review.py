@@ -22,6 +22,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from pre_review import claude_call, parse_json_array
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+from corpus_engine.domain import load_domain
+from corpus_engine.ledger import open_ledger
+from corpus_engine.ledger.bootstrap import _polarity_patches
+from corpus_engine.ledger.fold import State
+
 DB = ROOT / "data" / "db" / "corpus.db"
 LEDGERS = sorted((ROOT / "data" / "ledger").glob("cycle-*.jsonl"))
 RUN = ROOT / "runs" / "polarity-review"
@@ -128,41 +134,14 @@ def cmd_stage() -> None:
 
 
 def cmd_apply() -> None:
-    state = json.loads((RUN / "decisions-final.json").read_text(encoding="utf-8"))
-    queue = json.loads((RUN / "review-queue.json").read_text(encoding="utf-8"))["disagreements"]
-    decisions = {}
-    for i, e in enumerate(queue):
-        st = state.get(f"C-{i}") or {}
-        d = st.get("decision")
-        if not d:
-            continue
-        value = {"accept-rec": e["recommendation"], "claude": "favorable",
-                 "codex": e["recommendation"]}.get(d)
-        if d == "other":
-            value = None
-        decisions[e["case_id"]] = (value, st.get("note"), e["recommendation"])
-    applied = 0
-    for f in LEDGERS:
-        rows = [json.loads(l) for l in f.read_text(encoding="utf-8").splitlines() if l.strip()]
-        for r in rows:
-            if r["case_id"] in decisions:
-                value, note, rec = decisions[r["case_id"]]
-                rv = r.setdefault("review", {"status": "machine", "flags": [], "notes": []})
-                if value and value != r.get("polarity"):
-                    rv["notes"].append(
-                        f"polarity {r.get('polarity')} -> {value} (polarity re-review "
-                        f"2026-09-01, owner-right-to-let definition; reader rec {rec})")
-                    r["polarity"] = value
-                    applied += 1
-                elif value:
-                    rv["notes"].append("polarity re-review: favorable confirmed by human")
-                else:
-                    rv["flags"].append("polarity-open-question")
-                if note:
-                    rv["notes"].append(f"user note: {note}")
-                rv["status"] = "human-adjudicated"
-        f.write_text("\n".join(json.dumps(r) for r in rows) + "\n", encoding="utf-8")
-    print(f"applied {applied} polarity changes across ledgers")
+    led = open_ledger()
+    head = led.view()
+    trial = State(records=dict(head.state.records), order=list(head.state.order),
+                  cycles=dict(head.state.cycles), in_file=dict(head.state.in_file))
+    patches = _polarity_patches(ROOT, load_domain().reviewer_default, trial,
+                                why_prefix="polarity re-review:")
+    res = led.apply(patches, note="polarity re-review")
+    print(f"{len(res.applied)} patches applied, {len(res.skipped)} already present; replay_ok={res.replay_ok}")
 
 
 if __name__ == "__main__":

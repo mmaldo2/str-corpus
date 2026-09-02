@@ -87,3 +87,9 @@ class TierCount:
 
     def __add__(self, other):
         raise TypeError("two-tier counts are never blended (ADR-0002)")
+
+
+@dataclass(frozen=True)
+class SeedSet:
+    case_ids: tuple[int, ...]
+    hash: str

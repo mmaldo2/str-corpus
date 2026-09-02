@@ -143,7 +143,7 @@ def _file_order(state: State) -> list[int]:
     return out
 
 
-def _hygiene_patches(root: Path, reviewer: str, state: State) -> list[Patch]:
+def _polarity_patches(root: Path, reviewer: str, state: State, *, why_prefix: str = "bootstrap:") -> list[Patch]:
     ps: list[Patch] = []
 
     def emit(p: Patch):
@@ -170,15 +170,25 @@ def _hygiene_patches(root: Path, reviewer: str, state: State) -> list[Patch]:
         value, note, rec = decisions[cid]
         r = state.records[cid]
         if value and value != r.get("polarity"):
-            emit(Patch(cid, "append", "review.notes", f"polarity {r.get('polarity')} -> {value} (polarity re-review 2026-09-01, owner-right-to-let definition; reader rec {rec})", "bootstrap: polarity re-review note", hb))
-            emit(Patch(cid, "set", "polarity", value, "bootstrap: polarity re-review", hb))
+            emit(Patch(cid, "append", "review.notes", f"polarity {r.get('polarity')} -> {value} (polarity re-review 2026-09-01, owner-right-to-let definition; reader rec {rec})", f"{why_prefix} polarity re-review note", hb))
+            emit(Patch(cid, "set", "polarity", value, f"{why_prefix} polarity re-review", hb))
         elif value:
-            emit(Patch(cid, "append", "review.notes", "polarity re-review: favorable confirmed by human", "bootstrap: polarity re-review confirmed", hb))
+            emit(Patch(cid, "append", "review.notes", "polarity re-review: favorable confirmed by human", f"{why_prefix} polarity re-review confirmed", hb))
         else:
-            emit(Patch(cid, "append", "review.flags", "polarity-open-question", "bootstrap: polarity open question", hb))
+            emit(Patch(cid, "append", "review.flags", "polarity-open-question", f"{why_prefix} polarity open question", hb))
         if note:
-            emit(Patch(cid, "append", "review.notes", f"user note: {note}", "bootstrap: polarity re-review user note", hb))
-        emit(Patch(cid, "set", "review.status", "human-adjudicated", "bootstrap: polarity re-review status", hb))
+            emit(Patch(cid, "append", "review.notes", f"user note: {note}", f"{why_prefix} polarity re-review user note", hb))
+        emit(Patch(cid, "set", "review.status", "human-adjudicated", f"{why_prefix} polarity re-review status", hb))
+    return ps
+
+
+def _relevance_patches(root: Path, reviewer: str, state: State, *, why_prefix: str = "bootstrap:") -> list[Patch]:
+    ps: list[Patch] = []
+
+    def emit(p: Patch):
+        apply_patch(state, p, cascade=False)
+        ps.append(p)
+
     verdicts = {int(k): v for k, v in json.loads((root / "runs" / "relevance-recheck" / "verdicts.json").read_text(encoding="utf-8")).items()}
     rb = Basis(reviewer=reviewer, run_id="relevance-recheck")
     for cid in _file_order(state):
@@ -186,12 +196,17 @@ def _hygiene_patches(root: Path, reviewer: str, state: State) -> list[Patch]:
         if v is None:
             continue
         if v.get("relevant") is False:
-            emit(Patch(cid, "set", "relevant", False, "bootstrap: relevance re-check", rb))
-            emit(Patch(cid, "append", "review.notes", f"relevance re-check 2026-09-01 -> irrelevant (user flag + reader): {v.get('justification')}", "bootstrap: relevance re-check note", rb))
+            emit(Patch(cid, "set", "relevant", False, f"{why_prefix} relevance re-check", rb))
+            emit(Patch(cid, "append", "review.notes", f"relevance re-check 2026-09-01 -> irrelevant (user flag + reader): {v.get('justification')}", f"{why_prefix} relevance re-check note", rb))
         else:
-            emit(Patch(cid, "append", "review.notes", f"relevance re-check 2026-09-01 -> relevant confirmed: {v.get('justification')}", "bootstrap: relevance re-check note", rb))
-        emit(Patch(cid, "set", "review.status", "human-adjudicated", "bootstrap: relevance re-check status", rb))
+            emit(Patch(cid, "append", "review.notes", f"relevance re-check 2026-09-01 -> relevant confirmed: {v.get('justification')}", f"{why_prefix} relevance re-check note", rb))
+        emit(Patch(cid, "set", "review.status", "human-adjudicated", f"{why_prefix} relevance re-check status", rb))
     return ps
+
+
+def _hygiene_patches(root: Path, reviewer: str, state: State) -> list[Patch]:
+    return (_polarity_patches(root, reviewer, state) +
+            _relevance_patches(root, reviewer, state))
 
 
 # Two records were corrected by hand in commit 2ca53b9 ("Resolve final two

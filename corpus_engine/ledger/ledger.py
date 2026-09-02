@@ -1,12 +1,12 @@
 from __future__ import annotations
-import copy, os
+import copy, json, os
 from dataclasses import dataclass, field
 from pathlib import Path
 from corpus_engine.domain import Domain, load_domain
 from corpus_engine.ledger.fold import State, apply_patch
 from corpus_engine.ledger.log import PatchLog, patch_id
 from corpus_engine.ledger.render import render_cycle
-from corpus_engine.ledger.types import Patch, StaleSnapshot
+from corpus_engine.ledger.types import Patch, SeedSet, StaleSnapshot, NotTraditionEvidence
 from corpus_engine.store import paths
 
 
@@ -44,6 +44,40 @@ class LedgerView:
         judged = set(self.domain.judged_fields) | {"review.status"}
         return any(p.basis.reviewer and p.op in ("set", "append") and p.field in judged
                    for p in self.history(case_id))
+
+    def counts(self, *, by: tuple[str, ...] = (), **filters):
+        from corpus_engine.ledger.tally import counts
+        return counts(self, by=by, **filters)
+
+    def matrix(self):
+        if self.name != "tradition":
+            raise NotTraditionEvidence(self.name)
+        from corpus_engine.ledger.tally import matrix
+        return matrix(self)
+
+    def seed_set(self) -> SeedSet:
+        if self.name != "tradition":
+            raise NotTraditionEvidence(self.name)
+        import hashlib
+        ids = tuple(sorted(cid for cid in self.state.order
+                           if self.state.in_file.get(cid) and self.state.records[cid].get("relevant")
+                           and self.state.records[cid].get("polarity") == "favorable" and self.reviewed(cid)))
+        h = hashlib.sha256((",".join(map(str, ids)) + f"@{self.as_of}").encode()).hexdigest()
+        return SeedSet(case_ids=ids, hash=h)
+
+    def manifest(self, cycle: str) -> list[dict]:
+        out = []
+        for p in self.patches:
+            if p.op == "admit" and p.cycle == cycle:
+                r = self.state.records.get(p.case_id, {})
+                outcome = ("invalid" if r.get("extraction_status") == "extraction-invalid"
+                           else "relevant" if p.new.get("relevant") else "irrelevant")
+                out.append({"case_id": p.case_id, "cycle": cycle, "run_id": p.basis.run_id,
+                            "outcome": outcome, "stratum": None})
+        seen = {}
+        for e in out:                      # admit patches deduped by case_id; last admit wins
+            seen[e["case_id"]] = e
+        return list(seen.values())
 
     def render(self) -> dict[str, bytes]:
         by_cycle: dict[str, list[dict]] = {}
@@ -115,7 +149,14 @@ class Ledger:
             tmp.write_bytes(data)
             tmp.replace(path)
             out.append((path, data))
+        mdir = self.dir / "manifest"; mdir.mkdir(exist_ok=True)
+        for cyc in sorted({c for c in v.state.cycles.values()}):
+            data = "".join(json.dumps(e, sort_keys=True) + "\n" for e in v.manifest(cyc)).encode("utf-8")
+            (mdir / f"{cyc}.jsonl").write_bytes(data)
         return out
+
+    def rewrite_snapshot(self) -> None:
+        self._write_snapshot(self.view())
 
 
 def open_ledger(root: Path | None = None, *, name: str = "tradition", domain: Domain | None = None) -> Ledger:
