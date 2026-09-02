@@ -145,7 +145,9 @@ def build_embeddings(conn: sqlite3.Connection, embedder: Embedder, tokenizer, ru
     texts, rows, written, last_tokens = [], [], 0, 0
 
     def progress_suffix(tokens_now: int | None) -> str:
-        suffix = f", tokens={tokens_now or 0}"
+        if tokens_now is None:  # local/fake embedders do not count tokens
+            return ""
+        suffix = f", tokens={tokens_now}"
         usd = usd_for_tokens(tokens_now, usd_per_m_tokens)
         if usd is not None:
             suffix += f", usd={usd:.2f}"
