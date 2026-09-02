@@ -22,9 +22,12 @@ driver, so no unverified record can cross that seam.
 
 ## Consequences
 
-Two latent bugs surfaced by the design pass are fixed as logged version
-bumps rather than silently: the unstable candidate sort in the embedding
-runner, and the hard-coded quote drop that leaves a judged field standing
-without support. Characterization tests reproduce the cycle-003 batches,
+One latent bug surfaced by the design pass is fixed as a logged version
+bump rather than silently: the unstable candidate sort in the embedding
+runner (Stage 2). A second suspected bug, that the hard-coded Shvekh quote
+drop left a judged field standing without support, was inspected in Stage
+1 and found not to exist: the dropped quote supported only who_was_letting,
+which the human corrected directly. The retraction cascade is nonetheless
+enforced for every future quote drop. Characterization tests reproduce the cycle-003 batches,
 verified files, and ledgers byte for byte before either module is
 replaced.
