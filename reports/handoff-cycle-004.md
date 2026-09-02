@@ -88,11 +88,17 @@ review page publishable as an artifact; reviewer identity recorded.
    - **Backfill run 2026-09-02**: `tools/backfill_citation_graph.py --workers 6`
      over the live corpus (9,204 zips named in `ingest_log`) — `(9204,
      17267453)` (zips processed, cites_to rows inserted incl. duplicates
-     collapsed by `INSERT OR IGNORE` to 16,793,558 distinct rows), `cases
-     with pagerank: 1282367` of 1,915,819 total cases (the shortfall is
-     upstream: sampled CAP zip metadata itself has `analysis.pagerank` on
-     only ~90% of cases, concentrated in the pre-existing N.Y./La./Pa./Tex.
-     corpus). Zero zip errors. A second run confirmed resumability: `(0, 0)`.
+     collapsed by `INSERT OR IGNORE` to 16,793,558 distinct rows). Zero zip
+     errors. A second run confirmed resumability: `(0, 0)`.
+   - **PageRank coverage (corrected 2026-09-02)**: DB-wide, 1,282,367 of
+     1,915,819 case rows carry a non-null `pagerank` (67%). Coverage varies
+     widely by volume because CAP's own metadata omits `analysis.pagerank`
+     for many cases — examples: `ad2d/1` (1,770 cases, 493 with pagerank,
+     28%) and `ad2d/202` (1,014 cases, 916 with pagerank, 90%). The backfill
+     stores every pagerank value the metadata provides and nothing else
+     (verified: DB non-null-pagerank count equals metadata-with-pagerank
+     count exactly for `ad2d/1`, 493 = 493), so the DB-wide figure reflects
+     upstream data completeness, not a backfill defect.
 7. **Reader-model measurement** (ADR-0007): fix the experiment kit's
    reference to human-adjudicated records; run the approved ten candidates
    through OpenRouter; record endpoints and quantization; choose per the
