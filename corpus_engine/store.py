@@ -99,6 +99,7 @@ CREATE TABLE IF NOT EXISTS embed_runs (
     run_key TEXT PRIMARY KEY, model TEXT, revision TEXT, dim INTEGER, quant TEXT,
     chunk_tokens INTEGER, chunk_overlap INTEGER, prefix_template TEXT, provider TEXT, created TEXT
 );
+CREATE TABLE IF NOT EXISTS graph_log (zip_key TEXT PRIMARY KEY, ts TEXT);
 """
 
 FTS_SCHEMA = """
