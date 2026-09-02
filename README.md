@@ -51,3 +51,16 @@ Per spec §3. `selectors/selectors.yaml` is the load-bearing versioned artifact;
 never edit a selector in place past a shard run — bump `version`. `data/raw`
 and `data/db` are gitignored; `data/raw/manifest.jsonl` records exactly which
 volume zips (URL, sha256, bytes) were ingested, for reproducibility.
+
+`corpus_engine/` is the domain-agnostic engine (ADR-0010): `store` (paths,
+connections, schema), `domain` (loads `domains/<name>/domain.yaml`),
+`verification` (the quote gate), `selector.packing` (batch packing), and
+`ledger` (the system of record, ADR-0002: `data/ledger/cycle-*.jsonl` are the
+snapshot, `data/ledger/patches.jsonl` the append-only log,
+`data/ledger/manifest/` the per-cycle account of every case read). Scripts in
+`pipeline/` are thin wrappers during the staged refactor. Every count comes
+from `open_ledger().view().counts()`; never compute one by hand.
+
+Tests: `.venv\Scripts\python -m pytest tests -q`. Byte-for-byte
+characterization tests reproduce cycle-003 batches, verified files, and all
+three ledgers from `tests/golden` and `tests/fixtures`.

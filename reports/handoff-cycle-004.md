@@ -10,11 +10,11 @@ document is the operational state and the order of work.
 
 - Corpus: TX/PA/LA/NY, 1,301,147 unique cases (1799–2020), FTS + Qwen3-0.6B
   embeddings (3.88M chunks, 512d int8), `data/db/corpus.db` (~30 GB).
-- Ledgers: `data/ledger/cycle-00{1,2,3}.jsonl`, 715 records, 710 relevant.
-  Raw ledger polarity: 368 favorable / 196 adverse / 128 mixed / 15 null /
-  3 irrelevant. Review status: 560 machine-only, 138 human-adjudicated,
-  11 human-accepted, 1 needs-work. **Until ADR-0002's two-tier counts
-  exist, do not cite a single cumulative number.**
+- Ledgers: `data/ledger/cycle-00{1,2,3}.jsonl`. Per
+  `open_ledger().view().counts().total.as_claim("relevant cases")`: **710
+  relevant cases (150 human-reviewed, 560 machine-only; lower bound)**.
+  Tradition-matrix pre-1860 householder count (favorable, from
+  `view().matrix()`): 2 (1 human-reviewed, 1 machine-only).
 - Tradition matrix (favorable, by jurisdiction × era):
   La. 2/9/28/11/3, N.Y. 14/89/68/22/16, Pa. 2/11/16/10/16, Tex. 2/8/20/13/8
   for pre-1860 / 1860-1900 / 1900-1930 / 1930-1970 / 1970-2020.
@@ -59,11 +59,10 @@ review page publishable as an artifact; reviewer identity recorded.
    (`runs/download-cycle-004.log`; 5,888 volumes across 209 reporters).
    `pipeline/download.py` now carries the new jurisdictions and the federal
    reporter slugs (`f-cas`, `us`, `dc`).
-2. **Refactor** (ADR-0010) with characterization tests first: shard dry-run
-   must reproduce cycle-003 batches; verify must reproduce `verified/`;
-   apply_adjudications must reproduce ledgers. Fixture DB of a few hundred
-   cases. Modules cycle 004 needs first: store, domain, ledger, selector
-   engine (+ citation-graph and relevance-feedback types), reader driver.
+2. **Refactor** (ADR-0010) — **Stage 1 done: see
+   docs/superpowers/plans/2026-09-01-refactor-stage-1-foundations.md; Stage
+   2 (selector engine, citation graph, ingest) and Stage 3 (reader driver,
+   verification, review, kit) plans follow.**
 3. **Ledger reconciliation** (ADR-0002): patch log, manifest, two-tier
    counts, null-polarity records resolved, hard-coded corrections moved to
    patch events.
