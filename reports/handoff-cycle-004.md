@@ -90,15 +90,23 @@ review page publishable as an artifact; reviewer identity recorded.
      17267453)` (zips processed, cites_to rows inserted incl. duplicates
      collapsed by `INSERT OR IGNORE` to 16,793,558 distinct rows). Zero zip
      errors. A second run confirmed resumability: `(0, 0)`.
-   - **PageRank coverage (corrected 2026-09-02)**: DB-wide, 1,282,367 of
-     1,915,819 case rows carry a non-null `pagerank` (67%). Coverage varies
-     widely by volume because CAP's own metadata omits `analysis.pagerank`
-     for many cases — examples: `ad2d/1` (1,770 cases, 493 with pagerank,
-     28%) and `ad2d/202` (1,014 cases, 916 with pagerank, 90%). The backfill
-     stores every pagerank value the metadata provides and nothing else
-     (verified: DB non-null-pagerank count equals metadata-with-pagerank
-     count exactly for `ad2d/1`, 493 = 493), so the DB-wide figure reflects
-     upstream data completeness, not a backfill defect.
+   - **PageRank coverage (corrected 2026-09-02, round 2)**: among
+     non-duplicate (canonical) cases, 1,093,876 of 1,301,849 carry a
+     non-null `pagerank` — **84.0% coverage**. By jurisdiction
+     (non-duplicate): N.Y. 673,080 total / 119,486 null (82.2% coverage),
+     La. 204,257 / 46,974 null (77.0%), Pa. 192,313 / 23,961 null (87.5%),
+     Tex. 232,199 / 17,552 null (92.4%). (The raw-row DB-wide figure,
+     1,282,367 of 1,915,819, i.e. 67%, is lower only because it blends in
+     613,970 duplicate rows — of which just 188,491 (30.7%) carry
+     pagerank — that are not part of the canonical case count and are not
+     the figure to cite.) Coverage varies widely by volume because CAP's
+     own metadata omits `analysis.pagerank` for many cases — examples:
+     `ad2d/1` (1,770 cases, 493 with pagerank, 28%) and `ad2d/202` (1,014
+     cases, 916 with pagerank, 90%). The backfill stores every pagerank
+     value the metadata provides and nothing else (verified: DB
+     non-null-pagerank count equals metadata-with-pagerank count exactly
+     for `ad2d/1`, 493 = 493), so the coverage figures reflect upstream
+     data completeness, not a backfill defect.
 7. **Reader-model measurement** (ADR-0007): fix the experiment kit's
    reference to human-adjudicated records; run the approved ten candidates
    through OpenRouter; record endpoints and quantization; choose per the
