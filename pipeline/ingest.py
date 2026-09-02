@@ -35,6 +35,7 @@ RAW_DIR = ROOT / "data" / "raw"
 DEFAULT_DB = ROOT / "data" / "db" / "corpus.db"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from corpus_engine import store  # noqa: E402
 from corpus_engine.domain import load_domain  # noqa: E402
 _DOMAIN = load_domain()
 TARGET_JURISDICTIONS = set(_DOMAIN.jurisdictions) | {"U.S."}   # U.S. for the federal reporter slugs
@@ -42,37 +43,6 @@ ERA_BOUNDS = list(_DOMAIN.era_bounds)
 
 BLOCK_TAGS = {"p", "h1", "h2", "h3", "h4", "h5", "blockquote", "section",
               "article", "aside", "div", "tr"}
-
-SCHEMA = """
-CREATE TABLE IF NOT EXISTS cases (
-    case_id INTEGER PRIMARY KEY,
-    name TEXT, name_abbreviation TEXT,
-    cite TEXT,                      -- primary (official if present) citation
-    court TEXT, jurisdiction TEXT,
-    decision_date TEXT, decision_year INTEGER, era_partition TEXT,
-    reporter TEXT, volume TEXT, file_name TEXT,
-    first_page TEXT, last_page TEXT,
-    raw_text TEXT, norm_text TEXT,
-    page_map TEXT,                  -- json [[raw_char_offset, page_int_or_str], ...]
-    norm_version INTEGER,
-    ocr_confidence REAL, source_sha256 TEXT,
-    cl_cluster_id INTEGER,          -- CourtListener cluster id when known (A4)
-    is_duplicate_of INTEGER REFERENCES cases(case_id)
-);
-CREATE TABLE IF NOT EXISTS citations (
-    case_id INTEGER REFERENCES cases(case_id),
-    cite TEXT, cite_norm TEXT, type TEXT,
-    PRIMARY KEY (case_id, cite)
-);
-CREATE INDEX IF NOT EXISTS idx_citations_norm ON citations(cite_norm);
-CREATE INDEX IF NOT EXISTS idx_cases_partition ON cases(era_partition, jurisdiction);
-CREATE TABLE IF NOT EXISTS ingest_log (
-    zip_key TEXT PRIMARY KEY,       -- "<slug>/<vol>"
-    n_cases_total INTEGER, n_cases_ingested INTEGER,
-    norm_version INTEGER, ts TEXT
-);
-"""
-
 
 def era_partition(year: int) -> str:
     for bound, label in ERA_BOUNDS:
@@ -235,7 +205,7 @@ def main() -> int:
     db_path = Path(args.db)
     db_path.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(db_path)
-    conn.executescript(SCHEMA)
+    store.ensure_schema(conn)
     conn.execute("PRAGMA journal_mode=WAL")
 
     done = {

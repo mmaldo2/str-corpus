@@ -32,27 +32,8 @@ RUNS = ROOT / "runs"
 
 BATCH_SIZE = 18  # spec: 15-20 cases, homogeneous era x jurisdiction
 
-SCHEMA = """
-CREATE TABLE IF NOT EXISTS signals (
-    signal_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    case_id INTEGER REFERENCES cases(case_id),
-    selector_id TEXT, selector_version INTEGER,
-    matched_text TEXT, char_span_start INTEGER, char_span_end INTEGER,
-    chunk_id INTEGER, cosine REAL,
-    era_partition TEXT, jurisdiction TEXT,
-    run_id TEXT, ts TEXT
-);
-CREATE INDEX IF NOT EXISTS idx_signals_case ON signals(case_id);
-CREATE INDEX IF NOT EXISTS idx_signals_selector ON signals(selector_id, selector_version);
-CREATE TABLE IF NOT EXISTS coverage (
-    selector_id TEXT, selector_version INTEGER,
-    era_partition TEXT, jurisdiction TEXT,
-    run_id TEXT, ts TEXT, n_signals INTEGER,
-    PRIMARY KEY (selector_id, selector_version, era_partition, jurisdiction)
-);
-"""
-
 sys.path.insert(0, str(ROOT))
+from corpus_engine import store  # noqa: E402
 from corpus_engine.domain import load_domain  # noqa: E402
 _DOMAIN = load_domain()
 ERAS = list(_DOMAIN.eras)
@@ -305,7 +286,7 @@ def main() -> int:
 
     conn = sqlite3.connect(DB, timeout=120)
     conn.execute("PRAGMA busy_timeout=120000")
-    conn.executescript(SCHEMA)
+    store.ensure_schema(conn)
 
     missing = missing_jurisdictions(conn, JURISDICTIONS)
     if missing:

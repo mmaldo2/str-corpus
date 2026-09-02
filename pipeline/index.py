@@ -24,41 +24,18 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DB = ROOT / "data" / "db" / "corpus.db"
 
+sys.path.insert(0, str(ROOT))
+from corpus_engine import store  # noqa: E402
+
 EMBED_MODEL = "Qwen/Qwen3-Embedding-0.6B"
 EMBED_REVISION = "main"  # resolved to a commit hash and recorded at run time
 EMBED_DIM = 512  # matryoshka truncation
 CHUNK_TOKENS = 1000
 CHUNK_OVERLAP = 150
 
-FTS_SCHEMA = """
-CREATE VIRTUAL TABLE IF NOT EXISTS fts_porter USING fts5(
-    norm_text, content='cases', content_rowid='case_id',
-    tokenize='porter unicode61'
-);
-CREATE VIRTUAL TABLE IF NOT EXISTS fts_raw USING fts5(
-    norm_text, content='cases', content_rowid='case_id',
-    tokenize='unicode61'
-);
-"""
-
-CHUNK_SCHEMA = """
-CREATE TABLE IF NOT EXISTS chunks (
-    chunk_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    case_id INTEGER REFERENCES cases(case_id),
-    seq INTEGER,
-    char_start INTEGER, char_end INTEGER,
-    embedding BLOB,             -- int8[EMBED_DIM]
-    embed_scale REAL,           -- dequant: float = int8 * embed_scale
-    UNIQUE (case_id, seq)
-);
-CREATE TABLE IF NOT EXISTS embed_meta (
-    key TEXT PRIMARY KEY, value TEXT
-);
-"""
-
 
 def build_fts(conn: sqlite3.Connection) -> None:
-    conn.executescript(FTS_SCHEMA)
+    store.ensure_fts(conn)
     for table in ("fts_porter", "fts_raw"):
         conn.execute(f"INSERT INTO {table}({table}) VALUES('rebuild')")
         conn.commit()
@@ -96,7 +73,7 @@ def build_embeddings(conn: sqlite3.Connection, batch_size: int, limit: int) -> N
     from huggingface_hub import HfApi
     from sentence_transformers import SentenceTransformer
 
-    conn.executescript(CHUNK_SCHEMA)
+    store.ensure_schema(conn)
     commit = HfApi().model_info(EMBED_MODEL, revision=EMBED_REVISION).sha
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = SentenceTransformer(
