@@ -1,0 +1,10 @@
+# Canonical bytes are LF (ADR-0011 stage-1 ruling). Pin text files so the
+# Windows working copy matches what the engine writes and what git stores.
+*.jsonl text eol=lf
+*.json  text eol=lf
+*.py    text eol=lf
+*.md    text eol=lf
+*.yaml  text eol=lf
+*.txt   text eol=lf
+*.db    binary
+*.pdf   binary
