@@ -34,13 +34,24 @@ def test_build_embeddings_tags_runs_resumes_and_replaces(tmp_path, fixture_db):
     assert conn.execute("SELECT run_key FROM embed_runs").fetchall() == [("fake-a-16-int8",)]
     assert build_embeddings(conn, e, e.tokenizer, RUN_A, log=lambda *_: None) == 0             # resume: nothing left under A
     cases_a = {r[0] for r in conn.execute("SELECT DISTINCT case_id FROM chunks")}
-    build_embeddings(conn, e, e.tokenizer, RUN_B, limit=5, log=lambda *_: None)                # re-embeds 5 cases under B
+    # re-embed 5 cases under B, all drawn from one partition with >5 cases, so that
+    # partition is guaranteed to end up holding both runs (a partition-agnostic limit=5
+    # could land entirely inside a small partition and never exercise the mixed case)
+    big_partition = conn.execute(
+        """SELECT era_partition, jurisdiction FROM cases WHERE is_duplicate_of IS NULL
+           GROUP BY 1, 2 HAVING count(*) > 5 ORDER BY count(*) DESC LIMIT 1"""
+    ).fetchone()
+    build_embeddings(conn, e, e.tokenizer, RUN_B, limit=5, partitions=[tuple(big_partition)], log=lambda *_: None)
     runs = conn.execute("SELECT embed_run, count(DISTINCT case_id) FROM chunks GROUP BY 1").fetchall()
     assert dict(runs)["fake-b-16-int8"] == 5 and dict(runs)["fake-a-16-int8"] == len(cases_a) - 5
     pr = partition_runs(conn)
-    assert any(len(v) == 2 for v in pr.values()) or len(pr) > 1          # a mixed partition exists now
+    assert any(len(v) == 2 for v in pr.values())                           # a mixed partition exists now
     dup = conn.execute("SELECT case_id FROM chunks GROUP BY case_id, seq HAVING count(*) > 1").fetchall()
     assert dup == []                                                        # never two runs for one (case, seq)
+    spans_both = conn.execute(
+        "SELECT case_id FROM chunks GROUP BY case_id HAVING count(DISTINCT embed_run) > 1"
+    ).fetchall()
+    assert spans_both == []                                                 # no case appears under both runs
 
 def test_partitions_filter_limits_scope(tmp_path, fixture_db):
     conn = _db(tmp_path, fixture_db); e = FakeEmbedder(dim=16)

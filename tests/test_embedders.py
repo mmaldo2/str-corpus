@@ -28,3 +28,25 @@ def test_hosted_embedder_gives_up_after_four_failures(monkeypatch):
     monkeypatch.setattr("corpus_engine.indexer.embedders.time.sleep", lambda s: None)
     with pytest.raises(EmbedError):
         HostedEmbedder("deepinfra", "m", 8, api_key="k").encode(["a"])
+
+def test_hosted_embedder_reorders_out_of_order_response(monkeypatch):
+    def fake_post(url, json=None, headers=None, timeout=None):
+        return _Resp(200, {"data": [{"index": 1, "embedding": [0.2] * 4},
+                                     {"index": 0, "embedding": [0.1] * 4}], "usage": {}})
+    monkeypatch.setattr("corpus_engine.indexer.embedders.httpx.post", fake_post)
+    v = HostedEmbedder("openrouter", "m", 4, api_key="k", concurrency=1).encode(["a", "b"])
+    assert np.allclose(v[0], 0.1) and np.allclose(v[1], 0.2)
+
+def test_hosted_embedder_raises_on_short_vectors(monkeypatch):
+    def fake_post(url, json=None, headers=None, timeout=None):
+        return _Resp(200, {"data": [{"embedding": [0.5] * 512} for _ in json["input"]], "usage": {}})
+    monkeypatch.setattr("corpus_engine.indexer.embedders.httpx.post", fake_post)
+    with pytest.raises(EmbedError):
+        HostedEmbedder("openrouter", "m", 1024, api_key="k").encode(["a"])
+
+def test_hosted_embedder_raises_on_missing_item(monkeypatch):
+    def fake_post(url, json=None, headers=None, timeout=None):
+        return _Resp(200, {"data": [{"embedding": [0.5] * 4}], "usage": {}})
+    monkeypatch.setattr("corpus_engine.indexer.embedders.httpx.post", fake_post)
+    with pytest.raises(EmbedError):
+        HostedEmbedder("openrouter", "m", 4, api_key="k").encode(["a", "b"])

@@ -46,8 +46,13 @@ def _parse_partitions(spec: str | None) -> list[tuple[str, str]] | None:
         return None
     out = []
     for part in spec.split(","):
+        if "|" not in part:
+            raise SystemExit("--partitions expects era|jur[,era|jur...]")
         era, jur = part.split("|", 1)
-        out.append((era.strip(), jur.strip()))
+        era, jur = era.strip(), jur.strip()
+        if not era or not jur:
+            raise SystemExit("--partitions expects era|jur[,era|jur...]")
+        out.append((era, jur))
     return out
 
 
@@ -67,6 +72,7 @@ def main() -> int:
 
     conn = store.connect(Path(args.db))
     store.ensure_schema(conn)
+    store.migrate(conn)
 
     if args.stage == "fts":
         build_fts(conn, log=print)
@@ -81,6 +87,9 @@ def main() -> int:
 
     domain = load_domain(args.domain)
     partitions = _parse_partitions(args.partitions)
+
+    if not args.legacy and domain.embedding.revision == "main":
+        sys.exit("pin the model revision first: tools/estimate_embed_cost.py --pin (Task 6)")
 
     if args.hosted:
         spec = domain.embedding

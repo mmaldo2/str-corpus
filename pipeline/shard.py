@@ -276,6 +276,17 @@ def missing_jurisdictions(conn, jurisdictions) -> list[str]:
     return [j for j in jurisdictions if j not in present]
 
 
+def mixed_embed_runs(conn) -> set[str]:
+    """Union of embed_run values tagged on any non-duplicate case's chunks, across every
+    partition. More than one member means a re-embed is only partially done — this legacy
+    shard (Stage 2A) has no notion of per-partition run selection, unlike Stage 2B's engine."""
+    from corpus_engine.indexer.embed import partition_runs
+    union: set[str] = set()
+    for runs in partition_runs(conn).values():
+        union |= runs
+    return union
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--run-id", required=True)
@@ -287,6 +298,12 @@ def main() -> int:
     conn = sqlite3.connect(DB, timeout=120)
     conn.execute("PRAGMA busy_timeout=120000")
     store.ensure_schema(conn)
+    store.migrate(conn)
+
+    mixed = mixed_embed_runs(conn)
+    if len(mixed) > 1:
+        sys.exit("refusing to shard: chunks embedded under multiple runs (partial re-embed in "
+                  "progress); Stage 2B's engine handles mixed partitions")
 
     missing = missing_jurisdictions(conn, JURISDICTIONS)
     if missing:

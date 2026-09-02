@@ -6,6 +6,7 @@ from dataclasses import dataclass
 import numpy as np
 from corpus_engine.domain import EmbeddingSpec
 from corpus_engine.indexer.chunking import chunk_offsets, embedding_input
+from corpus_engine.indexer.embedders import Embedder
 
 
 @dataclass(frozen=True)
@@ -26,9 +27,14 @@ def quantize(vecs: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
 
 
 def register_run(conn: sqlite3.Connection, run: EmbedRun) -> None:
-    conn.execute("""INSERT OR IGNORE INTO embed_runs VALUES (?,?,?,?,?,?,?,?,?,?)""",
-                 (run.run_key, run.model, run.revision, run.dim, run.quant, run.chunk_tokens, run.chunk_overlap,
-                  run.prefix_template, run.provider, time.strftime("%Y-%m-%dT%H:%M:%S")))
+    conn.execute(
+        """INSERT OR IGNORE INTO embed_runs
+           (run_key, model, revision, dim, quant, chunk_tokens, chunk_overlap, prefix_template, provider, created)
+           VALUES (:run_key, :model, :revision, :dim, :quant, :chunk_tokens, :chunk_overlap, :prefix_template, :provider, :created)""",
+        {"run_key": run.run_key, "model": run.model, "revision": run.revision, "dim": run.dim, "quant": run.quant,
+         "chunk_tokens": run.chunk_tokens, "chunk_overlap": run.chunk_overlap, "prefix_template": run.prefix_template,
+         "provider": run.provider, "created": time.strftime("%Y-%m-%dT%H:%M:%S")},
+    )
     for k, v in {"model": run.model, "revision": run.revision, "dim": str(run.dim), "chunk_tokens": str(run.chunk_tokens),
                  "chunk_overlap": str(run.chunk_overlap), "quant": run.quant, "run_key": run.run_key}.items():
         conn.execute("INSERT OR REPLACE INTO embed_meta VALUES (?,?)", (k, v))
@@ -45,7 +51,7 @@ def partition_runs(conn: sqlite3.Connection) -> dict[tuple[str, str], set[str]]:
     return out
 
 
-def build_embeddings(conn: sqlite3.Connection, embedder, tokenizer, run: EmbedRun, *, batch_size: int = 64,
+def build_embeddings(conn: sqlite3.Connection, embedder: Embedder, tokenizer, run: EmbedRun, *, batch_size: int = 64,
                      limit: int = 0, partitions=None, log=print) -> int:
     register_run(conn, run)
     where = ["c.is_duplicate_of IS NULL", "c.norm_text != ''",
@@ -76,13 +82,13 @@ def build_embeddings(conn: sqlite3.Connection, embedder, tokenizer, run: EmbedRu
         qu.put(None)
 
     threading.Thread(target=producer, daemon=True).start()
-    texts, rows, done_cases, written = [], [], [], 0
+    texts, rows, written = [], [], 0
 
     def flush():
         nonlocal written
         if not texts:
             return
-        q8, scales = quantize(embedder.encode(texts))
+        q8, scales = quantize(embedder.encode(texts, batch_size=batch_size))
         case_ids = sorted({r[0] for r in rows})
         conn.executemany("DELETE FROM chunks WHERE case_id=?", [(c,) for c in case_ids])
         conn.executemany("INSERT INTO chunks (case_id, seq, char_start, char_end, embedding, embed_scale, embed_run) VALUES (?,?,?,?,?,?,?)",
