@@ -72,3 +72,19 @@ def test_apply_validates_on_a_fresh_replay_not_a_mutated_trial(tmp_path):
     apply_patch(trial, patch)                  # mutates the shared record dict in place
     led.apply([patch], note="t")
     assert led.view().history(1)[-1].old == "unclear"
+
+def test_apply_honors_patch_cascade_flag_through_the_log(tmp_path):
+    # cascade is now an explicit Patch field, replayed straight through
+    # apply()'s validation loop and Ledger._replay -- no why-prefix sniffing.
+    led = open_ledger(tmp_path, domain=load_domain())
+    led.apply([Patch(1, "admit", "", _rec(1, 1850), "v", Basis(model="m", prompt_version="v", run_id="r"), cycle="cycle-001"),
+               Patch(2, "admit", "", _rec(2, 1850), "v", Basis(model="m", prompt_version="v", run_id="r"), cycle="cycle-001")],
+              note="seed")
+    led.apply([Patch(1, "drop_quote", "quotes", "q", "mismatch", Basis(reviewer="m"), cascade=False)], note="no cascade")
+    rec1 = led.view().record(1)
+    assert rec1["polarity"] == "favorable" and rec1["characterization"] == "lodging"
+    assert "nulled_fields" not in rec1
+    led.apply([Patch(2, "drop_quote", "quotes", "q", "mismatch", Basis(reviewer="m"), cascade=True)], note="cascade")
+    rec2 = led.view().record(2)
+    assert rec2["polarity"] is None and rec2["characterization"] is None and rec2["holding_summary"] is None
+    assert set(rec2["nulled_fields"]) == {"polarity", "characterization", "holding_summary"}

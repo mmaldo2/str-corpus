@@ -60,9 +60,11 @@ def main() -> int:
 
     # ---- build and apply the ledger patches for this cycle
     led = open_ledger()
+    if CYCLE in led.view().state.cycles.values():
+        raise SystemExit(f"refusing to close an already-closed cycle {CYCLE}; the ledger is append-only")
     trial = copy.deepcopy(led.view().state)
     patches = _cycle_patches(ROOT, CYCLE, RUN, load_domain().reviewer_default, trial)
-    patches = [replace(p, why=p.why.replace("bootstrap:", f"{CYCLE} close:", 1)) for p in patches]
+    patches = [replace(p, cascade=True) for p in patches]
     res = led.apply(patches, note=f"{CYCLE} adjudication")
     print(f"{len(res.applied)} patches applied, {len(res.skipped)} already present; replay_ok={res.replay_ok}")
     print(led.view().counts(by=("polarity",)).render_markdown())
