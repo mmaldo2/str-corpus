@@ -10,7 +10,7 @@ def test_fixture_corpus_is_self_contained(fixture_db, repo_root):
     assert conn.execute("SELECT count(*) FROM chunks").fetchone()[0] > 0
     meta = dict(conn.execute("SELECT key, value FROM embed_meta"))
     assert "model" in meta and "revision" in meta
-    b1 = json.loads((repo_root / "runs/cycle-003-shard-01/batches/batch-001.json").read_text(encoding="utf-8"))
+    b1 = json.loads((repo_root / "tests/fixtures/batches/cycle-003-shard-01/batch-001.json").read_text(encoding="utf-8"))
     ids = [c["case_id"] for c in b1["cases"]]
     q = f"SELECT count(*) FROM cases WHERE case_id IN ({','.join('?'*len(ids))})"
     assert conn.execute(q, ids).fetchone()[0] == len(ids)

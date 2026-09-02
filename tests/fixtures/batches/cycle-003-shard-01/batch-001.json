@@ -1,0 +1,349 @@
+{
+ "era_partition": "1860-1900",
+ "jurisdiction": "Pa.",
+ "cases": [
+  {
+   "case_id": 882213,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "amanda heiss v. joseph banister. appeal of rebecca e. peters. opening judgment - petition - corroborating proof - ground rent - presumption of extinguishment thereof. where the petition of the terre tenant to open a judgment for arrears of ground rent sets forth that for tweny-five years preceding the filing of the petition no payment, claim or demand had been made for any ground rent, nor any dec",
+     "char_span": [
+      0,
+      4156
+     ],
+     "chunk_id": 467773,
+     "cosine": 0.5265717506408691,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 882223,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " barber that the former had no interest in the ground rent after the 23d of november, 1857. these conclusions respecting the ownership of the lot and the ownership of the ground rent are authorized and fully sustained by the documentary evidence and there is nothing in the oral testimony which furnishes adequate ground for antagonizing them. it is true that george c. barber testified that the conv",
+     "char_span": [
+      5825,
+      8060
+     ],
+     "chunk_id": 467812,
+     "cosine": 0.5274107456207275,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 885535,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " norris v. gould, supra. \" and it may be said in general that in all cases where an action of account render would be the proper remedy, the jurisdiction of equity is undoubted: \" baker v. biddle, baldwin (u. s.), 394. \" while account render -will not lie by one tenant in common against another for mere occupation of the property held in common, yet it does lie where one tenant in common receives ",
+     "char_span": [
+      27046,
+      31560
+     ],
+     "chunk_id": 473353,
+     "cosine": 0.5265234708786011,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 886978,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " and forming part of a building, or machinery for manufacturing purposes, and essential to the manufactory, is part of the freehold: gray v. holdship, 17 s. & r. 415; voorhis v. freeman, 2 w. & s. 116; pyle v. pennock, 2 w. & s. 390 ; ege v. kille, 84 pa. 333; morris's app., 88 pa. 368. carroll p. davis, for appellee. a judgment note may be entered up at any time : volkenand v. drum, 143 pa. 525. ",
+     "char_span": [
+      6449,
+      8934
+     ],
+     "chunk_id": 474635,
+     "cosine": 0.5303507447242737,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 905100,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "james b. enyard v. catharine e. enyard in her own right and as guardian ad litem of lillie enyard and charles enyard, appellant. bower - estate in land. the statutory dower of a widow is not a lien upon the land but is an interest in it; an estate given by the intestate laws. tenants in common - bower estate - acquisition of adverse title. where one of two tenants in common dies and his widow imme",
+     "char_span": [
+      0,
+      3790
+     ],
+     "chunk_id": 493131,
+     "cosine": 0.5353806614875793,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 985604,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " interest: goff v. oberteuffer, 3 phila. 74 ; 13 am. & eng. ency. of law, 546 ; heflin v. bingham, 56 ala. 566 ; sawyer v. wilson, 61 me. 529 ; lockard v. robbins, 7 cent. 565; 2 am. & eng. leading cases, 563. t. f.birch, for appellees. the intention of the parties is to be ascertained from the entire instrument, not from particular words or phrases without reference to the context, and the instru",
+     "char_span": [
+      10262,
+      11930
+     ],
+     "chunk_id": 568008,
+     "cosine": 0.5294154286384583,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 990451,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " cost. rule dismissed, and judgment for defendants.\" the plaintiff thereupon sued out this writ, and here assigned for error, tha< ibie court below erred in entering judgment for the defendants-evthe points reserved. earle, for the plaintiff in error. the act of 1849 is humane, and should receive a liberal construction: hanley v. o'donald, 6 casey 261; wilson v. mcelroy, 8 id. 82. the plaintiff wa",
+     "char_span": [
+      6982,
+      9816
+     ],
+     "chunk_id": 573330,
+     "cosine": 0.5322256684303284,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 996255,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "critchfield versus humbert. trespass between tenants in common for mesne profits and for injury to real estate. 1. a tenant in common may maintain an action of trespass against his co-tenant, either for mesne profits, or for a total destruction of the common property. 2. where one owning five-sixths of a tract of land, recovered in ejectment against the owner of the other sixth, in possession, and",
+     "char_span": [
+      0,
+      4240
+     ],
+     "chunk_id": 579530,
+     "cosine": 0.5261800289154053,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 998494,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " a covenant on the part of the grantor for quiet enjoyment so long as the grantees paid the ground-rent. if not void, the condition was extinguished by the verbal permission given to cash to build in disregard of it. smith on real and personal property 54; touchstone 159 ; goodright v. davies, cowp. 803; dickey v. mccullough, 2 w. & s. 88. the grant by deed from henry to cash, was either an apport",
+     "char_span": [
+      20837,
+      24729
+     ],
+     "chunk_id": 582476,
+     "cosine": 0.5370967388153076,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 999842,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " on the other hand, poor men who must lease of others, may suffer injustice at the hands of wealthy owners of property, whose influence may possibly draw to themselves the unjust judgment of the magistrate, and they may have to turn out of possession without a provision for shelter to their families. at first blush there is a good deal of apparent hardship in this, before a final trial of the righ",
+     "char_span": [
+      7578,
+      12180
+     ],
+     "chunk_id": 584171,
+     "cosine": 0.5333115458488464,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1010460,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " 2 binn. 129; miller v. henlan, 1 p. f. smith 265; nicoll v. carr, 11 casey 381; brightly's eq., \u00a7 242; brightly's r. 159; colwell v. hamilton, 10 watts 416. a tenant in common making necessary repairs has a lien for reimbursement: 2 story's eq., \u00a7 1234-1237; hibbard v. cooke, 1 sim. & stu. 552; 2 fonbl. eq., book 2, ch. 4, \u00a7 2, note 9; lake v. gibson, 1 eq. cas. ab. 291. march 27th 1868, the opin",
+     "char_span": [
+      9690,
+      13798
+     ],
+     "chunk_id": 596234,
+     "cosine": 0.5268038511276245,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1010477,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": ", from re-entering the premises, and from distraining; the injunction to continue till the estrepement be withdrawn, &c.., and for general relief. a number of affidavits were filed in support of the bill, and one affidavit on the part of defendants. a special injunction was granted, and the defendants appealed, assigning for error the granting of the special injunction. n. h. sharpless and w. l. h",
+     "char_span": [
+      3515,
+      7369
+     ],
+     "chunk_id": 596337,
+     "cosine": 0.5291301012039185,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1013173,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " appeal, 3 barr 218. the opinion of the court was delivered, may 20th 1868, by agnew, j. the settled interpretation of the 83d section of the act of 16th june 1836, following that of the 4th section of the act of 21st march 1772, has been that the rent for the current quarter or year, at the time of the levy of the tenant's goods in execution upon the demised premises, although not then due, will ",
+     "char_span": [
+      2491,
+      3924
+     ],
+     "chunk_id": 599171,
+     "cosine": 0.5302680134773254,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1017263,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " ad. 61; rex v. tomlinson, 9 b. & c. 163 ; rex v. mitton, id. 810; rex v. the hull dock co., 3 id. 516; reg. v. southampton dock co., 14 ad. & ellis n. s. 587; rex v. attwood, 6 b. & c. 277; rex v. bridgewater, 9 id. 67; rex v. oxford canal co., 10 id. 163 ; rex v. cambridge, 8 ad. & ellis 73; reg. v. westbrook, 10 ad. & ellis n. s. 178 ; s. e. railway v. dorking, 3 ellis & black. 499; reg. v. fer",
+     "char_span": [
+      47510,
+      49840
+     ],
+     "chunk_id": 603046,
+     "cosine": 0.5288543701171875,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1021297,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " annual products; when cut the root dies. it is not so with clover, timothy or meadow grass, the latter especially, which is entirely spontaneous. generally, neither clover nor timothy is a principal crop, being usually sown with wheat or rye, and with a view to bring the land into a condition to produce hay or pasture, according to the approved system of rotation. neither clover nor timothy matur",
+     "char_span": [
+      3329,
+      7475
+     ],
+     "chunk_id": 606421,
+     "cosine": 0.5379568338394165,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1021298,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " be ascertained after the determination of this suit in some other way, or in an issue to determine the right. the defendant is not interested in the question to whom the damages may go. he is entitled to have the record so made as to be a bar to subsequent suits for the same cause, and as the legal plaintiff is upon the record, this record would be a bar to a subsequent action for the same cause.",
+     "char_span": [
+      7240,
+      10506
+     ],
+     "chunk_id": 606425,
+     "cosine": 0.5269285440444946,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1031220,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "moore versus weber. 1. in every demise there is an implied covenant for peaceable and quiet enjoyment, but not a guaranty to the tenant from injury by the wrongful acts of a stranger. 2. the covenant for quiet enjoyment means only that the tenant shall not be evicted or disturbed by good title in the premises or part of them. 3. there is no implied obligation on the landlord to repair; nor does he",
+     "char_span": [
+      0,
+      4480
+     ],
+     "chunk_id": 616274,
+     "cosine": 0.5355584025382996,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1036732,
+   "era_partition": "1860-1900",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "glenn et al. versus thompson. 1. a lessor and whoever may have succeeded to his title are entitled to the benefit of the act of december 14th 1863. (landlord and tenant.) 2. a lessor of a term ending april 1st, sold and conveyed the premises in september preceding ; she gave notice to the tenant to quit on april 1st, as she desired to deliver possession to her vendee; in a proceeding by the vendee",
+     "char_span": [
+      0,
+      3777
+     ],
+     "chunk_id": 621639,
+     "cosine": 0.5308154821395874,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  }
+ ],
+ "batch_id": "cycle-003-shard-01-batch-001"
+}
