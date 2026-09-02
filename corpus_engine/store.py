@@ -4,6 +4,7 @@ Every other module gets its paths and connections from here; nothing else
 re-declares ROOT or opens corpus.db directly (ADR-0010).
 """
 from __future__ import annotations
+import os
 import sqlite3
 from dataclasses import dataclass
 from pathlib import Path
@@ -163,6 +164,19 @@ def migrate(conn: sqlite3.Connection) -> list[str]:
         actions.append(f"tagged existing chunks as {LEGACY_EMBED_RUN}")
     conn.commit()
     return actions
+
+
+def env_value(name: str) -> str | None:
+    """Environment variable first, then the repo's `.env` line `NAME=value`.
+    Never logs or prints the value (secrets: API keys)."""
+    val = os.environ.get(name)
+    if not val:
+        env = ROOT / ".env"
+        if env.exists():
+            for line in env.read_text(encoding="utf-8-sig").splitlines():
+                if line.startswith(f"{name}="):
+                    val = line.split("=", 1)[1].strip()
+    return val or None
 
 
 def era_partition(year: int | None, bounds) -> str:

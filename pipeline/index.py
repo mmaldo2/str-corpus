@@ -5,19 +5,20 @@ unicode61 one — historical terms of art must be matchable exactly. Both are
 external-content tables over `cases` and exclude nothing at build time;
 shard.py excludes duplicates at query time.
 
-Embeddings: Qwen3-Embedding-0.6B (Amendment A5), pinned by HF revision,
-matryoshka-truncated to 512d, L2-normalized then symmetric int8 per-vector
-quantization. Chunks are ~1000 tokens with 15% overlap, boundaries computed
-with the model's own tokenizer (deterministic given the pinned revision).
-Chunk rows store char offsets into norm_text, not copied text.
+Embeddings: run through the domain's configured Embedder (local pinned
+weights or a hosted API), chunked with the domain's tokenizer, L2-normalized
+then symmetric int8 per-vector quantized, and tagged with the run that
+produced them (corpus_engine/indexer). Chunk rows store char offsets into
+norm_text, not copied text.
 
 Usage:
     python pipeline/index.py fts                 # (re)build both FTS tables
     python pipeline/index.py embed [--batch 64] [--limit N]
+    python pipeline/index.py embed --legacy-0.6b  # old model/dim, for comparison runs
+    python pipeline/index.py embed --hosted --confirm [--partitions "era|jur,era|jur"]
 """
 
 import argparse
-import sqlite3
 import sys
 from pathlib import Path
 
@@ -26,168 +27,83 @@ DEFAULT_DB = ROOT / "data" / "db" / "corpus.db"
 
 sys.path.insert(0, str(ROOT))
 from corpus_engine import store  # noqa: E402
+from corpus_engine.domain import load_domain  # noqa: E402
+from corpus_engine.indexer.fts import build_fts  # noqa: E402
+from corpus_engine.indexer.embed import EmbedRun, build_embeddings  # noqa: E402
+from corpus_engine.indexer.embedders import LocalEmbedder, HostedEmbedder, tokenizer_for  # noqa: E402
 
-EMBED_MODEL = "Qwen/Qwen3-Embedding-0.6B"
-EMBED_REVISION = "main"  # resolved to a commit hash and recorded at run time
-EMBED_DIM = 512  # matryoshka truncation
-CHUNK_TOKENS = 1000
-CHUNK_OVERLAP = 150
-
-
-def build_fts(conn: sqlite3.Connection) -> None:
-    store.ensure_fts(conn)
-    for table in ("fts_porter", "fts_raw"):
-        conn.execute(f"INSERT INTO {table}({table}) VALUES('rebuild')")
-        conn.commit()
-        n = conn.execute(
-            f"SELECT count(*) FROM {table} WHERE {table} MATCH 'the'"
-        ).fetchone()[0]
-        print(f"{table}: rebuilt ({n} docs match 'the')")
+# Old model/dim, kept for --legacy-0.6b comparison runs against the current default.
+LEGACY_MODEL = "Qwen/Qwen3-Embedding-0.6B"
+LEGACY_REVISION = "main"
+LEGACY_DIM = 512
+LEGACY_CHUNK_TOKENS = 1000
+LEGACY_CHUNK_OVERLAP = 150
+LEGACY_RUN_KEY = "qwen3-0.6b-512-int8"
 
 
-def chunk_offsets(tokenizer, text: str) -> list[tuple[int, int]]:
-    """Deterministic char-offset chunks of ~CHUNK_TOKENS tokens with
-    CHUNK_OVERLAP-token overlap, via the pinned tokenizer's offset mapping."""
-    enc = tokenizer(
-        text, add_special_tokens=False, return_offsets_mapping=True,
-        truncation=False, verbose=False,
-    )
-    offsets = enc["offset_mapping"]
-    if not offsets:
-        return []
-    spans = []
-    step = CHUNK_TOKENS - CHUNK_OVERLAP
-    i = 0
-    while i < len(offsets):
-        window = offsets[i : i + CHUNK_TOKENS]
-        spans.append((window[0][0], window[-1][1]))
-        if i + CHUNK_TOKENS >= len(offsets):
-            break
-        i += step
-    return spans
-
-
-def build_embeddings(conn: sqlite3.Connection, batch_size: int, limit: int) -> None:
-    import numpy as np
-    import torch
-    from huggingface_hub import HfApi
-    from sentence_transformers import SentenceTransformer
-
-    store.ensure_schema(conn)
-    commit = HfApi().model_info(EMBED_MODEL, revision=EMBED_REVISION).sha
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    model = SentenceTransformer(
-        EMBED_MODEL, revision=commit, device=device,
-        model_kwargs={"torch_dtype": torch.float16} if device == "cuda" else {},
-        tokenizer_kwargs={"padding_side": "left"},
-    )
-    tokenizer = model.tokenizer
-    for k, v in {
-        "model": EMBED_MODEL, "revision": commit, "dim": str(EMBED_DIM),
-        "chunk_tokens": str(CHUNK_TOKENS), "chunk_overlap": str(CHUNK_OVERLAP),
-        "quant": "int8-symmetric-pervector",
-    }.items():
-        conn.execute("INSERT OR REPLACE INTO embed_meta VALUES (?,?)", (k, v))
-    conn.commit()
-    print(f"model {EMBED_MODEL}@{commit[:12]} on {device}")
-
-    # ids only — fetching 1.7M full texts at once OOMs the machine
-    q = """SELECT case_id FROM cases
-           WHERE is_duplicate_of IS NULL
-             AND case_id NOT IN (SELECT DISTINCT case_id FROM chunks)
-           ORDER BY case_id"""
-    if limit:
-        q += f" LIMIT {int(limit)}"
-    todo_ids = [r[0] for r in conn.execute(q)]
-    print(f"{len(todo_ids)} cases to chunk+embed", flush=True)
-
-    buf_texts: list[str] = []
-    buf_rows: list[tuple[int, int, int, int]] = []
-
-    def flush() -> None:
-        if not buf_texts:
-            return
-        vecs = model.encode(
-            buf_texts, batch_size=batch_size, convert_to_numpy=True,
-            normalize_embeddings=False, show_progress_bar=False,
-        )[:, :EMBED_DIM]
-        vecs = vecs / (np.linalg.norm(vecs, axis=1, keepdims=True) + 1e-12)
-        scales = np.abs(vecs).max(axis=1) / 127.0
-        q8 = np.round(vecs / scales[:, None]).astype(np.int8)
-        conn.executemany(
-            """INSERT OR IGNORE INTO chunks
-               (case_id, seq, char_start, char_end, embedding, embed_scale)
-               VALUES (?,?,?,?,?,?)""",
-            [
-                (cid, seq, s, e, q8[i].tobytes(), float(scales[i]))
-                for i, (cid, seq, s, e) in enumerate(buf_rows)
-            ],
-        )
-        conn.commit()
-        buf_texts.clear()
-        buf_rows.clear()
-
-    # producer thread: DB reads + CPU tokenization (fast tokenizers release
-    # the GIL) feed a queue; main thread keeps the GPU busy encoding.
-    import queue
-    import threading
-
-    db_path = conn.execute("PRAGMA database_list").fetchone()[2]
-    q: queue.Queue = queue.Queue(maxsize=4000)
-
-    def producer() -> None:
-        read_conn = sqlite3.connect(db_path)
-        read_conn.execute("PRAGMA busy_timeout=120000")
-        for case_id in todo_ids:
-            row = read_conn.execute(
-                "SELECT norm_text FROM cases WHERE case_id=?", (case_id,)
-            ).fetchone()
-            norm_text = row[0] if row else ""
-            if not norm_text:
-                continue
-            for seq, (s, e) in enumerate(chunk_offsets(tokenizer, norm_text)):
-                q.put((case_id, seq, s, e, norm_text[s:e]))
-            q.put(("CASE_DONE", case_id, None, None, None))
-        q.put(None)
-
-    threading.Thread(target=producer, daemon=True).start()
-    done_cases = 0
-    while True:
-        item = q.get()
-        if item is None:
-            break
-        if item[0] == "CASE_DONE":
-            done_cases += 1
-            # flush only at case boundaries: a mid-case flush + kill would
-            # leave a partial case the resume query then skips forever
-            if len(buf_texts) >= batch_size * 8:
-                flush()
-            if done_cases % 1000 == 0:
-                flush()
-                n = conn.execute("SELECT count(*) FROM chunks").fetchone()[0]
-                print(f"{done_cases}/{len(todo_ids)} cases, {n} chunks", flush=True)
-            continue
-        case_id, seq, s, e, text = item
-        buf_texts.append(text)
-        buf_rows.append((case_id, seq, s, e))
-    flush()
-    n = conn.execute("SELECT count(*) FROM chunks").fetchone()[0]
-    print(f"done: {n} chunks total")
+def _parse_partitions(spec: str | None) -> list[tuple[str, str]] | None:
+    if not spec:
+        return None
+    out = []
+    for part in spec.split(","):
+        era, jur = part.split("|", 1)
+        out.append((era.strip(), jur.strip()))
+    return out
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("stage", choices=["fts", "embed"])
     ap.add_argument("--db", default=str(DEFAULT_DB))
+    ap.add_argument("--domain", default="str-right-to-let")
     ap.add_argument("--batch", type=int, default=64)
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--legacy-0.6b", dest="legacy", action="store_true",
+                     help="embed with the old Qwen3-Embedding-0.6B/512d model for a comparison run")
+    ap.add_argument("--hosted", action="store_true", help="embed via a hosted API instead of local weights")
+    ap.add_argument("--partitions", default=None, help='restrict embed to "era|jur,era|jur"')
+    ap.add_argument("--confirm", action="store_true", help="required with --hosted; acknowledges the cost estimate")
     args = ap.parse_args()
-    conn = sqlite3.connect(args.db)
-    conn.execute("PRAGMA journal_mode=WAL")
+
+    conn = store.connect(Path(args.db))
+    store.ensure_schema(conn)
+
     if args.stage == "fts":
-        build_fts(conn)
+        build_fts(conn, log=print)
+        conn.close()
+        return 0
+
+    if args.hosted and not args.confirm:
+        print("refusing: --hosted requires --confirm (acknowledging the cost estimate)")
+        print("estimate: see tools/estimate_embed_cost.py (Task 6)")
+        conn.close()
+        return 1
+
+    domain = load_domain(args.domain)
+    partitions = _parse_partitions(args.partitions)
+
+    if args.hosted:
+        spec = domain.embedding
+        print("estimate: see tools/estimate_embed_cost.py (Task 6)")
+        key = store.env_value(f"{spec.hosted_provider.upper()}_API_KEY")
+        if not key:
+            sys.exit(f"no {spec.hosted_provider.upper()}_API_KEY in env or .env")
+        embedder = HostedEmbedder(spec.hosted_provider, spec.hosted_model_id, spec.dim, key)
+        tokenizer = tokenizer_for(spec.model, spec.revision)
+        run = EmbedRun.from_spec(spec, provider=spec.hosted_provider)
+    elif args.legacy:
+        embedder = LocalEmbedder(LEGACY_MODEL, LEGACY_REVISION, LEGACY_DIM)
+        tokenizer = embedder.tokenizer
+        run = EmbedRun(LEGACY_RUN_KEY, LEGACY_MODEL, LEGACY_REVISION, LEGACY_DIM,
+                       "int8-symmetric-pervector", LEGACY_CHUNK_TOKENS, LEGACY_CHUNK_OVERLAP, "", "local")
     else:
-        build_embeddings(conn, args.batch, args.limit)
+        spec = domain.embedding
+        embedder = LocalEmbedder(spec.model, spec.revision, spec.dim)
+        tokenizer = embedder.tokenizer
+        run = EmbedRun.from_spec(spec, provider="local")
+
+    build_embeddings(conn, embedder, tokenizer, run, batch_size=args.batch, limit=args.limit,
+                     partitions=partitions, log=print)
     conn.close()
     return 0
 

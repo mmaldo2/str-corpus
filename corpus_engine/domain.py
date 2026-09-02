@@ -9,6 +9,13 @@ from corpus_engine.store import paths
 
 
 @dataclass(frozen=True)
+class EmbeddingSpec:
+    run_key: str; model: str; revision: str; dim: int; quant: str
+    chunk_tokens: int; chunk_overlap: int; prefix_template: str
+    hosted_provider: str; hosted_model_id: str
+
+
+@dataclass(frozen=True)
 class Domain:
     name: str
     root: Path
@@ -25,6 +32,7 @@ class Domain:
     prompts_dir: Path
     gold_path: Path
     reviewer_default: str
+    embedding: EmbeddingSpec
 
 
 def load_domain(name: str = "str-right-to-let") -> Domain:
@@ -47,4 +55,5 @@ def load_domain(name: str = "str-right-to-let") -> Domain:
         prompts_dir=repo / cfg["paths"]["prompts"],
         gold_path=repo / cfg["paths"]["gold"],
         reviewer_default=cfg.get("reviewer_default", "unknown"),
+        embedding=EmbeddingSpec(**cfg["embedding"]),
     )
