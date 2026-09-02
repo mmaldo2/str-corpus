@@ -55,6 +55,9 @@ class LocalEmbedder:
         return self.model_obj.encode([text], prompt_name="query", convert_to_numpy=True)[0][:self.dim].astype(np.float32)
 
 
+# ~11 minutes of patience per request before the run dies: hosted providers throttle in bursts.
+RETRY_DELAYS = (2, 5, 10, 30, 60, 120, 120, 120, 120, 90, 0)
+
 BASES = {"openrouter": "https://openrouter.ai/api/v1", "deepinfra": "https://api.deepinfra.com/v1/openai"}
 
 
@@ -67,13 +70,15 @@ class HostedEmbedder:
         self._tokens_lock = threading.Lock()
 
     def _one(self, texts: list[str]) -> np.ndarray:
-        for attempt, delay in enumerate((2, 8, 30, 0)):
+        last = ""
+        for attempt, delay in enumerate(RETRY_DELAYS):
             try:
                 r = httpx.post(f"{self.base}/embeddings", json={"model": self.model_id, "input": texts},
                                headers={"Authorization": f"Bearer {self.key}"}, timeout=self.timeout)
             except httpx.TransportError as exc:  # timeouts, resets: retry like a 5xx
-                if attempt == 3:
-                    raise EmbedError(f"transport error after 4 attempts: {exc!r}") from exc
+                last = f"transport error: {exc!r}"
+                if delay == 0:
+                    raise EmbedError(f"{last} after {attempt + 1} attempts") from exc
                 time.sleep(delay); continue
             if r.status_code == 200:
                 p = r.json()
@@ -91,11 +96,12 @@ class HostedEmbedder:
                     self.tokens_used += int((p.get("usage") or {}).get("total_tokens") or 0)
                 return arr
             if r.status_code in (429,) or r.status_code >= 500:
-                if attempt == 3:
+                last = f"{r.status_code}: {r.text[:200]}"
+                if delay == 0:
                     break
                 time.sleep(delay); continue
             raise EmbedError(f"{r.status_code}: {r.text[:200]}")
-        raise EmbedError("embedding request failed after 4 attempts")
+        raise EmbedError(f"embedding request failed after {len(RETRY_DELAYS)} attempts; last {last}")
 
     def encode(self, texts: list[str], batch_size: int = 64) -> np.ndarray:
         batches = [texts[i:i + self.batch] for i in range(0, len(texts), self.batch)]

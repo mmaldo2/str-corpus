@@ -23,7 +23,7 @@ def test_hosted_embedder_truncates_retries_and_counts_tokens(monkeypatch):
     v = e.encode(["a", "b", "c"])
     assert v.shape == (3, 1024) and e.tokens_used == 14 and len(calls) == 3
 
-def test_hosted_embedder_gives_up_after_four_failures(monkeypatch):
+def test_hosted_embedder_gives_up_after_all_retries(monkeypatch):
     monkeypatch.setattr("corpus_engine.indexer.embedders.httpx.post", lambda *a, **k: _Resp(500, {"error": "x"}))
     monkeypatch.setattr("corpus_engine.indexer.embedders.time.sleep", lambda s: None)
     with pytest.raises(EmbedError):
@@ -68,5 +68,5 @@ def test_hosted_embedder_retries_transport_errors_then_gives_up(monkeypatch):
     def always_timeout(url, json=None, headers=None, timeout=None):
         raise httpx.ConnectTimeout("connect timed out")
     monkeypatch.setattr("corpus_engine.indexer.embedders.httpx.post", always_timeout)
-    with pytest.raises(EmbedError, match="transport error after 4 attempts"):
+    with pytest.raises(EmbedError, match="transport error: .* after 11 attempts"):
         e.encode(["a"])
