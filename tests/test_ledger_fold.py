@@ -29,6 +29,15 @@ def test_set_on_judged_field_needs_authority_and_returns_old():
     with pytest.raises(UnknownCase):
         apply_patch(s, Patch(6, "set", "polarity", "adverse", "x", Basis(reviewer="m")))
 
+def test_set_none_on_judged_field_needs_no_judging_authority():
+    # A retraction to None removes a claim rather than judging the case, so
+    # it needs no reviewer/model authority -- unlike setting a real value.
+    s = State(); apply_patch(s, Patch(5, "admit", "", REC, "v", Basis(), cycle="c"))
+    old = apply_patch(s, Patch(5, "set", "polarity", None, "retraction", Basis(rule_id="retraction-cascade-v1")))
+    assert old == "favorable" and s.records[5]["polarity"] is None
+    with pytest.raises(MissingBasis):
+        apply_patch(s, Patch(5, "set", "polarity", "adverse", "hunch", Basis(rule_id="retraction-cascade-v1")))
+
 def test_drop_quote_cascades_only_when_asked():
     s = State(); apply_patch(s, Patch(5, "admit", "", REC, "v", Basis(), cycle="c"))
     apply_patch(s, Patch(5, "drop_quote", "quotes", "A", "mismatch", Basis(reviewer="m")), cascade=False)

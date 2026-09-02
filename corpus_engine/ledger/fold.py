@@ -55,7 +55,10 @@ def apply_patch(state: State, p: Patch, *, judged: tuple[str, ...] = JUDGED_DEFA
     if rec is None:
         raise UnknownCase(str(p.case_id))
     if p.op == "set":
-        if p.field in judged and not p.basis.can_judge():
+        # A retraction to None removes a claim; it isn't a judgment about the
+        # case, so it needs no judging authority. Any non-None value on a
+        # judged field is a judgment and still needs one.
+        if p.field in judged and p.new is not None and not p.basis.can_judge():
             raise MissingBasis(f"{p.field} on {p.case_id} needs a reviewer or model+prompt_version+run_id")
         target, key = _resolve(rec, p.field, create=True)
         old = target.get(key, UNSET)

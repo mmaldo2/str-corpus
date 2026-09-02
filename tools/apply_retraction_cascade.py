@@ -59,7 +59,10 @@ def main() -> int:
     led = open_ledger()
     v = led.view()
     unsupported = find_unsupported(v)
-    basis = Basis(reviewer="mmaldo2", rule_id="retraction-cascade-v1")
+    # Rule-only basis: a retraction removes a claim, it is not a human
+    # judgment of the record, so it carries no reviewer (fold.py permits
+    # setting a judged field to None under any basis; see test_ledger_fold.py).
+    basis = Basis(rule_id="retraction-cascade-v1")
     patches: list[Patch] = []
     for cid, field in unsupported:
         patches.append(Patch(cid, "set", field, None, WHY, basis))

@@ -49,3 +49,12 @@ replay ran with the cascade off. Those 11 records were nulled and flagged
 branch, applied as one logged patch batch
 (`note="retraction cascade backfill"`); see `reports/handoff-cycle-004.md`
 for the resulting counts.
+
+The support rule's judging-authority check applies to a *value* a reader
+or human sets on a judged field, not to retracting one: a human decision
+is its own basis, so `fold.py`'s `set` branch permits nulling a judged
+field under any basis (including the backfill's rule-only
+`Basis(rule_id="retraction-cascade-v1")`) while still requiring a
+reviewer or model+prompt_version+run_id for any non-null value, since a
+retraction to `None` removes a claim rather than judging the case and
+needs no judging authority.

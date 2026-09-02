@@ -5,11 +5,14 @@ from corpus_engine.domain import load_domain
 def test_counts_and_matrix_on_the_real_ledger(repo_root):
     v = open_ledger(domain=load_domain()).view()
     c = v.counts()
-    # 150/560 -> 158/552 and favorable 368 -> 367 after the retraction cascade
-    # backfill (tools/apply_retraction_cascade.py): 11 records left unsupported
-    # by the bootstrap's cascade=False replay got a judged field nulled and
-    # routed to human review, including 7664513 (was favorable polarity).
-    assert c.total == TierCount(human_reviewed=158, machine_only=552)
+    # favorable 368 -> 367 after the retraction cascade backfill
+    # (tools/apply_retraction_cascade.py): 11 records left unsupported by the
+    # bootstrap's cascade=False replay got a judged field nulled and flagged
+    # needs-review, including 7664513 (was favorable polarity). The backfill
+    # patches carry a rule-only basis (Basis(rule_id="retraction-cascade-v1"))
+    # -- a retraction to None is not a human judgment of the record and needs
+    # no reviewer -- so the tier split stays 150/560, unchanged from bootstrap.
+    assert c.total == TierCount(human_reviewed=150, machine_only=560)
     pol = v.counts(by=("polarity",))
     assert pol[("favorable",)].human_reviewed + pol[("favorable",)].machine_only == 367
     hh = v.counts(polarity="favorable", who_was_letting="householder")
