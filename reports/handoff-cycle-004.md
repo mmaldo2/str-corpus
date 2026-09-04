@@ -126,6 +126,30 @@ review page publishable as an artifact; reviewer identity recorded.
     source; still a hand-curated item under ADR-0008).
 11. Shard, recall gate, map (user approves budget), review pipeline.
 
+    **Measured cost of a corpus-wide vector selector (2026-09-04, live index,
+    read-only `probe()`).** One `probe()` of `embed-householder-letting-21@v2`
+    on `1900-1930|N.Y.` — whose scope is all 5 eras x 10 jurisdictions, so it
+    builds the full matrix — scanned `chunks` once into a **13,452,039 x 1024
+    int8** block (13.45M of the 14.11M non-duplicate chunks; the rest fall
+    outside the 50 domain partitions): **429 s (7.2 min)** and a **12.83 GiB**
+    memory-mapped scratch file, returning 250 signals (cosine 0.71 down to
+    0.50 at `min_cosine` 0.43). The block is an `np.memmap`, so it costs
+    **+2.2 GiB working set / +2.5 GiB private commit** on top of the process
+    baseline, not 12.8 GiB of RAM. The memory high-water mark of the run is not
+    the matrix but loading the pinned Qwen3-Embedding-4B query encoder: 15.7
+    GiB peak working set and **20.2 GiB private commit** on its own, with the
+    whole probe peaking at 17.9 GiB working set / 22.7 GiB commit against a
+    32.4 GiB host. Plan the cycle-004 shard accordingly: keep **>= 15 GB free
+    on the scratch volume** (`shard(..., scratch_dir=)`), run nothing else
+    large beside it, and note that `shard()` now builds **one union matrix for
+    the whole run** shared by all five vector selectors — so the 7-minute scan
+    and the 12.8 GiB file are paid once, not once per selector, and each
+    additional vector selector costs only its own `sims()` pass (a streamed
+    gemv over the same block) plus its per-partition top-k. Before the Stage-2B
+    final-review fix this was `np.zeros`, two distinct scope keys resident at
+    once (~23 GiB committed) on top of the encoder's 20.2 GiB — it would not
+    have run.
+
 ## Watch-outs (unchanged)
 
 OOM if any step `fetchall()`s the whole corpus; SQLite writer contention
