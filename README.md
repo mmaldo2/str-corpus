@@ -17,7 +17,7 @@ python -m venv .venv                       # Python 3.11
 .venv\Scripts\python pipeline\build_gold.py
 .venv\Scripts\python -m pytest tests\
 # STOP: human review of selectors/selectors.yaml before any shard run
-.venv\Scripts\python -m corpus_engine.selector --dry-run  # plan coverage fingerprint
+.venv\Scripts\python pipeline\shard.py --run-id <run-id> --dry-run  # plan coverage fingerprint
 .venv\Scripts\python pipeline\shard.py --run-id cycle-001-shard-01
 # Map/Reduce driver: see runs/README (headless claude CLI + codex checker)
 .venv\Scripts\python pipeline\verify_quotes.py --run-id <run>
