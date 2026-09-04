@@ -88,7 +88,7 @@ def main() -> int:
 
     stamp = _Stamp(args.run_id, time.strftime("%Y-%m-%dT%H:%M:%S"))
     report = shard(conn, domain, args.run_id, seeds=seeds, embedder=embedder, dry_run=args.dry_run, stamp=stamp,
-                   runs=runs)
+                   runs=runs, plan_=pl)
 
     print(f"{len(sels)} active selectors; {len(pl.units)} plan units; {len(pl.skips)} skips")
     if args.dry_run:

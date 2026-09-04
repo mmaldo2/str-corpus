@@ -114,11 +114,20 @@ def _gold_ids(domain) -> set[int]:
 
 
 def shard(conn, domain, run_id: str, *, seeds, embedder=None, dry_run=False, stamp=None, runs_dir: Path | None = None,
-          ledger_dir: Path | None = None, out_dir: Path | None = None, log=print, runs=None) -> ShardReport:
+          ledger_dir: Path | None = None, out_dir: Path | None = None, log=print, runs=None,
+          plan_: ShardPlan | None = None) -> ShardReport:
+    """Run the planned (selector-version x partition) units and pack the batches.
+
+    `plan_` accepts a plan the caller already computed (pipeline/shard.py needs one
+    before shard() runs, to decide whether to load the query embedder). Supplying it
+    skips the internal plan() call — each plan() does a full `cases` scan in
+    `_partition_counts`, measured at 79 s on the live DB. The run_id is stamped onto
+    whichever plan is used, so callers may pass the `run_id=""` plan that plan() returns.
+    """
     ts = getattr(stamp, "ts", None) or time.strftime("%Y-%m-%dT%H:%M:%S")
     sels = load_selectors(domain); by_key = {s.key: s for s in sels}
     runs = runs if runs is not None else partition_runs(conn)
-    pl = plan(conn, domain, seeds=seeds, embedder=embedder, selectors=sels, runs=runs)
+    pl = plan_ if plan_ is not None else plan(conn, domain, seeds=seeds, embedder=embedder, selectors=sels, runs=runs)
     pl = ShardPlan(run_id, pl.units, pl.skips, pl.selectors_digest)
     ctx = EngineContext(conn, domain, embedder, seeds)
     written: dict = {}

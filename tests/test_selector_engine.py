@@ -115,3 +115,18 @@ def test_shard_rolls_back_on_runner_exception(tmp_path, fixture_db, repo_root, m
         "SELECT count(*) FROM signals WHERE selector_id=? AND selector_version=? AND era_partition=? AND jurisdiction=?",
         (second.key[0], second.key[1], second.partition.era, second.partition.jurisdiction)).fetchone()[0]
     assert sig_second == 0
+def test_shard_accepts_a_precomputed_plan_and_does_not_replan(tmp_path, fixture_db, repo_root, monkeypatch):
+    conn = _conn(tmp_path, fixture_db); dom = load_domain()
+    seeds = FrozenSeedResolver({"both": list(range(10)), "ledger-favorable-reviewed": list(range(10))})
+    emb = RecordedEmbedder(repo_root / "tests/fixtures/query-vectors-v3.npz")
+    pre = plan(conn, dom, seeds=seeds, embedder=emb)
+
+    def boom(*a, **k):                                    # pragma: no cover - must never run
+        raise AssertionError("shard() re-planned despite plan_=")
+    monkeypatch.setattr(engine_mod, "plan", boom)
+
+    rep = shard(conn, dom, "t-plan", seeds=seeds, embedder=emb, stamp=Stamp(), runs_dir=tmp_path / "runs",
+                ledger_dir=tmp_path / "ledger", out_dir=tmp_path / "bplan", log=lambda *_: None, plan_=pre)
+    assert rep.plan.units == pre.units and rep.plan.skips == pre.skips
+    assert rep.plan.run_id == "t-plan"                     # run_id stamped onto the supplied plan
+    assert sum(rep.signals_written.values()) > 0
