@@ -17,7 +17,8 @@ def test_recorded_embedder_by_label(repo_root):
 def test_fingerprint_rules(tmp_path, fixture_db):
     p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); store.migrate(conn)
     part = [Partition(*conn.execute("SELECT era_partition, jurisdiction FROM cases WHERE is_duplicate_of IS NULL LIMIT 1").fetchone())]
-    seeds = FrozenSeedResolver({"few": [1, 2], "many": list(range(10))})
+    chunked_ids = [r[0] for r in conn.execute("SELECT DISTINCT case_id FROM chunks ORDER BY case_id LIMIT 10")]
+    seeds = FrozenSeedResolver({"few": [1, 2], "many": chunked_ids})
     assert fingerprint(conn, _sel("fts_phrase", pattern="x"), part, seeds=seeds, min_seeds=5) == "fts:v1"
     assert fingerprint(conn, _sel("regex", pattern="x"), part, seeds=seeds, min_seeds=5) == "regex:v1"
     assert fingerprint(conn, _sel("embedding", query_text="q"), part, seeds=seeds, min_seeds=5) == "embed:qwen3-0.6b-512-int8|engine:v2"
@@ -34,6 +35,30 @@ def test_fingerprint_rules(tmp_path, fixture_db):
     assert isinstance(m, Skip) and m.reason == "mixed_embedding_model"
     conn.execute("DELETE FROM chunks"); conn.commit()
     assert fingerprint(conn, _sel("embedding", query_text="q"), part, seeds=seeds, min_seeds=5).reason == "index_incomplete"
+
+def test_fingerprint_skips_relevance_feedback_with_unchunked_seeds(tmp_path, fixture_db):
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); store.migrate(conn)
+    part = [Partition(*conn.execute("SELECT era_partition, jurisdiction FROM cases WHERE is_duplicate_of IS NULL LIMIT 1").fetchone())]
+    ids = [r[0] for r in conn.execute(
+        "SELECT DISTINCT case_id FROM chunks WHERE case_id IN (SELECT case_id FROM cases WHERE era_partition=? AND jurisdiction=? AND is_duplicate_of IS NULL) ORDER BY case_id LIMIT 6",
+        (part[0].era, part[0].jurisdiction))]
+    assert len(ids) >= 6
+    conn.execute(f"DELETE FROM chunks WHERE case_id IN ({','.join('?' * len(ids))})", ids)
+    conn.commit()
+    seeds = FrozenSeedResolver({"unchunked": ids})
+    r = fingerprint(conn, _sel("relevance_feedback", seed_set="unchunked"), part, seeds=seeds, min_seeds=5)
+    assert isinstance(r, Skip) and r.reason == "seed_unavailable"
+
+def test_fingerprint_relevance_feedback_with_chunked_seeds_gets_embed_fingerprint(tmp_path, fixture_db):
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); store.migrate(conn)
+    part = [Partition(*conn.execute("SELECT era_partition, jurisdiction FROM cases WHERE is_duplicate_of IS NULL LIMIT 1").fetchone())]
+    ids = [r[0] for r in conn.execute(
+        "SELECT DISTINCT case_id FROM chunks WHERE case_id IN (SELECT case_id FROM cases WHERE era_partition=? AND jurisdiction=? AND is_duplicate_of IS NULL) ORDER BY case_id LIMIT 6",
+        (part[0].era, part[0].jurisdiction))]
+    assert len(ids) >= 6
+    seeds = FrozenSeedResolver({"chunked": ids})
+    fb = fingerprint(conn, _sel("relevance_feedback", seed_set="chunked"), part, seeds=seeds, min_seeds=5)
+    assert fb.startswith("embed:qwen3-0.6b-512-int8|engine:v2|seed:") and len(fb.split("seed:")[1]) == 16
 
 def test_local_query_embedder_refuses_unpinned_meta(tmp_path):
     p = tmp_path / "m.db"; conn = store.connect(p); store.ensure_schema(conn)

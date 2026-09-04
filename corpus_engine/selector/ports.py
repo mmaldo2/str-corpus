@@ -87,6 +87,16 @@ def fingerprint(conn, selector: Selector, partitions: list[Partition], *, seeds:
         ss = seeds.resolve(selector.params["seed_set"])
         if len(ss.case_ids) < min_seeds:
             return Skip(selector.key, parts, "seed_unavailable")
+        if selector.kind == "relevance_feedback":
+            ids = list(ss.case_ids)
+            chunked = 0
+            for i in range(0, len(ids), 500):
+                batch = ids[i:i + 500]
+                ph = ",".join("?" * len(batch))
+                chunked += conn.execute(
+                    f"SELECT COUNT(DISTINCT case_id) FROM chunks WHERE case_id IN ({ph})", batch).fetchone()[0]
+            if chunked < min_seeds:
+                return Skip(selector.key, parts, "seed_unavailable")
         seed_part = f"|seed:{ss.hash}"
     if selector.kind in ("fts_phrase", "fts_near"):
         return "fts:v1"

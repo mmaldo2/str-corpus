@@ -2,17 +2,23 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 import numpy as np
-from corpus_engine.selector.model import Partition, SeedSet, Selector, Signal
+from corpus_engine.selector.model import Partition, SeedSet, Selector, SelectorSpecError, Signal
 
 
 def ctx_text(text: str, start: int, end: int, pad: int = 200) -> str:
     return text[max(0, start - pad): end + pad]
 
 
+def _batched_in(ids: list[int], size: int = 500):
+    for i in range(0, len(ids), size):
+        yield ids[i:i + size]
+
+
 @dataclass
 class ChunkMatrix:
     M8: np.ndarray; scales: np.ndarray; chunk_ids: np.ndarray; case_ids: np.ndarray
     spans: np.ndarray; part_codes: np.ndarray; part_index: dict[str, int]
+    embed_run: str | None = None
 
 
 @dataclass
@@ -32,17 +38,21 @@ class EngineContext:
         where = " OR ".join("(c.era_partition=? AND c.jurisdiction=?)" for _ in partitions)
         params = [x for p in partitions for x in (p.era, p.jurisdiction)]
         n = conn.execute(f"SELECT count(*) FROM chunks ch JOIN cases c ON c.case_id=ch.case_id WHERE c.is_duplicate_of IS NULL AND ({where})", params).fetchone()[0]
-        M8 = np.empty((n, dim), dtype=np.int8); scales = np.empty(n, np.float32); chunk_ids = np.empty(n, np.int64)
+        M8 = np.zeros((n, dim), dtype=np.int8); scales = np.empty(n, np.float32); chunk_ids = np.empty(n, np.int64)
         case_ids = np.empty(n, np.int64); spans = np.empty((n, 2), np.int32); codes = np.empty(n, np.int16)
         index = {k: i for i, k in enumerate(keys)}
         i = 0
+        runs_seen: set[str] = set()
         for row in conn.execute(f"""SELECT ch.chunk_id, ch.case_id, ch.char_start, ch.char_end, ch.embedding, ch.embed_scale,
-                                    c.era_partition, c.jurisdiction FROM chunks ch JOIN cases c ON c.case_id=ch.case_id
+                                    c.era_partition, c.jurisdiction, ch.embed_run FROM chunks ch JOIN cases c ON c.case_id=ch.case_id
                                     WHERE c.is_duplicate_of IS NULL AND ({where}) ORDER BY ch.chunk_id""", params):
             vec = np.frombuffer(row[4], dtype=np.int8)
             M8[i, :len(vec)] = vec[:dim]; scales[i] = row[5]; chunk_ids[i] = row[0]; case_ids[i] = row[1]
-            spans[i] = (row[2], row[3]); codes[i] = index[f"{row[6]}|{row[7]}"]; i += 1
-        m = ChunkMatrix(M8[:i], scales[:i], chunk_ids[:i], case_ids[:i], spans[:i], codes[:i], index)
+            spans[i] = (row[2], row[3]); codes[i] = index[f"{row[6]}|{row[7]}"]; runs_seen.add(row[8]); i += 1
+        if len(runs_seen) > 1:
+            raise ValueError(f"mixed embedding runs in matrix: {sorted(runs_seen)}")
+        m = ChunkMatrix(M8[:i], scales[:i], chunk_ids[:i], case_ids[:i], spans[:i], codes[:i], index,
+                        next(iter(runs_seen)) if runs_seen else None)
         self.resources[("matrix", keys)] = m
         return m
 
@@ -54,12 +64,27 @@ class EngineContext:
             q = self.embedder.encode_query(sel.params["query_text"], label=sel.label)
         else:
             seeds = self.seeds.resolve(sel.params["seed_set"])
-            mask = np.isin(matrix.case_ids, np.asarray(seeds.case_ids))
-            if not mask.any():
-                q = np.zeros(matrix.M8.shape[1], np.float32)
-            else:
-                vecs = matrix.M8[mask].astype(np.float32) * matrix.scales[mask][:, None]
-                q = vecs.mean(axis=0)
+            rows = []
+            for batch in _batched_in(list(seeds.case_ids)):
+                ph = ",".join("?" * len(batch))
+                rows.extend(self.conn.execute(
+                    f"SELECT embedding, embed_scale, embed_run FROM chunks WHERE case_id IN ({ph})", batch))
+            if not rows:
+                raise SelectorSpecError(
+                    f"relevance_feedback seed_set {sel.params['seed_set']!r} has no chunked seed cases "
+                    "(plan() should have skipped this selector as seed_unavailable)")
+            runs = {r[2] for r in rows}
+            if matrix.embed_run is not None:
+                runs.add(matrix.embed_run)
+            if len(runs) > 1:
+                raise ValueError(f"mixed embedding runs for relevance_feedback centroid: {sorted(runs)}")
+            dim = matrix.M8.shape[1]
+            vecs = np.zeros((len(rows), dim), np.float32)
+            scales = np.empty(len(rows), np.float32)
+            for i, (blob, scale, _run) in enumerate(rows):
+                vec = np.frombuffer(blob, dtype=np.int8)
+                vecs[i, :len(vec)] = vec[:dim]; scales[i] = scale
+            q = (vecs * scales[:, None]).mean(axis=0)
         q = (q / (np.linalg.norm(q) + 1e-12)).astype(np.float32)
         self.resources[key] = q
         return q

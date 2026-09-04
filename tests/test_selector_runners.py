@@ -4,7 +4,7 @@ from corpus_engine import store
 from corpus_engine.domain import load_domain
 from corpus_engine.selector.model import Partition, Selector, load_selectors
 from corpus_engine.selector.ports import FrozenSeedResolver, RecordedEmbedder
-from corpus_engine.selector.runners import EngineContext, RUNNERS, run_citation_graph, run_embedding, run_fts
+from corpus_engine.selector.runners import EngineContext, RUNNERS, run_citation_graph, run_embedding, run_fts, run_relevance_feedback
 
 def _ctx(tmp_path, fixture_db, repo_root, seeds=None):
     tmp_path.mkdir(parents=True, exist_ok=True)
@@ -39,6 +39,24 @@ def test_embedding_runner_is_deterministic_and_stable_sorted(tmp_path, fixture_d
     assert [(x.case_id, x.chunk_id, round(x.cosine, 6)) for x in a] == [(x.case_id, x.chunk_id, round(x.cosine, 6)) for x in b]
     assert all(a[i].cosine >= a[i + 1].cosine for i in range(len(a) - 1)) and len({x.case_id for x in a}) == len(a)
     assert all(x.cosine >= s.params["min_cosine"] for x in a) and len(a) <= s.params["top_k"]
+
+def test_relevance_feedback_runner_excludes_seeds_and_is_deterministic(tmp_path, fixture_db, repo_root):
+    probe = _ctx(tmp_path / "probe", fixture_db, repo_root)
+    part = Partition(*probe.conn.execute("SELECT era_partition, jurisdiction FROM cases WHERE is_duplicate_of IS NULL GROUP BY 1,2 ORDER BY count(*) DESC LIMIT 1").fetchone())
+    seed_ids = [r[0] for r in probe.conn.execute(
+        """SELECT DISTINCT ch.case_id FROM chunks ch JOIN cases c ON c.case_id = ch.case_id
+           WHERE c.era_partition=? AND c.jurisdiction=? AND c.is_duplicate_of IS NULL
+           ORDER BY ch.case_id LIMIT 5""", (part.era, part.jurisdiction))]
+    seeds = FrozenSeedResolver({"s": seed_ids})
+    sel = Selector("rf", 1, "relevance_feedback", "c", "p", (part.era,), (part.jurisdiction,),
+                   {"seed_set": "s", "top_k": 20, "min_cosine": 0.0})
+    a = run_relevance_feedback(_ctx(tmp_path / "a", fixture_db, repo_root, seeds), sel, part)
+    b = run_relevance_feedback(_ctx(tmp_path / "b", fixture_db, repo_root, seeds), sel, part)
+    assert a
+    assert {x.case_id for x in a}.isdisjoint(seed_ids)
+    assert len({x.case_id for x in a}) == len(a)
+    assert all(a[i].cosine >= a[i + 1].cosine for i in range(len(a) - 1))
+    assert [(x.case_id, x.chunk_id, round(x.cosine, 6)) for x in a] == [(x.case_id, x.chunk_id, round(x.cosine, 6)) for x in b]
 
 def test_citation_graph_runner_walks_both_directions(tmp_path, fixture_db, repo_root):
     seeds = FrozenSeedResolver({"s": [1, 2, 3, 4, 5]})
