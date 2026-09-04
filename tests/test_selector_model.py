@@ -44,3 +44,13 @@ def test_scope_rejects_unknown_jurisdiction():
                         "pattern": "x", "jurisdiction_scope": ["Unknown"]},
                        eras=dom.eras, jurisdictions=dom.jurisdictions)
     assert "d" in str(exc_info.value) and "Unknown" in str(exc_info.value)
+
+def test_load_selectors_include_retired():
+    dom = load_domain()
+    active_sels = load_selectors(dom)
+    all_sels = load_selectors(dom, include_retired=True)
+    assert len(all_sels) > len(active_sels) and len(active_sels) == 36
+    active_keys = {s.key for s in active_sels}
+    retired_sels = [s for s in all_sels if s.key not in active_keys]
+    assert len(retired_sels) > 0
+    assert any(s.kind == "embedding" for s in retired_sels), "Should include retired embedding selectors"

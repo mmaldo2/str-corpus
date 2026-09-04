@@ -101,11 +101,11 @@ def parse_selector(raw: dict, *, eras, jurisdictions) -> Selector:
                     status=raw.get("status", "active"))
 
 
-def load_selectors(domain) -> list[Selector]:
+def load_selectors(domain, *, include_retired: bool = False) -> list[Selector]:
     raw = yaml.safe_load(Path(domain.selectors_path).read_text(encoding="utf-8"))
     out, seen = [], set()
     for r in raw:
-        if r.get("status") != "active":
+        if not include_retired and r.get("status") != "active":
             continue
         s = parse_selector(r, eras=domain.eras, jurisdictions=domain.jurisdictions)
         if s.key in seen:
