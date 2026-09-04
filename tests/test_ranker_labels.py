@@ -40,3 +40,13 @@ def test_heldout_stratified_frozen_and_checked(tmp_path):
     p.write_text(p.read_text(encoding="utf-8") + "\n", encoding="utf-8")
     with pytest.raises(ValueError):
         check_heldout(dom, p)
+
+def test_check_heldout_refuses_unpinned_hash(tmp_path):
+    p = tmp_path / "h2.jsonl"; write_heldout(p, [Label(1, 1, 1.0, False, "pre-1860", "Tex.")])
+    class D: pass
+    dom = D(); dom.ranking = D(); dom.ranking.heldout_sha256 = None
+    with pytest.raises(ValueError):
+        check_heldout(dom, p)
+    dom.ranking.heldout_sha256 = ""
+    with pytest.raises(ValueError):
+        check_heldout(dom, p)

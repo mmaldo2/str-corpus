@@ -80,6 +80,8 @@ def sha256_file(path: Path) -> str:
 
 def check_heldout(domain, path: Path) -> str:
     h = sha256_file(path); want = domain.ranking.heldout_sha256
-    if want and h != want:
+    if not want:
+        raise ValueError(f"domain.ranking.heldout_sha256 is not pinned; held-out file {path} is not frozen")
+    if h != want:
         raise ValueError(f"held-out file {path} sha256 {h[:12]}… does not match domain.yaml {str(want)[:12]}…; never edit it, make a v2")
     return h

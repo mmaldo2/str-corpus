@@ -1,0 +1,340 @@
+{
+ "commit": "5674128",
+ "cv_C": 0.01,
+ "cv_ap": 0.6691587369078513,
+ "heldout": {
+  "n": 1533
+ },
+ "layout": {
+  "dim": 1024,
+  "eras": [
+   "pre-1860",
+   "1860-1900",
+   "1900-1930",
+   "1930-1970",
+   "1970-2020"
+  ],
+  "jurisdictions": [
+   "Tex.",
+   "Pa.",
+   "La.",
+   "N.Y.",
+   "Mass.",
+   "Conn.",
+   "N.J.",
+   "Cal.",
+   "Ohio",
+   "D.C."
+  ],
+  "lexical_labels": [
+   "lodger-core-01@v1",
+   "lodger-tenant-near-02@v1",
+   "boarder-core-03@v1",
+   "boarding-house-keeping-04@v1",
+   "lodging-house-05@v1",
+   "furnished-rooms-06@v1",
+   "letting-rooms-07@v1",
+   "demise-lodgings-08@v1",
+   "license-vs-lease-09@v1",
+   "exclusive-possession-lodger-10@v1",
+   "incident-of-ownership-11@v1",
+   "right-to-lease-12@v1",
+   "paying-guests-13@v1",
+   "roomers-boarders-14@v1",
+   "transient-guests-16@v1",
+   "single-family-boarders-17@v1",
+   "accessory-use-roomers-18@v1",
+   "inmate-historical-20@v1",
+   "adverse-lodging-license-24@v1",
+   "adverse-boarding-license-25@v1",
+   "adverse-boarding-nuisance-26@v1",
+   "adverse-police-power-27@v1",
+   "adverse-innkeeper-regulation-28@v1",
+   "homestay-bnb-30@v1",
+   "housekeeping-unit-31@v1",
+   "boarding-variants-32@v1",
+   "zoning-power-residence-33@v1",
+   "tourist-home-15@v2",
+   "apartment-hotel-34@v1",
+   "sro-35@v1",
+   "motel-near-36@v1",
+   "rent-houses-37@v1"
+  ],
+  "selector_labels": [
+   "lodger-core-01@v1",
+   "lodger-tenant-near-02@v1",
+   "boarder-core-03@v1",
+   "boarding-house-keeping-04@v1",
+   "lodging-house-05@v1",
+   "furnished-rooms-06@v1",
+   "letting-rooms-07@v1",
+   "demise-lodgings-08@v1",
+   "license-vs-lease-09@v1",
+   "exclusive-possession-lodger-10@v1",
+   "incident-of-ownership-11@v1",
+   "right-to-lease-12@v1",
+   "paying-guests-13@v1",
+   "roomers-boarders-14@v1",
+   "transient-guests-16@v1",
+   "single-family-boarders-17@v1",
+   "accessory-use-roomers-18@v1",
+   "inmate-historical-20@v1",
+   "embed-short-letting-23@v1",
+   "adverse-lodging-license-24@v1",
+   "adverse-boarding-license-25@v1",
+   "adverse-boarding-nuisance-26@v1",
+   "adverse-police-power-27@v1",
+   "adverse-innkeeper-regulation-28@v1",
+   "adverse-embed-regulation-29@v1",
+   "homestay-bnb-30@v1",
+   "housekeeping-unit-31@v1",
+   "boarding-variants-32@v1",
+   "zoning-power-residence-33@v1",
+   "tourist-home-15@v2",
+   "embed-zoning-paying-occupants-22@v2",
+   "apartment-hotel-34@v1",
+   "sro-35@v1",
+   "motel-near-36@v1",
+   "rent-houses-37@v1",
+   "embed-householder-letting-21@v2",
+   "citation-graph-38@v1",
+   "relevance-feedback-39@v1"
+  ],
+  "vector_labels": [
+   "embed-short-letting-23@v1",
+   "adverse-embed-regulation-29@v1",
+   "embed-zoning-paying-occupants-22@v2",
+   "embed-householder-letting-21@v2",
+   "relevance-feedback-39@v1"
+  ]
+ },
+ "metrics": {
+  "classifier": {
+   "ap_all": 0.6942101461386118,
+   "ap_reviewed": 0.3238222721557697,
+   "n_all": 1533,
+   "n_reviewed": 1386,
+   "p200_all": 0.6,
+   "p50_all": 0.92,
+   "per_cell": {
+    "1860-1900|La.": {
+     "ap": 0.31487722048066874,
+     "n": 93,
+     "p50": 0.06
+    },
+    "1860-1900|N.Y.": {
+     "ap": 0.760827747090017,
+     "n": 223,
+     "p50": 0.5
+    },
+    "1860-1900|Pa.": {
+     "ap": 0.3997863247863248,
+     "n": 118,
+     "p50": 0.06
+    },
+    "1860-1900|Tex.": {
+     "ap": 0.3333333333333333,
+     "n": 104,
+     "p50": 0.06
+    },
+    "1900-1930|La.": {
+     "ap": 0.5792138550420263,
+     "n": 140,
+     "p50": 0.16
+    },
+    "1900-1930|N.Y.": {
+     "ap": 0.686152792518686,
+     "n": 270,
+     "p50": 0.48
+    },
+    "1900-1930|Pa.": {
+     "ap": 0.7186977911924607,
+     "n": 122,
+     "p50": 0.12
+    },
+    "1900-1930|Tex.": {
+     "ap": 0.7355616605616606,
+     "n": 48,
+     "p50": 0.16666666666666666
+    },
+    "1930-1970|La.": {
+     "ap": 0.8626373626373627,
+     "n": 27,
+     "p50": 0.2222222222222222
+    },
+    "1930-1970|N.Y.": {
+     "ap": 0.9051538330950095,
+     "n": 50,
+     "p50": 0.34
+    },
+    "1930-1970|Pa.": {
+     "ap": 0.7509920634920636,
+     "n": 24,
+     "p50": 0.25
+    },
+    "1930-1970|Tex.": {
+     "ap": 0.5053571428571428,
+     "n": 78,
+     "p50": 0.18
+    },
+    "1970-2020|La.": {
+     "ap": 0.701388888888889,
+     "n": 24,
+     "p50": 0.20833333333333334
+    },
+    "1970-2020|N.Y.": {
+     "ap": 0.6596345457590422,
+     "n": 50,
+     "p50": 0.36
+    },
+    "1970-2020|Pa.": {
+     "ap": 0.7814574314574313,
+     "n": 37,
+     "p50": 0.2972972972972973
+    },
+    "1970-2020|Tex.": {
+     "ap": 0.8768115942028986,
+     "n": 41,
+     "p50": 0.14634146341463414
+    },
+    "pre-1860|La.": {
+     "ap": 1.0,
+     "n": 15,
+     "p50": 0.13333333333333333
+    },
+    "pre-1860|N.Y.": {
+     "ap": 0.7008856682769727,
+     "n": 32,
+     "p50": 0.1875
+    },
+    "pre-1860|Pa.": {
+     "ap": 1.0,
+     "n": 18,
+     "p50": 0.05555555555555555
+    },
+    "pre-1860|Tex.": {
+     "ap": 1.0,
+     "n": 19,
+     "p50": 0.05263157894736842
+    }
+   }
+  },
+  "fusion": {
+   "ap_all": 0.3774896423518033,
+   "ap_reviewed": 0.12514874149987582,
+   "n_all": 1533,
+   "n_reviewed": 1386,
+   "p200_all": 0.345,
+   "p50_all": 0.7,
+   "per_cell": {
+    "1860-1900|La.": {
+     "ap": 0.1754626951995373,
+     "n": 93,
+     "p50": 0.06
+    },
+    "1860-1900|N.Y.": {
+     "ap": 0.2511169366281986,
+     "n": 223,
+     "p50": 0.18
+    },
+    "1860-1900|Pa.": {
+     "ap": 0.3896732026143791,
+     "n": 118,
+     "p50": 0.08
+    },
+    "1860-1900|Tex.": {
+     "ap": 0.0742447516641065,
+     "n": 104,
+     "p50": 0.02
+    },
+    "1900-1930|La.": {
+     "ap": 0.43244553262872754,
+     "n": 140,
+     "p50": 0.1
+    },
+    "1900-1930|N.Y.": {
+     "ap": 0.400812382296363,
+     "n": 270,
+     "p50": 0.32
+    },
+    "1900-1930|Pa.": {
+     "ap": 0.31026140102969496,
+     "n": 122,
+     "p50": 0.08
+    },
+    "1900-1930|Tex.": {
+     "ap": 0.4458423520923521,
+     "n": 48,
+     "p50": 0.16666666666666666
+    },
+    "1930-1970|La.": {
+     "ap": 0.7683178534571723,
+     "n": 27,
+     "p50": 0.2222222222222222
+    },
+    "1930-1970|N.Y.": {
+     "ap": 0.5166396565790473,
+     "n": 50,
+     "p50": 0.34
+    },
+    "1930-1970|Pa.": {
+     "ap": 0.7146903820816864,
+     "n": 24,
+     "p50": 0.25
+    },
+    "1930-1970|Tex.": {
+     "ap": 0.4319314392423636,
+     "n": 78,
+     "p50": 0.18
+    },
+    "1970-2020|La.": {
+     "ap": 0.7287878787878788,
+     "n": 24,
+     "p50": 0.20833333333333334
+    },
+    "1970-2020|N.Y.": {
+     "ap": 0.48376540485511615,
+     "n": 50,
+     "p50": 0.36
+    },
+    "1970-2020|Pa.": {
+     "ap": 0.8780742204655247,
+     "n": 37,
+     "p50": 0.2972972972972973
+    },
+    "1970-2020|Tex.": {
+     "ap": 0.7592592592592592,
+     "n": 41,
+     "p50": 0.14634146341463414
+    },
+    "pre-1860|La.": {
+     "ap": 0.41666666666666663,
+     "n": 15,
+     "p50": 0.13333333333333333
+    },
+    "pre-1860|N.Y.": {
+     "ap": 0.4129084967320262,
+     "n": 32,
+     "p50": 0.1875
+    },
+    "pre-1860|Pa.": {
+     "ap": 1.0,
+     "n": 18,
+     "p50": 0.05555555555555555
+    },
+    "pre-1860|Tex.": {
+     "ap": 0.1111111111111111,
+     "n": 19,
+     "p50": 0.05263157894736842
+    }
+   }
+  }
+ },
+ "ranker_id": "classifier:v1",
+ "train": {
+  "n_neg": 4009,
+  "n_pos": 524,
+  "sha256_ids": "6631bd8c456e4beef14e8a445949d285e2a313f75d925711e74de1da7120be06"
+ },
+ "trained_at": "2026-09-04T14:09:10"
+}

@@ -50,7 +50,7 @@ embedding:
   hosted_model_id: qwen/qwen3-embedding-4b
   hosted_usd_per_m_tokens: 0.02  # OpenRouter (DeepInfra) list price verified 2026-09-02; research doc said 0.01
 ranking:
-  default: null                # switched by tools/train_ranker.py (ship rule) and tools/measure_reranker.py (bar)
+  default: classifier          # switched by tools/train_ranker.py (ship rule) and tools/measure_reranker.py (bar)
   classifier_version: v1
   fusion: {lexical_weight: 0.5, cosine_weight: 0.5}
   reranker:
