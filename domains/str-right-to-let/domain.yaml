@@ -55,7 +55,7 @@ ranking:
   fusion: {lexical_weight: 0.5, cosine_weight: 0.5}
   reranker:
     model: Qwen/Qwen3-Reranker-4B
-    revision: main             # replaced by tools/pin_reranker.py before any use; adapters refuse "main"
+    revision: 22e683669bc0f0bd69640a1354a6d0aebcfeede5             # replaced by tools/pin_reranker.py before any use; adapters refuse "main"
     query: >
       A judicial opinion about a householder, owner, or lessee letting rooms,
       lodgings, or a dwelling to lodgers, boarders, roomers, or short-term
