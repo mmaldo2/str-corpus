@@ -15,6 +15,22 @@ class ShardingSpec:
 
 
 @dataclass(frozen=True)
+class RankingSpec:
+    default: str = "null"
+    classifier_version: str = "v1"
+    fusion: Mapping[str, float] = None            # type: ignore[assignment]
+    reranker: Mapping[str, object] = None         # type: ignore[assignment]
+    heldout: str = ""
+    heldout_sha256: str | None = None
+    bar_ap_delta: float = 0.05
+
+    def __post_init__(self):
+        object.__setattr__(self, "default", self.default or "null")
+        object.__setattr__(self, "fusion", dict(self.fusion or {"lexical_weight": 0.5, "cosine_weight": 0.5}))
+        object.__setattr__(self, "reranker", dict(self.reranker or {}))
+
+
+@dataclass(frozen=True)
 class EmbeddingSpec:
     run_key: str; model: str; revision: str; dim: int; quant: str
     chunk_tokens: int; chunk_overlap: int; prefix_template: str
@@ -41,6 +57,7 @@ class Domain:
     reviewer_default: str
     embedding: EmbeddingSpec
     sharding: ShardingSpec
+    ranking: RankingSpec
 
 
 def load_domain(name: str = "str-right-to-let") -> Domain:
@@ -65,4 +82,5 @@ def load_domain(name: str = "str-right-to-let") -> Domain:
         reviewer_default=cfg.get("reviewer_default", "unknown"),
         embedding=EmbeddingSpec(**cfg["embedding"]),
         sharding=ShardingSpec(**cfg.get("sharding", {})),
+        ranking=RankingSpec(**cfg.get("ranking", {})),
     )

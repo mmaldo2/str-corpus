@@ -107,6 +107,10 @@ CREATE TABLE IF NOT EXISTS embed_runs (
     tokens_used INTEGER
 );
 CREATE TABLE IF NOT EXISTS graph_log (zip_key TEXT PRIMARY KEY, ts TEXT);
+CREATE TABLE IF NOT EXISTS rankings (
+    run_id TEXT, ranker_id TEXT, case_id INTEGER, score REAL, ts TEXT,
+    PRIMARY KEY (run_id, ranker_id, case_id)
+);
 """
 
 FTS_SCHEMA = """
