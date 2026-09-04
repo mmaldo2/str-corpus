@@ -61,9 +61,15 @@ def _batched_in(ids: list[int], size: int = 500):
 
 @dataclass
 class ChunkMatrix:
+    """embed_run identifies the embedding run; `keys` (tuple(sorted(part_index))) is this
+    matrix's identity for caching - two ChunkMatrix instances can share a selector label
+    (e.g. superset reuse) while covering different partitions, so EngineContext.sims()
+    keys its cache by (selector label, matrix.keys), not by label alone.
+    """
     M8: np.ndarray; scales: np.ndarray; chunk_ids: np.ndarray; case_ids: np.ndarray
     spans: np.ndarray; part_codes: np.ndarray; part_index: dict[str, int]
     embed_run: str | None = None
+    keys: tuple[str, ...] = ()
 
 
 @dataclass
@@ -143,7 +149,7 @@ class EngineContext:
         if len(runs_seen) > 1:
             raise ValueError(f"mixed embedding runs in matrix: {sorted(runs_seen)}")
         m = ChunkMatrix(M8[:i], scales[:i], chunk_ids[:i], case_ids[:i], spans[:i], codes[:i], index,
-                        next(iter(runs_seen)) if runs_seen else None)
+                        next(iter(runs_seen)) if runs_seen else None, keys=keys)
         self.resources[("matrix", keys)] = m
         return m
 
@@ -245,7 +251,10 @@ class EngineContext:
         return q
 
     def sims(self, sel: Selector, matrix: ChunkMatrix) -> np.ndarray:
-        key = ("sims", sel.label)
+        # Keyed by matrix identity, not just the selector label: with superset reuse, a
+        # label-keyed entry would be wrong if a different (e.g. narrower) matrix were
+        # ever scored for the same selector.
+        key = ("sims", sel.label, matrix.keys)
         if key in self.resources:
             return self.resources[key]
         q = self.query_vec(sel, matrix)

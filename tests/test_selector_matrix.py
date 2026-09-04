@@ -47,6 +47,14 @@ def _live_partitions(conn):
         "SELECT DISTINCT era_partition, jurisdiction FROM cases WHERE is_duplicate_of IS NULL ORDER BY 1, 2")]
 
 
+def _live_chunked_partitions(conn):
+    """Partitions that actually contribute rows to a chunk matrix (a live partition can
+    have cases with no chunks)."""
+    return [Partition(e, j) for e, j in conn.execute(
+        """SELECT DISTINCT c.era_partition, c.jurisdiction FROM chunks ch JOIN cases c ON c.case_id = ch.case_id
+           WHERE c.is_duplicate_of IS NULL ORDER BY 1, 2""")]
+
+
 def _signals(ctx, sel, part):
     return [(g.case_id, g.chunk_id, g.cosine) for g in RUNNERS[sel.kind](ctx, sel, part)]
 
@@ -221,3 +229,45 @@ def test_close_defers_a_windows_style_unlink_failure_to_pending_scratch(tmp_path
     assert not target.exists()
     assert ctx.scratch_dir is None and ctx._owns_scratch is False
     assert not owned.exists()
+
+
+# --- R3: key the sims cache by matrix identity ---
+
+def test_sims_cache_is_keyed_by_matrix_identity_not_selector_label_alone(tmp_path, fixture_db, repo_root):
+    """With superset reuse, a sims() entry keyed only by selector label would be wrong if
+    a different matrix were ever scored under that label. Score the same selector against
+    two distinct matrices - built in two separate contexts, so neither's matrix_for() can
+    satisfy the other's request via superset reuse - and confirm two distinct sims cache
+    entries, with arrays whose lengths reflect their own matrix, not each other's.
+    """
+    conn = _conn(tmp_path / "db", fixture_db)
+    dom = load_domain()
+    sel = next(s for s in load_selectors(dom) if s.kind in EMBED_KINDS)
+    chunked = _live_chunked_partitions(conn)
+    assert len(chunked) >= 2
+    p1, p2 = chunked[0], chunked[1]
+
+    narrow_ctx = _ctx(conn, repo_root, tmp_path / "narrow")
+    wide_ctx = _ctx(conn, repo_root, tmp_path / "wide")
+    try:
+        narrow = narrow_ctx.matrix_for([p1])
+        wide = wide_ctx.matrix_for([p1, p2])
+        assert narrow.keys == (p1.key,)
+        assert wide.keys == tuple(sorted((p1.key, p2.key)))
+        assert len(narrow.M8) < len(wide.M8)                  # p2 contributes at least one row
+
+        sims_narrow = narrow_ctx.sims(sel, narrow)
+        sims_wide = wide_ctx.sims(sel, wide)
+
+        assert len(sims_narrow) == len(narrow.M8)
+        assert len(sims_wide) == len(wide.M8)
+        assert len(sims_narrow) != len(sims_wide)
+
+        assert ("sims", sel.label, narrow.keys) in narrow_ctx.resources
+        assert ("sims", sel.label, wide.keys) in wide_ctx.resources
+        # re-fetching returns the cached array, not a recompute under a colliding key
+        assert narrow_ctx.sims(sel, narrow) is sims_narrow
+        assert wide_ctx.sims(sel, wide) is sims_wide
+    finally:
+        narrow_ctx.close()
+        wide_ctx.close()
