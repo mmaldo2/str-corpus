@@ -7,7 +7,7 @@ from corpus_engine.selector.model import (ENGINE_VERSION, Partition, PlanUnit, S
                                           SignalRef, Skip, load_selectors)
 from corpus_engine.selector.packing import build_batches, pack_batches
 from corpus_engine.selector.ports import EMBED_KINDS, fingerprint
-from corpus_engine.selector.runners import RUNNERS, EngineContext, _scope_partitions
+from corpus_engine.selector.runners import RUNNERS, EngineContext, union_scope
 from corpus_engine.store import paths
 
 
@@ -147,9 +147,9 @@ def shard(conn, domain, run_id: str, *, seeds, embedder=None, dry_run=False, sta
             # instead of once per distinct scope, and only one scratch file exists at a time.
             vec_sels = [by_key[u.key] for u in pl.units if by_key[u.key].kind in EMBED_KINDS]
             if vec_sels:
-                union = {p.key: p for s in vec_sels for p in _scope_partitions(s)}
+                union = union_scope(vec_sels)
                 log(f"building chunk matrix over {len(union)} partitions for {len(vec_sels)} vector units")
-                m = ctx.matrix_for(list(union.values()))
+                m = ctx.matrix_for(union)
                 # ADR-0009 provenance: the union matrix can request partitions with no
                 # matching chunks (an in-scope but empty era x jurisdiction pair); record
                 # only the ones that actually contributed rows, since shape (not the

@@ -18,7 +18,7 @@ from corpus_engine.domain import load_domain
 from corpus_engine.selector.model import Partition, load_selectors
 from corpus_engine.selector.ports import EMBED_KINDS, FrozenSeedResolver, RecordedEmbedder
 import corpus_engine.selector.runners as runners_mod
-from corpus_engine.selector.runners import RUNNERS, EngineContext, _scope_partitions
+from corpus_engine.selector.runners import RUNNERS, EngineContext, _scope_partitions, scope_partitions, union_scope
 
 
 def _conn(tmp_path, fixture_db):
@@ -84,8 +84,7 @@ def test_union_matrix_yields_identical_signals_to_per_scope_matrices(tmp_path, f
     live = {p.key for p in _live_partitions(conn)}
 
     union_ctx = _ctx(conn, repo_root, tmp_path / "union")
-    union = {p.key: p for s in vec_sels for p in _scope_partitions(s)}
-    union_ctx.matrix_for(list(union.values()))              # one matrix for the whole run
+    union_ctx.matrix_for(union_scope(vec_sels))              # one matrix for the whole run
     assert len(union_ctx.resources) == 1
 
     compared = 0
@@ -93,15 +92,15 @@ def test_union_matrix_yields_identical_signals_to_per_scope_matrices(tmp_path, f
         for sel in vec_sels:
             scope_ctx = _ctx(conn, repo_root, tmp_path / f"scope-{sel.id}-{sel.version}")
             try:
-                for part in _scope_partitions(sel):
+                for part in scope_partitions(sel):
                     if part.key not in live:
                         continue
                     assert _same_signals(_signals(union_ctx, sel, part),
                                          _signals(scope_ctx, sel, part)), f"{sel.label} x {part.key}"
                     compared += 1
                 # the per-scope context built exactly its own scope, and no wider
-                scope_matrix = scope_ctx.resources[("matrix", tuple(sorted(p.key for p in _scope_partitions(sel))))]
-                assert set(scope_matrix.part_index) == {p.key for p in _scope_partitions(sel)}
+                scope_matrix = scope_ctx.resources[("matrix", tuple(sorted(p.key for p in scope_partitions(sel))))]
+                assert set(scope_matrix.part_index) == {p.key for p in scope_partitions(sel)}
             finally:
                 scope_ctx.close()
         # every vector runner reused the single union matrix - no second matrix was built
@@ -271,3 +270,29 @@ def test_sims_cache_is_keyed_by_matrix_identity_not_selector_label_alone(tmp_pat
     finally:
         narrow_ctx.close()
         wide_ctx.close()
+
+
+# --- R4: make the scope helper public / move the union rule next to the matrix ---
+
+def test_scope_partitions_is_public_with_a_deprecated_alias():
+    assert _scope_partitions is scope_partitions
+
+
+def test_union_scope_matches_the_original_dict_union_formula_in_order(tmp_path, fixture_db, repo_root):
+    """union_scope() must preserve the exact insertion order of the formula it replaces
+    in engine.shard() - {p.key: p for s in selectors for p in scope_partitions(s)} - so
+    the union matrix's row order (and its last-ulp cosines) is unchanged.
+    """
+    conn = _conn(tmp_path / "db", fixture_db)
+    dom = load_domain()
+    vec_sels = [s for s in load_selectors(dom) if s.kind in EMBED_KINDS]
+    assert len(vec_sels) >= 2
+
+    original = {p.key: p for s in vec_sels for p in scope_partitions(s)}
+    assert union_scope(vec_sels) == list(original.values())
+
+    # Duplicate selectors and a reordering both prove it is first-seen order, not sorted.
+    doubled = vec_sels + vec_sels
+    assert union_scope(doubled) == list(original.values())
+    reordered = {p.key: p for s in reversed(vec_sels) for p in scope_partitions(s)}
+    assert union_scope(list(reversed(vec_sels))) == list(reordered.values())

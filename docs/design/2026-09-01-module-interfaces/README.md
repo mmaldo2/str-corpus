@@ -28,6 +28,14 @@ Base: `design-selector-3-common.md`. Additions from the others:
   never imports the ledger module. Adapters: ledger-backed, frozen mapping.
 - Embedding search is scoped to the union of the selector's in-scope
   partitions, not the whole corpus (design 3).
+- `runners.py`: `scope_partitions(selector) -> list[Partition]` (a single
+  selector's era x jurisdiction cross product) and `union_scope(selectors)
+  -> list[Partition]` (their union, one partition each, in first-seen
+  order) live next to `ChunkMatrix`/`EngineContext.matrix_for`, since that
+  order is the union matrix's row order and so its last-ulp cosines
+  (Stage 2B residual R4). `engine.shard()` calls `union_scope` to build the
+  one matrix for the run; each runner calls `scope_partitions` for its own
+  selector.
 - Ranking is a separate stage applied only in batch packing; signals are
   never truncated (all three).
 - Two findings fixed as a logged engine version bump: `np.argsort` at

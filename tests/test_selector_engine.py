@@ -7,7 +7,7 @@ from corpus_engine.selector.engine import _already_read_ids_with_skips, already_
 from corpus_engine.selector.model import Selector, ShardPlan, load_selectors
 from corpus_engine.selector.ports import EMBED_KINDS, FrozenSeedResolver, RecordedEmbedder
 import corpus_engine.selector.runners as runners_mod
-from corpus_engine.selector.runners import RUNNERS, EngineContext, _scope_partitions
+from corpus_engine.selector.runners import RUNNERS, EngineContext, scope_partitions, union_scope
 
 class Stamp:
     run_id = "t-01"; ts = "2026-01-01T00:00:00"
@@ -164,7 +164,7 @@ def test_manifest_records_matrix_partitions_and_row_count(tmp_path, fixture_db, 
     # Independently build the same union matrix shard() builds and read back which
     # requested partitions actually contributed rows - that is "had cases".
     check_ctx = EngineContext(conn, dom, emb, seeds)
-    union = {p.key: p for s in vec_sels for p in _scope_partitions(s)}
+    union = {p.key: p for s in vec_sels for p in scope_partitions(s)}
     m = check_ctx.matrix_for(list(union.values()))
     present = set(m.part_codes.tolist())
     want_partitions = sorted(k for k, code in m.part_index.items() if code in present)
@@ -186,6 +186,30 @@ def test_manifest_records_matrix_partitions_and_row_count(tmp_path, fixture_db, 
                      plan_=plan_lex)
     assert sum(rep_lex.signals_written.values()) >= 0          # ran without a vector unit
     assert rep_lex.manifest["matrix_partitions"] == [] and rep_lex.manifest["matrix_rows"] == 0
+
+
+# --- R4: make the scope helper public / move the union rule next to the matrix ---
+
+def test_shard_uses_union_scope_and_its_result_matches_the_manifest(tmp_path, fixture_db, repo_root):
+    """union_scope() of the fixture's vector selectors is the exact partition list shard()
+    builds its matrix over; every partition R2's manifest records as matrix_partitions
+    (the ones that actually had cases) must come from that same list.
+    """
+    conn = _conn(tmp_path, fixture_db); dom = load_domain()
+    seeds = FrozenSeedResolver({"both": list(range(10)), "ledger-favorable-reviewed": list(range(10))})
+    emb = RecordedEmbedder(repo_root / "tests/fixtures/query-vectors-v3.npz")
+    pl = plan(conn, dom, seeds=seeds, embedder=emb)
+    sels = load_selectors(dom); by_key = {s.key: s for s in sels}
+    vec_sels = [by_key[u.key] for u in pl.units if by_key[u.key].kind in EMBED_KINDS]
+    assert vec_sels
+
+    scope = union_scope(vec_sels)
+    assert scope == list({p.key: p for s in vec_sels for p in scope_partitions(s)}.values())
+
+    rep = shard(conn, dom, "t-r4", seeds=seeds, embedder=emb, stamp=Stamp(), runs_dir=tmp_path / "runs",
+                ledger_dir=tmp_path / "ledger", out_dir=tmp_path / "br4", log=lambda *_: None)
+    assert rep.manifest["matrix_partitions"]
+    assert set(rep.manifest["matrix_partitions"]) <= {p.key for p in scope}
 
 
 def test_shard_accepts_a_precomputed_plan_and_does_not_replan(tmp_path, fixture_db, repo_root, monkeypatch):

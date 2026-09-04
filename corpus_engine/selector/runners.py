@@ -266,8 +266,27 @@ class EngineContext:
         return out
 
 
-def _scope_partitions(sel: Selector) -> list[Partition]:
+def scope_partitions(sel: Selector) -> list[Partition]:
     return [Partition(e, j) for e in sel.era_scope for j in sel.jurisdiction_scope]
+
+
+_scope_partitions = scope_partitions  # deprecated alias, kept for one release; use scope_partitions
+
+
+def union_scope(selectors: list[Selector]) -> list[Partition]:
+    """The union of every selector's scope_partitions(), each partition appearing once,
+    in first-seen order: domain era order then jurisdiction order as `selectors` lists
+    them. This is the partition set shard() builds one matrix over for the whole run
+    (EngineContext.matrix_for's superset reuse then serves every selector's own scope
+    from it) - keeping the rule here, next to ChunkMatrix/matrix_for, rather than in
+    engine.py, keeps the union's row order (and so its last-ulp cosines) next to the
+    matrix code it determines.
+    """
+    union: dict[str, Partition] = {}
+    for sel in selectors:
+        for p in scope_partitions(sel):
+            union.setdefault(p.key, p)
+    return list(union.values())
 
 
 def run_fts(ctx: EngineContext, s: Selector, part: Partition) -> list[Signal]:
@@ -303,7 +322,7 @@ def run_regex(ctx: EngineContext, s: Selector, part: Partition) -> list[Signal]:
 
 
 def _vector_runner(ctx: EngineContext, s: Selector, part: Partition, exclude: set[int]) -> list[Signal]:
-    matrix = ctx.matrix_for(_scope_partitions(s))
+    matrix = ctx.matrix_for(scope_partitions(s))
     sims = ctx.sims(s, matrix)
     try:
         code = matrix.part_index.get(part.key)
