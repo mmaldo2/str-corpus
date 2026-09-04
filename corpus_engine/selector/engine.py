@@ -6,8 +6,8 @@ from corpus_engine.selector.coverage import covered, mark_covered
 from corpus_engine.selector.model import (ENGINE_VERSION, Partition, PlanUnit, Selector, ShardPlan, ShardReport,
                                           SignalRef, Skip, load_selectors)
 from corpus_engine.selector.packing import build_batches, pack_batches
-from corpus_engine.selector.ports import fingerprint
-from corpus_engine.selector.runners import RUNNERS, EngineContext
+from corpus_engine.selector.ports import EMBED_KINDS, fingerprint
+from corpus_engine.selector.runners import RUNNERS, EngineContext, _scope_partitions
 from corpus_engine.store import paths
 
 
@@ -115,7 +115,7 @@ def _gold_ids(domain) -> set[int]:
 
 def shard(conn, domain, run_id: str, *, seeds, embedder=None, dry_run=False, stamp=None, runs_dir: Path | None = None,
           ledger_dir: Path | None = None, out_dir: Path | None = None, log=print, runs=None,
-          plan_: ShardPlan | None = None) -> ShardReport:
+          plan_: ShardPlan | None = None, scratch_dir: Path | None = None) -> ShardReport:
     """Run the planned (selector-version x partition) units and pack the batches.
 
     `plan_` accepts a plan the caller already computed (pipeline/shard.py needs one
@@ -123,32 +123,48 @@ def shard(conn, domain, run_id: str, *, seeds, embedder=None, dry_run=False, sta
     skips the internal plan() call — each plan() does a full `cases` scan in
     `_partition_counts`, measured at 79 s on the live DB. The run_id is stamped onto
     whichever plan is used, so callers may pass the `run_id=""` plan that plan() returns.
+
+    `scratch_dir` is where the memory-mapped chunk matrix lives (see EngineContext); the
+    default is a temp dir removed when the runners are done. At the live corpus size the
+    file is ~14.5 GB, so point this at a volume with room for it.
     """
     ts = getattr(stamp, "ts", None) or time.strftime("%Y-%m-%dT%H:%M:%S")
     sels = load_selectors(domain); by_key = {s.key: s for s in sels}
     runs = runs if runs is not None else partition_runs(conn)
     pl = plan_ if plan_ is not None else plan(conn, domain, seeds=seeds, embedder=embedder, selectors=sels, runs=runs)
     pl = ShardPlan(run_id, pl.units, pl.skips, pl.selectors_digest)
-    ctx = EngineContext(conn, domain, embedder, seeds)
+    ctx = EngineContext(conn, domain, embedder, seeds, scratch_dir=scratch_dir)
     written: dict = {}
     for sk in pl.skips:
         log(f"SKIP {sk.key[0]}@v{sk.key[1]}: {sk.reason} ({len(sk.partitions)} partitions)")
-    if not dry_run:
-        for u in pl.units:
-            s = by_key[u.key]
-            try:
-                sigs = RUNNERS[s.kind](ctx, s, u.partition)
-                conn.executemany("""INSERT INTO signals (case_id, selector_id, selector_version, matched_text, char_span_start,
-                                    char_span_end, chunk_id, cosine, era_partition, jurisdiction, run_id, ts) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)""",
-                                 [(g.case_id, g.selector_id, g.selector_version, g.matched_text, g.char_span[0], g.char_span[1],
-                                   g.chunk_id, g.cosine, u.partition.era, u.partition.jurisdiction, run_id, ts) for g in sigs])
-                mark_covered(conn, u.key, u.partition.key, u.fingerprint, run_id, ts, len(sigs))
-                conn.commit()
-            except BaseException:
-                conn.rollback()
-                raise
-            written[(u.key, u.partition.key)] = len(sigs)
-            log(f"{s.label} x {u.partition.key}: {len(sigs)} signals")
+    try:
+        if not dry_run:
+            # One matrix for the whole run, over the union of every vector selector's scope.
+            # Each runner then asks matrix_for() for its own scope and gets this one back
+            # (EngineContext._cached_matrix accepts a superset), so `chunks` is scanned once
+            # instead of once per distinct scope, and only one scratch file exists at a time.
+            vec_sels = [by_key[u.key] for u in pl.units if by_key[u.key].kind in EMBED_KINDS]
+            if vec_sels:
+                union = {p.key: p for s in vec_sels for p in _scope_partitions(s)}
+                log(f"building chunk matrix over {len(union)} partitions for {len(vec_sels)} vector units")
+                ctx.matrix_for(list(union.values()))
+            for u in pl.units:
+                s = by_key[u.key]
+                try:
+                    sigs = RUNNERS[s.kind](ctx, s, u.partition)
+                    conn.executemany("""INSERT INTO signals (case_id, selector_id, selector_version, matched_text, char_span_start,
+                                        char_span_end, chunk_id, cosine, era_partition, jurisdiction, run_id, ts) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)""",
+                                     [(g.case_id, g.selector_id, g.selector_version, g.matched_text, g.char_span[0], g.char_span[1],
+                                       g.chunk_id, g.cosine, u.partition.era, u.partition.jurisdiction, run_id, ts) for g in sigs])
+                    mark_covered(conn, u.key, u.partition.key, u.fingerprint, run_id, ts, len(sigs))
+                    conn.commit()
+                except BaseException:
+                    conn.rollback()
+                    raise
+                written[(u.key, u.partition.key)] = len(sigs)
+                log(f"{s.label} x {u.partition.key}: {len(sigs)} signals")
+    finally:
+        ctx.close()          # free the scratch matrix before batch packing, and on any error
     runs_dir = runs_dir or paths().runs
     exclude, exclude_skipped = _already_read_ids_with_skips(runs_dir, ledger_dir or paths().ledger, log=log)
     gold = _gold_ids(domain)
@@ -189,6 +205,16 @@ def attribution(conn, case_ids) -> dict[int, tuple[SignalRef, ...]]:
     return out
 
 
-def probe(conn, domain, selector: Selector, partition: Partition, *, seeds, embedder=None, limit: int = 50):
-    ctx = EngineContext(conn, domain, embedder, seeds)
-    return RUNNERS[selector.kind](ctx, selector, partition)[:limit]
+def probe(conn, domain, selector: Selector, partition: Partition, *, seeds, embedder=None, limit: int = 50,
+          scratch_dir: Path | None = None):
+    """Run one selector against one partition and return at most `limit` signals; writes nothing.
+
+    A vector selector builds the matrix for its whole scope, not just `partition` — that is
+    what the runner needs to score, and at the live corpus size it is the 14.5 GB scan. The
+    context (and its scratch file) is closed before returning.
+    """
+    ctx = EngineContext(conn, domain, embedder, seeds, scratch_dir=scratch_dir)
+    try:
+        return RUNNERS[selector.kind](ctx, selector, partition)[:limit]
+    finally:
+        ctx.close()

@@ -1,6 +1,7 @@
 from __future__ import annotations
-import re
+import gc, hashlib, re, shutil, tempfile
 from dataclasses import dataclass, field
+from pathlib import Path
 import numpy as np
 from corpus_engine.selector.model import Partition, SeedSet, Selector, SelectorSpecError, Signal
 
@@ -23,22 +24,64 @@ class ChunkMatrix:
 
 @dataclass
 class EngineContext:
+    """Per-run resources shared by the runners: the connection, the chunk matrix (or
+    matrices), and the cached query vectors and similarity arrays.
+
+    The int8 chunk block is memory-mapped, not resident: at the live corpus size it is
+    14.1M x 1024 = 14.45 GB, which does not fit beside SQLite and Python on a 32 GB host.
+    sims() streams it in 200k-row blocks (819 MB per block as float32), so the resident
+    set is one block plus the small per-chunk arrays; the OS page cache absorbs the rest.
+    scratch_dir is where those files live - when None, one temp dir is created lazily and
+    removed by close(). Always call close() (engine.shard / engine.probe do, in a finally)
+    or the scratch files outlive the run.
+    """
     conn: object
     domain: object
     embedder: object | None
     seeds: object
     resources: dict = field(default_factory=dict)
+    scratch_dir: Path | None = None
+    _owns_scratch: bool = field(default=False, init=False, repr=False)
+    _matrix_files: list = field(default_factory=list, init=False, repr=False)
+
+    def _scratch(self) -> Path:
+        if self.scratch_dir is None:
+            self.scratch_dir = Path(tempfile.mkdtemp(prefix="selector-matrix-"))
+            self._owns_scratch = True
+        else:
+            self.scratch_dir = Path(self.scratch_dir)
+            self.scratch_dir.mkdir(parents=True, exist_ok=True)
+        return self.scratch_dir
+
+    def _cached_matrix(self, keys: tuple[str, ...]) -> ChunkMatrix | None:
+        """An exact hit, else any cached matrix whose partitions are a superset of keys.
+
+        A wider matrix is correct for a narrower request: every caller selects its own
+        partition through part_index / part_codes before doing anything else, and the rows
+        of a partition keep their chunk_id order however wide the scan was. This is what
+        lets shard() build one union matrix for the whole run and scan chunks once.
+        """
+        exact = self.resources.get(("matrix", keys))
+        if exact is not None:
+            return exact
+        want = set(keys)
+        for k, v in self.resources.items():
+            if isinstance(k, tuple) and k and k[0] == "matrix" and want.issubset(v.part_index.keys()):
+                return v
+        return None
 
     def matrix_for(self, partitions: list[Partition]) -> ChunkMatrix:
         keys = tuple(sorted(p.key for p in partitions))
-        if ("matrix", keys) in self.resources:
-            return self.resources[("matrix", keys)]
+        hit = self._cached_matrix(keys)
+        if hit is not None:
+            return hit
         conn = self.conn
         dim = int(dict(conn.execute("SELECT key, value FROM embed_meta")).get("dim", "512"))
         where = " OR ".join("(c.era_partition=? AND c.jurisdiction=?)" for _ in partitions)
         params = [x for p in partitions for x in (p.era, p.jurisdiction)]
         n = conn.execute(f"SELECT count(*) FROM chunks ch JOIN cases c ON c.case_id=ch.case_id WHERE c.is_duplicate_of IS NULL AND ({where})", params).fetchone()[0]
-        M8 = np.zeros((n, dim), dtype=np.int8); scales = np.empty(n, np.float32); chunk_ids = np.empty(n, np.int64)
+        M8 = self._alloc_block(keys, n, dim)
+        scales = np.empty(n, np.float32); chunk_ids = np.empty(n, np.int64)
         case_ids = np.empty(n, np.int64); spans = np.empty((n, 2), np.int32); codes = np.empty(n, np.int16)
         index = {k: i for i, k in enumerate(keys)}
         i = 0
@@ -49,12 +92,49 @@ class EngineContext:
             vec = np.frombuffer(row[4], dtype=np.int8)
             M8[i, :len(vec)] = vec[:dim]; scales[i] = row[5]; chunk_ids[i] = row[0]; case_ids[i] = row[1]
             spans[i] = (row[2], row[3]); codes[i] = index[f"{row[6]}|{row[7]}"]; runs_seen.add(row[8]); i += 1
+        if hasattr(M8, "flush"):
+            M8.flush()
         if len(runs_seen) > 1:
             raise ValueError(f"mixed embedding runs in matrix: {sorted(runs_seen)}")
         m = ChunkMatrix(M8[:i], scales[:i], chunk_ids[:i], case_ids[:i], spans[:i], codes[:i], index,
                         next(iter(runs_seen)) if runs_seen else None)
         self.resources[("matrix", keys)] = m
         return m
+
+    def _alloc_block(self, keys: tuple[str, ...], n: int, dim: int):
+        """The (n, dim) int8 block, on disk. Zero rows cannot be mmapped, so stay in RAM."""
+        if n == 0:
+            return np.zeros((0, dim), dtype=np.int8)
+        digest = hashlib.sha256("|".join(keys).encode("utf-8")).hexdigest()[:16]
+        path = self._scratch() / f"matrix-{digest}.i8"
+        block = np.memmap(path, dtype=np.int8, mode="w+", shape=(n, dim))
+        self._matrix_files.append((path, block))
+        return block
+
+    def close(self) -> None:
+        """Drop the caches and delete the scratch matrix files. Idempotent.
+
+        Windows will not unlink a mapped file, and mmap.close() refuses while numpy still
+        exports the buffer, so the mapping is released by dropping every reference to it
+        (the cached ChunkMatrix and the base memmap) and letting the collector run. After
+        close() nothing may touch a ChunkMatrix this context handed out. A ChunkMatrix the
+        caller is still holding keeps its file mapped, in which case the unlink is skipped
+        rather than raising - so callers must close only when they are done with it.
+        """
+        self.resources.clear()
+        pending, self._matrix_files = self._matrix_files, []
+        paths = [path for path, _block in pending]
+        del pending
+        gc.collect()
+        for path in paths:
+            try:
+                path.unlink()
+            except OSError:
+                pass
+        if self._owns_scratch and self.scratch_dir is not None:
+            shutil.rmtree(self.scratch_dir, ignore_errors=True)
+            self.scratch_dir = None
+            self._owns_scratch = False
 
     def query_vec(self, sel: Selector, matrix: ChunkMatrix) -> np.ndarray:
         key = ("query", sel.label)
