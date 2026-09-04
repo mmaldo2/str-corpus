@@ -28,3 +28,19 @@ def test_load_real_selectors_file():
     kinds = {s.kind for s in sels}
     assert {"fts_phrase", "fts_near", "embedding"} <= kinds
     assert dom.sharding.batch_size == 18 and dom.sharding.min_seeds == 5
+
+def test_scope_rejects_bare_string():
+    dom = load_domain()
+    with pytest.raises(SelectorSpecError) as exc_info:
+        parse_selector({"id": "c", "version": 1, "concept": "c", "type": "fts_phrase", "polarity": "p",
+                        "pattern": "x", "era_scope": "pre-1860"},
+                       eras=dom.eras, jurisdictions=dom.jurisdictions)
+    assert "c" in str(exc_info.value) and "list or \"all\"" in str(exc_info.value)
+
+def test_scope_rejects_unknown_jurisdiction():
+    dom = load_domain()
+    with pytest.raises(SelectorSpecError) as exc_info:
+        parse_selector({"id": "d", "version": 1, "concept": "c", "type": "fts_phrase", "polarity": "p",
+                        "pattern": "x", "jurisdiction_scope": ["Unknown"]},
+                       eras=dom.eras, jurisdictions=dom.jurisdictions)
+    assert "d" in str(exc_info.value) and "Unknown" in str(exc_info.value)

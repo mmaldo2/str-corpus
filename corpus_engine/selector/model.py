@@ -67,10 +67,16 @@ class Selector:
         return hashlib.sha256(json.dumps(d, sort_keys=True, ensure_ascii=True).encode()).hexdigest()[:16]
 
 
-def _scope(value, universe: tuple[str, ...]) -> tuple[str, ...]:
+def _scope(value, universe: tuple[str, ...], selector_id: str, scope_name: str) -> tuple[str, ...]:
     if value in (None, "all"):
         return tuple(universe)
-    return tuple(value)
+    if isinstance(value, str):
+        raise SelectorSpecError(f"{selector_id}: {scope_name} must be a list or \"all\", not a bare string")
+    scope_list = tuple(value)
+    for v in scope_list:
+        if v not in universe:
+            raise SelectorSpecError(f"{selector_id}: {scope_name} contains unknown value {v}")
+    return scope_list
 
 
 def parse_selector(raw: dict, *, eras, jurisdictions) -> Selector:
@@ -89,8 +95,8 @@ def parse_selector(raw: dict, *, eras, jurisdictions) -> Selector:
     for p, default in spec.optional.items():
         params[p] = raw.get(p, default)
     return Selector(id=raw["id"], version=int(raw["version"]), kind=kind, concept=raw["concept"],
-                    polarity=raw["polarity"], era_scope=_scope(raw.get("era_scope"), tuple(eras)),
-                    jurisdiction_scope=_scope(raw.get("jurisdiction_scope"), tuple(jurisdictions)),
+                    polarity=raw["polarity"], era_scope=_scope(raw.get("era_scope"), tuple(eras), raw["id"], "era_scope"),
+                    jurisdiction_scope=_scope(raw.get("jurisdiction_scope"), tuple(jurisdictions), raw["id"], "jurisdiction_scope"),
                     params=params, author=raw.get("author", ""), rationale=raw.get("rationale", ""),
                     status=raw.get("status", "active"))
 
