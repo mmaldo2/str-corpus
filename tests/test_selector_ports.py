@@ -1,8 +1,8 @@
 import numpy as np, pytest, shutil
 from corpus_engine import store
 from corpus_engine.domain import load_domain
-from corpus_engine.selector.model import Partition, Selector, Skip
-from corpus_engine.selector.ports import FrozenSeedResolver, RecordedEmbedder, fingerprint
+from corpus_engine.selector.model import Partition, Selector, Skip, SelectorSpecError
+from corpus_engine.selector.ports import FrozenSeedResolver, LocalQueryEmbedder, RecordedEmbedder, fingerprint
 
 def _sel(kind, **params):
     return Selector("s", 1, kind, "c", "p", ("pre-1860",), ("Tex.",), params)
@@ -34,3 +34,24 @@ def test_fingerprint_rules(tmp_path, fixture_db):
     assert isinstance(m, Skip) and m.reason == "mixed_embedding_model"
     conn.execute("DELETE FROM chunks"); conn.commit()
     assert fingerprint(conn, _sel("embedding", query_text="q"), part, seeds=seeds, min_seeds=5).reason == "index_incomplete"
+
+def test_local_query_embedder_refuses_unpinned_meta(tmp_path):
+    p = tmp_path / "m.db"; conn = store.connect(p); store.ensure_schema(conn)
+    # Test case 1: revision == "main" should raise SelectorSpecError before model loads
+    conn.execute("INSERT INTO embed_meta (key, value) VALUES (?, ?)", ("model", "sentence-transformers/all-MiniLM-L6-v2"))
+    conn.execute("INSERT INTO embed_meta (key, value) VALUES (?, ?)", ("revision", "main"))
+    conn.execute("INSERT INTO embed_meta (key, value) VALUES (?, ?)", ("dim", "384"))
+    conn.commit()
+    with pytest.raises(SelectorSpecError, match="revision"):
+        LocalQueryEmbedder(conn)
+    # Test case 2: missing revision should raise SelectorSpecError
+    conn.execute("DELETE FROM embed_meta WHERE key='revision'")
+    conn.commit()
+    with pytest.raises(SelectorSpecError, match="revision"):
+        LocalQueryEmbedder(conn)
+    # Test case 3: missing model should raise SelectorSpecError
+    conn.execute("DELETE FROM embed_meta")
+    conn.execute("INSERT INTO embed_meta (key, value) VALUES (?, ?)", ("revision", "abc123"))
+    conn.commit()
+    with pytest.raises(SelectorSpecError, match="model"):
+        LocalQueryEmbedder(conn)

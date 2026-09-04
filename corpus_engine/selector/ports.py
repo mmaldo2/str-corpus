@@ -16,8 +16,14 @@ class LocalQueryEmbedder:
     def __init__(self, conn):
         from corpus_engine.indexer.embedders import LocalEmbedder
         meta = dict(conn.execute("SELECT key, value FROM embed_meta"))
+        if "model" not in meta:
+            raise SelectorSpecError("embed_meta missing model key; index must be built with a pinned revision first")
+        if "revision" not in meta:
+            raise SelectorSpecError("embed_meta missing revision key; index must be built with a pinned revision first")
+        if meta["revision"] == "main":
+            raise SelectorSpecError("embed_meta has unpinned revision 'main'; index must be built with a pinned revision first")
         self.dim = int(meta.get("dim", "512"))
-        self._local = LocalEmbedder(meta["model"], meta.get("revision") or "main", self.dim)
+        self._local = LocalEmbedder(meta["model"], meta["revision"], self.dim)
     def encode_query(self, text: str, *, label: str | None = None) -> np.ndarray:
         q = self._local.encode_query(text).astype(np.float32)
         return q / (np.linalg.norm(q) + 1e-12)
