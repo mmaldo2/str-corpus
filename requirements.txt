@@ -6,3 +6,4 @@ pytest==9.1.1
 PyYAML==6.0.3
 RapidFuzz==3.14.5
 selectolax==0.4.11
+scikit-learn<1.10  # penalty= removed in 1.10; see corpus_engine/ranker/classifier.py train()

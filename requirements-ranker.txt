@@ -1,0 +1,5 @@
+# GPU/hub dependencies for the reranker only - optional, not needed for the base
+# pipeline. Required by corpus_engine/ranker/reranker.py and tools/pin_reranker.py.
+torch==2.11.0+cu128
+sentence-transformers==6.0.0
+huggingface-hub==1.29.0
