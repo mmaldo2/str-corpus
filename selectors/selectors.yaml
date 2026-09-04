@@ -611,3 +611,40 @@
     below the cap in dense pre-1900 partitions.
   author: planner-cycle-003
   status: active
+
+# ---------- v4 (cycle 004): graph and feedback selectors (ADR-0005, research §5) ----------
+
+- id: citation-graph-38
+  version: 1
+  concept: incident_of_ownership
+  type: citation_graph
+  seed_set: both
+  direction: both
+  era_scope: all
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    One hop in both directions from the human-reviewed favorable ledger records and
+    the treatise anchors. Reaches cases whose vocabulary no lexical selector matches,
+    including pre-1860 authority through its later citations. Seed hash is part of the
+    coverage fingerprint, so a grown seed set re-runs automatically.
+  author: planner-cycle-004
+  status: active
+
+- id: relevance-feedback-39
+  version: 1
+  concept: letting_transaction
+  type: relevance_feedback
+  seed_set: ledger-favorable-reviewed
+  top_k: 250
+  min_cosine: 0.40
+  era_scope: all
+  jurisdiction_scope: all
+  polarity: favorable-candidate
+  rationale: >
+    Centroid of the human-reviewed favorable cases' chunk vectors as the query
+    (Kats et al. 2023: judged-relevant vector summing beats keyword expansion for
+    recall). Seeds are excluded from the results. Threshold set for the 4B index;
+    re-tune at the recall gate.
+  author: planner-cycle-004
+  status: active

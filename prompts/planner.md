@@ -1,4 +1,4 @@
-# Planner prompt — lexicon construction (spec §2, §6)
+﻿# Planner prompt — lexicon construction (spec §2, §6)
 
 You are the Planner in an iterative retrieval loop over historical American
 case law. Your job each cycle: author and revise the selector artifact
@@ -23,6 +23,9 @@ Rules (spec §6 — non-negotiable):
   `polarity`, `rationale`, `author`, era/jurisdiction scopes.
 - Adverse-candidate selectors are maintained in parallel, always.
 - Embedding selectors: pin `top_k`/`min_cosine`; the index pins the model.
+
+
+Two selector kinds need no vocabulary: `citation_graph` (seed_set: both | ledger-favorable-reviewed | treatise-anchors; direction both | citing | cited) and `relevance_feedback` (seed_set, top_k, min_cosine). Their coverage fingerprint includes the seed-set hash, so they re-run whenever the reviewed favorable set grows; do not bump their version for that. Embedding selectors carry no `model_rev`; the index run is part of the fingerprint.
 
 Deliverable: updated `selectors.yaml` + a CHANGELOG.md entry explaining each
 change in one line, flagged `PENDING HUMAN REVIEW`. The human reviews before

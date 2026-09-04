@@ -24,7 +24,7 @@ def test_parse_expands_scopes_and_validates_params():
 def test_load_real_selectors_file():
     dom = load_domain()
     sels = load_selectors(dom)
-    assert len(sels) == 36 and len({s.key for s in sels}) == 36
+    assert len(sels) == 38 and len({s.key for s in sels}) == 38
     kinds = {s.kind for s in sels}
     assert {"fts_phrase", "fts_near", "embedding"} <= kinds
     assert dom.sharding.batch_size == 18 and dom.sharding.min_seeds == 5
@@ -49,7 +49,7 @@ def test_load_selectors_include_retired():
     dom = load_domain()
     active_sels = load_selectors(dom)
     all_sels = load_selectors(dom, include_retired=True)
-    assert len(all_sels) > len(active_sels) and len(active_sels) == 36
+    assert len(all_sels) > len(active_sels) and len(active_sels) == 38
     active_keys = {s.key for s in active_sels}
     retired_sels = [s for s in all_sels if s.key not in active_keys]
     assert len(retired_sels) > 0

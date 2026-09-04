@@ -68,8 +68,8 @@ review page publishable as an artifact; reviewer identity recorded.
    `pipeline/download.py` now carries the new jurisdictions and the federal
    reporter slugs (`f-cas`, `us`, `dc`).
 2. **Refactor** (ADR-0010) — **Stage 1 done: see
-   docs/superpowers/plans/2026-09-01-refactor-stage-1-foundations.md; Stage
-   2 (selector engine, citation graph, ingest) and Stage 3 (reader driver,
+   docs/superpowers/plans/2026-09-01-refactor-stage-1-foundations.md; Stage 2B done (selector engine, `corpus_engine.selector`; `pipeline/shard.py` and `pipeline/eval_recall.py` are wrappers). Stage
+   2A (citation graph, ingest) and Stage 3 (reader driver,
    verification, review, kit) plans follow.**
 3. **Ledger reconciliation** (ADR-0002): patch log, manifest, two-tier
    counts, null-polarity records resolved, hard-coded corrections moved to
@@ -82,9 +82,7 @@ review page publishable as an artifact; reviewer identity recorded.
    (D.N.J. 16646707), Marfil (W.D. Tex. 17024209), Bodin (E.D. La.
    69644320); harvest historical citations from the federal STR opinions
    themselves; add treatise anchors for the new states.
-6. **Citation graph** (ADR-0005): metadata-only ingest stage; backfill the
-   existing 1.3M cases (also PageRank, OCR confidence); run the selector on
-   the four existing states.
+6. **Citation graph** (ADR-0005): backfilled (2A Task 4); `citation-graph-38` and `relevance-feedback-39` active at v4; first run at the cycle-004 shard.
    - **Backfill run 2026-09-02**: `tools/backfill_citation_graph.py --workers 6`
      over the live corpus (9,204 zips named in `ingest_log`) — `(9204,
      17267453)` (zips processed, cites_to rows inserted incl. duplicates

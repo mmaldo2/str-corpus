@@ -57,3 +57,19 @@ v3 recall gate PASSED (2026-08-31): brief-letting 3/9 -> 6/9 (66.7%),
 treatise 21/29 -> 22/29 (75.9%), brief-all 14/63 -> 17/63. Gouhenant and
 Holmes/Coalson recovered (rent-houses-37 + embed-21 v2). Remaining misses:
 Smith v. Decker, Latimer v. Hess (no letting vocabulary), Ruhl.
+
+## v4 — 2026-09-02 (cycle 004), engine v2
+
+- Engine: `corpus_engine.selector` replaces `pipeline/shard.py`. Coverage is keyed by
+  a retriever fingerprint (lexical `fts:v1`/`regex:v1`; embedding
+  `embed:<run>|engine:v2`; graph `graph:v1|seed:<hash>`; feedback adds `|seed:<hash>`).
+  Consequence: every embedding selector re-runs once after this bump (engine v1
+  rows never match v2), and again after the Qwen3-4B re-embed changes `<run>`.
+- Engine v2 fixes an unstable candidate sort (`np.argsort` default) with
+  `lexsort((chunk_id, -cosine))`; results on ties may differ from cycles 1-3.
+- Added `citation-graph-38` (seed: ledger human-reviewed favorable + treatise anchors,
+  one hop both ways) and `relevance-feedback-39` (centroid of the reviewed favorable
+  set, top_k 250, min_cosine 0.40).
+- Un-ingested partitions are skipped (`partition_empty`) and never marked covered.
+- Gate: recall must be non-decreasing against the held-out set at the next cycle run
+  (development set: brief-letting 6/9, treatise 22/29 at v3).
