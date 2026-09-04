@@ -6,6 +6,7 @@ import corpus_engine.selector.engine as engine_mod
 from corpus_engine.selector.engine import _already_read_ids_with_skips, already_read_ids, attribution, plan, shard
 from corpus_engine.selector.model import Selector, ShardPlan, load_selectors
 from corpus_engine.selector.ports import EMBED_KINDS, FrozenSeedResolver, RecordedEmbedder
+from corpus_engine.ranker.ports import NullRanker
 import corpus_engine.selector.runners as runners_mod
 from corpus_engine.selector.runners import RUNNERS, EngineContext, scope_partitions, union_scope
 
@@ -31,6 +32,25 @@ def test_plan_skips_empty_partitions_and_covers_after_shard(tmp_path, fixture_db
     rep2 = shard(conn, dom, "t-02", seeds=seeds, embedder=emb, stamp=Stamp(), runs_dir=tmp_path / "runs",
                  ledger_dir=tmp_path / "ledger", out_dir=tmp_path / "b2", dry_run=True, log=lambda *_: None)
     assert sum(rep2.signals_written.values()) == 0 and not (tmp_path / "b2").exists()
+
+
+def test_shard_dry_run_with_a_ranker_writes_zero_rankings_rows(tmp_path, fixture_db, repo_root):
+    # I-5: a caller passing dry_run=True and a ranker together used to get silent
+    # `rankings` writes from packing.build_batches - the library must enforce the
+    # no-writes contract itself, not rely on the CLI's own ranker=None guard.
+    conn = _conn(tmp_path, fixture_db); dom = load_domain()
+    seeds = FrozenSeedResolver({"both": list(range(10)), "ledger-favorable-reviewed": list(range(10))})
+    emb = RecordedEmbedder(repo_root / "tests/fixtures/query-vectors-v3.npz")
+    shard(conn, dom, "t-rk1", seeds=seeds, embedder=emb, stamp=Stamp(), runs_dir=tmp_path / "runs",
+         ledger_dir=tmp_path / "ledger", out_dir=tmp_path / "brk1", log=lambda *_: None)   # populate signals
+    logs = []
+    rep = shard(conn, dom, "t-rk2", seeds=seeds, embedder=emb, stamp=Stamp(), runs_dir=tmp_path / "runs",
+               ledger_dir=tmp_path / "ledger", out_dir=tmp_path / "brk2", dry_run=True, log=logs.append,
+               ranker=NullRanker())
+    assert conn.execute("SELECT count(*) FROM rankings").fetchone()[0] == 0
+    assert rep.manifest["ranker"] is None
+    assert any("dry run" in l for l in logs)
+
 
 def test_attribution_reads_signals_only(tmp_path, fixture_db, repo_root):
     conn = _conn(tmp_path, fixture_db)

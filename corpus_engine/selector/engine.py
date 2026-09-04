@@ -132,6 +132,14 @@ def shard(conn, domain, run_id: str, *, seeds, embedder=None, dry_run=False, sta
     default is a temp dir removed when the runners are done. At the live corpus size the
     file is ~14.5 GB, so point this at a volume with room for it.
     """
+    # I-5: a dry run never ranks. This was previously enforced only by the CLI
+    # (pipeline/shard.py passing ranker=None when --dry-run is set) - any other caller
+    # passing both flags got silent `rankings` writes from packing.build_batches, from an
+    # operation documented as read-only. Downgrade rather than raise: dry_run's job is to
+    # report what would happen without writing, and it can do that honestly with no ranker.
+    if dry_run and ranker is not None:
+        ranker = None
+        log("ranking: skipped (dry run)")
     ts = getattr(stamp, "ts", None) or time.strftime("%Y-%m-%dT%H:%M:%S")
     sels = load_selectors(domain); by_key = {s.key: s for s in sels}
     runs = runs if runs is not None else partition_runs(conn)
