@@ -61,5 +61,5 @@ ranking:
       lodgings, or a dwelling to lodgers, boarders, roomers, or short-term
       occupants, or about regulation of that practice.
   heldout: data/eval/ranker-heldout-v1.jsonl
-  heldout_sha256: null         # written by tools/build_ranker_heldout.py
+  heldout_sha256: "d2d3dd74fb0eaac0015524fabcadd7cf94631e39e27cd490910bc3bd58ab5048"
   bar_ap_delta: 0.05

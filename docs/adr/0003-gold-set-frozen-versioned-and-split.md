@@ -28,3 +28,11 @@ Recall claims cite the held-out set. The development set may keep shrinking
 through honest re-tags without that ever improving the reported number.
 The treatise tier remains reported separately because those cases also seed
 the lexicon (spec amendment A9).
+
+## Amendment 2026-09-04 — ranker held-out slice
+
+The held-out set this ADR calls for now exists for *ranking* (not recall):
+`data/eval/ranker-heldout-v1.jsonl`, a 25% stratified (era × jurisdiction × label)
+slice of the labelled reads (ledger-relevant positives, irrelevant-read negatives),
+seed 20260904, sha256 `d2d3dd74fb0eaac0015524fabcadd7cf94631e39e27cd490910bc3bd58ab5048`, frozen and never trained on. Recall keeps the v1 gold
+set; the labelled reads carry negatives, which recall gold does not.
