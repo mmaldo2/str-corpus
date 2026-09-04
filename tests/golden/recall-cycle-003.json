@@ -1,0 +1,72 @@
+{
+ "hits": [
+  {
+   "case_id": 2121245,
+   "selectors": [
+    "embed-householder-letting-21@v2"
+   ]
+  },
+  {
+   "case_id": 2257077,
+   "selectors": [
+    "embed-householder-letting-21@v1",
+    "embed-householder-letting-21@v2",
+    "embed-short-letting-23@v1",
+    "embed-zoning-paying-occupants-22@v1",
+    "embed-zoning-paying-occupants-22@v2",
+    "housekeeping-unit-31@v1",
+    "roomers-boarders-14@v1"
+   ]
+  },
+  {
+   "case_id": 2273220,
+   "selectors": [
+    "embed-householder-letting-21@v1",
+    "embed-householder-letting-21@v2"
+   ]
+  },
+  {
+   "case_id": 2284727,
+   "selectors": [
+    "rent-houses-37@v1"
+   ]
+  },
+  {
+   "case_id": 8251008,
+   "selectors": [
+    "rent-houses-37@v1"
+   ]
+  },
+  {
+   "case_id": 11293268,
+   "selectors": [
+    "right-to-lease-12@v1"
+   ]
+  }
+ ],
+ "misses": [
+  2204609,
+  2255813,
+  10223945
+ ],
+ "tiers": {
+  "brief-all": {
+   "resolved_in_corpus": 63,
+   "shard_recall": 0.27,
+   "signaled": 17,
+   "total": 151
+  },
+  "brief-letting": {
+   "resolved_in_corpus": 9,
+   "shard_recall": 0.667,
+   "signaled": 6,
+   "total": 35
+  },
+  "treatise": {
+   "resolved_in_corpus": 29,
+   "shard_recall": 0.759,
+   "signaled": 22,
+   "total": 32
+  }
+ }
+}

@@ -26,6 +26,35 @@ are the characterization targets:
 Never regenerate these without a logged reason; a change here is a change in
 what the pipeline produces.
 
+## Selector goldens
+
+Captured by `tools/capture_selector_goldens.py`, commit
+`goldens: cycle-003 recall report and recorded query vectors for the embedding
+selectors` (Stage 2B Task 1), against the live database as it stood at cycle
+003 (`signals` table unchanged since then; no cycle-004 rows were present):
+
+- `recall-cycle-003.json` — the pre-refactor `pipeline/eval_recall.py:evaluate(None)`
+  report, slimmed to `tiers`, `hits` (`{case_id, selectors}`, sorted), and
+  `misses` (sorted `case_id`s). Tiers: brief-letting 6/9, treatise 22/29,
+  brief-all 17/63.
+- `tests/fixtures/query-vectors-v3.npz` — one normalized 512-d float32 query
+  vector per active embedding selector from `pipeline/shard.py:load_selectors()`
+  (key `f"{id}@v{version}"`), plus `__meta__` (the JSON string of `embed_meta`).
+  **These vectors are for the 0.6B index that `tests/fixtures/corpus-tiny.db`
+  and the rest of this plan's fixtures characterize** — `embed_meta` was read
+  from that fixture DB (`Qwen/Qwen3-Embedding-0.6B`, revision
+  `97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3`, dim 512), not from the live
+  database, which has since been re-embedded with Qwen3-Embedding-4B (1024-d).
+  When the 4B index lands, these vectors are replaced as a logged golden
+  change, not amended in place.
+
+Only four embedding selectors were active at capture time —
+`embed-short-letting-23@v1`, `adverse-embed-regulation-29@v1`,
+`embed-zoning-paying-occupants-22@v2`, `embed-householder-letting-21@v2` —
+not six; two more (`embed-householder-letting-21@v1`,
+`embed-zoning-paying-occupants-22@v1`) exist in `selectors/selectors.yaml`
+but are `status: retired`, so `load_selectors()` excludes them.
+
 ## Known non-reproductions
 
 `runs/cycle-003-shard-01/batches/` (and `verified/`) contain two files that
