@@ -9,6 +9,12 @@ from corpus_engine.store import paths
 
 
 @dataclass(frozen=True)
+class ShardingSpec:
+    batch_size: int = 18
+    min_seeds: int = 5
+
+
+@dataclass(frozen=True)
 class EmbeddingSpec:
     run_key: str; model: str; revision: str; dim: int; quant: str
     chunk_tokens: int; chunk_overlap: int; prefix_template: str
@@ -34,6 +40,7 @@ class Domain:
     gold_path: Path
     reviewer_default: str
     embedding: EmbeddingSpec
+    sharding: ShardingSpec
 
 
 def load_domain(name: str = "str-right-to-let") -> Domain:
@@ -57,4 +64,5 @@ def load_domain(name: str = "str-right-to-let") -> Domain:
         gold_path=repo / cfg["paths"]["gold"],
         reviewer_default=cfg.get("reviewer_default", "unknown"),
         embedding=EmbeddingSpec(**cfg["embedding"]),
+        sharding=ShardingSpec(**cfg.get("sharding", {})),
     )

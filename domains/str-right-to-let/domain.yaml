@@ -34,6 +34,9 @@ paths:
   prompts: prompts
   gold: data/gold/gold.jsonl
 reviewer_default: mmaldo2
+sharding:
+  batch_size: 18
+  min_seeds: 5
 embedding:
   run_key: qwen3-4b-1024-int8
   model: Qwen/Qwen3-Embedding-4B
