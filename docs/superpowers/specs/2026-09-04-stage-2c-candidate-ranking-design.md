@@ -133,7 +133,8 @@ nothing about recall; recall stays with the gold set and `pipeline/eval_recall.p
 
 ### 5.1 Features (`features.py`)
 
-Computed per case from existing tables, for the given `run_id`:
+Computed per case from existing tables, from the union of the case's signals across all
+runs (see the §4 amendment), not scoped to a single `run_id`:
 
 | Block | Features |
 |---|---|

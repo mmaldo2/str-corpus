@@ -76,10 +76,12 @@ From `data/ranker/v1/manifest.json` -> `metrics.classifier.per_cell`:
 | 1930-1970\|N.Y. | 50 | 0.9052 | 0.340 |
 | 1970-2020\|N.Y. | 50 | 0.6596 | 0.360 |
 
-The held-out slice only covers 4 of the shard's 10 jurisdictions (Tex., Pa., La., N.Y.) —
+The held-out slice only covers 4 of the pool's 10 jurisdictions (Tex., Pa., La., N.Y.) —
 it was frozen against the labelled-read population as it existed when
-`tools/build_ranker_heldout.py` ran, before the cycle-004 jurisdiction expansion added
-Mass., Ill., Cal., Ohio, Conn., N.J., D.C., Utah, U.S. AP for the newly-added
+`tools/build_ranker_heldout.py` ran, before the cycle-004 jurisdiction expansion added six
+more: Cal., Mass., N.J., Ohio, Conn., D.C. (verified read-only against the live pool:
+`SELECT DISTINCT c.jurisdiction FROM rankings r JOIN cases c ON c.case_id=r.case_id WHERE
+r.ranker_id='classifier:v1'` returns exactly these ten). AP for the six newly-added
 jurisdictions has no held-out coverage yet; treat their pool scores as extrapolated from
 the same model, not separately validated.
 
@@ -126,7 +128,10 @@ A batch is 18 cases. Reading every batch whose mean rank_score exceeds 0.25 (373
 highest-scoring material in every era; the 0.5 cut (185 batches, ~3,330 cases) is a
 tighter, higher-confidence slice. Map budget should be set per cell from this table plus
 the per-cell held-out AP in §3, not as one global cutoff — 1930-1970 and 1970-2020 alone
-hold 70% of the batches clearing 0.25.
+hold 70% of the batches clearing 0.25. Per the §3 caveat, cells in the six jurisdictions
+added in the cycle-004 expansion (Cal., Mass., N.J., Ohio, Conn., D.C.) have no held-out
+AP at all — their budgets in this table should be set more conservatively than the
+four held-out-covered jurisdictions until they get their own validation.
 
 ## 6. Recorded decisions
 
