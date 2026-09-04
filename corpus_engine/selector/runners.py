@@ -71,6 +71,10 @@ class ChunkMatrix:
     embed_run: str | None = None
     keys: tuple[str, ...] = ()
 
+    def __post_init__(self) -> None:
+        if not self.keys:
+            self.keys = tuple(sorted(self.part_index))
+
 
 @dataclass
 class EngineContext:
@@ -187,7 +191,8 @@ class EngineContext:
         pending, self._matrix_files = self._matrix_files, []
         paths = [path for path, _block in pending]
         del pending
-        gc.collect()                                          # backstop, not primary
+        if paths or self._own_pending:
+            gc.collect()                                      # backstop, not primary
         # Retry anything left pending from an earlier close() on this context first, so
         # a second call finishes the job even though _matrix_files no longer names it.
         for path in list(self._own_pending):
@@ -214,6 +219,7 @@ class EngineContext:
                 _pending_owned_dirs.add(self.scratch_dir)
                 return                                         # keep the path; something is still out there
             shutil.rmtree(self.scratch_dir, ignore_errors=True)
+            _pending_owned_dirs.discard(self.scratch_dir)
             self.scratch_dir = None
             self._owns_scratch = False
 
@@ -322,9 +328,10 @@ def run_regex(ctx: EngineContext, s: Selector, part: Partition) -> list[Signal]:
 
 
 def _vector_runner(ctx: EngineContext, s: Selector, part: Partition, exclude: set[int]) -> list[Signal]:
-    matrix = ctx.matrix_for(scope_partitions(s))
-    sims = ctx.sims(s, matrix)
+    matrix = sims = None
     try:
+        matrix = ctx.matrix_for(scope_partitions(s))
+        sims = ctx.sims(s, matrix)
         code = matrix.part_index.get(part.key)
         if code is None:
             return []
@@ -349,8 +356,13 @@ def _vector_runner(ctx: EngineContext, s: Selector, part: Partition, exclude: se
         # This frame's `matrix`/`sims` locals are what a live traceback would otherwise
         # keep pinned for as long as the exception propagates (see EngineContext.close);
         # drop them here so close(), called from the caller's finally, can unlink the
-        # scratch file without a lingering Windows mapped-file lock.
-        del matrix, sims
+        # scratch file without a lingering Windows mapped-file lock. Conditional: an
+        # exception from ctx.matrix_for() itself means `matrix` never got past its `None`
+        # pre-initialisation, and there is nothing real to unpin.
+        if matrix is not None:
+            del matrix
+        if sims is not None:
+            del sims
         raise
 
 

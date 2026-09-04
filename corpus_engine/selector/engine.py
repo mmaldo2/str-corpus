@@ -1,6 +1,7 @@
 from __future__ import annotations
 import hashlib, json, time
 from pathlib import Path
+import numpy as np
 from corpus_engine.indexer.embed import partition_runs
 from corpus_engine.selector.coverage import covered, mark_covered
 from corpus_engine.selector.model import (ENGINE_VERSION, Partition, PlanUnit, Selector, ShardPlan, ShardReport,
@@ -150,13 +151,24 @@ def shard(conn, domain, run_id: str, *, seeds, embedder=None, dry_run=False, sta
                 union = union_scope(vec_sels)
                 log(f"building chunk matrix over {len(union)} partitions for {len(vec_sels)} vector units")
                 m = ctx.matrix_for(union)
-                # ADR-0009 provenance: the union matrix can request partitions with no
-                # matching chunks (an in-scope but empty era x jurisdiction pair); record
-                # only the ones that actually contributed rows, since shape (not the
-                # requested scope) is what the last-ulp cosine difference depends on.
-                present = set(m.part_codes.tolist())
-                matrix_partitions = sorted(k for k, code in m.part_index.items() if code in present)
-                matrix_rows = len(m.chunk_ids)
+                try:
+                    # ADR-0009 provenance: the union matrix can request partitions with no
+                    # matching chunks (an in-scope but empty era x jurisdiction pair);
+                    # record only the ones that actually contributed rows, since shape
+                    # (not the requested scope) is what the last-ulp cosine difference
+                    # depends on. np.unique first, not a plain set() over a row-per-chunk
+                    # array, since that array is 14.1M rows at the live corpus size.
+                    present = set(np.unique(m.part_codes).tolist())
+                    matrix_partitions = sorted(k for k, code in m.part_index.items() if code in present)
+                    matrix_rows = len(m.chunk_ids)
+                finally:
+                    # `m` must not outlive this block: shard()'s own loop below runs every
+                    # unit's runner (which re-fetches the matrix from ctx's cache, not from
+                    # this local), and `finally: ctx.close()` further down would otherwise
+                    # find this frame still pinning the memmap on every successful run, not
+                    # just an error path - close() would then treat that as a Windows lock
+                    # and warn/retry every time instead of only when one genuinely occurs.
+                    del m
             for u in pl.units:
                 s = by_key[u.key]
                 try:
@@ -216,14 +228,14 @@ def attribution(conn, case_ids) -> dict[int, tuple[SignalRef, ...]]:
 
 
 def probe(conn, domain, selector: Selector, partition: Partition, *, seeds, embedder=None, limit: int = 50,
-          scratch_dir: Path | None = None):
+          scratch_dir: Path | None = None, log=print):
     """Run one selector against one partition and return at most `limit` signals; writes nothing.
 
     A vector selector builds the matrix for its whole scope, not just `partition` — that is
     what the runner needs to score, and at the live corpus size it is the 14.5 GB scan. The
     context (and its scratch file) is closed before returning.
     """
-    ctx = EngineContext(conn, domain, embedder, seeds, scratch_dir=scratch_dir)
+    ctx = EngineContext(conn, domain, embedder, seeds, scratch_dir=scratch_dir, log=log)
     try:
         return RUNNERS[selector.kind](ctx, selector, partition)[:limit]
     finally:

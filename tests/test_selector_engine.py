@@ -1,4 +1,4 @@
-import json, shutil
+import gc, json, shutil
 import pytest
 from corpus_engine import store
 from corpus_engine.domain import load_domain
@@ -116,12 +116,42 @@ def test_shard_rolls_back_on_runner_exception(tmp_path, fixture_db, repo_root, m
         "SELECT count(*) FROM signals WHERE selector_id=? AND selector_version=? AND era_partition=? AND jurisdiction=?",
         (second.key[0], second.key[1], second.partition.era, second.partition.jurisdiction)).fetchone()[0]
     assert sig_second == 0
-def test_shard_cleans_up_scratch_matrix_when_a_vector_runner_raises(tmp_path, fixture_db, repo_root, monkeypatch):
-    """R1: a runner exception must not orphan the scratch chunk matrix. On this platform
-    close() should succeed outright and leave no file behind; if it genuinely cannot (a
-    Windows mapped-file lock that outlives the run), the leftover file must be tracked in
-    runners.PENDING_SCRATCH with a warning logged - never silently forgotten. Either
-    outcome is acceptable here; silently losing the file is not.
+def test_shard_leaves_no_scratch_and_no_warning_on_a_successful_run(tmp_path, fixture_db, repo_root):
+    """CRITICAL fix-round-1 regression: shard() used to hold its own `m = ctx.matrix_for(
+    union)` local through the whole unit loop and into `finally: ctx.close()`, so on
+    Windows *every* successful run with a vector unit found the matrix still pinned by
+    shard()'s own frame and logged the R1 warning - not a platform artifact, a bug in
+    this file. A normal run must leave the scratch dir empty, PENDING_SCRATCH unchanged,
+    and emit no "EngineContext.close" warning at all.
+    """
+    conn = _conn(tmp_path, fixture_db); dom = load_domain()
+    seeds = FrozenSeedResolver({"both": list(range(10)), "ledger-favorable-reviewed": list(range(10))})
+    emb = RecordedEmbedder(repo_root / "tests/fixtures/query-vectors-v3.npz")
+    pl = plan(conn, dom, seeds=seeds, embedder=emb)
+    sels = load_selectors(dom); by_key = {s.key: s for s in sels}
+    assert any(by_key[u.key].kind in EMBED_KINDS for u in pl.units)   # sanity: a vector unit runs
+
+    scratch = tmp_path / "scratch"
+    logs = []
+    before_pending = set(runners_mod.PENDING_SCRATCH)
+    rep = shard(conn, dom, "t-r1-normal", seeds=seeds, embedder=emb, stamp=Stamp(), runs_dir=tmp_path / "runs",
+                ledger_dir=tmp_path / "ledger", out_dir=tmp_path / "br1normal", log=logs.append, scratch_dir=scratch)
+
+    assert sum(rep.signals_written.values()) > 0
+    assert list(scratch.iterdir()) == []                       # no leftover matrix file
+    assert set(runners_mod.PENDING_SCRATCH) == before_pending   # nothing newly pending
+    assert not any("EngineContext.close" in m for m in logs)    # no close() warning at all
+
+
+def test_shard_tracks_a_scratch_file_close_cannot_unlink_when_a_runner_holds_the_matrix(
+        tmp_path, fixture_db, repo_root, monkeypatch):
+    """R1(c), rewritten per fix-round-1: force the tracked-leftover branch explicitly
+    instead of an either/or. A vector-selector runner is monkeypatched to capture a real
+    reference to the matrix it was handed - into `held`, a list outside the runner's own
+    frame, so it survives past the runner returning/raising - before raising; that extra
+    reference guarantees close() cannot unlink the scratch file, deterministically, not by
+    coincidence. The held reference is exactly the scenario R1 exists for: "a caller still
+    holding a ChunkMatrix from this context" (EngineContext.close's docstring).
     """
     conn = _conn(tmp_path, fixture_db); dom = load_domain()
     seeds = FrozenSeedResolver({"both": list(range(10)), "ledger-favorable-reviewed": list(range(10))})
@@ -132,8 +162,11 @@ def test_shard_cleans_up_scratch_matrix_when_a_vector_runner_raises(tmp_path, fi
     vec_kind = by_key[vec_unit.key].kind
     real_runner = RUNNERS[vec_kind]
 
+    held = []                                # deliberately outlives the runner's own frame
+
     def flaky(ctx, s, part):
         if s.key == vec_unit.key and part.key == vec_unit.partition.key:
+            held.append(ctx.matrix_for(scope_partitions(s)))    # a real, undeniable extra ref
             raise RuntimeError("boom")
         return real_runner(ctx, s, part)
     monkeypatch.setitem(RUNNERS, vec_kind, flaky)
@@ -141,13 +174,27 @@ def test_shard_cleans_up_scratch_matrix_when_a_vector_runner_raises(tmp_path, fi
     scratch = tmp_path / "scratch"
     logs = []
     before_pending = set(runners_mod.PENDING_SCRATCH)
-    with pytest.raises(RuntimeError):
-        shard(conn, dom, "t-r1c", seeds=seeds, embedder=emb, stamp=Stamp(), runs_dir=tmp_path / "runs",
-              ledger_dir=tmp_path / "ledger", out_dir=tmp_path / "br1c", log=logs.append, scratch_dir=scratch)
+    try:
+        with pytest.raises(RuntimeError):
+            shard(conn, dom, "t-r1c", seeds=seeds, embedder=emb, stamp=Stamp(), runs_dir=tmp_path / "runs",
+                  ledger_dir=tmp_path / "ledger", out_dir=tmp_path / "br1c", log=logs.append, scratch_dir=scratch)
 
-    new_pending = set(runners_mod.PENDING_SCRATCH) - before_pending
-    leftover = list(scratch.glob("matrix-*.i8")) if scratch.exists() else []
-    assert not leftover or (set(leftover) <= new_pending and any("could not remove" in m for m in logs))
+        leftover = list(scratch.glob("matrix-*.i8"))
+        assert leftover, "the held reference should have forced close()'s unlink to fail"
+        new_pending = set(runners_mod.PENDING_SCRATCH) - before_pending
+        assert set(leftover) == new_pending
+        assert any("could not remove" in m for m in logs)
+    finally:
+        # tests/conftest.py's autouse fixture asserts PENDING_SCRATCH is unchanged across
+        # every test; clean up what this one deliberately left pending: drop the held
+        # reference so the memmap can actually be released, then reuse the module's own
+        # best-effort retry (what the atexit handler calls) rather than close() on some
+        # other context - this context's close() already ran, inside shard()'s finally,
+        # and only retries its own instance's pending set, not the whole process's.
+        held.clear()
+        gc.collect()
+        runners_mod._cleanup_pending_scratch()
+        assert set(runners_mod.PENDING_SCRATCH) == before_pending
 
 
 # --- R2: record the union matrix's partition set in the manifest (ADR-0009 provenance) ---
@@ -163,12 +210,13 @@ def test_manifest_records_matrix_partitions_and_row_count(tmp_path, fixture_db, 
 
     # Independently build the same union matrix shard() builds and read back which
     # requested partitions actually contributed rows - that is "had cases".
-    check_ctx = EngineContext(conn, dom, emb, seeds)
+    check_ctx = EngineContext(conn, dom, emb, seeds, scratch_dir=tmp_path / "check")
     union = {p.key: p for s in vec_sels for p in scope_partitions(s)}
     m = check_ctx.matrix_for(list(union.values()))
     present = set(m.part_codes.tolist())
     want_partitions = sorted(k for k, code in m.part_index.items() if code in present)
     want_rows = len(m.chunk_ids)
+    del m                                                      # a live ChunkMatrix keeps the file mapped
     check_ctx.close()
     assert want_partitions and want_rows > 0                  # sanity: the fixture has vector data
 

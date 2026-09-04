@@ -101,6 +101,7 @@ def test_union_matrix_yields_identical_signals_to_per_scope_matrices(tmp_path, f
                 # the per-scope context built exactly its own scope, and no wider
                 scope_matrix = scope_ctx.resources[("matrix", tuple(sorted(p.key for p in scope_partitions(sel))))]
                 assert set(scope_matrix.part_index) == {p.key for p in scope_partitions(sel)}
+                del scope_matrix                              # a live ChunkMatrix keeps the file mapped
             finally:
                 scope_ctx.close()
         # every vector runner reused the single union matrix - no second matrix was built
@@ -128,6 +129,7 @@ class _CountingConn:
 def test_matrix_for_reuses_a_superset_matrix_without_querying(tmp_path, fixture_db, repo_root):
     conn = _conn(tmp_path / "db", fixture_db)
     ctx = _ctx(conn, repo_root, tmp_path / "scratch")
+    wide = narrow = None                                     # pre-initialised: always del-able below
     try:
         parts = _live_partitions(conn)
         assert len(parts) >= 2
@@ -145,6 +147,7 @@ def test_matrix_for_reuses_a_superset_matrix_without_querying(tmp_path, fixture_
         assert sum(1 for k in ctx.resources if k[0] == "matrix") == 1
     finally:
         ctx.conn = conn
+        del wide, narrow                                    # a live ChunkMatrix keeps the file mapped
         ctx.close()
 
 
@@ -234,10 +237,16 @@ def test_close_defers_a_windows_style_unlink_failure_to_pending_scratch(tmp_path
 
 def test_sims_cache_is_keyed_by_matrix_identity_not_selector_label_alone(tmp_path, fixture_db, repo_root):
     """With superset reuse, a sims() entry keyed only by selector label would be wrong if
-    a different matrix were ever scored under that label. Score the same selector against
-    two distinct matrices - built in two separate contexts, so neither's matrix_for() can
-    satisfy the other's request via superset reuse - and confirm two distinct sims cache
-    entries, with arrays whose lengths reflect their own matrix, not each other's.
+    a different matrix were ever scored under that label. Fix-round-1: one context, not
+    two - two separate contexts have separate `resources` dicts, so a label-only key would
+    have happened to "work" there too (only the explicit key-shape asserts would have
+    failed), which is not the regression this test needs to catch. Build the narrower
+    matrix first (matrix_for([p1])), then the wider one (matrix_for([p1, p2])): a narrower
+    cached matrix cannot satisfy a wider request via superset reuse (only the reverse
+    direction is served - see EngineContext._cached_matrix), so both are genuinely built.
+    Scoring the same selector against both in this one context is exactly the case a
+    label-only key would collide on: the second sims() call would silently return the
+    first call's (wrong-length) array.
     """
     conn = _conn(tmp_path / "db", fixture_db)
     dom = load_domain()
@@ -246,30 +255,33 @@ def test_sims_cache_is_keyed_by_matrix_identity_not_selector_label_alone(tmp_pat
     assert len(chunked) >= 2
     p1, p2 = chunked[0], chunked[1]
 
-    narrow_ctx = _ctx(conn, repo_root, tmp_path / "narrow")
-    wide_ctx = _ctx(conn, repo_root, tmp_path / "wide")
+    ctx = _ctx(conn, repo_root, tmp_path / "scratch")
+    narrow = wide = sims_narrow = sims_wide = None            # pre-initialised: always del-able below
     try:
-        narrow = narrow_ctx.matrix_for([p1])
-        wide = wide_ctx.matrix_for([p1, p2])
+        narrow = ctx.matrix_for([p1])
+        wide = ctx.matrix_for([p1, p2])
+        assert narrow is not wide                              # genuinely two distinct matrices
         assert narrow.keys == (p1.key,)
         assert wide.keys == tuple(sorted((p1.key, p2.key)))
-        assert len(narrow.M8) < len(wide.M8)                  # p2 contributes at least one row
+        assert len(narrow.M8) < len(wide.M8)                   # p2 contributes at least one row
+        assert sum(1 for k in ctx.resources if k[0] == "matrix") == 2
 
-        sims_narrow = narrow_ctx.sims(sel, narrow)
-        sims_wide = wide_ctx.sims(sel, wide)
+        sims_narrow = ctx.sims(sel, narrow)
+        sims_wide = ctx.sims(sel, wide)
 
         assert len(sims_narrow) == len(narrow.M8)
         assert len(sims_wide) == len(wide.M8)
-        assert len(sims_narrow) != len(sims_wide)
+        assert len(sims_narrow) != len(sims_wide)              # the collision a label-only key would hide
 
-        assert ("sims", sel.label, narrow.keys) in narrow_ctx.resources
-        assert ("sims", sel.label, wide.keys) in wide_ctx.resources
+        assert ("sims", sel.label, narrow.keys) in ctx.resources
+        assert ("sims", sel.label, wide.keys) in ctx.resources
+        assert sum(1 for k in ctx.resources if k[0] == "sims") == 2
         # re-fetching returns the cached array, not a recompute under a colliding key
-        assert narrow_ctx.sims(sel, narrow) is sims_narrow
-        assert wide_ctx.sims(sel, wide) is sims_wide
+        assert ctx.sims(sel, narrow) is sims_narrow
+        assert ctx.sims(sel, wide) is sims_wide
     finally:
-        narrow_ctx.close()
-        wide_ctx.close()
+        del narrow, wide, sims_narrow, sims_wide               # a live ChunkMatrix keeps the file mapped
+        ctx.close()
 
 
 # --- R4: make the scope helper public / move the union rule next to the matrix ---
