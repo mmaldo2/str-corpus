@@ -44,6 +44,16 @@ def _dim(conn) -> int:
     return int(dict(conn.execute("SELECT key, value FROM embed_meta")).get("dim", "512"))
 
 
+def _load_classifier(domain, layout):
+    try:
+        from corpus_engine.ranker.classifier import ClassifierRanker   # Task 5
+    except ModuleNotFoundError as e:
+        raise NotImplementedError(f"classifier ranker is not available yet (Task 5): {e}") from e
+    r = ClassifierRanker.from_domain(domain)
+    r.check_layout(layout)
+    return r
+
+
 def load_ranker(domain, conn, ranker_id: str | None):
     from corpus_engine.selector.model import load_selectors
     from corpus_engine.ranker.features import feature_layout
@@ -57,11 +67,7 @@ def load_ranker(domain, conn, ranker_id: str | None):
         f = domain.ranking.fusion
         return FusionRanker(layout, f["lexical_weight"], f["cosine_weight"])
     if rid == "classifier":
-        try:
-            from corpus_engine.ranker.classifier import ClassifierRanker   # Task 5
-        except ModuleNotFoundError as e:
-            raise NotImplementedError(f"classifier ranker is not available yet (Task 5): {e}") from e
-        return ClassifierRanker.from_domain(domain)
+        return _load_classifier(domain, layout)
     if rid == "reranker":
         try:
             from corpus_engine.ranker.reranker import QwenReranker         # Task 7

@@ -1,9 +1,10 @@
-import math
+import json, math, shutil
+from types import SimpleNamespace
 import pytest
 from corpus_engine.domain import load_domain
 from corpus_engine.selector.model import load_selectors
 from corpus_engine.ranker.features import feature_layout
-from corpus_engine.ranker.ports import FusionRanker, NullRanker, load_ranker, round6
+from corpus_engine.ranker.ports import FusionRanker, NullRanker, _load_classifier, load_ranker, round6
 from tests.helpers.ranker_fixture import make_ranker_db
 
 def test_round6_is_float32_then_six_places():
@@ -29,15 +30,20 @@ def test_load_ranker_resolves_null_and_fusion(tmp_path, fixture_db, repo_root):
     assert load_ranker(dom, conn, "null").ranker_id == "null"
     assert load_ranker(dom, conn, "fusion").ranker_id == "fusion:v1"
 
-def test_load_ranker_classifier_raises_not_implemented_or_passes_if_exists(tmp_path, fixture_db, repo_root):
+def test_load_ranker_classifier_raises_not_implemented_or_refuses_layout_drift(tmp_path, fixture_db, repo_root):
     conn = make_ranker_db(tmp_path, fixture_db, repo_root); dom = load_domain()
     try:
         import corpus_engine.ranker.classifier
-        r = load_ranker(dom, conn, "classifier")
-        assert hasattr(r, "ranker_id")
     except ModuleNotFoundError:
         with pytest.raises(NotImplementedError, match="classifier ranker is not available yet"):
             load_ranker(dom, conn, "classifier")
+        return
+    # module exists: the fixture DB's embed_meta dim (512) legitimately differs from the trained
+    # v1 model's dim (1024), so load_ranker's check_layout call correctly refuses rather than
+    # silently misaligning features against coef - see test_load_classifier_loads_real_v1_cleanly
+    # for the matching-dim positive path.
+    with pytest.raises(ValueError, match="retrain"):
+        load_ranker(dom, conn, "classifier")
 
 def test_load_ranker_unknown_id_raises_value_error_without_db_access(monkeypatch, tmp_path, fixture_db, repo_root):
     conn = make_ranker_db(tmp_path, fixture_db, repo_root); dom = load_domain()
@@ -45,3 +51,29 @@ def test_load_ranker_unknown_id_raises_value_error_without_db_access(monkeypatch
     monkeypatch.setattr("corpus_engine.ranker.features.feature_layout", lambda *a, **k: (_ for _ in ()).throw(RuntimeError("feature_layout must not be called")))
     with pytest.raises(ValueError, match="unknown ranker"):
         load_ranker(dom, conn, "bogus")
+
+
+def test_load_classifier_refuses_layout_drift(tmp_path, monkeypatch, repo_root):
+    src = repo_root / "data" / "ranker" / "v1"
+    if not (src / "model.npz").exists():
+        pytest.skip("data/ranker/v1 not trained")
+    dst = tmp_path / "data" / "ranker" / "v1"
+    shutil.copytree(src, dst)
+    manifest_path = dst / "manifest.json"
+    m = json.loads(manifest_path.read_text(encoding="utf-8"))
+    m["layout"]["selector_labels"][0] = "ghost-1@v1"
+    manifest_path.write_text(json.dumps(m), encoding="utf-8")
+    monkeypatch.setattr("corpus_engine.store.paths", lambda root=None: SimpleNamespace(root=tmp_path))
+    dom = load_domain()
+    layout = feature_layout(dom, load_selectors(dom), 1024)
+    with pytest.raises(ValueError, match="ghost-1@v1"):
+        _load_classifier(dom, layout)
+
+def test_load_classifier_loads_real_v1_cleanly(repo_root):
+    if not (repo_root / "data" / "ranker" / "v1" / "model.npz").exists():
+        pytest.skip("data/ranker/v1 not trained")
+    dom = load_domain()
+    layout = feature_layout(dom, load_selectors(dom), 1024)          # v1's real training dim; the fixture DB's
+                                                                       # embed_meta dim is 512 and would legitimately fail
+    r = _load_classifier(dom, layout)
+    assert r.ranker_id == "classifier:v1"
