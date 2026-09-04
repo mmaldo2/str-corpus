@@ -77,6 +77,11 @@ CREATE TABLE IF NOT EXISTS coverage (
     run_id TEXT, ts TEXT, n_signals INTEGER,
     PRIMARY KEY (selector_id, selector_version, era_partition, jurisdiction)
 );
+CREATE TABLE IF NOT EXISTS coverage_v2 (
+    selector_id TEXT, selector_version INTEGER, partition_key TEXT, fingerprint TEXT,
+    run_id TEXT, ts TEXT, n_signals INTEGER,
+    PRIMARY KEY (selector_id, selector_version, partition_key, fingerprint)
+);
 CREATE TABLE IF NOT EXISTS cites_to (
     citing_case_id INTEGER, cited_case_id INTEGER, cite TEXT,
     category TEXT, reporter TEXT, year INTEGER, weight INTEGER, opinion_index INTEGER,
