@@ -5,7 +5,8 @@ from corpus_engine.domain import load_domain
 import corpus_engine.selector.engine as engine_mod
 from corpus_engine.selector.engine import _already_read_ids_with_skips, already_read_ids, attribution, plan, shard
 from corpus_engine.selector.model import Selector, load_selectors
-from corpus_engine.selector.ports import FrozenSeedResolver, RecordedEmbedder
+from corpus_engine.selector.ports import EMBED_KINDS, FrozenSeedResolver, RecordedEmbedder
+import corpus_engine.selector.runners as runners_mod
 from corpus_engine.selector.runners import RUNNERS, EngineContext
 
 class Stamp:
@@ -115,6 +116,40 @@ def test_shard_rolls_back_on_runner_exception(tmp_path, fixture_db, repo_root, m
         "SELECT count(*) FROM signals WHERE selector_id=? AND selector_version=? AND era_partition=? AND jurisdiction=?",
         (second.key[0], second.key[1], second.partition.era, second.partition.jurisdiction)).fetchone()[0]
     assert sig_second == 0
+def test_shard_cleans_up_scratch_matrix_when_a_vector_runner_raises(tmp_path, fixture_db, repo_root, monkeypatch):
+    """R1: a runner exception must not orphan the scratch chunk matrix. On this platform
+    close() should succeed outright and leave no file behind; if it genuinely cannot (a
+    Windows mapped-file lock that outlives the run), the leftover file must be tracked in
+    runners.PENDING_SCRATCH with a warning logged - never silently forgotten. Either
+    outcome is acceptable here; silently losing the file is not.
+    """
+    conn = _conn(tmp_path, fixture_db); dom = load_domain()
+    seeds = FrozenSeedResolver({"both": list(range(10)), "ledger-favorable-reviewed": list(range(10))})
+    emb = RecordedEmbedder(repo_root / "tests/fixtures/query-vectors-v3.npz")
+    pl = plan(conn, dom, seeds=seeds, embedder=emb)
+    sels = load_selectors(dom); by_key = {s.key: s for s in sels}
+    vec_unit = next(u for u in pl.units if by_key[u.key].kind in EMBED_KINDS)
+    vec_kind = by_key[vec_unit.key].kind
+    real_runner = RUNNERS[vec_kind]
+
+    def flaky(ctx, s, part):
+        if s.key == vec_unit.key and part.key == vec_unit.partition.key:
+            raise RuntimeError("boom")
+        return real_runner(ctx, s, part)
+    monkeypatch.setitem(RUNNERS, vec_kind, flaky)
+
+    scratch = tmp_path / "scratch"
+    logs = []
+    before_pending = set(runners_mod.PENDING_SCRATCH)
+    with pytest.raises(RuntimeError):
+        shard(conn, dom, "t-r1c", seeds=seeds, embedder=emb, stamp=Stamp(), runs_dir=tmp_path / "runs",
+              ledger_dir=tmp_path / "ledger", out_dir=tmp_path / "br1c", log=logs.append, scratch_dir=scratch)
+
+    new_pending = set(runners_mod.PENDING_SCRATCH) - before_pending
+    leftover = list(scratch.glob("matrix-*.i8")) if scratch.exists() else []
+    assert not leftover or (set(leftover) <= new_pending and any("could not remove" in m for m in logs))
+
+
 def test_shard_accepts_a_precomputed_plan_and_does_not_replan(tmp_path, fixture_db, repo_root, monkeypatch):
     conn = _conn(tmp_path, fixture_db); dom = load_domain()
     seeds = FrozenSeedResolver({"both": list(range(10)), "ledger-favorable-reviewed": list(range(10))})

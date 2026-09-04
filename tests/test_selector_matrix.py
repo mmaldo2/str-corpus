@@ -9,6 +9,7 @@ three properties the fix rests on:
   3. close() removes the scratch files.
 """
 import shutil
+from pathlib import Path
 
 import numpy as np
 
@@ -16,6 +17,7 @@ from corpus_engine import store
 from corpus_engine.domain import load_domain
 from corpus_engine.selector.model import Partition, load_selectors
 from corpus_engine.selector.ports import EMBED_KINDS, FrozenSeedResolver, RecordedEmbedder
+import corpus_engine.selector.runners as runners_mod
 from corpus_engine.selector.runners import RUNNERS, EngineContext, _scope_partitions
 
 
@@ -35,9 +37,9 @@ def _seeds(conn):
     return FrozenSeedResolver({n: ids for n in ("both", "ledger-favorable-reviewed", "treatise-anchors")})
 
 
-def _ctx(conn, repo_root, scratch=None):
+def _ctx(conn, repo_root, scratch=None, log=print):
     return EngineContext(conn, load_domain(), RecordedEmbedder(repo_root / "tests/fixtures/query-vectors-v3.npz"),
-                         _seeds(conn), scratch_dir=scratch)
+                         _seeds(conn), scratch_dir=scratch, log=log)
 
 
 def _live_partitions(conn):
@@ -163,3 +165,59 @@ def test_close_removes_a_context_owned_scratch_dir(tmp_path, fixture_db, repo_ro
     del m
     ctx.close()
     assert not owned.exists() and ctx.scratch_dir is None
+
+
+# --- R1: scratch matrix orphaned when a run fails ---
+
+def test_close_normal_path_leaves_pending_scratch_untouched(tmp_path, fixture_db, repo_root):
+    """(a) the ordinary close() path adds nothing to the module-level pending set."""
+    before = set(runners_mod.PENDING_SCRATCH)
+    conn = _conn(tmp_path / "db", fixture_db)
+    ctx = _ctx(conn, repo_root, tmp_path / "scratch")
+    m = ctx.matrix_for(_live_partitions(conn))
+    del m
+    ctx.close()
+    assert list((tmp_path / "scratch").iterdir()) == []
+    assert runners_mod.PENDING_SCRATCH == before
+
+
+def test_close_defers_a_windows_style_unlink_failure_to_pending_scratch(tmp_path, fixture_db, repo_root, monkeypatch):
+    """(b) simulate the Windows failure: Path.unlink raises PermissionError once. The
+    file is kept in PENDING_SCRATCH, a warning naming the path is logged through the
+    context's `log` callable, scratch_dir / _owns_scratch are NOT reset while it is
+    pending, and a second close() (with unlink restored) clears it.
+    """
+    conn = _conn(tmp_path / "db", fixture_db)
+    logs = []
+    ctx = _ctx(conn, repo_root, log=logs.append)              # no scratch_dir: context-owned
+    m = ctx.matrix_for(_live_partitions(conn))
+    owned = ctx.scratch_dir
+    files = list(owned.glob("matrix-*.i8"))
+    assert len(files) == 1
+    target = files[0]
+    del m                                                     # drop the live ChunkMatrix reference
+
+    real_unlink = Path.unlink
+    raised = {"n": 0}
+
+    def flaky_unlink(self, *a, **k):
+        if self == target and raised["n"] == 0:
+            raised["n"] += 1
+            raise PermissionError("simulated Windows mapped-file lock")
+        return real_unlink(self, *a, **k)
+
+    monkeypatch.setattr(Path, "unlink", flaky_unlink)
+    ctx.close()
+
+    assert target in runners_mod.PENDING_SCRATCH
+    assert any(str(target) in msg for msg in logs)             # warning names the path
+    assert ctx.scratch_dir == owned and ctx._owns_scratch is True   # not reset while pending
+    assert owned.exists()
+
+    monkeypatch.undo()                                         # restore the real Path.unlink
+    ctx.close()                                                # second call retries and clears it
+
+    assert target not in runners_mod.PENDING_SCRATCH
+    assert not target.exists()
+    assert ctx.scratch_dir is None and ctx._owns_scratch is False
+    assert not owned.exists()

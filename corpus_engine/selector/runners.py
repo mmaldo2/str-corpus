@@ -1,9 +1,53 @@
 from __future__ import annotations
-import gc, hashlib, re, shutil, tempfile
+import atexit, gc, hashlib, re, shutil, tempfile
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Callable
 import numpy as np
 from corpus_engine.selector.model import Partition, SeedSet, Selector, SelectorSpecError, Signal
+
+
+PENDING_SCRATCH: set[Path] = set()
+"""Scratch matrix files a close() could not unlink (Windows: a lingering mapped-file
+lock). Retried by every EngineContext.close() call and, once at interpreter exit, by
+the atexit handler registered below."""
+
+_pending_owned_dirs: set[Path] = set()
+_atexit_registered = False
+
+
+def _cleanup_pending_scratch() -> None:
+    """Best-effort retry of PENDING_SCRATCH, run once at interpreter exit. Removes an
+    owned scratch directory once its last pending file is gone."""
+    for path in list(PENDING_SCRATCH):
+        try:
+            path.unlink()
+        except FileNotFoundError:
+            pass
+        except OSError:
+            continue
+        PENDING_SCRATCH.discard(path)
+    for d in list(_pending_owned_dirs):
+        try:
+            next(d.iterdir())
+        except StopIteration:
+            try:
+                d.rmdir()
+            except OSError:
+                continue
+            _pending_owned_dirs.discard(d)
+        except OSError:
+            continue
+
+
+def _register_atexit_once() -> None:
+    global _atexit_registered
+    if not _atexit_registered:
+        atexit.register(_cleanup_pending_scratch)
+        _atexit_registered = True
+
+
+_register_atexit_once()
 
 
 def ctx_text(text: str, start: int, end: int, pad: int = 200) -> str:
@@ -41,8 +85,10 @@ class EngineContext:
     seeds: object
     resources: dict = field(default_factory=dict)
     scratch_dir: Path | None = None
+    log: Callable = field(default=print, repr=False)
     _owns_scratch: bool = field(default=False, init=False, repr=False)
     _matrix_files: list = field(default_factory=list, init=False, repr=False)
+    _own_pending: set = field(default_factory=set, init=False, repr=False)
 
     def _scratch(self) -> Path:
         if self.scratch_dir is None:
@@ -112,26 +158,55 @@ class EngineContext:
         return block
 
     def close(self) -> None:
-        """Drop the caches and delete the scratch matrix files. Idempotent.
+        """Drop the caches and delete the scratch matrix files. Idempotent, and safe to
+        call again later to retry anything left over from a first call.
 
         Windows will not unlink a mapped file, and mmap.close() refuses while numpy still
         exports the buffer, so the mapping is released by dropping every reference to it
-        (the cached ChunkMatrix and the base memmap) and letting the collector run. After
-        close() nothing may touch a ChunkMatrix this context handed out. A ChunkMatrix the
-        caller is still holding keeps its file mapped, in which case the unlink is skipped
-        rather than raising - so callers must close only when they are done with it.
+        (the cached ChunkMatrix and the base memmap) and letting the collector run - but
+        gc.collect() is a backstop, not the primary mechanism: an exception's traceback
+        keeps its raising frame (and that frame's locals) alive for as long as the
+        exception propagates, so a runner that built a matrix and then raised must drop
+        its own `matrix`/`sims` locals before this runs (see `_vector_runner`'s except
+        clause) or the unlink below can still find the file mapped.
+
+        A file that still can't be unlinked (a lingering Windows lock, or a caller still
+        holding a ChunkMatrix from this context) is kept in the module-level
+        PENDING_SCRATCH set rather than silently dropped, a warning naming the path is
+        logged via `self.log`, and - for a scratch dir this context owns - scratch_dir /
+        _owns_scratch are NOT reset, so the path is not forgotten and a later close() (or
+        the atexit handler at interpreter exit) can retry it.
         """
         self.resources.clear()
         pending, self._matrix_files = self._matrix_files, []
         paths = [path for path, _block in pending]
         del pending
-        gc.collect()
+        gc.collect()                                          # backstop, not primary
+        # Retry anything left pending from an earlier close() on this context first, so
+        # a second call finishes the job even though _matrix_files no longer names it.
+        for path in list(self._own_pending):
+            try:
+                path.unlink()
+            except FileNotFoundError:
+                pass
+            except OSError:
+                continue
+            PENDING_SCRATCH.discard(path)
+            self._own_pending.discard(path)
         for path in paths:
             try:
                 path.unlink()
-            except OSError:
+            except FileNotFoundError:
                 pass
+            except OSError as e:
+                PENDING_SCRATCH.add(path)
+                self._own_pending.add(path)
+                self.log(f"WARN EngineContext.close: could not remove scratch matrix "
+                         f"{path} ({type(e).__name__}: {e}); will retry")
         if self._owns_scratch and self.scratch_dir is not None:
+            if self._own_pending:
+                _pending_owned_dirs.add(self.scratch_dir)
+                return                                         # keep the path; something is still out there
             shutil.rmtree(self.scratch_dir, ignore_errors=True)
             self.scratch_dir = None
             self._owns_scratch = False
@@ -221,26 +296,34 @@ def run_regex(ctx: EngineContext, s: Selector, part: Partition) -> list[Signal]:
 def _vector_runner(ctx: EngineContext, s: Selector, part: Partition, exclude: set[int]) -> list[Signal]:
     matrix = ctx.matrix_for(_scope_partitions(s))
     sims = ctx.sims(s, matrix)
-    code = matrix.part_index.get(part.key)
-    if code is None:
-        return []
-    cand = np.flatnonzero(matrix.part_codes == code)
-    if not len(cand):
-        return []
-    order = cand[np.lexsort((matrix.chunk_ids[cand], -sims[cand]))][: int(s.params.get("top_k", 50)) * 3]
-    out, seen = [], set()
-    min_cos, top_k = float(s.params.get("min_cosine", 0.5)), int(s.params.get("top_k", 50))
-    for i in order:
-        if sims[i] < min_cos or len(out) >= top_k:
-            break
-        case_id = int(matrix.case_ids[i])
-        if case_id in seen or case_id in exclude:
-            continue
-        seen.add(case_id)
-        cs, ce = int(matrix.spans[i][0]), int(matrix.spans[i][1])
-        text = ctx.conn.execute("SELECT substr(norm_text, ?, ?) FROM cases WHERE case_id=?", (cs + 1, min(ce - cs, 400), case_id)).fetchone()[0]
-        out.append(Signal(case_id, s.id, s.version, text, (cs, ce), int(matrix.chunk_ids[i]), float(sims[i]), part))
-    return out
+    try:
+        code = matrix.part_index.get(part.key)
+        if code is None:
+            return []
+        cand = np.flatnonzero(matrix.part_codes == code)
+        if not len(cand):
+            return []
+        order = cand[np.lexsort((matrix.chunk_ids[cand], -sims[cand]))][: int(s.params.get("top_k", 50)) * 3]
+        out, seen = [], set()
+        min_cos, top_k = float(s.params.get("min_cosine", 0.5)), int(s.params.get("top_k", 50))
+        for i in order:
+            if sims[i] < min_cos or len(out) >= top_k:
+                break
+            case_id = int(matrix.case_ids[i])
+            if case_id in seen or case_id in exclude:
+                continue
+            seen.add(case_id)
+            cs, ce = int(matrix.spans[i][0]), int(matrix.spans[i][1])
+            text = ctx.conn.execute("SELECT substr(norm_text, ?, ?) FROM cases WHERE case_id=?", (cs + 1, min(ce - cs, 400), case_id)).fetchone()[0]
+            out.append(Signal(case_id, s.id, s.version, text, (cs, ce), int(matrix.chunk_ids[i]), float(sims[i]), part))
+        return out
+    except BaseException:
+        # This frame's `matrix`/`sims` locals are what a live traceback would otherwise
+        # keep pinned for as long as the exception propagates (see EngineContext.close);
+        # drop them here so close(), called from the caller's finally, can unlink the
+        # scratch file without a lingering Windows mapped-file lock.
+        del matrix, sims
+        raise
 
 
 def run_embedding(ctx: EngineContext, s: Selector, part: Partition) -> list[Signal]:
