@@ -38,8 +38,13 @@ selectors` (Stage 2B Task 1), against the live database as it stood at cycle
   `misses` (sorted `case_id`s). Tiers: brief-letting 6/9, treatise 22/29,
   brief-all 17/63.
 - `tests/fixtures/query-vectors-v3.npz` — one normalized 512-d float32 query
-  vector per active embedding selector from `pipeline/shard.py:load_selectors()`
-  (key `f"{id}@v{version}"`), plus `__meta__` (the JSON string of `embed_meta`).
+  vector per active embedding selector (key `f"{id}@v{version}"`, i.e.
+  `Selector.label`), plus `__meta__` (the JSON string of `embed_meta`). At
+  capture time the selector list came from the pre-refactor
+  `pipeline/shard.py:load_selectors()`; that function was deleted in Stage 2B,
+  and `tools/capture_selector_goldens.py` now reads the same selectors through
+  `corpus_engine.selector.model.load_selectors(load_domain())`, filtered to
+  `kind == "embedding"` — same set, same keys.
   **These vectors are for the 0.6B index that `tests/fixtures/corpus-tiny.db`
   and the rest of this plan's fixtures characterize** — `embed_meta` was read
   from that fixture DB (`Qwen/Qwen3-Embedding-0.6B`, revision
