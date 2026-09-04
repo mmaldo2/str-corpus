@@ -124,7 +124,12 @@ review page publishable as an artifact; reviewer identity recorded.
     in place, not replaced; see the build report). Figures and verification in
     `reports/build-cycle-004.md`. English Reports not ingested (no CAP
     source; still a hand-curated item under ADR-0008).
-11. Shard, recall gate, map (user approves budget), review pipeline.
+11. Shard, recall gate, map (user approves budget), review pipeline —
+    **shard DONE 2026-09-04** (`cycle-004-shard-01`: 946 units, 40,115 signals,
+    1,845 batches / 32,795 cases; recall gate PASS, non-decreasing on every tier;
+    see `reports/shard-cycle-004.md`). Map waits on Stage 3 and a budget; the
+    report's planner observations (relevance-feedback cap saturates; rank before
+    map) come first.
 
     **Measured cost of a corpus-wide vector selector (2026-09-04, live index,
     read-only `probe()`).** One `probe()` of `embed-householder-letting-21@v2`
