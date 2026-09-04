@@ -19,6 +19,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+from corpus_engine.selector.engine import attribution  # noqa: E402
+
 DB = ROOT / "data" / "db" / "corpus.db"
 GOLD = ROOT / "data" / "gold" / "gold.jsonl"
 RUNS = ROOT / "runs"
@@ -37,6 +40,7 @@ def load_gold() -> list[dict]:
 def evaluate(run_id: str | None) -> dict:
     conn = sqlite3.connect(DB)
     gold = load_gold()
+    attr = attribution(conn, [g["case_id"] for g in gold if g.get("case_id")])
     report: dict = {"tiers": {}, "misses": [], "hits": []}
     for tier in ("brief-letting", "brief-all", "treatise"):
         if tier == "brief-letting":
@@ -52,13 +56,9 @@ def evaluate(run_id: str | None) -> dict:
         hits = []
         misses = []
         for g in in_corpus:
-            sels = conn.execute(
-                """SELECT DISTINCT selector_id, selector_version FROM signals
-                   WHERE case_id=?""",
-                (g["case_id"],),
-            ).fetchall()
+            sels = attr[g["case_id"]]
             if sels:
-                hits.append({**g, "selectors": [f"{s}@v{v}" for s, v in sels]})
+                hits.append({**g, "selectors": sorted({f"{r.selector_id}@v{r.selector_version}" for r in sels})})
             else:
                 misses.append(g)
         report["tiers"][tier] = {

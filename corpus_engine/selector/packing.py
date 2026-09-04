@@ -8,8 +8,8 @@ import json, sqlite3
 from pathlib import Path
 
 
-def pack_batches(conn: sqlite3.Connection, run_id: str, out_dir: Path, *,
-                 gold_ids: set[int], exclude_ids: set[int], batch_size: int = 18) -> int:
+def build_batches(conn: sqlite3.Connection, run_id: str, *,
+                  gold_ids: set[int], exclude_ids: set[int], batch_size: int = 18) -> list[dict]:
     rows = conn.execute(
         """SELECT s.case_id, s.era_partition, s.jurisdiction,
                   s.selector_id, s.selector_version, s.matched_text,
@@ -26,9 +26,6 @@ def pack_batches(conn: sqlite3.Connection, run_id: str, out_dir: Path, *,
     groups: dict = {}
     for e in by_case.values():
         groups.setdefault((e["era_partition"], e["jurisdiction"]), []).append(e)
-    out_dir.mkdir(parents=True, exist_ok=True)
-    for old in out_dir.glob("batch-*.json"):
-        old.unlink()
     if exclude_ids:
         for key in groups:
             groups[key] = [e for e in groups[key] if e["case_id"] not in exclude_ids]
@@ -46,5 +43,15 @@ def pack_batches(conn: sqlite3.Connection, run_id: str, out_dir: Path, *,
     for n, batch in enumerate(pending, 1):
         batch.pop("_gold"), batch.pop("_density")
         batch["batch_id"] = f"{run_id}-batch-{n:03d}"
+    return pending
+
+
+def pack_batches(conn: sqlite3.Connection, run_id: str, out_dir: Path, *,
+                 gold_ids: set[int], exclude_ids: set[int], batch_size: int = 18) -> int:
+    batches = build_batches(conn, run_id, gold_ids=gold_ids, exclude_ids=exclude_ids, batch_size=batch_size)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    for old in out_dir.glob("batch-*.json"):
+        old.unlink()
+    for n, batch in enumerate(batches, 1):
         (out_dir / f"batch-{n:03d}.json").write_text(json.dumps(batch, indent=1), encoding="utf-8")
-    return len(pending)
+    return len(batches)
