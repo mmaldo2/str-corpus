@@ -117,7 +117,7 @@ LEGACY_EMBED_RUN = "qwen3-0.6b-512-int8"
 # embed_meta). pipeline/index.py's --legacy-0.6b comparison run must reuse this exact
 # constant so it never records the literal string "main" under the already-claimed
 # LEGACY_EMBED_RUN key.
-LEGACY_EMBED_REVISION = "97b0c614be4d"
+LEGACY_EMBED_REVISION = "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3"  # full sha, exactly as the live embed_meta recorded it
 
 
 def connect(db_path: Path | None = None, *, busy_timeout_ms: int = 120_000,

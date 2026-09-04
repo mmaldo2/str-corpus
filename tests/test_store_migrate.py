@@ -12,7 +12,7 @@ def _v1_db(path):
     conn = sqlite3.connect(path)
     conn.executescript(V1_CASES + ";" + V1_CHUNKS + """;
         CREATE TABLE embed_meta (key TEXT PRIMARY KEY, value TEXT);
-        INSERT INTO embed_meta VALUES ('model','Qwen/Qwen3-Embedding-0.6B'),('revision','97b0c614be4d'),
+        INSERT INTO embed_meta VALUES ('model','Qwen/Qwen3-Embedding-0.6B'),('revision','97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3'),
           ('dim','512'),('chunk_tokens','400'),('chunk_overlap','40'),('quant','int8-symmetric-pervector');
         INSERT INTO cases (case_id, norm_text) VALUES (1, 'x');
         INSERT INTO chunks (case_id, seq, char_start, char_end, embedding, embed_scale) VALUES (1, 0, 0, 1, x'00', 1.0);

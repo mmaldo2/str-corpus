@@ -12,7 +12,7 @@ from corpus_engine.indexer.embed import EmbedRun  # noqa: E402
 
 
 def test_legacy_revision_is_pinned_to_the_migrate_constant():
-    assert pipeline_index.LEGACY_REVISION == store.LEGACY_EMBED_REVISION == "97b0c614be4d"
+    assert pipeline_index.LEGACY_REVISION == store.LEGACY_EMBED_REVISION == "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3"
     assert pipeline_index.LEGACY_REVISION != "main"
 
 
