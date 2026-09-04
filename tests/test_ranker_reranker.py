@@ -16,3 +16,15 @@ def test_reranker_pairs_best_chunk_text_and_scores_by_case(tmp_path, fixture_db,
     assert all(v > 0 for v in s.values()) and s == r.score(conn, "run", ids)
     with pytest.raises(ValueError, match="main"):
         QwenReranker("Qwen/Qwen3-Reranker-4B", "main", "q", encoder=fake)
+
+
+@pytest.mark.parametrize("revision", ["main", "v1.0", ""])
+def test_reranker_rejects_non_sha_revisions(revision):
+    with pytest.raises(ValueError):
+        QwenReranker("Qwen/Qwen3-Reranker-4B", revision, "q", encoder=_Fake())
+
+
+@pytest.mark.parametrize("revision", ["0123456789abcdef0123456789abcdef01234567", "abc1234"])
+def test_reranker_accepts_hex_sha_revisions(revision):
+    r = QwenReranker("Qwen/Qwen3-Reranker-4B", revision, "q", encoder=_Fake())
+    assert r.revision == revision

@@ -1,5 +1,6 @@
 from __future__ import annotations
 import hashlib
+import re
 from typing import Sequence
 from corpus_engine.ranker.features import signal_summary
 from corpus_engine.ranker.ports import round6
@@ -15,8 +16,10 @@ def gpu_has_resident_model(threshold_bytes: int = 6 << 30) -> bool:
 
 class QwenReranker:
     def __init__(self, model: str, revision: str, query: str, *, batch: int = 8, encoder=None):
-        if not revision or revision == "main":
-            raise ValueError("reranker revision must be a pinned commit sha, not 'main' (run tools/pin_reranker.py)")
+        if not re.fullmatch(r"[0-9a-f]{7,40}", revision or ""):
+            raise ValueError(
+                f"reranker revision must be a pinned commit sha (7-40 hex chars), not {revision!r} "
+                "(run tools/pin_reranker.py)")
         self.model, self.revision, self.query, self.batch = model, revision, query, int(batch)
         self._encoder = encoder
         self.ranker_id = f"qwen3-reranker-4b:{revision[:7]}"
@@ -34,7 +37,7 @@ class QwenReranker:
             if gpu_has_resident_model():
                 raise RuntimeError("another model is resident on the GPU; run the reranker in its own process")
             from sentence_transformers import CrossEncoder
-            self._encoder = CrossEncoder(self.model, revision=self.revision, device="cuda", trust_remote_code=True, max_length=1024)
+            self._encoder = CrossEncoder(self.model, revision=self.revision, device="cuda", max_length=1024)
         return self._encoder
 
     def _chunk_text(self, conn, case_id: int, chunk_id: int | None) -> str:
