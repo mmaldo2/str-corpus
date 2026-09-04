@@ -14,7 +14,7 @@ def build_batches(conn: sqlite3.Connection, run_id: str, *,
         """SELECT s.case_id, s.era_partition, s.jurisdiction,
                   s.selector_id, s.selector_version, s.matched_text,
                   s.char_span_start, s.char_span_end, s.chunk_id, s.cosine, s.run_id
-           FROM signals s ORDER BY s.era_partition, s.jurisdiction, s.case_id"""
+           FROM signals s ORDER BY s.era_partition, s.jurisdiction, s.case_id, s.rowid"""
     ).fetchall()
     by_case: dict = {}
     for r in rows:
