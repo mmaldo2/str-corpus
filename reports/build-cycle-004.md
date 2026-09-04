@@ -117,7 +117,7 @@ running python process and the expected terminal log line present.)
 - Dedupe pass (self-join warned about in the task instructions) completed
   without incident — no MemoryError, no need for `--skip-dedupe`.
 
-## Part B: hosted embedding (7b) � complete 2026-09-03
+## Part B: hosted embedding (7b) — complete 2026-09-03
 
 **Gate (Step 3).** Hosted-vs-local consistency check on 1,000 chunks
 (`tools/embed_consistency_check.py --n 1000`): mean cosine 0.9999, p5 0.9999,
