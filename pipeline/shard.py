@@ -58,8 +58,13 @@ def main() -> int:
     args = ap.parse_args()
 
     if args.batches_only:
-        print("note: --batches-only is a no-op under the selector engine (Stage 2B); "
-              "the engine always plans+shards, ignoring")
+        # Fail closed: under the legacy shard this flag meant "regroup existing signals,
+        # run no selectors" — cheap and largely read-only. Under the selector engine the
+        # same invocation would run every planned unit against the live 79 GB DB (hours of
+        # runners, writes to signals/coverage_v2, a rewritten batch directory). A printed
+        # note is not a guard when the change turns a read into a large write.
+        sys.exit("--batches-only is no longer supported under the selector engine; "
+                 "re-run without it (batching always follows sharding)")
     if args.exclude_mapped:
         print("note: --exclude-mapped is a no-op under the selector engine "
               "(already-read exclusion is always applied); ignoring")
