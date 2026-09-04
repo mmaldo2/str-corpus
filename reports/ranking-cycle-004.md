@@ -38,6 +38,10 @@ classifier:v1: 1845 batches, 32795 cases -> runs\cycle-004-shard-01\batches (606
 From `data/ranker/v1/manifest.json` (fusion, classifier) and
 `data/ranker/reranker-22e6836/manifest.json` (reranker, delta vs. classifier baseline):
 
+v1's manifest predates the `heldout.path`/`heldout.sha256` fields `train()` now writes
+when given a `heldout_path` (I-4); its held-out slice is the one pinned in
+`domain.yaml` (`heldout_sha256: "d2d3dd74…"`) — the fields themselves land with v2.
+
 | Ranker | ap_all | ap_reviewed | p50_all | p200_all |
 |---|---|---|---|---|
 | fusion:v1 | 0.3775 | 0.1251 | 0.700 | 0.345 |

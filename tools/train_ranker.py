@@ -17,7 +17,8 @@ if __name__ == "__main__":
     held_ids = {l.case_id for l in held}; train_set = [l for l in labels if l.case_id not in held_ids]
     held_present = [l for l in held if l.case_id in {x.case_id for x in labels}]
     commit = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True).stdout.strip()
-    man = train(conn, dom, train_set, held_present, version=version, out_dir=ROOT / "data" / "ranker" / version, commit=commit)
+    man = train(conn, dom, train_set, held_present, version=version, out_dir=ROOT / "data" / "ranker" / version,
+               commit=commit, heldout_path=hpath)
     c, f = man["metrics"]["classifier"], man["metrics"]["fusion"]
     print(f"train {man['train']} cv_C={man['cv_C']} cv_ap={man['cv_ap']:.4f}")
     print(f"held-out n={c['n_all']} (reviewed view n={c['n_reviewed']})")

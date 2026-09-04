@@ -4,7 +4,8 @@ from corpus_engine.selector.model import load_selectors
 from corpus_engine.ranker.classifier import ClassifierRanker, train
 from corpus_engine.ranker.evaluate import average_precision, evaluate_scores, precision_at
 from corpus_engine.ranker.features import feature_layout
-from corpus_engine.ranker.labels import Label
+from corpus_engine.ranker.labels import Label, sha256_file
+from corpus_engine.store import paths
 from tests.helpers.ranker_fixture import make_ranker_db
 
 def test_metrics():
@@ -34,3 +35,32 @@ def test_train_beats_chance_scores_and_refuses_layout_drift(tmp_path, fixture_db
     (out / "manifest.json").write_text(json.dumps(m), encoding="utf-8")
     with pytest.raises(ValueError, match="ghost-1@v1"):
         ClassifierRanker(out).check_layout(feature_layout(dom, load_selectors(dom), 512))
+
+
+def test_train_writes_heldout_path_and_sha256_when_given(tmp_path, fixture_db, repo_root):
+    # I-4: train() itself (not only the CLI) records the frozen held-out file's identity.
+    conn = make_ranker_db(tmp_path, fixture_db, repo_root); dom = load_domain()
+    labels = _synthetic_labels(conn); held = labels[::4]; train_set = [l for l in labels if l not in set(held)]
+    real_heldout = paths().root / dom.ranking.heldout
+    out = tmp_path / "v9d"
+    man = train(conn, dom, train_set, held, version="v9d", out_dir=out, commit="deadbeef", heldout_path=real_heldout)
+    assert man["heldout"]["n"] == len(held)
+    assert man["heldout"]["sha256"] == dom.ranking.heldout_sha256
+    assert man["heldout"]["path"] == "data/eval/ranker-heldout-v1.jsonl"
+
+
+def test_train_refuses_when_heldout_path_hash_does_not_match_the_pin(tmp_path, fixture_db, repo_root, monkeypatch):
+    conn = make_ranker_db(tmp_path, fixture_db, repo_root); dom = load_domain()
+    labels = _synthetic_labels(conn); held = labels[::4]; train_set = [l for l in labels if l not in set(held)]
+    bad_heldout = tmp_path / "tampered-heldout.jsonl"
+    bad_heldout.write_text("not the frozen content\n", encoding="utf-8")
+    assert sha256_file(bad_heldout) != dom.ranking.heldout_sha256
+
+    def boom(*a, **k):                                          # pragma: no cover - must never run
+        raise AssertionError("LogisticRegression must not be constructed when the held-out hash check fails")
+    monkeypatch.setattr("sklearn.linear_model.LogisticRegression", boom)
+
+    out = tmp_path / "v9e"
+    with pytest.raises(ValueError, match="sha256"):
+        train(conn, dom, train_set, held, version="v9e", out_dir=out, commit="x", heldout_path=bad_heldout)
+    assert not (out / "model.npz").exists()

@@ -5,6 +5,7 @@ from typing import Sequence
 import numpy as np
 from corpus_engine.ranker.evaluate import average_precision, evaluate_scores
 from corpus_engine.ranker.features import FeatureLayout, case_features, feature_layout
+from corpus_engine.ranker.labels import check_heldout
 from corpus_engine.ranker.ports import FusionRanker, round6
 
 MODEL_FILE, MANIFEST_FILE = "model.npz", "manifest.json"
@@ -43,7 +44,8 @@ class ClassifierRanker:
         return {c: round6(1.0 / (1.0 + np.exp(-l))) for c, l in zip(ids, logits)}
 
 
-def train(conn, domain, labels, heldout, *, version: str, out_dir: Path, commit: str, layout: FeatureLayout | None = None) -> dict:
+def train(conn, domain, labels, heldout, *, version: str, out_dir: Path, commit: str,
+         layout: FeatureLayout | None = None, heldout_path: Path | None = None) -> dict:
     from sklearn.linear_model import LogisticRegression
     from sklearn.model_selection import StratifiedKFold
     from corpus_engine.selector.model import load_selectors
@@ -51,6 +53,19 @@ def train(conn, domain, labels, heldout, *, version: str, out_dir: Path, commit:
     overlap = [l.case_id for l in labels if l.case_id in held_ids]
     if overlap:
         raise ValueError(f"training set overlaps the held-out slice ({len(overlap)} ids, e.g. {overlap[:3]})")
+    # I-4: the function the spec names, not only the CLI, verifies the held-out slice's
+    # hash against domain.yaml before fitting - a caller using the library directly (as
+    # tests do) no longer trains against an unverified slice.
+    if heldout_path is not None:
+        from corpus_engine.store import paths
+        h = check_heldout(domain, heldout_path)
+        try:
+            rel = Path(heldout_path).resolve().relative_to(paths().root.resolve()).as_posix()
+        except ValueError:
+            rel = Path(heldout_path).as_posix()
+        heldout_manifest = {"path": rel, "sha256": h, "n": len(heldout)}
+    else:
+        heldout_manifest = {"n": len(heldout)}
     dim = int(dict(conn.execute("SELECT key, value FROM embed_meta")).get("dim", "512"))
     layout = layout or feature_layout(domain, load_selectors(domain), dim)
     ids = [l.case_id for l in labels]; y = np.array([l.label for l in labels]); w = np.array([l.weight for l in labels])
@@ -74,7 +89,7 @@ def train(conn, domain, labels, heldout, *, version: str, out_dir: Path, commit:
                 "layout": layout.to_json(), "cv_C": best_C, "cv_ap": best_ap,
                 "train": {"n_pos": int(y.sum()), "n_neg": int((1 - y).sum()),
                           "sha256_ids": hashlib.sha256(",".join(map(str, sorted(ids))).encode()).hexdigest()},
-                "heldout": {"n": len(heldout)}, "metrics": {}}
+                "heldout": heldout_manifest, "metrics": {}}
     (out_dir / MANIFEST_FILE).write_bytes(json.dumps(manifest, indent=1, sort_keys=True).encode("utf-8"))
     ranker = ClassifierRanker(out_dir); hid = [l.case_id for l in heldout]
     f = domain.ranking.fusion
