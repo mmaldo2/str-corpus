@@ -45,7 +45,11 @@ From `data/ranker/v1/manifest.json` (fusion, classifier) and
 | qwen3-reranker-4b:22e6836 | 0.4983 | 0.1570 | 0.740 | 0.465 |
 | reranker delta vs. classifier | -0.1959 | -0.1669 | -0.180 | -0.135 |
 
-n_all = 1,533; n_reviewed = 1,386 (human-reviewed subset) for all three rows.
+n_all = 1,533; n_reviewed = 1,386 for all three rows — the reviewed view is 39
+human-reviewed positives plus all 1,347 negatives, and the negatives are machine
+extraction verdicts, not human adjudications; `ap_reviewed` therefore measures ranking
+of human-confirmed positives against machine-labelled negatives, not a fully
+human-reviewed comparison.
 
 ### Ship rule and bar
 

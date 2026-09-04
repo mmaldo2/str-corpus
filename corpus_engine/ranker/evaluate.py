@@ -19,8 +19,18 @@ def precision_at(y, s, k: int) -> float:
 
 
 def evaluate_scores(labels, scores: dict) -> dict:
+    """Score a ranker against a labelled set and, per cell, against the reviewed view.
+
+    The "reviewed view" (`rv` below, and `ap_reviewed`/`n_reviewed` in the returned dict)
+    is reviewed positives plus *all* negatives - not a human-reviewed subset. Negatives
+    come from machine extraction verdicts (`relevant is False`), never human-adjudicated
+    (see `corpus_engine.ranker.labels.labelled_reads`, which hardcodes `reviewed=False` on
+    every one). So `ap_reviewed` measures ranking of human-confirmed positives against
+    machine-labelled negatives, and label noise in those negatives flows straight into it.
+    """
     y = np.array([l.label for l in labels]); s = np.array([scores[l.case_id] for l in labels]); w = np.array([l.weight for l in labels])
-    rv = np.array([l.reviewed or l.label == 0 for l in labels])       # "human-reviewed view" = reviewed positives + all negatives
+    rv = np.array([l.reviewed or l.label == 0 for l in labels])       # reviewed positives + all negatives (machine
+                                                                       # extraction verdicts, not human adjudications)
     out = {"n_all": int(len(labels)), "ap_all": average_precision(y, s), "p50_all": precision_at(y, s, 50), "p200_all": precision_at(y, s, 200),
            "n_reviewed": int(rv.sum()), "ap_reviewed": average_precision(y[rv], s[rv]) if rv.any() else 0.0, "per_cell": {}}
     cells = sorted({(l.era, l.jurisdiction) for l in labels})
