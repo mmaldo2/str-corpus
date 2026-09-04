@@ -39,7 +39,9 @@ def test_load_ranker_classifier_raises_not_implemented_or_passes_if_exists(tmp_p
         with pytest.raises(NotImplementedError, match="classifier ranker is not available yet"):
             load_ranker(dom, conn, "classifier")
 
-def test_load_ranker_unknown_id_raises_value_error_without_db_access(tmp_path, fixture_db, repo_root):
+def test_load_ranker_unknown_id_raises_value_error_without_db_access(monkeypatch, tmp_path, fixture_db, repo_root):
     conn = make_ranker_db(tmp_path, fixture_db, repo_root); dom = load_domain()
+    monkeypatch.setattr("corpus_engine.ranker.ports._dim", lambda conn: (_ for _ in ()).throw(RuntimeError("_dim must not be called")))
+    monkeypatch.setattr("corpus_engine.ranker.features.feature_layout", lambda *a, **k: (_ for _ in ()).throw(RuntimeError("feature_layout must not be called")))
     with pytest.raises(ValueError, match="unknown ranker"):
         load_ranker(dom, conn, "bogus")
