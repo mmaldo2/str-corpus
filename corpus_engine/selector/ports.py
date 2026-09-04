@@ -80,7 +80,8 @@ EMBED_KINDS = {"embedding", "relevance_feedback"}
 SEEDED_KINDS = {"citation_graph", "relevance_feedback"}
 
 
-def fingerprint(conn, selector: Selector, partitions: list[Partition], *, seeds: SeedResolver, min_seeds: int) -> str | Skip:
+def fingerprint(conn, selector: Selector, partitions: list[Partition], *, seeds: SeedResolver, min_seeds: int,
+                runs: dict[tuple[str, str], set[str]] | None = None) -> str | Skip:
     parts = tuple(partitions)
     seed_part = ""
     if selector.kind in SEEDED_KINDS:
@@ -104,7 +105,7 @@ def fingerprint(conn, selector: Selector, partitions: list[Partition], *, seeds:
         return "regex:v1"
     if selector.kind == "citation_graph":
         return f"graph:v1{seed_part}"
-    runs = partition_runs(conn)
+    runs = runs if runs is not None else partition_runs(conn)
     seen: set[str] = set()
     for p in parts:
         r = runs.get((p.era, p.jurisdiction), set())

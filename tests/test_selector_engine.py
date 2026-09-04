@@ -1,10 +1,12 @@
 import json, shutil
+import pytest
 from corpus_engine import store
 from corpus_engine.domain import load_domain
-from corpus_engine.selector.engine import attribution, plan, shard
-from corpus_engine.selector.model import Selector
+import corpus_engine.selector.engine as engine_mod
+from corpus_engine.selector.engine import _already_read_ids_with_skips, already_read_ids, attribution, plan, shard
+from corpus_engine.selector.model import Selector, load_selectors
 from corpus_engine.selector.ports import FrozenSeedResolver, RecordedEmbedder
-from corpus_engine.selector.runners import EngineContext
+from corpus_engine.selector.runners import RUNNERS, EngineContext
 
 class Stamp:
     run_id = "t-01"; ts = "2026-01-01T00:00:00"
@@ -35,3 +37,81 @@ def test_attribution_reads_signals_only(tmp_path, fixture_db, repo_root):
     conn.commit()
     a = attribution(conn, [7, 8])
     assert a[7][0].selector_id == "a" and a[8] == ()
+
+
+# --- Fix Round 1 ---
+
+def test_shard_calls_partition_runs_once(tmp_path, fixture_db, repo_root, monkeypatch):
+    conn = _conn(tmp_path, fixture_db); dom = load_domain()
+    seeds = FrozenSeedResolver({"both": list(range(10)), "ledger-favorable-reviewed": list(range(10))})
+    emb = RecordedEmbedder(repo_root / "tests/fixtures/query-vectors-v3.npz")
+    real = engine_mod.partition_runs
+    calls = {"n": 0}
+    def counting(c):
+        calls["n"] += 1
+        return real(c)
+    monkeypatch.setattr(engine_mod, "partition_runs", counting)
+
+    shard(conn, dom, "t-pr1", seeds=seeds, embedder=emb, stamp=Stamp(), runs_dir=tmp_path / "runs",
+          ledger_dir=tmp_path / "ledger", out_dir=tmp_path / "bpr", dry_run=True, log=lambda *_: None)
+    assert calls["n"] == 1                                                 # one scan for the whole shard() call
+
+    calls["n"] = 0
+    precomputed = real(conn)
+    shard(conn, dom, "t-pr2", seeds=seeds, embedder=emb, stamp=Stamp(), runs_dir=tmp_path / "runs",
+          ledger_dir=tmp_path / "ledger", out_dir=tmp_path / "bpr2", dry_run=True, log=lambda *_: None,
+          runs=precomputed)
+    assert calls["n"] == 0                                                 # supplied runs short-circuits the scan
+
+
+def test_already_read_ids_skips_malformed_input(tmp_path):
+    runs_dir = tmp_path / "runs"; ledger_dir = tmp_path / "ledger"
+    ext_dir = runs_dir / "cycle-x" / "extractions"
+    ext_dir.mkdir(parents=True)
+    (ext_dir / "bad.json").write_text(json.dumps({"a": 1}), encoding="utf-8")             # not a list
+    (ext_dir / "good.json").write_text(json.dumps([{"case_id": 42}, {"case_id": 43}]), encoding="utf-8")
+    manifest_dir = ledger_dir / "manifest"; manifest_dir.mkdir(parents=True)
+    (manifest_dir / "cycle-x.jsonl").write_text(
+        "not json\n" + json.dumps({"case_id": 44}) + "\n" + json.dumps({"no_case_id": True}) + "\n",
+        encoding="utf-8")
+
+    ids, skipped = _already_read_ids_with_skips(runs_dir, ledger_dir, log=lambda *_: None)
+    assert ids == {42, 43, 44}
+    assert skipped == 3                                                    # bad.json + bad line + missing case_id
+    assert already_read_ids(runs_dir, ledger_dir) == {42, 43, 44}          # public wrapper: same ids, no crash
+
+
+def test_shard_rolls_back_on_runner_exception(tmp_path, fixture_db, repo_root, monkeypatch):
+    conn = _conn(tmp_path, fixture_db); dom = load_domain()
+    seeds = FrozenSeedResolver({"both": list(range(10)), "ledger-favorable-reviewed": list(range(10))})
+    emb = RecordedEmbedder(repo_root / "tests/fixtures/query-vectors-v3.npz")
+    pl = plan(conn, dom, seeds=seeds, embedder=emb)
+    assert len(pl.units) >= 2
+    first, second = pl.units[0], pl.units[1]
+    sels = load_selectors(dom); by_key = {s.key: s for s in sels}
+    second_kind = by_key[second.key].kind
+    real_runner = RUNNERS[second_kind]
+
+    def flaky(ctx, s, part):
+        if s.key == second.key and part.key == second.partition.key:
+            raise RuntimeError("boom")
+        return real_runner(ctx, s, part)
+    monkeypatch.setitem(RUNNERS, second_kind, flaky)
+
+    with pytest.raises(RuntimeError):
+        shard(conn, dom, "t-fail", seeds=seeds, embedder=emb, stamp=Stamp(), runs_dir=tmp_path / "runs",
+              ledger_dir=tmp_path / "ledger", out_dir=tmp_path / "bfail", log=lambda *_: None)
+
+    assert conn.in_transaction is False
+    cov_first = conn.execute(
+        "SELECT 1 FROM coverage_v2 WHERE selector_id=? AND selector_version=? AND partition_key=?",
+        (first.key[0], first.key[1], first.partition.key)).fetchone()
+    assert cov_first is not None
+    cov_second = conn.execute(
+        "SELECT 1 FROM coverage_v2 WHERE selector_id=? AND selector_version=? AND partition_key=?",
+        (second.key[0], second.key[1], second.partition.key)).fetchone()
+    assert cov_second is None
+    sig_second = conn.execute(
+        "SELECT count(*) FROM signals WHERE selector_id=? AND selector_version=? AND era_partition=? AND jurisdiction=?",
+        (second.key[0], second.key[1], second.partition.era, second.partition.jurisdiction)).fetchone()[0]
+    assert sig_second == 0

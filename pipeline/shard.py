@@ -22,6 +22,7 @@ sys.path.insert(0, str(ROOT))
 
 from corpus_engine import store  # noqa: E402
 from corpus_engine.domain import load_domain  # noqa: E402
+from corpus_engine.indexer.embed import partition_runs  # noqa: E402
 from corpus_engine.selector.coverage import migrate_coverage  # noqa: E402
 from corpus_engine.selector.engine import plan, shard  # noqa: E402
 from corpus_engine.selector.model import load_selectors  # noqa: E402
@@ -42,10 +43,9 @@ def mixed_embed_runs(conn) -> set[str]:
     shard (Stage 2A) has no notion of per-partition run selection, unlike Stage 2B's engine,
     which fingerprints coverage per partition and handles a mixed embedding state directly
     (see corpus_engine.selector.ports.fingerprint's mixed_embedding_model skip)."""
-    from corpus_engine.indexer.embed import partition_runs
     union: set[str] = set()
-    for runs in partition_runs(conn).values():
-        union |= runs
+    for run_set in partition_runs(conn).values():
+        union |= run_set
     return union
 
 
@@ -74,14 +74,16 @@ def main() -> int:
     sels = load_selectors(domain)
     by_key = {s.key: s for s in sels}
 
-    pl = plan(conn, domain, seeds=seeds, embedder=None, selectors=sels)
+    runs = partition_runs(conn)
+    pl = plan(conn, domain, seeds=seeds, embedder=None, selectors=sels, runs=runs)
 
     embedder = None
     if not args.dry_run and any(by_key[u.key].kind in EMBED_KINDS for u in pl.units):
         embedder = LocalQueryEmbedder(conn)
 
     stamp = _Stamp(args.run_id, time.strftime("%Y-%m-%dT%H:%M:%S"))
-    report = shard(conn, domain, args.run_id, seeds=seeds, embedder=embedder, dry_run=args.dry_run, stamp=stamp)
+    report = shard(conn, domain, args.run_id, seeds=seeds, embedder=embedder, dry_run=args.dry_run, stamp=stamp,
+                   runs=runs)
 
     print(f"{len(sels)} active selectors; {len(pl.units)} plan units; {len(pl.skips)} skips")
     if args.dry_run:
