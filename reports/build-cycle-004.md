@@ -117,11 +117,58 @@ running python process and the expected terminal log line present.)
 - Dedupe pass (self-join warned about in the task instructions) completed
   without incident — no MemoryError, no need for `--skip-dedupe`.
 
-## Pending: hosted embedding (7b)
+## Part B: hosted embedding (7b) � complete 2026-09-03
 
-Step 3 (consistency gate + cost estimate) and Step 4 (hosted Qwen3-4B
-embedding of new partitions, then backfill of the four original states) were
-**not run** in this task, per instructions — they wait for the user's API
-key and explicit spend approval. `reports/handoff-cycle-004.md` item 10
-should be updated to "ingest/FTS/graph done, see reports/build-cycle-004.md;
-hosted embedding pending (7b)" once that follow-on task runs.
+**Gate (Step 3).** Hosted-vs-local consistency check on 1,000 chunks
+(`tools/embed_consistency_check.py --n 1000`): mean cosine 0.9999, p5 0.9999,
+min 0.9998 (bar 0.99) -- PASS. Local side ran the pinned
+`Qwen/Qwen3-Embedding-4B` (rev `5cf2132a`) fp16 on the RTX 5080; hosted side
+`qwen/qwen3-embedding-4b` via OpenRouter (routed to DeepInfra).
+
+**Estimate vs actual.** `tools/estimate_embed_cost.py` (500-case sample):
+1,874,141 cases, ~6.11B tokens, $61.13 at the $0.01/M the research note had
+recorded. The real price is $0.020/M (per-request `usage.cost` and
+DeepInfra's list price), so the run cost roughly double; the user raised the
+ceiling to $65 and then to $130 (ADR-0006 amendments). **Final OpenRouter
+account usage: $112.22**, implying ~5.6B billed tokens (the sample
+over-estimated tokens by ~8%). `embed_runs.tokens_used` holds
+1,716,164,114 -- only the last two legs, which ran the post-review code
+that persists the counter.
+
+**Run.** `pipeline/index.py embed --hosted --confirm --concurrency 8`,
+single full-corpus pass under run key `qwen3-4b-1024-int8` (dim 1024,
+int8 symmetric per-vector, 400-token chunks with 40 overlap, metadata
+prefix). Wall clock 2026-09-02 14:04 to 2026-09-03 22:01 with five
+restarts, all resume-safe (the loop skips cases that already have chunks
+under the run and flushes whole cases per transaction): wrong interpreter
+(no numpy); an uncaught `httpx.ReadTimeout` on the first 16-worker flush;
+a throttling burst that exhausted the 4-attempt retry schedule at 45,000
+cases; and two external kills of the session-managed background task, after
+which the final leg ran as a detached process. Fixes made during the run:
+`--concurrency` with a scaling flush window (debb507), transport-error
+retries with a 300 s read timeout (dc11f68), an ~11-minute retry schedule
+(7f494f3). Throughput: ~12 cases/s at 4 workers, ~16 cases/s (~120
+chunks/s) at 8; 16 workers timed out, i.e. the provider, not local CPU,
+was the limit (the process idled at ~10% of one core). Local fp16 on the
+5080 measured 27.6 chunks/s, so hosted was ~4x faster than the card.
+
+**Verification (read-only, after completion).**
+
+| Check | Result |
+|---|---|
+| Canonical cases (`is_duplicate_of IS NULL`) | 1,874,141 |
+| ... with non-empty `norm_text` (eligible) | 1,874,141 |
+| Chunks under `qwen3-4b-1024-int8` | 14,112,409 |
+| `partition_runs()` | 61 (era, jurisdiction) partitions, every one exactly `{qwen3-4b-1024-int8}` |
+| Chunks under the legacy run `qwen3-0.6b-512-int8` | 392, on 185 cases that are all **duplicates** (184 Pa., 1 La.) marked by the cycle-004 dedupe; inert for search (duplicates are excluded from partitions and selectors) |
+| `embed_runs` | legacy row rev `97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3` / 512d / 1000+150, provider local; new row rev `5cf2132abc99cad020ac570b19d031efec650f2b` / 1024d / 400+40, provider openrouter |
+
+The 392 stale legacy chunks are left in place (removal is a one-line
+`DELETE FROM chunks WHERE embed_run != 'qwen3-4b-1024-int8'`, deferred to
+the user). The legacy revision constant in `corpus_engine/store.py` was
+corrected to the full 40-char sha the live `embed_meta` recorded, since
+`register_run` now compares revisions exactly (8575632).
+
+**Not done here.** English Reports (no CAP source; hand-curated under
+ADR-0008). Query-time local embedding of selector queries with the same
+pinned 4B model is Stage 2B.

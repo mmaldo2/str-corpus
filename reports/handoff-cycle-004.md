@@ -116,12 +116,13 @@ review page publishable as an artifact; reviewer identity recorded.
    walkthrough and a methodology page. Ships before cycle 004 maps.
 9. **Argument-side file** (side task A, unchanged): ~50 federal framing
    cases, separate ledger `data/ledger/argument-file.jsonl`.
-10. **Ingest + index** for cycle 004 + federal tradition set + English
-    Reports; hosted 4B embedding â€” status: hosted/local consistency gate
-    passed (n=1000, mean cosine 0.9999, min 0.9998); full-corpus hosted run
-    launched 2026-09-02, resumed at concurrency 8 after two restarts.
-    Figures (tokens, cost, elapsed) to be written into
-    `reports/build-cycle-004.md` when the run completes.
+10. **Ingest + index** for cycle 004 + federal tradition set — **DONE**
+    2026-09-03: 15,084 zips ingested, FTS rebuilt, citation graph +
+    PageRank backfilled, and the whole corpus embedded under one run
+    (`qwen3-4b-1024-int8`, hosted via OpenRouter; $112.22 total; the
+    legacy 0.6B chunks were replaced). Figures and verification in
+    `reports/build-cycle-004.md`. English Reports not ingested (no CAP
+    source; still a hand-curated item under ADR-0008).
 11. Shard, recall gate, map (user approves budget), review pipeline.
 
 ## Watch-outs (unchanged)

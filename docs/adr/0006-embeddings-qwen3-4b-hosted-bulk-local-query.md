@@ -51,3 +51,19 @@ Before spending, the hosted/local consistency gate this ADR requires was
 run: n=1000, mean cosine 0.9999, p5 0.9999, min 0.9998 -- comfortably above
 the bar for trusting the hosted vectors. The full-corpus hosted run then
 launched as a single pass under the raised $65 ceiling.
+
+## Amendment 2026-09-03 (run complete)
+
+The $0.01/M price the research note called "verified" was wrong: OpenRouter
+routes `qwen/qwen3-embedding-4b` to DeepInfra at $0.020/M tokens (confirmed
+from the per-request `usage.cost` field and DeepInfra's list price during the
+run). At the 200,000-case mark the spend was tracking double the estimate; by
+user decision the credit was topped up and the ceiling raised to $130 to
+finish the single pass. Final spend on the OpenRouter account: $112.22
+(gate, probes, and the full corpus; implies ~5.6B billed tokens against the
+6.11B sampled estimate). Wall clock 2026-09-02 14:04 to 2026-09-03 22:01,
+including five restarts (interpreter, uncaught read timeout, throttling
+burst, and two external kills of the session-managed task; the last leg ran
+detached). Sustained throughput ~120 chunks/s at 8 concurrent requests; the
+provider throttled harder above that. `domains/str-right-to-let/domain.yaml`
+now carries `hosted_usd_per_m_tokens: 0.02`.
