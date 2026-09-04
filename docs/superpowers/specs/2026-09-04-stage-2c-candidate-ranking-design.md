@@ -103,6 +103,13 @@ ADR-0003. The file is committed and never edited; a v2 is a new file.
 in `domain.yaml` (`heldout_sha256`), and refuses to train if any held-out id appears in
 the training ids or if the hash differs.
 
+**Same run for both sides.** Features for training, held-out evaluation, and scoring are
+all computed from the signals of the run being ranked (`run_id`), so the two sides see one
+engine. Labelled reads that carry no signal in that run are dropped from training and
+from the evaluation view (counts reported in the manifest); today 2,832 of the 6,116
+labelled reads carry cycle-004 signals (562 positive, 2,270 negative). The held-out file
+still freezes ids, not features, so a later run re-derives features for the same ids.
+
 **What it measures.** Ranking quality within the pool the old selectors surfaced. It says
 nothing about recall; recall stays with the gold set and `pipeline/eval_recall.py`.
 
