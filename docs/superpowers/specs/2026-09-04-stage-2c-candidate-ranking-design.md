@@ -110,6 +110,22 @@ from the evaluation view (counts reported in the manifest); today 2,832 of the 6
 labelled reads carry cycle-004 signals (562 positive, 2,270 negative). The held-out file
 still freezes ids, not features, so a later run re-derives features for the same ids.
 
+**Amendment, 2026-09-04 (union of runs).** The paragraph above is superseded: features for
+training, held-out evaluation, and scoring are computed from the **union of a case's
+signals across all runs**, not the signals of `run_id` alone. `case_features` takes
+`case_ids` and queries `signals` by case id with no `run_id` filter. The cycle-004 batch
+pool is not self-contained: at re-pack time a live query found 5,606 of the pool's 32,795
+unread cases carry no `cycle-004-shard-01` signal at all, only signals from cycles
+001-003 (the plan's working note put this figure at 2,799; the live count at report time
+was higher, see `reports/ranking-cycle-004.md`). Scoping features to `run_id` would zero
+out every feature for those cases regardless of what an earlier cycle's selectors found.
+On the label side the same widening is required for a different reason: every labelled
+read has signals only from the run it was actually read under (its own cycle), never from
+`cycle-004-shard-01`, so a `run_id`-scoped query would starve training of features
+entirely. The union keeps one feature-computation path for both sides, at the cost of a
+case's features reflecting whichever selectors have ever run over it rather than only the
+current run's.
+
 **What it measures.** Ranking quality within the pool the old selectors surfaced. It says
 nothing about recall; recall stays with the gold set and `pipeline/eval_recall.py`.
 

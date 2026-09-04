@@ -19,6 +19,7 @@ python -m venv .venv                       # Python 3.11
 # STOP: human review of selectors/selectors.yaml before any shard run
 .venv\Scripts\python pipeline\shard.py --run-id <run-id> --dry-run  # plan coverage fingerprint
 .venv\Scripts\python pipeline\shard.py --run-id cycle-001-shard-01
+.venv\Scripts\python pipeline\rank.py --run-id <run> [--ranker <id>]  # re-score + re-pack an existing run's batches
 # Map/Reduce driver: see runs/README (headless claude CLI + codex checker)
 .venv\Scripts\python pipeline\verify_quotes.py --run-id <run>
 .venv\Scripts\python pipeline\eval_recall.py --run-id <run>

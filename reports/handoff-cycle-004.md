@@ -129,7 +129,9 @@ review page publishable as an artifact; reviewer identity recorded.
     1,845 batches / 32,795 cases; recall gate PASS, non-decreasing on every tier;
     see `reports/shard-cycle-004.md`). Map waits on Stage 3 and a budget; the
     report's planner observations (relevance-feedback cap saturates; rank before
-    map) come first.
+    map) come first. Ranked with `classifier:v1` (digest `a489a2dc960adb5b`);
+    the Qwen3 reranker was measured and not shipped; see
+    `reports/ranking-cycle-004.md`; map budget to be chosen per cell.
 
     **Measured cost of a corpus-wide vector selector (2026-09-04, live index,
     read-only `probe()`).** One `probe()` of `embed-householder-letting-21@v2`
