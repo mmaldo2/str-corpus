@@ -68,8 +68,10 @@ review page publishable as an artifact; reviewer identity recorded.
    `pipeline/download.py` now carries the new jurisdictions and the federal
    reporter slugs (`f-cas`, `us`, `dc`).
 2. **Refactor** (ADR-0010) — **Stage 1 done: see
-   docs/superpowers/plans/2026-09-01-refactor-stage-1-foundations.md; Stage 2B done (selector engine, `corpus_engine.selector`; `pipeline/shard.py` and `pipeline/eval_recall.py` are wrappers). Stage
-   2A (citation graph, ingest) and Stage 3 (reader driver,
+   docs/superpowers/plans/2026-09-01-refactor-stage-1-foundations.md.
+   Stage 2A done (citation graph backfill and ingest; see item 6). Stage 2B
+   done (selector engine, `corpus_engine.selector`; `pipeline/shard.py` and
+   `pipeline/eval_recall.py` are wrappers). Only Stage 3 (reader driver,
    verification, review, kit) plans follow.**
 3. **Ledger reconciliation** (ADR-0002): patch log, manifest, two-tier
    counts, null-polarity records resolved, hard-coded corrections moved to
