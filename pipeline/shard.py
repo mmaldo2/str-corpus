@@ -23,6 +23,7 @@ sys.path.insert(0, str(ROOT))
 from corpus_engine import store  # noqa: E402
 from corpus_engine.domain import load_domain  # noqa: E402
 from corpus_engine.indexer.embed import partition_runs  # noqa: E402
+from corpus_engine.ranker import load_ranker  # noqa: E402
 from corpus_engine.selector.coverage import migrate_coverage  # noqa: E402
 from corpus_engine.selector.engine import plan, shard  # noqa: E402
 from corpus_engine.selector.model import load_selectors  # noqa: E402
@@ -55,6 +56,8 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--batches-only", action="store_true")
     ap.add_argument("--exclude-mapped", action="store_true")
+    ap.add_argument("--ranker", default=None)
+    ap.add_argument("--no-rank", action="store_true")
     args = ap.parse_args()
 
     if args.batches_only:
@@ -86,15 +89,19 @@ def main() -> int:
     if not args.dry_run and any(by_key[u.key].kind in EMBED_KINDS for u in pl.units):
         embedder = LocalQueryEmbedder(conn)
 
+    ranker = None if args.dry_run else (None if args.no_rank else load_ranker(domain, conn, args.ranker))
+
     stamp = _Stamp(args.run_id, time.strftime("%Y-%m-%dT%H:%M:%S"))
     report = shard(conn, domain, args.run_id, seeds=seeds, embedder=embedder, dry_run=args.dry_run, stamp=stamp,
-                   runs=runs, plan_=pl)
+                   runs=runs, plan_=pl, ranker=ranker)
 
     print(f"{len(sels)} active selectors; {len(pl.units)} plan units; {len(pl.skips)} skips")
     if args.dry_run:
+        print("ranking: skipped (dry run)")
         print(f"dry run: no writes; {report.cases_batched} cases would batch "
               f"({report.excluded_already_read} already-read excluded)")
     else:
+        print(f"ranker: {ranker.ranker_id if ranker else 'none (legacy order)'}")
         total_signals = sum(report.signals_written.values())
         print(f"{total_signals} new signals")
         print(f"{report.batches_written} batches -> {report.batch_dir}")

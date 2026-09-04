@@ -105,7 +105,7 @@ def plan(conn, domain, *, seeds, embedder=None, selectors: list[Selector] | None
     return ShardPlan("", tuple(units), tuple(skips), digest)
 
 
-def _gold_ids(domain) -> set[int]:
+def gold_ids(domain) -> set[int]:
     out = set(); gp = Path(domain.gold_path)
     if gp.exists():
         for line in gp.read_text(encoding="utf-8").splitlines():
@@ -114,9 +114,12 @@ def _gold_ids(domain) -> set[int]:
     return out
 
 
+_gold_ids = gold_ids
+
+
 def shard(conn, domain, run_id: str, *, seeds, embedder=None, dry_run=False, stamp=None, runs_dir: Path | None = None,
           ledger_dir: Path | None = None, out_dir: Path | None = None, log=print, runs=None,
-          plan_: ShardPlan | None = None, scratch_dir: Path | None = None) -> ShardReport:
+          plan_: ShardPlan | None = None, scratch_dir: Path | None = None, ranker=None) -> ShardReport:
     """Run the planned (selector-version x partition) units and pack the batches.
 
     `plan_` accepts a plan the caller already computed (pipeline/shard.py needs one
@@ -188,7 +191,7 @@ def shard(conn, domain, run_id: str, *, seeds, embedder=None, dry_run=False, sta
         ctx.close()          # free the scratch matrix before batch packing, and on any error
     runs_dir = runs_dir or paths().runs
     exclude, exclude_skipped = _already_read_ids_with_skips(runs_dir, ledger_dir or paths().ledger, log=log)
-    gold = _gold_ids(domain)
+    gold = gold_ids(domain)
     seed_hashes = {}
     for s in sels:
         if "seed_set" in s.params:
@@ -205,12 +208,15 @@ def shard(conn, domain, run_id: str, *, seeds, embedder=None, dry_run=False, sta
                 "matrix_partitions": matrix_partitions, "matrix_rows": matrix_rows,
                 "units_run": len(pl.units) if not dry_run else 0,
                 "skips": [{"selector": f"{k[0]}@v{k[1]}", "reason": r, "partitions": [p.key for p in ps]} for k, ps, r in
-                          ((s.key, s.partitions, s.reason) for s in pl.skips)]}
+                          ((s.key, s.partitions, s.reason) for s in pl.skips)],
+                "ranker": {"ranker_id": ranker.ranker_id, "digest": ranker.digest()} if ranker else None}
     if dry_run:
-        batches = build_batches(conn, run_id, gold_ids=gold, exclude_ids=exclude, batch_size=domain.sharding.batch_size)
+        batches = build_batches(conn, run_id, gold_ids=gold, exclude_ids=exclude, batch_size=domain.sharding.batch_size,
+                                ranker=ranker, ts=ts)
         return ShardReport(pl, written, 0, None, sum(len(b["cases"]) for b in batches), len(exclude), manifest)
     out = out_dir or (runs_dir / run_id / "batches")
-    n = pack_batches(conn, run_id, out, gold_ids=gold, exclude_ids=exclude, batch_size=domain.sharding.batch_size)
+    n = pack_batches(conn, run_id, out, gold_ids=gold, exclude_ids=exclude, batch_size=domain.sharding.batch_size,
+                     ranker=ranker, ts=ts)
     (out.parent / "shard-manifest.json").write_bytes(json.dumps(manifest, indent=1, sort_keys=True).encode("utf-8"))
     cases = sum(len(json.loads(f.read_text(encoding="utf-8"))["cases"]) for f in out.glob("batch-*.json"))
     return ShardReport(pl, written, n, out, cases, len(exclude), manifest)

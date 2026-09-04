@@ -4,12 +4,19 @@ pipeline/shard.py emit_batches; the only change is that gold ids and the
 already-read exclusion set are explicit inputs instead of globals, which
 is what makes the output reproducible (ADR-0009)."""
 from __future__ import annotations
-import json, sqlite3
+import json, sqlite3, time
 from pathlib import Path
 
 
+def persist_rankings(conn: sqlite3.Connection, run_id: str, ranker_id: str, scores: dict[int, float], ts: str) -> None:
+    conn.executemany("INSERT OR REPLACE INTO rankings (run_id, ranker_id, case_id, score, ts) VALUES (?,?,?,?,?)",
+                     [(run_id, ranker_id, cid, float(s), ts) for cid, s in sorted(scores.items())])
+    conn.commit()
+
+
 def build_batches(conn: sqlite3.Connection, run_id: str, *,
-                  gold_ids: set[int], exclude_ids: set[int], batch_size: int = 18) -> list[dict]:
+                  gold_ids: set[int], exclude_ids: set[int], batch_size: int = 18,
+                  ranker=None, ts: str | None = None) -> list[dict]:
     rows = conn.execute(
         """SELECT s.case_id, s.era_partition, s.jurisdiction,
                   s.selector_id, s.selector_version, s.matched_text,
@@ -30,25 +37,44 @@ def build_batches(conn: sqlite3.Connection, run_id: str, *,
         for key in groups:
             groups[key] = [e for e in groups[key] if e["case_id"] not in exclude_ids]
         groups = {k: v for k, v in groups.items() if v}
+    scores: dict[int, float] | None = None
+    if ranker is not None:
+        from corpus_engine.ranker.ports import round6
+        pool = [e["case_id"] for cases in groups.values() for e in cases]
+        scores = {cid: round6(s) for cid, s in ranker.score(conn, run_id, pool).items()}
+        persist_rankings(conn, run_id, ranker.ranker_id, scores, ts or time.strftime("%Y-%m-%dT%H:%M:%S"))
     pending = []
     for (era, jur), cases in sorted(groups.items(), key=lambda kv: str(kv[0])):
-        cases.sort(key=lambda e: (-len({s["selector_id"] for s in e["signals"]}), e["case_id"]))
+        if scores is None:
+            cases.sort(key=lambda e: (-len({s["selector_id"] for s in e["signals"]}), e["case_id"]))
+        else:
+            cases.sort(key=lambda e: (-scores[e["case_id"]], e["case_id"]))
+            for e in cases:
+                e["rank_score"] = scores[e["case_id"]]
         for i in range(0, len(cases), batch_size):
             chunk = cases[i:i + batch_size]
-            pending.append({
-                "era_partition": era, "jurisdiction": jur, "cases": chunk,
-                "_gold": sum(1 for e in chunk if e["case_id"] in gold_ids),
-                "_density": max(len({s["selector_id"] for s in e["signals"]}) for e in chunk)})
-    pending.sort(key=lambda b: (-b["_gold"], -b["_density"]))
+            b = {"era_partition": era, "jurisdiction": jur, "cases": chunk,
+                 "_gold": sum(1 for e in chunk if e["case_id"] in gold_ids),
+                 "_density": max(len({s["selector_id"] for s in e["signals"]}) for e in chunk)}
+            if scores is not None:
+                b["ranker_id"] = ranker.ranker_id
+                b["_mean"] = sum(scores[e["case_id"]] for e in chunk) / len(chunk)
+            pending.append(b)
+    if scores is None:
+        pending.sort(key=lambda b: (-b["_gold"], -b["_density"]))
+    else:
+        pending.sort(key=lambda b: (-b["_gold"], -b["_mean"], f"{b['era_partition']}|{b['jurisdiction']}"))
     for n, batch in enumerate(pending, 1):
-        batch.pop("_gold"), batch.pop("_density")
+        batch.pop("_gold"), batch.pop("_density"), batch.pop("_mean", None)
         batch["batch_id"] = f"{run_id}-batch-{n:03d}"
     return pending
 
 
 def pack_batches(conn: sqlite3.Connection, run_id: str, out_dir: Path, *,
-                 gold_ids: set[int], exclude_ids: set[int], batch_size: int = 18) -> int:
-    batches = build_batches(conn, run_id, gold_ids=gold_ids, exclude_ids=exclude_ids, batch_size=batch_size)
+                 gold_ids: set[int], exclude_ids: set[int], batch_size: int = 18,
+                 ranker=None, ts: str | None = None) -> int:
+    batches = build_batches(conn, run_id, gold_ids=gold_ids, exclude_ids=exclude_ids, batch_size=batch_size,
+                            ranker=ranker, ts=ts)
     out_dir.mkdir(parents=True, exist_ok=True)
     for old in out_dir.glob("batch-*.json"):
         old.unlink()
