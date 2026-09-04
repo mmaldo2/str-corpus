@@ -133,8 +133,10 @@ def shard(conn, domain, run_id: str, *, seeds, embedder=None, dry_run=False, sta
     runs = runs if runs is not None else partition_runs(conn)
     pl = plan_ if plan_ is not None else plan(conn, domain, seeds=seeds, embedder=embedder, selectors=sels, runs=runs)
     pl = ShardPlan(run_id, pl.units, pl.skips, pl.selectors_digest)
-    ctx = EngineContext(conn, domain, embedder, seeds, scratch_dir=scratch_dir)
+    ctx = EngineContext(conn, domain, embedder, seeds, scratch_dir=scratch_dir, log=log)
     written: dict = {}
+    matrix_partitions: list[str] = []
+    matrix_rows = 0
     for sk in pl.skips:
         log(f"SKIP {sk.key[0]}@v{sk.key[1]}: {sk.reason} ({len(sk.partitions)} partitions)")
     try:
@@ -147,7 +149,14 @@ def shard(conn, domain, run_id: str, *, seeds, embedder=None, dry_run=False, sta
             if vec_sels:
                 union = {p.key: p for s in vec_sels for p in _scope_partitions(s)}
                 log(f"building chunk matrix over {len(union)} partitions for {len(vec_sels)} vector units")
-                ctx.matrix_for(list(union.values()))
+                m = ctx.matrix_for(list(union.values()))
+                # ADR-0009 provenance: the union matrix can request partitions with no
+                # matching chunks (an in-scope but empty era x jurisdiction pair); record
+                # only the ones that actually contributed rows, since shape (not the
+                # requested scope) is what the last-ulp cosine difference depends on.
+                present = set(m.part_codes.tolist())
+                matrix_partitions = sorted(k for k, code in m.part_index.items() if code in present)
+                matrix_rows = len(m.chunk_ids)
             for u in pl.units:
                 s = by_key[u.key]
                 try:
@@ -181,6 +190,7 @@ def shard(conn, domain, run_id: str, *, seeds, embedder=None, dry_run=False, sta
                 "seed_hashes": seed_hashes, "batch_size": domain.sharding.batch_size,
                 "exclude_count": len(exclude), "exclude_sha256": hashlib.sha256(",".join(map(str, sorted(exclude))).encode()).hexdigest(),
                 "exclude_skipped_files": exclude_skipped,
+                "matrix_partitions": matrix_partitions, "matrix_rows": matrix_rows,
                 "units_run": len(pl.units) if not dry_run else 0,
                 "skips": [{"selector": f"{k[0]}@v{k[1]}", "reason": r, "partitions": [p.key for p in ps]} for k, ps, r in
                           ((s.key, s.partitions, s.reason) for s in pl.skips)]}
