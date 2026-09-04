@@ -153,6 +153,17 @@ resulting candidates into batches.
 **Batch**:
 A group of candidate cases handed to one reader in one request.
 
+**Candidate pool**:
+The full set of unread, signal-bearing cases a shard produces, before ranking
+or batching. What a ranker scores, and what held-out coverage is measured
+against.
+
+**Ranker**:
+A scoring function over the candidate pool, ordering cases by estimated
+relevance so readers see the most promising cases first within a batch.
+Distinct from a selector: a ranker does not decide which cases enter the
+pool, only how they are ordered once they are in it.
+
 **Citation graph**:
 The record of which cases cite which. Used to reach cases whose vocabulary
 no selector catches.
@@ -228,6 +239,30 @@ The part of the gold set selectors may be tuned against.
 **Held-out set**:
 The part of the gold set never used for tuning. The only honest basis for a
 recall claim.
+
+**Labelled read**:
+A case with a known outcome — relevant or not — usable to train or evaluate
+a ranker. Comes from either a human adjudication or a machine extraction
+verdict; which one it is determines whether it belongs to the reviewed
+view.
+
+**Held-out slice**:
+The frozen sample of labelled reads a ranker is scored against and never
+trained on. Distinct from the held-out set above: a held-out slice is drawn
+from labelled reads, not the gold set, and is pinned by file hash rather
+than by role in a tuning split.
+
+**Reviewed view**:
+The subset of a held-out slice restricted to human-reviewed positives plus
+every negative. Because negatives come from machine extraction verdicts
+rather than human adjudication, the reviewed view is not itself fully
+human-reviewed — only its positives are.
+
+**Ship rule / bar**:
+The pre-registered comparison that decides whether a new ranker replaces
+the current default (the ship rule) or whether an alternative ranker is
+worth the cost of adopting (the bar). Both are fixed before measurement and
+applied regardless of which side wins.
 
 **Recall gate**:
 The rule that a selector change is accepted only if gold-set recall does not
