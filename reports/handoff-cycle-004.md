@@ -132,6 +132,9 @@ review page publishable as an artifact; reviewer identity recorded.
     map) come first. Ranked with `classifier:v1` (digest `a489a2dc960adb5b`);
     the Qwen3 reranker was measured and not shipped; see
     `reports/ranking-cycle-004.md`; map budget to be chosen per cell.
+    A `ranker-heldout-v2` slice must be frozen once cycle-004 reads yield
+    labelled reads in the six new states (Cal., Mass., N.J., Ohio, Conn.,
+    D.C.), and the ship rule re-run against it.
 
     **Measured cost of a corpus-wide vector selector (2026-09-04, live index,
     read-only `probe()`).** One `probe()` of `embed-householder-letting-21@v2`
