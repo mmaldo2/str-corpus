@@ -8,7 +8,7 @@ from corpus_engine.domain import load_domain  # noqa: E402
 from corpus_engine.indexer.embed import EmbedRun, estimate_tokens  # noqa: E402
 from corpus_engine.indexer.embedders import tokenizer_for  # noqa: E402
 
-USD_PER_M = 0.01
+USD_PER_M_FALLBACK = 0.01  # used only when the domain does not state a price
 
 def parse_partitions(s):
     return [tuple(p.split("|")) for p in s.split(",")] if s else None
@@ -25,4 +25,5 @@ if __name__ == "__main__":
     conn = store.connect(); store.migrate(conn)
     cases, tokens = estimate_tokens(conn, tokenizer_for(spec.model, spec.revision), EmbedRun.from_spec(spec, spec.hosted_provider),
                                     partitions=parse_partitions(a.partitions))
-    print(f"{cases} cases, ~{tokens:,} tokens, ~${tokens / 1e6 * USD_PER_M:.2f} at ${USD_PER_M}/M")
+    usd_per_m = spec.hosted_usd_per_m_tokens or USD_PER_M_FALLBACK
+    print(f"{cases} cases, ~{tokens:,} tokens, ~${tokens / 1e6 * usd_per_m:.2f} at ${usd_per_m}/M")
