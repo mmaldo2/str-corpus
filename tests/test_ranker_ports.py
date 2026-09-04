@@ -1,4 +1,5 @@
 import math
+import pytest
 from corpus_engine.domain import load_domain
 from corpus_engine.selector.model import load_selectors
 from corpus_engine.ranker.features import feature_layout
@@ -27,3 +28,18 @@ def test_load_ranker_resolves_null_and_fusion(tmp_path, fixture_db, repo_root):
     conn = make_ranker_db(tmp_path, fixture_db, repo_root); dom = load_domain()
     assert load_ranker(dom, conn, "null").ranker_id == "null"
     assert load_ranker(dom, conn, "fusion").ranker_id == "fusion:v1"
+
+def test_load_ranker_classifier_raises_not_implemented_or_passes_if_exists(tmp_path, fixture_db, repo_root):
+    conn = make_ranker_db(tmp_path, fixture_db, repo_root); dom = load_domain()
+    try:
+        import corpus_engine.ranker.classifier
+        r = load_ranker(dom, conn, "classifier")
+        assert hasattr(r, "ranker_id")
+    except ModuleNotFoundError:
+        with pytest.raises(NotImplementedError, match="classifier ranker is not available yet"):
+            load_ranker(dom, conn, "classifier")
+
+def test_load_ranker_unknown_id_raises_value_error_without_db_access(tmp_path, fixture_db, repo_root):
+    conn = make_ranker_db(tmp_path, fixture_db, repo_root); dom = load_domain()
+    with pytest.raises(ValueError, match="unknown ranker"):
+        load_ranker(dom, conn, "bogus")

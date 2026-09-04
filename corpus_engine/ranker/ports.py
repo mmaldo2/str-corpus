@@ -48,6 +48,8 @@ def load_ranker(domain, conn, ranker_id: str | None):
     from corpus_engine.selector.model import load_selectors
     from corpus_engine.ranker.features import feature_layout
     rid = (ranker_id or domain.ranking.default or "null").split(":")[0]
+    if rid not in {"null", "fusion", "classifier", "reranker"}:
+        raise ValueError(f"unknown ranker {ranker_id!r}")
     if rid == "null":
         return NullRanker()
     layout = feature_layout(domain, load_selectors(domain), _dim(conn))
@@ -55,9 +57,14 @@ def load_ranker(domain, conn, ranker_id: str | None):
         f = domain.ranking.fusion
         return FusionRanker(layout, f["lexical_weight"], f["cosine_weight"])
     if rid == "classifier":
-        from corpus_engine.ranker.classifier import ClassifierRanker   # Task 5
+        try:
+            from corpus_engine.ranker.classifier import ClassifierRanker   # Task 5
+        except ModuleNotFoundError as e:
+            raise NotImplementedError(f"classifier ranker is not available yet (Task 5): {e}") from e
         return ClassifierRanker.from_domain(domain)
     if rid == "reranker":
-        from corpus_engine.ranker.reranker import QwenReranker         # Task 7
+        try:
+            from corpus_engine.ranker.reranker import QwenReranker         # Task 7
+        except ModuleNotFoundError as e:
+            raise NotImplementedError(f"reranker ranker is not available yet (Task 7): {e}") from e
         return QwenReranker.from_domain(domain)
-    raise ValueError(f"unknown ranker {ranker_id!r}")
