@@ -3,11 +3,13 @@ how spend is attributed. Imported by path because tools/ is scripts, not a packa
 import importlib.util
 import inspect
 import json
+import time
 from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
-from corpus_engine.reader.model import Plan, ReadingOutcome, StopReason
+from corpus_engine.reader.model import (Plan, ReadingOutcome, RecordResult, Response,
+                                        StopReason, Unit, UnitResult)
 
 ROOT = Path(__file__).resolve().parent.parent
 _spec = importlib.util.spec_from_file_location("measure_reader", ROOT / "tools" / "measure_reader.py")
@@ -189,26 +191,46 @@ def test_a_subscription_only_invocation_needs_no_openrouter_key():
     assert mr.selected_candidates(dom, only="z-ai/glm-5.3", dry_run=sub["model_id"]) == [sub]
 
 
-def test_the_subscription_unit_cap_scales_with_the_batch_list_it_is_given():
-    """One request per batch plus the two split halves a parse failure falls back to. The
-    winner's 5-case pair is four times as many units as the kit, so a fixed cap would stop
-    it on `budget:units` and call that a result."""
-    assert mr.subscription_unit_cap(23) == 3 * 23 + 3      # the 23-batch kit, halves included
-    assert mr.subscription_unit_cap(92) == 3 * 92 + 3      # the 5-case pair over the same kit
-    assert mr.subscription_unit_cap(1) == mr.SUBSCRIPTION_MAX_UNITS       # the floor binds below it
-    assert mr.subscription_unit_cap(0) == mr.SUBSCRIPTION_MAX_UNITS
+def test_the_process_unit_cap_counts_every_subscription_read_the_process_will_make():
+    """Review finding 1: the cap is a PROCESS budget, so it has to cover both subscription
+    candidates over the kit AND the winner's checks - counted from the batches actually
+    selected, not guessed."""
+    cases = [{"case_id": i} for i in range(1, 19)]
+    batches = [{"batch_id": f"b{n}", "era_partition": "e", "jurisdiction": "j", "cases": cases}
+               for n in range(1, 24)]                       # the 23-batch kit
+    plan = mr.process_unit_cap(2, batches, set(range(1, 19)))
+    assert plan["kit"] == 2 * 23                            # one request per batch per candidate
+    assert plan["batch_size_pair"] == 4 * 23                # 18 cases split into 5s is four units
+    assert plan["stability"] == 2 * 23                      # two reads of the sampled batches
+    assert plan["margin"] == mr.SUBSCRIPTION_UNIT_MARGIN
+    assert plan["total"] == 46 + 92 + 46 + 10
+    # no subscription candidate selected: nothing to budget for
+    assert mr.process_unit_cap(0, batches, set(range(1, 19)))["total"] == 0
 
 
-def _outcome(spend=0.0, wall=2.0):
+def _outcome(spend=0.0, wall=2.0, unpriced=0):
     """A minimal real ReadingOutcome - the dataclasses, not a mock - so score_candidate
-    and the dry-run payload run over the shapes they will see in the field."""
+    and the dry-run payload run over the shapes they will see in the field. `unpriced` is
+    the driver's count of paid-but-unpriced requests, which is exactly how many CLI calls a
+    subscription read made and what the process-wide unit counter draws on."""
     pin = mr.ModelPin("m/x", "fam")
     plan = Plan("batch_extraction", (), "cb", pin, mr.Budget(), "reader")
     return ReadingOutcome(plan, [], [], spend, 0, 0, wall, StopReason("done"),
-                          {"provider_reported": []}, "")
+                          {"provider_reported": [], "unpriced_requests": unpriced}, "")
 
 
-def _strict_fake_run(calls):
+def _ticking_clock(step=100.0):
+    """A deterministic clock that advances `step` seconds on every read, so a shrinking
+    wall-clock budget can be asserted exactly."""
+    t = {"now": 0.0}
+
+    def clock():
+        t["now"] += step
+        return t["now"]
+    return clock
+
+
+def _strict_fake_run(calls, *, unpriced=0):
     """A stand-in for run_candidate with the v2 signature and an assertion on every
     position, so a call site left on the 3A ordering (pin, batches, source, dom, prov,
     budget, cache, log) fails here instead of at $15 a run."""
@@ -221,11 +243,12 @@ def _strict_fake_run(calls):
         assert isinstance(cache, mr.ResponseCache) and callable(log) and isinstance(budget_state, dict)
         calls.append({"pin": pin.label, "provider": provider.name, "budget": budget,
                       "batches": [b["batch_id"] for b in kit_batches]})
-        return _outcome()
+        return _outcome(unpriced=unpriced)
     return fake
 
 
-def _ctx(tmp_path, *, prov=None, before=None, logs=None):
+def _ctx(tmp_path, *, prov=None, before=None, logs=None, sub_units_cap=60,
+         sub_max_wall=mr.SUBSCRIPTION_MAX_WALL_SECONDS, clock=time.time):
     cases = [{"case_id": i} for i in range(1, 19)]
     batches = [{"batch_id": "b1", "era_partition": "1900s", "jurisdiction": "NY", "cases": cases}]
     reference = [{"case_id": 1, "source": "human", "relevant": True, "polarity": "favorable",
@@ -239,6 +262,7 @@ def _ctx(tmp_path, *, prov=None, before=None, logs=None):
                   budget={"remaining": 15.0, "spent": 0.0, "real_spent": 0.0},
                   prior_spend={}, spend_by={}, tracked_by={}, list_cost_by={},
                   ids50=set(range(1, 19)), prov=prov, before=before, ceiling=15.0,
+                  sub_units_cap=sub_units_cap, sub_max_wall=sub_max_wall, clock=clock,
                   log=(logs.append if logs is not None else (lambda *_a, **_k: None)))
 
 
@@ -255,11 +279,11 @@ def test_the_winners_checks_drive_the_subscription_transport_and_never_touch_cre
     /credits read (there is no balance to reconcile and possibly no key at all), no dollar
     ceiling, and a unit cap sized to the batch list each check actually reads."""
     calls, logs = [], []
-    monkeypatch.setattr(mr, "run_candidate", _strict_fake_run(calls))
+    monkeypatch.setattr(mr, "run_candidate", _strict_fake_run(calls, unpriced=5))
     monkeypatch.setattr(mr, "reconcile", lambda *a, **k: pytest.fail("a subscription run reconciled credits"))
     cand = {"model_id": "claude-cli/claude-sonnet-5", "family": "anthropic",
             "provider": "claude-cli", "cli_model": "claude-sonnet-5"}
-    ctx = _ctx(tmp_path, logs=logs)
+    ctx = _ctx(tmp_path, logs=logs, sub_units_cap=60, clock=_ticking_clock())
     sp = tmp_path / "stability" / "mapper-v3.json"
     m = mr.winner_checks(ctx, cand["model_id"], mr.cli_pin(cand),
                          SimpleNamespace(name="claude-cli"), cand, _score(0.86, 0.0, 200),
@@ -268,10 +292,14 @@ def test_the_winners_checks_drive_the_subscription_transport_and_never_touch_cre
     assert [c["batches"] for c in calls] == [["b1-s1", "b1-s2", "b1-s3", "b1-s4"],
                                              ["b1-st1"], ["b1-st2"]]
     assert {c["pin"] for c in calls} == {"claude-cli/claude-sonnet-5@claude-cli:-"}
-    for c, n in zip(calls, (4, 1, 1)):
+    # the three checks share ONE unit counter and ONE deadline, both shrinking as they run
+    assert [c["budget"].max_units for c in calls] == [60, 55, 50]
+    assert ctx.budget["sub_units"] == 15
+    walls = [c["budget"].max_wall_seconds for c in calls]
+    assert walls == sorted(walls, reverse=True) and len(set(walls)) == 3
+    assert all(0 < wsec <= mr.SUBSCRIPTION_MAX_WALL_SECONDS for wsec in walls)
+    for c in calls:
         assert c["budget"].max_usd is None                       # never a dollar ceiling
-        assert c["budget"].max_units == mr.subscription_unit_cap(n)
-        assert c["budget"].max_wall_seconds == mr.SUBSCRIPTION_MAX_WALL_SECONDS
     assert m["batch_size_pair"]["b5"] is not None and m["batch_size_pair"]["b18"]["macro"] == 0.86
     assert set(m["stability"]) == {"relevant", "polarity", "who_was_letting"}
     assert m["stable"] is False and m["stability_stops"] == ["done", "done"]
@@ -310,7 +338,7 @@ def test_a_dry_run_buys_one_batch_writes_the_diagnostics_and_selects_nothing(tmp
     p = tmp_path / "measurement-v2" / "dry-run-claude-cli_claude-sonnet-5.json"
     payload = json.loads(p.read_text(encoding="utf-8"))
     assert payload["provider"] == "claude-cli" and payload["pin"].endswith("@claude-cli:-")
-    assert payload["budget"] == {"max_usd": None, "max_units": mr.subscription_unit_cap(1),
+    assert payload["budget"] == {"max_usd": None, "max_units": 60,
                                  "max_wall_seconds": mr.SUBSCRIPTION_MAX_WALL_SECONDS}
     assert payload["effort"] == "low" and payload["read_timeout_seconds"] == 1500
     assert payload["spend_usd"] == 0.0 and payload["schema_sha"] and "status_counts" in payload
@@ -330,3 +358,234 @@ def test_an_openrouter_dry_run_is_capped_far_below_the_slice_ceiling(tmp_path, m
     assert mr.dry_run([cand], 2, ctx, tmp_path / "measurement-v2") == 0
     assert calls[0]["budget"].max_usd == mr.DRY_RUN_MAX_USD == 2.0
     assert calls[0]["batches"] == ["b1"]                          # the kit here is one batch long
+
+
+# --- fix round 1: the money and window paths the review flagged ---------------------
+
+
+def test_a_second_subscription_candidate_draws_on_the_same_process_ceilings(tmp_path):
+    """Review finding 1. The units and the deadline belong to the PROCESS, not to a read:
+    five subscription reads each handed a fresh 6 h window is a 30 h window nobody typed."""
+    c1 = {"model_id": "claude-cli/claude-sonnet-5", "family": "anthropic",
+          "provider": "claude-cli", "cli_model": "claude-sonnet-5"}
+    c2 = {"model_id": "claude-cli/claude-opus-5", "family": "anthropic",
+          "provider": "claude-cli", "cli_model": "claude-opus-5"}
+    ctx = _ctx(tmp_path, sub_units_cap=25, clock=_ticking_clock(10.0))
+
+    b1 = ctx.budget_for_run(c1, ctx.batches)
+    assert b1.max_units == 25 and b1.max_usd is None
+    ctx.settle(c1, _outcome(unpriced=20))                    # the first candidate used 20
+    b2 = ctx.budget_for_run(c2, ctx.batches)
+    assert b2.max_units == 5                                 # the second gets what is left
+    assert b2.max_wall_seconds < b1.max_wall_seconds         # off one shared deadline
+    ctx.settle(c2, _outcome(unpriced=9))                     # it ran over by four
+    assert ctx.budget["sub_units"] == 29
+    # clamped at zero, never negative: max_units 0 trips check_budget before the next request
+    assert ctx.budget_for_run(c2, ctx.batches).max_units == 0
+
+    # and the window closes the same way
+    past = _ctx(tmp_path, sub_units_cap=25, sub_max_wall=5.0, clock=_ticking_clock(100.0))
+    assert past.budget_for_run(c1, past.batches).max_wall_seconds == 0.0
+
+
+def test_dry_run_batches_requires_a_named_candidate_and_refuses_zero(monkeypatch):
+    """Review finding 2. Two sharp edges on a money flag: a batch count alone used to
+    dry-run every candidate, and `0` - the natural spelling of "buy nothing" - was falsy and
+    fell through to the paid five-candidate field run. Both are refused at parse time, before
+    the domain is even loaded."""
+    monkeypatch.setattr(mr, "load_domain", lambda: pytest.fail("main got past the flag guards"))
+    with pytest.raises(SystemExit) as alone:
+        mr.main(["--dry-run-batches", "3"])
+    assert "names no candidate" in str(alone.value)
+    with pytest.raises(SystemExit) as zero:
+        mr.main(["--dry-run-batches", "0", "--dry-run", "claude-cli/claude-sonnet-5"])
+    assert "buys nothing" in str(zero.value)
+    with pytest.raises(SystemExit) as over:
+        mr.main(["--max-usd", "20"])
+    assert "exceeds this slice's approved OpenRouter ceiling" in str(over.value)
+
+
+def _outcome_scored(spend=0.5, *, cost=None, case_id=1, unpriced=0):
+    """One accepted, fully-judged record, so `score_candidate` returns a real v2 score and
+    the candidate is not thrown out as "no accepted records". `cost=None` on the response is
+    what makes a run unpriced, which is how a subscription read is recognised."""
+    pin = mr.ModelPin("m/x", "fam")
+    unit = Unit("b1", (case_id,), {})
+    plan = Plan("batch_extraction", (unit,), "cb", pin, mr.Budget(), "reader")
+    rec = {"case_id": case_id, "relevant": True, "polarity": "favorable",
+           "who_was_letting": "householder", "extraction_status": "ok",
+           "quotes": [{"text": "q", "supports": ["relevant"]}]}
+    resp = Response("{}", 10, 10, cost, {"provider": "p"}, "stop")
+    ur = UnitResult("b1", "ok", (RecordResult(case_id, rec, "ok", 0, ()),), resp, False)
+    return ReadingOutcome(plan, [ur], [], spend, 10, 10, 3.0, StopReason("done"),
+                          {"provider_reported": ["p"], "unpriced_requests": unpriced}, "")
+
+
+def _main_env(tmp_path, monkeypatch, candidates, *, prior=None):
+    """Drive `main()` over a fake domain, kit and codebook rooted in tmp_path. Issues no
+    request: `provider_for` and `run_candidate` are supplied by each test, and `keys_for` is
+    stubbed because the fake codebook cannot render a prompt. Returns the manifest path."""
+    monkeypatch.setattr(mr, "ROOT", tmp_path)
+    batches = [{"batch_id": "b1", "era_partition": "e", "jurisdiction": "j",
+                "cases": [{"case_id": 1}]}]
+    reference = [{"case_id": 1, "source": "human", "relevant": True, "polarity": "favorable",
+                  "who_was_letting": "householder"}]
+    dom = SimpleNamespace(reader=SimpleNamespace(
+        candidates=tuple(candidates), families={}, codebook="mapper-v3",
+        kit_path="data/reader/kit-v2/kit.json", kit_sha256=None,
+        stability_sample="data/reader/kit-v2/sample-50.json"))
+    kit_dir = tmp_path / "data" / "reader" / "kit-v2"
+    kit_dir.mkdir(parents=True, exist_ok=True)
+    (kit_dir / "kit.json").write_text("{}", encoding="utf-8")
+    (kit_dir / "sample-50.json").write_text("[1]", encoding="utf-8")
+    cb = SimpleNamespace(id="mapper-v3", sha="deadbeef", judged_fields=("polarity",))
+    monkeypatch.setattr(mr, "load_domain", lambda: dom)
+    monkeypatch.setattr(mr, "load_kit", lambda p: (reference, batches,
+                                                   SimpleNamespace(fetch=lambda ids: {})))
+    monkeypatch.setattr(mr, "load_codebook", lambda d, name: cb)
+    monkeypatch.setattr(mr, "stability_path", lambda d, c: tmp_path / "stability" / "mapper-v3.json")
+    monkeypatch.setattr(mr, "keys_for", lambda *a, **k: {"b1": "cachekey"})
+    monkeypatch.setattr(mr, "dry_run", lambda *a, **k: pytest.fail("entered the dry-run path"))
+    out_dir = tmp_path / "data" / "reader" / "measurement-v2"
+    if prior is not None:
+        mr.write_json(out_dir / "manifest.json", prior, indent=1, sort_keys=True)
+    return out_dir / "manifest.json"
+
+
+def _openrouter_env(monkeypatch, credits):
+    """A key, a provider and a credits series - so `reconcile` is the real one and the
+    per-candidate deltas are real arithmetic over the numbers the series returns."""
+    seq = iter(credits)
+    last = {"v": credits[-1]}
+
+    def remaining(prov):
+        last["v"] = next(seq, last["v"])
+        return last["v"]
+    monkeypatch.setattr(mr.store, "env_value", lambda name: "test-key")
+    monkeypatch.setattr(mr, "OpenRouterProvider", lambda key, **kw: SimpleNamespace(name="openrouter"))
+    monkeypatch.setattr(mr, "credits_remaining", remaining)
+
+
+def test_the_manifest_is_written_even_when_the_run_raises_after_a_paid_candidate(tmp_path, monkeypatch):
+    """Review finding 3. The manifest was written once, at the very end, so anything raising
+    after candidates 1..n were bought lost this process's spend - and the NEXT run's
+    `resolve_prior_spend` then under-counts and re-grants a ceiling that was already spent.
+    That is the one failure mode here that can end in real overspend."""
+    cands = [{"model_id": f"m/{n}", "family": "f"} for n in (1, 2, 3)]
+    manifest_path = _main_env(tmp_path, monkeypatch, cands)
+    _openrouter_env(monkeypatch, [100.0, 99.5, 99.0, 98.5])
+    monkeypatch.setattr(mr, "provider_for",
+                        lambda c, p: (SimpleNamespace(name="openrouter"),
+                                      mr.ModelPin(c["model_id"], c["family"]), "fake"))
+    monkeypatch.setattr(mr, "run_candidate", lambda *a, **k: _outcome_scored(0.5, cost=0.5))
+    seen = {"n": 0}
+
+    def blow_up(*a, **k):
+        seen["n"] += 1
+        if seen["n"] == 3:
+            raise RuntimeError("cache-key derivation blew up")
+        return {"b1": "cachekey"}
+    monkeypatch.setattr(mr, "keys_for", blow_up)
+
+    with pytest.raises(RuntimeError):
+        mr.main([])
+    m = json.loads(manifest_path.read_text(encoding="utf-8"))
+    # every candidate that was actually charged for is on record, the third included: its
+    # money was spent before the derivation raised, so losing it is what must not happen
+    assert sorted(m["scores"]) == ["m/1", "m/2", "m/3"]
+    assert m["spend_by_candidate"] == {"m/1": 0.5, "m/2": 0.5, "m/3": 0.5}
+    assert m["spent_usd"] == 1.5 and m["total_task_spend_usd"] == 1.5
+    assert "raised before it finished" in m["incomplete"]
+    assert m["selection"]["winner"] in ("m/1", "m/2", "m/3")          # and it still selected
+
+
+def test_a_candidate_that_raises_while_being_resolved_is_recorded_not_fatal(tmp_path, monkeypatch):
+    """Review finding 3, the other half: `provider_for` sat outside the per-candidate try, so
+    a malformed candidate in domain.yaml (`provider: claude-cli` with no `cli_model`) took the
+    whole measurement with it."""
+    cands = [{"model_id": f"m/{n}", "family": "f"} for n in (1, 2, 3)]
+    manifest_path = _main_env(tmp_path, monkeypatch, cands)
+    _openrouter_env(monkeypatch, [100.0, 99.5, 99.0, 98.9, 98.8, 98.7, 98.6])
+
+    def resolve(cand, prov):
+        if cand["model_id"] == "m/3":
+            raise KeyError("cli_model")
+        return SimpleNamespace(name="openrouter"), mr.ModelPin(cand["model_id"], cand["family"]), "fake"
+    monkeypatch.setattr(mr, "provider_for", resolve)
+    monkeypatch.setattr(mr, "run_candidate", lambda *a, **k: _outcome_scored(0.5, cost=0.5))
+
+    assert mr.main([]) == 0                                          # the run still completes
+    m = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert sorted(m["scores"]) == ["m/1", "m/2"]
+    assert "KeyError" in m["failed"]["m/3"] and "incomplete" not in m
+    assert m["selection"]["winner"] in ("m/1", "m/2")
+
+
+def test_a_subscription_only_run_does_not_erase_an_earlier_openrouter_run_s_money(tmp_path, monkeypatch):
+    """Review finding 6. A run that charged nothing must not write its zero over what an
+    earlier OpenRouter process recorded in the same manifest."""
+    cand = {"model_id": "claude-cli/claude-sonnet-5", "family": "anthropic",
+            "provider": "claude-cli", "cli_model": "claude-sonnet-5"}
+    prior = {"spent_usd": 12.5, "credits_before": 100.0, "credits_after": 87.5,
+             "total_task_spend_usd": 12.5, "scores": {}, "pins": {}}
+    manifest_path = _main_env(tmp_path, monkeypatch, [cand], prior=prior)
+    monkeypatch.setattr(mr.store, "env_value", lambda name: pytest.fail("read the OpenRouter key"))
+    monkeypatch.setattr(mr, "credits_remaining", lambda p: pytest.fail("called /credits"))
+    monkeypatch.setattr(mr, "provider_for",
+                        lambda c, p: (SimpleNamespace(name="claude-cli"), mr.cli_pin(c), "fake cli"))
+    monkeypatch.setattr(mr, "run_candidate", lambda *a, **k: _outcome_scored(0.0, cost=None, unpriced=1))
+
+    assert mr.main([]) == 0
+    m = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert m["spent_usd"] == 12.5 and m["credits_before"] == 100.0 and m["credits_after"] == 87.5
+    assert m["total_task_spend_usd"] == 12.5                 # nothing new was charged
+    assert m["priced_by_candidate"] == {"claude-cli/claude-sonnet-5": False}
+    assert m["spend_by_candidate"]["claude-cli/claude-sonnet-5"] == 0.0
+    assert m["subscription_budget"]["units_used"] >= 1       # the shared counter did move
+
+
+def test_priced_by_candidate_survives_an_only_rerun():
+    """Review finding 4: it was built from this process's scores alone and left out of the
+    merge, so an `--only` re-run left a one-candidate map beside a five-candidate `scores` -
+    the exact class of bug merge_manifest exists to prevent."""
+    assert "priced_by_candidate" in mr.MERGE_BY_CANDIDATE
+    merged = mr.merge_manifest({"priced_by_candidate": {"a/one": True, "b/two": False}},
+                               {"priced_by_candidate": {"b/two": True}})
+    assert merged["priced_by_candidate"] == {"a/one": True, "b/two": True}
+
+
+def test_a_dry_run_records_an_unavailable_candidate_and_still_runs_the_rest(tmp_path, monkeypatch):
+    """Review finding 7: `sys.exit` mid-loop killed the process after earlier candidates had
+    already been bought. The gate now finishes and reports non-zero."""
+    calls = []
+    monkeypatch.setattr(mr, "run_candidate", _strict_fake_run(calls))
+    monkeypatch.setattr(mr.ClaudeCliProvider, "version", lambda self: None)      # cli not on PATH
+    monkeypatch.setattr(mr, "reconcile", lambda *a, **k: 0.0)
+    monkeypatch.setattr(mr, "pin_for",
+                        lambda c, p: (mr.ModelPin(c["model_id"], c["family"],
+                                                  extra={"reasoning": mr.REASONING}), "closed-weight"))
+    bad = {"model_id": "claude-cli/claude-sonnet-5", "family": "anthropic",
+           "provider": "claude-cli", "cli_model": "claude-sonnet-5"}
+    good = {"model_id": "google/gemini-3.7-flash", "family": "google"}
+    ctx = _ctx(tmp_path, prov=SimpleNamespace(name="openrouter"), before=100.0)
+    out_dir = tmp_path / "measurement-v2"
+
+    assert mr.dry_run([bad, good], 1, ctx, out_dir) == 1              # non-zero: one failed
+    assert [c["pin"] for c in calls] == ["google/gemini-3.7-flash@-:-"]
+    assert (out_dir / "dry-run-google_gemini-3.7-flash.json").exists()
+    assert not (out_dir / "dry-run-claude-cli_claude-sonnet-5.json").exists()
+
+
+def test_the_v1_inputs_can_only_be_named_for_the_offline_annotation(monkeypatch):
+    """domain.yaml now names mapper-v3 and kit v2, so re-deriving measurement-v1's records
+    means naming v1's codebook, kit and sample. Those overrides skip the kit sha256 check,
+    so a run that spends must never accept them."""
+    monkeypatch.setattr(mr, "load_domain", lambda: pytest.fail("main got past the override guard"))
+    for flag, value in (("--codebook", "mapper-v2"),
+                        ("--kit-path", "data/reader/kit-v1/kit.json"),
+                        ("--stability-sample", "data/reader/kit-v1/sample-50.json")):
+        with pytest.raises(SystemExit) as exc:
+            mr.main([flag, value])
+        assert "may only be passed with --annotate-only" in str(exc.value)
+    src = (ROOT / "tools" / "measure_reader.py").read_text(encoding="utf-8")
+    assert "sha256 not verified" in src              # and the annotation says so out loud
