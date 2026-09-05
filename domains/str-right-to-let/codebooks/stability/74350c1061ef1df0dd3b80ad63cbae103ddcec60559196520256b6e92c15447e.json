@@ -1,0 +1,5 @@
+{
+  "codebook": "mapper-v1",
+  "grandfathered": true,
+  "note": "cycles 001-003 ran this codebook; stability grandfathered pending the v2 measurement (ADR-0009)"
+}
