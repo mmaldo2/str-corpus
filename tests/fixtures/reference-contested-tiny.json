@@ -1,0 +1,292 @@
+{
+ "generated_from": {
+  "note": "tiny fixture trimmed from the real contested.json"
+ },
+ "method": "A case is contested on a field when at least 3 of the five candidates returned the same non-null post-gate value for that field and that value differs from the kit reference. Per-candidate values are given pre-gate (`model_value`) and post-gate (`gated_value`) with a `gate_nulled` flag. Quotes are verbatim from the cached record, clipped to 600 chars.",
+ "counts": {
+  "human_cases": 2,
+  "contested_cases": 2,
+  "contested_polarity": 2,
+  "contested_who_was_letting": 1,
+  "contested_both": 1
+ },
+ "contested": [
+  {
+   "case_id": 65116,
+   "name": "Morningstar v. Lafayette Hotel Co.",
+   "cite": "211 N.Y. 465",
+   "court": "New York Court of Appeals",
+   "jurisdiction": "N.Y.",
+   "year": 1914,
+   "contested_fields": [
+    "polarity",
+    "who_was_letting"
+   ],
+   "reference": {
+    "relevant": true,
+    "polarity": "mixed",
+    "who_was_letting": "unclear"
+   },
+   "majority": {
+    "polarity": {
+     "majority_value": "favorable",
+     "majority_n": 3,
+     "non_null_n": 5,
+     "reference_value": "mixed"
+    },
+    "who_was_letting": {
+     "majority_value": "commercial_operator",
+     "majority_n": 5,
+     "non_null_n": 5,
+     "reference_value": "unclear"
+    }
+   },
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "polarity": {
+      "model_value": "mixed",
+      "gated_value": "mixed",
+      "gate_nulled": false
+     },
+     "who_was_letting": {
+      "model_value": "commercial_operator",
+      "gated_value": "commercial_operator",
+      "gate_nulled": false
+     },
+     "relevant": true
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "polarity": {
+      "model_value": "favorable",
+      "gated_value": "favorable",
+      "gate_nulled": false
+     },
+     "who_was_letting": {
+      "model_value": "commercial_operator",
+      "gated_value": "commercial_operator",
+      "gate_nulled": false
+     },
+     "relevant": true
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "polarity": {
+      "model_value": "favorable",
+      "gated_value": "favorable",
+      "gate_nulled": false
+     },
+     "who_was_letting": {
+      "model_value": "commercial_operator",
+      "gated_value": "commercial_operator",
+      "gate_nulled": false
+     },
+     "relevant": true
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "polarity": {
+      "model_value": "favorable",
+      "gated_value": "favorable",
+      "gate_nulled": false
+     },
+     "who_was_letting": {
+      "model_value": "commercial_operator",
+      "gated_value": "commercial_operator",
+      "gate_nulled": false
+     },
+     "relevant": true
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "polarity": {
+      "model_value": "irrelevant",
+      "gated_value": "irrelevant",
+      "gate_nulled": false
+     },
+     "who_was_letting": {
+      "model_value": "commercial_operator",
+      "gated_value": "commercial_operator",
+      "gate_nulled": false
+     },
+     "relevant": false
+    }
+   },
+   "evidence_for_majority": {
+    "polarity": [
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "quote": "An innkeeper is not required to entertain a guest who has refused to pay a lawful charge.",
+      "quote_supports": [
+       "polarity"
+      ],
+      "quote_verified": false,
+      "holding_summary": "An innkeeper need not continue serving a guest who has refused to pay a lawful charge. Whether the disputed charge was l"
+     },
+     {
+      "candidate": "z-ai/glm-5.3",
+      "quote": "An innkeeper is not required to entertain a guest who has refused to pay a lawful charge.",
+      "quote_supports": [
+       "polarity"
+      ],
+      "quote_verified": false,
+      "holding_summary": "An innkeeper is not required to entertain a guest who has refused to pay a lawful charge; whether the disputed charge wa"
+     }
+    ],
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "quote": "An innkeeper is not required to entertain a guest who has refused to pay a lawful charge.",
+      "quote_supports": [
+       "characterization"
+      ],
+      "quote_verified": false,
+      "holding_summary": "An innkeeper need not entertain a guest who refuses to pay a lawful charge, and whether the charge was excessive was for"
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "quote": "An innkeeper is not required to entertain a guest who has refused to pay a lawful charge.",
+      "quote_supports": [
+       "polarity"
+      ],
+      "quote_verified": false,
+      "holding_summary": "An innkeeper need not continue serving a guest who has refused to pay a lawful charge. Whether the disputed charge was l"
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "polarity": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "quote": "The plaintiff, if wrongfully ejected from the café, was entitled to recover damages for injury to his feelings as a resu",
+      "quote_supports": [
+       "polarity"
+      ],
+      "quote_verified": false,
+      "holding_summary": "An innkeeper need not entertain a guest who refuses to pay a lawful charge, and whether the charge was excessive was for"
+     }
+    ],
+    "who_was_letting": []
+   }
+  },
+  {
+   "case_id": 452491,
+   "name": "Byrns v. Pierce",
+   "cite": "76 Misc. 176",
+   "court": "New York Supreme Court, Appellate Term",
+   "jurisdiction": "N.Y.",
+   "year": 1912,
+   "contested_fields": [
+    "polarity"
+   ],
+   "reference": {
+    "relevant": true,
+    "polarity": "mixed",
+    "who_was_letting": "unclear"
+   },
+   "majority": {
+    "polarity": {
+     "majority_value": "irrelevant",
+     "majority_n": 4,
+     "non_null_n": 5,
+     "reference_value": "mixed"
+    }
+   },
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "polarity": {
+      "model_value": "irrelevant",
+      "gated_value": "irrelevant",
+      "gate_nulled": false
+     },
+     "who_was_letting": {
+      "model_value": "non_resident_owner",
+      "gated_value": "non_resident_owner",
+      "gate_nulled": false
+     },
+     "relevant": false
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "polarity": {
+      "model_value": "adverse",
+      "gated_value": "adverse",
+      "gate_nulled": false
+     },
+     "who_was_letting": {
+      "model_value": "non_resident_owner",
+      "gated_value": "non_resident_owner",
+      "gate_nulled": false
+     },
+     "relevant": true
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "polarity": {
+      "model_value": "irrelevant",
+      "gated_value": "irrelevant",
+      "gate_nulled": false
+     },
+     "who_was_letting": {
+      "model_value": "unclear",
+      "gated_value": "unclear",
+      "gate_nulled": false
+     },
+     "relevant": false
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "polarity": {
+      "model_value": "irrelevant",
+      "gated_value": "irrelevant",
+      "gate_nulled": false
+     },
+     "who_was_letting": {
+      "model_value": null,
+      "gated_value": null,
+      "gate_nulled": false
+     },
+     "relevant": false
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "polarity": {
+      "model_value": "irrelevant",
+      "gated_value": "irrelevant",
+      "gate_nulled": false
+     },
+     "who_was_letting": {
+      "model_value": "unclear",
+      "gated_value": "unclear",
+      "gate_nulled": false
+     },
+     "relevant": false
+    }
+   },
+   "evidence_for_majority": {
+    "polarity": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "quote": null,
+      "quote_supports": [],
+      "quote_verified": false,
+      "holding_summary": "A tenant of a one-family cottage who vacated before midnight of the last day of the term did not hold over and was not l"
+     },
+     {
+      "candidate": "z-ai/glm-5.3",
+      "quote": null,
+      "quote_supports": [],
+      "quote_verified": false,
+      "holding_summary": "A tenant who vacated a cottage before midnight of the last day of his term was not liable as a holdover for another term"
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "polarity": []
+   }
+  }
+ ],
+ "who_was_letting_unreviewed": []
+}
