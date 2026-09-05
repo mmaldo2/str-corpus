@@ -11,16 +11,11 @@ import json, math, random
 from pathlib import Path
 from corpus_engine.reader.driver import agreement
 from corpus_engine.reader.model import CaseText, ReadingOutcome
-from corpus_engine.reader.schema import POLARITY_VALUES, WHO_VALUES        # noqa: F401 (R3: re-exported)
+from corpus_engine.reader.schema import FLAG_PREFIX, POLARITY_VALUES, WHO_VALUES  # noqa: F401 (R3/D7: re-exported)
 from corpus_engine.reader.sources import InlinedCaseSource
 
 BAR_FIELDS = ("relevant", "polarity", "who_was_letting")
 KIT_SEED = 20260904
-# D6/D7: one prefix constant, spelled the same everywhere a `needs-review:<field>` flag
-# is written (tools/apply_reference_review.py, tools/apply_retraction_cascade.py) or read.
-# KNOWN DUPLICATE (review finding 2): tools/apply_reference_review.py declares this same
-# constant independently; a later wave should share one definition instead of two.
-FLAG_PREFIX = "needs-review:"
 
 
 def load_kit(path: Path):

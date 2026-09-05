@@ -4,6 +4,7 @@ user as basis, and refuse anything it cannot read. Imported by path because tool
 scripts, not a package."""
 import importlib.util
 import json
+import sys
 from pathlib import Path
 
 import pytest
@@ -191,6 +192,47 @@ def test_null_spellings_become_none():
     records = {1: {"polarity": "favorable", "who_was_letting": "unclear", "relevant": True}}
     ps = arr.patches_for([_d(1, "polarity", "set", "null")], records, "u")
     assert ("polarity", None) in [(p.field, p.new) for p in ps if p.op == "set"]
+
+
+def test_run_id_already_applied_reads_the_view_not_the_records():
+    from corpus_engine.ledger.types import Basis, Patch
+    p = Patch(1, "set", "polarity", "adverse", "why", Basis(reviewer="u", run_id="reference-v2"))
+
+    class FakeView:
+        patches = [p]
+    assert arr.run_id_already_applied(FakeView(), "reference-v2") is True
+    assert arr.run_id_already_applied(FakeView(), "reference-v3") is False
+
+
+def test_main_refuses_to_reapply_an_existing_run_id_unless_forced(tmp_path, monkeypatch):
+    """task-7-review finding 1. Re-running an applied page's run id re-emits a fresh
+    review.notes patch for every decision it already made (each note interpolates the
+    field's current value), so main() must refuse it by default."""
+    from corpus_engine.domain import load_domain
+    from corpus_engine.ledger import open_ledger as real_open_ledger
+    from corpus_engine.ledger.types import Basis, Patch
+
+    dom = load_domain()
+    led = real_open_ledger(tmp_path, domain=dom)
+    rec = {"case_id": 65116, "cite": "65116 X", "year": 1900, "relevant": True, "polarity": "favorable",
+           "who_was_letting": "unclear", "quotes": [{"text": "q", "supports": "polarity"}]}
+    admit = Patch(65116, "admit", "", rec, "seed", Basis(model="m", prompt_version="v", run_id="seed"),
+                 cycle="cycle-001")
+    seeded = Patch(65116, "set", "polarity", "favorable", "seed", Basis(reviewer="u", run_id="reference-v2"))
+    led.apply([admit, seeded], note="seed")
+
+    monkeypatch.setattr(arr, "open_ledger",
+                        lambda *a, **kw: real_open_ledger(tmp_path, domain=kw.get("domain") or dom))
+    saved = tmp_path / "saved.html"
+    saved.write_text(saved_page(tmp_path, [_d(65116, "polarity", "adopt", "adverse")]), encoding="utf-8")
+
+    monkeypatch.setattr(sys, "argv", ["apply_reference_review.py", "--saved", str(saved), "--dry-run"])
+    with pytest.raises(SystemExit, match="reference-v2"):
+        arr.main()
+
+    monkeypatch.setattr(sys, "argv",
+                        ["apply_reference_review.py", "--saved", str(saved), "--dry-run", "--force"])
+    assert arr.main() == 0
 
 
 def test_the_users_saved_page_is_readable_and_maps_onto_the_ledger():

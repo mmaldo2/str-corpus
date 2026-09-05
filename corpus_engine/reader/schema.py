@@ -23,6 +23,13 @@ OWNER_FREEDOM_VALUES = ["incident_of_ownership", "regulable_privilege", "commerc
                         "not_addressed", None]
 RESTRICTION_VALUES = ["licensing", "zoning", "nuisance", "tenant_protection", "tax", "other", None]
 REQUIRED_RECORD_FIELDS = ["case_id", "relevant", "polarity", "quotes"]
+# D6/D7: the one place the `needs-review:<field>` flag prefix is spelled, so every module
+# that writes or reads one of these flags (corpus_engine/reader/measure.py,
+# tools/apply_reference_review.py, tools/apply_retraction_cascade.py, tools/build_reader_kit.py,
+# tools/clear_superseded_flags.py) imports it from here instead of declaring its own copy
+# (task-4-review finding 2: measure.py and apply_reference_review.py had drifted into two
+# independent definitions of the same literal).
+FLAG_PREFIX = "needs-review:"
 
 
 def record_schema(codebook: Codebook) -> dict:

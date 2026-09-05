@@ -16,9 +16,16 @@ on it (an earlier `unsure`, or one the retraction cascade wrote when the support
 dropped): the field is not unsure any more, and leaving the flag would keep the case out of
 agreement for a field the user has in fact adjudicated. `adopt` and `set` therefore clear that
 one flag in the same patch set, and only that one - a flag naming a different field, on a
-field this page did not decide, is untouched. Re-running an already-applied page with its
-original run id is the way to emit these for decisions made before this rule existed: every
-patch the page produced before is content-deduped, so only the clearing patches are fresh.
+field this page did not decide, is untouched.
+
+A page applied before this rule existed CANNOT be fixed by re-running it: every `review.notes`
+patch this tool writes interpolates the field's *current* value (`"{field} {old!r} -> {value!r}
+({decision})"`), so a second run over an already-applied page re-emits a fresh note for every
+decision that page made, restating the old value as if it had just changed. The ledger is
+append-only, so those notes cannot be removed afterward. Use `tools/clear_superseded_flags.py`
+instead - it takes its authority from the same saved page but emits only the clearing patches,
+nothing else. This is why `main()` refuses to apply a page under a `--run-id` that already has
+patches in the ledger unless `--force` is passed.
 
 Adopting `irrelevant` on polarity is not a polarity at all (D2): it sets `relevant` false and
 nulls polarity and who_was_letting. It also wins over any value decision the same page carries
@@ -56,12 +63,11 @@ from corpus_engine.domain import Domain, load_domain                # noqa: E402
 from corpus_engine.ledger import LedgerView, open_ledger            # noqa: E402
 from corpus_engine.ledger.fold import apply_patch                   # noqa: E402
 from corpus_engine.ledger.types import Basis, Patch                 # noqa: E402
-from corpus_engine.reader.schema import POLARITY_VALUES, WHO_VALUES  # noqa: E402
+from corpus_engine.reader.schema import FLAG_PREFIX, POLARITY_VALUES, WHO_VALUES  # noqa: E402
 
 STATE_RE = re.compile(r'<script[^>]*id="review-state"[^>]*>(.*?)</script>', re.S)
 DECISIONS = ("keep", "adopt", "set", "unsure")
 IRRELEVANT = "irrelevant"
-FLAG_PREFIX = "needs-review:"
 RUN_ID = "reference-v2"
 NULLS = (None, "null", "")
 # The reader's schema is the vocabulary, not a literal kept in step by hand. `irrelevant` is
@@ -210,6 +216,14 @@ def _view_with(view: LedgerView, patches: Sequence[Patch], judged: Sequence[str]
     return LedgerView(view.name, view.as_of, trial, list(view.patches) + list(patches), view.domain)
 
 
+def run_id_already_applied(view: LedgerView, run_id: str) -> bool:
+    """Whether `view`'s log already carries a patch under this exact run id. Re-applying a
+    run id is refused by default (see the module docstring): every patch this tool writes
+    interpolates the field's current value, so a second run under the same id re-emits a
+    fresh, junk note for every decision the first run already made."""
+    return any(p.basis.run_id == run_id for p in view.patches)
+
+
 def _summary(view: LedgerView) -> str:
     rel, fav = view.counts().total, view.counts(polarity="favorable").total
     return (f"relevant {rel.human_reviewed + rel.machine_only} "
@@ -227,6 +241,11 @@ def main() -> int:
                     help="comma-separated patch order (default: --fields order)")
     ap.add_argument("--run-id", default=RUN_ID,
                     help=f"run id carried in every patch's basis and why (default {RUN_ID})")
+    ap.add_argument("--force", action="store_true",
+                    help="apply even though this --run-id already has patches in the ledger. "
+                         "Re-running an applied page re-emits a fresh review.notes patch for "
+                         "every decision it already made (see the module docstring); normally "
+                         "you want tools/clear_superseded_flags.py instead")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
 
@@ -240,6 +259,11 @@ def main() -> int:
     decisions = read_state(Path(a.saved).read_text(encoding="utf-8"), fields=fields)
     led = open_ledger(domain=dom)
     head = led.view()
+    if not a.force and run_id_already_applied(head, a.run_id):
+        raise SystemExit(f"run-id {a.run_id!r} already has patches in the ledger; re-running "
+                         f"would re-emit a fresh review.notes patch for every decision already "
+                         f"applied under it. Use tools/clear_superseded_flags.py to clear a "
+                         f"stale flag instead, or pass --force to apply anyway.")
     records = head.state.records
     patches = patches_for(decisions, records, dom.reviewer_default,
                           field_order=order, run_id=a.run_id)
