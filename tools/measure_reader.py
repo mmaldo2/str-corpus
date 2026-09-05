@@ -250,7 +250,7 @@ def keys_for(units, cb, pin: ModelPin, source, cache: ResponseCache) -> dict:
     for unit in units:
         for u in (unit, *split_unit(unit)):
             prompt = render_unit(cb, u, source.fetch(u.case_ids), "reader")
-            k = ResponseCache.key(cb.sha, pin, u, prompt)
+            k = ResponseCache.key_v1(cb.sha, pin, u, prompt)
             if (cache.dir / f"{k}.json").exists():
                 found[u.id] = k
     return found
@@ -269,7 +269,7 @@ def accepted_from_cache(cb, pin: ModelPin, units, source, cache: ResponseCache, 
     run scored, and the annotation records whether it did."""
     def cached(u):
         texts = source.fetch(u.case_ids)
-        p = cache.dir / f"{ResponseCache.key(cb.sha, pin, u, render_unit(cb, u, texts, 'reader'))}.json"
+        p = cache.dir / f"{ResponseCache.key_v1(cb.sha, pin, u, render_unit(cb, u, texts, 'reader'))}.json"
         return texts, (json.loads(p.read_text(encoding="utf-8"))["text"] if p.exists() else None)
 
     records = []

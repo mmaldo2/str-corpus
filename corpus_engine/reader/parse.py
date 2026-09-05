@@ -10,8 +10,8 @@ def strip_fences(text: str) -> str:
     t = text.strip()
     if t.startswith("```"):
         t = t.strip("`")
-        i = t.find("[")
-        t = t[i:] if i >= 0 else t
+        starts = [i for i in (t.find("["), t.find("{")) if i >= 0]
+        t = t[min(starts):] if starts else t
     return t.strip()
 
 
@@ -27,21 +27,49 @@ def _as_case_id(v) -> int | None:
         return None
 
 
+def _wrapped(t: str, start: int) -> list | None:
+    """`{"records": [...]}` decoded from `start` - the shape the v3 schema asks for.
+    Not a `records`-shaped object at all is a miss, not a fallback: R1 - a top-level
+    object is accepted only under the `records` key, never scanned for a bare array
+    nested in some other key."""
+    dec = json.JSONDecoder()
+    try:
+        obj, _end = dec.raw_decode(t, start)
+    except json.JSONDecodeError:
+        return None
+    return obj["records"] if isinstance(obj, dict) and isinstance(obj.get("records"), list) else None
+
+
+def _validated(recs, case_ids: Sequence[int], required) -> list[dict] | None:
+    if not all(isinstance(r, dict) for r in recs):
+        return None
+    if not {int(c) for c in case_ids} <= {_as_case_id(r.get("case_id")) for r in recs}:
+        return None
+    if not all(set(required) <= set(r) for r in recs):
+        return None
+    return recs
+
+
 def parse_records(text: str, case_ids: Sequence[int], *, required=REQUIRED) -> list[dict] | None:
     t = strip_fences(text)
+    brace_i, bracket_i = t.find("{"), t.find("[")
+    if brace_i != -1 and (bracket_i == -1 or brace_i < bracket_i):
+        # the first bracket in the text opens an object: that object is the top level,
+        # and only its `records` key is ever consulted (R1) - no fallback to a bare-array
+        # scan, which would otherwise find an array nested under some other key.
+        wrapped = _wrapped(t, brace_i)
+        return _validated(wrapped, case_ids, required) if wrapped is not None else None
     dec = json.JSONDecoder()
     for i in range(len(t)):
         if t[i] == "[":
             try:
-                recs, end = dec.raw_decode(t, i)
-                if isinstance(recs, list) and all(isinstance(r, dict) for r in recs):
-                    if not {int(c) for c in case_ids} <= {_as_case_id(r.get("case_id")) for r in recs}:
-                        return None
-                    if not all(set(required) <= set(r) for r in recs):
-                        return None
-                    return recs
+                recs, _end = dec.raw_decode(t, i)
             except json.JSONDecodeError:
                 continue
+            if isinstance(recs, list):
+                out = _validated(recs, case_ids, required)
+                if out is not None:
+                    return out
     return None
 
 

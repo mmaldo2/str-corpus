@@ -333,16 +333,16 @@ def test_cache_key_composition_is_pinned(tmp_path):
     assert key != ResponseCache.key(sha_a, pin, Unit("u1", (1, 3), {}), "prompt")        # case ids
     assert key != ResponseCache.key(sha_a, pin, unit, "other prompt")                    # rendered prompt
     assert key == ResponseCache.key(sha_a, pin, Unit("u1", (2, 1), {}), "prompt")        # ids are sorted
-    # KNOWN OMISSIONS, ruled a Stage 3B residual because widening the key would orphan the
-    # ~$42 of responses this stage bought (report Concern 4). Both assertions below are
-    # SUPPOSED to fail once 3B widens the key: when they do, invert them here.
-    #  (1) ModelPin.extra - reasoning effort - is not in the key, so two runs at different
-    #      efforts collide;
-    #  (2) Request.max_tokens is not even an argument to key(), so the 16000 -> 64000 move
-    #      would have replayed truncated responses as though they were full ones.
+    # Stage 3B slice 1 closed both omissions from `key`'s signature - not from `pin.extra`
+    # automatically, but by adding `schema_sha`/`max_tokens`/`effort` keyword arguments the
+    # driver now fills from `schema_sha(plan.json_schema)` and `effort_of(pin)`. A caller
+    # that omits them (as this test still does) gets the same key as before the widening,
+    # which is why the assertion below is unchanged: `pin.extra` alone never touched the
+    # key, in 3A or now.
     effort_high = ModelPin("m", "fam", extra={"reasoning": {"effort": "high"}})
     assert ResponseCache.key(sha_a, effort_high, unit, "prompt") == key
-    assert list(inspect.signature(ResponseCache.key).parameters) == ["codebook_sha", "pin", "unit", "prompt"]
+    assert list(inspect.signature(ResponseCache.key).parameters) == [
+        "codebook_sha", "pin", "unit", "prompt", "schema_sha", "max_tokens", "effort"]
 
 
 def test_preflight_refuses_a_store_at_the_wrong_norm_version(repo_root):

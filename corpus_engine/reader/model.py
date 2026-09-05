@@ -32,6 +32,11 @@ class Request:
 class Response:
     text: str; input_tokens: int; output_tokens: int; cost_usd: float | None
     provider_reported: Mapping; finish_reason: str; tool_version: str | None = None
+    # Whatever else the transport reported that no other field has a home for. The
+    # subscription CLI puts `total_cost_usd` here as `list_cost_usd`: it is what the same
+    # call would have cost on the API, not a charge, so it must never reach `cost_usd`
+    # (that would price a subscription candidate and let it win a cost comparison).
+    raw: Mapping = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -59,6 +64,18 @@ class Unit:
 class Plan:
     kind: str; units: tuple[Unit, ...]; codebook_id: str; pin: ModelPin; budget: Budget; worker: str
     checker_pin: ModelPin | None = None; sample_pct: int = 10
+    json_schema: dict | None = None
+    # The tool that built this plan, so `resume_command` can name a program that exists
+    # (Task 8). Empty means "no runner"; the manifest note says so.
+    resume_tool: str = ""
+
+
+def effort_of(pin: ModelPin) -> str:
+    """The reasoning effort a pin asks for, whichever spelling it uses: OpenRouter pins
+    carry `extra["reasoning"]["effort"]`, CLI pins carry `extra["effort"]`."""
+    extra = pin.extra or {}
+    reasoning = extra.get("reasoning") or {}
+    return str(reasoning.get("effort") or extra.get("effort") or "")
 
 
 @dataclass(frozen=True)

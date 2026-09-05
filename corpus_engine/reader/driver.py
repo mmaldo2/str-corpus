@@ -6,33 +6,37 @@ from corpus_engine.reader.cache import ResponseCache
 from corpus_engine.reader.codebook import Codebook, load_codebook, stability_path
 from corpus_engine.reader.gate import gate_unit
 from corpus_engine.reader.model import (Budget, Disagreement, ModelPin, Plan, ReaderError, ReadingOutcome, Request,
-                                        StopReason, Unit, UnitResult, RecordResult)
+                                        StopReason, Unit, UnitResult, RecordResult, effort_of)
 from corpus_engine.reader.parse import parse_records, split_unit
 from corpus_engine.reader.render import render_unit
+from corpus_engine.reader.schema import schema_sha
 
 ENGINE_VERSION = "reader-v1"
 COMPARE_FIELDS = ("relevant", "polarity", "characterization")
 
 
 def plan_batch_extraction(batches, codebook_id: str, pin: ModelPin, budget: Budget, *, worker: str,
-                          checker_pin: ModelPin | None = None, sample_pct: int = 10) -> Plan:
+                          checker_pin: ModelPin | None = None, sample_pct: int = 10,
+                          json_schema: dict | None = None, resume_tool: str = "") -> Plan:
     units = tuple(Unit(b["batch_id"], tuple(int(c["case_id"]) for c in b["cases"]),
                        {"batch_id": b["batch_id"], "era_partition": b["era_partition"], "jurisdiction": b["jurisdiction"],
                         "signals": {int(c["case_id"]): c.get("signals", []) for c in b["cases"]}}) for b in batches)
-    return Plan("batch_extraction", units, codebook_id, pin, budget, worker, checker_pin, sample_pct)
+    return Plan("batch_extraction", units, codebook_id, pin, budget, worker, checker_pin, sample_pct,
+                json_schema, resume_tool)
 
 
-def plan_reread(records, codebook_id, pin, budget, *, worker) -> Plan:
+def plan_reread(records, codebook_id, pin, budget, *, worker, json_schema: dict | None = None) -> Plan:
     units = tuple(Unit(f"reread-{r['case_id']}", (int(r["case_id"]),),
                        {"batch_id": f"reread-{r['case_id']}", "era_partition": r.get("era_partition", "?"),
                         "jurisdiction": r.get("jurisdiction", "?"), "signals": {}}) for r in records)
-    return Plan("reread", units, codebook_id, pin, budget, worker)
+    return Plan("reread", units, codebook_id, pin, budget, worker, json_schema=json_schema)
 
 
-def plan_judgment(case_ids, question: str, codebook_id, pin, budget, *, worker) -> Plan:
+def plan_judgment(case_ids, question: str, codebook_id, pin, budget, *, worker,
+                  json_schema: dict | None = None) -> Plan:
     units = tuple(Unit(f"judge-{c}", (int(c),), {"batch_id": f"judge-{c}", "era_partition": "?", "jurisdiction": "?",
                                                  "signals": {}, "question": question}) for c in case_ids)
-    return Plan("judgment", units, codebook_id, pin, budget, worker)
+    return Plan("judgment", units, codebook_id, pin, budget, worker, json_schema=json_schema)
 
 
 def agreement(a, b, fields) -> dict[str, float]:
@@ -158,11 +162,13 @@ class Reader:
     def _ask(self, plan: Plan, cb: Codebook, unit: Unit, pin: ModelPin, worker: str, provider, state: _ReadState):
         texts = self.cases.fetch(unit.case_ids)
         prompt = render_unit(cb, unit, texts, worker)
-        key = ResponseCache.key(cb.sha, pin, unit, prompt) if self.cache else None
+        req = Request(pin, prompt, json_schema=plan.json_schema)
+        key = (ResponseCache.key(cb.sha, pin, unit, prompt, schema_sha=schema_sha(plan.json_schema),
+                                 max_tokens=req.max_tokens, effort=effort_of(pin)) if self.cache else None)
         resp = self.cache.get(key) if key else None; hit = resp is not None
         if resp is None:
             state.check_budget()                       # before any paid request; a cache hit never trips it
-            resp = provider.complete(Request(pin, prompt))
+            resp = provider.complete(req)
             if key:
                 self.cache.put(key, resp)
             state.record_paid(resp)
