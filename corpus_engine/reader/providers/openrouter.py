@@ -46,10 +46,14 @@ class OpenRouterProvider:
                 time.sleep(delay); continue
             if status == 200 and body.get("choices"):
                 ch = body["choices"][0]; u = body.get("usage") or {}
-                return Response(ch.get("message", {}).get("content") or "", int(u.get("prompt_tokens") or 0),
+                content = ch.get("message", {}).get("content") or ""
+                finish_reason = ch.get("finish_reason") or ""
+                if not content:
+                    raise ReaderError(f"empty completion from {req.pin.model_id} (finish_reason={finish_reason})")
+                return Response(content, int(u.get("prompt_tokens") or 0),
                                 int(u.get("completion_tokens") or 0), (float(u["cost"]) if u.get("cost") is not None else None),
                                 {"provider": body.get("provider"), "model": body.get("model"), "id": body.get("id")},
-                                ch.get("finish_reason") or "")
+                                finish_reason)
             last = f"{status}: {str(body)[:200]}"
             if status == 429 or status >= 500:
                 if delay == 0:

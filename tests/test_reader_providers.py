@@ -16,6 +16,16 @@ def test_scripted_and_cassette_record_and_replay(tmp_path):
     with pytest.raises(ReaderError, match="cassette miss"):
         CassetteProvider(tmp_path).complete(Request(PIN, "never seen"))
 
+def test_cassette_key_varies_with_json_schema(tmp_path):
+    s = ScriptedProvider(["[1]", "[2]"])
+    c = CassetteProvider(tmp_path, fallback=s)
+    plain = Request(PIN, "same prompt")
+    schema = Request(PIN, "same prompt", json_schema={"type": "array"})
+    assert c.complete(plain).text == "[1]" and s.calls == 1
+    assert c.complete(schema).text == "[2]" and s.calls == 2
+    assert len(list(tmp_path.glob("*.json"))) == 2
+    assert c.complete(plain).text == "[1]" and c.complete(schema).text == "[2]" and s.calls == 2
+
 def test_openrouter_sends_pin_and_schema_reads_cost_and_retries():
     sent = []; calls = {"n": 0}
     def transport(url, json_body, headers, timeout):
@@ -35,6 +45,20 @@ def test_openrouter_sends_pin_and_schema_reads_cost_and_retries():
     body2 = []; p2 = OpenRouterProvider("k", transport=lambda u, j, h, t: (body2.append(j) or (200, {"choices": [{"message": {"content": "x"}, "finish_reason": "stop"}], "usage": {}})))
     p2.complete(Request(ModelPin("anthropic/claude-sonnet-5", "anthropic"), "u"))
     assert "provider" not in body2[0] and "response_format" not in body2[0]
+
+def test_openrouter_empty_completion_raises():
+    def transport(url, json_body, headers, timeout):
+        return 200, {"choices": [{"message": {"content": None}, "finish_reason": "stop"}], "usage": {}}
+    p = OpenRouterProvider("k", transport=transport)
+    with pytest.raises(ReaderError, match="empty completion"):
+        p.complete(Request(PIN, "u"))
+
+def test_openrouter_finish_reason_length_with_content_returns_normally():
+    def transport(url, json_body, headers, timeout):
+        return 200, {"choices": [{"message": {"content": "truncated but present"}, "finish_reason": "length"}], "usage": {}}
+    p = OpenRouterProvider("k", transport=transport)
+    r = p.complete(Request(PIN, "u"))
+    assert r.text == "truncated but present" and r.finish_reason == "length"
 
 def test_codex_cli_parses_events_and_records_version():
     class P:  # fake CompletedProcess

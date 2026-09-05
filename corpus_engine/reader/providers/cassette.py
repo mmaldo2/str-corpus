@@ -11,7 +11,9 @@ class CassetteProvider:
         self.dir = Path(dir); self.dir.mkdir(parents=True, exist_ok=True); self.fallback = fallback
     @staticmethod
     def key(req: Request) -> str:
-        return hashlib.sha256(f"{req.pin.label}|{req.system or ''}|{req.user}".encode("utf-8")).hexdigest()
+        schema = json.dumps(req.json_schema, sort_keys=True) if req.json_schema else ""
+        parts = f"{req.pin.label}|{req.system or ''}|{req.user}|{schema}|{req.max_tokens}|{req.temperature}"
+        return hashlib.sha256(parts.encode("utf-8")).hexdigest()
     def complete(self, req: Request) -> Response:
         p = self.dir / f"{self.key(req)}.json"
         if p.exists():
