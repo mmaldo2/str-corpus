@@ -11,6 +11,14 @@ budget, every response cached.
   `59186f4244629570f45436acb052da76df850e22e335c0a2628c464c75321c10`.
 - Manifest: `data/reader/measurement-v1/manifest.json`.
 - Stability record: `domains/str-right-to-let/codebooks/stability/59186f42….json`.
+- Raw responses: `data/reader/cache/` (gitignored — 364 files, ~$38.82 of purchased
+  generations). The manifest records the cache key of every unit behind every score
+  under `cache_keys`, so a score can be traced to the exact responses that produced
+  it; the 33 responses of the superseded Baidu purchase are keyed separately under
+  `superseded_cache_keys`. All 364 files are accounted for
+  (`cache_key_coverage.unaccounted: 0`). Regenerate these records at any time, without
+  spending anything, with `.venv\Scripts\python tools\measure_reader.py
+  --annotate-only`.
 
 ## Result
 
@@ -136,6 +144,38 @@ the checker, and a `mapper-v3` will need its own stability run and its own
 measurement of the winner (the model choice above is measured against `mapper-v2`
 and does not automatically carry).
 
+## The gate rule changed mid-measurement
+
+The crash above was fixed by *relaxing* the acceptance criterion, and that deserves
+stating plainly rather than being filed as a bug fix.
+
+Before `dfd6c06`, each judged field needed its own verified quote: a quote named one
+field in `supports`, and a field with no quote of its own was voided. After it, one
+verified quote may name several fields, and all of them stand. In the limit a single
+verified quote naming all six judged fields leaves nothing voided.
+
+Why the looser rule is the right one: a single passage routinely does establish two
+things at once — "the lodger has no estate, and the landlord may re-enter at will"
+carries both the characterization and the polarity — and forcing the model to quote
+the same sentence twice measures compliance with a formatting convention rather than
+fidelity to the text. The strict alternative (treat a non-string `supports` as
+supporting nothing) would also have fixed the crash, so this was a choice.
+
+What it does **not** do: it cannot admit a quote that fails verification.
+`verify_quote` still runs first and only quotes already kept are consulted for what
+they support. And it cannot inflate quote fidelity, which is `kept / (kept + dropped)`
+over quotes, each counted once however many fields it names.
+
+Effect on the results: **none on the winner, and none on any ranking.** The change was
+made before the final scoring pass, and that pass re-gated every candidate from cache
+under the new rule, so all ten were scored on identical terms. `deepseek-v4-flash`,
+the only candidate observed to emit list-valued `supports`, fell at the fidelity floor
+either way (0.8988 against 0.97). The residual caveat is that the rule was relaxed
+after the field had begun and after seeing one candidate's output, and a looser
+per-field rule can only help a model that reports multi-field support — so the honest
+reading is that this measurement scored under the relaxed rule throughout, not that
+the rule made no difference to anyone.
+
 ## Spend
 
 | | |
@@ -146,9 +186,43 @@ and does not automatically carry).
 | **Total charged for the task** | **$41.78** |
 | OpenRouter credits after the run | $11.00 |
 
-Within the ceiling with $8.22 to spare. The measurement proper breaks down as
-$23.79 spent by the process that was killed mid-run (its work survived in the
-response cache and was not re-bought) and $15.03 by the process that finished.
+Within the ceiling with $8.22 to spare. The `--max-usd 47` flag is not the approved
+ceiling: it is $50 less the first attempt already charged for. The manifest records
+both (`approved_ceiling_usd: 50.0`, `discarded_attempts_usd: 2.85`) so the flag value
+is not mistaken for the envelope. The measurement proper breaks down as $23.79 spent
+by the process that was killed mid-run (its work survived in the response cache and
+was not re-bought) and $15.03 by the process that finished.
+
+**Not all of it is attributable to a candidate.** Summing `spend_by_candidate` gives
+**$36.82 against $38.82 charged — $2.00 (5.2%) attributed to no candidate at all**:
+
+| | |
+| --- | ---: |
+| Attributed to candidates | $36.82 |
+| Superseded purchase: `deepseek-v4-pro` @ Baidu | $1.51 |
+| Residual, localised to the `claude-opus-5` 5-case run | $0.50 |
+| Rounding across the two spend sources | −$0.01 |
+| **Charged** | **$38.82** |
+
+The **superseded purchase** is the provider flip in Concern 3: `deepseek-v4-pro` was
+first bought in full at Baidu, then re-bought at StreamLake when the pin resolved
+differently. Its cost figure in the table above is the StreamLake run only — the
+scored one — which is correct, but it left $1.51 of real money recorded nowhere. The
+manifest now records it as `discarded_spend_by_candidate`, with the 33 superseded
+responses keyed under `superseded_cache_keys` so the discarded money is tied to the
+same evidence as the money that bought a score.
+
+The **residual $0.50** is the whole of the driver-versus-charged gap, and it runs in
+the opposite direction to what one would expect: for the `claude-opus-5` five-case
+run the driver's sum of per-response `usage.cost` came to $9.5623 while the credits
+delta for the same run was $9.0629, i.e. **driver-tracked exceeded what was charged**.
+An earlier draft of this report explained the gap as responses billed but unusable and
+so never recorded — that would push tracked *below* charged and is the wrong sign; it
+has been corrected here and in `reconcile()`'s docstring, which carried the same
+backwards claim. Why the two sources disagree on that run is **unexplained**: no
+per-response billing detail is retained beyond `usage.cost`, so it cannot be settled
+from what was kept. The ceiling was enforced on the credits delta throughout, so the
+discrepancy never affected how much could be spent.
 
 Per-candidate spend is in the manifest under `spend_by_candidate`. Note that
 `anthropic/claude-opus-5` accounts for $9.71 of the candidate spend and a further
@@ -208,14 +282,20 @@ the winner's follow-ups cost more than the other nine candidates combined.
    Because the response cache is keyed on the pin label, a reordering also
    silently invalidates that candidate's cache and re-buys the run. A named
    provider should be recorded per candidate in `domain.yaml` once chosen.
-4. **The response cache key does not include reasoning effort.**
-   `ResponseCache.key` hashes the pin *label*, which is
-   `model_id@provider:precision` — `ModelPin.extra` is not in it. Two runs at
-   different efforts therefore collide in the cache. It did not bite here (the
-   default-effort attempt was discarded with a fresh cache, and every cache entry
-   in this measurement was written after the 2026-09-04 23:12 relaunch at effort
-   `low`), but the next person to change effort without clearing the cache will
-   silently score stale responses. Effort belongs in the key.
+4. **The response cache key distinguishes neither reasoning effort nor
+   `max_tokens`.** `ResponseCache.key` hashes the pin *label*
+   (`model_id@provider:precision`) plus the codebook sha, unit id, case ids and
+   prompt. `ModelPin.extra` is not in it, and neither are the request's generation
+   parameters. Two consequences, both avoided here by hand rather than by the code:
+   two runs at different efforts collide; and `max_tokens` moved 16000 → 64000 in
+   `4f2d9dc`, so had the earlier cache not been cleared, the truncated
+   16000-token responses would have been replayed as though they were 64000-token
+   ones. Neither bit — every cache entry in this measurement was written after the
+   2026-09-04 23:12 relaunch, at effort `low` and `max_tokens` 64000, which the
+   timestamps confirm — but the next person to change either knob without clearing
+   the cache will silently score stale responses. Both belong in the key; the key
+   was deliberately left alone in this round because changing it would orphan the
+   entire purchased cache, and fixing it is Stage 3B's.
 5. **Two defects in our own code had to be fixed mid-measurement**, and both had
    been silently biasing results toward "the model failed":
    - `OpenRouterProvider` posted with a scalar 300 s timeout. `minimax/minimax-m3`
@@ -225,16 +305,27 @@ the winner's follow-ups cost more than the other nine candidates combined.
      unit failed after ~66 minutes having been paid for several times over. The
      read phase now has its own 1500 s ceiling (commit 546c1bf). MiniMax completed
      18 of its 23 units under the 300 s ceiling and the remaining 5 only after the
-     change; its score above is the post-change measurement. Every other candidate
-     completed under 300 s and is unaffected — the change alters whether a long
-     generation finishes, never the content of one that did.
+     change; its score above is the post-change measurement. Which ceiling each
+     candidate generated under is now recorded per candidate in the manifest
+     (`read_timeout_by_candidate`), attributed from that candidate's own cache-file
+     mtimes against the commit: the seven Anthropic/Google/OpenAI/GLM/MiniMax
+     candidates generated wholly or mostly under 300 s, while `deepseek-v4-pro`,
+     `deepseek-v4-flash` and `qwen3.8-27b` generated under 1500 s, and `minimax-m3`
+     (18 units at 300 s, 5 at 1500 s) and `glm-5.3` (24 and 1) straddle the change.
+     Nothing here establishes that the three 1500 s candidates would have finished
+     under 300 s — `deepseek-v4-pro` averaged 184 s a batch over a 4228 s run and its
+     slowest batch is not recorded — so the change is a confound for them, bounded
+     by the fact that it can only alter whether a long generation finishes, never
+     the content of one that did.
    - The quote gate did `supported.add(quote["supports"])`, which raised
      `unhashable type: 'list'` when `deepseek/deepseek-v4-flash` reported one
      passage supporting two fields. `TypeError` is not `ReaderError`, so it
      escaped the driver's per-unit handler and killed the whole candidate; the
      measurement had recorded it as a failed model. A quote may now support
      several fields (commit dfd6c06), and the candidate completed and was
-     eliminated on its own fidelity (0.8988), not on our crash.
+     eliminated on its own fidelity (0.8988), not on our crash. **This is a rule
+     change, not only a crash fix** — see "The gate rule changed mid-measurement"
+     below.
    Both are arguments for running the kit against a cheap candidate end-to-end
    before spending on the field.
 6. **Per-candidate spend is provider-reported, not credits-reconciled.** The
@@ -244,7 +335,16 @@ the winner's follow-ups cost more than the other nine candidates combined.
    the whole measurement is about 3% ($15.03 charged against $15.54 tracked in
    the final process), largely responses that were billed but unusable and so
    never recorded against a candidate.
-7. **Two candidates' scores rest on 193 and 188 records rather than 195.** See
-   the failed units above. Small, but `gemini-3.7-flash`'s seven missing records
-   are 4.5% of the human reference and it finished 0.035 behind the third-place
-   candidate.
+7. **Four candidates' scores rest on fewer than 195 accepted records**, for two
+   different reasons that should not be confused.
+   - *Records that never arrived.* `claude-haiku-4.5` accepted 191 and
+     `gemini-3.7-flash` 188, because each lost one unit to an unparseable response
+     that also failed its split retry (2 and 7 records respectively). Gemini's seven
+     are 4.5% of the human reference, and it finished 0.035 behind the third-place
+     candidate.
+   - *Records that arrived and were not decidable.* `deepseek-v4-pro` accepted 194
+     and `claude-sonnet-5` 193 with **zero** missing records: those records came
+     back and the quote gate voided `relevant`, because the supporting quote failed
+     verification. That is the more interesting failure of the two — it is the gate
+     doing its job, not the transport failing — and it is invisible in the schema
+     compliance column, which counts records returned rather than records decided.

@@ -83,13 +83,16 @@ codebook that changes what is being judged can change which model judges it best
 
 Further decisions this measurement records:
 
-- **The fp8-versus-fp4 quantization pair was replaced by pinning.** Every
-  open-weight candidate is pinned to a named provider serving bf16 or fp8 with
-  fallbacks disabled, so nothing runs at an unrecorded precision and the pair has
-  nothing left to isolate. The pin holds precision but not provider: OpenRouter's
+- **The fp8-versus-fp4 quantization pair was dropped; pinning covers a different
+  risk.** Every open-weight candidate is pinned to a named provider serving bf16 or
+  fp8 with fallbacks disabled, so no candidate ran at an unrecorded precision. That
+  is not the question the pair was pre-registered to answer — whether aggressive
+  quantization degrades reading quality — and **the fp4 comparison is deferred
+  rather than answered.** The pin holds precision but not provider: OpenRouter's
   endpoint list is order-dependent and `deepseek-v4-pro` resolved to Baidu on one
-  run and StreamLake on the next (both fp8). The served provider is therefore a
-  measured output, not an input, and should be frozen per candidate before any
+  run and StreamLake on the next (both fp8), re-buying its whole kit for $1.51
+  because the response cache keys on the pin label. The served provider is therefore
+  a measured output, not an input, and should be frozen per candidate before any
   result is called reproducible.
 - **Two batch-size pairs became one, on the winner only.** At $9-10 a pass, a
   second pair costs more than the finding is worth. Result: no long-context
@@ -101,6 +104,20 @@ Further decisions this measurement records:
   difference between families and truncated at `max_tokens` 16000 (since raised to
   64000, which must also cover billed reasoning tokens). ADR-0007 requires effort
   to be recorded; this is how.
+- **The quote gate's per-field rule was relaxed mid-measurement.** Before
+  `dfd6c06` each judged field needed its own verified quote; now one verified quote
+  may name several fields and all of them stand. The trigger was a crash — a
+  list-valued `supports` raised `TypeError`, which is not `ReaderError`, so it
+  escaped the driver's per-unit handler and killed a whole candidate — but the fix
+  chosen was the looser of two that would have worked. It is the right rule: a
+  single passage routinely establishes both the characterization and the polarity,
+  and making the model quote the same sentence twice measures compliance with a
+  formatting convention rather than fidelity to the text. It cannot admit an
+  unverified quote (`verify_quote` still gates entry) and cannot inflate quote
+  fidelity (each quote is counted once however many fields it names). Every
+  candidate was re-gated under the new rule in the final scoring pass, so all ten
+  were scored on identical terms, and the one candidate observed to emit
+  list-valued `supports` fell at the fidelity floor either way.
 - **Codex remains the checker, invoked through the Codex CLI**, at the user's
   direction. Recorded concern: this is the access route ADR-0007 moved readers
   away from, and whether OpenAI's subscription terms carry an analogue of the
