@@ -1,7 +1,6 @@
 from __future__ import annotations
 import hashlib, time
 from dataclasses import replace
-from pathlib import Path
 from typing import Mapping
 from corpus_engine.reader.cache import ResponseCache
 from corpus_engine.reader.codebook import Codebook, load_codebook, stability_path
@@ -37,6 +36,13 @@ def plan_judgment(case_ids, question: str, codebook_id, pin, budget, *, worker) 
 
 
 def agreement(a, b, fields) -> dict[str, float]:
+    """Per-field agreement over the case ids present in BOTH lists.
+
+    The denominator is the intersection, so a record that never arrived - a failed
+    unit's stub, a case missing from a response - is excluded rather than counted as a
+    disagreement. Agreement therefore measures the reads that happened; how many did
+    not is `schema_compliance` / `missing_records` in `measure.score_candidate`. A
+    caller comparing two runs of different coverage has to read both numbers."""
     ba = {int(r["case_id"]): r for r in a if r.get("case_id") is not None}
     bb = {int(r["case_id"]): r for r in b if r.get("case_id") is not None}
     common = sorted(set(ba) & set(bb)); out = {}
@@ -45,9 +51,30 @@ def agreement(a, b, fields) -> dict[str, float]:
     return out
 
 
-def resume_command(plan: Plan, run_dir: Path | None) -> str:
-    rd = str(run_dir) if run_dir else "runs\\<run>"
-    return f".venv\\Scripts\\python pipeline\\read.py --plan {rd}\\plan.json --resume"
+RESUME_TOOL = "tools\\measure_reader.py"        # the only entry point that builds a plan and calls read()
+
+
+def resume_command(plan: Plan) -> str:
+    """A literal CLI line that re-runs this plan (spec section 5); the response cache
+    makes the units already bought free.
+
+    It has to name a program that exists. The first form named `pipeline/read.py --plan
+    <run>/plan.json --resume`: no such script, no such flag, and nothing ever wrote that
+    plan file, so every outcome carried a line that could not run (I9). Today the only
+    caller that builds a plan and calls `Reader.read` is `tools/measure_reader.py`,
+    whose `--only <model id>` re-reads exactly one candidate's plan and whose budget
+    fails closed (an omitted `--max-usd` reads the prior manifest's spend). Plan kinds
+    with no runner yet - `reread` and `judgment`, both Stage 3B - get no command at all
+    rather than one that cannot run; `manifest["resume"]` says why instead."""
+    if plan.kind == "batch_extraction":
+        return f".venv\\Scripts\\python {RESUME_TOOL} --only {plan.pin.model_id}"
+    return ""
+
+
+def resume_note(plan: Plan) -> str:
+    if plan.kind == "batch_extraction":
+        return f"re-run through {RESUME_TOOL}; units already in the response cache are free"
+    return f"no runner exists yet for a {plan.kind!r} plan (Stage 3B); resume_command is empty by design"
 
 
 def _sampled(unit_id: str, pct: int) -> bool:
@@ -116,9 +143,12 @@ def preflight(plan: Plan, codebook: Codebook, cases, provider, checker, *, store
 
 class Reader:
     def __init__(self, provider, cases, *, checker=None, cache: ResponseCache | None = None, log=print,
-                 sleep=time.sleep, clock=time.time, domain=None, run_dir: Path | None = None, store_norm_version=None):
+                 clock=time.time, domain=None, store_norm_version=None):
+        # No `sleep`: the retry schedules live in the provider adapters, so the driver was
+        # storing a callable it never used (m10). Same for the old `run_dir`, which only fed
+        # the resume line that named a script which does not exist (I9).
         self.provider, self.cases, self.checker, self.cache = provider, cases, checker, cache
-        self.log, self.sleep, self.clock, self.domain, self.run_dir, self.norm = log, sleep, clock, domain, run_dir, store_norm_version
+        self.log, self.clock, self.domain, self.norm = log, clock, domain, store_norm_version
 
     def _codebook(self, plan: Plan) -> Codebook:
         if self.domain is None:
@@ -138,6 +168,16 @@ class Reader:
             state.record_paid(resp)
         return texts, resp, hit
 
+    def _assemble(self, unit: Unit, texts, recs, judged, stub_notes: dict[int, str]):
+        """Gate the cases that came back, stub the rest, and return them in the unit's own
+        case order. `stub_notes` maps a case id to why it has no record."""
+        ok_ids = [c for c in unit.case_ids if c not in stub_notes]
+        results = list(gate_unit(recs, texts, ok_ids, judged, unit.id)) if ok_ids else []
+        results += [_missing_stub(cid, stub_notes[cid]) for cid in unit.case_ids if cid in stub_notes]
+        order = {c: i for i, c in enumerate(unit.case_ids)}
+        results.sort(key=lambda r: order[r.case_id])
+        return tuple(results)
+
     def read(self, plan: Plan) -> ReadingOutcome:
         t0 = self.clock(); cb = self._codebook(plan)
         families = self.domain.reader.families if self.domain is not None else {}
@@ -152,45 +192,54 @@ class Reader:
                 try:
                     texts, resp, hit = self._ask(plan, cb, unit, plan.pin, plan.worker, self.provider, state)
                     recs = parse_records(resp.text, unit.case_ids)
-                    split_failed_ids: set[int] = set()
+                    stub_notes: dict[int, str] = {}
+                    retried = False
                     if recs is None:                                   # split retry, once
-                        recs = []
-                        halves = split_unit(unit)
+                        halves = [h for h in split_unit(unit) if h.case_ids]
+                        if len(halves) < 2:
+                            # A unit of one splits into itself and an EMPTY half, and the driver
+                            # then bought a provider request for no cases at all - which parses
+                            # vacuously and was recorded as a success (I4). plan_reread and
+                            # plan_judgment emit only one-case units, so in 3B that would be one
+                            # wasted request for every re-read whose response would not parse.
+                            stub = tuple(_missing_stub(cid, "unit parse failed") for cid in unit.case_ids)
+                            units.append(UnitResult(unit.id, "parse_failed", stub, resp, hit,
+                                                    "unparseable; a single-case unit is never split"))
+                            self.log(f"{unit.id}: parse failed; one case, not split")
+                            continue
+                        recs = []; retried = True; i = 0
                         try:
                             for i, half in enumerate(halves):
-                                _, r2, h2 = self._ask(plan, cb, half, plan.pin, plan.worker, self.provider, state)
+                                _, r2, _h2 = self._ask(plan, cb, half, plan.pin, plan.worker, self.provider, state)
                                 part = parse_records(r2.text, half.case_ids)
                                 if part is None:
-                                    split_failed_ids.update(half.case_ids)
+                                    for cid in half.case_ids:
+                                        stub_notes[cid] = "parse failed (split half)"
                                 else:
                                     recs.extend(part)
-                        except _BudgetStop:
-                            # a paid half never got a chance to run (budget tripped mid-split): keep whatever
-                            # was already parsed and paid for instead of discarding it (N1).
-                            never_attempted_ids = [c for h in halves[i:] for c in h.case_ids]
-                            ok_ids = [c for c in unit.case_ids if c not in split_failed_ids and c not in never_attempted_ids]
-                            results = list(gate_unit(recs, texts, ok_ids, judged, unit.id)) if ok_ids else []
-                            results += [_missing_stub(cid, "parse failed (split half)")
-                                        for cid in unit.case_ids if cid in split_failed_ids]
-                            results += [_missing_stub(cid, "budget stop before split half")
-                                        for cid in unit.case_ids if cid in never_attempted_ids]
-                            order = {c: idx for idx, c in enumerate(unit.case_ids)}
-                            results.sort(key=lambda r: order[r.case_id])
-                            units.append(UnitResult(unit.id, "partial_parse", tuple(results), resp, hit))
-                            raise
-                        if len(split_failed_ids) == len(unit.case_ids):
-                            stub = tuple(_missing_stub(cid, "unit parse failed") for cid in unit.case_ids)
-                            units.append(UnitResult(unit.id, "parse_failed", stub, resp, hit, "unparseable after split"))
+                        except (_BudgetStop, ReaderError) as exc:
+                            # A half that never ran (budget tripped, N1) or that died on a
+                            # provider error (I2) must not take the other half's paid, parsed
+                            # records with it: what was bought is kept, only the rest is stubbed.
+                            budget = isinstance(exc, _BudgetStop)
+                            note = "budget stop before split half" if budget else "provider error on split half"
+                            for cid in (c for h in halves[i:] for c in h.case_ids):
+                                stub_notes[cid] = note
+                            units.append(UnitResult(unit.id, "partial_parse",
+                                                    self._assemble(unit, texts, recs, judged, stub_notes), resp, hit,
+                                                    "" if budget else str(exc)[:300], retried=True))
+                            if budget:
+                                raise
+                            self.log(f"{unit.id}: split half FAILED {exc}")
                             continue
-                    ok_ids = [c for c in unit.case_ids if c not in split_failed_ids]
-                    results = list(gate_unit(recs, texts, ok_ids, judged, unit.id)) if ok_ids else []
-                    if split_failed_ids:
-                        results += [_missing_stub(cid, "parse failed (split half)")
-                                    for cid in unit.case_ids if cid in split_failed_ids]
-                        order = {c: i for i, c in enumerate(unit.case_ids)}
-                        results.sort(key=lambda r: order[r.case_id])
-                    status = "partial_parse" if split_failed_ids else "ok"
-                    units.append(UnitResult(unit.id, status, tuple(results), resp, hit))
+                        if len(stub_notes) == len(unit.case_ids):
+                            stub = tuple(_missing_stub(cid, "unit parse failed") for cid in unit.case_ids)
+                            units.append(UnitResult(unit.id, "parse_failed", stub, resp, hit, "unparseable after split",
+                                                    retried=True))
+                            continue
+                    results = self._assemble(unit, texts, recs, judged, stub_notes)
+                    status = "partial_parse" if stub_notes else "ok"
+                    units.append(UnitResult(unit.id, status, results, resp, hit, retried=retried))
                     if self.checker is not None and plan.checker_pin is not None and _sampled(unit.id, plan.sample_pct):
                         checker_status, checker_resp = None, None
                         try:
@@ -220,6 +269,9 @@ class Reader:
                             self.log(f"{unit.id}: checker FAILED {exc}")
                             units[-1] = replace(units[-1], checker=checker_status, checker_response=checker_resp)
                             raise
+                        except Exception as exc:                       # noqa: BLE001 - see the unit handler
+                            checker_status = f"failed:{type(exc).__name__}: {exc}"[:120]
+                            self.log(f"{unit.id}: checker FAILED {type(exc).__name__}: {exc}")
                         units[-1] = replace(units[-1], checker=checker_status, checker_response=checker_resp)
                     self.log(f"{unit.id}: {len(results)} records, {sum(r.dropped_quotes for r in results)} quotes dropped"
                              + (" (cache)" if hit else ""))
@@ -229,17 +281,29 @@ class Reader:
                     stub = tuple(_missing_stub(cid, f"unit failed: {exc}") for cid in unit.case_ids)
                     units.append(UnitResult(unit.id, "failed", stub, None, False, str(exc)[:300]))
                     self.log(f"{unit.id}: FAILED {exc}")
+                except Exception as exc:                               # noqa: BLE001 - deliberate
+                    # An unexpected defect costs one unit, never the whole plan and every paid
+                    # response already in it (I1). Not hypothetical: a TypeError raised in
+                    # gate.py on a list-valued `supports` escaped `except ReaderError` during
+                    # the 2026-09-05 measurement and killed a whole candidate, which was then
+                    # recorded as a failed model. The exception type is kept in the status so
+                    # an engine defect is never mistaken for a provider failure.
+                    detail = f"{type(exc).__name__}: {exc}"
+                    stub = tuple(_missing_stub(cid, f"unit failed: {detail}") for cid in unit.case_ids)
+                    units.append(UnitResult(unit.id, "failed", stub, None, False, f"failed:{detail}"[:300]))
+                    self.log(f"{unit.id}: FAILED {detail}")
         manifest = {"engine_version": ENGINE_VERSION, "codebook_id": cb.id, "codebook_sha": cb.sha, "model_pin": plan.pin.label,
                     "checker_pin": plan.checker_pin.label if plan.checker_pin else None, "sample_pct": plan.sample_pct,
                     "provider": getattr(self.provider, "name", "?"),
                     "provider_reported": sorted({str((u.response.provider_reported or {}).get("provider")) for u in units if u.response}),
                     "tool_version": next((u.response.tool_version for u in units if u.response and u.response.tool_version), None),
-                    "worker": plan.worker, "kind": plan.kind,
+                    "worker": plan.worker, "kind": plan.kind, "resume": resume_note(plan),
                     "checker_provider_reported": sorted({str((u.checker_response.provider_reported or {}).get("provider"))
                                                          for u in units if u.checker_response}),
                     "checker_tool_version": next((u.checker_response.tool_version for u in units
                                                   if u.checker_response and u.checker_response.tool_version), None),
                     "checker_unparsed": sum(1 for u in units if u.checker == "unparsed"),
+                    "units_retried_after_split": sum(1 for u in units if u.retried),
                     "unpriced_requests": state.unpriced_requests}
         return ReadingOutcome(plan, units, disagreements, round(state.spend, 6), state.input_tokens, state.output_tokens,
-                              self.clock() - t0, stop, manifest, resume_command(plan, self.run_dir))
+                              self.clock() - t0, stop, manifest, resume_command(plan))

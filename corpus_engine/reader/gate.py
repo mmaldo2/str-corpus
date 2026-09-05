@@ -1,7 +1,10 @@
 """The quote gate runs inside the driver (ADR-0011): nothing unverified leaves it."""
 from __future__ import annotations
+from dataclasses import replace
 from corpus_engine.reader.model import CaseText, RecordResult
 from corpus_engine.verification import verify_quote
+
+DUPLICATE_NOTE = "duplicate records for this case_id in the response; the last one was kept"
 
 
 def _supports(quote: dict) -> tuple[str, ...]:
@@ -44,13 +47,37 @@ def gate_record(rec: dict, case: CaseText, judged_fields) -> RecordResult:
     return RecordResult(int(rec["case_id"]), rec, status, dropped, tuple(nulled))
 
 
+def _index(records: list[dict]) -> tuple[dict, set]:
+    """Last record for a case id wins, as before - but which ids arrived more than once is
+    now recorded rather than silently dropped (m4)."""
+    by_id, dupes = {}, set()
+    for r in records:
+        if not isinstance(r, dict) or r.get("case_id") is None:
+            continue
+        try:
+            cid = int(str(r["case_id"]).strip())
+        except (TypeError, ValueError):
+            continue
+        if cid in by_id:
+            dupes.add(cid)
+        by_id[cid] = r
+    return by_id, dupes
+
+
+def _note(res: RecordResult, note: str) -> RecordResult:
+    rec = dict(res.record)
+    rec["gate_notes"] = f"{rec['gate_notes']}; {note}" if rec.get("gate_notes") else note
+    return replace(res, record=rec)
+
+
 def gate_unit(records: list[dict], texts: list[CaseText], case_ids, judged_fields, unit_id: str) -> tuple[RecordResult, ...]:
-    by_id = {int(r["case_id"]): r for r in records if isinstance(r, dict) and r.get("case_id") is not None}
+    by_id, dupes = _index(records)
     tx = {t.case_id: t for t in texts}; out = []
     for cid in case_ids:
         cid = int(cid)
         if cid in by_id and cid in tx:
-            out.append(gate_record(by_id[cid], tx[cid], judged_fields))
+            res = gate_record(by_id[cid], tx[cid], judged_fields)
+            out.append(_note(res, DUPLICATE_NOTE) if cid in dupes else res)
         else:
             out.append(RecordResult(cid, {"case_id": cid, "relevant": None, "polarity": None, "quotes": [],
                                           "gate_notes": "missing from response", "extraction_status": "missing"}, "missing", 0, ()))

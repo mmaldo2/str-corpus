@@ -1,10 +1,11 @@
-import json, shutil, time
+import inspect, json, shutil
 from corpus_engine import store
 from corpus_engine.domain import load_domain
 from corpus_engine.reader.cache import ResponseCache
 from corpus_engine.reader.codebook import load_codebook
-from corpus_engine.reader.driver import Reader, agreement, plan_batch_extraction, preflight
-from corpus_engine.reader.model import Budget, ModelPin, ReaderError
+from corpus_engine.reader.driver import (Reader, agreement, plan_batch_extraction, plan_judgment, plan_reread,
+                                         preflight, resume_command)
+from corpus_engine.reader.model import Budget, ModelPin, ReaderError, Unit
 from corpus_engine.reader.parse import split_unit
 from corpus_engine.reader.providers.codex_cli import CodexCliProvider
 from corpus_engine.reader.providers.scripted import ScriptedProvider
@@ -38,7 +39,8 @@ def test_read_gates_caches_budgets_and_reports(tmp_path, fixture_db, repo_root):
     assert out.stop.kind == "budget:usd" and len(out.units) == 2 and prov.calls == 2 and out.spend_usd == 1.0
     recs = out.records
     assert recs and all(r["holding_summary"] is None for r in recs) and all(r["polarity"] == "favorable" for r in recs)
-    assert all(r["extraction_status"] == "partial" for r in recs) and out.resume_command.endswith("--resume")
+    assert all(r["extraction_status"] == "partial" for r in recs)
+    assert out.resume_command == f".venv\\Scripts\\python tools\\measure_reader.py --only {PIN.model_id}"
     assert out.manifest["codebook_sha"] and out.manifest["model_pin"] == PIN.label
     out2 = Reader(prov, StoreCaseSource(conn), cache=cache, log=lambda *_: None, domain=dom).read(plan)   # resume: cached units are free
     assert prov.calls == 3 and out2.stop.kind == "done" and len(out2.units) == 3 and sum(u.cache_hit for u in out2.units) == 2
@@ -108,6 +110,7 @@ def test_split_retry_both_halves_parse(tmp_path, fixture_db, repo_root):
     u = out.units[0]
     assert u.status == "ok" and len(u.records) == len(plan.units[0].case_ids)
     assert all(r.gate_status != "missing" for r in u.records)
+    assert u.retried and out.manifest["units_retried_after_split"] == 1   # "ok", but it took two asks (m5)
 
 
 def test_split_retry_second_half_garbage(tmp_path, fixture_db, repo_root):
@@ -217,3 +220,140 @@ def test_budget_trips_exactly_at_checker_ask(tmp_path, fixture_db, repo_root):
     u = out.units[0]
     assert u.status == "ok" and u.checker == "failed:budget"
     assert checker.calls == 0
+
+
+def test_a_non_reader_exception_costs_one_unit_not_the_whole_read(tmp_path, fixture_db, repo_root):
+    """I1. The unit loop caught only _BudgetStop and ReaderError, so any other exception
+    escaped read() and took every paid response with it. That is how a TypeError in the
+    gate killed a whole candidate mid-measurement and had it recorded as a failed model."""
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
+    ans = _answer(conn); calls = {"n": 0}
+    def f(req):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            raise TypeError("unhashable type: 'list'")      # not a ReaderError
+        return ans(req)
+    prov = ScriptedProvider(f)
+    plan = plan_batch_extraction(_batches(repo_root, 3), "mapper-v1", PIN, Budget(), worker="claude")
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    assert out.stop.kind == "done" and len(out.units) == 3
+    bad = out.units[0]
+    assert bad.status == "failed" and bad.error.startswith("failed:TypeError: unhashable type")
+    assert len(bad.records) == len(plan.units[0].case_ids)
+    assert all(r.gate_status == "missing" and r.record["gate_notes"].startswith("unit failed: TypeError")
+               for r in bad.records)
+    assert [u.status for u in out.units[1:]] == ["ok", "ok"]          # the rest of the plan still ran
+
+
+def test_a_malformed_cache_entry_costs_one_unit_not_the_whole_read(tmp_path, fixture_db, repo_root):
+    """I1, the live instance of it: ResponseCache.get did Response(**json.loads(...)), so
+    one truncated cache file raised TypeError/JSONDecodeError out of _ask and ended the run."""
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
+    cache = ResponseCache(tmp_path / "cache")
+    plan = plan_batch_extraction(_batches(repo_root, 3), "mapper-v1", PIN, Budget(), worker="claude")
+    src = StoreCaseSource(conn)
+    Reader(ScriptedProvider(_answer(conn)), src, cache=cache, log=lambda *_: None, domain=dom).read(plan)
+    sorted(cache.dir.glob("*.json"))[0].write_text('{"text": "truncated', encoding="utf-8")
+    prov = ScriptedProvider(_answer(conn))
+    out = Reader(prov, src, cache=cache, log=lambda *_: None, domain=dom).read(plan)
+    assert out.stop.kind == "done" and len(out.units) == 3
+    failed = [u for u in out.units if u.status == "failed"]
+    assert len(failed) == 1 and "malformed cache entry" in failed[0].error
+    assert sum(1 for u in out.units if u.cache_hit) == 2 and prov.calls == 0
+
+
+def test_provider_error_on_a_split_half_keeps_the_half_already_paid_for(tmp_path, fixture_db, repo_root):
+    """I2. The budget-stop path was fixed to preserve the first half's parsed records; the
+    provider-error path still stubbed every case in the unit, discarding a bought response."""
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
+    ans = _answer(conn); calls = {"n": 0}
+    def f(req):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return "not json at all"                        # forces the split
+        if calls["n"] == 2:
+            return ans(req)                                 # first half: bought, parsed, real
+        raise ReaderError("provider gave up on the second half")
+    prov = ScriptedProvider(f)
+    plan = plan_batch_extraction(_batches(repo_root, 2), "mapper-v1", PIN, Budget(), worker="claude")
+    unit = plan.units[0]; first_half, second_half = split_unit(unit)
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    assert out.stop.kind == "done" and len(out.units) == 2      # the read continues to the next unit
+    u = out.units[0]
+    assert u.status == "partial_parse" and u.retried and "gave up on the second half" in u.error
+    real = [r for r in u.records if r.case_id in set(first_half.case_ids)]
+    stubs = [r for r in u.records if r.case_id in set(second_half.case_ids)]
+    assert len(real) == len(first_half.case_ids) and len(stubs) == len(second_half.case_ids)
+    assert all(r.gate_status != "missing" and r.record.get("polarity") == "favorable" for r in real)
+    assert all(r.record["gate_notes"] == "provider error on split half" for r in stubs)
+    assert [r.case_id for r in u.records] == list(unit.case_ids)
+
+
+def test_a_one_case_unit_is_never_split_into_an_empty_half(tmp_path, fixture_db, repo_root):
+    """I4. split_unit((1,)) yields ((1,), ()), and the driver then bought a request for the
+    empty half: no cases rendered, and parse_records over no ids succeeds vacuously, so the
+    nothing came back as a success. plan_reread and plan_judgment emit only one-case units."""
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
+    cid = conn.execute("SELECT case_id FROM cases ORDER BY case_id LIMIT 1").fetchone()[0]
+    prov = ScriptedProvider(lambda req: "not json at all")
+    plan = plan_reread([{"case_id": cid, "era_partition": "e", "jurisdiction": "j"}],
+                       "mapper-v1", PIN, Budget(), worker="claude")
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    assert prov.calls == 1                                   # the primary ask only; no empty half bought
+    u = out.units[0]
+    assert u.status == "parse_failed" and not u.retried and "never split" in u.error
+    assert [r.case_id for r in u.records] == [cid] and u.records[0].gate_status == "missing"
+
+
+def test_resume_command_names_a_program_that_exists(repo_root):
+    """I9. Every outcome used to carry `pipeline\\read.py --plan <run>\\plan.json --resume`:
+    no such script, no such flag, and nothing ever wrote that plan file."""
+    plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(), worker="claude")
+    cmd = resume_command(plan)
+    program = cmd.split()[1]
+    assert (repo_root / program.replace("\\", "/")).exists(), cmd
+    assert f"--only {PIN.model_id}" in cmd
+    assert "--only" in (repo_root / "tools" / "measure_reader.py").read_text(encoding="utf-8")
+    # a plan kind with no runner yet gets no line at all rather than one that cannot run
+    judge = plan_judgment([1], "Did the court reach the merits?", "mapper-v1", PIN, Budget(), worker="claude")
+    assert resume_command(judge) == ""
+
+
+def test_cache_key_composition_is_pinned(tmp_path):
+    """I11. Spec section 8 asks for a test that the key changes when the codebook changes;
+    there was none, in either direction, which is how the omissions below went unnoticed."""
+    sha_a, sha_b = "a" * 64, "b" * 64
+    pin = ModelPin("m", "fam")
+    unit = Unit("u1", (1, 2), {"batch_id": "u1"})
+    key = ResponseCache.key(sha_a, pin, unit, "prompt")
+    assert key != ResponseCache.key(sha_b, pin, unit, "prompt")                          # codebook sha
+    assert key != ResponseCache.key(sha_a, ModelPin("m2", "fam"), unit, "prompt")        # model id
+    assert key != ResponseCache.key(sha_a, ModelPin("m", "fam", "prov", "fp8"), unit, "prompt")   # pin label
+    assert key != ResponseCache.key(sha_a, pin, Unit("u2", (1, 2), {}), "prompt")        # unit id
+    assert key != ResponseCache.key(sha_a, pin, Unit("u1", (1, 3), {}), "prompt")        # case ids
+    assert key != ResponseCache.key(sha_a, pin, unit, "other prompt")                    # rendered prompt
+    assert key == ResponseCache.key(sha_a, pin, Unit("u1", (2, 1), {}), "prompt")        # ids are sorted
+    # KNOWN OMISSIONS, ruled a Stage 3B residual because widening the key would orphan the
+    # ~$42 of responses this stage bought (report Concern 4). Both assertions below are
+    # SUPPOSED to fail once 3B widens the key: when they do, invert them here.
+    #  (1) ModelPin.extra - reasoning effort - is not in the key, so two runs at different
+    #      efforts collide;
+    #  (2) Request.max_tokens is not even an argument to key(), so the 16000 -> 64000 move
+    #      would have replayed truncated responses as though they were full ones.
+    effort_high = ModelPin("m", "fam", extra={"reasoning": {"effort": "high"}})
+    assert ResponseCache.key(sha_a, effort_high, unit, "prompt") == key
+    assert list(inspect.signature(ResponseCache.key).parameters) == ["codebook_sha", "pin", "unit", "prompt"]
+
+
+def test_preflight_refuses_a_store_at_the_wrong_norm_version(repo_root):
+    """The check exists but was never exercised, and its only real caller left it unarmed
+    (I10). mapper-v2 is the codebook that carries the `validated_norm_version` header."""
+    dom = load_domain(); cb = load_codebook(dom, "mapper-v2")
+    plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v2", PIN, Budget(), worker="claude")
+    prov = ScriptedProvider(["[]"])
+    assert cb.validated_norm_version == "v1"
+    s = preflight(plan, cb, None, prov, None, store_norm_version="v2", families={})
+    assert s is not None and s.kind == "preflight:norm_version" and "v1 != v2" in s.detail
+    assert preflight(plan, cb, None, prov, None, store_norm_version="v1", families={}) is None
+    # unpassed, the check short-circuits - which is exactly what the tool used to do
+    assert preflight(plan, cb, None, prov, None, store_norm_version=None, families={}) is None

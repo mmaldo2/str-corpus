@@ -11,6 +11,13 @@ def render_unit(codebook: Codebook, unit: Unit, texts: list[CaseText], worker: s
     parts = [text]
     parts.append(f"\n\n# Batch {unit.meta['batch_id']} ({unit.meta['era_partition']} x {unit.meta['jurisdiction']})\n"
                  f'Set "worker": "{worker}" and "batch_id": "{unit.meta["batch_id"]}" on every record.\n')
+    # A judgment unit (plan_judgment) carries the question it exists to ask. It used to be
+    # put in Unit.meta and never rendered, so the model was paid to answer a question it
+    # was never shown (I3). It goes directly after the batch header, before the cases;
+    # batch-extraction units carry no question, so the mapper-v1 goldens are unchanged.
+    question = unit.meta.get("question")
+    if question:
+        parts.append(f"\n## Question\n{question}\n")
     signals = unit.meta.get("signals", {})
     for t in texts:
         sig_lines = "\n".join(f"  - {s['selector_id']} v{s['selector_version']}: ...{(s.get('matched_text') or '')[:160]}..."

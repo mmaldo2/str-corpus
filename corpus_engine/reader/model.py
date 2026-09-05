@@ -68,8 +68,11 @@ class RecordResult:
 
 @dataclass(frozen=True)
 class UnitResult:
+    # `retried` marks a unit whose first response would not parse and that only came back
+    # after the split retry. Its status is still "ok" - the records are as good as any
+    # other - but 3B's review queue wants to know which cases needed a second ask (m5).
     unit_id: str; status: str; records: tuple[RecordResult, ...]; response: Response | None; cache_hit: bool; error: str = ""
-    checker: str | None = None; checker_response: Response | None = None
+    checker: str | None = None; checker_response: Response | None = None; retried: bool = False
 
 
 @dataclass(frozen=True)

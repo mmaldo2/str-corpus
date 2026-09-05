@@ -15,6 +15,18 @@ def strip_fences(text: str) -> str:
     return t.strip()
 
 
+def _as_case_id(v) -> int | None:
+    """A model that writes `"case_id": "948154"` has answered for the case. Comparing the
+    raw values made that a coverage miss, which cost a split retry before the unit was
+    written off (m3). Anything that is not an integer spelling is still not a case id."""
+    if isinstance(v, bool) or v is None:
+        return None
+    try:
+        return int(str(v).strip())
+    except (TypeError, ValueError):
+        return None
+
+
 def parse_records(text: str, case_ids: Sequence[int], *, required=REQUIRED) -> list[dict] | None:
     t = strip_fences(text)
     dec = json.JSONDecoder()
@@ -23,7 +35,7 @@ def parse_records(text: str, case_ids: Sequence[int], *, required=REQUIRED) -> l
             try:
                 recs, end = dec.raw_decode(t, i)
                 if isinstance(recs, list) and all(isinstance(r, dict) for r in recs):
-                    if not {int(c) for c in case_ids} <= {r.get("case_id") for r in recs}:
+                    if not {int(c) for c in case_ids} <= {_as_case_id(r.get("case_id")) for r in recs}:
                         return None
                     if not all(set(required) <= set(r) for r in recs):
                         return None

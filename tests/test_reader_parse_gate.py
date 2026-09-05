@@ -1,6 +1,6 @@
 import shutil
 from corpus_engine import store
-from corpus_engine.reader.gate import gate_record, gate_unit
+from corpus_engine.reader.gate import DUPLICATE_NOTE, gate_record, gate_unit
 from corpus_engine.reader.model import Unit
 from corpus_engine.reader.parse import parse_records, split_unit, strip_fences
 from corpus_engine.reader.sources import StoreCaseSource
@@ -67,3 +67,30 @@ def test_gate_accepts_a_quote_supporting_several_fields(tmp_path, fixture_db):
     bad = gate_record({"case_id": cid, "relevant": True, "polarity": "favorable",
                        "quotes": [{"text": exact, "supports": [None, 7]}]}, t, J)
     assert bad.record["polarity"] is None
+
+
+def test_parse_accepts_a_case_id_the_model_wrote_as_a_string():
+    """m3. Coverage was checked against the raw values, so `"case_id": "1"` read as an
+    unaccounted case: the unit was declared unparseable and burned a paid split retry
+    before being written off, over a record that had in fact come back."""
+    recs = '[{"case_id": "1", "relevant": true, "polarity": "favorable", "quotes": []}, {"case_id": 2, "relevant": false, "polarity": "irrelevant", "quotes": []}]'
+    got = parse_records(recs, [1, 2])
+    assert got is not None and len(got) == 2
+    # a value that is not an integer spelling is still not a case id
+    assert parse_records('[{"case_id": "one", "relevant": true, "polarity": "x", "quotes": []}]', [1]) is None
+
+
+def test_gate_notes_a_duplicated_case_id_instead_of_dropping_it_silently(tmp_path, fixture_db):
+    """m4. Two records for one case id: the last still wins, but the response is no longer
+    reported as if only one had arrived."""
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p)
+    cid = conn.execute("SELECT case_id FROM cases WHERE length(norm_text) > 2000 ORDER BY case_id LIMIT 1").fetchone()[0]
+    t = StoreCaseSource(conn).fetch([cid])[0]
+    exact = t.raw_text[500:620]
+    first = {"case_id": cid, "relevant": True, "polarity": "favorable", "quotes": [{"text": exact, "supports": "polarity"}]}
+    second = {**first, "polarity": "adverse"}
+    out = gate_unit([first, second], [t], (cid,), J, "u")
+    assert len(out) == 1 and out[0].record["polarity"] == "adverse"          # last wins, as before
+    assert DUPLICATE_NOTE in out[0].record["gate_notes"]
+    clean = gate_unit([first], [t], (cid,), J, "u")
+    assert "gate_notes" not in clean[0].record or DUPLICATE_NOTE not in (clean[0].record.get("gate_notes") or "")

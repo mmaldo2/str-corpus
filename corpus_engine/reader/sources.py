@@ -17,7 +17,8 @@ class StoreCaseSource:
                                       json.loads(r[8]) if r[8] else [])
         missing = [c for c in ids if c not in rows]
         if missing:
-            raise ReaderError(f"cases not in store: {missing[:5]}")
+            raise ReaderError(f"{len(missing)} of {len(ids)} cases not in store: {missing[:5]}"
+                              + (f" (+{len(missing) - 5} more)" if len(missing) > 5 else ""))
         return [rows[c] for c in ids]
 
 
@@ -27,5 +28,6 @@ class InlinedCaseSource:
     def fetch(self, case_ids: Sequence[int]) -> list[CaseText]:
         missing = [c for c in case_ids if int(c) not in self.cases]
         if missing:
-            raise ReaderError(f"cases not inlined: {missing[:5]}")
+            raise ReaderError(f"{len(missing)} of {len(case_ids)} cases not inlined: {missing[:5]}"
+                              + (f" (+{len(missing) - 5} more)" if len(missing) > 5 else ""))
         return [self.cases[int(c)] for c in case_ids]

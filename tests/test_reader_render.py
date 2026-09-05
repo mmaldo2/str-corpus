@@ -3,7 +3,8 @@ from pathlib import Path
 from corpus_engine import store
 from corpus_engine.domain import load_domain
 from corpus_engine.reader.codebook import load_codebook
-from corpus_engine.reader.model import Unit
+from corpus_engine.reader.driver import plan_judgment
+from corpus_engine.reader.model import Budget, ModelPin, Unit
 from corpus_engine.reader.render import render_unit
 from corpus_engine.reader.sources import StoreCaseSource
 
@@ -35,3 +36,23 @@ def test_render_reproduces_the_ten_golden_prompts(tmp_path, fixture_db, repo_roo
         assert got == want, bf.name
         n += 1
     assert n == 5
+
+
+def test_a_judgment_units_question_is_rendered(tmp_path, fixture_db):
+    """I3. plan_judgment put the question in Unit.meta and render_unit read only batch_id,
+    era_partition, jurisdiction and signals, so the model was shown the codebook and the
+    case text with no question at all - a 3B caller would have paid for answers to a
+    question it never asked."""
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p)
+    dom = load_domain(); cb = load_codebook(dom, "mapper-v1"); src = StoreCaseSource(conn)
+    cid = conn.execute("SELECT case_id FROM cases ORDER BY case_id LIMIT 1").fetchone()[0]
+    question = "Did the court reach the merits of the letting restriction?"
+    plan = plan_judgment([cid], question, "mapper-v1", ModelPin("m", "fam"), Budget(), worker="claude")
+    unit = plan.units[0]
+    got = render_unit(cb, unit, src.fetch(unit.case_ids), "claude")
+    assert f"\n## Question\n{question}\n" in got
+    assert got.index("## Question") < got.index("## case_id")        # after the batch header, before the cases
+    # a batch-extraction unit carries no question, which is why the mapper-v1 goldens
+    # (asserted byte-for-byte above) are unaffected
+    plain = Unit(unit.id, unit.case_ids, {k: v for k, v in unit.meta.items() if k != "question"})
+    assert "## Question" not in render_unit(cb, plain, src.fetch(plain.case_ids), "claude")
