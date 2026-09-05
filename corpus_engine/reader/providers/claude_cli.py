@@ -117,8 +117,16 @@ class ClaudeCliProvider:
         if not text:
             return None, "claude cli produced no result and no structured_output", False
         u = env.get("usage") or {}
-        inp = sum(int(u.get(k) or 0) for k in ("input_tokens", "cache_creation_input_tokens",
-                                               "cache_read_input_tokens"))
+        try:
+            inp = sum(int(u.get(k) or 0) for k in ("input_tokens", "cache_creation_input_tokens",
+                                                   "cache_read_input_tokens"))
+            out_tokens = int(u.get("output_tokens") or 0)
+        except (TypeError, ValueError) as exc:
+            # A syntactically valid envelope whose usage.* fields are non-numeric (e.g. a
+            # string) must not escape as a bare ValueError/TypeError: every other malformed-
+            # response case in this method raises ReaderError, and this is the one place that
+            # defensiveness was dropped (task-2-review finding 1).
+            return None, f"claude cli returned a malformed usage block: {exc!r}", False
         reported = {"provider": self.name, "cli_model": self.cli_model, "effort": self.effort,
                     "claude_version": self.version(), "session_id": env.get("session_id")}
         # cost_usd stays None: `total_cost_usd` is what the same call would have cost on the
@@ -126,5 +134,5 @@ class ClaudeCliProvider:
         # subscription saved, and `score_candidate` marks the candidate unpriced.
         raw = {"list_cost_usd": env.get("total_cost_usd"), "num_turns": env.get("num_turns"),
                "session_id": env.get("session_id")}
-        return (Response(text, inp, int(u.get("output_tokens") or 0), None, reported,
+        return (Response(text, inp, out_tokens, None, reported,
                          env.get("stop_reason") or "stop", self.version(), raw), "", False)

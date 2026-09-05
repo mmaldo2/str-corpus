@@ -115,6 +115,18 @@ def test_error_envelopes_and_unparseable_output_raise():
         ClaudeCliProvider("m", runner=slow).complete(Request(PIN, "u"))
 
 
+def test_a_non_numeric_usage_field_raises_readererror_not_valueerror():
+    """task-2-review finding 1. A syntactically valid envelope whose `usage.*` field is not
+    numeric used to escape `complete()` as a bare ValueError; every other malformed-response
+    case here raises ReaderError, so this one must too."""
+    p = ClaudeCliProvider("m", runner=runner_for([envelope(usage={"input_tokens": "lots",
+                                                                  "cache_creation_input_tokens": 0,
+                                                                  "cache_read_input_tokens": 0,
+                                                                  "output_tokens": 1})], []))
+    with pytest.raises(ReaderError, match="malformed usage block"):
+        p.complete(Request(PIN, "u"))
+
+
 def test_throttling_waits_the_pinned_schedule_and_then_gives_up():
     slept, calls = [], []
     responses = [P(envelope(is_error=True, api_error_status=429, result="usage limit reached")) for _ in range(6)]
