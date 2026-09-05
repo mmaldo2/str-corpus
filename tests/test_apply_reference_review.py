@@ -136,6 +136,47 @@ def test_irrelevant_wins_over_a_value_decision_on_the_same_case():
     assert any(p.op == "append" and p.field == "review.notes" and "irrelevant" in p.new for p in ps)
 
 
+def test_a_decided_field_clears_the_stale_flag_standing_on_it():
+    """A reviewer value supersedes an older `needs-review:<field>` flag - one an earlier page
+    left, or one the retraction cascade wrote when the supporting quote was dropped. Without
+    this the case stays out of agreement for a field the user has actually adjudicated. Only
+    the flag for the decided field goes: the one naming a field this page did not decide,
+    and the flags of any other kind, stay."""
+    records = {1: {"polarity": None, "who_was_letting": "unclear", "relevant": True,
+                   "review": {"status": "machine", "flags": ["needs-review:polarity",
+                                                             "needs-review:characterization",
+                                                             "abrogation-risk: see citator"],
+                              "notes": []}}}
+    ps = arr.patches_for([_d(1, "polarity", "adopt", "adverse")], records, "u")
+    cleared = [p.new for p in ps if p.op == "set" and p.field == "review.flags"]
+    assert cleared == [["needs-review:characterization", "abrogation-risk: see citator"]]
+    assert any(p.op == "append" and p.field == "review.notes" and "flag cleared" in p.new for p in ps)
+    assert ("polarity", "adverse") in [(p.field, p.new) for p in ps if p.op == "set"]
+
+
+def test_a_flagless_case_and_an_unsure_decision_write_no_clearing_patch():
+    """The clearing patch exists only where there is something to clear, so re-running a page
+    over a clean ledger is a no-op; and `unsure` still ADDS the flag rather than removing it."""
+    records = {1: {"polarity": "mixed", "relevant": True, "review": {"flags": [], "notes": []}},
+               2: {"polarity": "mixed", "relevant": True}}                      # no review block
+    ps = arr.patches_for([_d(1, "polarity", "set", "adverse"), _d(2, "polarity", "unsure")],
+                         records, "u")
+    assert not [p for p in ps if p.op == "set" and p.field == "review.flags"]
+    assert ("append", "review.flags", "needs-review:polarity") in [(p.op, p.field, p.new) for p in ps]
+
+
+def test_deciding_two_flagged_fields_on_one_case_clears_both():
+    """`review.flags` is set as a whole list, so the second clearing patch has to build on the
+    first rather than on the record - otherwise it reinstates the flag the first just removed."""
+    records = {1: {"polarity": None, "who_was_letting": None, "relevant": True,
+                   "review": {"flags": ["needs-review:polarity", "needs-review:who_was_letting"],
+                              "notes": []}}}
+    ps = arr.patches_for([_d(1, "polarity", "adopt", "adverse"),
+                          _d(1, "who_was_letting", "adopt", "householder")], records, "u")
+    cleared = [p.new for p in ps if p.op == "set" and p.field == "review.flags"]
+    assert cleared == [["needs-review:who_was_letting"], []]
+
+
 def test_patch_order_follows_the_field_order_flag():
     records = {1: {"polarity": "favorable", "who_was_letting": "unclear", "relevant": True}}
     decisions = [_d(1, "who_was_letting", "set", "householder"), _d(1, "polarity", "set", "adverse")]

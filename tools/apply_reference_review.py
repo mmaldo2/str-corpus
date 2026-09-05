@@ -11,6 +11,15 @@ apply path does:
   unsure -> a `needs-review:<field>` flag; the field is excluded from agreement for that case
             (D6) and the case stays in the kit for fidelity and for its other fields
 
+A reviewer who DECIDES a field also supersedes any older `needs-review:<field>` flag standing
+on it (an earlier `unsure`, or one the retraction cascade wrote when the supporting quote was
+dropped): the field is not unsure any more, and leaving the flag would keep the case out of
+agreement for a field the user has in fact adjudicated. `adopt` and `set` therefore clear that
+one flag in the same patch set, and only that one - a flag naming a different field, on a
+field this page did not decide, is untouched. Re-running an already-applied page with its
+original run id is the way to emit these for decisions made before this rule existed: every
+patch the page produced before is content-deduped, so only the clearing patches are fresh.
+
 Adopting `irrelevant` on polarity is not a polarity at all (D2): it sets `relevant` false and
 nulls polarity and who_was_letting. It also wins over any value decision the same page carries
 for that case on another field -- a case the reviewer put out of the corpus carries no labels,
@@ -111,6 +120,31 @@ def read_state(html: str, *, fields: Sequence[str] = FIELDS,
     return out
 
 
+def _live_flags(records: Mapping[int, dict], cid: int) -> list:
+    """The review flags a case carries now. They live at `records[cid]["review"]["flags"]`;
+    a case with no review block carries none rather than raising."""
+    return list(((records.get(cid) or {}).get("review") or {}).get("flags") or ())
+
+
+def _clear_flag(live: dict, records: Mapping[int, dict], cid: int, field: str,
+                why: str, basis: Basis, tag: str) -> list[Patch]:
+    """Drop the `needs-review:<field>` flag a reviewer decision on `field` supersedes.
+
+    `review.flags` is a list, so clearing one entry is a `set` of the whole list: `live`
+    carries the list as this page has left it so far, so a page that decides two flagged
+    fields on one case clears both instead of the second `set` reinstating the first."""
+    flag = f"{FLAG_PREFIX}{field}"
+    current = live.setdefault(cid, _live_flags(records, cid))
+    if flag not in current:
+        return []
+    kept = [f for f in current if f != flag]
+    live[cid] = kept
+    return [Patch(cid, "append", "review.notes",
+                  f"{tag}: {field} decided by the reviewer, which supersedes the "
+                  f"{flag} flag standing on it; flag cleared", why, basis),
+            Patch(cid, "set", "review.flags", kept, why, basis)]
+
+
 def _irrelevant_cases(decisions: Sequence[dict]) -> set[int]:
     """Cases this page puts out of the corpus. Their other fields are not labels any more.
     Page-scoped -- see SCOPE OF THAT RULING in the module docstring."""
@@ -127,6 +161,7 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
     tag = _label(run_id)
     order = {f: i for i, f in enumerate(field_order)}
     irrelevant = _irrelevant_cases(decisions)
+    live: dict[int, list] = {}          # review.flags as this page has left them so far
     out: list[Patch] = []
     for d in sorted(decisions, key=lambda d: (order.get(d["field"], 99), int(d["case_id"]))):
         cid, field, decision = int(d["case_id"]), d["field"], d["decision"]
@@ -146,6 +181,7 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
             out.append(Patch(cid, "append", "review.notes",
                              f"{tag}: {field} left unsure by the reviewer; excluded from "
                              f"agreement for this field (D6)", why, basis))
+            live.setdefault(cid, _live_flags(records, cid)).append(f"{FLAG_PREFIX}{field}")
         elif field == "polarity" and value == IRRELEVANT:
             out.append(Patch(cid, "append", "review.notes",
                              f"{tag}: polarity {old!r} -> irrelevant; the case is not "
@@ -153,10 +189,12 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
             out.append(Patch(cid, "set", "relevant", False, why, basis))
             out.append(Patch(cid, "set", "polarity", None, why, basis))
             out.append(Patch(cid, "set", "who_was_letting", None, why, basis))
+            out += _clear_flag(live, records, cid, field, why, basis, tag)
         else:
             out.append(Patch(cid, "append", "review.notes",
                              f"{tag}: {field} {old!r} -> {value!r} ({decision})", why, basis))
             out.append(Patch(cid, "set", field, value, why, basis))
+            out += _clear_flag(live, records, cid, field, why, basis, tag)
         if d.get("note"):
             out.append(Patch(cid, "append", "review.notes", f"user note: {d['note']}", why, basis))
         out.append(Patch(cid, "set", "review.status", "human-adjudicated", why, basis))
