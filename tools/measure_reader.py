@@ -203,9 +203,11 @@ def charged(delta: float | None, tracked: float) -> float:
 def line(s: dict) -> str:
     cpa = s["cost_per_accepted"]
     cpa_txt = "inf" if not math.isfinite(cpa) else f"${cpa:.4f}"
-    return (f"   fidelity={s['fidelity']:.4f} macro={s['agreement_human']['macro']:.4f} "
+    decided = " ".join(f"{f}={s['fields'][f]['decided_rate']:.2f}/{s['fields'][f]['agreement_decided']:.2f}"
+                       for f in ("relevant", "polarity", "who_was_letting"))
+    return (f"   fidelity={s['fidelity']:.4f} macro={s['macro']:.4f} [{decided}] "
             f"cpa={cpa_txt} spend=${s['spend_usd']:.2f} "
-            f"accepted={s['accepted']} schema={s['schema_compliance']:.3f} "
+            f"accepted={s['accepted']} ({s['accepted_full']} full) schema={s['schema_compliance']:.3f} "
             f"wall={s['wall_seconds']:.0f}s stop={s['stop']}"
             + ("" if s.get("priced", True) else "  [UNPRICED]"))
 
@@ -469,6 +471,10 @@ def resolve_prior_spend(flag: float | None, prior: dict) -> tuple[float, str]:
     return 0.0, "no prior manifest; nothing spent yet"
 
 
+# NOTE (Stage 3B slice 1): scores are the v2 shape from measure.score_candidate. The
+# measurement-v1 manifest holds v1-shaped scores, which select_reader can no longer read;
+# this tool is rewritten for measurement-v2 in Task 9 and must not be run in a paid mode
+# before then.
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--max-usd", type=float, default=50.0)

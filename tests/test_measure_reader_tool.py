@@ -64,6 +64,16 @@ def test_pin_label_round_trips_so_recomputed_cache_keys_match_what_was_hashed():
     assert closed.label == "anthropic/claude-opus-5@-:-"
 
 
+def _score(macro, cpa, accepted, *, fidelity=0.99, decided=0.95):
+    """A v2-shaped score (measure.score_candidate): two numbers per field, macro alongside."""
+    return {"fidelity": fidelity, "macro": macro, "cost_per_accepted": cpa, "priced": True,
+            "accepted": accepted, "accepted_full": accepted,
+            "fields": {f: {"decided_rate": decided, "agreement_decided": macro,
+                           "n_reference_decided": 155, "n_both_decided": 150,
+                           "n_prediction_irrelevant": 0}
+                       for f in ("relevant", "polarity", "who_was_letting")}}
+
+
 def test_merge_manifest_never_drops_a_candidate_a_rerun_did_not_run():
     """I8. `--only <one model>` used to write a one-candidate document over the
     ten-candidate measurement: `selection.winner` was that candidate by construction and
@@ -72,10 +82,7 @@ def test_merge_manifest_never_drops_a_candidate_a_rerun_did_not_run():
     prior = {
         "kit_sha256": "abc", "codebook": "mapper-v2", "total_task_spend_usd": 38.82,
         "pins": {"a/one": "a/one@-:-", "b/two": "b/two@-:-"},
-        "scores": {"a/one": {"fidelity": 0.99, "agreement_human": {"macro": 0.70}, "cost_per_accepted": 0.05,
-                             "priced": True, "accepted": 195},
-                   "b/two": {"fidelity": 0.99, "agreement_human": {"macro": 0.60}, "cost_per_accepted": 0.01,
-                             "priced": True, "accepted": 190}},
+        "scores": {"a/one": _score(0.70, 0.05, 195), "b/two": _score(0.60, 0.01, 190)},
         "spend_by_candidate": {"a/one": 9.71, "b/two": 1.90},
         "tracked_spend_by_candidate": {"a/one": 9.80, "b/two": 1.92},
         "failed": {"c/three": "no accepted records"}, "skipped": {}, "not_run": {},
@@ -84,8 +91,7 @@ def test_merge_manifest_never_drops_a_candidate_a_rerun_did_not_run():
     rerun = {                                   # what a `--only b/two` process builds on its own
         "kit_sha256": "abc", "codebook": "mapper-v2", "total_task_spend_usd": 40.0,
         "pins": {"b/two": "b/two@prov:fp8"},
-        "scores": {"b/two": {"fidelity": 0.99, "agreement_human": {"macro": 0.62}, "cost_per_accepted": 0.02,
-                             "priced": True, "accepted": 193}},
+        "scores": {"b/two": _score(0.62, 0.02, 193)},
         "spend_by_candidate": {"b/two": 2.10}, "tracked_spend_by_candidate": {"b/two": 2.11},
         "failed": {}, "skipped": {}, "not_run": {}, "selection": {"winner": "b/two"},
     }

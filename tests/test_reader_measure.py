@@ -1,59 +1,164 @@
+"""Scoring v2 (spec section 6). Two numbers per field, not one: `decided_rate` says how
+often the reader gave no usable answer at all after the gate, `agreement_decided` how often
+it agreed when both sides answered. 3A blended them, so a model that left polarity null
+scored the same as one that got polarity wrong. Polarity and who_was_letting are judged only
+where both sides call the case relevant, so a relevance miss is scored once, as relevance."""
 import math
-from corpus_engine.reader.measure import select_reader, score_candidate
-from corpus_engine.reader.model import Budget, ModelPin, Plan, ReadingOutcome, RecordResult, Response, StopReason, Unit, UnitResult
+
+import pytest
+
+from corpus_engine.reader.measure import (BAR_FIELDS, excluded_fields, field_scores,
+                                          score_candidate, select_reader, stability)
+from corpus_engine.reader.model import (Budget, ModelPin, Plan, ReadingOutcome, RecordResult,
+                                        Response, StopReason, Unit, UnitResult)
+
+REF = [
+    {"case_id": 1, "source": "human", "relevant": True, "polarity": "favorable", "who_was_letting": "householder"},
+    {"case_id": 2, "source": "human", "relevant": True, "polarity": "adverse", "who_was_letting": "commercial_operator"},
+    {"case_id": 3, "source": "human", "relevant": True, "polarity": "mixed", "who_was_letting": "unclear"},
+    {"case_id": 4, "source": "human", "relevant": False, "polarity": None, "who_was_letting": None},
+    {"case_id": 5, "source": "machine", "relevant": False, "polarity": None, "who_was_letting": None},
+]
+PRED = [
+    {"case_id": 1, "relevant": True, "polarity": "favorable", "who_was_letting": "householder",
+     "quotes": [1, 2], "extraction_status": "ok"},
+    {"case_id": 2, "relevant": True, "polarity": None, "who_was_letting": "non_resident_owner",
+     "quotes": [1], "extraction_status": "partial"},
+    {"case_id": 3, "relevant": False, "polarity": None, "who_was_letting": None,
+     "quotes": [], "extraction_status": "ok"},
+    {"case_id": 4, "relevant": False, "polarity": None, "who_was_letting": None,
+     "quotes": [], "extraction_status": "ok"},
+    {"case_id": 5, "relevant": False, "polarity": None, "who_was_letting": None,
+     "quotes": [], "extraction_status": "ok"},
+]
 
 
-def _out(recs, dropped, spend, cache_hit=False):
-    rr = tuple(RecordResult(r["case_id"], r, r.get("extraction_status", "ok"), d, ()) for r, d in zip(recs, dropped))
-    u = UnitResult("u", "ok", rr, Response("", 1, 1, spend, {"provider": "P"}, "stop"), cache_hit)
-    return ReadingOutcome(Plan("k", (Unit("u", tuple(r["case_id"] for r in recs)),), "cb", ModelPin("m", "f"), Budget(), "w"),
-                          [u], [], spend, 1, 1, 2.0, StopReason("done"), {}, "")
+def _out(recs, dropped, spend, *, cache_hit=False, cost_usd=None, list_cost=None):
+    rr = tuple(RecordResult(r["case_id"], r, r.get("extraction_status", "ok"), d, ())
+               for r, d in zip(recs, dropped))
+    resp = Response("", 1, 1, cost_usd if cost_usd is not None else spend, {"provider": "P"}, "stop",
+                    None, {"list_cost_usd": list_cost} if list_cost is not None else {})
+    u = UnitResult("u", "ok", rr, resp, cache_hit)
+    plan = Plan("k", (Unit("u", tuple(r["case_id"] for r in recs)),), "cb", ModelPin("m", "f"), Budget(), "w")
+    return ReadingOutcome(plan, [u], [], spend, 1, 1, 2.0, StopReason("done"), {}, "")
 
 
-_REF = [{"case_id": 1, "source": "human", "relevant": True, "polarity": "favorable", "who_was_letting": "householder"},
-        {"case_id": 2, "source": "human", "relevant": True, "polarity": "adverse", "who_was_letting": "commercial_operator"},
-        {"case_id": 3, "source": "machine", "relevant": False, "polarity": "irrelevant", "who_was_letting": None}]
-_RECS = [{"case_id": 1, "relevant": True, "polarity": "favorable", "who_was_letting": "householder", "quotes": [1, 2, 3], "extraction_status": "ok"},
-         {"case_id": 2, "relevant": True, "polarity": "favorable", "who_was_letting": "commercial_operator", "quotes": [1], "extraction_status": "partial"},
-         {"case_id": 3, "relevant": False, "polarity": "irrelevant", "quotes": [], "extraction_status": "ok"}]
+def test_field_scores_separates_undecided_from_disagreeing():
+    s = field_scores(PRED, REF)
+    # relevant: every reference row is decided; case 3 is the one miss
+    assert s["relevant"]["n_reference_decided"] == 5 and s["relevant"]["n_both_decided"] == 5
+    assert s["relevant"]["decided_rate"] == 1.0 and s["relevant"]["agreement_decided"] == 4 / 5
+    # polarity: reference-decided on 1, 2, 3; case 3 drops out because the prediction says
+    # irrelevant (that miss is already counted once, as relevance); case 2 answered null
+    assert s["polarity"]["n_reference_decided"] == 2 and s["polarity"]["n_both_decided"] == 1
+    assert s["polarity"]["decided_rate"] == 0.5 and s["polarity"]["agreement_decided"] == 1.0
+    assert s["polarity"]["n_prediction_irrelevant"] == 1
+    # who_was_letting: both answered on 1 and 2, and disagreed on 2
+    assert s["who_was_letting"]["decided_rate"] == 1.0 and s["who_was_letting"]["agreement_decided"] == 0.5
+    assert abs(s["macro"] - (4 / 5 + 1.0 + 0.5) / 3) < 1e-9
 
 
-def test_score_candidate_fields():
-    ref = [{"case_id": 1, "source": "human", "relevant": True, "polarity": "favorable", "who_was_letting": "householder"},
-           {"case_id": 2, "source": "human", "relevant": True, "polarity": "adverse", "who_was_letting": "commercial_operator"},
-           {"case_id": 3, "source": "machine", "relevant": False, "polarity": "irrelevant", "who_was_letting": None}]
-    recs = [{"case_id": 1, "relevant": True, "polarity": "favorable", "who_was_letting": "householder", "quotes": [1, 2, 3], "extraction_status": "ok"},
-            {"case_id": 2, "relevant": True, "polarity": "favorable", "who_was_letting": "commercial_operator", "quotes": [1], "extraction_status": "partial"},
-            {"case_id": 3, "relevant": False, "polarity": "irrelevant", "quotes": [], "extraction_status": "ok"}]
-    s = score_candidate(_out(recs, [0, 1, 0], 0.30), ref)
-    assert s["fidelity"] == 4 / 5 and s["agreement_human"]["polarity"] == 0.5 and s["agreement_human"]["relevant"] == 1.0
-    assert abs(s["agreement_human"]["macro"] - (1.0 + 0.5 + 1.0) / 3) < 1e-9 and s["agreement_machine_irrelevant"] == 1.0
-    assert s["accepted"] == 3 and abs(s["cost_per_accepted"] - 0.10) < 1e-9 and s["schema_compliance"] == 1.0
+def test_a_reference_field_marked_unsure_is_excluded_for_that_field_only():
+    s = field_scores(PRED, REF, excluded={2: {"who_was_letting"}})
+    assert s["who_was_letting"]["n_reference_decided"] == 1 and s["who_was_letting"]["agreement_decided"] == 1.0
+    assert s["polarity"]["n_reference_decided"] == 2          # the case stays in for the other fields
+    assert excluded_fields([{"case_id": 2, "excluded_fields": ["who_was_letting"]},
+                            {"case_id": 3, "excluded_fields": []}]) == {2: {"who_was_letting"}}
 
 
-def test_select_reader_rule():
-    S = lambda fid, mac, cpa: {"fidelity": fid, "agreement_human": {"macro": mac}, "cost_per_accepted": cpa}
-    r = select_reader({"a": S(0.99, 0.90, 0.05), "b": S(0.98, 0.92, 0.01), "c": S(0.90, 0.99, 0.001)})
-    assert r["winner"] == "b" and r["eliminated"] == ["c"] and r["shortfall"] is False
-    r2 = select_reader({"a": S(0.99, 0.80, 0.05), "b": S(0.98, 0.83, 0.01)})
-    assert r2["winner"] == "b" and r2["shortfall"] is True and "highest-agreement" in r2["rule"]
-    r3 = select_reader({"a": S(0.5, 0.99, 0.01)})
-    assert r3["winner"] is None and r3["eliminated"] == ["a"]
+def test_excluded_fields_reads_review_flags_too_and_unions_with_the_explicit_list():
+    """R7: exclusions come from `needs-review:<field>` flags at
+    `record["review"]["flags"]`, unioned with any explicit `excluded_fields` list a kit
+    case row may already carry (Task 7 writes that list at kit-build time)."""
+    rows = [
+        {"case_id": 4, "review": {"flags": ["needs-review:polarity", "citator-checked"]}},
+        {"case_id": 5, "excluded_fields": ["who_was_letting"],
+         "review": {"flags": ["needs-review:polarity"]}},
+        {"case_id": 6, "review": {"flags": []}},
+    ]
+    ex = excluded_fields(rows)
+    assert ex[4] == {"polarity"}                       # flag-only source
+    assert ex[5] == {"who_was_letting", "polarity"}     # union of both sources
+    assert 6 not in ex                                  # nothing to exclude, not an empty-set entry
 
 
-def test_score_candidate_cache_hit_is_unpriced():
-    s = score_candidate(_out(_RECS, [0, 1, 0], 0.0, cache_hit=True), _REF)
-    assert s["priced"] is False
-    assert s["cost_per_accepted"] == math.inf
+def test_a_reference_polarity_of_irrelevant_is_not_a_decided_value():
+    ref = [dict(REF[0], polarity="irrelevant")]
+    s = field_scores([PRED[0]], ref)
+    assert s["polarity"]["n_reference_decided"] == 0 and s["polarity"]["agreement_decided"] == 0.0
 
 
-def test_score_candidate_spend_override_prices_cache_only_rerun():
-    s = score_candidate(_out(_RECS, [0, 1, 0], 0.0, cache_hit=True), _REF, spend_usd_override=0.3)
-    assert s["priced"] is True
-    assert abs(s["cost_per_accepted"] - 0.1) < 1e-9
+def test_score_candidate_reports_both_accepted_counts_and_prices_only_a_paid_run():
+    s = score_candidate(_out(PRED, [0, 1, 0, 0, 0], 0.30), REF)
+    assert s["fidelity"] == 3 / 4                       # one dropped quote among relevant records
+    assert s["accepted"] == 5 and s["accepted_full"] == 4      # case 2 is partial
+    assert s["priced"] is True and abs(s["cost_per_accepted"] - 0.06) < 1e-9
+    assert s["agreement_machine_irrelevant"] == 1.0 and s["schema_compliance"] == 1.0
+    # R5: agreement is over HUMAN reference rows only (cases 1-4), as measurement v1 did -
+    # the machine row (case 5) is not part of the field bar, so "relevant" is 3/4 (case 3
+    # miscalled), not 4/5 (which would silently credit the machine row's correct null read).
+    assert abs(s["macro"] - (3 / 4 + 1.0 + 0.5) / 3) < 1e-9 and set(s["fields"]) == set(BAR_FIELDS)
 
 
-def test_select_reader_unpriced_never_wins_cost_tiebreak():
-    S = lambda mac, cpa, priced: {"fidelity": 0.99, "agreement_human": {"macro": mac}, "cost_per_accepted": cpa, "priced": priced}
-    r = select_reader({"a": S(0.90, 0.05, True), "b": S(0.90, 0.0, False)})
-    assert r["winner"] == "a" and r["shortfall"] is False
+def test_a_subscription_candidate_is_unpriced_and_records_the_list_cost():
+    s = score_candidate(_out(PRED, [0, 0, 0, 0, 0], 0.0, cost_usd=None, list_cost=0.42), REF)
+    assert s["priced"] is False and s["cost_per_accepted"] == math.inf
+    assert s["list_cost_usd"] == 0.42 and s["spend_usd"] == 0.0
+
+
+def test_score_candidate_spend_override_prices_a_cache_only_rerun():
+    s = score_candidate(_out(PRED, [0, 0, 0, 0, 0], 0.0, cache_hit=True), REF, spend_usd_override=0.5)
+    assert s["priced"] is True and abs(s["cost_per_accepted"] - 0.1) < 1e-9
+    assert score_candidate(_out(PRED, [0] * 5, 0.0, cache_hit=True), REF)["priced"] is False
+
+
+def _s(macro, *, fidelity=0.99, decided=0.95):
+    fields = {f: {"decided_rate": decided, "agreement_decided": macro,
+                  "n_reference_decided": 100, "n_both_decided": 95, "n_prediction_irrelevant": 0}
+              for f in BAR_FIELDS}
+    return {"fidelity": fidelity, "fields": fields, "macro": macro}
+
+
+def test_select_reader_applies_both_floors():
+    r = select_reader({"a": _s(0.99, fidelity=0.90), "b": _s(0.88)})
+    assert r["winner"] == "b" and "a" in r["eliminated"] and "fidelity" in r["eliminated"]["a"]
+    r2 = select_reader({"a": _s(0.99, decided=0.80)})
+    assert r2["winner"] is None and "decided rate" in r2["eliminated"]["a"] and r2["shortfall"] is True
+
+
+def test_a_subscription_candidate_wins_within_two_points_of_the_best():
+    subs = {"claude-cli/claude-sonnet-5"}
+    r = select_reader({"openai/gpt-5.6-terra": _s(0.88), "claude-cli/claude-sonnet-5": _s(0.87)},
+                      subscription=subs)
+    assert r["winner"] == "claude-cli/claude-sonnet-5" and r["shortfall"] is False
+    assert "within 0.02" in r["rule"] and abs(r["best_macro"] - 0.88) < 1e-9
+    r2 = select_reader({"openai/gpt-5.6-terra": _s(0.90), "claude-cli/claude-sonnet-5": _s(0.87)},
+                       subscription=subs)
+    assert r2["winner"] == "openai/gpt-5.6-terra" and "highest macro" in r2["rule"]
+
+
+def test_the_tie_break_also_applies_when_nobody_reaches_the_bar():
+    """D4's tie-break is stated over survivors, and the reason for it - the subscription
+    read costs nothing - does not change when the bar is missed. The shortfall is disclosed
+    either way, and the rule string says which branch fired."""
+    r = select_reader({"openai/gpt-5.6-terra": _s(0.80), "claude-cli/claude-opus-5": _s(0.79)},
+                      subscription={"claude-cli/claude-opus-5"})
+    assert r["winner"] == "claude-cli/claude-opus-5" and r["shortfall"] is True
+    assert "no survivor reached 0.85" in r["rule"]
+
+
+def test_selection_is_deterministic_on_an_exact_tie():
+    r = select_reader({"b/two": _s(0.90), "a/one": _s(0.90)})
+    assert r["winner"] == "a/one" and r["survivors"] == ["a/one", "b/two"]
+
+
+def test_stability_reports_agreement_over_both_decided_plus_second_reads_decided_rate():
+    """R12: a case where the second read went null is not instability - it is scored
+    against the second read's own decided rate, not folded into the agreement number."""
+    read_a = [{"case_id": 1, "polarity": "favorable"}, {"case_id": 2, "polarity": "adverse"},
+              {"case_id": 3, "polarity": "mixed"}]
+    read_b = [{"case_id": 1, "polarity": "favorable"}, {"case_id": 2, "polarity": None},
+              {"case_id": 3, "polarity": "adverse"}]
+    s = stability(read_a, read_b, fields=("polarity",))
+    assert s["polarity"]["agreement_decided"] == 0.5             # case 2 drops out; 1 of 2 remaining agree
+    assert abs(s["polarity"]["decided_rate_b"] - 2 / 3) < 1e-9
