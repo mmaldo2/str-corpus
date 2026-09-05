@@ -4,7 +4,7 @@ from corpus_engine.domain import load_domain
 from corpus_engine.reader.cache import ResponseCache
 from corpus_engine.reader.codebook import load_codebook
 from corpus_engine.reader.driver import Reader, agreement, plan_batch_extraction, preflight
-from corpus_engine.reader.model import Budget, ModelPin
+from corpus_engine.reader.model import Budget, ModelPin, ReaderError
 from corpus_engine.reader.providers.codex_cli import CodexCliProvider
 from corpus_engine.reader.providers.scripted import ScriptedProvider
 from corpus_engine.reader.sources import StoreCaseSource
@@ -74,3 +74,108 @@ def test_agreement():
     a = [{"case_id": 1, "polarity": "favorable", "relevant": True}, {"case_id": 2, "polarity": None, "relevant": False}]
     b = [{"case_id": 1, "polarity": "adverse", "relevant": True}, {"case_id": 2, "polarity": None, "relevant": False}, {"case_id": 3}]
     assert agreement(a, b, ("polarity", "relevant")) == {"polarity": 0.5, "relevant": 1.0}
+
+
+def test_budget_units_stop(tmp_path, fixture_db, repo_root):
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
+    prov = ScriptedProvider(_answer(conn))
+    plan = plan_batch_extraction(_batches(repo_root, 3), "mapper-v1", PIN, Budget(max_units=1), worker="claude")
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    assert out.stop.kind == "budget:units" and prov.calls == 1 and len(out.units) == 1
+
+
+def test_budget_wall_stop(tmp_path, fixture_db, repo_root):
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
+    prov = ScriptedProvider(_answer(conn))
+    plan = plan_batch_extraction(_batches(repo_root, 3), "mapper-v1", PIN, Budget(max_wall_seconds=5), worker="claude")
+    seq = iter([0, 0, 10, 10])
+    clock = lambda: next(seq, 10)
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom, clock=clock).read(plan)
+    assert out.stop.kind == "budget:wall" and prov.calls == 1 and len(out.units) == 1
+
+
+def test_split_retry_both_halves_parse(tmp_path, fixture_db, repo_root):
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
+    ans = _answer(conn); calls = {"n": 0}
+    def f(req):
+        calls["n"] += 1
+        return "not json at all" if calls["n"] == 1 else ans(req)
+    prov = ScriptedProvider(f)
+    plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(), worker="claude")
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    assert prov.calls == 3
+    u = out.units[0]
+    assert u.status == "ok" and len(u.records) == len(plan.units[0].case_ids)
+    assert all(r.gate_status != "missing" for r in u.records)
+
+
+def test_split_retry_second_half_garbage(tmp_path, fixture_db, repo_root):
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
+    ans = _answer(conn); calls = {"n": 0}
+    def f(req):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return "not json at all"
+        if calls["n"] == 2:
+            return ans(req)
+        return "still not json"
+    prov = ScriptedProvider(f)
+    plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(), worker="claude")
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    assert prov.calls == 3
+    u = out.units[0]
+    assert u.status == "partial_parse" and len(u.records) == len(plan.units[0].case_ids)
+    stubs = [r for r in u.records if r.gate_status == "missing"]
+    assert stubs and all(r.record["gate_notes"] == "parse failed (split half)" for r in stubs)
+    assert any(r.gate_status != "missing" for r in u.records)
+
+
+def test_checker_reader_error_does_not_duplicate_unit(tmp_path, fixture_db, repo_root):
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
+    reader = ScriptedProvider(_answer(conn))
+    class BrokenChecker:
+        name = "broken-checker"
+        def __init__(self):
+            self.calls = 0
+        def complete(self, req):
+            self.calls += 1
+            raise ReaderError("checker exploded")
+    checker = BrokenChecker()
+    plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(), worker="claude",
+                                 checker_pin=ModelPin("scripted-checker", "openai"), sample_pct=100)
+    out = Reader(reader, StoreCaseSource(conn), checker=checker, log=lambda *_: None, domain=dom).read(plan)
+    ids = [u.unit_id for u in out.units]
+    assert len(ids) == len(set(ids)) == 1
+    u = out.units[0]
+    assert u.status == "ok" and u.checker is not None and u.checker.startswith("failed:")
+    assert out.failed_units == []
+
+
+def test_checker_unparsed_response(tmp_path, fixture_db, repo_root):
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
+    reader = ScriptedProvider(_answer(conn))
+    checker = ScriptedProvider(["not json"])
+    plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(), worker="claude",
+                                 checker_pin=ModelPin("scripted-checker", "openai"), sample_pct=100)
+    out = Reader(reader, StoreCaseSource(conn), checker=checker, log=lambda *_: None, domain=dom).read(plan)
+    assert out.units[0].checker == "unparsed"
+    assert out.disagreements == []
+    assert out.manifest["checker_unparsed"] == 1
+
+
+def test_budget_rechecked_inside_split(tmp_path, fixture_db, repo_root):
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
+    prov = ScriptedProvider(lambda req: "still not json", cost_per_call=0.5)
+    plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(max_usd=1.0), worker="claude")
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    assert out.stop.kind == "budget:usd"
+    assert prov.calls == 2                       # primary + first half; second half's pre-check trips
+    assert out.spend_usd <= 1.0 + 0.5             # never overspends by more than one request
+
+
+def test_preflight_budget_unpriced_for_codex_cli_reader(repo_root):
+    dom = load_domain(); cb = load_codebook(dom, "mapper-v1")
+    plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(max_usd=1.0), worker="claude")
+    prov = CodexCliProvider("m")
+    s = preflight(plan, cb, None, prov, None, store_norm_version=None, families={})
+    assert s is not None and s.kind == "preflight:budget_unpriced"

@@ -65,6 +65,7 @@ class RecordResult:
 @dataclass(frozen=True)
 class UnitResult:
     unit_id: str; status: str; records: tuple[RecordResult, ...]; response: Response | None; cache_hit: bool; error: str = ""
+    checker: str | None = None; checker_response: Response | None = None
 
 
 @dataclass(frozen=True)
