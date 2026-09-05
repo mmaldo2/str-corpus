@@ -59,6 +59,39 @@ FIELDS = [
     ("polarity", "A", "Polarity"),
     ("who_was_letting", "B", "Who was letting"),
 ]
+
+# Wording, not structure. A contested document may carry a `page` block to name its own
+# queue - a second queue built on a different rule must not describe itself with the first
+# one's prose. Everything absent falls back to the v1 wording, so the v1 document renders
+# byte-identically. The values are trusted HTML fragments: this generator's own input, not
+# anything a reviewer types.
+PAGE_DEFAULTS = {
+    "title": "Reference adjudication v1",
+    # line breaks preserved so the v1 page regenerates byte-for-byte
+    "intro": """These are reader-kit cases where at least <b>3 of the 5</b> measured reader
+models agreed with each other <i>against</i> the ledger's reference label. A model majority
+is not authority — it is a flag that the reference label may be wrong. Your decision sets
+what the reference carries, and the kit is what every future reader is scored against.
+Decisions are saved into this page itself when you press <b>Save decisions</b>; if the
+viewer cannot save, use <b>Copy JSON</b> and paste it back. Citations link to CourtListener.""",
+    "blurbs": {
+        "A": """Polarity is the outcome for the owner's right to let ({n} cases).
+  A majority of <code>irrelevant</code> means the models read the case as out of scope
+  altogether, not as a polarity value.""",
+        "B": """Who the letting party was ({n} cases). Cases contested on both
+  fields appear in both sections and are cross-linked.""",
+    },
+    "lede": ("{cases} cases where 3+ of 5 reader candidates agreed against the ledger label; "
+             "{decisions} field decisions."),
+}
+
+
+def page_text(doc: dict) -> dict:
+    """The page's wording: the defaults, overridden key by key from `doc["page"]`."""
+    page = dict(doc.get("page") or {})
+    out = dict(PAGE_DEFAULTS, **{k: v for k, v in page.items() if k != "blurbs"})
+    out["blurbs"] = dict(PAGE_DEFAULTS["blurbs"], **(page.get("blurbs") or {}))
+    return out
 SEC_OF_FIELD = {f: s for f, s, _ in FIELDS}
 VOCAB = {
     "polarity": ["favorable", "adverse", "mixed", "null"],
@@ -137,12 +170,19 @@ def build_pages(contested: Path, out_stem: Path) -> tuple:
     doc = json.loads(Path(contested).read_text(encoding="utf-8"))
     data = build_items(doc)
     data_json = json.dumps(data).replace("</", "<\\/")
+    page = page_text(doc)
 
     content = (CONTENT_TMPL
                .replace("{{DATA}}", data_json)
                .replace("{{VOCAB}}", json.dumps(VOCAB))
-               .replace("{{N_A}}", str(len(data["A"])))
-               .replace("{{N_B}}", str(len(data["B"])))
+               .replace("{{TITLE}}", page["title"])
+               .replace("{{INTRO}}", page["intro"])
+               .replace("{{BLURB_A}}", page["blurbs"]["A"].format(n=len(data["A"])))
+               .replace("{{BLURB_B}}", page["blurbs"]["B"].format(n=len(data["B"])))
+               # a section with nothing in it is not a queue; hide it rather than offer the
+               # reviewer an empty heading with a "0 / 0 decided" counter beside it
+               .replace("{{HIDE_A}}", "" if data["A"] else ' style="display:none"')
+               .replace("{{HIDE_B}}", "" if data["B"] else ' style="display:none"')
                .replace("{{N_CASES}}", str(len(doc.get("contested", [])))))
     # Full document the page republishes itself as (doctype first, per the
     # artifact capability contract). It still carries the markers, so a saved
@@ -157,13 +197,19 @@ def build_pages(contested: Path, out_stem: Path) -> tuple:
     md_path = Path(str(out_stem) + ".md")
     write_text(html_path, out)
 
-    md = [f"# Reference adjudication v1 - contested kit reference labels",
+    try:                               # a repo-relative path in the durable checklist, so the
+        shown = html_path.resolve().relative_to(ROOT).as_posix()   # committed file does not
+    except ValueError:                                             # name one machine's disk
+        shown = html_path.as_posix()
+    md = [f"# {page.get('md_title') or page['title'] + ' - contested kit reference labels'}",
           "",
-          f"{len(doc.get('contested', []))} cases where 3+ of 5 reader candidates agreed "
-          f"against the ledger label; {len(data['A']) + len(data['B'])} field decisions.",
-          f"Page: {html_path.as_posix()} (decisions are saved into the page itself).",
+          page["lede"].format(cases=len(doc.get("contested", [])),
+                              decisions=len(data["A"]) + len(data["B"])),
+          f"Page: {shown} (decisions are saved into the page itself).",
           ""]
     for field, key, title in FIELDS:
+        if not data[key]:
+            continue
         md.append(f"\n## {key}. {title} ({len(data[key])})\n")
         for e in data[key]:
             cite = e.get("cite") or e.get("case_id")
@@ -174,7 +220,7 @@ def build_pages(contested: Path, out_stem: Path) -> tuple:
     return html_path, md_path, len(tb64)
 
 
-CONTENT_TMPL = r"""<title>Reference adjudication v1</title>
+CONTENT_TMPL = r"""<title>{{TITLE}}</title>
 <style>
 :root{
   --bg:#f6f6f4;--panel:#ffffff;--panel2:#eeefeb;--border:#dcdfd8;--border2:#c2c7bd;
@@ -255,29 +301,21 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{
 outline:2px solid var(--link);outline-offset:2px}
 </style>
 <div class="wrap">
-<h1>Reference adjudication v1</h1>
-<p class="sub">These are reader-kit cases where at least <b>3 of the 5</b> measured reader
-models agreed with each other <i>against</i> the ledger's reference label. A model majority
-is not authority — it is a flag that the reference label may be wrong. Your decision sets
-what the reference carries, and the kit is what every future reader is scored against.
-Decisions are saved into this page itself when you press <b>Save decisions</b>; if the
-viewer cannot save, use <b>Copy JSON</b> and paste it back. Citations link to CourtListener.</p>
+<h1>{{TITLE}}</h1>
+<p class="sub">{{INTRO}}</p>
 <div class="bar">
   <button id="save-top">Save decisions</button>
   <button id="copy-top" class="alt">Copy JSON</button>
   <span class="status" id="status-top"></span>
 </div>
-<section>
+<section{{HIDE_A}}>
   <h2><span class="k">A</span> Polarity <span class="count" id="cnt-A"></span></h2>
-  <p class="blurb">Polarity is the outcome for the owner's right to let ({{N_A}} cases).
-  A majority of <code>irrelevant</code> means the models read the case as out of scope
-  altogether, not as a polarity value.</p>
+  <p class="blurb">{{BLURB_A}}</p>
   <div id="cards-A"></div>
 </section>
-<section>
+<section{{HIDE_B}}>
   <h2><span class="k">B</span> Who was letting <span class="count" id="cnt-B"></span></h2>
-  <p class="blurb">Who the letting party was ({{N_B}} cases). Cases contested on both
-  fields appear in both sections and are cross-linked.</p>
+  <p class="blurb">{{BLURB_B}}</p>
   <div id="cards-B"></div>
 </section>
 </div>

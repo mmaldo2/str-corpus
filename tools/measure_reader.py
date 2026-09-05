@@ -258,17 +258,19 @@ def keys_for(units, cb, pin: ModelPin, source, cache: ResponseCache) -> dict:
     return found
 
 
-def accepted_from_cache(cb, pin: ModelPin, units, source, cache: ResponseCache, judged) -> dict:
-    """Re-derive one candidate's accepted counts from its own cached responses. Offline:
-    reads the response cache and the frozen kit, issues no request, spends nothing.
+def records_from_cache(cb, pin: ModelPin, units, source, cache: ResponseCache, judged) -> list[dict]:
+    """One candidate's gated records, re-derived from its own cached responses. Offline:
+    reads the response cache and the frozen kit, issues no request, spends nothing. Mirrors
+    the driver exactly - parse, split-half fallback on a parse failure, then the quote gate.
 
-    `accepted` (spec section 2 as amended) counts a record that parsed and came back from
-    the gate with a decided `relevant` field - `extraction_status` "ok" OR "partial", and
-    partial is precisely the status of a record that lost judged fields to the gate.
-    `accepted_full` is the strict reading the spec used to carry. The gap between the two
-    is why cost per accepted record is a lower bound on the cost of a fully judged record
-    (I7). Recomputing `accepted` as well is the control: it has to reproduce what the paid
-    run scored, and the annotation records whether it did."""
+    The measurement-v1 cache is addressed with `ResponseCache.key_v1`: slice 1 widened the
+    live key with the schema, max_tokens and effort, and those responses were bought under
+    the old composition.
+
+    Kept separate from `accepted_from_cache` because two callers want the same derivation
+    for different reasons - the manifest annotation counts these records, and the
+    who-was-letting consensus (tools/consensus_reference.py) reads their field values. One
+    derivation means the two can never disagree about what a candidate said."""
     def cached(u):
         texts = source.fetch(u.case_ids)
         p = cache.dir / f"{ResponseCache.key_v1(cb.sha, pin, u, render_unit(cb, u, texts, 'reader'))}.json"
@@ -294,7 +296,22 @@ def accepted_from_cache(cb, pin: ModelPin, units, source, cache: ResponseCache, 
         ok_ids = [c for c in unit.case_ids if c not in stubbed]
         if ok_ids:
             records += [r.record for r in gate_unit(recs, texts, ok_ids, judged, unit.id)]
-    live = [r for r in records if r.get("extraction_status") != "missing"]
+    return records
+
+
+def accepted_from_cache(cb, pin: ModelPin, units, source, cache: ResponseCache, judged) -> dict:
+    """Re-derive one candidate's accepted counts from its own cached responses, over exactly
+    the records `records_from_cache` yields.
+
+    `accepted` (spec section 2 as amended) counts a record that parsed and came back from
+    the gate with a decided `relevant` field - `extraction_status` "ok" OR "partial", and
+    partial is precisely the status of a record that lost judged fields to the gate.
+    `accepted_full` is the strict reading the spec used to carry. The gap between the two
+    is why cost per accepted record is a lower bound on the cost of a fully judged record
+    (I7). Recomputing `accepted` as well is the control: it has to reproduce what the paid
+    run scored, and the annotation records whether it did."""
+    live = [r for r in records_from_cache(cb, pin, units, source, cache, judged)
+            if r.get("extraction_status") != "missing"]
     return {"accepted": sum(1 for r in live if r.get("extraction_status") in ("ok", "partial")
                             and r.get("relevant") is not None),
             "accepted_full": sum(1 for r in live if r.get("extraction_status") == "ok"

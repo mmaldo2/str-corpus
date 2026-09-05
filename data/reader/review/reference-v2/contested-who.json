@@ -1,0 +1,2329 @@
+{
+ "contested": [
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    }
+   },
+   "case_id": 630154,
+   "cite": "14 Abb. N. Cas. 42",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York Court of Common Pleas",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "A landlord who knowingly misrepresented the condition of a house hired by the tenant for use as a boarding house cannot recover rent where the tenant abandoned the premises within a reasonable time after discovering the falsity. Whether such fraud occurred was a jury question, so a new trial was ordered.",
+      "quote": ""
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "holding_summary": "A tenant who had leased a house for six months to operate it as a boarding house could rescind if fraudulently induced by the landlord's false representations about its condition. The court held that evidence of fraud should have gone to the jury.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 2,
+     "majority_value": "unclear",
+     "non_null_n": 5,
+     "reference_value": "unclear"
+    }
+   },
+   "name": "Jackson v. Odell",
+   "reference": {
+    "polarity": "mixed",
+    "relevant": true,
+    "who_was_letting": "unclear"
+   },
+   "year": 1884
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    }
+   },
+   "case_id": 743824,
+   "cite": "114 Misc. 92",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York Supreme Court, Appellate Term",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "Under the 1920 housing act, summary proceedings on expiration of term could not be maintained against a tenant of floors of a private house that she had sublet for dwelling purposes, even though she made a business of subletting furnished apartments.",
+      "quote": ""
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "holding_summary": "The Housing Laws barred summary proceedings against a tenant who had sublet floors of a private house for dwelling purposes. The landlord could not evade the statute by characterizing the tenant's furnished-apartment subletting as a business.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 2,
+     "majority_value": "commercial_operator",
+     "non_null_n": 5,
+     "reference_value": "commercial_operator"
+    }
+   },
+   "name": "Jackson v. Grey",
+   "reference": {
+    "polarity": "adverse",
+    "relevant": true,
+    "who_was_letting": "commercial_operator"
+   },
+   "year": 1921
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    }
+   },
+   "case_id": 749404,
+   "cite": "117 Misc. 570",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York City Municipal Court",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "A monthly tenant of a store with rear dwelling rooms could not be dispossessed under the 1920 housing act, since business use was merely incidental to the occupancy for dwelling purposes; the court also observed that a tenant who sublets rooms for profit while continuing to dwell there is likewise protected.",
+      "quote": ""
+     },
+     {
+      "candidate": "google/gemini-3.7-flash",
+      "holding_summary": "Under the emergency Housing Laws, a tenant occupying combined business and dwelling premises cannot be dispossessed from the commercial portion where the entire space was hired together, nor does incidental room subletting remove the statutory protection.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 2,
+     "majority_value": "non_resident_owner",
+     "non_null_n": 5,
+     "reference_value": "householder"
+    }
+   },
+   "name": "Morgenroth v. Emert",
+   "reference": {
+    "polarity": "adverse",
+    "relevant": true,
+    "who_was_letting": "householder"
+   },
+   "year": 1921
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    }
+   },
+   "case_id": 782936,
+   "cite": "110 Misc. 2d 392",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York City Court",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "google/gemini-3.7-flash",
+      "holding_summary": "Operating a residential property as a dormitory rented to five unrelated individuals sharing facilities without a required special permit violated the municipal zoning ordinance. The owner's prior nonconforming boarding and rooming house use was held extinguished by abandonment.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 2,
+     "majority_value": "commercial_operator",
+     "non_null_n": 5,
+     "reference_value": "unclear"
+    }
+   },
+   "name": "People v. Waring",
+   "reference": {
+    "polarity": "adverse",
+    "relevant": true,
+    "who_was_letting": "unclear"
+   },
+   "year": 1981
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    }
+   },
+   "case_id": 832648,
+   "cite": "16 Pa. Super. 202",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "Superior Court of Pennsylvania",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "A devise of a house 'for a home' to devisees for life created no condition or limitation requiring personal occupancy, so the life tenants were entitled to possession whether they lived there or rented it out. The court, citing Wusthoff v. Dracourt, reasoned that a life interest in rooms permits the holder either to occupy them or to let them to another and take the rent.",
+      "quote": ""
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "holding_summary": "The court held that the devisees were entitled to possession of the house for life without proving that they would occupy it personally as a home. The words \"for a home\" did not create a condition barring them from renting the property or otherwise using it as they saw fit.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "Pa.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 2,
+     "majority_value": "householder",
+     "non_null_n": 5,
+     "reference_value": "unclear"
+    }
+   },
+   "name": "McCalla's Estate",
+   "reference": {
+    "polarity": "favorable",
+    "relevant": true,
+    "who_was_letting": "unclear"
+   },
+   "year": 1901
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    }
+   },
+   "case_id": 856487,
+   "cite": "27 Pa. Super. 540",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "Superior Court of Pennsylvania",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "A lease for a term of one month, under which the lessee holding over was declared a mere tenant at sufferance, created on holding over a tenancy from month to month rather than from year to year. The landlord's one month's notice to quit was therefore sufficient and the judgment in ejectment stood.",
+      "quote": ""
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "holding_summary": "The court held that a tenant who held over after a one-month lease became a tenant from month to month, rather than a tenant from year to year. The landlord could terminate that tenancy by one month's notice to quit.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "Pa.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 3,
+     "majority_value": "unclear",
+     "non_null_n": 5,
+     "reference_value": "unclear"
+    }
+   },
+   "name": "Hood v. Drysdale",
+   "reference": {
+    "polarity": "favorable",
+    "relevant": true,
+    "who_was_letting": "unclear"
+   },
+   "year": 1905
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    }
+   },
+   "case_id": 1048115,
+   "cite": "193 Misc. 2d 716",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York Supreme Court",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "Fifty-five persons sleeping in cubicles in an uninhabitable commercial basement, sublet by the building's commercial tenant, were not \"tenants\" within Administrative Code \u00a7 26-305. The owner, though negligent, was therefore not liable for the City's relocation expenses and the lien was cancelled.",
+      "quote": ""
+     },
+     {
+      "candidate": "google/gemini-3.7-flash",
+      "holding_summary": "Occupants of unhabitable basement cubicles vacated pursuant to a fire department vacate order were not statutory tenants under the Administrative Code relocation reimbursement provisions. The property owner was therefore not liable to reimburse the City for tenant relocation costs.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 3,
+     "majority_value": "commercial_operator",
+     "non_null_n": 5,
+     "reference_value": "commercial_operator"
+    }
+   },
+   "name": "City of New York v. New York & Hong Kong Reciprocation Exchange Corp.",
+   "reference": {
+    "polarity": "adverse",
+    "relevant": true,
+    "who_was_letting": "commercial_operator"
+   },
+   "year": 2002
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    }
+   },
+   "case_id": 1101416,
+   "cite": "1 N.Y. City Ct. Rep. 127",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York Marine Court",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "Summary proceedings to dispossess may be maintained against the occupant of a furnished house; the furniture is a mere incident of the grant of the realty and does not defeat the statutory remedy. The landlady, who had reserved extra rent for months she was absent and took no board on the premises, had judgment.",
+      "quote": ""
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "holding_summary": "Summary dispossession proceedings could be used against the occupant of a furnished house. Furniture included in the letting was merely incidental to the real-property grant and did not defeat the landlord's statutory remedy.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 3,
+     "majority_value": "householder",
+     "non_null_n": 5,
+     "reference_value": "householder"
+    }
+   },
+   "name": "Swigley v. Jones",
+   "reference": {
+    "polarity": "favorable",
+    "relevant": true,
+    "who_was_letting": "householder"
+   },
+   "year": 1878
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": false,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": null,
+      "model_value": null
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    }
+   },
+   "case_id": 1181699,
+   "cite": "53 Misc. 2d 122",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York Supreme Court",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "Although converted rooming houses are not categorically barred from decontrol, this owner failed to show the conversion was completed before April 30, 1962, that the new units met the 395 square foot minimum, or that additional housing accommodations were created. The Administrator's denial of decontrol was sustained and the article 78 proceeding dismissed.",
+      "quote": ""
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "holding_summary": "The court upheld denial of decontrol after conversion of a rooming house into apartments. The owner failed to establish timely conversion, adequate unit size, or an increase in the number of legal housing accommodations.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 3,
+     "majority_value": "commercial_operator",
+     "non_null_n": 4,
+     "reference_value": "commercial_operator"
+    }
+   },
+   "name": "Panzer v. Berman",
+   "reference": {
+    "polarity": "mixed",
+    "relevant": true,
+    "who_was_letting": "commercial_operator"
+   },
+   "year": 1967
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    }
+   },
+   "case_id": 2037440,
+   "cite": "8 Cow. 727",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York Court for the Correction of Errors",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "Where the lessor, who occupied the rest of the house, habitually brought lewd women into adjacent apartments causing nocturnal disturbance, the lessee's departure could be found by a jury to be a constructive eviction under a plea of eviction, barring the landlord's rent.",
+      "quote": ""
+     },
+     {
+      "candidate": "anthropic/claude-sonnet-5",
+      "holding_summary": "Case concerns constructive eviction doctrine where a landlord's introduction of prostitutes into part of a demised house excused the tenant from paying rent; not related to short-term letting.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 3,
+     "majority_value": "householder",
+     "non_null_n": 5,
+     "reference_value": "householder"
+    }
+   },
+   "name": "Dyett v. Pendleton",
+   "reference": {
+    "polarity": "adverse",
+    "relevant": true,
+    "who_was_letting": "householder"
+   },
+   "year": 1826
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    }
+   },
+   "case_id": 2046153,
+   "cite": "7 Hill & Den. 83",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York Supreme Court",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "There is no implied covenant or warranty by the lessor of a dwelling house that the premises are tenantable, and no parol promise to repair may be shown against a written lease; but where the landlord wrongfully removed the only cistern before the term began, rendering the house uninhabitable, the tenant could refuse possession and owed no rent. The court notes that a demise of ready furnished lodgings is an exception carrying an implied warranty against nuisance.",
+      "quote": ""
+     },
+     {
+      "candidate": "z-ai/glm-5.3",
+      "holding_summary": "There is no implied covenant or warranty by the lessor of a dwelling house that the premises are tenantable; the tenant takes them for better or worse absent an express agreement, though a demise of ready furnished lodgings is an exception implying freedom from nuisance. Where the landlord's own wrongful act (removing the only cistern) rendered the house unfit before the term began and the tenant never took possession, the landlord cannot recover rent. Parol evidence of a promise to repair cannot be added to a written lease.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 3,
+     "majority_value": "unclear",
+     "non_null_n": 5,
+     "reference_value": "unclear"
+    }
+   },
+   "name": "Cleves v. Willoughby",
+   "reference": {
+    "polarity": "mixed",
+    "relevant": true,
+    "who_was_letting": "unclear"
+   },
+   "year": 1845
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    }
+   },
+   "case_id": 2121343,
+   "cite": "20 Tex. 798",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "Supreme Court of Texas",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "The court affirmed that whether a person is an innkeeper, and thus subject to the innkeeper's extraordinary liability, is a fact question turning on whether he held himself out to the public as engaged in the business of entertaining travellers. A farmer who only occasionally or even frequently takes in travellers for compensation, without making it his business, is not an innkeeper and is liable only for ordinary negligence. The verdict finding defendant an innkeeper was left undisturbed on conflicting evidence.",
+      "quote": ""
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "holding_summary": "The court affirmed a judgment against the defendant after the jury found that he held himself out as an innkeeper. A person who regularly holds himself out as providing lodging and entertainment to travelers for compensation is subject to an innkeeper's heightened liability, but one who only occasionally entertains travelers for compensation at his pleasure is not thereby an innkeeper.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "Tex.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 3,
+     "majority_value": "householder",
+     "non_null_n": 5,
+     "reference_value": "householder"
+    }
+   },
+   "name": "Howth v. Franklin",
+   "reference": {
+    "polarity": "favorable",
+    "relevant": true,
+    "who_was_letting": "householder"
+   },
+   "year": 1858
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    }
+   },
+   "case_id": 2192664,
+   "cite": "71 Tex. 264",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "Supreme Court of Texas",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "An owner who knowingly leased half of a two-story house adjoining the plaintiffs' home to prostitutes for purposes of prostitution was liable in damages for the resulting nuisance, whether he owned the leased premises or merely acted as agent in the leasing. The judgment was reversed only on a misjoinder of heirs suing pending administration.",
+      "quote": ""
+     },
+     {
+      "candidate": "google/gemini-3.7-flash",
+      "holding_summary": "A property owner who knowingly leases premises adjacent to another's dwelling to prostitutes for purposes of prostitution is liable in damages to adjoining co-tenants for nuisance.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "Tex.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 3,
+     "majority_value": "unclear",
+     "non_null_n": 5,
+     "reference_value": "unclear"
+    }
+   },
+   "name": "Lee v. Turner",
+   "reference": {
+    "polarity": "adverse",
+    "relevant": true,
+    "who_was_letting": "unclear"
+   },
+   "year": 1888
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    }
+   },
+   "case_id": 2307032,
+   "cite": "172 N.Y. 1",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York Court of Appeals",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "A tenant who keeps a boarding house and leases premises during the existence of a neighboring nuisance may nonetheless sue to abate it and recover her own damages, including loss from being prevented from renting her rooms; a new trial was ordered because damages were not limited to six years.",
+      "quote": ""
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "holding_summary": "A tenant who operated a boarding house could recover for a nuisance that interfered with her possession and prevented her from renting rooms, even though later leases began after the nuisance existed. A nuisance remains a separate wrong against the possessory occupant.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 2,
+     "majority_value": "commercial_operator",
+     "non_null_n": 5,
+     "reference_value": "commercial_operator"
+    }
+   },
+   "name": "Bly v. Edison Electric Illuminating Co.",
+   "reference": {
+    "polarity": "favorable",
+    "relevant": true,
+    "who_was_letting": "commercial_operator"
+   },
+   "year": 1902
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    }
+   },
+   "case_id": 2489543,
+   "cite": "109 La. 440",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "Louisiana Supreme Court",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "z-ai/glm-5.3",
+      "holding_summary": "The court held that a completed contract of lease existed even though the tenant never signed the written instrument, and that she was a tenant in possession running a boarding house; judgment for the lessor on rent (with lessor's privilege) was affirmed, and the lessor's letters about her departure were held not libelous.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "La.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 2,
+     "majority_value": "non_resident_owner",
+     "non_null_n": 5,
+     "reference_value": "unclear"
+    }
+   },
+   "name": "Coffee v. Smith",
+   "reference": {
+    "polarity": "favorable",
+    "relevant": true,
+    "who_was_letting": "unclear"
+   },
+   "year": 1903
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    }
+   },
+   "case_id": 3971519,
+   "cite": "70 A.D.3d 427",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York Supreme Court, Appellate Division",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "A loft tenant who sublet the third floor of her two-floor leasehold to a rent-paying occupant was protected against the landlord's nonprimary-residence claim by res judicata, the courts having found that subletting part of the space was contemplated and permitted. However, the landlord's rent-profiteering claim was reinstated because an issue of fact remained whether the tenant commercially exploited the sublease.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 2,
+     "majority_value": "non_resident_owner",
+     "non_null_n": 5,
+     "reference_value": "unclear"
+    }
+   },
+   "name": "Ginezra Associates LLC v. Ifantopoulos",
+   "reference": {
+    "polarity": "mixed",
+    "relevant": true,
+    "who_was_letting": "unclear"
+   },
+   "year": 2010
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    }
+   },
+   "case_id": 4444216,
+   "cite": "11 N.Y. Sup. Ct. 451",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York Supreme Court",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "A written receipt stating that the term of hiring and letting was 'for one month only' created a tenancy from month to month of second-floor rooms, terminable by either side without notice. The owner's claim for rent was limited to the months actually occupied before the keys were returned.",
+      "quote": ""
+     },
+     {
+      "candidate": "z-ai/glm-5.3",
+      "holding_summary": "Under a letting of second-floor rooms for one month only, rent payable in advance, a tenancy from month to month arises and neither party need give notice to terminate at the end of any month. The tenant's death and the administrator's prompt removal of her property and return of the keys terminated the tenancy, limiting the estate's rent liability to the months actually covered. The owner's short-cycle letting was enforced on its own terms without any regulatory overlay.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 2,
+     "majority_value": "non_resident_owner",
+     "non_null_n": 5,
+     "reference_value": "unclear"
+    }
+   },
+   "name": "Gibbons v. Dayton",
+   "reference": {
+    "polarity": "favorable",
+    "relevant": true,
+    "who_was_letting": "unclear"
+   },
+   "year": 1875
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    }
+   },
+   "case_id": 4809200,
+   "cite": "1 Lans. 20",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York Supreme Court",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "In an action on a fire policy, the court sustained the implied finding that keeping boarders (workmen employed on the court house) in the insured dwelling did not increase the risk so as to void the policy. Partial transfer of the insured's interest did not defeat recovery for his remaining interest.",
+      "quote": ""
+     },
+     {
+      "candidate": "google/gemini-3.7-flash",
+      "holding_summary": "Boarding workmen in an insured dwelling house does not constitute an increase of fire risk as a matter of law that would void the fire insurance policy.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 2,
+     "majority_value": "householder",
+     "non_null_n": 5,
+     "reference_value": "householder"
+    }
+   },
+   "name": "Manley v. President & Directors of the Insurance Co. of North America",
+   "reference": {
+    "polarity": "favorable",
+    "relevant": true,
+    "who_was_letting": "householder"
+   },
+   "year": 1869
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    }
+   },
+   "case_id": 4907537,
+   "cite": "70 A.D. 73",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York Supreme Court, Appellate Division",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "A wife who kept a boarding house before and after marriage on her separate account furnished board and lodging to her husband for seventeen years; he left a written acknowledgment of indebtedness for it. The court held the acknowledgment, coupled with proof of the board furnished, created a valid claim against his estate, and the claim was allowed.",
+      "quote": ""
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "holding_summary": "The court held that the widow could recover from her husband's estate for board and lodging she had furnished, because he acknowledged the debt and the evidence showed that she continuously supported him. It reversed the surrogate's disallowance of her claim.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 2,
+     "majority_value": "commercial_operator",
+     "non_null_n": 5,
+     "reference_value": null
+    }
+   },
+   "name": "In re the Judicial Settlement of the Account of Hamilton",
+   "reference": {
+    "polarity": "favorable",
+    "relevant": true,
+    "who_was_letting": null
+   },
+   "year": 1902
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    }
+   },
+   "case_id": 5303699,
+   "cite": "39 La. Ann. 14",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "Louisiana Supreme Court",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "A lessor who obtained an eviction judgment but then accepted the full rent waived his right to eject the tenant, and the lease was reinstated or became a month-to-month lease. Executing the writ of ejectment thereafter was malicious and rendered the lessor liable to the tenant for damages, increased to $350.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "La.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 3,
+     "majority_value": "unclear",
+     "non_null_n": 5,
+     "reference_value": "unclear"
+    }
+   },
+   "name": "Deslonde v. O'Hern",
+   "reference": {
+    "polarity": "adverse",
+    "relevant": true,
+    "who_was_letting": "unclear"
+   },
+   "year": 1887
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": false,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": null,
+      "model_value": null
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    }
+   },
+   "case_id": 5340954,
+   "cite": "273 A.D. 447",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York Supreme Court, Appellate Division",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "The owner's attempted cancellation of a lease of a rooming house was ineffective, and in any event section 209(a) of the Federal Housing and Rent Act of 1947 barred recovery of possession from a lessee who had furnished the rooms and apartments and sublet them furnished. Judgment for the owner was reversed.",
+      "quote": ""
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "holding_summary": "The court held that the landlord could not obtain possession of a furnished-room house operated by the prime tenant, even if the prime lease had ended. Federal rent control protected the tenant who furnished rooms and apartments and sublet them as furnished accommodations.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 3,
+     "majority_value": "commercial_operator",
+     "non_null_n": 4,
+     "reference_value": "commercial_operator"
+    }
+   },
+   "name": "112 East 36th Street Holding Corp. v. Daffos",
+   "reference": {
+    "polarity": "adverse",
+    "relevant": true,
+    "who_was_letting": "commercial_operator"
+   },
+   "year": 1948
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    }
+   },
+   "case_id": 5637879,
+   "cite": "123 N.Y.S. 803",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "New York Supreme Court, Appellate Division",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "An owner in possession of a farm whose fee had vested in the city by condemnation leased the house for one year for residential purposes. The court held she could lease and collect rent until the city actually took possession, and the tenant could not dispute her title or attorn to strangers.",
+      "quote": ""
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "holding_summary": "The court held that the plaintiff, who remained in possession after the city's condemnation title vested, had a right to lease the house and collect rent until the city actually took possession. The tenant could not deny her title or refuse the agreed rent while his occupancy remained undisturbed.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "N.Y.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 3,
+     "majority_value": "unclear",
+     "non_null_n": 5,
+     "reference_value": "unclear"
+    }
+   },
+   "name": "Stewart v. Briggs",
+   "reference": {
+    "polarity": "favorable",
+    "relevant": true,
+    "who_was_letting": "unclear"
+   },
+   "year": 1910
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    }
+   },
+   "case_id": 7875109,
+   "cite": "658 A.2d 886",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "Commonwealth Court of Pennsylvania",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "Boarders in a six-room rooming house are 'tenants' in a 'residential building' under the Utility Service Tenants Rights Act, so the water authority had to follow USTRA before terminating service for the landlord's nonpayment; USTRA may be privately enforced.",
+      "quote": ""
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "holding_summary": "The court held that rooming-house residents who paid rent for their rooms were tenants in a residential building under USTRA. It affirmed an injunction requiring the water authority to continue water service despite the landlord's nonpayment.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "Pa.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 3,
+     "majority_value": "commercial_operator",
+     "non_null_n": 5,
+     "reference_value": "commercial_operator"
+    }
+   },
+   "name": "Sisco v. Luppert",
+   "reference": {
+    "polarity": "adverse",
+    "relevant": true,
+    "who_was_letting": "commercial_operator"
+   },
+   "year": 1995
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    }
+   },
+   "case_id": 8256748,
+   "cite": "182 S.W. 1144",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "Texas Courts of Civil Appeals",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "A tenant who rented a house and used it as her home and as a boarding house could recover, as actual damages for a wrongful sequestration that dispossessed her, the profits lost by destruction of her boarding house business, subject to a duty to mitigate by finding another place to conduct it. Awards for humiliation and grief and for exemplary damages were reversed.",
+      "quote": ""
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "holding_summary": "The court upheld recovery for loss of the tenant's boarding-house business after the owner's wrongful sequestration of the leased premises. It held that the tenant had evidence supporting a year-long rental and continued possession with the owner's tacit consent, while reversing only damages for humiliation and exemplary damages.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "Tex.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 2,
+     "majority_value": "commercial_operator",
+     "non_null_n": 5,
+     "reference_value": "commercial_operator"
+    }
+   },
+   "name": "Hamlett v. Coates",
+   "reference": {
+    "polarity": "mixed",
+    "relevant": true,
+    "who_was_letting": "commercial_operator"
+   },
+   "year": 1915
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    }
+   },
+   "case_id": 8503953,
+   "cite": "122 La. 831",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "Louisiana Supreme Court",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "z-ai/glm-5.3",
+      "holding_summary": "On an exception of no cause of action, the court held that a lessee who rented premises expressly for keeping a boarding house and furnished rooms stated a claim against her lessor: if the premises became uninhabitable through defects covered by the lessor's warranty, she could recover lost business profits and damaged property.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "La.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 3,
+     "majority_value": "commercial_operator",
+     "non_null_n": 5,
+     "reference_value": "commercial_operator"
+    }
+   },
+   "name": "Goldsmith v. Virgin",
+   "reference": {
+    "polarity": "adverse",
+    "relevant": true,
+    "who_was_letting": "commercial_operator"
+   },
+   "year": 1909
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    }
+   },
+   "case_id": 8744140,
+   "cite": "28 Pa. D. & C.4th 168",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "Lycoming County Court of Common Pleas",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "Roomers with oral leases in a six-room rooming house occupied it as their domicile and were 'tenants' in a 'residential building' under USTRA; the water authority was preliminarily enjoined to restore service.",
+      "quote": ""
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "holding_summary": "The court held that USTRA protected the plaintiffs, who occupied rooms in a rooming house under oral leases, as tenants in a residential building. It granted a preliminary injunction requiring restoration of water service.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "Pa.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 3,
+     "majority_value": "commercial_operator",
+     "non_null_n": 5,
+     "reference_value": "commercial_operator"
+    }
+   },
+   "name": "Sisco v. Luppert",
+   "reference": {
+    "polarity": "adverse",
+    "relevant": true,
+    "who_was_letting": "commercial_operator"
+   },
+   "year": 1993
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "householder",
+      "model_value": "householder"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "unclear",
+      "model_value": "unclear"
+     }
+    }
+   },
+   "case_id": 10072991,
+   "cite": "17 So. 2d 492",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "Louisiana Court of Appeal",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "A laborer who agreed with the owner's tenant to rent a room in the house, and who fell through an unfloored attic space behind a nailed-up small door, could not recover from the owner. The court held that an owner may lease only part of his building and reserve other portions from use, and is not liable to persons who use reserved portions where he has done what is reasonably required to prevent such use.",
+      "quote": ""
+     },
+     {
+      "candidate": "z-ai/glm-5.3",
+      "holding_summary": "A laborer who agreed to lease a room from the owner's tenant was injured in an unfloored attic space and sued the owner; the court affirmed dismissal, finding no defect or fault by the owner. The court affirmed that an owner may lease portions of his building and set aside other portions not intended for dwelling use, and is not liable to those who use such reserved portions.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "La.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 2,
+     "majority_value": "householder",
+     "non_null_n": 5,
+     "reference_value": "householder"
+    }
+   },
+   "name": "Cheatham v. Bohrer",
+   "reference": {
+    "polarity": "mixed",
+    "relevant": true,
+    "who_was_letting": "householder"
+   },
+   "year": 1944
+  },
+  {
+   "candidates": {
+    "anthropic/claude-opus-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "anthropic/claude-sonnet-5": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "non_resident_owner",
+      "model_value": "non_resident_owner"
+     }
+    },
+    "google/gemini-3.7-flash": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "openai/gpt-5.6-terra": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    },
+    "z-ai/glm-5.3": {
+     "record_present": true,
+     "who_was_letting": {
+      "gate_nulled": false,
+      "gated_value": "commercial_operator",
+      "model_value": "commercial_operator"
+     }
+    }
+   },
+   "case_id": 12672508,
+   "cite": "246 So. 3d 754",
+   "contested_fields": [
+    "who_was_letting"
+   ],
+   "court": "Court of Appeal of Louisiana, Second Circuit",
+   "evidence_for_majority": {
+    "who_was_letting": [
+     {
+      "candidate": "anthropic/claude-opus-5",
+      "holding_summary": "The court affirmed a permanent injunction barring an LLC from renting its single-family lakefront dwelling as a short-term vacation rental, holding that the practice was a commercial use of the lot in violation of a subdivision covenant limiting lots to residential purposes. Short-term transient occupants were held not to be using the property for residential purposes.",
+      "quote": ""
+     },
+     {
+      "candidate": "openai/gpt-5.6-terra",
+      "holding_summary": "The court affirmed a permanent injunction barring an LLC from using a subdivision dwelling as a short-term vacation-rental business. It held that repeated, profit-making rentals averaging about four nights to transient occupants constituted commercial use prohibited by the subdivision's restrictive covenants.",
+      "quote": ""
+     }
+    ]
+   },
+   "evidence_for_reference": {
+    "who_was_letting": []
+   },
+   "jurisdiction": "La.",
+   "majority": {
+    "who_was_letting": {
+     "majority_n": 3,
+     "majority_value": "commercial_operator",
+     "non_null_n": 5,
+     "reference_value": "commercial_operator"
+    }
+   },
+   "name": "Edwards v. Landry Chalet Rentals, LLC",
+   "reference": {
+    "polarity": "adverse",
+    "relevant": true,
+    "who_was_letting": "commercial_operator"
+   },
+   "year": 2018
+  }
+ ],
+ "counts": {
+  "splits": 28
+ },
+ "generated_from": {
+  "cache": "data/reader/cache",
+  "candidates": [
+   "anthropic/claude-opus-5",
+   "openai/gpt-5.6-terra",
+   "z-ai/glm-5.3",
+   "google/gemini-3.7-flash",
+   "anthropic/claude-sonnet-5"
+  ],
+  "kit": "data/reader/kit-v1/kit.json",
+  "manifest": "data/reader/measurement-v1/manifest.json",
+  "never_reviewed_from": "data/reader/review/reference-v1/contested.json"
+ },
+ "method": "Decision D3: the who_was_letting reference for kit cases never reviewed on that field is the value at least 4 of the 5 finalists returned (post-gate, under mapper-v2). These are the cases where they did not. Cases the user already adjudicated on who_was_letting, and cases the ledger now records as irrelevant, are excluded (R8). No quote evidence is offered because who_was_letting is not quote-gated; each candidate's holding summary is shown instead.",
+ "page": {
+  "blurbs": {
+   "B": "Who the letting party was ({n} cases). <b>Ledger says</b> is the\n  never-reviewed label the kit currently carries \u2014 treat it as a first reader's guess, not\n  as a reference. No quotes are offered: this field is not quote-gated, so the candidates\n  were never asked to point at language for it. Each candidate's holding summary is shown\n  instead."
+  },
+  "intro": "These are reader-kit cases whose <code>who_was_letting</code> label\n<b>no human has ever checked</b>, and on which the five measured reader models did\n<b>not</b> reach 4-of-5 agreement under mapper-v2. Where they did agree, the agreed value is\nnow the reference on a machine basis; these are what is left. A model majority is not\nauthority \u2014 your decision is what the reference carries, and the kit is what every future\nreader is scored against. Cases you already adjudicated on this field, and cases you ruled\nout of the corpus, are not here. Decisions are saved into this page itself when you press\n<b>Save decisions</b>; if the viewer cannot save, use <b>Copy JSON</b> and paste it back.\nCitations link to CourtListener.",
+  "lede": "{cases} kit cases whose who_was_letting label no human ever checked and on which fewer than 4 of the 5 reader finalists agreed; {decisions} decisions.",
+  "md_title": "Reference adjudication v2 - who was letting, never human-reviewed",
+  "title": "Reference adjudication v2 \u2014 who was letting"
+ }
+}
