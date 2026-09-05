@@ -13,3 +13,5 @@ runs/*/extractions/
 
 data/ledger/.lock
 data/ledger/**/*.tmp
+
+data/reader/cache/

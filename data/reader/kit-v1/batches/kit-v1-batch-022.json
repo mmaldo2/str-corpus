@@ -1,0 +1,62 @@
+{
+ "batch_id": "kit-v1-batch-022",
+ "era_partition": "pre-1860",
+ "jurisdiction": "Pa.",
+ "cases": [
+  {
+   "case_id": 963755,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " the common law; but the 11 g. 2, c. 19, s. 14, by which it was given, is in force here; and in wharton v. fitzgerald, 3 dall. 503, assumpsit for profits was not sustained against one who had entered under a purchase from an adverse claimant. in new york, where it seems the place of the english statute is supplied by a similar one, it was ruled in smith v. stewart, 6 johns. 46, that assumpsit for "
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " the common law; but the 11 g. 2, c. 19, s. 14, by which it was given, is in force here; and in wharton v. fitzgerald, 3 dall. 503, assumpsit for profits was not sustained against one who had entered under a purchase from an adverse claimant. in new york, where it seems the place of the english statute is supplied by a similar one, it was ruled in smith v. stewart, 6 johns. 46, that assumpsit for "
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " the common law; but the 11 g. 2, c. 19, s. 14, by which it was given, is in force here; and in wharton v. fitzgerald, 3 dall. 503, assumpsit for profits was not sustained against one who had entered under a purchase from an adverse claimant. in new york, where it seems the place of the english statute is supplied by a similar one, it was ruled in smith v. stewart, 6 johns. 46, that assumpsit for "
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "right v. nutt, 1 t. r. 387, in which mr. justice buller said, that unless there be a contract, express or implied, the action for use and occupation cannot be sustained. indeed the statute gives it as a remedy expressly \" where the agreement is not by deed,\" and it gives it in no other case. as the defendants have left the premises, the plaintiffs cannot recover in any form of action. nor is their"
+    },
+    {
+     "selector_id": "relevance-feedback-39",
+     "selector_version": 1,
+     "matched_text": ", that the bringing of an action for the rent reserved, was a confirmation of the father's lease; but being void as to all, it was incapable of confirmation, except by a new agreement on sufficient consideration, as may be inferred from duncan v. mccullough, 4 s. & r. 486. but assuredly debt will not lie where the statutory and more liberal action of assumpsit for use and occupation would not; and"
+    }
+   ]
+  },
+  {
+   "case_id": 1844071,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "rankin against tenbrook. a tenant cannot destroy his landlord's possession by a secret agreement to attorn to another. a tenant cannot, therefore, by any agreement or acknowledgment of the title of a third person, so affect his landlord as to destroy the right which he would otherwise have by reason of an adverse possession for twenty-one years. error to mercer county. this was an action of ejectm"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "rankin against tenbrook. a tenant cannot destroy his landlord's possession by a secret agreement to attorn to another. a tenant cannot, therefore, by any agreement or acknowledgment of the title of a third person, so affect his landlord as to destroy the right which he would otherwise have by reason of an adverse possession for twenty-one years. error to mercer county. this was an action of ejectm"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "rankin against tenbrook. a tenant cannot destroy his landlord's possession by a secret agreement to attorn to another. a tenant cannot, therefore, by any agreement or acknowledgment of the title of a third person, so affect his landlord as to destroy the right which he would otherwise have by reason of an adverse possession for twenty-one years. error to mercer county. this was an action of ejectm"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " the premises he holds under a lease, yet that does not incapacitate him from maintaining possession under the lease. and in bull. n. p. 102-3-4, it is laid down, that receipt for rent by a stranger is no evidence of possession so as to take it out-of him who the right has, not even though he made a lease to the tenant reserving rent, unless he made an actual entry. so, though the tenant declare t"
+    }
+   ]
+  }
+ ]
+}

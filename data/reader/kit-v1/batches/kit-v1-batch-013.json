@@ -1,0 +1,57 @@
+{
+ "batch_id": "kit-v1-batch-013",
+ "era_partition": "1930-1970",
+ "jurisdiction": "Pa.",
+ "cases": [
+  {
+   "case_id": 472949,
+   "signals": [
+    {
+     "selector_id": "furnished-rooms-06",
+     "selector_version": 1,
+     "matched_text": "e married, appellant liquidated the business in which he was associated with his brothers. he was then employed by his father-in-law in connection with the operation and management of rooming houses, furnished rooms and apartment business. appellant worked for his father-in-law off and on until march, 1947, receiving $75.00 a week for collecting rents, purchasing supplies, taking care of complaints, seeing that "
+    },
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": " the parties were married, appellant liquidated the business in which he was associated with his brothers. he was then employed by his father-in-law in connection with the operation and management of rooming houses, furnished rooms and apartment business. appellant worked for his father-in-law off and on until march, 1947, receiving $75.00 a week for collecting rents, purchasing supplies, taking care of compla"
+    }
+   ]
+  },
+  {
+   "case_id": 1021077,
+   "signals": [
+    {
+     "selector_id": "tourist-home-15",
+     "selector_version": 1,
+     "matched_text": "posed building cannot and will not be used as a dwelling. the case of douglass v. queeney, 109 pa. superior ct. 336, 167 a. 453, cited by appellees has no application. there a grantor, who operated a tourist home, placed in his deed conveying land nearby, a building restriction which was designed to prevent competition with his tourist business, and provided that the land conveyed to the grantees should be us"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 1,
+     "matched_text": " to confer the use of it as a permanent outlook upon the intervening appellees who bought, paid for and are entitled to only their own lots. so long as the plaintiff can use her lot for a dwelling within the provisions and regulations of the zoning ordinance, she has a right to do so, irrespective of its effect on the aesthetic sensibilities of her neighbors. but even small buildings can be put to"
+    },
+    {
+     "selector_id": "tourist-home-15",
+     "selector_version": 2,
+     "matched_text": "posed building cannot and will not be used as a dwelling. the case of douglass v. queeney, 109 pa. superior ct. 336, 167 a. 453, cited by appellees has no application. there a grantor, who operated a tourist home, placed in his deed conveying land nearby, a building restriction which was designed to prevent competition with his tourist business, and provided that the land conveyed to the grantees should be us"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": " to confer the use of it as a permanent outlook upon the intervening appellees who bought, paid for and are entitled to only their own lots. so long as the plaintiff can use her lot for a dwelling within the provisions and regulations of the zoning ordinance, she has a right to do so, irrespective of its effect on the aesthetic sensibilities of her neighbors. but even small buildings can be put to"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " lunches; and for the erection of two dwelling houses to he used as dwellings only; and it was held that four sleeping cottages, intended to be rented out for occupancy at night by transient tourists, were not dwelling houses within the terms of the grant. they were buildings which the grantor clearly intended to prohibit in his deed, because of their competition with his own business. as we said "
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": " lunches; and for the erection of two dwelling houses to he used as dwellings only; and it was held that four sleeping cottages, intended to be rented out for occupancy at night by transient tourists, were not dwelling houses within the terms of the grant. they were buildings which the grantor clearly intended to prohibit in his deed, because of their competition with his own business. as we said "
+    }
+   ]
+  }
+ ]
+}

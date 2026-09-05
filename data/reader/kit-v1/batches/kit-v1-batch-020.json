@@ -1,0 +1,57 @@
+{
+ "batch_id": "kit-v1-batch-020",
+ "era_partition": "pre-1860",
+ "jurisdiction": "La.",
+ "cases": [
+  {
+   "case_id": 331741,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "e patris familias, aut contestatione sol\u00e1, sin\u00e9 re et facto, domicilium constitui; \u00f1eque sol\u00e1 domus comparatione in aliqu\u00e1 regions; \u00f1eque sol\u00e1 habitations, sine proposito illic perpetuo morandi.\" so d'argentr\u00e9 says, \" quamobrem, qui figendi ejus animum non habent, sed usus, necessitatis, aut negatiationis causa alicubi sint, protinus a negotio discessiori, domicilium nullo temporis spatio constitu"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "e patris familias, aut contestatione sol\u00e1, sin\u00e9 re et facto, domicilium constitui; \u00f1eque sol\u00e1 domus comparatione in aliqu\u00e1 regions; \u00f1eque sol\u00e1 habitations, sine proposito illic perpetuo morandi.\" so d'argentr\u00e9 says, \" quamobrem, qui figendi ejus animum non habent, sed usus, necessitatis, aut negatiationis causa alicubi sint, protinus a negotio discessiori, domicilium nullo temporis spatio constitu"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " there is no doubt that every person has his domicil in that place where he has his domestic hearth, the principal part of his property, business and fortune; whence he does not wish to depart, unless called away by business, and is a wanderer when he has left it, but ceases to be so on his return to it.\" the difficulty in the translation of the latin text of this law into english, consists in fin"
+    }
+   ]
+  },
+  {
+   "case_id": 334675,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " the eventual rights of the wife in it had ever become absolute by her acceptance... this is absolutely required by the authority to which we are referred. 4 touliier, 464. so far from there having been an acceptance-in this case, the intontion of the wife to renounce, and-her belief that she had renounced^ are rendered manifest by ail her acts. the-circumstance that she did not-renonnoe in strict"
+    }
+   ]
+  },
+  {
+   "case_id": 8501453,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "frederick n. bissell v. augustus j. leftwich, administrator. appeal from the court of probates of iberville, dutton, j. garland, j. this action was instituted to recover the amount of an account for the board and lodging of the deceased, of his wife, and a small servant for four months previous to january, 1839; for washing their clothes during that period; for the boarding of several negro childr"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "frederick n. bissell v. augustus j. leftwich, administrator. appeal from the court of probates of iberville, dutton, j. garland, j. this action was instituted to recover the amount of an account for the board and lodging of the deceased, of his wife, and a small servant for four months previous to january, 1839; for washing their clothes during that period; for the boarding of several negro childr"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "frederick n. bissell v. augustus j. leftwich, administrator. appeal from the court of probates of iberville, dutton, j. garland, j. this action was instituted to recover the amount of an account for the board and lodging of the deceased, of his wife, and a small servant for four months previous to january, 1839; for washing their clothes during that period; for the boarding of several negro childr"
+    }
+   ]
+  }
+ ]
+}

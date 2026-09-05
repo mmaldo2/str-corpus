@@ -1,0 +1,82 @@
+{
+ "batch_id": "kit-v1-batch-023",
+ "era_partition": "pre-1860",
+ "jurisdiction": "Tex.",
+ "cases": [
+  {
+   "case_id": 2039433,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " the matter of the foreclosure of the prior mortgage. the existence and validity of these proceedings had been put in issue by the petition ; and it was competent to prove the fact of their existence. they were admissible under the pleadings, as conducing to show a continuous and consistent claim and assertion of right and title in the first mortgagee. the only question presented by the record, on"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " the matter of the foreclosure of the prior mortgage. the existence and validity of these proceedings had been put in issue by the petition ; and it was competent to prove the fact of their existence. they were admissible under the pleadings, as conducing to show a continuous and consistent claim and assertion of right and title in the first mortgagee. the only question presented by the record, on"
+    },
+    {
+     "selector_id": "relevance-feedback-39",
+     "selector_version": 1,
+     "matched_text": ". in that case the plaintiff, who was an administrator, having executed a release of all commission that he was entitled to in that right, offered himself as a witness to prove the case against the defendant; and this court determined that he was rightly rejected by the court below. ware's estate cannot, in any just sense, be called a party opposite to the defendant darragh. every feeling and ever"
+    }
+   ]
+  },
+  {
+   "case_id": 2102851,
+   "signals": [
+    {
+     "selector_id": "incident-of-ownership-11",
+     "selector_version": 1,
+     "matched_text": " be enlarged or extended beyond its actual limits by a mere verbal claim and marked line, however notorious, without something more on which to found a claim of right. a constructive possession is an incident of ownership and results from title, and is in no way applicable to a case where the occupant defends himself avowedly and exclusively on the ground of his own wrong. the person who has a warrant and survey has a"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "george w. whitehead et al. v. mason b. foley et al. by wheeler, c. j. the distinction between a seizin in deed and a seizin in law, or a freehold in deed and a freehold in law, cannot be said to obtain generally in this country. it is the generally received american doctrine, that a conveyance by deed, a descent cast upon the heir, or a grant by letters patent from the government, carries the lega"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "george w. whitehead et al. v. mason b. foley et al. by wheeler, c. j. the distinction between a seizin in deed and a seizin in law, or a freehold in deed and a freehold in law, cannot be said to obtain generally in this country. it is the generally received american doctrine, that a conveyance by deed, a descent cast upon the heir, or a grant by letters patent from the government, carries the lega"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": ".\" (per story, j., ib,) _ generally in this country, certainly in this state, seizin means merely ownership, and the distinction between seizin in deed and in law is not known in practice. (4 day, 305; 4 mass., 489; 10 tex., 388.) the right thus drawing to it the legal seizin and possession of the owner, per se, he thus remains possessed until disseized by possession taken and held adversely by an"
+    }
+   ]
+  },
+  {
+   "case_id": 2121343,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "9; 17 tex. r. 227; 2 id. 115.) roberts, j. the court charged the jury, that \" the material question in this case is whether or not the defendant is liable as the keeper of a common inn. an innkeeper is one who holds himself out to the public as engaged in the business of keeping a house for the lodging and entertainment of travellers and passengers, their horses and attendants for reasonable compe"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "william e. howth v. j. r. franklin. where property, committed to the custody of an innkeeper by his guest, is lost, the presumption is that the innkeeper is liable for it; but he can relieve himself from that liability by showing that he has used extreme diligence. a person may hold himself out to the public as an innkeeper, by his acts, as well as by his declarations, or by a sign. his acts might"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "9; 17 tex. r. 227; 2 id. 115.) roberts, j. the court charged the jury, that \" the material question in this case is whether or not the defendant is liable as the keeper of a common inn. an innkeeper is one who holds himself out to the public as engaged in the business of keeping a house for the lodging and entertainment of travellers and passengers, their horses and attendants for reasonable compe"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " lot of the defendant, through the carelessness and neglect of the latter ; said horse having been received into defendant's possession, in the capacity aforesaid, to keep and feed, from the hands of a certain person in whose service he then was, and who was at the time a guest of the defendant. the only real question of fact was, whether defendant was an innkeeper. the evidence tended to differen"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " lot of the defendant, through the carelessness and neglect of the latter ; said horse having been received into defendant's possession, in the capacity aforesaid, to keep and feed, from the hands of a certain person in whose service he then was, and who was at the time a guest of the defendant. the only real question of fact was, whether defendant was an innkeeper. the evidence tended to differen"
+    }
+   ]
+  }
+ ]
+}

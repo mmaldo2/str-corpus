@@ -1,0 +1,542 @@
+{
+ "batch_id": "kit-v1-batch-016",
+ "era_partition": "1970-2020",
+ "jurisdiction": "N.Y.",
+ "cases": [
+  {
+   "case_id": 313487,
+   "signals": [
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": "pl 711 petitioner has also established that she is a tenant entitled to process of law under rpapl 711, which provides in pertinent part: \"a tenant shall include an occupant of one or more rooms in a rooming house or a resident, not including a transient occupant, of one or more rooms in a hotel who has been in possession for thirty consecutive days or longer; he shall not he removed from possession except in "
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " provides: \"hotel occupant. any person residing in a housing accommodation in a hotel who is not a permanent tenant. such person shall not be considered a tenant for the purposes of this code, but shall be entitled to become a permanent tenant as defined in subdivision (j) of this section, upon compliance with the procedure set forth in each subdivision.\" 8 . rsc \u00a7 2500.2 (h) provides: \"tenant. a "
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " provides: \"hotel occupant. any person residing in a housing accommodation in a hotel who is not a permanent tenant. such person shall not be considered a tenant for the purposes of this code, but shall be entitled to become a permanent tenant as defined in subdivision (j) of this section, upon compliance with the procedure set forth in each subdivision.\" 8 . rsc \u00a7 2500.2 (h) provides: \"tenant. a "
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " provides: \"hotel occupant. any person residing in a housing accommodation in a hotel who is not a permanent tenant. such person shall not be considered a tenant for the purposes of this code, but shall be entitled to become a permanent tenant as defined in subdivision (j) of this section, upon compliance with the procedure set forth in each subdivision.\" 8 . rsc \u00a7 2500.2 (h) provides: \"tenant. a "
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "5 e. 50th st. corp. (124 misc 2d 115 [civ ct, ny county 1984], affd 126 misc 2d 1016 [app term, 1st dept 1985]), relied upon by the court in chatham (supra), held that there is no precise test for determining whether one is a transient within the meaning of rpapl 711. that determination, the mann court held, depends upon the entire context of one's occupancy of the premises, and is not affected by"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "it shall be unlawful for an owner of a dwelling unit to fail to take all reasonable and necessary action to restore to occupancy an occupant of a dwelling unit who either vacates, has been removed from or is otherwise prevented from occupying a dwelling unit as the result of any of the acts or omissions prescribed in subdivision a of this section and to provide to such occupant a dwelling unit wit"
+    }
+   ]
+  },
+  {
+   "case_id": 782936,
+   "signals": [
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": " defendant offered no proof as to its existence, except that counsel stipulated to the facts as found by the zoning board of appeals in its decision. the board found that \"the non-conforming boarding/rooming house use has been abandoned by mr. waring for an uninterrupted period of one calendar year\". as a matter of law, abandonment of a nonconforming use extinguishes the defendant's legal right to that use. (s"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 1,
+     "matched_text": "the people of the state of new york, plaintiff, v william waring, defendant. city court of oswego, oswego county, july 9, 1981 appearances of counsel james w. mccarthy for plaintiff. stephen c. greene for defendant. opinion of the court frank m. klinger, j. the case at bar charges a violation of section 110 of the city zoning ordinance which states that no structure shall be occupied or used unles"
+    },
+    {
+     "selector_id": "adverse-embed-regulation-29",
+     "selector_version": 1,
+     "matched_text": "the people of the state of new york, plaintiff, v william waring, defendant. city court of oswego, oswego county, july 9, 1981 appearances of counsel james w. mccarthy for plaintiff. stephen c. greene for defendant. opinion of the court frank m. klinger, j. the case at bar charges a violation of section 110 of the city zoning ordinance which states that no structure shall be occupied or used unles"
+    },
+    {
+     "selector_id": "housekeeping-unit-31",
+     "selector_version": 1,
+     "matched_text": "ring the dates charged, there were five unrelated people living at 156 west seneca street, all sharing the same kitchen, as well as other social and hygenic facilities and living together as a single housekeeping unit. the defendant, therefore, has not proven that he had a \"one family dwelling\" or \"two family dwelling\" within the meaning of the statute, during the dates charged. \"family\" is defined as: \"one or mor"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": "the people of the state of new york, plaintiff, v william waring, defendant. city court of oswego, oswego county, july 9, 1981 appearances of counsel james w. mccarthy for plaintiff. stephen c. greene for defendant. opinion of the court frank m. klinger, j. the case at bar charges a violation of section 110 of the city zoning ordinance which states that no structure shall be occupied or used unles"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": "the people of the state of new york, plaintiff, v william waring, defendant. city court of oswego, oswego county, july 9, 1981 appearances of counsel james w. mccarthy for plaintiff. stephen c. greene for defendant. opinion of the court frank m. klinger, j. the case at bar charges a violation of section 110 of the city zoning ordinance which states that no structure shall be occupied or used unles"
+    }
+   ]
+  },
+  {
+   "case_id": 828076,
+   "signals": [
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": "711 sets forth grounds upon which a summary proceeding may be commenced. prior to the enactment of chapter 739 of the laws of 1982, the opening paragraph of the section provided that an occupant of a rooming house in possession for 30 days could not be removed except through summary proceedings. the paragraph contained no reference to hotels. the 1982 amendment repealed the foregoing and replaced it with the f"
+    },
+    {
+     "selector_id": "transient-guests-16",
+     "selector_version": 1,
+     "matched_text": "way from home. under the facts herein, it is clear that movant may not be considered a transient. there is nothing to indicate that she has any other residence, and although hotels normally require a transient guest to provide a home address, the hotel has no other address for her. here, after being in possession for three months and having paid only $250 on a bill that ran into the thousands of dollars, rather "
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": ".) webster's new collegiate dictionary defines the term as \"passing through or by a place with only a brief stay or sojourn.\" \"transient\" has been considered the opposite of \"resident\" (see the leontios teryazos, 45 f supp 618), and with respect to a hotel, is one who has a home elsewhere and is staying at the hotel for a short period in connection with a trip away from home. under the facts herei"
+    },
+    {
+     "selector_id": "sro-35",
+     "selector_version": 1,
+     "matched_text": "marie mann, petitioner, v 125 e. 50th st. corp., respondent. civil court of the city of new york, new york county, may 7, 1984 appearances of counsel marie mann, petitioner pro se. rubin, baum, levin, . constant & friedman for respondent. opinion of the court edward h. lehner, j. the issue raised on this application is whether a person who had resided in a hotel for four months may be locked out o"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": ". under the wording of the statute a person can be considered a transient and thus be subject to eviction without legal process though having lived in a hotel for over 30 days, as the 30-day residency is not the sole test for determining applicability. if it were, the phrase \"not including a transient occupant\" would be surplusage. hence, the resolution of this motion turns on the definition of th"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": ". under the wording of the statute a person can be considered a transient and thus be subject to eviction without legal process though having lived in a hotel for over 30 days, as the 30-day residency is not the sole test for determining applicability. if it were, the phrase \"not including a transient occupant\" would be surplusage. hence, the resolution of this motion turns on the definition of th"
+    }
+   ]
+  },
+  {
+   "case_id": 834847,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " stamps while trying to go to school. he pays rent of $52 per week. that leaves him $58 per month for costs other than housing; over 70% of his income goes for rent, and his rent is far from excessive. it is true that many of these tenants are employed and may be able to find housing elsewhere. but there is no question in this court's mind that many of these tenants will be forced either into anot"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 1,
+     "matched_text": " stamps while trying to go to school. he pays rent of $52 per week. that leaves him $58 per month for costs other than housing; over 70% of his income goes for rent, and his rent is far from excessive. it is true that many of these tenants are employed and may be able to find housing elsewhere. but there is no question in this court's mind that many of these tenants will be forced either into anot"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " stamps while trying to go to school. he pays rent of $52 per week. that leaves him $58 per month for costs other than housing; over 70% of his income goes for rent, and his rent is far from excessive. it is true that many of these tenants are employed and may be able to find housing elsewhere. but there is no question in this court's mind that many of these tenants will be forced either into anot"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": " stamps while trying to go to school. he pays rent of $52 per week. that leaves him $58 per month for costs other than housing; over 70% of his income goes for rent, and his rent is far from excessive. it is true that many of these tenants are employed and may be able to find housing elsewhere. but there is no question in this court's mind that many of these tenants will be forced either into anot"
+    },
+    {
+     "selector_id": "sro-35",
+     "selector_version": 1,
+     "matched_text": "thout physical alterations\". the section provides for certain exceptions, such as hospitals, college dormitories, etc. parties in this case have occasionally referred to the buildings in this case as single room occupancy buildings (sros). this court notes that this is not really an sro situation. according to code \u00a7 d26-107 (a) (17), an sro is \"a single room, or of two or more rooms which are joined together, separat"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " stamps while trying to go to school. he pays rent of $52 per week. that leaves him $58 per month for costs other than housing; over 70% of his income goes for rent, and his rent is far from excessive. it is true that many of these tenants are employed and may be able to find housing elsewhere. but there is no question in this court's mind that many of these tenants will be forced either into anot"
+    }
+   ]
+  },
+  {
+   "case_id": 886816,
+   "signals": [
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": "the opinion of this court respondent's argument as presented by westchester legal services is more persuasive. section 711 specifies that a tenant \"shall include an occupant of one or more rooms in a rooming house or a resident, not including a transient occupant, of one or more rooms in a hotel, who has been in possession for thirty consecutive days or longer\". here, respondent has been in possession of a mot"
+    },
+    {
+     "selector_id": "transient-guests-16",
+     "selector_version": 1,
+     "matched_text": "missed. * statutory references which support respondent's claim of tenancy and not mere licensee are multiple residence law \u00a7 50 and tax law \u00a7 1101 (c) (5). under the multiple residence law the term \"transient occupancy\" of a hotel is defined as meaning occupancy \"by the same person or persons for a period of ninety days or less\" (\u00a7 50 [1]). respondent, barbara seignious, was an occupant at petitioner's motel for we"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " statutory requirement for termination of her tenancy has not been met. petitioner finally points' to the testimony of the mayor of elmsford, arthur de angelis, and elmsford's municipal code, which only licenses the elmsford motor lodge for the purposes of \"overnight or temporary sleeping or housing accommodations for a consideration, tourists, transients or travelers\", as indicative of the fact t"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "universal motor lodges, inc., doing business as elmsford motor lodge, petitioner, v barbara seignious, respondent. justice court of village of elmsford, westchester county, january 12, 1990 appearances of counsel taylor, mccullough, goldberger & geoghegan for petitioner. ann m. mcdonald for respondent. opinion of the court william h. pohlmann, j. the problems of the homeless are chronicled almost "
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " that she is a month-to-month tenant (not a licensee) and as such rpapl 711 is the law applicable to this case and that section gives her greater rights than a mere licensee. among other things, a tenant's occupancy can only be terminated by a 30-day notice to vacate. in the opinion of this court respondent's argument as presented by westchester legal services is more persuasive. section 711 speci"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " that she is a month-to-month tenant (not a licensee) and as such rpapl 711 is the law applicable to this case and that section gives her greater rights than a mere licensee. among other things, a tenant's occupancy can only be terminated by a 30-day notice to vacate. in the opinion of this court respondent's argument as presented by westchester legal services is more persuasive. section 711 speci"
+    }
+   ]
+  },
+  {
+   "case_id": 921144,
+   "signals": [
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": "liance and is allowed no visitors in the cubicle. tenant pays rent of $6 plus tax per night under an oral lease. a \"lodging house\" is defined by statute as \"a multiple dwelling, other than a hotel, a rooming house or a furnished room house, in which persons are housed for hire for a single night, or for less than a week at one time, or any part of which is let for any person to sleep in for any terms less than"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " or intended to be occupied by individuals. significantly, as lodging houses have always been covered by rent and eviction regulations, and cubicles have always been included in the mdl as sleeping places in lodging houses, to eliminate individual 'cubicles' in lodging houses from rent and eviction regulation coverage (without a specific exemption) would be equivalent to eliminating 'apartments' ("
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " or intended to be occupied by individuals. significantly, as lodging houses have always been covered by rent and eviction regulations, and cubicles have always been included in the mdl as sleeping places in lodging houses, to eliminate individual 'cubicles' in lodging houses from rent and eviction regulation coverage (without a specific exemption) would be equivalent to eliminating 'apartments' ("
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " or intended to be occupied by individuals. significantly, as lodging houses have always been covered by rent and eviction regulations, and cubicles have always been included in the mdl as sleeping places in lodging houses, to eliminate individual 'cubicles' in lodging houses from rent and eviction regulation coverage (without a specific exemption) would be equivalent to eliminating 'apartments' ("
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": ") in practical terms, a lodging house tenant receives shelter and is issued a bed on a transient basis, and in exchange pays a modest rent measured typically at a daily rate. the bed provided to a lodging house tenant may be situated in a \"dormitory\" - a term defined as \"any place used for sleeping purposes * * * in a lodging house\" (multiple dwelling law \u00a7 4 [21]) - or, as in this case, in a \"cub"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": ") in practical terms, a lodging house tenant receives shelter and is issued a bed on a transient basis, and in exchange pays a modest rent measured typically at a daily rate. the bed provided to a lodging house tenant may be situated in a \"dormitory\" - a term defined as \"any place used for sleeping purposes * * * in a lodging house\" (multiple dwelling law \u00a7 4 [21]) - or, as in this case, in a \"cub"
+    }
+   ]
+  },
+  {
+   "case_id": 1048115,
+   "signals": [
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": "ing forth parties against whom a summary proceeding may be commenced, does not define the term \"tenant,\" it does state that the term \"tenant\" includes \"an occupant\" of one or more rooms in a hotel or rooming house. thus, an occupant for less than 30 days is not a tenant under that statute. real property law \u00a7 235-f (the \"roommate\" law) defines \"tenant\" as one who is a party to a lease or has rights as a statut"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": ",\" it does state that the term \"tenant\" includes \"an occupant\" of one or more rooms in a hotel or rooming house. thus, an occupant for less than 30 days is not a tenant under that statute. real property law \u00a7 235-f (the \"roommate\" law) defines \"tenant\" as one who is a party to a lease or has rights as a statutory tenant, while an \"occupant\" means a person other than a tenant \"occupying a premises "
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": ",\" it does state that the term \"tenant\" includes \"an occupant\" of one or more rooms in a hotel or rooming house. thus, an occupant for less than 30 days is not a tenant under that statute. real property law \u00a7 235-f (the \"roommate\" law) defines \"tenant\" as one who is a party to a lease or has rights as a statutory tenant, while an \"occupant\" means a person other than a tenant \"occupying a premises "
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": ",\" it does state that the term \"tenant\" includes \"an occupant\" of one or more rooms in a hotel or rooming house. thus, an occupant for less than 30 days is not a tenant under that statute. real property law \u00a7 235-f (the \"roommate\" law) defines \"tenant\" as one who is a party to a lease or has rights as a statutory tenant, while an \"occupant\" means a person other than a tenant \"occupying a premises "
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " \"occupying a premises with the consent of the tenant or tenants\" (real property law \u00a7 235-f [1] [b]). further, the term \"tenant\" would not include a licensee. this is illustrated in the case of american jewish theatre v roundabout theatre co. (203 ad2d 155, 156 [1st dept 1994]), where the court wrote: \"the nature of the transfer of absolute control and possession is what differentiates a lease fr"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " although the relocation services provided by the city to the aforesaid 55 persons clearly reflect humanitarian efforts by our city government to aid people who had no true residence, the court finds that these 55 persons cannot be deemed \"tenants\" of this basement room which contained only approximately 20 beds. while some of the 55 individuals may have slept in the premises for more than a few d"
+    }
+   ]
+  },
+  {
+   "case_id": 1064801,
+   "signals": [
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": "s family home care providers did not constitute business pursuits because of insufficient evidence that they engaged in the activity for profit. the court also held that the disabled persons were not roomers or boarders and, thus, the premises were not changed into business property. supreme court granted summary judgment in favor of the vortkamps and required plaintiff to both defend the action and indemnify any ju"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " to three or more roomers or boarders will convert the whole property into business property. the record does not demonstrate, however, that the disabled persons were either roomers or boarders when these terms are given their plain and ordinary meaning (see, simon v colonial states brokerage corp., 128 ad2d 603, 604; see also, webster's third new international dictionary 243-244, 1329 [unabridged"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 1,
+     "matched_text": " to three or more roomers or boarders will convert the whole property into business property. the record does not demonstrate, however, that the disabled persons were either roomers or boarders when these terms are given their plain and ordinary meaning (see, simon v colonial states brokerage corp., 128 ad2d 603, 604; see also, webster's third new international dictionary 243-244, 1329 [unabridged"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " to three or more roomers or boarders will convert the whole property into business property. the record does not demonstrate, however, that the disabled persons were either roomers or boarders when these terms are given their plain and ordinary meaning (see, simon v colonial states brokerage corp., 128 ad2d 603, 604; see also, webster's third new international dictionary 243-244, 1329 [unabridged"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": " to three or more roomers or boarders will convert the whole property into business property. the record does not demonstrate, however, that the disabled persons were either roomers or boarders when these terms are given their plain and ordinary meaning (see, simon v colonial states brokerage corp., 128 ad2d 603, 604; see also, webster's third new international dictionary 243-244, 1329 [unabridged"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " to three or more roomers or boarders will convert the whole property into business property. the record does not demonstrate, however, that the disabled persons were either roomers or boarders when these terms are given their plain and ordinary meaning (see, simon v colonial states brokerage corp., 128 ad2d 603, 604; see also, webster's third new international dictionary 243-244, 1329 [unabridged"
+    }
+   ]
+  },
+  {
+   "case_id": 1246298,
+   "signals": [
+    {
+     "selector_id": "transient-guests-16",
+     "selector_version": 1,
+     "matched_text": "ndlord only owed the duty to exercise reasonable care. it was held (p. 536) that the innkeeper's liability \" exists only in the case of one who is a traveler and seeks the hospitality of the inn as a transient guest \" (emphasis added). a review of the numerous decisions in this field demonstrates that there are many factors to be considered in making the distinction between a guest and a tenant or lodger. among "
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " is paid daily, weekly or monthly, what kind of furnishings are in the premises and to whom they belong, whether possessions of the occupant indicate an intention on his part to be there for a temporary or more lasting period. viewing the case at bar in the light of these criteria, i conclude that the plaintiff is not a guest, to be treated like a transient or traveler at an inn, but rather is a t"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " is paid daily, weekly or monthly, what kind of furnishings are in the premises and to whom they belong, whether possessions of the occupant indicate an intention on his part to be there for a temporary or more lasting period. viewing the case at bar in the light of these criteria, i conclude that the plaintiff is not a guest, to be treated like a transient or traveler at an inn, but rather is a t"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " is paid daily, weekly or monthly, what kind of furnishings are in the premises and to whom they belong, whether possessions of the occupant indicate an intention on his part to be there for a temporary or more lasting period. viewing the case at bar in the light of these criteria, i conclude that the plaintiff is not a guest, to be treated like a transient or traveler at an inn, but rather is a t"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " owed the duty to exercise reasonable care. it was held (p. 536) that the innkeeper's liability \" exists only in the case of one who is a traveler and seeks the hospitality of the inn as a transient guest \" (emphasis added). a review of the numerous decisions in this field demonstrates that there are many factors to be considered in making the distinction between a guest and a tenant or lodger. am"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " owed the duty to exercise reasonable care. it was held (p. 536) that the innkeeper's liability \" exists only in the case of one who is a traveler and seeks the hospitality of the inn as a transient guest \" (emphasis added). a review of the numerous decisions in this field demonstrates that there are many factors to be considered in making the distinction between a guest and a tenant or lodger. am"
+    }
+   ]
+  },
+  {
+   "case_id": 1277008,
+   "signals": [
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": "nt was occupied first by two and then by three males, all unrelated. the village's contention that the code was violated is based upon section 20-30 (i), which permits the keeping of no more than two boarders or roomers in a dwelling a district; section 20-2(11), which defines a boarding house as \" any dwelling in which more than three persons either individually or as families are housed or lodged for hire with or "
+    },
+    {
+     "selector_id": "adverse-boarding-license-25",
+     "selector_version": 1,
+     "matched_text": "onvicted of violating section 20-30, 20-31 and 14-114 of the code of ordinances of the incorporated village of lynbrook, in that she used her premises so as to keep more than two boarders, operated a boarding house, and failed to obtain a license for such boarding house. the village concedes that the structure, located in a dwelling a district, is a legal two-faniily house and that its use as a two-family house"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 1,
+     "matched_text": "the people of the state of new york, respondent, v. josephine w. nolan, appellant. supreme court, appellate term, second department, august 15, 1973. robert m. blakemcm for appellant. peter k. ledwith, village attorney, for respondent. memorandum. defendant was convicted of violating section 20-30, 20-31 and 14-114 of the code of ordinances of the incorporated village of lynbrook, in that she used"
+    },
+    {
+     "selector_id": "adverse-embed-regulation-29",
+     "selector_version": 1,
+     "matched_text": " the promotion of health, comfort, safety and the general welfare of the community (salamar bldrs. corp. v. tuttle, 29 n y 2d 221; baddour v. city of long beach, 279 n. y. 167). in people v. renaissance project (78 misc 2d 607), we declared invalid a provision limiting the occupancy of a one-family dwelling to any number of individuals who are related by blood, marriage or adoption, but requiring "
+    },
+    {
+     "selector_id": "housekeeping-unit-31",
+     "selector_version": 1,
+     "matched_text": "ure is a legal two-family dwelling, and a family is defined by the code as \" any number of individuals related by blood, marriage, or adoption, living and cooking together on the premises as a single housekeeping unit, and may include servants living in, or not more than two paying lodgers or boarders \" (\u00a7 20-2[27]). thus, under this definiton, defendant could house a family and two board\u00e9rs in each of the apartme"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": "the people of the state of new york, respondent, v. josephine w. nolan, appellant. supreme court, appellate term, second department, august 15, 1973. robert m. blakemcm for appellant. peter k. ledwith, village attorney, for respondent. memorandum. defendant was convicted of violating section 20-30, 20-31 and 14-114 of the code of ordinances of the incorporated village of lynbrook, in that she used"
+    }
+   ]
+  },
+  {
+   "case_id": 1932707,
+   "signals": [
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": " the plaintiff in the instant action, was employed by the kolping society (\"kolping\") as an assistant manager in march, 1977. as part of his employment, he was provided with a room in the defendant's rooming house. stiles was later discharged in july, 1978, but was permitted to stay on as a tenant. he paid rent for these lodgings. in november, 1978, the defendants asked plaintiff to find other accommodations a"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "arthur stiles, plaintiff, v daniel donovan et al., defendants. civil court of the city of new york, trial term, new york county, august 17, 1979 appearances of counsel arthur stiles, plaintiff pro se. zelby, burstein, bernstein & hartman (mel hartman of counsel), for defendants. opinion of the court david stadtmauer, j. plaintiff, appearing pro se, brought suit against defendants for conversion, n"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " has terminated, a tenancy at will is created. the classic case of kerrains v people (60 ny 221) advanced this principle in 1875 and the ruling is still valid. such a tenancy will then require the service of a preliminary notice to quit before the former employee-tenant can be dispossessed by a summary proceeding. (see rasch, ny landlord and tenant [2d ed], \u00a7 1072.) though stiles was no longer an "
+    }
+   ]
+  },
+  {
+   "case_id": 2326302,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "% by defendant ice caves mountain. both defendants appealed from the interlocutory judgment of liability and apportionment. although the appellate division unanimously affirmed, it granted both defendants leave to appeal, certifying the following question: \"was the order of this court dated march 12, 1975 properly made?\" while several issues are raised, the one of paramount importance relates to t"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " children on his property regardless of whether they are trespassers (see concurring opn in barker v parnossa, 39 ny2d 926, decided herewith). the \"economic benefit\" theory which predicated invitee status upon the economic benefit the possessor may derive from the visitor's presence, has been supplanted by the \"public invitation\" theory, which confers invitee status upon those who come upon the po"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "% by defendant ice caves mountain. both defendants appealed from the interlocutory judgment of liability and apportionment. although the appellate division unanimously affirmed, it granted both defendants leave to appeal, certifying the following question: \"was the order of this court dated march 12, 1975 properly made?\" while several issues are raised, the one of paramount importance relates to t"
+    }
+   ]
+  },
+  {
+   "case_id": 3190580,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "[847 nys2d 327] volunteers of america-greater new york, inc., respondent, v manuel almonte, appellant. supreme court, appellate term, second department, october 5, 2007 appearances of counsel community service society, new york city (juan cartagena and craig acorn of counsel), for appellant. candace c. carponter, ec., new york city, for respondent. opinion of the court memorandum. final judgment r"
+    },
+    {
+     "selector_id": "sro-35",
+     "selector_version": 1,
+     "matched_text": "tes the city-owned building in which tenant resides pursuant to a contract with the city of new york department of homeless services (dhs). the contract requires landlord to operate the building as a single room occupancy (sro) facility to provide sro housing and support services to 174 homeless adults referred to landlord from dhs' homeless system. the contract prescribes in detail such things as the makeup of the te"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "[847 nys2d 327] volunteers of america-greater new york, inc., respondent, v manuel almonte, appellant. supreme court, appellate term, second department, october 5, 2007 appearances of counsel community service society, new york city (juan cartagena and craig acorn of counsel), for appellant. candace c. carponter, ec., new york city, for respondent. opinion of the court memorandum. final judgment r"
+    }
+   ]
+  },
+  {
+   "case_id": 3344688,
+   "signals": [
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": "er was retained directly by aop as a counselor in april, 1977 and was promoted to the position of project director of the program in may, 1979. in 1978, petitioner and one raymond bonazzo purchased a rooming house located at 19 washington avenue, in the city of white plains, as an income-producing investment. in order to continue to operate the premises as a rooming house, the local ordinance required a transf"
+    },
+    {
+     "selector_id": "sro-35",
+     "selector_version": 1,
+     "matched_text": " premises as a rooming house, the local ordinance required a transfer of the vendor's special residence facility license to the vendees (see an ordinance licensing and regulating buildings containing rooming units in the city of white plains [adopted nov. 1, 1976]). consequently, on march 7, 1978, petitioner and his co-owner made an application to the department of building of the city of white plains for the"
+    }
+   ]
+  },
+  {
+   "case_id": 3725970,
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "avita realty corp. v santiago, 18 misc 3d 74 [app term, 2d dept 2007] [criterion is not the payment of rent but continuous residence in the unit for six months]). thus, even if pitt and branic did not have an express or implied landlord-tenant relationship, pitt nevertheless qualified as a \"permanent tenant,\" entitling him to the enumerated protections of the rent stabilization code. as it is undi"
+    },
+    {
+     "selector_id": "sro-35",
+     "selector_version": 1,
+     "matched_text": "tional realty corp.'s (branic) hotel for more than six months. accordingly, respondent-appellant was a \"permanent tenant,\" as defined by rent stabilization code \u00a7 2520.6 (j). branic is the owner of a single room occupancy (sro) rent-stabilized hotel located at 216 west 103rd street, new york, new york. in 2003, branic and the new york city human resources administration (hra) entered into a written \"memorandum of unde"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "8, 312-313 [1972]). turning to the merits, the crux of this appeal is whether pitt is a \"permanent tenant\" as defined by rsc \u00a7 2520.6 (j). under rsc \u00a7 2520.6 (j), \"permanent tenant\" is defined as follows: \"for housing accommodations located in hotels, an individual or such individual's family members residing with such individual, who have continuously resided in the same building as a principal r"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " is undisputed that pitt lived in the subject sro for well over six months, he certainly acquired the status of a \"permanent tenant.\" the appellate term's citation to the definition of \"tenant\" under rsc \u00a7 2520.6 (d) in support of its holding that the lack of a landlord-tenant relationship between branic and pitt precluded pitt from being a \"permanent tenant\" under rsc \u00a7 2520.6 (j), was erroneous."
+    },
+    {
+     "selector_id": "citation-graph-38",
+     "selector_version": 1,
+     "matched_text": "cites 30 Misc 3d 29"
+    }
+   ]
+  },
+  {
+   "case_id": 3761627,
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " absence of any acts, primarily on the part of the owner . . . which would ripen the possession into any form of tenancy (kassover v gordon family assoc., 120 misc 2d 196, 198 [1983]).\" here, assuming arguendo the court did credit petitioner's testimony that prior to october 2008 the occupancy was without permission, from october 2008 forward that was not the case. petitioner alleges that the subj"
+    },
+    {
+     "selector_id": "sro-35",
+     "selector_version": 1,
+     "matched_text": "[886 nys2d 587] cosby b. smiley, petitioner, v monroe williams, sued herein as john williams, et al., respondents. civil court of the city of new york, new york county, october 5, 2009 appearances of counsel linda rzesniowiecki, new york city, for petitioner. monroe williams, respondent pro se. opinion of the court sabrina b. kraus, j. background this summary holdover proceeding was commenced by c"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "2520.11 of the rent stabilization code defines applicability and provides that all units not specifically exempted are covered. the only exemption in the section related to owner occupancy is in section 2520.11 (i), an exemption for: \"nonhousekeeping, furnished housing accommodations, located within a single dwelling unit not used as a rooming or boarding house, but only if: \"(1) no more than two "
+    },
+    {
+     "selector_id": "relevance-feedback-39",
+     "selector_version": 1,
+     "matched_text": " subject premises was not really in habitable condition at the time hozel williams allegedly lived there. finally, even if hozel williams had lived there, and had been an immediate family member, that does not create a \"permanent\" exemption under the code, and any such exemption would have ended when hozel williams moved somewhere else on or about october 2008. based on the foregoing, the court fi"
+    }
+   ]
+  },
+  {
+   "case_id": 3764406,
+   "signals": [
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 1,
+     "matched_text": " was some proof that the tenants shared payment of utility expenses, the zba noted that there was no evidence with regard to pooling of money or resources toward payment for food or other expenses. this finding is likewise supported by evidence that the zoning officer initially determined that each tenant separately paid his share of the rent directly to petitioner (record, exhibit b, at 8), and t"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " was some proof that the tenants shared payment of utility expenses, the zba noted that there was no evidence with regard to pooling of money or resources toward payment for food or other expenses. this finding is likewise supported by evidence that the zoning officer initially determined that each tenant separately paid his share of the rent directly to petitioner (record, exhibit b, at 8), and t"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": " was some proof that the tenants shared payment of utility expenses, the zba noted that there was no evidence with regard to pooling of money or resources toward payment for food or other expenses. this finding is likewise supported by evidence that the zoning officer initially determined that each tenant separately paid his share of the rent directly to petitioner (record, exhibit b, at 8), and t"
+    },
+    {
+     "selector_id": "adverse-embed-regulation-29",
+     "selector_version": 1,
+     "matched_text": "1605, op at 5-6, citing city of white plains v ferraioli, 34 ny2d 300 [1974]). in that regard, it has long been settled that the police power may be legitimately used to further the goal of providing for a stable, uncongested single-family environment, and that uses associated with occupancy by numbers of transient persons, such as fraternities or housing for college students, may be restricted to"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": " children residing at the property. the zba noted, appropriately, that this fact was not dis-positive, and then proceeded to reject petitioner's contention that john kim functions as a head of household. while recognizing that the lease designates kim as \"head of the family,\" the zba found little evidence that he functions in the role of a traditional head of household. it further determined that "
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " children residing at the property. the zba noted, appropriately, that this fact was not dis-positive, and then proceeded to reject petitioner's contention that john kim functions as a head of household. while recognizing that the lease designates kim as \"head of the family,\" the zba found little evidence that he functions in the role of a traditional head of household. it further determined that "
+    }
+   ]
+  },
+  {
+   "case_id": 3765287,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " the unit for a specific period of time; \"(v) whether the unit contained improvements which were made or purchased by the occupant and whether the occupant was reimbursed for those improvements; \"(vi) whether any prior harassment findings have been made by the loft board concerning the occupant(s) of the unit or whether any harassment application remains pending; \"(vii) whether any violations or n"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " lease to expire; and failing to pay $8,924.96 in back rent. (respondents' mem of law, appendix a.) in matter of 315 church st. corp. (loft board docket no. lb-0116), the tenant, among other things, had left the premises some years earlier to the petition; failed to return the keys to the apartment; owed considerable back rent; left with all his possessions and told landlord he was not coming back"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " the unit for a specific period of time; \"(v) whether the unit contained improvements which were made or purchased by the occupant and whether the occupant was reimbursed for those improvements; \"(vi) whether any prior harassment findings have been made by the loft board concerning the occupant(s) of the unit or whether any harassment application remains pending; \"(vii) whether any violations or n"
+    }
+   ]
+  }
+ ]
+}

@@ -81,7 +81,7 @@ reader:
     qwen/qwen3.8-27b: qwen
     codex-cli: openai
   kit_path: data/reader/kit-v1/kit.json
-  kit_sha256: null                      # written by tools/build_reader_kit.py
+  kit_sha256: "b393f2863feef6c9f1810c2bdeb2af983f695aa9d64604ab3db8be364160891f"  # written by tools/build_reader_kit.py
   stability_sample: data/reader/kit-v1/sample-50.json
   candidates:
     - {model_id: anthropic/claude-sonnet-5, family: anthropic}

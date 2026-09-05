@@ -1,0 +1,312 @@
+{
+ "batch_id": "kit-v1-batch-007",
+ "era_partition": "1900-1930",
+ "jurisdiction": "N.Y.",
+ "cases": [
+  {
+   "case_id": 62285,
+   "signals": [
+    {
+     "selector_id": "adverse-embed-regulation-29",
+     "selector_version": 1,
+     "matched_text": "the people of the state of new york ex rel. corn hill realty company, appellant, v. william l. stroebel, as superintendent of buildings of the city of utica, respondent. (argued october 21, 1913; decided november 18, 1913.) utica (city of) - construction and validity of ordinance prohibiting the maintenance and conduct of a public garage without permission of the superintendent of buildings. an or"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": ". so here non constat after the building is erected the relator may comply with the requirements of the ordinance and obtain leave to conduct a public garage. true, he also may fail in his expectations, but that cannot render his structure illegal. the validity of the ordinance is also subject to some doubt. assuming that the city may forbid the use of a building within limits as a garage for a gr"
+    }
+   ]
+  },
+  {
+   "case_id": 65116,
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "william morningstar, appellant, v. the lafayette hotel company, respondent. innkeepers - not required to entertain guests who have refused to pay a lawful charge - action against hotelkeeper for refusal to serve guest-evidence - erroneous admission of testimony to show bad reputation of plaintiff, as a guest of a hotel. 1. an innkeeper is not required to entertain a guest who has refused to pay a "
+    }
+   ]
+  },
+  {
+   "case_id": 452491,
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " landlord may treat him as a tenant for another year and collect rent accordingly. (haynes v. aldrich, 133 n. y. 287; adams v. cohoes, 127 n. y. 182.)\" in wood v. gordon, 44 n. y. st. repr. 640, 644, it was held, \" where the tenant under a lease for less than a year holds over with the landlord's consent, express or implied, holding for a (term of equal length) on the same conditions is presumed.\""
+    }
+   ]
+  },
+  {
+   "case_id": 452495,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " is not, however, broad enough to give him this relief. \" the legislative sense of relief to tenants has not as yet reached the case of rats, mice, bugs, roaches, or other vermin, and all questions as to them must be decided according to the wisdom of the common-law.\" jacobs v. morand, supra. the statute gives relief only where the building is destroyed or injured. it gives no relief where the bui"
+    }
+   ]
+  },
+  {
+   "case_id": 714508,
+   "signals": [
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": " the party of the second part, it is hereby agreed that the said parties of the first part will not rent the premises located at no. 1675 broadway, buffalo, n. y., or themselves use for restaurant or rooming house purposes for a period of ten years.\" it is the violation of this restrictive covenant that plaintiff seeks, to restrain. the defendants contend that they made, executed and delivered the written rest"
+    }
+   ]
+  },
+  {
+   "case_id": 743824,
+   "signals": [
+    {
+     "selector_id": "furnished-rooms-06",
+     "selector_version": 1,
+     "matched_text": "t. j. fletcher jackson and gertrude h. m. jackson, landlords, respondents, v. edna grey, tenant, appellant, and alta brennan et al., under-tenants. (supreme court, appellate term, first department, november, 1920, term filed january, 1921.) summary proceedings-when will not lie against tenant on the ground of expiration of term - landlord and tenant - lease - code civ. pro. \u00a7 2231 (1-a) added by l"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "920 (one of the housing acts), which amended section 2231 of the code of civil procedure by adding subdivision la, to the effect that no summary proceeding \" shall be maintainable to recover the possession of real property * * * occupied for dwelling purposes,\" except in instances not relevant to the present case. it appears that the premises here involved are the second and third floors of a priv"
+    }
+   ]
+  },
+  {
+   "case_id": 743968,
+   "signals": [
+    {
+     "selector_id": "letting-rooms-07",
+     "selector_version": 1,
+     "matched_text": "ooms in the house and that she (the tenant) does not occupy more than one or two rooms at any time.\" it was further conceded that the tenant is a widow and that \" she has no other business except the letting of rooms in this house and that the letting of rooms in this house is her sole or principal means of livelihood.\" it is quite evident that the words \" dwelling purposes \" are not capable of a fixed definition"
+    },
+    {
+     "selector_id": "paying-guests-13",
+     "selector_version": 1,
+     "matched_text": "t, the legislature did not intend, however, to exclude from the operation, of the statute premises occupied as a dwelling, not only by the tenant, but also by self-supporting members of the family or paying guests not related and perhaps strangers to the tenant, so long as such renting of the premises is merely incidental to the tenant's occupation. appeal by the landlords from an order of the municipal court "
+    },
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": "t the tenants of business premises from demands for unreasonable rent, and the landlord argues that in the present case the tenant is under the conceded facts using the premises for the business of a rooming house, and the legislature never intended that her business should receive extraordinary protection. it is plain that the legislature did not intend its extraordinary remedies to apply to premises hired by"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "william b. may and another, etc., appellants, v. gertrude dermont, respondent. (supreme court, appellate term, first department, december, 1920, term filed january, 1921.) statutes - construction of - meaning of words ' * occupied for dwelling purposes ' '- summary proceedings - landlord and tenant - laws of 1920, chap. 942. although the legislative intent in the use of the words \" occupied for dw"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "william b. may and another, etc., appellants, v. gertrude dermont, respondent. (supreme court, appellate term, first department, december, 1920, term filed january, 1921.) statutes - construction of - meaning of words ' * occupied for dwelling purposes ' '- summary proceedings - landlord and tenant - laws of 1920, chap. 942. although the legislative intent in the use of the words \" occupied for dw"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " from securing from his guests all the compensation which he can induce or compel them to pay for housing, and it may well be argued that when the legislature used the words \" occupied for dwelling purposes \" it intended an occupation by the tenant for such purposes, and that the statute should not be construed as including premises which are occupied by the tenant for the purpose of providing dwe"
+    }
+   ]
+  },
+  {
+   "case_id": 749404,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " tenant on that date and used by him for dwelling purposes is recognized by the statute, and there is nothing to indicate that the legislature intended to create a still further form of new tenancy by dividing the original hiring of the premises, as the occupancy existed when the statute became a law, and dispossessing the tenant from that part used for business or profit and permitting him to ret"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " tenant on that date and used by him for dwelling purposes is recognized by the statute, and there is nothing to indicate that the legislature intended to create a still further form of new tenancy by dividing the original hiring of the premises, as the occupancy existed when the statute became a law, and dispossessing the tenant from that part used for business or profit and permitting him to ret"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "17; may v. dermott, supra. such a subletting is merely incidental to the occupancy by the tenant of the entire premises for dwelling purposes. may v. dermott, supra. the same rule or construction of a tenant's hiring and occupancy should prevail where the premises are a store with rooms in the rear of it hired and occupied by the tenant for both dwelling and business purposes. his use of the store"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "17; may v. dermott, supra. such a subletting is merely incidental to the occupancy by the tenant of the entire premises for dwelling purposes. may v. dermott, supra. the same rule or construction of a tenant's hiring and occupancy should prevail where the premises are a store with rooms in the rear of it hired and occupied by the tenant for both dwelling and business purposes. his use of the store"
+    },
+    {
+     "selector_id": "relevance-feedback-39",
+     "selector_version": 1,
+     "matched_text": " business purposes, and the words should be given a definition that will conform to the legislative intent. having in mind the conditions existing when the act became a law and that were intended to be prevented or remedied, the strict technical or exclusive meaning of those words should not obtain, in the absence of any words or purpose clearly denoting an intention that they should be strictly c"
+    }
+   ]
+  },
+  {
+   "case_id": 760923,
+   "signals": [
+    {
+     "selector_id": "furnished-rooms-06",
+     "selector_version": 1,
+     "matched_text": "ery room is connected. there are no kitchens in any of the' rooms. there is an entrance to the restaurant from the main hall of the building. linens are supplied to transients and to occupants of the furnished rooms under lease. very limited personal service is furnished. there are two extra doormen, who do errands in exchange for gratuities. ice water is obtained in the same way by telephoning the restaurant. t"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "ylin,\" which name has been preserved. in waitt const. co., inc., v. chase, 197 app. div. 327; affd., 233 n. y. 121, this class of building was recognized as distinguished from a hotel, and although the service offered by the landlord in that case was far more extensive than in the instant one the opinion, in the appellate division points out that it is to be classed as an apartment house and not a"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " of that term may be occupied by a few tenants on long leases would certainly not change the character of the building as a whole. the converse is true here. the rooms occupied by transients, forming but twenty per cent of the total number of rooms, are being so used only temporarily in order to derive an income therefrom pending attempts to lease them for .long terms, like the rest of the rooms. "
+    }
+   ]
+  },
+  {
+   "case_id": 768978,
+   "signals": [
+    {
+     "selector_id": "boarding-house-keeping-04",
+     "selector_version": 1,
+     "matched_text": "s properly dismissed. having disposed of the case on that ground it is not necessary to consider whether the agreement set forth in the petition constituted the parties as landlord and tenant or mere boarding house keeper and boarders. if the latter, then the plaintiff could dispossess the defendants without resort to summary proceedings. the authorities as to what constitutes this relation are not altogether in harmo"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " dismissed. having disposed of the case on that ground it is not necessary to consider whether the agreement set forth in the petition constituted the parties as landlord and tenant or mere boarding house keeper and boarders. if the latter, then the plaintiff could dispossess the defendants without resort to summary proceedings. the authorities as to what constitutes this relation are not altogeth"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " dismissed. having disposed of the case on that ground it is not necessary to consider whether the agreement set forth in the petition constituted the parties as landlord and tenant or mere boarding house keeper and boarders. if the latter, then the plaintiff could dispossess the defendants without resort to summary proceedings. the authorities as to what constitutes this relation are not altogeth"
+    },
+    {
+     "selector_id": "citation-graph-38",
+     "selector_version": 1,
+     "matched_text": "cites 1 Den. 602"
+    }
+   ]
+  },
+  {
+   "case_id": 1406448,
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "orville realty company, inc., respondent, v. harry t. warnick, appellant. (supreme court, appellate term, first department, october term - filed november, 1920.) landlord and tenant - summer home - when renewal of lease not implied. where a tenant for a year or more holds over after the expiration of his term, the law implies an agreement for a similar term upon the terms of the original lease.' w"
+    },
+    {
+     "selector_id": "citation-graph-38",
+     "selector_version": 1,
+     "matched_text": "cites 1 Den. 113"
+    }
+   ]
+  },
+  {
+   "case_id": 1406461,
+   "signals": [
+    {
+     "selector_id": "transient-guests-16",
+     "selector_version": 1,
+     "matched_text": "viously no extensive discussion is required to point out the distinction between the ordinary dwelling house where persons make their permanent homes and hotels and rooming houses, mainly occupied by transient guests. the one is not comparable in importance, so far as it is a matter of public concern, to the other. the evil aimed at had its root in the one. to it alone the legislature properly addressed its atten"
+    }
+   ]
+  },
+  {
+   "case_id": 1826673,
+   "signals": [
+    {
+     "selector_id": "furnished-rooms-06",
+     "selector_version": 1,
+     "matched_text": "timothy j. delaney, plaintiff, v. john f. flood, individually and as captain of the twelfth police precinct of the police department of the city of new york, defendant. (supreme court, new york special term, october, 1904.) police - stationing an officer before a disorderly house will not he enjoined - notice to customers will be. a police captain in the city of hew york will not be precluded from"
+    },
+    {
+     "selector_id": "adverse-embed-regulation-29",
+     "selector_version": 1,
+     "matched_text": "timothy j. delaney, plaintiff, v. john f. flood, individually and as captain of the twelfth police precinct of the police department of the city of new york, defendant. (supreme court, new york special term, october, 1904.) police - stationing an officer before a disorderly house will not he enjoined - notice to customers will be. a police captain in the city of hew york will not be precluded from"
+    }
+   ]
+  },
+  {
+   "case_id": 1832770,
+   "signals": [
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 1,
+     "matched_text": " rooms, was only incidental to the principal business there carried on, was not a violation of the covenants in question. in june, 1905, in one of the buildings upon defendants' premises, a decided change in the manner of conducting the business took place. this building, known as \" the mitchell house annex,\" was fitted up and equipped so as to be complete in itself. it was conducted almost entire"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": " rooms, was only incidental to the principal business there carried on, was not a violation of the covenants in question. in june, 1905, in one of the buildings upon defendants' premises, a decided change in the manner of conducting the business took place. this building, known as \" the mitchell house annex,\" was fitted up and equipped so as to be complete in itself. it was conducted almost entire"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " the heated term in the country. the large majority of the patrons of the house were permanent guests who not only lodged and took their meals there, but remained for a considerable period of time. in addition to the house kept by the defendant, three similar establishments were kept and maintained upon the restricted tract. the covenant above referred to has received judicial construction. murray"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": " the heated term in the country. the large majority of the patrons of the house were permanent guests who not only lodged and took their meals there, but remained for a considerable period of time. in addition to the house kept by the defendant, three similar establishments were kept and maintained upon the restricted tract. the covenant above referred to has received judicial construction. murray"
+    },
+    {
+     "selector_id": "relevance-feedback-39",
+     "selector_version": 1,
+     "matched_text": " and her servants, agents, and all persons claiming through or under her, from carrying on upon the premises owned by her the business of a restaurant, or saloon for the sale of intoxicating liquors, or from carrying on upon the said premises the business of furnishing and-selling to-, persons indiscriminately food or liquor, or from furnishing: or selling to any person either food or liquor; exce"
+    }
+   ]
+  },
+  {
+   "case_id": 1862300,
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "julius c. morgenthau, respondent, v. howard ehrich, appellant. (supreme court, appellate term, first department, june, 1912.) landlord and tenant-- rights, duties land liabilities in regard to premises- possession, enjoyment arid use - tenantable condition of property. where a tenant immediately upon taking possession of a furnished house rented for the winter season found it, particularly the bed"
+    }
+   ]
+  },
+  {
+   "case_id": 2307032,
+   "signals": [
+    {
+     "selector_id": "boarding-house-keeping-04",
+     "selector_version": 1,
+     "matched_text": "e fully the situation of the parties. in the year 1888 the plaintiff rented the premises known as no. 33 west 26th street, hew york city, until the first of may, 1890, and occupied the same as tenant keeping a boarding house. at the expiration of the lease she again leased the premises for a period of three years, and thereafter from year to year until the first of may, 1897, when she again leased the premises for a term"
+    }
+   ]
+  },
+  {
+   "case_id": 2721901,
+   "signals": [
+    {
+     "selector_id": "boarder-core-03",
+     "selector_version": 1,
+     "matched_text": "ome at unusual hours. thus the wife had a double burden of preparing the meals for the boarder, and sometimes again for the husband as he should come in later. defendant, therefore, wished to give up taking boarders and have the privacy that they had before enjoyed. the wife's contrary view-led to domestic dissensions. but the husband who maintains the family has a right to say who shall reside with them in the "
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " as he should come in later. defendant, therefore, wished to give up taking boarders and have the privacy that they had before enjoyed. the wife's contrary view-led to domestic dissensions. but the husband who maintains the family has a right to say who shall reside with them in the home, and may refuse to have boarders whose requirements interfere with the family comfort and whose presence excite"
+    }
+   ]
+  },
+  {
+   "case_id": 2925718,
+   "signals": [
+    {
+     "selector_id": "furnished-rooms-06",
+     "selector_version": 1,
+     "matched_text": "r, etc., of lillian b. keesey, deceased, respondent, v. marion o'reilly, appellant. first department, february 1, 1918. landlord and tenant - negligence - liability of owner for death of sublessee of furnished rooms killed by falling of chimney while hanging clothes on roof - licensee - evidence insufficient to establish easement over roof as appurtenance to lease. in an action by a subtenant of two furnished ro"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " they had lived there a year, when, on may 8, 1915, plaintiff's wife went up on the roof to hang out some washing and was killed by the falling upon her of a part of the chimney. it is claimed by the plaintiff, who has recovered a judgment upon the verdict of a jury, that the plaintiff's wife was upon the roof on the invitation of the defendant, whereas the defendant's contention is that she was t"
+    },
+    {
+     "selector_id": "relevance-feedback-39",
+     "selector_version": 1,
+     "matched_text": " they had lived there a year, when, on may 8, 1915, plaintiff's wife went up on the roof to hang out some washing and was killed by the falling upon her of a part of the chimney. it is claimed by the plaintiff, who has recovered a judgment upon the verdict of a jury, that the plaintiff's wife was upon the roof on the invitation of the defendant, whereas the defendant's contention is that she was t"
+    }
+   ]
+  }
+ ]
+}
