@@ -26,7 +26,16 @@ def test_store_source_reads_fixture_and_inlined_source_round_trips(tmp_path, fix
 
 def test_domain_reader_spec():
     r = load_domain().reader
-    assert r.codebook == "mapper-v2" and r.codebooks_dir.endswith("codebooks") and r.checker_sample_pct == 10
+    assert r.codebook == "mapper-v3" and r.codebooks_dir.endswith("codebooks") and r.checker_sample_pct == 10
     assert set(("characterization", "polarity", "holding_summary")) <= set(r.judged_fields)
-    assert r.families["anthropic/claude-sonnet-5"] == "anthropic" and len(r.candidates) == 10
-    assert r.kit_path == "data/reader/kit-v1/kit.json" and r.stability_sample.endswith("sample-50.json")
+    assert r.families["anthropic/claude-sonnet-5"] == "anthropic"
+    assert r.families["claude-cli/claude-sonnet-5"] == "anthropic" and r.families["claude-cli/claude-opus-5"] == "anthropic"
+    assert [c["model_id"] for c in r.candidates] == [
+        "claude-cli/claude-sonnet-5", "claude-cli/claude-opus-5", "openai/gpt-5.6-terra",
+        "z-ai/glm-5.3", "google/gemini-3.7-flash"]
+    # the keys tools/measure_reader.py reads off a subscription candidate: `provider` picks
+    # the transport (is_subscription) and `cli_model` is the full model name cli_pin carries
+    subs = [c for c in r.candidates if c.get("provider") == "claude-cli"]
+    assert [c["cli_model"] for c in subs] == ["claude-sonnet-5", "claude-opus-5"]
+    assert r.kit_path == "data/reader/kit-v2/kit.json" and r.stability_sample == "data/reader/kit-v2/sample-50.json"
+    assert r.kit_sha256 and len(r.kit_sha256) == 64
