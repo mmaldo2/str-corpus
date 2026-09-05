@@ -88,7 +88,7 @@ reader:
   # reproducible from these defaults - re-deriving v1's annotations means passing mapper-v2 and
   # data/reader/kit-v1/kit.json explicitly. kit-v1 itself is never edited.
   kit_path: data/reader/kit-v2/kit.json
-  kit_sha256: "007bebc40b64ec415531d0051ab5514182a2ce12d9ccdca700ed711bfe31151e"  # written by tools/build_reader_kit.py
+  kit_sha256: "6914c0d243fec3a5f268788f3bd571a1c7bf19d5432c49dc805296184f65686d"  # written by tools/build_reader_kit.py
   stability_sample: data/reader/kit-v2/sample-50.json
   # Slice-1 finalists (spec section 8). The two claude-cli entries run on the user's
   # subscription through the Claude Code CLI (ADR-0007 amendment 2026-09-05); full model

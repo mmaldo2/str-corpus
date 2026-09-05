@@ -1,0 +1,107 @@
+{
+ "batch_id": "kit-v2-batch-001",
+ "era_partition": "1860-1900",
+ "jurisdiction": "La.",
+ "cases": [
+  {
+   "case_id": 2454289,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "no. 6449. succession of celestine dorville, widow of felix henry loze. tlie executor of a succession -which embraces a plantation among its assets is authorized to employ a competent person to take charge of the plantation, and keep its improvements in proper repair, when it appears from the evidence that it was impracticable to lease the place, and that the services of the keeper enured to the be"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "no. 6449. succession of celestine dorville, widow of felix henry loze. tlie executor of a succession -which embraces a plantation among its assets is authorized to employ a competent person to take charge of the plantation, and keep its improvements in proper repair, when it appears from the evidence that it was impracticable to lease the place, and that the services of the keeper enured to the be"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "no. 6449. succession of celestine dorville, widow of felix henry loze. tlie executor of a succession -which embraces a plantation among its assets is authorized to employ a competent person to take charge of the plantation, and keep its improvements in proper repair, when it appears from the evidence that it was impracticable to lease the place, and that the services of the keeper enured to the be"
+    }
+   ]
+  },
+  {
+   "case_id": 2566158,
+   "signals": [
+    {
+     "selector_id": "adverse-embed-regulation-29",
+     "selector_version": 1,
+     "matched_text": "no. 12,358. the state vs. h. voss. city ordinance. - while it is true that ordinances making certain acts the evidence of an offence committed should be strictly construed, it does not follow that they should be pronounced null. act and \"intent \" essentials.- - one accused of violating an ordinance to abate conducting lotteries as being a nuisance, is not guilty, unless there was \" intent.\" to con"
+    }
+   ]
+  },
+  {
+   "case_id": 2599751,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "no. 1249. h. s. burch vs. e. mouton, sheriff, et al. the occupants of a homestead have the same right tp travel and sojourn in other places for temporary purposes of health, business or pleasure that other citizens have; aud so long as such privilege is exercised in good faith, within reasonable limits and without inten tiou to change or abandon the homo, but with the fixed and certain intention o"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "no. 1249. h. s. burch vs. e. mouton, sheriff, et al. the occupants of a homestead have the same right tp travel and sojourn in other places for temporary purposes of health, business or pleasure that other citizens have; aud so long as such privilege is exercised in good faith, within reasonable limits and without inten tiou to change or abandon the homo, but with the fixed and certain intention o"
+    }
+   ]
+  },
+  {
+   "case_id": 5206672,
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "s. e. woodworth v. morse & moore. by the act of january 10th, [1860, an inn-keeper may limit his liability as a depositary by keeping \"posted upon his door and other public places in his house of entertainment, written or printed notices to his guests and customers, that they must leave their valuables with the landlord, his agent or clerk, for safe keeping.\" inn-keepers are responsible as deposit"
+    },
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "s. e. woodworth v. morse & moore. by the act of january 10th, [1860, an inn-keeper may limit his liability as a depositary by keeping \"posted upon his door and other public places in his house of entertainment, written or printed notices to his guests and customers, that they must leave their valuables with the landlord, his agent or clerk, for safe keeping.\" inn-keepers are responsible as deposit"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " five hundred and sixty-eight dollars, with interest. the district judge gave judgment in favor of plaintiff for this amount, with interest ahal costs of suit. defendants have appealed. the facts, as stated above, are substantially proven. there is no error in the judgment of the lower court. inn-keepers are responsible, as .depositaries, for effects brought to their house by travelers who lodge t"
+    }
+   ]
+  },
+  {
+   "case_id": 5303699,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "no. 9777. e. a. deslonde vs. wm. o'hern. a. judgment for possession of premises leased can be extinguished by agieement. tbe agreement is a new obligation. tbe obligation to deliver tbe premises resulting from tbe judgment is extinguished by tbe substitution of an obligation to pay the rent due and remain in tbe premises to tbe end of the lease. when a lessor sues for possession of premises, and a"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "no. 9777. e. a. deslonde vs. wm. o'hern. a. judgment for possession of premises leased can be extinguished by agieement. tbe agreement is a new obligation. tbe obligation to deliver tbe premises resulting from tbe judgment is extinguished by tbe substitution of an obligation to pay the rent due and remain in tbe premises to tbe end of the lease. when a lessor sues for possession of premises, and a"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "no. 9777. e. a. deslonde vs. wm. o'hern. a. judgment for possession of premises leased can be extinguished by agieement. tbe agreement is a new obligation. tbe obligation to deliver tbe premises resulting from tbe judgment is extinguished by tbe substitution of an obligation to pay the rent due and remain in tbe premises to tbe end of the lease. when a lessor sues for possession of premises, and a"
+    },
+    {
+     "selector_id": "relevance-feedback-39",
+     "selector_version": 1,
+     "matched_text": "no. 9777. e. a. deslonde vs. wm. o'hern. a. judgment for possession of premises leased can be extinguished by agieement. tbe agreement is a new obligation. tbe obligation to deliver tbe premises resulting from tbe judgment is extinguished by tbe substitution of an obligation to pay the rent due and remain in tbe premises to tbe end of the lease. when a lessor sues for possession of premises, and a"
+    }
+   ]
+  },
+  {
+   "case_id": 5795630,
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "no. 6882. john grace v. frank vonder haas. where the proof shows that a house has been leased for one month at a fixed price, and one-half of the amount paid in advanoe, and the lessor leases the house to another party, and puts him in possession before the end of the month, the court will award such damages to the first lessee as the proof shows that he has sustained by the violation of the lease"
+    }
+   ]
+  }
+ ]
+}
