@@ -107,10 +107,17 @@ review page publishable as an artifact; reviewer identity recorded.
      non-null-pagerank count equals metadata-with-pagerank count exactly
      for `ad2d/1`, 493 = 493), so the coverage figures reflect upstream
      data completeness, not a backfill defect.
-7. **Reader-model measurement** (ADR-0007): fix the experiment kit's
-   reference to human-adjudicated records; run the approved ten candidates
-   through OpenRouter; record endpoints and quantization; choose per the
-   pre-registered bar; write the result into the methods appendix.
+7. **Reader-model measurement** (ADR-0007) — **DONE** 2026-09-05: all ten
+   approved candidates ran over the frozen kit (195 cases) under `mapper-v2`;
+   endpoints and precision recorded; $41.78 of the $50 approved. Winner
+   **`anthropic/claude-opus-5`** (fidelity 0.9975, macro agreement 0.7075,
+   $0.0498 per accepted record), now set as `reader.model` in `domain.yaml`.
+   Two caveats to carry into the maps: **nobody met the 0.85 agreement bar**
+   (best 0.7075), so the pre-registered no-survivor fallback applied and the
+   shortfall is disclosed; and **`mapper-v2` failed its stability check** on
+   `polarity` (0.82 against 0.90). Codebook revision is Stage 3B, and a
+   `mapper-v3` needs its own stability run and its own measurement. Full result:
+   `reports/reader-measurement.md`; ADR-0007 amendment 2026-09-05.
 8. **DC demo report**: refreshed attorney report built on the tradition
    matrix drilling to verified quotes with pin cites, plus a one-case
    walkthrough and a methodology page. Ships before cycle 004 maps.

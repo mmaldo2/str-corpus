@@ -94,5 +94,15 @@ reader:
     - {model_id: minimax/minimax-m3, family: minimax, pin_open: true}
     - {model_id: deepseek/deepseek-v4-flash, family: deepseek, pin_open: true}
     - {model_id: qwen/qwen3.8-27b, family: qwen, pin_open: true}
-  model: null                           # set by tools/measure_reader.py to the winner's pin
+  # measured 2026-09-05 (reports/reader-measurement.md, ADR-0007 amendment). Winner on the
+  # pre-registered rule; the 0.85 agreement bar was met by nobody, so this is the
+  # highest-agreement survivor and the shortfall is disclosed. Closed-weight, so no
+  # provider/precision pin: openrouter routes it (it served "Claude Platform on AWS").
+  model:
+    model_id: anthropic/claude-opus-5
+    family: anthropic
+    provider_name: null
+    precision: null
+    extra:
+      reasoning: {effort: low}          # every candidate was measured at this effort
   checker: {model_id: codex-cli, family: openai, cli_model: gpt-5.6-terra}

@@ -45,3 +45,64 @@ list approved 2026-09-01: Claude Sonnet 5, Claude Opus 5, Claude Haiku 4.5,
 Gemini 3.7 Flash, GPT-5.6 Terra, DeepSeek V4 Pro, GLM-5.3, MiniMax M3,
 DeepSeek V4 Flash, Qwen 3.8 27B; one fp8-versus-fp4 pair and two batch-size
 pairs are run to measure quantization and long-context drift.
+
+## Amendment 2026-09-05
+
+The measurement ran. Ten approved candidates over the frozen kit
+(`data/reader/kit-v1/kit.json`, 195 cases: 155 human-adjudicated, 40
+machine-judged irrelevant) under codebook `mapper-v2`; full result in
+`reports/reader-measurement.md`, manifest in
+`data/reader/measurement-v1/manifest.json`. $41.78 charged against the $50 the
+user approved.
+
+**Measured winner: `anthropic/claude-opus-5`** (closed-weight, so no provider or
+precision pin; OpenRouter served it from "Claude Platform on AWS"), quote
+fidelity 0.9975, macro agreement 0.7075, $0.0498 per accepted record. Written to
+`domains/str-right-to-let/domain.yaml` as `reader.model`.
+
+**The agreement bar was not met by anyone.** The pre-registered rule is
+fidelity floor 0.97, then agreement at or above 0.85 on relevance, polarity and
+who-was-letting, then cheapest cost per accepted record. Three candidates fell at
+the fidelity floor (`claude-haiku-4.5` 0.9274, `deepseek-v4-pro` 0.9228,
+`deepseek-v4-flash` 0.8988); of the seven survivors the best macro agreement was
+0.7075. The cost tie-break therefore never opened, and the rule's disclosed
+fallback applied: the highest-agreement survivor is chosen and **the shortfall is
+recorded rather than the bar lowered**. Had the bar been met, `deepseek-v4-flash`
+at $0.0006 per accepted record would have won on cost — 83x cheaper than the
+model actually selected.
+
+**`mapper-v2` failed its stability check** (ADR-0009): two reads of the frozen
+fifty-case sample by the winner agree 0.96 on `relevant` and 0.94 on
+`who_was_letting` but only **0.82 on `polarity`**, against a 0.90 bar. Recorded
+as `"stable": false`. Polarity is also the field on which the candidate field
+separated, and the two facts are most likely one: `mapper-v2` under-specifies
+polarity rather than merely making it hard. Revising the codebook is Stage 3B's
+work. Until then the model choice above holds only *relative to `mapper-v2`* — a
+`mapper-v3` needs its own stability run and its own measurement, because a
+codebook that changes what is being judged can change which model judges it best.
+
+Further decisions this measurement records:
+
+- **The fp8-versus-fp4 quantization pair was replaced by pinning.** Every
+  open-weight candidate is pinned to a named provider serving bf16 or fp8 with
+  fallbacks disabled, so nothing runs at an unrecorded precision and the pair has
+  nothing left to isolate. The pin holds precision but not provider: OpenRouter's
+  endpoint list is order-dependent and `deepseek-v4-pro` resolved to Baidu on one
+  run and StreamLake on the next (both fp8). The served provider is therefore a
+  measured output, not an input, and should be frozen per candidate before any
+  result is called reproducible.
+- **Two batch-size pairs became one, on the winner only.** At $9-10 a pass, a
+  second pair costs more than the finding is worth. Result: no long-context
+  penalty at 18 cases. Five-case batches gain 0.0012 quote fidelity and save
+  $0.65 over the kit but *lose* 0.0193 macro agreement. 18-case batches stand.
+- **Reasoning effort is pinned to `low` for every candidate** and carried on
+  `ModelPin.extra`. Left at each provider's default it is not a recorded quantity
+  but a per-family accident: the first attempt saw a five-fold per-case output
+  difference between families and truncated at `max_tokens` 16000 (since raised to
+  64000, which must also cover billed reasoning tokens). ADR-0007 requires effort
+  to be recorded; this is how.
+- **Codex remains the checker, invoked through the Codex CLI**, at the user's
+  direction. Recorded concern: this is the access route ADR-0007 moved readers
+  away from, and whether OpenAI's subscription terms carry an analogue of the
+  interactive-use restriction that drove that decision has not been checked. The
+  reader is on API-key access; the checker is not.

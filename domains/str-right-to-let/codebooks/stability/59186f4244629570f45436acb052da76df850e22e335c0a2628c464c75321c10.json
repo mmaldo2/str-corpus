@@ -1,0 +1,14 @@
+{
+ "codebook": "mapper-v2",
+ "codebook_sha": "59186f4244629570f45436acb052da76df850e22e335c0a2628c464c75321c10",
+ "model_pin": "anthropic/claude-opus-5@-:-",
+ "sample": "data/reader/kit-v1/sample-50.json",
+ "agreement": {
+  "relevant": 0.96,
+  "polarity": 0.82,
+  "who_was_letting": 0.94
+ },
+ "stable": false,
+ "bar": 0.9,
+ "ts": "2026-09-05T10:35:53"
+}
