@@ -28,7 +28,7 @@ def saved_page(tmp_path, decisions) -> str:
     state array replaced by the decisions, everything else byte-identical."""
     html_path, _md, _n = mrr.build_pages(CONTESTED, tmp_path / "page")
     html = html_path.read_text(encoding="utf-8")
-    payload = json.dumps(decisions).replace("<", "\u003c")
+    payload = json.dumps(decisions).replace("<", "\\u003c")
     return html.replace('id="review-state">[]<', f'id="review-state">{payload}<')
 
 
@@ -55,6 +55,40 @@ def test_read_state_refuses_an_unsaved_page_and_a_bad_decision(tmp_path):
         arr.read_state(saved_page(tmp_path, [_d(1, "polarity", "set", "pro-tenant")]))
     with pytest.raises(ValueError, match="field"):
         arr.read_state(saved_page(tmp_path, [_d(1, "duration_of_occupancy", "keep", "weeks")]))
+    bad = _d(1, "polarity", "keep", "favorable")
+    bad.pop("case_id")
+    with pytest.raises(ValueError, match="case_id"):     # not a KeyError: every malformed
+        arr.read_state(saved_page(tmp_path, [bad]))      # decision fails the same way
+
+
+def test_a_note_containing_a_closing_script_tag_survives_the_page(tmp_path):
+    """The state block is read out of the HTML with a regex, so an unescaped `</script>` in a
+    reviewer note would end it early and truncate the decisions. The page escapes `<`."""
+    note = "the court cites </script> in the syllabus"
+    got = arr.read_state(saved_page(tmp_path, [_d(65116, "polarity", "adopt", "favorable", note=note)]))
+    assert len(got) == 1 and got[0]["note"] == note
+
+
+def test_the_vocabulary_comes_from_the_reader_schema_and_the_fields_from_the_domain():
+    """A frozen literal here is what let `non_resident_owner` diverge from the domain
+    unnoticed; a page that splits a category must work once the schema carries the value."""
+    from corpus_engine.domain import load_domain
+    from corpus_engine.reader.schema import POLARITY_VALUES, WHO_VALUES
+    assert arr.VALUES["polarity"] == frozenset(POLARITY_VALUES) | {arr.IRRELEVANT, None}
+    assert arr.VALUES["who_was_letting"] == frozenset(WHO_VALUES) | {None}
+    assert arr.fields_for(load_domain("str-right-to-let")) == ("polarity", "who_was_letting")
+
+
+def test_the_run_id_rides_in_the_basis_and_the_why():
+    """patch_id hashes `why` and `basis`, so a second page run under its own id can never be
+    content-deduped against this one's patches."""
+    records = {1: {"polarity": "favorable", "who_was_letting": "unclear", "relevant": True}}
+    dec = [_d(1, "polarity", "adopt", "adverse")]
+    v2 = arr.patches_for(dec, records, "u")
+    v3 = arr.patches_for(dec, records, "u", run_id="reference-v3")
+    assert all(p.basis.run_id == "reference-v2" and p.why.startswith("reference v2") for p in v2)
+    assert all(p.basis.run_id == "reference-v3" and p.why.startswith("reference v3") for p in v3)
+    assert {p.why for p in v2}.isdisjoint({p.why for p in v3})
 
 
 def test_patches_for_covers_the_four_decisions():

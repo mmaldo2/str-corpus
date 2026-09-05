@@ -21,7 +21,7 @@ regions:
   U.S.: federal
 letting_tiers:                            # who_was_letting value -> tier
   householder: householder
-  owner_nonresident: owner
+  non_resident_owner: owner
   commercial_operator: commercial
   unclear: unclear
 judged_fields: [relevant, polarity, who_was_letting, duration_of_occupancy,

@@ -16,9 +16,20 @@ nulls polarity and who_was_letting. It also wins over any value decision the sam
 for that case on another field -- a case the reviewer put out of the corpus carries no labels,
 and without this the later field would simply re-set what `irrelevant` had just nulled.
 
+SCOPE OF THAT RULING: `irrelevant` is enforced per page, over the decisions of the page being
+applied. A LATER PAGE must also consult the ledger's current `relevant` flag -- a case an
+earlier page ruled irrelevant reads `relevant: false` in `view().state.records` and must not
+receive a value on any field from a later page. This tool does not do that for you; pass such
+cases in already excluded, or extend `_irrelevant_cases` to union the records' `relevant` flag.
+
+The vocabulary is NOT frozen here. Accepted values come from `corpus_engine/reader/schema.py`
+(`POLARITY_VALUES`, `WHO_VALUES`, plus null), which is the schema the reader answers under, and
+the fields come from the domain's `judged_fields` or `--fields`. A later page that splits a
+category works unchanged once the schema carries the new value.
+
 Usage:
   .venv\\Scripts\\python tools\\apply_reference_review.py --saved <page> --dry-run
-  .venv\\Scripts\\python tools\\apply_reference_review.py --saved <page>
+  .venv\\Scripts\\python tools\\apply_reference_review.py --saved <page> --run-id reference-v3
 """
 from __future__ import annotations
 import argparse
@@ -32,28 +43,44 @@ from typing import Mapping, Sequence
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from corpus_engine.domain import load_domain                       # noqa: E402
-from corpus_engine.ledger import LedgerView, open_ledger           # noqa: E402
-from corpus_engine.ledger.fold import apply_patch                  # noqa: E402
-from corpus_engine.ledger.types import Basis, Patch                # noqa: E402
+from corpus_engine.domain import Domain, load_domain                # noqa: E402
+from corpus_engine.ledger import LedgerView, open_ledger            # noqa: E402
+from corpus_engine.ledger.fold import apply_patch                   # noqa: E402
+from corpus_engine.ledger.types import Basis, Patch                 # noqa: E402
+from corpus_engine.reader.schema import POLARITY_VALUES, WHO_VALUES  # noqa: E402
 
 STATE_RE = re.compile(r'<script[^>]*id="review-state"[^>]*>(.*?)</script>', re.S)
-FIELDS = ("polarity", "who_was_letting")
 DECISIONS = ("keep", "adopt", "set", "unsure")
 IRRELEVANT = "irrelevant"
 FLAG_PREFIX = "needs-review:"
 RUN_ID = "reference-v2"
 NULLS = (None, "null", "")
-VALUES = {"polarity": {"favorable", "adverse", "mixed", IRRELEVANT, None},
-          "who_was_letting": {"householder", "commercial_operator", "non_resident_owner",
-                              "unclear", None}}
+# The reader's schema is the vocabulary, not a literal kept in step by hand. `irrelevant` is
+# the page's extra polarity option (D2), not a polarity, so it is added here and nowhere else.
+VALUES = {"polarity": frozenset(POLARITY_VALUES) | {IRRELEVANT, None},
+          "who_was_letting": frozenset(WHO_VALUES) | {None}}
+FIELDS = tuple(VALUES)
+
+
+def fields_for(domain: Domain) -> tuple[str, ...]:
+    """The fields a review page may decide: the domain's judged fields, in the domain's own
+    order, restricted to those this tool has a vocabulary for."""
+    return tuple(f for f in domain.judged_fields if f in VALUES)
+
+
+def _label(run_id: str) -> str:
+    """The prose form of a run id, for `why` and note prefixes: `reference-v2` -> `reference v2`.
+    Provenance rides on the run id so a second page's patches are never content-deduped
+    against this one's (patch_id hashes `why` and `basis`)."""
+    return run_id.replace("-", " ")
 
 
 def _value(field: str, raw):
     return None if raw in NULLS else raw
 
 
-def read_state(html: str) -> list[dict]:
+def read_state(html: str, *, fields: Sequence[str] = FIELDS,
+               values: Mapping[str, frozenset] = VALUES) -> list[dict]:
     """The decisions a saved page carries, validated. A page that was never saved carries
     `[]`, and applying nothing silently would look exactly like applying everything."""
     m = STATE_RE.search(html)
@@ -67,21 +94,26 @@ def read_state(html: str) -> list[dict]:
         if not isinstance(d, dict):
             raise ValueError(f"decision {i} is not an object: {d!r}")
         field = d.get("field")
-        if field not in FIELDS:
-            raise ValueError(f"decision {i}: field {field!r} is not one of {FIELDS}")
+        if field not in fields:
+            raise ValueError(f"decision {i}: field {field!r} is not one of {tuple(fields)}")
         decision = d.get("decision")
         if decision not in DECISIONS:
             raise ValueError(f"decision {i}: decision {decision!r} is not one of {DECISIONS}")
         value = _value(field, d.get("value"))
-        if decision in ("adopt", "set") and value not in VALUES[field]:
+        if decision in ("adopt", "set") and value not in values[field]:
             raise ValueError(f"decision {i}: value {value!r} is not a {field} value")
-        out.append({"case_id": int(d["case_id"]), "field": field, "decision": decision,
+        try:
+            case_id = int(d["case_id"])
+        except (KeyError, TypeError, ValueError):     # every other malformed input is a
+            raise ValueError(f"decision {i}: case_id {d.get('case_id')!r} is not a case id")
+        out.append({"case_id": case_id, "field": field, "decision": decision,
                     "value": value, "note": (d.get("note") or "").strip()})
     return out
 
 
 def _irrelevant_cases(decisions: Sequence[dict]) -> set[int]:
-    """Cases the page puts out of the corpus. Their other fields are not labels any more."""
+    """Cases this page puts out of the corpus. Their other fields are not labels any more.
+    Page-scoped -- see SCOPE OF THAT RULING in the module docstring."""
     return {int(d["case_id"]) for d in decisions
             if d["field"] == "polarity" and d["decision"] in ("adopt", "set")
             and _value("polarity", d.get("value")) == IRRELEVANT}
@@ -92,6 +124,7 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
     """Ledger patches for one saved page. Deterministic: field order first (so a case
     contested on both fields is written in a fixed order), then case id."""
     basis = Basis(reviewer=reviewer, run_id=run_id)
+    tag = _label(run_id)
     order = {f: i for i, f in enumerate(field_order)}
     irrelevant = _irrelevant_cases(decisions)
     out: list[Patch] = []
@@ -101,28 +134,28 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
         if decision == "keep":                   # function have not been through read_state
             continue
         old = (records.get(cid) or {}).get(field)
-        why = f"reference v2 adjudication: {field}"
+        why = f"{tag} adjudication: {field}"
         superseded = cid in irrelevant and not (field == "polarity" and value == IRRELEVANT)
         if superseded and decision != "unsure":
             out.append(Patch(cid, "append", "review.notes",
-                             f"reference v2: {field} {decision} -> {value!r} not applied; the "
+                             f"{tag}: {field} {decision} -> {value!r} not applied; the "
                              f"same page adjudicated this case irrelevant, so it carries no {field}",
                              why, basis))
         elif decision == "unsure":
             out.append(Patch(cid, "append", "review.flags", f"{FLAG_PREFIX}{field}", why, basis))
             out.append(Patch(cid, "append", "review.notes",
-                             f"reference v2: {field} left unsure by the reviewer; excluded from "
+                             f"{tag}: {field} left unsure by the reviewer; excluded from "
                              f"agreement for this field (D6)", why, basis))
         elif field == "polarity" and value == IRRELEVANT:
             out.append(Patch(cid, "append", "review.notes",
-                             f"reference v2: polarity {old!r} -> irrelevant; the case is not "
+                             f"{tag}: polarity {old!r} -> irrelevant; the case is not "
                              f"relevant, so it carries no polarity", why, basis))
             out.append(Patch(cid, "set", "relevant", False, why, basis))
             out.append(Patch(cid, "set", "polarity", None, why, basis))
             out.append(Patch(cid, "set", "who_was_letting", None, why, basis))
         else:
             out.append(Patch(cid, "append", "review.notes",
-                             f"reference v2: {field} {old!r} -> {value!r} ({decision})", why, basis))
+                             f"{tag}: {field} {old!r} -> {value!r} ({decision})", why, basis))
             out.append(Patch(cid, "set", field, value, why, basis))
         if d.get("note"):
             out.append(Patch(cid, "append", "review.notes", f"user note: {d['note']}", why, basis))
@@ -150,27 +183,40 @@ def _summary(view: LedgerView) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--saved", required=True, help="the review page, saved with decisions in it")
-    ap.add_argument("--field-order", default=",".join(FIELDS))
+    ap.add_argument("--fields", default=None,
+                    help="comma-separated fields the page may decide (default: the domain's)")
+    ap.add_argument("--field-order", default=None,
+                    help="comma-separated patch order (default: --fields order)")
+    ap.add_argument("--run-id", default=RUN_ID,
+                    help=f"run id carried in every patch's basis and why (default {RUN_ID})")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
 
-    decisions = read_state(Path(a.saved).read_text(encoding="utf-8"))
     dom = load_domain()
+    fields = tuple(f.strip() for f in a.fields.split(",") if f.strip()) if a.fields else fields_for(dom)
+    unknown = [f for f in fields if f not in VALUES]
+    if unknown:
+        raise SystemExit(f"no vocabulary for {unknown}; add it to corpus_engine/reader/schema.py")
+    order = tuple(f.strip() for f in a.field_order.split(",") if f.strip()) if a.field_order else fields
+
+    decisions = read_state(Path(a.saved).read_text(encoding="utf-8"), fields=fields)
     led = open_ledger(domain=dom)
     head = led.view()
     records = head.state.records
     patches = patches_for(decisions, records, dom.reviewer_default,
-                          field_order=tuple(f.strip() for f in a.field_order.split(",") if f.strip()))
+                          field_order=order, run_id=a.run_id)
     counts = {d: sum(1 for x in decisions if x["decision"] == d) for d in DECISIONS}
+    print(f"run {a.run_id} over fields {fields}", flush=True)
     print(f"{len(decisions)} decisions {counts} over "
           f"{len({d['case_id'] for d in decisions})} cases -> {len(patches)} patches", flush=True)
     if a.dry_run:
-        by_case: dict[int, list[Patch]] = {}
+        by_why: dict[tuple[int, str], list[Patch]] = {}
         for p in patches:
-            by_case.setdefault(p.case_id, []).append(p)
+            by_why.setdefault((p.case_id, p.why), []).append(p)
+        tag = _label(a.run_id)
         for d in sorted(decisions, key=lambda d: (int(d["case_id"]), d["field"])):
             cid = int(d["case_id"])
-            mine = [p for p in by_case.get(cid, []) if p.why.endswith(d["field"])]
+            mine = by_why.get((cid, f"{tag} adjudication: {d['field']}"), [])
             print(f"  {cid} {d['field']}: {d['decision']} "
                   f"{(records.get(cid) or {}).get(d['field'])!r} -> {d['value']!r}"
                   f"{'' if mine else '  (no patch)'}", flush=True)
@@ -178,7 +224,7 @@ def main() -> int:
                 print(f"      {p.op} {p.field} = {p.new!r}", flush=True)
         print(f"before: {_summary(head)}", flush=True)
         print(f"after:  {_summary(_view_with(head, patches, dom.judged_fields))}", flush=True)
-    res = led.apply(patches, note="reference v2 adjudication", dry_run=a.dry_run)
+    res = led.apply(patches, note=f"{_label(a.run_id)} adjudication", dry_run=a.dry_run)
     print(f"{len(res.applied)} applied, {len(res.skipped)} already present; "
           f"replay_ok={res.replay_ok}{' (dry run)' if a.dry_run else ''}", flush=True)
     if not a.dry_run:
