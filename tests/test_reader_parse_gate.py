@@ -69,6 +69,17 @@ def test_gate_accepts_a_quote_supporting_several_fields(tmp_path, fixture_db):
     assert bad.record["polarity"] is None
 
 
+def test_parse_bare_array_survives_a_stray_brace_in_prose():
+    """task-1-review finding 1. The dispatch used to pick object-vs-array by comparing the
+    *position* of the first `{`/`[`, so prose containing a stray, non-JSON `{` before the
+    real answer made the parser commit to the object branch and fail outright - even though
+    the real answer is a bare array. Deciding by what actually decodes at the top of the
+    text, not by bracket position, fixes it."""
+    text = 'Cf. {id.} below for context: [{"case_id": 1, "relevant": true, "polarity": "favorable", "quotes": []}, {"case_id": 2, "relevant": false, "polarity": "irrelevant", "quotes": []}]'
+    result = parse_records(text, [1, 2])
+    assert result is not None and len(result) == 2
+
+
 def test_parse_accepts_a_case_id_the_model_wrote_as_a_string():
     """m3. Coverage was checked against the raw values, so `"case_id": "1"` read as an
     unaccounted case: the unit was declared unparseable and burned a paid split retry

@@ -27,17 +27,26 @@ def _as_case_id(v) -> int | None:
         return None
 
 
-def _wrapped(t: str, start: int) -> list | None:
-    """`{"records": [...]}` decoded from `start` - the shape the v3 schema asks for.
-    Not a `records`-shaped object at all is a miss, not a fallback: R1 - a top-level
-    object is accepted only under the `records` key, never scanned for a bare array
-    nested in some other key."""
+def _top_level(t: str) -> tuple[bool, list | None]:
+    """What actually decodes at the top of `t` (position 0), not just what character comes
+    first. A response can carry prose before its JSON - `"Cf. {id.} below: [...]"` has a
+    `{` earlier in the text than its real answer, but that `{` never decodes as JSON on its
+    own, so it must not be mistaken for the top-level value (review finding, task-1-review).
+
+    Returns `(is_object, records_or_None)`. When the top level decodes to an object, R1
+    applies: only its `records` key is ever consulted, never scanned for a bare array
+    nested in some other key - so the caller must not fall back to the bare-array scan in
+    that case, whether or not `records` was there. When the top level is anything else
+    (not an object at all, or nothing decodes at position 0), `is_object` is False and the
+    caller falls back to scanning the text for a bare array."""
     dec = json.JSONDecoder()
     try:
-        obj, _end = dec.raw_decode(t, start)
+        obj, _end = dec.raw_decode(t, 0)
     except json.JSONDecodeError:
-        return None
-    return obj["records"] if isinstance(obj, dict) and isinstance(obj.get("records"), list) else None
+        return False, None
+    if not isinstance(obj, dict):
+        return False, None
+    return True, (obj["records"] if isinstance(obj.get("records"), list) else None)
 
 
 def _validated(recs, case_ids: Sequence[int], required) -> list[dict] | None:
@@ -52,12 +61,8 @@ def _validated(recs, case_ids: Sequence[int], required) -> list[dict] | None:
 
 def parse_records(text: str, case_ids: Sequence[int], *, required=REQUIRED) -> list[dict] | None:
     t = strip_fences(text)
-    brace_i, bracket_i = t.find("{"), t.find("[")
-    if brace_i != -1 and (bracket_i == -1 or brace_i < bracket_i):
-        # the first bracket in the text opens an object: that object is the top level,
-        # and only its `records` key is ever consulted (R1) - no fallback to a bare-array
-        # scan, which would otherwise find an array nested under some other key.
-        wrapped = _wrapped(t, brace_i)
+    is_object, wrapped = _top_level(t) if t else (False, None)
+    if is_object:
         return _validated(wrapped, case_ids, required) if wrapped is not None else None
     dec = json.JSONDecoder()
     for i in range(len(t)):
