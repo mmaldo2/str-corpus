@@ -126,14 +126,21 @@ class _ReadState:
             self.unpriced_requests += 1
 
 
+# Transports that report no per-call price. A usd budget over one of them is not a budget:
+# `_ReadState.spend` would stay at 0.0 for every request and the ceiling would never trip.
+UNPRICED_PROVIDERS = ("codex-cli", "claude-cli")
+
+
 def preflight(plan: Plan, codebook: Codebook, cases, provider, checker, *, store_norm_version, families: Mapping,
               domain=None) -> StopReason | None:
     if codebook.validated_norm_version and store_norm_version and codebook.validated_norm_version != store_norm_version:
         return StopReason("preflight:norm_version", f"{codebook.validated_norm_version} != {store_norm_version}")
     if domain is not None and plan.kind != "stability" and not stability_path(domain, codebook).exists():
         return StopReason("preflight:stability", f"no stability record for {codebook.id} ({codebook.sha[:12]})")
-    if plan.budget.max_usd is not None and getattr(provider, "name", None) == "codex-cli":
-        return StopReason("preflight:budget_unpriced", "codex-cli reports no per-call cost; a usd budget cannot be enforced")
+    if plan.budget.max_usd is not None and getattr(provider, "name", None) in UNPRICED_PROVIDERS:
+        return StopReason("preflight:budget_unpriced",
+                          f"{getattr(provider, 'name', '?')} reports no per-call cost; a usd budget "
+                          f"cannot be enforced - use max_units / max_wall_seconds")
     if plan.checker_pin is not None:
         fr = families.get(plan.pin.model_id, plan.pin.family); fc = families.get(plan.checker_pin.model_id, plan.checker_pin.family)
         if fr == fc:
