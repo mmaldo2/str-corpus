@@ -62,3 +62,56 @@ def test_pin_label_round_trips_so_recomputed_cache_keys_match_what_was_hashed():
     closed = mr.pin_from_label("anthropic/claude-opus-5@-:-", fams)
     assert closed.provider_name is None and closed.precision is None
     assert closed.label == "anthropic/claude-opus-5@-:-"
+
+
+def test_merge_manifest_never_drops_a_candidate_a_rerun_did_not_run():
+    """I8. `--only <one model>` used to write a one-candidate document over the
+    ten-candidate measurement: `selection.winner` was that candidate by construction and
+    `spend_by_candidate` had lost the other nine, which also degrades the next run's
+    ceiling guard (resolve_prior_spend). Git was the only thing preventing the loss."""
+    prior = {
+        "kit_sha256": "abc", "codebook": "mapper-v2", "total_task_spend_usd": 38.82,
+        "pins": {"a/one": "a/one@-:-", "b/two": "b/two@-:-"},
+        "scores": {"a/one": {"fidelity": 0.99, "agreement_human": {"macro": 0.70}, "cost_per_accepted": 0.05,
+                             "priced": True, "accepted": 195},
+                   "b/two": {"fidelity": 0.99, "agreement_human": {"macro": 0.60}, "cost_per_accepted": 0.01,
+                             "priced": True, "accepted": 190}},
+        "spend_by_candidate": {"a/one": 9.71, "b/two": 1.90},
+        "tracked_spend_by_candidate": {"a/one": 9.80, "b/two": 1.92},
+        "failed": {"c/three": "no accepted records"}, "skipped": {}, "not_run": {},
+        "selection": {"winner": "a/one"}, "winner_pin": "a/one@-:-", "stability": {"polarity": 0.82},
+    }
+    rerun = {                                   # what a `--only b/two` process builds on its own
+        "kit_sha256": "abc", "codebook": "mapper-v2", "total_task_spend_usd": 40.0,
+        "pins": {"b/two": "b/two@prov:fp8"},
+        "scores": {"b/two": {"fidelity": 0.99, "agreement_human": {"macro": 0.62}, "cost_per_accepted": 0.02,
+                             "priced": True, "accepted": 193}},
+        "spend_by_candidate": {"b/two": 2.10}, "tracked_spend_by_candidate": {"b/two": 2.11},
+        "failed": {}, "skipped": {}, "not_run": {}, "selection": {"winner": "b/two"},
+    }
+    merged = mr.merge_manifest(prior, rerun)
+    assert sorted(merged["scores"]) == ["a/one", "b/two"]                     # nothing dropped
+    assert sorted(merged["spend_by_candidate"]) == ["a/one", "b/two"]
+    assert merged["spend_by_candidate"] == {"a/one": 9.71, "b/two": 2.10}     # the re-run wins its own
+    assert merged["pins"]["b/two"] == "b/two@prov:fp8" and merged["pins"]["a/one"] == "a/one@-:-"
+    assert merged["failed"] == {"c/three": "no accepted records"}             # an old failure is still on record
+    assert merged["stability"] == {"polarity": 0.82}                          # untouched whole-manifest fields survive
+    assert merged["total_task_spend_usd"] == 40.0                             # the fresher process owns these
+    # and the winner is decided over every candidate on record, not over the one re-run
+    assert mr.select_reader(merged["scores"])["winner"] == "a/one"
+    assert sorted(mr.select_reader(merged["scores"])["survivors"]) == ["a/one", "b/two"]
+
+
+def test_the_tool_arms_the_norm_version_preflight():
+    """I10. `Reader(prov, source, cache=cache, log=log, domain=dom)` omitted
+    store_norm_version, so pre-flight check (1) was None and short-circuited - and 3B's
+    live-store read, where the check is the whole point, would have copied that call."""
+    from corpus_engine.domain import load_domain
+    from corpus_engine.reader.codebook import load_codebook
+    from corpus_engine.textnorm_version import NORM_VERSION
+
+    assert mr.STORE_NORM_VERSION == f"v{NORM_VERSION}"
+    dom = load_domain()
+    cb = load_codebook(dom, dom.reader.codebook)
+    assert cb.validated_norm_version == mr.STORE_NORM_VERSION      # the check passes, rather than being inert
+    assert "store_norm_version=STORE_NORM_VERSION" in (ROOT / "tools" / "measure_reader.py").read_text(encoding="utf-8")

@@ -18,14 +18,22 @@ from corpus_engine.ranker.labels import sha256_file                             
 from corpus_engine.reader.cache import ResponseCache                                        # noqa: E402
 from corpus_engine.reader.codebook import load_codebook, stability_path                     # noqa: E402
 from corpus_engine.reader.driver import Reader, plan_batch_extraction                       # noqa: E402
+from corpus_engine.reader.gate import gate_unit                                             # noqa: E402
 from corpus_engine.reader.measure import (load_kit, score_candidate, select_reader,         # noqa: E402
                                           stability_agreement)
 from corpus_engine.reader.model import Budget, ModelPin, Request                             # noqa: E402
-from corpus_engine.reader.parse import split_unit                                            # noqa: E402
+from corpus_engine.reader.parse import parse_records, split_unit                             # noqa: E402
 from corpus_engine.reader.render import render_unit                                          # noqa: E402
 from corpus_engine.reader.providers.openrouter import OpenRouterProvider                     # noqa: E402
+from corpus_engine.textnorm_version import NORM_VERSION                                      # noqa: E402
 
 OPEN_PRECISIONS = ("bf16", "fp8")           # preference order for pinned open-weight models
+# Pre-flight check (1) compares the codebook's `validated_norm_version` header against the
+# normalizer the texts were produced by. Left unpassed it is None and the check silently
+# short-circuits, so the only real caller was disarming the guard that 3B's live-store read
+# depends on (I10). The kit's texts were inlined from the store by tools/build_reader_kit.py
+# under this same normalizer, and `corpus_engine.verification` spells it the same way.
+STORE_NORM_VERSION = f"v{NORM_VERSION}"
 STABILITY_BAR = 0.90
 # ADR-0007 requires effort to be recorded. Left at each provider's default it is not a
 # recorded quantity at all but a per-family accident: the 2026-09-04 first attempt saw
@@ -130,7 +138,8 @@ def pin_for(cand: dict, prov: OpenRouterProvider) -> tuple[ModelPin | None, str]
 def run_candidate(pin: ModelPin, kit_batches, source, dom, prov, budget_state, cache, log):
     plan = plan_batch_extraction(kit_batches, dom.reader.codebook, pin,
                                  Budget(max_usd=max(budget_state["remaining"], 0.0)), worker="reader")
-    out = Reader(prov, source, cache=cache, log=log, domain=dom).read(plan)
+    out = Reader(prov, source, cache=cache, log=log, domain=dom,
+                 store_norm_version=STORE_NORM_VERSION).read(plan)
     budget_state["remaining"] -= out.spend_usd
     budget_state["spent"] += out.spend_usd
     return out
@@ -247,6 +256,49 @@ def keys_for(units, cb, pin: ModelPin, source, cache: ResponseCache) -> dict:
     return found
 
 
+def accepted_from_cache(cb, pin: ModelPin, units, source, cache: ResponseCache, judged) -> dict:
+    """Re-derive one candidate's accepted counts from its own cached responses. Offline:
+    reads the response cache and the frozen kit, issues no request, spends nothing.
+
+    `accepted` (spec section 2 as amended) counts a record that parsed and came back from
+    the gate with a decided `relevant` field - `extraction_status` "ok" OR "partial", and
+    partial is precisely the status of a record that lost judged fields to the gate.
+    `accepted_full` is the strict reading the spec used to carry. The gap between the two
+    is why cost per accepted record is a lower bound on the cost of a fully judged record
+    (I7). Recomputing `accepted` as well is the control: it has to reproduce what the paid
+    run scored, and the annotation records whether it did."""
+    def cached(u):
+        texts = source.fetch(u.case_ids)
+        p = cache.dir / f"{ResponseCache.key(cb.sha, pin, u, render_unit(cb, u, texts, 'reader'))}.json"
+        return texts, (json.loads(p.read_text(encoding="utf-8"))["text"] if p.exists() else None)
+
+    records = []
+    for unit in units:
+        texts, text = cached(unit)
+        if text is None:                                   # unit never bought, or bought under another pin
+            continue
+        recs, stubbed = parse_records(text, unit.case_ids), set()
+        if recs is None:                                   # mirror the driver: fall back to the split halves
+            recs = []
+            for half in split_unit(unit):
+                if not half.case_ids:
+                    continue
+                _t, htext = cached(half)
+                part = parse_records(htext, half.case_ids) if htext is not None else None
+                if part is None:
+                    stubbed.update(half.case_ids)
+                else:
+                    recs.extend(part)
+        ok_ids = [c for c in unit.case_ids if c not in stubbed]
+        if ok_ids:
+            records += [r.record for r in gate_unit(recs, texts, ok_ids, judged, unit.id)]
+    live = [r for r in records if r.get("extraction_status") != "missing"]
+    return {"accepted": sum(1 for r in live if r.get("extraction_status") in ("ok", "partial")
+                            and r.get("relevant") is not None),
+            "accepted_full": sum(1 for r in live if r.get("extraction_status") == "ok"
+                                 and r.get("relevant") is not None)}
+
+
 def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: ResponseCache) -> int:
     """Recompute the manifest's derived records offline. Issues no request of any kind:
     everything comes from the existing manifest, the frozen kit and the response cache,
@@ -286,6 +338,19 @@ def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: Res
         print(f"{name:<36} {len(found):>3} keys  300s={old:<3} 1500s={new:<3} "
               f"-> {timeouts[name]['read_timeout_seconds']}", flush=True)
 
+    # How many accepted records were fully judged, re-derived from the cache (I7).
+    accepted = {}
+    for mid, label in sorted(m["pins"].items()):
+        pin = pin_from_label(label, families)
+        units = plan_batch_extraction(batches, cb.id, pin, Budget(), worker="reader").units
+        counts = accepted_from_cache(cb, pin, units, source, cache, cb.judged_fields)
+        counts["accepted_recorded_by_the_run"] = ((m.get("scores") or {}).get(mid) or {}).get("accepted")
+        counts["matches_the_run"] = counts["accepted_recorded_by_the_run"] == counts["accepted"]
+        accepted[mid] = counts
+        print(f"{mid:<36} accepted={counts['accepted']:>4} (run recorded "
+              f"{counts['accepted_recorded_by_the_run']}) fully judged={counts['accepted_full']:>4}", flush=True)
+    m["accepted_by_candidate"] = accepted
+
     # Money spent on responses no score rests on: an open-weight candidate whose pin
     # resolved to a different provider on a later run re-bought its whole kit, and the
     # superseded purchase is charged to the measurement but attributed to no candidate.
@@ -308,7 +373,7 @@ def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: Res
                                                 "units": keys_for(units, cb, alt, source, cache)}
 
     attributed = sum((m.get("spend_by_candidate") or {}).values())
-    charged = m.get("total_task_spend_usd")
+    charged_total = m.get("total_task_spend_usd")           # not `charged`: that is a module function (m1)
     m["cache_keys"] = cache_keys
     m["superseded_cache_keys"] = superseded_keys
     kept = sum(len(v["units"]) for v in cache_keys.values())
@@ -322,8 +387,8 @@ def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: Res
     m["approved_ceiling_usd"] = APPROVED_CEILING
     m["discarded_attempts_usd"] = DISCARDED_ATTEMPTS
     m["spend_attribution"] = {"attributed_to_candidates_usd": round(attributed, 4),
-                              "charged_usd": charged,
-                              "unattributed_usd": round((charged or 0.0) - attributed, 4),
+                              "charged_usd": charged_total,
+                              "unattributed_usd": round((charged_total or 0.0) - attributed, 4),
                               "superseded_purchases_usd": round(sum(discarded.values()), 6)}
     m["note"] = (
         "Derived records recomputed offline by `tools/measure_reader.py --annotate-only` "
@@ -335,6 +400,12 @@ def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: Res
         "against the commit time of " + TIMEOUT_CHANGE_COMMIT + ", which raised the read "
         "ceiling from " + str(TIMEOUT_BEFORE_CHANGE) + "s to " + str(READ_TIMEOUT) + "s; a "
         "candidate with units on both sides is recorded as \"mixed\". LIMITATION: the cache "
+        "accepted_by_candidate re-derives each candidate's accepted records from its own "
+        "cached responses (parse, split-half fallback, quote gate - no request, no spend): "
+        "`accepted` is the pre-registered denominator and reproduces what the paid run "
+        "scored (`matches_the_run`), while `accepted_full` counts only the records whose "
+        "judged fields all survived the gate, so `accepted` minus `accepted_full` is how "
+        "many accepted records were partial. LIMITATION: the cache "
         "key hashes only the pin label, so it distinguishes neither reasoning effort nor "
         "max_tokens, and two runs differing only in those would collide. The key was left "
         "alone deliberately - changing it would orphan the whole purchased cache - and "
@@ -344,6 +415,30 @@ def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: Res
     print("superseded purchases:", dumps(discarded), flush=True)
     print("attribution:", dumps(m["spend_attribution"]), flush=True)
     return 0
+
+
+MERGE_BY_CANDIDATE = ("pins", "scores", "spend_by_candidate", "tracked_spend_by_candidate",
+                      "skipped", "failed", "not_run")
+
+
+def merge_manifest(prior: dict, manifest: dict) -> dict:
+    """Fold this process's results into the manifest already on disk.
+
+    The manifest is the pre-registered record of a ten-candidate measurement, and a given
+    process may have re-run one of them (`--only`) or none. Writing `manifest` straight over
+    the file replaced that record with a one-candidate document whose `selection.winner` was
+    that candidate by construction and whose `spend_by_candidate` had lost the other nine -
+    which then also degrades `resolve_prior_spend`'s ceiling guard on the next run (I8). Git
+    was the only thing standing between a `--only` re-run and the loss of the measurement.
+
+    Per-candidate maps merge key by key, this process winning for the candidates it actually
+    ran; every other field is whole-manifest and the fresher process owns it. `selection` is
+    recomputed by the caller over the MERGED scores, so a re-run of one candidate is judged
+    against all ten and never against itself alone."""
+    merged = {**prior, **manifest}
+    for k in MERGE_BY_CANDIDATE:
+        merged[k] = {**(prior.get(k) or {}), **(manifest.get(k) or {})}
+    return merged
 
 
 def resolve_prior_spend(flag: float | None, prior: dict) -> tuple[float, str]:
@@ -483,7 +578,11 @@ def main() -> int:
         if budget["remaining"] <= 0:
             print("budget exhausted", flush=True)
 
-    sel = select_reader(scores)
+    # Selection is decided over every candidate on record, not only the ones this process
+    # ran, so `--only` can never crown its single candidate by construction (I8).
+    merged_scores = {**(prior.get("scores") or {}), **scores}
+    all_pins = {**(prior.get("pins") or {}), **pins}
+    sel = select_reader(merged_scores)
     manifest = {"kit_sha256": dom.reader.kit_sha256, "kit_path": dom.reader.kit_path,
                 "codebook": cb.id, "codebook_sha": cb.sha, "budget_usd": a.max_usd,
                 "prior_spend_usd": round(prior_usd, 4), "prior_spend_source": why,
@@ -497,7 +596,17 @@ def main() -> int:
                 "tracked_spend_by_candidate": tracked_by,
                 "ts": time.strftime("%Y-%m-%dT%H:%M:%S")}
 
-    if sel["winner"]:
+    if sel["winner"] and sel["winner"] not in pin_objs:
+        w = sel["winner"]
+        if all_pins.get(w):
+            wpin = pin_from_label(all_pins[w], dom.reader.families)
+            manifest["winner_pin"] = wpin.label
+            manifest["winner_model"] = {"model_id": wpin.model_id, "family": wpin.family,
+                                        "provider_name": wpin.provider_name, "precision": wpin.precision}
+        print(f"\n== winner {w} was recorded by an earlier process and not re-run here; its "
+              f"batch-size pair and stability check are carried forward from the prior manifest "
+              f"(nothing spent on them)", flush=True)
+    elif sel["winner"]:
         w = sel["winner"]
         wpin = pin_objs[w]
         manifest["winner_pin"] = wpin.label
@@ -563,7 +672,7 @@ def main() -> int:
         manifest["spent_usd"] = round(budget["real_spent"], 4)
         print(f"credits lookup after the run failed: {exc}", flush=True)
     manifest["total_task_spend_usd"] = round(prior_usd + (manifest["spent_usd"] or 0.0), 4)
-    write_json(prior_path, manifest, indent=1, sort_keys=True)
+    write_json(prior_path, merge_manifest(prior, manifest), indent=1, sort_keys=True)
     print(dumps(sel, indent=1), flush=True)
     print(f"this process charged ${manifest['spent_usd']} of the ${ceiling:.2f} it had left; "
           f"measurement total ${manifest['total_task_spend_usd']} of ${a.max_usd:.2f} "

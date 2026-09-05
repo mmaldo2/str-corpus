@@ -58,7 +58,11 @@ volume zips (URL, sha256, bytes) were ingested, for reproducibility.
 
 `corpus_engine/` is the domain-agnostic engine (ADR-0010): `store` (paths,
 connections, schema), `domain` (loads `domains/<name>/domain.yaml`),
-`verification` (the quote gate), `selector.packing` (batch packing), and
+`verification` (the quote gate), `selector.packing` (batch packing),
+`reader` (the provider-neutral reader driver: `driver` with the read loop,
+`render`/`parse`/`gate`/`cache`, the `Provider` and `CaseSource` ports in
+`ports.py`, adapters under `reader/providers/`, and `measure` for the
+pre-registered scoring), and
 `ledger` (the system of record, ADR-0002: `data/ledger/cycle-*.jsonl` are the
 snapshot, `data/ledger/patches.jsonl` the append-only log,
 `data/ledger/manifest/` the per-cycle account of every case read). Scripts in
@@ -69,6 +73,16 @@ Tools: `.venv\Scripts\python tools\measure_reader.py --max-usd 50` runs the
 pre-registered reader-model measurement (ADR-0007) over the frozen kit and
 writes `data/reader/measurement-v1/manifest.json`; result in
 `reports/reader-measurement.md`.
+
+> **The measurement is finished and paid for ($41.78 of the approved $50).**
+> Running that line again spends real money on any unit not already in
+> `data/reader/cache`, and `--only <model id>` re-buys that candidate. To
+> recompute the manifest's derived records instead, use
+> `.venv\Scripts\python tools\measure_reader.py --annotate-only`, which issues no
+> request of any kind. A paid re-run now merges per candidate into the existing
+> manifest and re-decides the winner over every candidate on record, so it can no
+> longer drop the other nine - but it is still spend, so read the ceiling guard in
+> `resolve_prior_spend` before typing it.
 
 Tests: `.venv\Scripts\python -m pytest tests -q`. Byte-for-byte
 characterization tests reproduce cycle-003 batches, verified files, and all

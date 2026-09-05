@@ -1,4 +1,66 @@
 {
+ "accepted_by_candidate": {
+  "anthropic/claude-haiku-4.5": {
+   "accepted": 191,
+   "accepted_full": 54,
+   "accepted_recorded_by_the_run": 191,
+   "matches_the_run": true
+  },
+  "anthropic/claude-opus-5": {
+   "accepted": 195,
+   "accepted_full": 126,
+   "accepted_recorded_by_the_run": 195,
+   "matches_the_run": true
+  },
+  "anthropic/claude-sonnet-5": {
+   "accepted": 193,
+   "accepted_full": 79,
+   "accepted_recorded_by_the_run": 193,
+   "matches_the_run": true
+  },
+  "deepseek/deepseek-v4-flash": {
+   "accepted": 195,
+   "accepted_full": 62,
+   "accepted_recorded_by_the_run": 195,
+   "matches_the_run": true
+  },
+  "deepseek/deepseek-v4-pro": {
+   "accepted": 194,
+   "accepted_full": 110,
+   "accepted_recorded_by_the_run": 194,
+   "matches_the_run": true
+  },
+  "google/gemini-3.7-flash": {
+   "accepted": 188,
+   "accepted_full": 150,
+   "accepted_recorded_by_the_run": 188,
+   "matches_the_run": true
+  },
+  "minimax/minimax-m3": {
+   "accepted": 195,
+   "accepted_full": 67,
+   "accepted_recorded_by_the_run": 195,
+   "matches_the_run": true
+  },
+  "openai/gpt-5.6-terra": {
+   "accepted": 195,
+   "accepted_full": 106,
+   "accepted_recorded_by_the_run": 195,
+   "matches_the_run": true
+  },
+  "qwen/qwen3.8-27b": {
+   "accepted": 195,
+   "accepted_full": 73,
+   "accepted_recorded_by_the_run": 195,
+   "matches_the_run": true
+  },
+  "z-ai/glm-5.3": {
+   "accepted": 195,
+   "accepted_full": 88,
+   "accepted_recorded_by_the_run": 195,
+   "matches_the_run": true
+  }
+ },
  "approved_ceiling_usd": 50.0,
  "batch_size_pair": {
   "b18": {
@@ -465,7 +527,7 @@
  "kit_sha256": "b393f2863feef6c9f1810c2bdeb2af983f695aa9d64604ab3db8be364160891f",
  "max_tokens": 64000,
  "not_run": {},
- "note": "Derived records recomputed offline by `tools/measure_reader.py --annotate-only` (no requests, no spend). cache_keys holds, per candidate and per unit, the key the driver computes as sha256(codebook_sha|pin.label|unit id|sorted case ids|rendered prompt); only keys present in data/reader/cache are recorded, and the split halves a unit falls back to on a parse failure appear as <unit>-a / <unit>-b. read_timeout_by_candidate is attributed from each candidate's own cache-file mtimes against the commit time of 546c1bf, which raised the read ceiling from 300s to 1500s; a candidate with units on both sides is recorded as \"mixed\". LIMITATION: the cache key hashes only the pin label, so it distinguishes neither reasoning effort nor max_tokens, and two runs differing only in those would collide. The key was left alone deliberately - changing it would orphan the whole purchased cache - and fixing it belongs to Stage 3B.",
+ "note": "Derived records recomputed offline by `tools/measure_reader.py --annotate-only` (no requests, no spend). cache_keys holds, per candidate and per unit, the key the driver computes as sha256(codebook_sha|pin.label|unit id|sorted case ids|rendered prompt); only keys present in data/reader/cache are recorded, and the split halves a unit falls back to on a parse failure appear as <unit>-a / <unit>-b. read_timeout_by_candidate is attributed from each candidate's own cache-file mtimes against the commit time of 546c1bf, which raised the read ceiling from 300s to 1500s; a candidate with units on both sides is recorded as \"mixed\". LIMITATION: the cache accepted_by_candidate re-derives each candidate's accepted records from its own cached responses (parse, split-half fallback, quote gate - no request, no spend): `accepted` is the pre-registered denominator and reproduces what the paid run scored (`matches_the_run`), while `accepted_full` counts only the records whose judged fields all survived the gate, so `accepted` minus `accepted_full` is how many accepted records were partial. LIMITATION: the cache key hashes only the pin label, so it distinguishes neither reasoning effort nor max_tokens, and two runs differing only in those would collide. The key was left alone deliberately - changing it would orphan the whole purchased cache - and fixing it belongs to Stage 3B.",
  "pins": {
   "anthropic/claude-haiku-4.5": "anthropic/claude-haiku-4.5@-:-",
   "anthropic/claude-opus-5": "anthropic/claude-opus-5@-:-",
