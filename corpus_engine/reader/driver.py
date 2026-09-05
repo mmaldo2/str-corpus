@@ -155,13 +155,29 @@ class Reader:
                     split_failed_ids: set[int] = set()
                     if recs is None:                                   # split retry, once
                         recs = []
-                        for half in split_unit(unit):
-                            _, r2, h2 = self._ask(plan, cb, half, plan.pin, plan.worker, self.provider, state)
-                            part = parse_records(r2.text, half.case_ids)
-                            if part is None:
-                                split_failed_ids.update(half.case_ids)
-                            else:
-                                recs.extend(part)
+                        halves = split_unit(unit)
+                        try:
+                            for i, half in enumerate(halves):
+                                _, r2, h2 = self._ask(plan, cb, half, plan.pin, plan.worker, self.provider, state)
+                                part = parse_records(r2.text, half.case_ids)
+                                if part is None:
+                                    split_failed_ids.update(half.case_ids)
+                                else:
+                                    recs.extend(part)
+                        except _BudgetStop:
+                            # a paid half never got a chance to run (budget tripped mid-split): keep whatever
+                            # was already parsed and paid for instead of discarding it (N1).
+                            never_attempted_ids = [c for h in halves[i:] for c in h.case_ids]
+                            ok_ids = [c for c in unit.case_ids if c not in split_failed_ids and c not in never_attempted_ids]
+                            results = list(gate_unit(recs, texts, ok_ids, judged, unit.id)) if ok_ids else []
+                            results += [_missing_stub(cid, "parse failed (split half)")
+                                        for cid in unit.case_ids if cid in split_failed_ids]
+                            results += [_missing_stub(cid, "budget stop before split half")
+                                        for cid in unit.case_ids if cid in never_attempted_ids]
+                            order = {c: idx for idx, c in enumerate(unit.case_ids)}
+                            results.sort(key=lambda r: order[r.case_id])
+                            units.append(UnitResult(unit.id, "partial_parse", tuple(results), resp, hit))
+                            raise
                         if len(split_failed_ids) == len(unit.case_ids):
                             stub = tuple(_missing_stub(cid, "unit parse failed") for cid in unit.case_ids)
                             units.append(UnitResult(unit.id, "parse_failed", stub, resp, hit, "unparseable after split"))
@@ -197,6 +213,13 @@ class Reader:
                         except ReaderError as exc:
                             checker_status = f"failed:{str(exc)[:120]}"
                             self.log(f"{unit.id}: checker FAILED {exc}")
+                        except _BudgetStop as exc:
+                            # patch the unit with the checker outcome before the budget stop propagates,
+                            # so it isn't left indistinguishable from "not sampled" (N2).
+                            checker_status = "failed:budget"
+                            self.log(f"{unit.id}: checker FAILED {exc}")
+                            units[-1] = replace(units[-1], checker=checker_status, checker_response=checker_resp)
+                            raise
                         units[-1] = replace(units[-1], checker=checker_status, checker_response=checker_resp)
                     self.log(f"{unit.id}: {len(results)} records, {sum(r.dropped_quotes for r in results)} quotes dropped"
                              + (" (cache)" if hit else ""))

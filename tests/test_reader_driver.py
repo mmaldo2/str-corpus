@@ -5,6 +5,7 @@ from corpus_engine.reader.cache import ResponseCache
 from corpus_engine.reader.codebook import load_codebook
 from corpus_engine.reader.driver import Reader, agreement, plan_batch_extraction, preflight
 from corpus_engine.reader.model import Budget, ModelPin, ReaderError
+from corpus_engine.reader.parse import split_unit
 from corpus_engine.reader.providers.codex_cli import CodexCliProvider
 from corpus_engine.reader.providers.scripted import ScriptedProvider
 from corpus_engine.reader.sources import StoreCaseSource
@@ -179,3 +180,40 @@ def test_preflight_budget_unpriced_for_codex_cli_reader(repo_root):
     prov = CodexCliProvider("m")
     s = preflight(plan, cb, None, prov, None, store_norm_version=None, families={})
     assert s is not None and s.kind == "preflight:budget_unpriced"
+
+
+def test_budget_stop_mid_split_keeps_parsed_half(tmp_path, fixture_db, repo_root):
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
+    ans = _answer(conn); calls = {"n": 0}
+    def f(req):
+        calls["n"] += 1
+        return "not json at all" if calls["n"] == 1 else ans(req)   # primary garbage forces split; first half parses for real
+    prov = ScriptedProvider(f, cost_per_call=0.5)
+    plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(max_usd=1.0), worker="claude")
+    unit = plan.units[0]; first_half, second_half = split_unit(unit)
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    assert out.stop.kind == "budget:usd" and prov.calls == 2         # primary + first half; second half's pre-check trips
+    assert len(out.units) == 1
+    u = out.units[0]
+    assert u.status == "partial_parse"
+    real = [r for r in u.records if r.case_id in set(first_half.case_ids)]
+    stubs = [r for r in u.records if r.case_id in set(second_half.case_ids)]
+    assert len(real) == len(first_half.case_ids)
+    assert all(r.gate_status != "missing" and r.record.get("polarity") == "favorable" for r in real)
+    assert len(stubs) == len(second_half.case_ids)
+    assert all(r.gate_status == "missing" and r.record["gate_notes"] == "budget stop before split half" for r in stubs)
+
+
+def test_budget_trips_exactly_at_checker_ask(tmp_path, fixture_db, repo_root):
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
+    reader = ScriptedProvider(_answer(conn), cost_per_call=1.0)
+    checker = ScriptedProvider(_answer(conn))
+    plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(max_usd=1.0), worker="claude",
+                                 checker_pin=ModelPin("scripted-checker", "openai"), sample_pct=100)
+    out = Reader(reader, StoreCaseSource(conn), checker=checker, log=lambda *_: None, domain=dom).read(plan)
+    assert out.stop.kind == "budget:usd"
+    ids = [u.unit_id for u in out.units]
+    assert len(ids) == len(set(ids)) == 1
+    u = out.units[0]
+    assert u.status == "ok" and u.checker == "failed:budget"
+    assert checker.calls == 0
