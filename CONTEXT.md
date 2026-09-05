@@ -200,24 +200,49 @@ _Avoid_: mapper, worker, extractor, LLM
 A model from a different family that re-reads a sample and whose
 disagreements route cases to human review.
 
+**Plan**:
+The frozen description of one reading job: its kind, its ordered units, the
+codebook, the model pin, the budget, and the worker. Built once and then
+executed; a resumed run re-executes the same plan.
+
+**Unit**:
+One request's worth of a plan: the case ids read together in a single
+prompt, with the batch metadata the codebook renders. A batch is the usual
+unit; a re-read or a judgment is a unit of one.
+
 **Extraction record**:
 A reader's structured judgment of one case: the judged fields above plus
 quotes.
 
+**Accepted record**:
+An extraction record that came back through the quote gate with a decided
+`relevant` field. The denominator of cost per accepted record, and the only
+kind of record that reaches the ledger.
+
 **Quote gate**:
-The deterministic step that verifies every quote and voids any field whose
-supporting quote fails.
+The deterministic step, inside the reader driver, that verifies every quote
+against the case text and voids any judged field whose supporting quote
+fails. Nothing unverified leaves the driver.
 
 **Remap**:
 A second reading of a case whose fields were voided by the quote gate.
 
 **Codebook**:
 The frozen definition of every judged field and the reader instructions that
-implement it. Changed only with a version bump and a stability check.
+implement it. Identified by the sha256 of its file, which is what its
+stability record is filed under. Changed only with a version bump and a
+stability check.
 
 **Stability check**:
 Re-reading a fixed sample of cases after any codebook change and reporting
 agreement, before the new codebook is used.
+
+**Reference set** (the kit):
+The frozen bundle a model measurement runs against: the batches, the case
+texts inlined so the measurement never touches the store, and the answers
+to compare against (human-adjudicated rows, plus rows the method already
+judged irrelevant). Sha-pinned in `domain.yaml` and never edited; a change
+means a new kit version.
 
 ## Measuring the method
 

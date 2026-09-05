@@ -46,6 +46,19 @@ def test_openrouter_sends_pin_and_schema_reads_cost_and_retries():
     p2.complete(Request(ModelPin("anthropic/claude-sonnet-5", "anthropic"), "u"))
     assert "provider" not in body2[0] and "response_format" not in body2[0]
 
+def test_openrouter_sends_reasoning_from_pin_extra():
+    sent = []
+    def transport(url, json_body, headers, timeout):
+        sent.append(json_body)
+        return 200, {"choices": [{"message": {"content": "[]"}, "finish_reason": "stop"}], "usage": {}}
+    p = OpenRouterProvider("k", transport=transport)
+    pin = ModelPin("anthropic/claude-sonnet-5", "anthropic", extra={"reasoning": {"effort": "low"}})
+    p.complete(Request(pin, "u"))
+    assert sent[-1]["reasoning"] == {"effort": "low"}
+    p.complete(Request(ModelPin("anthropic/claude-sonnet-5", "anthropic"), "u"))
+    assert "reasoning" not in sent[-1]
+
+
 def test_openrouter_empty_completion_raises():
     def transport(url, json_body, headers, timeout):
         return 200, {"choices": [{"message": {"content": None}, "finish_reason": "stop"}], "usage": {}}

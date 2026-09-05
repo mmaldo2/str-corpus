@@ -65,6 +65,11 @@ snapshot, `data/ledger/patches.jsonl` the append-only log,
 `pipeline/` are thin wrappers during the staged refactor. Every count comes
 from `open_ledger().view().counts()`; never compute one by hand.
 
+Tools: `.venv\Scripts\python tools\measure_reader.py --max-usd 50` runs the
+pre-registered reader-model measurement (ADR-0007) over the frozen kit and
+writes `data/reader/measurement-v1/manifest.json`; result in
+`reports/reader-measurement.md`.
+
 Tests: `.venv\Scripts\python -m pytest tests -q`. Byte-for-byte
 characterization tests reproduce cycle-003 batches, verified files, and all
 three ledgers from `tests/golden` and `tests/fixtures`.

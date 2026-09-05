@@ -20,8 +20,12 @@ class ModelPin:
 
 @dataclass(frozen=True)
 class Request:
+    # max_tokens has to cover reasoning tokens too: on a reasoning-native model the
+    # trace is billed and counted against this cap, and at 16000 the 2026-09-04
+    # measurement's first attempt got finish_reason=length with empty content on
+    # full batches. 64000 is at or under every ADR-0007 candidate's completion cap.
     pin: ModelPin; user: str; system: str | None = None; json_schema: dict | None = None
-    max_tokens: int = 16000; temperature: float = 0.0
+    max_tokens: int = 64000; temperature: float = 0.0
 
 
 @dataclass(frozen=True)

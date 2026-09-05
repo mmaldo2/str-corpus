@@ -24,6 +24,12 @@ class OpenRouterProvider:
         body = {"model": req.pin.model_id, "messages": ([{"role": "system", "content": req.system}] if req.system else [])
                 + [{"role": "user", "content": req.user}], "temperature": req.temperature, "max_tokens": req.max_tokens,
                 "usage": {"include": True}}
+        reasoning = (req.pin.extra or {}).get("reasoning")
+        if reasoning:
+            # ADR-0007 requires effort to be recorded; ModelPin.extra carries it so the
+            # same knob is set identically for every family (openrouter normalizes
+            # `effort` to each provider's own reasoning control).
+            body["reasoning"] = dict(reasoning)
         if req.pin.provider_name:
             prov = {"order": [req.pin.provider_name], "allow_fallbacks": False}
             if req.pin.precision:
