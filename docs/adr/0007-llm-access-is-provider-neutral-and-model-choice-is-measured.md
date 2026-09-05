@@ -133,3 +133,28 @@ Further decisions this measurement records:
   away from, and whether OpenAI's subscription terms carry an analogue of the
   interactive-use restriction that drove that decision has not been checked. The
   reader is on API-key access; the checker is not.
+
+## Amendment 2026-09-05: the reader returns to the subscription CLI (user decision)
+
+After the measurement the user directed that the reader run the way cycles 1-3
+did: `claude -p` on the Claude subscription, invoked from the driver as a
+subprocess, with Codex on its subscription as the checker. The controller raised
+the licence concern again with the current text: Anthropic's Consumer Terms
+(effective 2025-10-08, section 3) prohibit access "through automated or non-human
+means, whether through a bot, script, or otherwise" except via an API key or
+where explicitly permitted; the Claude Code documentation makes bare mode, which
+"doesn't use your subscription login", the recommended mode for scripted calls.
+The user considered it and decided to proceed, citing three trouble-free cycles
+and extra usage credits bought for them. That decision is the user's; it is
+recorded here so a later reader knows the API-key route was chosen, measured,
+and then set aside deliberately, not forgotten.
+
+Consequences. (1) A `claude-cli` provider joins the adapters; the Provider port,
+quote gate, cache, kit and bar are unchanged, so the subscription reader is
+measured against the same 195-case kit as the paid candidates. (2) The budget
+for a subscription reader is a unit count and a wall-clock plan, not dollars; the
+per-cell map budget from reports/ranking-cycle-004.md section 5 is expressed in
+cases read. (3) OpenRouter remains the fallback provider and the route for any
+candidate the subscription cannot reach. (4) `reader.model` is re-pinned only
+after mapper-v2's polarity instructions are revised and the finalists are
+remeasured; the opus-5 pin above stands until then and nothing is bought under it.
