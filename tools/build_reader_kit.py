@@ -1,4 +1,4 @@
-"""One-time: freeze the reader kit (spec Section 6): 155 human-reviewed ledger records + 45 machine-irrelevant reads, texts inlined."""
+"""One-time: freeze the reader kit (spec Section 6): 155 human-reviewed ledger records + up to 45 machine-irrelevant reads (quota = 45 // strata, floored per stratum), texts inlined."""
 import hashlib, json, random, sys, time
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent; sys.path.insert(0, str(ROOT))

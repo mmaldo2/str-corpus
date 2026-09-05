@@ -3,11 +3,19 @@ from corpus_engine.reader.measure import select_reader, score_candidate
 from corpus_engine.reader.model import Budget, ModelPin, Plan, ReadingOutcome, RecordResult, Response, StopReason, Unit, UnitResult
 
 
-def _out(recs, dropped, spend):
+def _out(recs, dropped, spend, cache_hit=False):
     rr = tuple(RecordResult(r["case_id"], r, r.get("extraction_status", "ok"), d, ()) for r, d in zip(recs, dropped))
-    u = UnitResult("u", "ok", rr, Response("", 1, 1, spend, {"provider": "P"}, "stop"), False)
+    u = UnitResult("u", "ok", rr, Response("", 1, 1, spend, {"provider": "P"}, "stop"), cache_hit)
     return ReadingOutcome(Plan("k", (Unit("u", tuple(r["case_id"] for r in recs)),), "cb", ModelPin("m", "f"), Budget(), "w"),
                           [u], [], spend, 1, 1, 2.0, StopReason("done"), {}, "")
+
+
+_REF = [{"case_id": 1, "source": "human", "relevant": True, "polarity": "favorable", "who_was_letting": "householder"},
+        {"case_id": 2, "source": "human", "relevant": True, "polarity": "adverse", "who_was_letting": "commercial_operator"},
+        {"case_id": 3, "source": "machine", "relevant": False, "polarity": "irrelevant", "who_was_letting": None}]
+_RECS = [{"case_id": 1, "relevant": True, "polarity": "favorable", "who_was_letting": "householder", "quotes": [1, 2, 3], "extraction_status": "ok"},
+         {"case_id": 2, "relevant": True, "polarity": "favorable", "who_was_letting": "commercial_operator", "quotes": [1], "extraction_status": "partial"},
+         {"case_id": 3, "relevant": False, "polarity": "irrelevant", "quotes": [], "extraction_status": "ok"}]
 
 
 def test_score_candidate_fields():
@@ -31,3 +39,21 @@ def test_select_reader_rule():
     assert r2["winner"] == "b" and r2["shortfall"] is True and "highest-agreement" in r2["rule"]
     r3 = select_reader({"a": S(0.5, 0.99, 0.01)})
     assert r3["winner"] is None and r3["eliminated"] == ["a"]
+
+
+def test_score_candidate_cache_hit_is_unpriced():
+    s = score_candidate(_out(_RECS, [0, 1, 0], 0.0, cache_hit=True), _REF)
+    assert s["priced"] is False
+    assert s["cost_per_accepted"] == math.inf
+
+
+def test_score_candidate_spend_override_prices_cache_only_rerun():
+    s = score_candidate(_out(_RECS, [0, 1, 0], 0.0, cache_hit=True), _REF, spend_usd_override=0.3)
+    assert s["priced"] is True
+    assert abs(s["cost_per_accepted"] - 0.1) < 1e-9
+
+
+def test_select_reader_unpriced_never_wins_cost_tiebreak():
+    S = lambda mac, cpa, priced: {"fidelity": 0.99, "agreement_human": {"macro": mac}, "cost_per_accepted": cpa, "priced": priced}
+    r = select_reader({"a": S(0.90, 0.05, True), "b": S(0.90, 0.0, False)})
+    assert r["winner"] == "a" and r["shortfall"] is False
