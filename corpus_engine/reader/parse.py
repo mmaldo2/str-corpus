@@ -16,20 +16,21 @@ def strip_fences(text: str) -> str:
 
 
 def parse_records(text: str, case_ids: Sequence[int], *, required=REQUIRED) -> list[dict] | None:
-    t = strip_fences(text); start, end = t.find("["), t.rfind("]")
-    if start < 0 or end <= start:
-        return None
-    try:
-        recs = json.loads(t[start:end + 1])
-    except json.JSONDecodeError:
-        return None
-    if not isinstance(recs, list) or not all(isinstance(r, dict) for r in recs):
-        return None
-    if not {int(c) for c in case_ids} <= {r.get("case_id") for r in recs}:
-        return None
-    if not all(set(required) <= set(r) for r in recs):
-        return None
-    return recs
+    t = strip_fences(text)
+    dec = json.JSONDecoder()
+    for i in range(len(t)):
+        if t[i] == "[":
+            try:
+                recs, end = dec.raw_decode(t, i)
+                if isinstance(recs, list) and all(isinstance(r, dict) for r in recs):
+                    if not {int(c) for c in case_ids} <= {r.get("case_id") for r in recs}:
+                        return None
+                    if not all(set(required) <= set(r) for r in recs):
+                        return None
+                    return recs
+            except json.JSONDecodeError:
+                continue
+    return None
 
 
 def split_unit(unit: Unit) -> tuple[Unit, Unit]:

@@ -17,6 +17,24 @@ def test_parse_accepts_clean_and_fenced_rejects_partial():
     a, b = split_unit(Unit("u", (1, 2, 3, 4, 5), {"batch_id": "u"}))
     assert a.id == "u-a" and a.case_ids == (1, 2, 3) and b.case_ids == (4, 5) and b.meta["batch_id"] == "u"
 
+def test_parse_robust_brackets():
+    # (a) prose before the array containing [1]
+    before_text = 'See [1] for details. [{"case_id": 1, "relevant": true, "polarity": "favorable", "quotes": []}, {"case_id": 2, "relevant": false, "polarity": "irrelevant", "quotes": []}]'
+    result = parse_records(before_text, [1, 2])
+    assert result is not None and len(result) == 2
+    # (b) prose after the array containing [42]
+    after_text = '[{"case_id": 1, "relevant": true, "polarity": "favorable", "quotes": []}, {"case_id": 2, "relevant": false, "polarity": "irrelevant", "quotes": []}] See case [42] for more.'
+    result = parse_records(after_text, [1, 2])
+    assert result is not None and len(result) == 2
+    # (c) record whose `notes` field contains brackets
+    notes_text = '[{"case_id": 1, "relevant": true, "polarity": "favorable", "quotes": [], "notes": "See [1] for details [test]"}, {"case_id": 2, "relevant": false, "polarity": "irrelevant", "quotes": []}]'
+    result = parse_records(notes_text, [1, 2])
+    assert result is not None and len(result) == 2 and result[0]["notes"] == "See [1] for details [test]"
+    # (d) truncated JSON still returns None
+    truncated = '[{"case_id": 1, "relevant": true, "polarity": "favorable", "quotes": []'
+    result = parse_records(truncated, [1])
+    assert result is None
+
 def test_gate_drops_paraphrase_nulls_field_keeps_exact_and_stubs_missing(tmp_path, fixture_db):
     p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p)
     cid = conn.execute("SELECT case_id FROM cases WHERE length(norm_text) > 2000 ORDER BY case_id LIMIT 1").fetchone()[0]
