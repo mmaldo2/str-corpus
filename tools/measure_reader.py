@@ -31,6 +31,9 @@ STABILITY_BAR = 0.90
 # cost difference that measures provider defaults rather than models, and at 18 cases a
 # batch. Every candidate is therefore pinned to the same effort, carried on ModelPin.extra.
 REASONING = {"effort": "low"}
+# Reasoning models generate for many minutes on an 18-case batch; anything shorter
+# aborts a valid generation and the retry schedule re-buys it (see openrouter.py).
+READ_TIMEOUT = 1500
 
 
 def _clean(o):
@@ -168,7 +171,13 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--max-usd", type=float, default=50.0)
     ap.add_argument("--only", default=None)
+    # --max-usd is a ceiling on the MEASUREMENT, not on one process. A resume re-derives
+    # the cached units for free, so its own counter starts at zero and would otherwise
+    # grant a second full ceiling. Carry what the earlier process already spent against
+    # the same ceiling and the guarantee survives the restart.
+    ap.add_argument("--prior-spend-usd", type=float, default=0.0)
     a = ap.parse_args()
+    ceiling = a.max_usd - a.prior_spend_usd
 
     dom = load_domain()
     kit_path = ROOT / dom.reader.kit_path
@@ -178,12 +187,15 @@ def main() -> int:
     key = store.env_value("OPENROUTER_API_KEY")
     if not key:
         sys.exit("no OPENROUTER_API_KEY")
-    prov = OpenRouterProvider(key)
+    prov = OpenRouterProvider(key, timeout=READ_TIMEOUT)
 
     before = credits_remaining(prov)
-    print(f"openrouter credits remaining before the run: ${before:.2f} (ceiling ${a.max_usd:.2f})", flush=True)
-    if before < a.max_usd:
-        sys.exit(f"remaining credits ${before:.2f} < ceiling ${a.max_usd:.2f}; top up or lower --max-usd")
+    print(f"openrouter credits remaining before the run: ${before:.2f} "
+          f"(ceiling ${a.max_usd:.2f} less ${a.prior_spend_usd:.2f} already spent = ${ceiling:.2f})", flush=True)
+    if ceiling <= 0:
+        sys.exit(f"nothing left of the ${a.max_usd:.2f} ceiling: ${a.prior_spend_usd:.2f} already spent")
+    if before < ceiling:
+        sys.exit(f"remaining credits ${before:.2f} < remaining ceiling ${ceiling:.2f}; top up or lower --max-usd")
 
     cache = ResponseCache(ROOT / "data" / "reader" / "cache")
     n_cached = len(list(cache.dir.glob("*.json")))
@@ -207,7 +219,7 @@ def main() -> int:
                               "note": "measurement in progress"}, indent=1).encode("utf-8"))
         print(f"wrote provisional stability record {sp.name}", flush=True)
 
-    budget = {"remaining": a.max_usd, "spent": 0.0, "real_spent": 0.0}
+    budget = {"remaining": ceiling, "spent": 0.0, "real_spent": 0.0}
     scores: dict[str, dict] = {}
     pins: dict[str, str] = {}
     pin_objs: dict[str, ModelPin] = {}
@@ -234,9 +246,9 @@ def main() -> int:
         except Exception as exc:                                # noqa: BLE001 - one candidate never aborts the run
             failed[mid] = f"run raised {type(exc).__name__}: {str(exc)[:300]}"
             print(f"   FAILED {failed[mid]}", flush=True)
-            reconcile(prov, before, a.max_usd, budget, print)
+            reconcile(prov, before, ceiling, budget, print)
             continue
-        real_delta = reconcile(prov, before, a.max_usd, budget, print)
+        real_delta = reconcile(prov, before, ceiling, budget, print)
         if out.stop.kind.startswith("preflight:"):
             failed[mid] = f"pre-flight refusal {out.stop.kind}: {out.stop.detail}"
             print(f"   FAILED {failed[mid]}", flush=True)
@@ -259,6 +271,8 @@ def main() -> int:
     sel = select_reader(scores)
     manifest = {"kit_sha256": dom.reader.kit_sha256, "kit_path": dom.reader.kit_path,
                 "codebook": cb.id, "codebook_sha": cb.sha, "budget_usd": a.max_usd,
+                "prior_spend_usd": round(a.prior_spend_usd, 4), "effective_budget_usd": round(ceiling, 4),
+                "read_timeout_seconds": READ_TIMEOUT,
                 "reasoning": REASONING, "max_tokens": Request.max_tokens,
                 "credits_before": round(before, 4), "spent_usd": round(budget["real_spent"], 4),
                 "tracked_spend_usd": round(budget["spent"], 4),
@@ -280,7 +294,7 @@ def main() -> int:
                 small.append({**b, "batch_id": f"{b['batch_id']}-s{j // 5 + 1}", "cases": b["cases"][j:j + 5]})
         try:
             out5 = run_candidate(wpin, small, source, dom, prov, budget, cache, print)
-            d5 = reconcile(prov, before, a.max_usd, budget, print)
+            d5 = reconcile(prov, before, ceiling, budget, print)
             s5 = score(out5, reference, f"{w}:b5", prior_spend, spend_by, tracked_by, d5)
             manifest["batch_size_pair"] = {"b18": scores[w], "b5": s5}
             print(line(s5), flush=True)
@@ -302,9 +316,9 @@ def main() -> int:
 
         try:
             o1 = run_candidate(wpin, sub("st1"), source, dom, prov, budget, cache, print)
-            spend_by[f"{w}:stab1"] = reconcile(prov, before, a.max_usd, budget, print) or o1.spend_usd
+            spend_by[f"{w}:stab1"] = reconcile(prov, before, ceiling, budget, print) or o1.spend_usd
             o2 = run_candidate(wpin, sub("st2"), source, dom, prov, budget, cache, print)
-            spend_by[f"{w}:stab2"] = reconcile(prov, before, a.max_usd, budget, print) or o2.spend_usd
+            spend_by[f"{w}:stab2"] = reconcile(prov, before, ceiling, budget, print) or o2.spend_usd
             stab = stability_agreement(o1, o2)
             stable = bool(stab) and all(v >= STABILITY_BAR for v in stab.values())
             manifest["stability"] = stab
@@ -330,9 +344,11 @@ def main() -> int:
         manifest["credits_after"] = None
         manifest["spent_usd"] = round(budget["real_spent"], 4)
         print(f"credits lookup after the run failed: {exc}", flush=True)
+    manifest["total_task_spend_usd"] = round(a.prior_spend_usd + (manifest["spent_usd"] or 0.0), 4)
     prior_path.write_bytes(dumps(manifest, indent=1, sort_keys=True).encode("utf-8"))
     print(dumps(sel, indent=1), flush=True)
-    print(f"total charged ${manifest['spent_usd']} of ${a.max_usd:.2f} "
+    print(f"this process charged ${manifest['spent_usd']} of the ${ceiling:.2f} it had left; "
+          f"measurement total ${manifest['total_task_spend_usd']} of ${a.max_usd:.2f} "
           f"(driver-tracked ${budget['spent']:.2f}); credits after {manifest['credits_after']}", flush=True)
     print("set reader.model in domain.yaml to:", dumps(manifest.get("winner_model")), flush=True)
     return 0

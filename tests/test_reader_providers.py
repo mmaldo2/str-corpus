@@ -59,6 +59,23 @@ def test_openrouter_sends_reasoning_from_pin_extra():
     assert "reasoning" not in sent[-1]
 
 
+def test_openrouter_passes_configured_timeout_to_the_transport():
+    """A long read ceiling is what lets a reasoning model finish one batch; connect,
+    write and pool stay short so a dead socket still fails fast."""
+    seen = []
+    def transport(url, json_body, headers, timeout):
+        seen.append(timeout)
+        return 200, {"choices": [{"message": {"content": "[]"}, "finish_reason": "stop"}], "usage": {}}
+    pin = ModelPin("anthropic/claude-sonnet-5", "anthropic")
+    OpenRouterProvider("k", transport=transport, timeout=1500).complete(Request(pin, "u"))
+    assert seen[-1].read == 1500.0
+    assert (seen[-1].connect, seen[-1].write, seen[-1].pool) == (30.0, 60.0, 30.0)
+    OpenRouterProvider("k", transport=transport, timeout=42).complete(Request(pin, "u"))
+    assert seen[-1].read == 42.0
+    # the default is the long ceiling, so a caller that forgets is still safe
+    assert OpenRouterProvider("k", transport=transport).timeout.read == 1500.0
+
+
 def test_openrouter_empty_completion_raises():
     def transport(url, json_body, headers, timeout):
         return 200, {"choices": [{"message": {"content": None}, "finish_reason": "stop"}], "usage": {}}

@@ -14,10 +14,28 @@ def _httpx_transport(url, json_body, headers, timeout):
     return r.status_code, body
 
 
+# A reasoning model can spend well over ten minutes generating one 18-case batch:
+# the 2026-09-05 measurement saw minimax-m3 emit 10k-33k output tokens per unit at
+# effort "low". A single 300 s ceiling aborted those mid-generation, and because the
+# abort is a transport error the retry schedule re-issued the request - each retry a
+# fresh, separately billed generation - so the unit failed after ~66 minutes having
+# been charged several times over. That measures our timeout, not the model. Only the
+# read phase needs the long ceiling; connect/write/pool stay short so a genuinely dead
+# socket still fails fast.
+DEFAULT_READ_TIMEOUT = 1500
+
+
+def request_timeout(read_seconds: float) -> httpx.Timeout:
+    return httpx.Timeout(connect=30.0, read=float(read_seconds), write=60.0, pool=30.0)
+
+
 class OpenRouterProvider:
     name = "openrouter"
-    def __init__(self, api_key: str, *, transport=None, timeout: int = 300, base: str = "https://openrouter.ai/api/v1"):
-        self.key, self.transport, self.timeout, self.base = api_key, transport or _httpx_transport, timeout, base
+    def __init__(self, api_key: str, *, transport=None, timeout: float = DEFAULT_READ_TIMEOUT,
+                 base: str = "https://openrouter.ai/api/v1"):
+        self.key, self.transport, self.base = api_key, transport or _httpx_transport, base
+        self.read_timeout = float(timeout)
+        self.timeout = request_timeout(timeout)
         self._models: dict | None = None
 
     def _body(self, req: Request) -> dict:
