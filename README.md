@@ -74,7 +74,7 @@ pre-registered reader-model measurement (ADR-0007) over the frozen kit and
 writes `data/reader/measurement-v1/manifest.json`; result in
 `reports/reader-measurement.md`.
 
-> **The measurement is finished and paid for ($41.78 of the approved $50).**
+> **The measurement is finished and paid for ($41.67 of the approved $50).**
 > Running that line again spends real money on any unit not already in
 > `data/reader/cache`, and `--only <model id>` re-buys that candidate. To
 > recompute the manifest's derived records instead, use

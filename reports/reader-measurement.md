@@ -192,10 +192,10 @@ the rule made no difference to anyone.
 | Approved ceiling | $50.00 |
 | First attempt, 2026-09-04 (truncated at `max_tokens` 16000, discarded) | $2.85 |
 | Measurement proper (`--max-usd 47`) | $38.82 |
-| **Total charged for the task** | **$41.78** |
+| **Total charged for the task** | **$41.67** |
 | OpenRouter credits after the run | $11.00 |
 
-Within the ceiling with $8.22 to spare. The `--max-usd 47` flag is not the approved
+Within the ceiling with $8.33 to spare. The `--max-usd 47` flag is not the approved
 ceiling: it is $50 less the first attempt already charged for. The manifest records
 both (`approved_ceiling_usd: 50.0`, `discarded_attempts_usd: 2.85`) so the flag value
 is not mistaken for the envelope. The measurement proper breaks down as $23.79 spent
@@ -355,17 +355,18 @@ the winner's follow-ups cost more than the other nine candidates combined.
    throughout, so the gap never affected how much could be spent.
 7. **Four candidates' scores rest on fewer than 195 accepted records**, for two
    different reasons that should not be confused.
-   - *Records that never arrived.* `claude-haiku-4.5` accepted 191 and
-     `gemini-3.7-flash` 188, because each lost one unit to an unparseable response
-     that also failed its split retry (2 and 7 records respectively). Gemini's seven
-     are 4.5% of the human reference, and it finished 0.035 behind the third-place
-     candidate.
+   - *Records that never arrived.* `gemini-3.7-flash` accepted 188 and
+     `claude-haiku-4.5` lost 2 of its 4 this way: each lost one unit to an
+     unparseable response that also failed its split retry (7 and 2 records
+     respectively). Gemini's seven are 4.5% of the human reference, and it finished
+     0.035 behind the third-place candidate.
    - *Records that arrived and were not decidable.* `deepseek-v4-pro` accepted 194
-     and `claude-sonnet-5` 193 with **zero** missing records: one record each came
-     back `extraction-invalid` — no quote survived verification, so every judged
-     field was voided and the record was not accepted. (Re-gated offline from the
-     purchased cache, no request and no spend: `case_id 832648` for
-     `deepseek-v4-pro`, `948154` for `claude-sonnet-5`. Both still carry
+     and `claude-sonnet-5` 193 with **zero** missing records, and `claude-haiku-4.5`
+     lost the other 2 of its 4 here: these records came back `extraction-invalid` —
+     no quote survived verification, so every judged field was voided and the record
+     was not accepted. (Re-gated offline from the purchased cache, no request and no
+     spend: `case_id 832648` for `deepseek-v4-pro`; `948154` and `3787987` for
+     `claude-sonnet-5`; two further records for `claude-haiku-4.5`. All still carry
      `relevant: true`. An earlier draft said the gate had voided `relevant`, which
      it cannot: `relevant` is not one of `domain.yaml`'s `reader.judged_fields` and
      `gate_record` nulls only those. They failed the acceptance filter on

@@ -399,7 +399,7 @@ def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: Res
         "read_timeout_by_candidate is attributed from each candidate's own cache-file mtimes "
         "against the commit time of " + TIMEOUT_CHANGE_COMMIT + ", which raised the read "
         "ceiling from " + str(TIMEOUT_BEFORE_CHANGE) + "s to " + str(READ_TIMEOUT) + "s; a "
-        "candidate with units on both sides is recorded as \"mixed\". LIMITATION: the cache "
+        "candidate with units on both sides is recorded as \"mixed\". "
         "accepted_by_candidate re-derives each candidate's accepted records from its own "
         "cached responses (parse, split-half fallback, quote gate - no request, no spend): "
         "`accepted` is the pre-registered denominator and reproduces what the paid run "

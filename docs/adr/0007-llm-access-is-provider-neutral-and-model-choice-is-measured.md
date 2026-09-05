@@ -52,7 +52,7 @@ The measurement ran. Ten approved candidates over the frozen kit
 (`data/reader/kit-v1/kit.json`, 195 cases: 155 human-adjudicated, 40
 machine-judged irrelevant) under codebook `mapper-v2`; full result in
 `reports/reader-measurement.md`, manifest in
-`data/reader/measurement-v1/manifest.json`. $41.78 charged against the $50 the
+`data/reader/measurement-v1/manifest.json`. $41.67 charged against the $50 the
 user approved.
 
 **Measured winner: `anthropic/claude-opus-5`** (closed-weight, so no provider or

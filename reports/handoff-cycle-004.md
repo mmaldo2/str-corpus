@@ -109,7 +109,7 @@ review page publishable as an artifact; reviewer identity recorded.
      data completeness, not a backfill defect.
 7. **Reader-model measurement** (ADR-0007) — **DONE** 2026-09-05: all ten
    approved candidates ran over the frozen kit (195 cases) under `mapper-v2`;
-   endpoints and precision recorded; $41.78 of the $50 approved. Winner
+   endpoints and precision recorded; $41.67 of the $50 approved. Winner
    **`anthropic/claude-opus-5`** (fidelity 0.9975, macro agreement 0.7075,
    $0.0498 per accepted record), now set as `reader.model` in `domain.yaml`.
    Two caveats to carry into the maps: **nobody met the 0.85 agreement bar**
