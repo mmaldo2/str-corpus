@@ -11,12 +11,20 @@ def test_counts_and_matrix_on_the_real_ledger(repo_root):
     # needs-review, including 7664513 (was favorable polarity). The backfill
     # patches carry a rule-only basis (Basis(rule_id="retraction-cascade-v1"))
     # -- a retraction to None is not a human judgment of the record and needs
-    # no reviewer -- so the tier split stays 150/560, unchanged from bootstrap.
-    assert c.total == TierCount(human_reviewed=150, machine_only=560)
+    # no reviewer -- so the tier split stayed 150/560 through that backfill.
+    #
+    # 710 -> 693 relevant after the reference v2 adjudication
+    # (tools/apply_reference_review.py): of the 18 cases the user adjudicated
+    # `irrelevant` on the review page, 17 were still in the relevant population
+    # (1262336 was already relevant:false). All 17 were human-reviewed, so the
+    # whole drop lands on that tier and machine_only is unchanged. Favorable
+    # holds at 367 -- 11 records gained the label and 12 lost it, one of the 12
+    # being 1262336, which was outside the counted population either way.
+    assert c.total == TierCount(human_reviewed=133, machine_only=560)
     pol = v.counts(by=("polarity",))
     assert pol[("favorable",)].human_reviewed + pol[("favorable",)].machine_only == 367
     hh = v.counts(polarity="favorable", who_was_letting="householder")
-    assert hh.total.human_reviewed + hh.total.machine_only == 138
+    assert hh.total.human_reviewed + hh.total.machine_only == 137   # 138 before reference v2
     m = v.matrix()
     pre = {k: t for k, t in m.cells.items() if k[0] == "pre-1860" and k[2] == "householder"}
     assert sum(t.human_reviewed + t.machine_only for t in pre.values()) == 2

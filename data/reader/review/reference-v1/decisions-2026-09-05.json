@@ -1,0 +1,576 @@
+[
+ {
+  "case_id": 65116,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "favorable",
+  "note": ""
+ },
+ {
+  "case_id": 452491,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 452495,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 483853,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 595850,
+  "field": "polarity",
+  "decision": "keep",
+  "value": "adverse",
+  "note": ""
+ },
+ {
+  "case_id": 609052,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 626324,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 760923,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "favorable",
+  "note": ""
+ },
+ {
+  "case_id": 913805,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "mixed",
+  "note": ""
+ },
+ {
+  "case_id": 915440,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "favorable",
+  "note": ""
+ },
+ {
+  "case_id": 981864,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 1048115,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "favorable",
+  "note": ""
+ },
+ {
+  "case_id": 1064801,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "favorable",
+  "note": ""
+ },
+ {
+  "case_id": 1112849,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "adverse",
+  "note": ""
+ },
+ {
+  "case_id": 1181699,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "adverse",
+  "note": ""
+ },
+ {
+  "case_id": 1260637,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 1262336,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 1832770,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "favorable",
+  "note": ""
+ },
+ {
+  "case_id": 1932707,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "adverse",
+  "note": ""
+ },
+ {
+  "case_id": 1997119,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 2137661,
+  "field": "polarity",
+  "decision": "keep",
+  "value": "favorable",
+  "note": ""
+ },
+ {
+  "case_id": 2140956,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 2142410,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 2161480,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 2186819,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "mixed",
+  "note": ""
+ },
+ {
+  "case_id": 2189028,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "adverse",
+  "note": ""
+ },
+ {
+  "case_id": 2380155,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 2721901,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "favorable",
+  "note": ""
+ },
+ {
+  "case_id": 2925718,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "favorable",
+  "note": ""
+ },
+ {
+  "case_id": 3071489,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "adverse",
+  "note": ""
+ },
+ {
+  "case_id": 3182788,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 3765287,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 4268287,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "adverse",
+  "note": ""
+ },
+ {
+  "case_id": 4448542,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "favorable",
+  "note": ""
+ },
+ {
+  "case_id": 5637879,
+  "field": "polarity",
+  "decision": "keep",
+  "value": "favorable",
+  "note": ""
+ },
+ {
+  "case_id": 5735453,
+  "field": "polarity",
+  "decision": "keep",
+  "value": "mixed",
+  "note": ""
+ },
+ {
+  "case_id": 7689018,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "favorable",
+  "note": ""
+ },
+ {
+  "case_id": 8276600,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 10072991,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "favorable",
+  "note": ""
+ },
+ {
+  "case_id": 10225434,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 10232188,
+  "field": "polarity",
+  "decision": "adopt",
+  "value": "irrelevant",
+  "note": ""
+ },
+ {
+  "case_id": 65116,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "commercial_operator",
+  "note": ""
+ },
+ {
+  "case_id": 595850,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "unclear",
+  "note": ""
+ },
+ {
+  "case_id": 609052,
+  "field": "who_was_letting",
+  "decision": "keep",
+  "value": "householder",
+  "note": ""
+ },
+ {
+  "case_id": 694753,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "non_resident_owner",
+  "note": ""
+ },
+ {
+  "case_id": 714508,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "non_resident_owner",
+  "note": ""
+ },
+ {
+  "case_id": 860155,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "commercial_operator",
+  "note": ""
+ },
+ {
+  "case_id": 937195,
+  "field": "who_was_letting",
+  "decision": "unsure",
+  "value": null,
+  "note": ""
+ },
+ {
+  "case_id": 981864,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "non_resident_owner",
+  "note": ""
+ },
+ {
+  "case_id": 1054003,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "commercial_operator",
+  "note": ""
+ },
+ {
+  "case_id": 1064801,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "householder",
+  "note": ""
+ },
+ {
+  "case_id": 1177933,
+  "field": "who_was_letting",
+  "decision": "unsure",
+  "value": null,
+  "note": ""
+ },
+ {
+  "case_id": 1262336,
+  "field": "who_was_letting",
+  "decision": "keep",
+  "value": "householder",
+  "note": ""
+ },
+ {
+  "case_id": 1406448,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "non_resident_owner",
+  "note": ""
+ },
+ {
+  "case_id": 1406461,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "non_resident_owner",
+  "note": ""
+ },
+ {
+  "case_id": 1604834,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "non_resident_owner",
+  "note": ""
+ },
+ {
+  "case_id": 1992977,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "householder",
+  "note": ""
+ },
+ {
+  "case_id": 2172545,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "commercial_operator",
+  "note": ""
+ },
+ {
+  "case_id": 2189028,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "householder",
+  "note": ""
+ },
+ {
+  "case_id": 2216251,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "commercial_operator",
+  "note": ""
+ },
+ {
+  "case_id": 2357250,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "commercial_operator",
+  "note": ""
+ },
+ {
+  "case_id": 2618120,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "commercial_operator",
+  "note": ""
+ },
+ {
+  "case_id": 2923357,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "commercial_operator",
+  "note": ""
+ },
+ {
+  "case_id": 3071489,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "commercial_operator",
+  "note": ""
+ },
+ {
+  "case_id": 3182788,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "householder",
+  "note": ""
+ },
+ {
+  "case_id": 3761627,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "non_resident_owner",
+  "note": ""
+ },
+ {
+  "case_id": 3764406,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "non_resident_owner",
+  "note": ""
+ },
+ {
+  "case_id": 4448542,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "householder",
+  "note": ""
+ },
+ {
+  "case_id": 4700964,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "commercial_operator",
+  "note": ""
+ },
+ {
+  "case_id": 4770066,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "commercial_operator",
+  "note": ""
+ },
+ {
+  "case_id": 4809245,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "commercial_operator",
+  "note": ""
+ },
+ {
+  "case_id": 5206672,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "commercial_operator",
+  "note": ""
+ },
+ {
+  "case_id": 5311532,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "householder",
+  "note": ""
+ },
+ {
+  "case_id": 5676181,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "non_resident_owner",
+  "note": ""
+ },
+ {
+  "case_id": 5795630,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "non_resident_owner",
+  "note": ""
+ },
+ {
+  "case_id": 10055905,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "non_resident_owner",
+  "note": ""
+ },
+ {
+  "case_id": 10225079,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "commercial_operator",
+  "note": ""
+ },
+ {
+  "case_id": 10232188,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": ""
+ },
+ {
+  "case_id": 12315742,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "non_resident_owner",
+  "note": ""
+ },
+ {
+  "case_id": 12386233,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "non_resident_owner",
+  "note": ""
+ },
+ {
+  "case_id": 12657445,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "non_resident_owner",
+  "note": ""
+ },
+ {
+  "case_id": 12657540,
+  "field": "who_was_letting",
+  "decision": "adopt",
+  "value": "non_resident_owner",
+  "note": ""
+ }
+]
