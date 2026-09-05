@@ -4,7 +4,10 @@ the fields the reviewer marked unsure recorded per case so scoring can drop them
 field only (D6). Imported by path because tools/ is scripts, not a package."""
 import importlib.util
 import json
+import sys
 from pathlib import Path
+
+import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
 _spec = importlib.util.spec_from_file_location("build_reader_kit", ROOT / "tools" / "build_reader_kit.py")
@@ -59,6 +62,51 @@ def test_make_batches_is_deterministic_and_keeps_every_case():
                                  who_was_letting=None, excluded_fields=[]) for i in range(40)],
                            {}, "kit-v2")
     assert [len(x["cases"]) for x in big] == [18, 18, 4]
+
+
+def test_the_output_dir_guard_refuses_a_nonempty_directory_not_just_kitjson(tmp_path):
+    """task-7-review finding 4. The old guard only checked `out/kit.json`, so deleting just
+    that file and rebuilding left a previous build's `batches/` behind it. The guard now
+    looks at the whole output directory."""
+    stale = tmp_path / "kit-x"
+    (stale / "batches").mkdir(parents=True)
+    (stale / "batches" / "kit-x-batch-001.json").write_text("{}", encoding="utf-8")
+    # kit.json itself does not exist here - the old guard would have let this through
+    assert not (stale / "kit.json").exists()
+    with pytest.raises(SystemExit, match="not empty"):
+        brk._guard_output_dir(stale)
+
+    fresh = tmp_path / "kit-y"
+    brk._guard_output_dir(fresh)              # does not exist yet - fine
+    fresh.mkdir()
+    brk._guard_output_dir(fresh)              # exists but empty - fine
+
+
+@pytest.mark.live_db
+def test_two_builds_from_the_same_ledger_are_byte_identical_apart_from_built_at(
+        tmp_path, repo_root, live_db, monkeypatch):
+    """task-7-review finding 3: build determinism was only tested at the make_batches level.
+    This builds kit-v1's case ids twice, into two temp directories (never data/reader/kit-v2),
+    off the real ledger and db, and checks the two outputs are identical byte for byte apart
+    from `built_at` - the reproducibility the review measured by hand."""
+    kit_v1 = repo_root / "data" / "reader" / "kit-v1" / "kit.json"
+    out_a, out_b = tmp_path / "run-a" / "kit-v2", tmp_path / "run-b" / "kit-v2"    # same basename
+    for out in (out_a, out_b):                                                    # -> same version
+        monkeypatch.setattr(sys, "argv",
+                            ["build_reader_kit.py", "--case-ids-from", str(kit_v1), "--out", str(out)])
+        assert brk.main() == 0
+
+    a = json.loads((out_a / "kit.json").read_bytes())
+    b = json.loads((out_b / "kit.json").read_bytes())
+    a.pop("built_at"), b.pop("built_at")
+    assert a == b
+
+    a_batches = sorted(p.name for p in (out_a / "batches").iterdir())
+    b_batches = sorted(p.name for p in (out_b / "batches").iterdir())
+    assert a_batches == b_batches and a_batches
+    for name in a_batches:
+        assert (out_a / "batches" / name).read_bytes() == (out_b / "batches" / name).read_bytes()
+    assert (out_a / "sample-50.json").read_bytes() == (out_b / "sample-50.json").read_bytes()
 
 
 def test_case_ids_from_reads_an_existing_kit(tmp_path):

@@ -140,6 +140,18 @@ def _write(path: Path, payload, **dumps) -> bytes:
     return raw
 
 
+def _guard_output_dir(out_dir: Path) -> None:
+    """A new kit is a new version (module docstring): refuse to write into a directory that
+    already holds anything, not just one that already holds `kit.json`. The old guard only
+    checked `out.exists()` (kit.json itself); deleting just that file and rebuilding left the
+    previous build's `batches/` alongside the new one, so a build whose strata packed
+    differently would silently ship stale batch files next to a fresh kit.json
+    (task-7-review finding 4)."""
+    if out_dir.exists() and any(out_dir.iterdir()):
+        raise SystemExit(f"{out_dir} exists and is not empty; a new kit is a new version - "
+                         f"remove it first or choose a different --out")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--case-ids-from", default=None,
@@ -149,8 +161,7 @@ def main() -> int:
 
     out_dir = ROOT / a.out
     out = out_dir / "kit.json"
-    if out.exists():
-        sys.exit(f"{out} exists; a new kit is a new version")
+    _guard_output_dir(out_dir)
     version = out_dir.name
     dom = load_domain()
     conn = store.connect()
@@ -164,6 +175,11 @@ def main() -> int:
                               "jurisdiction": t.jurisdiction, "year": t.year, "raw_text": t.raw_text,
                               "norm_text": t.norm_text, "page_map": t.page_map}
              for t in StoreCaseSource(conn).fetch(ids)}
+    # `built_at` sits inside the bytes `reader.kit_sha256` pins (task-7-review finding 2), so a
+    # fresh build's sha never matches a rebuild's - only the *content* is reproducible, not the
+    # number domain.yaml carries. Moving `built_at` out of the hashed payload (a sidecar
+    # `built.json`, or a hash that excludes it) would change kit-v2's sha and its byte layout,
+    # which this fix wave must not do; deferred to slice 2.
     kit = {"version": version, "built_at": time.strftime("%Y-%m-%dT%H:%M:%S"), "seed": KIT_SEED,
            "built_from": a.case_ids_from, "reference": reference, "batches": batches, "texts": texts}
     out_dir.mkdir(parents=True, exist_ok=True)
