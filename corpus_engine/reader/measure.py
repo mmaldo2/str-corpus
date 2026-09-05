@@ -18,6 +18,8 @@ BAR_FIELDS = ("relevant", "polarity", "who_was_letting")
 KIT_SEED = 20260904
 # D6/D7: one prefix constant, spelled the same everywhere a `needs-review:<field>` flag
 # is written (tools/apply_reference_review.py, tools/apply_retraction_cascade.py) or read.
+# KNOWN DUPLICATE (review finding 2): tools/apply_reference_review.py declares this same
+# constant independently; a later wave should share one definition instead of two.
 FLAG_PREFIX = "needs-review:"
 
 
@@ -132,14 +134,12 @@ def score_candidate(outcome: ReadingOutcome, reference: list[dict], *,
     responses = [u.response for u in outcome.units if u.response is not None]
     list_costs = [r.raw.get("list_cost_usd") for r in responses if (r.raw or {}).get("list_cost_usd") is not None]
     list_cost_usd = round(sum(list_costs), 6) if list_costs else None
-    # R6: "no response carried a cost" is the real signal for a subscription run, but a
-    # response's own `cost_usd` can read as a real 0.0 rather than None (a fully-formed
-    # Response is built from a driver total that defaults a missing cost to spend, not to
-    # null) - never trust that collapse alone. `raw["list_cost_usd"]` is only ever
-    # populated on a subscription-transport response (model.py), so either signal proves
-    # the response carried no charge.
-    subscription = bool(responses) and all(
-        r.cost_usd is None or (r.raw or {}).get("list_cost_usd") is not None for r in responses)
+    # R6: "no response carried a cost" is the real signal for a subscription run - a
+    # response's own `cost_usd` is the guaranteed contract, never collapsed to 0.0 here.
+    # `list_cost_usd` (summed above) is reported alongside, not consulted for this check:
+    # a future provider could reuse that raw key for an unrelated annotation next to a
+    # genuine non-null `cost_usd`, and trusting it here would silently hide real spend.
+    subscription = bool(responses) and all(r.cost_usd is None for r in responses)
     any_cache_hit = any(u.cache_hit for u in outcome.units)
     if subscription:
         # The subscription has no marginal price. A zero is not cheap, it is absent, and an

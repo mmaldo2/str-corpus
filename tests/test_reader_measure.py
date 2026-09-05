@@ -33,10 +33,14 @@ PRED = [
 ]
 
 
-def _out(recs, dropped, spend, *, cache_hit=False, cost_usd=None, list_cost=None):
+_UNSET = object()   # distinguishes "cost_usd not supplied" (default to spend) from an
+                    # explicit cost_usd=None (a real subscription response, no charge)
+
+
+def _out(recs, dropped, spend, *, cache_hit=False, cost_usd=_UNSET, list_cost=None):
     rr = tuple(RecordResult(r["case_id"], r, r.get("extraction_status", "ok"), d, ())
                for r, d in zip(recs, dropped))
-    resp = Response("", 1, 1, cost_usd if cost_usd is not None else spend, {"provider": "P"}, "stop",
+    resp = Response("", 1, 1, spend if cost_usd is _UNSET else cost_usd, {"provider": "P"}, "stop",
                     None, {"list_cost_usd": list_cost} if list_cost is not None else {})
     u = UnitResult("u", "ok", rr, resp, cache_hit)
     plan = Plan("k", (Unit("u", tuple(r["case_id"] for r in recs)),), "cb", ModelPin("m", "f"), Budget(), "w")
@@ -104,6 +108,14 @@ def test_a_subscription_candidate_is_unpriced_and_records_the_list_cost():
     s = score_candidate(_out(PRED, [0, 0, 0, 0, 0], 0.0, cost_usd=None, list_cost=0.42), REF)
     assert s["priced"] is False and s["cost_per_accepted"] == math.inf
     assert s["list_cost_usd"] == 0.42 and s["spend_usd"] == 0.0
+
+
+def test_a_real_cost_alongside_a_list_cost_still_counts_as_priced():
+    """R6: `priced` is decided from `cost_usd` alone, never from `list_cost_usd`'s mere
+    presence - a response can carry both a genuine charge and a list-price annotation."""
+    s = score_candidate(_out(PRED, [0, 0, 0, 0, 0], 0.30, cost_usd=0.30, list_cost=0.10), REF)
+    assert s["priced"] is True and abs(s["cost_per_accepted"] - 0.06) < 1e-9
+    assert s["list_cost_usd"] == 0.10 and s["spend_usd"] == 0.30
 
 
 def test_score_candidate_spend_override_prices_a_cache_only_rerun():
