@@ -13,7 +13,7 @@ def render_unit(codebook: Codebook, unit: Unit, texts: list[CaseText], worker: s
                  f'Set "worker": "{worker}" and "batch_id": "{unit.meta["batch_id"]}" on every record.\n')
     signals = unit.meta.get("signals", {})
     for t in texts:
-        sig_lines = "\n".join(f"  - {s['selector_id']} v{s['selector_version']}: ...{s['matched_text'][:160]}..."
+        sig_lines = "\n".join(f"  - {s['selector_id']} v{s['selector_version']}: ...{(s.get('matched_text') or '')[:160]}..."
                               for s in signals.get(t.case_id, signals.get(str(t.case_id), [])))
         parts.append(f"\n## case_id {t.case_id} — {t.name}, {t.cite} ({t.court}, {t.jurisdiction} {t.year})\n"
                      f"Retrieval provenance:\n{sig_lines}\n\n### Opinion text\n{t.raw_text}\n")
