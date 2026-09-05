@@ -55,8 +55,12 @@ its legal character, or its regulation. A passing mention is not relevance.
 **Polarity**:
 Whether a case is favorable, adverse, or mixed for the owner's right to let.
 Judged from the owner's side only. An outcome that protects an occupant
-against the owner is adverse.
-_Avoid_: pro-tenant, pro-landlord, outcome
+against the owner is adverse. Mixed means the same opinion both recognizes
+the owner's freedom to let on one point and restricts it on another, and
+both are holdings rather than remarks in passing; an owner who wins on a
+ground unrelated to letting is not favorable. A case the reader finds
+irrelevant carries no polarity.
+_Avoid_: pro-tenant, pro-landlord, outcome, irrelevant-as-a-polarity
 
 **Who was letting**:
 Householder, non-resident owner, commercial operator, or unclear.
