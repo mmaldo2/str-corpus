@@ -63,3 +63,36 @@ ranking:
   heldout: data/eval/ranker-heldout-v1.jsonl
   heldout_sha256: "d2d3dd74fb0eaac0015524fabcadd7cf94631e39e27cd490910bc3bd58ab5048"
   bar_ap_delta: 0.05
+reader:
+  codebooks_dir: codebooks
+  codebook: mapper-v2
+  judged_fields: [characterization, polarity, holding_summary, owner_freedom_characterization, restriction_nature, under_thirty_days]
+  checker_sample_pct: 10
+  families:
+    anthropic/claude-sonnet-5: anthropic
+    anthropic/claude-opus-5: anthropic
+    anthropic/claude-haiku-4.5: anthropic
+    google/gemini-3.7-flash: google
+    openai/gpt-5.6-terra: openai
+    deepseek/deepseek-v4-pro: deepseek
+    z-ai/glm-5.3: zai
+    minimax/minimax-m3: minimax
+    deepseek/deepseek-v4-flash: deepseek
+    qwen/qwen3.8-27b: qwen
+    codex-cli: openai
+  kit_path: data/reader/kit-v1/kit.json
+  kit_sha256: null                      # written by tools/build_reader_kit.py
+  stability_sample: data/reader/kit-v1/sample-50.json
+  candidates:
+    - {model_id: anthropic/claude-sonnet-5, family: anthropic}
+    - {model_id: anthropic/claude-opus-5, family: anthropic}
+    - {model_id: anthropic/claude-haiku-4.5, family: anthropic}
+    - {model_id: google/gemini-3.7-flash, family: google}
+    - {model_id: openai/gpt-5.6-terra, family: openai}
+    - {model_id: deepseek/deepseek-v4-pro, family: deepseek, pin_open: true}
+    - {model_id: z-ai/glm-5.3, family: zai, pin_open: true}
+    - {model_id: minimax/minimax-m3, family: minimax, pin_open: true}
+    - {model_id: deepseek/deepseek-v4-flash, family: deepseek, pin_open: true}
+    - {model_id: qwen/qwen3.8-27b, family: qwen, pin_open: true}
+  model: null                           # set by tools/measure_reader.py to the winner's pin
+  checker: {model_id: codex-cli, family: openai, cli_model: gpt-5.6-terra}

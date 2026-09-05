@@ -31,6 +31,27 @@ class RankingSpec:
 
 
 @dataclass(frozen=True)
+class ReaderSpec:
+    codebooks_dir: str = "codebooks"
+    codebook: str = "mapper-v2"
+    judged_fields: tuple[str, ...] = ("characterization", "polarity", "holding_summary")
+    checker_sample_pct: int = 10
+    families: Mapping[str, str] = None            # type: ignore[assignment]
+    kit_path: str = ""
+    kit_sha256: str | None = None
+    candidates: tuple = ()
+    model: Mapping | None = None
+    stability_sample: str = ""
+    checker: Mapping | None = None
+    def __post_init__(self):
+        object.__setattr__(self, "families", dict(self.families or {}))
+        object.__setattr__(self, "judged_fields", tuple(self.judged_fields))
+        object.__setattr__(self, "candidates", tuple(dict(c) for c in (self.candidates or ())))
+        object.__setattr__(self, "model", dict(self.model) if self.model else None)
+        object.__setattr__(self, "checker", dict(self.checker) if self.checker else None)
+
+
+@dataclass(frozen=True)
 class EmbeddingSpec:
     run_key: str; model: str; revision: str; dim: int; quant: str
     chunk_tokens: int; chunk_overlap: int; prefix_template: str
@@ -58,6 +79,7 @@ class Domain:
     embedding: EmbeddingSpec
     sharding: ShardingSpec
     ranking: RankingSpec
+    reader: ReaderSpec
 
 
 def load_domain(name: str = "str-right-to-let") -> Domain:
@@ -83,4 +105,5 @@ def load_domain(name: str = "str-right-to-let") -> Domain:
         embedding=EmbeddingSpec(**cfg["embedding"]),
         sharding=ShardingSpec(**cfg.get("sharding", {})),
         ranking=RankingSpec(**cfg.get("ranking", {})),
+        reader=ReaderSpec(**cfg.get("reader", {})),
     )
