@@ -4,6 +4,22 @@ from corpus_engine.reader.model import CaseText, RecordResult
 from corpus_engine.verification import verify_quote
 
 
+def _supports(quote: dict) -> tuple[str, ...]:
+    """Which judged fields a quote is offered in support of. The codebook asks for one
+    field name, but a passage genuinely can carry two findings and models say so: the
+    2026-09-05 measurement had deepseek-v4-flash return `["characterization",
+    "under_thirty_days"]`, which the gate used to feed straight to `set.add` and die on
+    (`unhashable type: 'list'`), taking the whole candidate down with it. A list is
+    honoured for every name in it; anything that is not a field name is ignored, so a
+    malformed value still leaves its field unsupported and therefore voided."""
+    s = quote.get("supports")
+    if isinstance(s, str):
+        return (s,) if s else ()
+    if isinstance(s, (list, tuple, set)):
+        return tuple(x for x in s if isinstance(x, str) and x)
+    return ()
+
+
 def gate_record(rec: dict, case: CaseText, judged_fields) -> RecordResult:
     rec = dict(rec)
     if rec.get("relevant") is False:
@@ -16,8 +32,7 @@ def gate_record(rec: dict, case: CaseText, judged_fields) -> RecordResult:
         if v["status"] == "failed":
             dropped += 1; continue
         kept.append({**q, **v})
-        if q.get("supports"):
-            supported.add(q["supports"])
+        supported.update(_supports(q))
     rec["quotes"] = kept; nulled = []
     for f in judged_fields:
         if rec.get(f) is not None and f not in supported:

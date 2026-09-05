@@ -49,3 +49,21 @@ def test_gate_drops_paraphrase_nulls_field_keeps_exact_and_stubs_missing(tmp_pat
     assert irr.record["quotes"] == [] and irr.gate_status == "ok"
     out = gate_unit([rec], [t], (cid, 424242), J, "u")
     assert [x.case_id for x in out] == [cid, 424242] and out[1].gate_status == "missing" and out[1].record["relevant"] is None
+
+
+def test_gate_accepts_a_quote_supporting_several_fields(tmp_path, fixture_db):
+    """One passage can carry two findings and models say so with a list. Before this
+    was handled the gate raised `unhashable type: 'list'` and killed the whole read."""
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p)
+    cid = conn.execute("SELECT case_id FROM cases WHERE length(norm_text) > 2000 ORDER BY case_id LIMIT 1").fetchone()[0]
+    t = StoreCaseSource(conn).fetch([cid])[0]
+    exact = t.raw_text[500:620]
+    r = gate_record({"case_id": cid, "relevant": True, "polarity": "favorable", "characterization": "license",
+                     "holding_summary": "x",
+                     "quotes": [{"text": exact, "supports": ["polarity", "characterization"]}]}, t, J)
+    assert r.record["polarity"] == "favorable" and r.record["characterization"] == "license"
+    assert r.nulled_fields == ("holding_summary",) and r.dropped_quotes == 0
+    # a malformed value supports nothing, so every judged field is voided rather than trusted
+    bad = gate_record({"case_id": cid, "relevant": True, "polarity": "favorable",
+                       "quotes": [{"text": exact, "supports": [None, 7]}]}, t, J)
+    assert bad.record["polarity"] is None
