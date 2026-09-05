@@ -1,8 +1,20 @@
-"""Pre-registered reader-model measurement (spec section 6, ADR-0007).
+"""Pre-registered reader-model measurement, version 2 (spec section 6, ADR-0007 as
+amended 2026-09-05).
 
-One shared Budget across all candidates; every response is cached, so a re-run
-resumes for free over completed units. Never edits the kit: the kit sha256 is
-checked against domain.yaml before anything is spent.
+Two transports, one tool. A candidate whose `provider` is `claude-cli` is read through the
+user's Claude subscription (`ClaudeCliProvider`) and has no dollar price at all: its budget
+is units and wall-clock, it never touches the OpenRouter credits endpoint, and nothing about
+it may be counted as a charge. Every other candidate is read through OpenRouter exactly as
+in Stage 3A - probed, pinned to a named bf16/fp8 endpoint when it is open-weight, and paid
+for out of ONE shared dollar ceiling for the whole slice (D5, $15).
+
+Every response is cached, so a re-run resumes for free over completed units. Never edits
+the kit: the kit sha256 is checked against domain.yaml before anything is spent.
+
+`--dry-run <candidate>` / `--dry-run-batches N` buys the first N kit batches (default 1) for
+the named candidate into the SAME cache and measurement directory, writes the parse / gate /
+schema diagnostics, and exits without selecting anything. The later full run reuses those
+cached units, so the gate costs nothing twice.
 """
 from __future__ import annotations
 import argparse, json, math, sys, time
@@ -19,13 +31,16 @@ from corpus_engine.reader.cache import ResponseCache                            
 from corpus_engine.reader.codebook import load_codebook, stability_path                     # noqa: E402
 from corpus_engine.reader.driver import RESUME_TOOL, Reader, plan_batch_extraction          # noqa: E402
 from corpus_engine.reader.gate import gate_unit                                             # noqa: E402
-from corpus_engine.reader.measure import (load_kit, score_candidate, select_reader,         # noqa: E402
+from corpus_engine.reader.measure import (excluded_fields, load_kit, score_candidate,       # noqa: E402
+                                          select_reader, stability as stability_decided,
                                           stability_agreement)
-from corpus_engine.reader.model import Budget, ModelPin, Request                             # noqa: E402
-from corpus_engine.reader.parse import parse_records, split_unit                             # noqa: E402
-from corpus_engine.reader.render import render_unit                                          # noqa: E402
-from corpus_engine.reader.providers.openrouter import OpenRouterProvider                     # noqa: E402
-from corpus_engine.textnorm_version import NORM_VERSION                                      # noqa: E402
+from corpus_engine.reader.model import Budget, ModelPin, Request, effort_of                 # noqa: E402
+from corpus_engine.reader.parse import parse_records, split_unit                            # noqa: E402
+from corpus_engine.reader.providers.claude_cli import ClaudeCliProvider                     # noqa: E402
+from corpus_engine.reader.providers.openrouter import OpenRouterProvider                    # noqa: E402
+from corpus_engine.reader.render import render_unit                                         # noqa: E402
+from corpus_engine.reader.schema import record_schema, schema_sha                           # noqa: E402
+from corpus_engine.textnorm_version import NORM_VERSION                                     # noqa: E402
 
 OPEN_PRECISIONS = ("bf16", "fp8")           # preference order for pinned open-weight models
 # Pre-flight check (1) compares the codebook's `validated_norm_version` header against the
@@ -39,15 +54,26 @@ STABILITY_BAR = 0.90
 # recorded quantity at all but a per-family accident: the 2026-09-04 first attempt saw
 # 530 output tokens per case from one family and 3700 from another, which is a five-fold
 # cost difference that measures provider defaults rather than models, and at 18 cases a
-# batch. Every candidate is therefore pinned to the same effort, carried on ModelPin.extra.
-REASONING = {"effort": "low"}
+# batch. Every candidate is therefore pinned to the same effort - carried on ModelPin.extra
+# as `reasoning.effort` for OpenRouter and as `effort` for the CLI, which `effort_of` reads
+# either way and the widened cache key hashes.
+EFFORT = "low"
+REASONING = {"effort": EFFORT}
 # Reasoning models generate for many minutes on an 18-case batch; anything shorter
 # aborts a valid generation and the retry schedule re-buys it (see openrouter.py).
 READ_TIMEOUT = 1500
-# The user approved $50 for the whole measurement. --max-usd was set to 47 for the run
-# proper because a first attempt had already been charged for and discarded (it truncated
-# at max_tokens 16000 and was thrown away with its cache), so the flag value alone does
-# not describe the envelope; both numbers are recorded in the manifest.
+# D5: the whole slice's OpenRouter spend. Three candidates over the kit plus, if the winner
+# is an OpenRouter model, its stability pair and batch-size pair. The subscription has no
+# dollar budget; its ceilings are units and wall-clock.
+OPENROUTER_CEILING = 15.0
+SUBSCRIPTION_PROVIDER = "claude-cli"
+# 23 kit batches, plus headroom for the split halves a parse failure falls back to. The
+# floor; `subscription_unit_cap` raises it for a longer batch list (the 5-case pair).
+SUBSCRIPTION_MAX_UNITS = 60
+SUBSCRIPTION_MAX_WALL_SECONDS = 6 * 3600
+DRY_RUN_MAX_USD = 2.0
+OUT_DIR = "measurement-v2"
+# v1 provenance, read only by --annotate-only over data/reader/measurement-v1.
 APPROVED_CEILING = 50.0
 DISCARDED_ATTEMPTS = 2.85
 # 546c1bf raised the read ceiling from a scalar 300 s to 1500 s. Responses cached before
@@ -78,6 +104,7 @@ def dumps(obj, **kw) -> str:
 
 def write_json(path: Path, obj, **kw) -> None:
     """Every committed file ends with a newline; json.dumps does not add one."""
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes((dumps(obj, **kw) + "\n").encode("utf-8"))
 
 
@@ -135,15 +162,94 @@ def pin_for(cand: dict, prov: OpenRouterProvider) -> tuple[ModelPin | None, str]
     return None, f"no endpoint serving bf16 or fp8; endpoints served: {served}"
 
 
-def run_candidate(pin: ModelPin, kit_batches, source, dom, prov, budget_state, cache, log):
-    plan = plan_batch_extraction(kit_batches, dom.reader.codebook, pin,
-                                 Budget(max_usd=max(budget_state["remaining"], 0.0)), worker="reader",
-                                 resume_tool=RESUME_TOOL)
-    out = Reader(prov, source, cache=cache, log=log, domain=dom,
+def is_subscription(cand: dict) -> bool:
+    return cand.get("provider") == SUBSCRIPTION_PROVIDER
+
+
+def needs_openrouter(cands) -> bool:
+    """Whether this invocation has to authenticate to OpenRouter at all. A run of nothing
+    but subscription candidates buys nothing there, so demanding a key (or reading
+    /credits) would be a made-up precondition standing between the user and a read their
+    subscription already pays for."""
+    return any(not is_subscription(c) for c in cands)
+
+
+def selected_candidates(dom, only: str | None = None, dry_run: str | None = None) -> list[dict]:
+    """The candidates this invocation will actually try, in domain.yaml order."""
+    want = dry_run or only
+    return [c for c in dom.reader.candidates if want is None or c["model_id"] == want]
+
+
+def cli_pin(cand: dict) -> ModelPin:
+    """Full model names, never aliases (`claude-sonnet-5`, not `sonnet`), so the pin label
+    is reproducible and the cache key it feeds means one thing."""
+    return ModelPin(cand["model_id"], cand["family"], SUBSCRIPTION_PROVIDER, None,
+                    {"effort": EFFORT, "cli_model": cand["cli_model"]})
+
+
+def provider_for(cand: dict, prov, timeout: int = READ_TIMEOUT):
+    """(provider, pin, why) for one candidate. A subscription candidate is transported by the
+    Claude CLI and never touches OpenRouter; an OpenRouter candidate resolves its pin exactly
+    as in 3A (open weights pinned to a named bf16/fp8 endpoint or skipped)."""
+    if is_subscription(cand):
+        cli = ClaudeCliProvider(cand["cli_model"], timeout=timeout, effort=EFFORT)
+        version = cli.version()
+        if version is None:
+            return None, None, "claude cli not available on PATH (shutil.which found nothing)"
+        return cli, cli_pin(cand), f"subscription via claude cli {version}"
+    if prov is None:
+        return None, None, "no openrouter provider configured (OPENROUTER_API_KEY absent)"
+    pin, why = pin_for(cand, prov)
+    return (prov if pin is not None else None), pin, why
+
+
+def subscription_unit_cap(n_batches: int) -> int:
+    """The default `--sub-max-units`: one paid request per batch of the list about to be
+    read, plus the two split halves a parse failure falls back to, plus a little headroom -
+    and never below the pre-registered floor. Computed per run rather than fixed, because
+    the winner's 5-case batch-size pair is four times as many units as the kit itself."""
+    return max(SUBSCRIPTION_MAX_UNITS, 3 * int(n_batches) + 3)
+
+
+def budget_for(cand: dict, remaining_usd: float, *, max_units: int | None = None,
+               max_wall_seconds: float | None = None) -> Budget:
+    """D1/D5. The subscription has no marginal price, so a usd ceiling over it is not a
+    ceiling: `_ReadState.spend` would stay 0.0 for every request and never trip. The driver
+    refuses one outright (`preflight:budget_unpriced`), which is why this returns a units /
+    wall-clock budget with `max_usd` left None."""
+    if is_subscription(cand):
+        return Budget(max_usd=None,
+                      max_units=SUBSCRIPTION_MAX_UNITS if max_units is None else int(max_units),
+                      max_wall_seconds=(SUBSCRIPTION_MAX_WALL_SECONDS if max_wall_seconds is None
+                                        else float(max_wall_seconds)))
+    return Budget(max_usd=max(remaining_usd, 0.0))
+
+
+def run_candidate(pin: ModelPin, provider, budget: Budget, kit_batches, source, dom, cb, cache,
+                  log, budget_state):
+    plan = plan_batch_extraction(kit_batches, cb.id, pin, budget, worker="reader",
+                                 json_schema=record_schema(cb), resume_tool=RESUME_TOOL)
+    out = Reader(provider, source, cache=cache, log=log, domain=dom,
                  store_norm_version=STORE_NORM_VERSION).read(plan)
     budget_state["remaining"] -= out.spend_usd
     budget_state["spent"] += out.spend_usd
     return out
+
+
+def keys_for(units, cb, pin: ModelPin, source, cache: ResponseCache, schema) -> dict:
+    """The v2 cache key for each unit and for the split halves it falls back to. Only keys
+    present in the cache are recorded, so the map is evidence rather than prediction."""
+    found = {}
+    for unit in units:
+        for u in (unit, *split_unit(unit)):
+            if not u.case_ids:
+                continue
+            prompt = render_unit(cb, u, source.fetch(u.case_ids), "reader")
+            k = ResponseCache.key(cb.sha, pin, u, prompt, schema_sha=schema_sha(schema),
+                                  max_tokens=Request.max_tokens, effort=effort_of(pin))
+            if (cache.dir / f"{k}.json").exists():
+                found[u.id] = k
+    return found
 
 
 def reconcile(prov, before: float, ceiling: float, budget: dict, log) -> float | None:
@@ -158,7 +264,9 @@ def reconcile(prov, before: float, ceiling: float, budget: dict, log) -> float |
     disagree there is unexplained.
 
     So re-read /credits after every run and reset the remaining budget from the real
-    delta; returns the real spend of the run just finished, or None if /credits failed."""
+    delta; returns the real spend of the run just finished, or None if /credits failed.
+    Never called for a subscription run: there is no credits balance to reconcile and the
+    ceiling this defends is not the one that run spends against."""
     try:
         now = credits_remaining(prov)
     except Exception as exc:                                    # noqa: BLE001
@@ -174,11 +282,15 @@ def reconcile(prov, before: float, ceiling: float, budget: dict, log) -> float |
 
 
 def score(out, reference, key: str, prior_spend: dict, spend_by: dict, tracked_by: dict,
-          real_delta: float | None) -> dict:
+          real_delta: float | None, *, excluded=None) -> dict:
     """Cost per accepted record is priced from the real charge for this run when the
     credits endpoint answered, else from driver-tracked spend. Controller ruling 2: a
     cache hit makes either number an under-count, so add the first run's recorded spend
-    (manifest) and, if there is none to add, leave the score unpriced rather than cheap."""
+    (manifest) and, if there is none to add, leave the score unpriced rather than cheap.
+
+    A subscription run needs no special case here: every one of its responses carries
+    `cost_usd is None`, `score_candidate` sees that and marks the candidate unpriced with
+    spend 0.0, whatever override this passes."""
     cached = any(u.cache_hit for u in out.units)
     recorded = prior_spend.get(key)
     base = out.spend_usd if real_delta is None else real_delta
@@ -190,7 +302,8 @@ def score(out, reference, key: str, prior_spend: dict, spend_by: dict, tracked_b
             base += recorded
     tracked_by[key] = round(out.spend_usd, 6)
     spend_by[key] = round(base, 6)
-    return score_candidate(out, reference, spend_usd_override=(base if priced else None))
+    return score_candidate(out, reference, spend_usd_override=(base if priced else None),
+                           excluded=excluded)
 
 
 def charged(delta: float | None, tracked: float) -> float:
@@ -213,16 +326,16 @@ def line(s: dict) -> str:
             + ("" if s.get("priced", True) else "  [UNPRICED]"))
 
 
-
 def pin_from_label(label: str, families) -> ModelPin:
     """Rebuild a pin from the label the manifest recorded. Only `label` feeds the cache
     key, so this round-trips exactly what the run hashed."""
     model_id, _, tail = label.partition("@")
     prov, _, prec = tail.rpartition(":")
-    pin = ModelPin(model_id, families.get(model_id, "?"),
-                   None if prov in ("", "-") else prov,
-                   None if prec in ("", "-") else prec,
-                   {"reasoning": REASONING})
+    prov = None if prov in ("", "-") else prov
+    extra = ({"effort": EFFORT, "cli_model": model_id.split("/", 1)[-1]}
+             if prov == SUBSCRIPTION_PROVIDER else {"reasoning": REASONING})
+    pin = ModelPin(model_id, families.get(model_id, "?"), prov,
+                   None if prec in ("", "-") else prec, extra)
     if pin.label != label:
         raise ValueError(f"pin label did not round-trip: {label!r} -> {pin.label!r}")
     return pin
@@ -245,10 +358,13 @@ def sample_batches(batches, ids: set, tag: str):
     return out
 
 
-def keys_for(units, cb, pin: ModelPin, source, cache: ResponseCache) -> dict:
-    """The cache key the driver would compute for each unit, and for the split halves a
-    unit falls back to when its response will not parse. Only keys actually present in
-    the cache are recorded, so the map is evidence rather than prediction."""
+def keys_for_v1(units, cb, pin: ModelPin, source, cache: ResponseCache) -> dict:
+    """The Stage 3A cache key the driver used to compute for each unit, and for the split
+    halves a unit falls back to when its response will not parse. Only keys actually present
+    in the cache are recorded, so the map is evidence rather than prediction.
+
+    Addresses the purchased measurement-v1 cache with `ResponseCache.key_v1`; the live v2
+    read uses the widened key and `keys_for`."""
     found = {}
     for unit in units:
         for u in (unit, *split_unit(unit)):
@@ -320,9 +436,13 @@ def accepted_from_cache(cb, pin: ModelPin, units, source, cache: ResponseCache, 
 
 
 def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: ResponseCache) -> int:
-    """Recompute the manifest's derived records offline. Issues no request of any kind:
-    everything comes from the existing manifest, the frozen kit and the response cache,
-    so it can be re-run at any time for nothing."""
+    """Recompute the measurement-v1 manifest's derived records offline. Issues no request of
+    any kind: everything comes from the existing manifest, the frozen kit and the response
+    cache, so it can be re-run at any time for nothing.
+
+    Frozen against measurement-v1: it addresses the purchased v1 cache with `key_v1` and
+    rebuilds v1's pins. Point it at the v1 directory (`--measurement-dir
+    data/reader/measurement-v1`) with the v1 codebook and kit still named in domain.yaml."""
     if not prior.get("pins"):
         sys.exit("no manifest with pins to annotate")
     m = dict(prior)
@@ -347,7 +467,7 @@ def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: Res
     for name, label, bs in jobs:
         pin = pin_from_label(label, families)
         units = plan_batch_extraction(bs, cb.id, pin, Budget(), worker="reader").units
-        found = keys_for(units, cb, pin, source, cache)
+        found = keys_for_v1(units, cb, pin, source, cache)
         cache_keys[name] = {"pin": label, "units": found}
         mtimes = [(cache.dir / f"{k}.json").stat().st_mtime for k in found.values()]
         old = sum(1 for t in mtimes if t < TIMEOUT_CHANGE_EPOCH)
@@ -390,7 +510,7 @@ def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: Res
             alt = ModelPin(mid, scored.family, prov, scored.precision, {"reasoning": REASONING})
             units = plan_batch_extraction(batches, cb.id, alt, Budget(), worker="reader").units
             superseded_keys[f"{mid}@{prov}"] = {"pin": alt.label,
-                                                "units": keys_for(units, cb, alt, source, cache)}
+                                                "units": keys_for_v1(units, cb, alt, source, cache)}
 
     attributed = sum((m.get("spend_by_candidate") or {}).values())
     charged_total = m.get("total_task_spend_usd")           # not `charged`: that is a module function (m1)
@@ -437,24 +557,26 @@ def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: Res
     return 0
 
 
-MERGE_BY_CANDIDATE = ("pins", "scores", "spend_by_candidate", "tracked_spend_by_candidate",
+MERGE_BY_CANDIDATE = ("pins", "providers", "scores", "spend_by_candidate",
+                      "tracked_spend_by_candidate", "list_cost_by_candidate",
+                      "effort_by_candidate", "read_timeout_by_candidate", "cache_keys",
                       "skipped", "failed", "not_run")
 
 
 def merge_manifest(prior: dict, manifest: dict) -> dict:
     """Fold this process's results into the manifest already on disk.
 
-    The manifest is the pre-registered record of a ten-candidate measurement, and a given
+    The manifest is the pre-registered record of a five-candidate measurement, and a given
     process may have re-run one of them (`--only`) or none. Writing `manifest` straight over
     the file replaced that record with a one-candidate document whose `selection.winner` was
-    that candidate by construction and whose `spend_by_candidate` had lost the other nine -
+    that candidate by construction and whose `spend_by_candidate` had lost the other four -
     which then also degrades `resolve_prior_spend`'s ceiling guard on the next run (I8). Git
     was the only thing standing between a `--only` re-run and the loss of the measurement.
 
     Per-candidate maps merge key by key, this process winning for the candidates it actually
     ran; every other field is whole-manifest and the fresher process owns it. `selection` is
     recomputed by the caller over the MERGED scores, so a re-run of one candidate is judged
-    against all ten and never against itself alone."""
+    against all five and never against itself alone."""
     merged = {**prior, **manifest}
     for k in MERGE_BY_CANDIDATE:
         merged[k] = {**(prior.get(k) or {}), **(manifest.get(k) or {})}
@@ -489,22 +611,183 @@ def resolve_prior_spend(flag: float | None, prior: dict) -> tuple[float, str]:
     return 0.0, "no prior manifest; nothing spent yet"
 
 
-# NOTE (Stage 3B slice 1): scores are the v2 shape from measure.score_candidate. The
-# measurement-v1 manifest holds v1-shaped scores, which select_reader can no longer read;
-# this tool is rewritten for measurement-v2 in Task 9 and must not be run in a paid mode
-# before then.
-def main() -> int:
+class Ctx:
+    """Everything a run of one candidate needs that is the same for every candidate. It
+    exists so the winner's checks and the dry run call `run_candidate` through exactly the
+    same arguments as the kit run does, rather than each assembling its own.
+
+    A plain class, not a dataclass: this module is loaded by path (tests, and
+    tools/consensus_reference.py's `_tool`) without being registered in `sys.modules`, and
+    `@dataclass` resolves its annotations through `sys.modules[cls.__module__]` - which is
+    None under that loader and raises at import time."""
+
+    def __init__(self, *, batches, reference, source, dom, cb, cache, schema, excl, budget,
+                 prior_spend, spend_by, tracked_by, list_cost_by, ids50=(), prov=None,
+                 before=None, ceiling=0.0, sub_max_units=None,
+                 sub_max_wall=SUBSCRIPTION_MAX_WALL_SECONDS, log=print):
+        self.batches, self.reference, self.source = batches, reference, source
+        self.dom, self.cb, self.cache, self.schema, self.excl = dom, cb, cache, schema, excl
+        self.budget, self.prior_spend = budget, prior_spend
+        self.spend_by, self.tracked_by, self.list_cost_by = spend_by, tracked_by, list_cost_by
+        self.ids50 = set(ids50)
+        self.prov = prov                     # the OpenRouter provider, or None if unused
+        self.before = before                 # credits before this process, or None
+        self.ceiling, self.sub_max_units, self.sub_max_wall = ceiling, sub_max_units, sub_max_wall
+        self.log = log
+
+    def budget_for_run(self, cand: dict, bs, *, cap: float | None = None) -> Budget:
+        if is_subscription(cand):
+            units = (self.sub_max_units if self.sub_max_units is not None
+                     else subscription_unit_cap(len(bs)))
+            return budget_for(cand, 0.0, max_units=units, max_wall_seconds=self.sub_max_wall)
+        remaining = self.budget["remaining"]
+        return budget_for(cand, remaining if cap is None else min(remaining, cap))
+
+    def settle(self, cand: dict) -> float | None:
+        """The real charge for the run just finished. A subscription run is never
+        reconciled: it spends no credits, so re-reading /credits would attribute somebody
+        else's spend to it and, on a subscription-only invocation, there is no key to read
+        with."""
+        if is_subscription(cand) or self.prov is None or self.before is None:
+            return None
+        return reconcile(self.prov, self.before, self.ceiling, self.budget, self.log)
+
+
+def winner_checks(ctx: Ctx, w: str, wpin: ModelPin, provider, cand: dict, b18: dict,
+                  sp: Path, ts: str) -> dict:
+    """The two checks the winner alone earns: the batch-size pair (5-case batches over the
+    same kit) and the stability pair (two reads of the fifty-case sample). Both go through
+    the winner's OWN provider and budget kind, so a subscription winner is checked on units
+    and wall-clock and buys no OpenRouter credit."""
+    log, out_m = ctx.log, {}
+    log(f"\n== winner {wpin.label}: batch-size pair (5-case batches over the same kit)")
+    small = small_batches(ctx.batches)
+    try:
+        out5 = run_candidate(wpin, provider, ctx.budget_for_run(cand, small), small, ctx.source,
+                             ctx.dom, ctx.cb, ctx.cache, log, ctx.budget)
+        d5 = ctx.settle(cand)
+        s5 = score(out5, ctx.reference, f"{w}:b5", ctx.prior_spend, ctx.spend_by, ctx.tracked_by,
+                   d5, excluded=ctx.excl)
+        ctx.list_cost_by[f"{w}:b5"] = s5["list_cost_usd"]
+        out_m["batch_size_pair"] = {"b18": b18, "b5": s5}
+        log(line(s5))
+    except Exception as exc:                                    # noqa: BLE001
+        out_m["batch_size_pair"] = {"b18": b18, "b5": None,
+                                    "error": f"{type(exc).__name__}: {str(exc)[:300]}"}
+        log(f"   batch-size pair FAILED {exc}")
+
+    log(f"\n== winner {wpin.label}: stability, two reads of the fifty-case sample")
+    st1 = sample_batches(ctx.batches, ctx.ids50, "st1")
+    st2 = sample_batches(ctx.batches, ctx.ids50, "st2")
+    try:
+        o1 = run_candidate(wpin, provider, ctx.budget_for_run(cand, st1), st1, ctx.source, ctx.dom,
+                           ctx.cb, ctx.cache, log, ctx.budget)
+        d1 = ctx.settle(cand)
+        ctx.spend_by[f"{w}:stab1"] = charged(d1, o1.spend_usd)
+        o2 = run_candidate(wpin, provider, ctx.budget_for_run(cand, st2), st2, ctx.source, ctx.dom,
+                           ctx.cb, ctx.cache, log, ctx.budget)
+        d2 = ctx.settle(cand)
+        ctx.spend_by[f"{w}:stab2"] = charged(d2, o2.spend_usd)
+        # R12: the bar is agreement among the answers BOTH reads decided. A field the
+        # second read left null is not instability, it is a decided-rate fact, reported
+        # beside it as `decided_rate_b`. `stability_flat_agreement` is the blended v1
+        # number, kept only so v2 can be read against v1.
+        stab = stability_decided(o1.records, o2.records)
+        stable = bool(stab) and all(v["agreement_decided"] >= STABILITY_BAR for v in stab.values())
+        out_m["stability"] = stab
+        out_m["stable"] = stable
+        out_m["stability_flat_agreement"] = stability_agreement(o1, o2)
+        out_m["stability_stops"] = [o1.stop.kind, o2.stop.kind]
+        write_json(sp, {"codebook": ctx.cb.id, "codebook_sha": ctx.cb.sha, "model_pin": wpin.label,
+                        "sample": getattr(ctx.dom.reader, "stability_sample", ""), "agreement": stab,
+                        "stable": stable, "bar": STABILITY_BAR, "ts": ts}, indent=1)
+        log(f"   stability {dumps(stab)} stable={stable}")
+    except Exception as exc:                                    # noqa: BLE001
+        out_m["stability"] = None
+        out_m["stability_error"] = f"{type(exc).__name__}: {str(exc)[:300]}"
+        log(f"   stability FAILED {exc}")
+    return out_m
+
+
+def dry_run(cands: list[dict], n_batches: int, ctx: Ctx, out_dir: Path) -> int:
+    """Buy the first `n_batches` kit batches for each named candidate and stop, into the
+    SAME cache and measurement directory the field run uses - so the gate is paid for once
+    and the field run replays it for free. Selects nothing and writes no manifest: a
+    one-batch read is not a measurement."""
+    log = ctx.log
+    for cand in cands:
+        mid = cand["model_id"]
+        provider, pin, why = provider_for(cand, ctx.prov)
+        if pin is None:
+            sys.exit(f"cannot run {mid}: {why}")
+        one = ctx.batches[:max(1, int(n_batches))]
+        ids = [b["batch_id"] for b in one]
+        log(f"DRY RUN {pin.label} over {', '.join(ids)} "
+            f"({sum(len(b['cases']) for b in one)} cases): {why}")
+        budget = ctx.budget_for_run(cand, one, cap=DRY_RUN_MAX_USD)
+        out = run_candidate(pin, provider, budget, one, ctx.source, ctx.dom, ctx.cb, ctx.cache,
+                            log, ctx.budget)
+        ctx.settle(cand)
+        s = score_candidate(out, ctx.reference, excluded=ctx.excl)
+        payload = {"candidate": mid, "pin": pin.label, "provider": getattr(provider, "name", "?"),
+                   "why": why, "batches": ids, "schema_sha": schema_sha(ctx.schema),
+                   "stop": out.stop.kind, "effort": EFFORT, "read_timeout_seconds": READ_TIMEOUT,
+                   "max_tokens": Request.max_tokens,
+                   "budget": {"max_usd": budget.max_usd, "max_units": budget.max_units,
+                              "max_wall_seconds": budget.max_wall_seconds},
+                   "units": [{"unit_id": u.unit_id, "status": u.status, "cache_hit": u.cache_hit,
+                              "retried": u.retried, "error": u.error,
+                              "finish_reason": (u.response.finish_reason if u.response else None),
+                              "input_tokens": (u.response.input_tokens if u.response else None),
+                              "output_tokens": (u.response.output_tokens if u.response else None),
+                              "cost_usd": (u.response.cost_usd if u.response else None),
+                              "list_cost_usd": ((u.response.raw or {}).get("list_cost_usd")
+                                                if u.response else None)}
+                             for u in out.units],
+                   "status_counts": {st: sum(1 for r in out.records if r.get("extraction_status") == st)
+                                     for st in ("ok", "partial", "extraction-invalid", "missing")},
+                   "nulled_fields": sorted({f for u in out.units for r in u.records for f in r.nulled_fields}),
+                   "dropped_quotes": sum(r.dropped_quotes for u in out.units for r in u.records),
+                   "score": s, "priced": s["priced"], "list_cost_usd": s["list_cost_usd"],
+                   "spend_usd": out.spend_usd, "wall_seconds": round(out.wall_seconds, 1),
+                   "cache_keys": keys_for(out.plan.units, ctx.cb, pin, ctx.source, ctx.cache, ctx.schema),
+                   "first_record": (out.records or [None])[0]}
+        write_json(out_dir / f"dry-run-{mid.replace('/', '_')}.json", payload, indent=1, sort_keys=True)
+        log(dumps({k: payload[k] for k in ("stop", "status_counts", "nulled_fields", "dropped_quotes",
+                                           "spend_usd", "list_cost_usd", "wall_seconds")}, indent=1))
+    return 0
+
+
+def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--max-usd", type=float, default=50.0)
+    ap.add_argument("--max-usd", type=float, default=OPENROUTER_CEILING,
+                    help=f"the whole slice's OpenRouter ceiling; may not exceed ${OPENROUTER_CEILING:.2f} (D5)")
     ap.add_argument("--only", default=None)
     # Omitted, this is read off the prior manifest (see resolve_prior_spend); pass an
     # explicit 0 to deliberately re-grant the whole ceiling.
     ap.add_argument("--prior-spend-usd", type=float, default=None)
+    ap.add_argument("--measurement-dir", default=f"data/reader/{OUT_DIR}",
+                    help="where the manifest and the dry-run files are written, relative to the "
+                         "repo root. measurement-v1 is frozen; pass it only with --annotate-only.")
+    ap.add_argument("--dry-run", default=None,
+                    help="run the first --dry-run-batches kit batches for this candidate, write "
+                         "the inspection file, and stop without selecting anything")
+    ap.add_argument("--dry-run-batches", type=int, default=None,
+                    help="how many kit batches a dry run buys (default 1). Given without "
+                         "--dry-run, every selected candidate is dry-run.")
+    ap.add_argument("--sub-max-units", type=int, default=None,
+                    help="unit ceiling for a subscription candidate (default: the batch count "
+                         "of the run plus headroom for split halves)")
+    ap.add_argument("--sub-max-wall-seconds", type=float, default=SUBSCRIPTION_MAX_WALL_SECONDS)
     ap.add_argument("--annotate-only", action="store_true",
                     help="recompute the manifest's derived records (cache keys, per-candidate "
                          "read timeout, budget envelope) from the existing manifest and the "
                          "response cache. Makes no request of any kind and spends nothing.")
-    a = ap.parse_args()
+    a = ap.parse_args(argv)
+
+    if a.max_usd > OPENROUTER_CEILING:
+        sys.exit(f"--max-usd {a.max_usd} exceeds this slice's approved OpenRouter ceiling "
+                 f"${OPENROUTER_CEILING:.2f} (spec decision D5)")
 
     dom = load_domain()
     kit_path = ROOT / dom.reader.kit_path
@@ -515,13 +798,14 @@ def main() -> int:
     cache = ResponseCache(ROOT / "data" / "reader" / "cache")
     n_cached = len(list(cache.dir.glob("*.json")))
     print(f"response cache: {cache.dir} ({n_cached} entries)", flush=True)
-    out_dir = ROOT / "data" / "reader" / "measurement-v1"
+    out_dir = ROOT / a.measurement_dir
     out_dir.mkdir(parents=True, exist_ok=True)
     prior_path = out_dir / "manifest.json"
     prior = json.loads(prior_path.read_text(encoding="utf-8")) if prior_path.exists() else {}
     prior_spend = dict(prior.get("spend_by_candidate") or {})
     spend_by: dict[str, float] = {}
     tracked_by: dict[str, float] = {}
+    list_cost_by: dict[str, float | None] = {}
 
     cb = load_codebook(dom, dom.reader.codebook)
     print(f"codebook {cb.id} sha {cb.sha}", flush=True)
@@ -529,21 +813,34 @@ def main() -> int:
     if a.annotate_only:
         return annotate(prior, prior_path, cb, batches, source, dom, cache)
 
-    prior_usd, why = resolve_prior_spend(a.prior_spend_usd, prior)
-    ceiling = a.max_usd - prior_usd
-    key = store.env_value("OPENROUTER_API_KEY")
-    if not key:
-        sys.exit("no OPENROUTER_API_KEY")
-    prov = OpenRouterProvider(key, timeout=READ_TIMEOUT)
+    cands = selected_candidates(dom, a.only, a.dry_run)
+    if not cands:
+        sys.exit(f"{a.dry_run or a.only} is not a candidate in domain.yaml")
+    subscription = {c["model_id"] for c in dom.reader.candidates if is_subscription(c)}
+    excl = excluded_fields(reference)
+    schema = record_schema(cb)
+    print(f"schema sha {schema_sha(schema)[:12]}; {len(excl)} cases carry an excluded field", flush=True)
 
-    before = credits_remaining(prov)
-    print(f"openrouter credits remaining before the run: ${before:.2f} "
-          f"(ceiling ${a.max_usd:.2f} less ${prior_usd:.2f} already spent [{why}] "
-          f"= ${ceiling:.2f})", flush=True)
-    if ceiling <= 0:
-        sys.exit(f"nothing left of the ${a.max_usd:.2f} ceiling: ${prior_usd:.2f} already spent ({why})")
-    if before < ceiling:
-        sys.exit(f"remaining credits ${before:.2f} < remaining ceiling ${ceiling:.2f}; top up or lower --max-usd")
+    prior_usd, why_prior = resolve_prior_spend(a.prior_spend_usd, prior)
+    ceiling = a.max_usd - prior_usd
+    prov, before = None, None
+    if needs_openrouter(cands):
+        key = store.env_value("OPENROUTER_API_KEY")
+        if not key:
+            sys.exit("no OPENROUTER_API_KEY")
+        prov = OpenRouterProvider(key, timeout=READ_TIMEOUT)
+        before = credits_remaining(prov)
+        print(f"openrouter credits remaining before the run: ${before:.2f} "
+              f"(ceiling ${a.max_usd:.2f} less ${prior_usd:.2f} already spent [{why_prior}] "
+              f"= ${ceiling:.2f})", flush=True)
+        if ceiling <= 0:
+            sys.exit(f"nothing left of the ${a.max_usd:.2f} ceiling: ${prior_usd:.2f} already spent ({why_prior})")
+        if before < ceiling:
+            sys.exit(f"remaining credits ${before:.2f} < remaining ceiling ${ceiling:.2f}; top up or lower --max-usd")
+    else:
+        print("subscription-only invocation: no OpenRouter key read, no credits call, "
+              "nothing charged against the ceiling", flush=True)
+
     sp = stability_path(dom, cb)
     if not sp.exists():
         # the measurement itself is the stability run for v2: grant a provisional
@@ -553,41 +850,58 @@ def main() -> int:
                         "note": "measurement in progress"}, indent=1)
         print(f"wrote provisional stability record {sp.name}", flush=True)
 
+    # R11: `budget` is the per-process spend state every run threads through, and it is
+    # defined here - before the dry run, which uses it too - rather than after the loop.
     budget = {"remaining": ceiling, "spent": 0.0, "real_spent": 0.0}
+    ids50 = set(json.loads((ROOT / dom.reader.stability_sample).read_text(encoding="utf-8")))
+    ctx = Ctx(batches=batches, reference=reference, source=source, dom=dom, cb=cb, cache=cache,
+              schema=schema, excl=excl, budget=budget, prior_spend=prior_spend, spend_by=spend_by,
+              tracked_by=tracked_by, list_cost_by=list_cost_by, ids50=ids50, prov=prov,
+              before=before, ceiling=ceiling, sub_max_units=a.sub_max_units,
+              sub_max_wall=a.sub_max_wall_seconds, log=print)
+
+    if a.dry_run or a.dry_run_batches:
+        return dry_run(cands, a.dry_run_batches or 1, ctx, out_dir)
+
     scores: dict[str, dict] = {}
     pins: dict[str, str] = {}
+    providers: dict[str, str] = {}
     pin_objs: dict[str, ModelPin] = {}
+    provider_objs: dict[str, object] = {}
+    cand_objs: dict[str, dict] = {}
+    efforts: dict[str, str] = {}
+    timeouts: dict[str, int] = {}
+    cache_keys: dict[str, dict] = {}
     skipped: dict[str, str] = {}
     failed: dict[str, str] = {}
     not_run: dict[str, str] = {}
 
-    for cand in dom.reader.candidates:
+    for cand in cands:
         mid = cand["model_id"]
-        if a.only and mid != a.only:
-            continue
-        if budget["remaining"] <= 0:
+        if not is_subscription(cand) and budget["remaining"] <= 0:
             not_run[mid] = "budget exhausted before this candidate ran"
             print(f"NOT RUN {mid}: budget exhausted", flush=True)
             continue
-        pin, why = pin_for(cand, prov)
+        provider, pin, why = provider_for(cand, prov)
         print(f"PIN {mid} -> {pin.label if pin else 'SKIP'}  ({why})", flush=True)
         if pin is None:
             skipped[mid] = why
             continue
-        print(f"== {pin.label}  (remaining ${budget['remaining']:.2f})", flush=True)
+        print(f"== {pin.label}  (openrouter remaining ${budget['remaining']:.2f})", flush=True)
         try:
-            out = run_candidate(pin, batches, source, dom, prov, budget, cache, print)
+            out = run_candidate(pin, provider, ctx.budget_for_run(cand, batches), batches,
+                                source, dom, cb, cache, print, budget)
         except Exception as exc:                                # noqa: BLE001 - one candidate never aborts the run
             failed[mid] = f"run raised {type(exc).__name__}: {str(exc)[:300]}"
             print(f"   FAILED {failed[mid]}", flush=True)
-            reconcile(prov, before, ceiling, budget, print)
+            ctx.settle(cand)
             continue
-        real_delta = reconcile(prov, before, ceiling, budget, print)
+        real_delta = ctx.settle(cand)
         if out.stop.kind.startswith("preflight:"):
             failed[mid] = f"pre-flight refusal {out.stop.kind}: {out.stop.detail}"
             print(f"   FAILED {failed[mid]}", flush=True)
             continue
-        s = score(out, reference, mid, prior_spend, spend_by, tracked_by, real_delta)
+        s = score(out, reference, mid, prior_spend, spend_by, tracked_by, real_delta, excluded=excl)
         if s["accepted"] == 0:
             errs = sorted({u.error for u in out.units if u.error})[:2]
             failed[mid] = (f"no accepted records ({len(out.units)} units, stop={out.stop.kind}"
@@ -597,104 +911,84 @@ def main() -> int:
             continue
         scores[mid] = s
         pins[mid] = pin.label
+        providers[mid] = getattr(provider, "name", "?")
         pin_objs[mid] = pin
+        provider_objs[mid] = provider
+        cand_objs[mid] = cand
+        efforts[mid] = EFFORT
+        timeouts[mid] = READ_TIMEOUT
+        list_cost_by[mid] = s["list_cost_usd"]
+        cache_keys[mid] = {"pin": pin.label,
+                           "units": keys_for(out.plan.units, cb, pin, source, cache, schema)}
         print(line(s), flush=True)
-        if budget["remaining"] <= 0:
+        if not is_subscription(cand) and budget["remaining"] <= 0:
             print("budget exhausted", flush=True)
 
     # Selection is decided over every candidate on record, not only the ones this process
     # ran, so `--only` can never crown its single candidate by construction (I8).
     merged_scores = {**(prior.get("scores") or {}), **scores}
     all_pins = {**(prior.get("pins") or {}), **pins}
-    sel = select_reader(merged_scores)
+    sel = select_reader(merged_scores, subscription=subscription)
+    ts = time.strftime("%Y-%m-%dT%H:%M:%S")
     manifest = {"kit_sha256": dom.reader.kit_sha256, "kit_path": dom.reader.kit_path,
-                "codebook": cb.id, "codebook_sha": cb.sha, "budget_usd": a.max_usd,
-                "prior_spend_usd": round(prior_usd, 4), "prior_spend_source": why,
+                "codebook": cb.id, "codebook_sha": cb.sha, "schema_sha": schema_sha(schema),
+                "openrouter_ceiling_usd": OPENROUTER_CEILING, "budget_usd": a.max_usd,
+                "prior_spend_usd": round(prior_usd, 4), "prior_spend_source": why_prior,
                 "effective_budget_usd": round(ceiling, 4),
-                "approved_ceiling_usd": APPROVED_CEILING, "discarded_attempts_usd": DISCARDED_ATTEMPTS,
-                "reasoning": REASONING, "max_tokens": Request.max_tokens,
-                "credits_before": round(before, 4), "spent_usd": round(budget["real_spent"], 4),
+                "subscription_candidates": sorted(subscription),
+                "subscription_budget": {"max_units": a.sub_max_units or subscription_unit_cap(len(batches)),
+                                        "max_wall_seconds": a.sub_max_wall_seconds,
+                                        "floor_max_units": SUBSCRIPTION_MAX_UNITS},
+                "reasoning": REASONING, "effort_by_candidate": efforts,
+                "read_timeout_by_candidate": timeouts, "max_tokens": Request.max_tokens,
+                "batch_size": max((len(b["cases"]) for b in batches), default=0),
+                "cache_keys": cache_keys,
+                "excluded_fields_by_case": {str(k): sorted(v) for k, v in excl.items()},
+                "list_cost_by_candidate": list_cost_by,
+                "priced_by_candidate": {k: s["priced"] for k, s in scores.items()},
+                "pins": pins, "providers": providers, "skipped": skipped, "failed": failed,
+                "not_run": not_run, "scores": scores, "selection": sel,
+                "spend_by_candidate": spend_by, "tracked_spend_by_candidate": tracked_by,
+                "credits_before": (round(before, 4) if before is not None else None),
+                "spent_usd": round(budget["real_spent"], 4),
                 "tracked_spend_usd": round(budget["spent"], 4),
-                "pins": pins, "skipped": skipped, "failed": failed, "not_run": not_run,
-                "scores": scores, "selection": sel, "spend_by_candidate": spend_by,
-                "tracked_spend_by_candidate": tracked_by,
-                "ts": time.strftime("%Y-%m-%dT%H:%M:%S")}
+                "ts": ts}
 
-    if sel["winner"] and sel["winner"] not in pin_objs:
-        w = sel["winner"]
+    w = sel["winner"]
+    if w and w not in pin_objs:
         if all_pins.get(w):
             wpin = pin_from_label(all_pins[w], dom.reader.families)
             manifest["winner_pin"] = wpin.label
             manifest["winner_model"] = {"model_id": wpin.model_id, "family": wpin.family,
-                                        "provider_name": wpin.provider_name, "precision": wpin.precision}
+                                        "provider_name": wpin.provider_name,
+                                        "precision": wpin.precision, "extra": dict(wpin.extra)}
         print(f"\n== winner {w} was recorded by an earlier process and not re-run here; its "
               f"batch-size pair and stability check are carried forward from the prior manifest "
               f"(nothing spent on them)", flush=True)
-    elif sel["winner"]:
-        w = sel["winner"]
+    elif w:
         wpin = pin_objs[w]
         manifest["winner_pin"] = wpin.label
         manifest["winner_model"] = {"model_id": wpin.model_id, "family": wpin.family,
-                                    "provider_name": wpin.provider_name, "precision": wpin.precision}
-        print(f"\n== winner {wpin.label}: batch-size pair (5-case batches over the same kit)", flush=True)
-        small = []
-        for b in batches:
-            for j in range(0, len(b["cases"]), 5):
-                small.append({**b, "batch_id": f"{b['batch_id']}-s{j // 5 + 1}", "cases": b["cases"][j:j + 5]})
-        try:
-            out5 = run_candidate(wpin, small, source, dom, prov, budget, cache, print)
-            d5 = reconcile(prov, before, ceiling, budget, print)
-            s5 = score(out5, reference, f"{w}:b5", prior_spend, spend_by, tracked_by, d5)
-            manifest["batch_size_pair"] = {"b18": scores[w], "b5": s5}
-            print(line(s5), flush=True)
-        except Exception as exc:                                # noqa: BLE001
-            manifest["batch_size_pair"] = {"b18": scores[w], "b5": None,
-                                           "error": f"{type(exc).__name__}: {str(exc)[:300]}"}
-            print(f"   batch-size pair FAILED {exc}", flush=True)
-
-        print(f"\n== winner {wpin.label}: stability, two reads of the fifty-case sample", flush=True)
-        ids50 = set(json.loads((ROOT / dom.reader.stability_sample).read_text(encoding="utf-8")))
-
-        def sub(tag: str):
-            units = []
-            for b in batches:
-                cs = [c for c in b["cases"] if int(c["case_id"]) in ids50]
-                if cs:
-                    units.append({**b, "batch_id": f"{b['batch_id']}-{tag}", "cases": cs})
-            return units
-
-        try:
-            o1 = run_candidate(wpin, sub("st1"), source, dom, prov, budget, cache, print)
-            d1 = reconcile(prov, before, ceiling, budget, print)
-            spend_by[f"{w}:stab1"] = charged(d1, o1.spend_usd)
-            o2 = run_candidate(wpin, sub("st2"), source, dom, prov, budget, cache, print)
-            d2 = reconcile(prov, before, ceiling, budget, print)
-            spend_by[f"{w}:stab2"] = charged(d2, o2.spend_usd)
-            stab = stability_agreement(o1, o2)
-            stable = bool(stab) and all(v >= STABILITY_BAR for v in stab.values())
-            manifest["stability"] = stab
-            manifest["stable"] = stable
-            manifest["stability_stops"] = [o1.stop.kind, o2.stop.kind]
-            write_json(sp, {"codebook": cb.id, "codebook_sha": cb.sha, "model_pin": wpin.label,
-                            "sample": dom.reader.stability_sample, "agreement": stab, "stable": stable,
-                            "bar": STABILITY_BAR, "ts": manifest["ts"]}, indent=1)
-            print(f"   stability {stab} stable={stable}", flush=True)
-        except Exception as exc:                                # noqa: BLE001
-            manifest["stability"] = None
-            manifest["stability_error"] = f"{type(exc).__name__}: {str(exc)[:300]}"
-            print(f"   stability FAILED {exc}", flush=True)
+                                    "provider_name": wpin.provider_name, "precision": wpin.precision,
+                                    "extra": dict(wpin.extra)}
+        manifest.update(winner_checks(ctx, w, wpin, provider_objs[w], cand_objs[w], scores[w], sp, ts))
 
     manifest["tracked_spend_usd"] = round(budget["spent"], 4)
     manifest["spend_by_candidate"] = spend_by
     manifest["tracked_spend_by_candidate"] = tracked_by
-    try:
-        after = credits_remaining(prov)
-        manifest["credits_after"] = round(after, 4)
-        manifest["spent_usd"] = round(before - after, 4)
-    except Exception as exc:                                    # noqa: BLE001
+    manifest["list_cost_by_candidate"] = list_cost_by
+    if prov is None:
         manifest["credits_after"] = None
-        manifest["spent_usd"] = round(budget["real_spent"], 4)
-        print(f"credits lookup after the run failed: {exc}", flush=True)
+        manifest["spent_usd"] = 0.0
+    else:
+        try:
+            after = credits_remaining(prov)
+            manifest["credits_after"] = round(after, 4)
+            manifest["spent_usd"] = round(before - after, 4)
+        except Exception as exc:                                # noqa: BLE001
+            manifest["credits_after"] = None
+            manifest["spent_usd"] = round(budget["real_spent"], 4)
+            print(f"credits lookup after the run failed: {exc}", flush=True)
     manifest["total_task_spend_usd"] = round(prior_usd + (manifest["spent_usd"] or 0.0), 4)
     write_json(prior_path, merge_manifest(prior, manifest), indent=1, sort_keys=True)
     print(dumps(sel, indent=1), flush=True)
