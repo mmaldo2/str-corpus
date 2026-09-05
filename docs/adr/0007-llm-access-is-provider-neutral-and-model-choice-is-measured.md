@@ -71,6 +71,16 @@ recorded rather than the bar lowered**. Had the bar been met, `deepseek-v4-flash
 at $0.0006 per accepted record would have won on cost — 83x cheaper than the
 model actually selected.
 
+**What "accepted record" counts** (spec §2, amended 2026-09-05 by the final review's
+I7): a record that parsed and came back through the quote gate with a decided
+`relevant` field — `extraction_status` `ok` **or** `partial`. `partial` is the status
+of a record that lost one or more judged fields to the gate, so an accepted record is
+not necessarily a fully judged one and cost per accepted record is a lower bound on
+the cost of one. The spec's original wording ("kept its judged fields") never matched
+the implementation or `CONTEXT.md`; the definition was restated rather than the
+measured number changed, and nothing above turns on it because the cost tie-break
+never opened.
+
 **`mapper-v2` failed its stability check** (ADR-0009): two reads of the frozen
 fifty-case sample by the winner agree 0.96 on `relevant` and 0.94 on
 `who_was_letting` but only **0.82 on `polarity`**, against a 0.90 bar. Recorded

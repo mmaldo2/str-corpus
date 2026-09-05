@@ -90,6 +90,15 @@ won on cost — it is 83× cheaper than the winner. The winner costs $0.0498 per
 accepted record, so a 195-case kit costs about $9.71 and a 2,000-case cycle
 projects to roughly $100.
 
+Two things that number does not say. An **accepted** record is one that parsed and
+came back from the quote gate with a decided `relevant` field, which includes
+`extraction_status: "partial"` — a record that lost one or more judged fields to the
+gate — so cost per accepted record is a lower bound on the cost of a fully judged
+record (spec §2, amended 2026-09-05; Concern 8). And **`who_was_letting` is scored
+but never quote-gated**: it is one of the three bar fields in `measure.BAR_FIELDS`
+and is not in `domain.yaml`'s `reader.judged_fields`, so a model's answer there is
+compared against the human label without having to carry a surviving quote.
+
 The field separates on `polarity`, not on relevance. Every candidate identifies
 relevance reasonably well (0.639–0.923) and struggles on polarity (0.045–0.639).
 Polarity is the field the project has already had to correct once: it is defined
@@ -328,13 +337,22 @@ the winner's follow-ups cost more than the other nine candidates combined.
      below.
    Both are arguments for running the kit against a cheap candidate end-to-end
    before spending on the field.
-6. **Per-candidate spend is provider-reported, not credits-reconciled.** The
-   totals are reconciled against OpenRouter's `/credits` after every run and the
-   ceiling is enforced on the real charge, but the per-candidate split in
-   `spend_by_candidate` sums the `cost_usd` each response reported. The gap over
-   the whole measurement is about 3% ($15.03 charged against $15.54 tracked in
-   the final process), largely responses that were billed but unusable and so
-   never recorded against a candidate.
+6. **About 3% of the measurement's spend is unexplained, and the gap runs the
+   opposite way to the obvious story.** Per-candidate spend is credits-derived,
+   not provider-reported: `score()` prices each run from the `/credits` delta
+   measured across it and falls back to the responses' own `usage.cost` only when
+   the endpoint failed to answer, which is what the candidate table means by
+   "spend is what OpenRouter charged for that candidate's own units". Over the
+   final process the driver's tracked total came to **$15.54 against $15.03
+   charged** — tracked *above* charged. Responses that are billed but unusable
+   would push tracked *below* charged, so that mechanism cannot explain this; an
+   earlier draft of this concern claimed it anyway and was wrong by a sign, the
+   same error `reconcile()`'s docstring carried. The Spend section localises the
+   whole of the residual to the `claude-opus-5` five-case run ($9.5623 tracked
+   against a $9.0629 credits delta) and records it as unexplained: no
+   per-response billing detail beyond `usage.cost` was kept, so it cannot be
+   settled from what survives. The ceiling was enforced on the credits delta
+   throughout, so the gap never affected how much could be spent.
 7. **Four candidates' scores rest on fewer than 195 accepted records**, for two
    different reasons that should not be confused.
    - *Records that never arrived.* `claude-haiku-4.5` accepted 191 and
@@ -343,8 +361,32 @@ the winner's follow-ups cost more than the other nine candidates combined.
      are 4.5% of the human reference, and it finished 0.035 behind the third-place
      candidate.
    - *Records that arrived and were not decidable.* `deepseek-v4-pro` accepted 194
-     and `claude-sonnet-5` 193 with **zero** missing records: those records came
-     back and the quote gate voided `relevant`, because the supporting quote failed
-     verification. That is the more interesting failure of the two — it is the gate
-     doing its job, not the transport failing — and it is invisible in the schema
-     compliance column, which counts records returned rather than records decided.
+     and `claude-sonnet-5` 193 with **zero** missing records: one record each came
+     back `extraction-invalid` — no quote survived verification, so every judged
+     field was voided and the record was not accepted. (Re-gated offline from the
+     purchased cache, no request and no spend: `case_id 832648` for
+     `deepseek-v4-pro`, `948154` for `claude-sonnet-5`. Both still carry
+     `relevant: true`. An earlier draft said the gate had voided `relevant`, which
+     it cannot: `relevant` is not one of `domain.yaml`'s `reader.judged_fields` and
+     `gate_record` nulls only those. They failed the acceptance filter on
+     `extraction_status`, not on `relevant`.) That is the more interesting failure of
+     the two — it is the gate doing its job, not the transport failing — and it is
+     invisible in the schema compliance column, which counts records returned rather
+     than records decided.
+8. **`accepted` counts partial records, so cost per accepted record is a lower
+   bound.** A record is accepted when it parsed and came back from the gate with a
+   decided `relevant` field — `extraction_status` `ok` **or** `partial` — and
+   `partial` is exactly the status of a record that lost one or more judged fields
+   to the gate. So an accepted record is not necessarily a *usable* one, and the
+   cost per accepted record in the tables above is a lower bound on the cost of a
+   fully judged record. Spec §2 was amended on 2026-09-05 to the definition the
+   measurement actually computed rather than the number being restated after the
+   fact; re-scoring the cache on the stricter definition is Stage 3B's, and nothing
+   here turns on it because the cost tie-break never opened. How wide the gap is, per
+   candidate, is now in the manifest under `accepted_by_candidate`, re-derived offline
+   from the purchased responses by `--annotate-only` (no request, no spend; its
+   recomputed `accepted` reproduces every candidate's scored figure exactly, which is
+   what licenses the rest of the row). It is wide: of the winner's 195 accepted
+   records only **126 kept every judged field**, and across the field fully judged
+   records run from 54 (`claude-haiku-4.5`) to 150 (`gemini-3.7-flash`). On the strict
+   denominator the winner costs $0.0771 rather than $0.0498 per record.

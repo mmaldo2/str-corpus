@@ -31,7 +31,8 @@ human-adjudicated references.
 - **Codebook**: the versioned extraction instructions (`domains/<domain>/codebooks/mapper-vN.md`), hashed at load.
 - **Quote gate**: verification of every quote against source text (exact, then fuzzy ≥ 92); a judged field left without a surviving supporting quote is nulled.
 - **Reference set / kit**: the frozen human-adjudicated cases (plus the machine-labelled irrelevant sample) the candidates are measured on.
-- **Accepted record**: a record that parsed, passed the gate, and kept its judged fields.
+- **Accepted record**: a record that parsed and came back through the quote gate with a decided `relevant` field — operatively `extraction_status in ("ok", "partial")` and `relevant is not None` (`corpus_engine/reader/measure.py`, and the same wording in `CONTEXT.md`).
+  **Amended 2026-09-05** (final review, I7). This clause first read "parsed, passed the gate, and kept its judged fields", which excludes `partial` — precisely the status of a record that *lost* a judged field to the gate — while the implementation and the glossary always counted those. `accepted` is the denominator of cost per accepted record, a pre-registered quantity, so the definition is restated here in the form the number was actually computed in rather than the number being changed after the fact. The consequence, disclosed in `reports/reader-measurement.md`: an accepted record is not necessarily a fully judged one, and cost per accepted record is therefore a **lower bound** on the cost of a fully judged record. Re-scoring the purchased cache under the stricter definition is Stage 3B's. Nothing in the 2026-09-05 result turns on it: the cost tie-break never opened, because no candidate reached the agreement bar.
 - **Reader / checker**: the model that produces records / the second-family model that re-reads a 10% sample for disagreement.
 
 ## 3. Module: `corpus_engine/reader/`
@@ -39,7 +40,7 @@ human-adjudicated references.
 Surface (approved hybrid):
 
 ```python
-Reader(provider, cases, *, checker=None, log=print, sleep=time.sleep, clock=time.time)
+Reader(provider, cases, *, checker=None, cache=None, log=print, clock=time.time, domain=None, store_norm_version=None)
     .read(plan) -> ReadingOutcome
 plan_batch_extraction(batches, codebook, model_pin, budget, *, worker) -> Plan
 plan_reread(records, codebook, model_pin, budget) -> Plan
@@ -61,6 +62,8 @@ class CaseSource(Protocol):
 `ModelPin(model_id, provider_name: str | None, precision: str | None, family: str, extra: Mapping)`;
 `Response(text, input_tokens, output_tokens, cost_usd: float | None, provider_reported: Mapping, finish_reason, tool_version: str | None)`.
 
+(`sleep` was dropped 2026-09-05, final review m10: every retry schedule lives in a provider adapter, so the driver only ever stored the callable. `store_norm_version` is what arms pre-flight check (1) and every caller has to pass it.)
+
 Adapters: `providers/openrouter.py` (`OpenRouterProvider(api_key, *, timeout=1500)` where `timeout` is the read ceiling only, applied as `httpx.Timeout(connect=30, read=timeout, write=60, pool=30)` and raised from 300 in `546c1bf` because a reasoning model can generate for many minutes on an 18-case batch and an aborted generation is re-billed by the retry schedule — OpenAI-compatible chat completions; `provider: {order: [name], allow_fallbacks: false, quantizations: [precision]}` for open models; `response_format: {type: json_schema}` when the model supports it, else plain; retry schedule identical to `corpus_engine/indexer/embedders.py` `RETRY_DELAYS`; reads `usage.cost` and `provider`); `providers/codex_cli.py` (`CodexCliProvider(model: str, *, timeout=900)` — `codex exec --sandbox read-only --skip-git-repo-check --model <model> --json -`, parses the tool's JSON event stream for the final message and token counts; records `codex --version`); `providers/cassette.py` (`CassetteProvider(dir, *, fallback=None)` — replays by request content hash; records when a fallback provider is given); `providers/scripted.py` (canned responses for unit tests).
 Case sources: `StoreCaseSource(conn)`; `InlinedCaseSource(cases: Mapping[int, CaseText])`.
 
@@ -71,7 +74,7 @@ Files: `model.py` (frozen types: `Plan`, `Unit`, `Budget`, `StopReason`, `Readin
 ## 4. Codebooks, rendering, pre-flight
 
 - `domains/str-right-to-let/codebooks/mapper-v1.md` = the frozen text of `prompts/mapper.md` (copied byte-for-byte; `prompts/mapper.md` stays as the historical file the Stage 1 goldens reference). `mapper-v2.md` adds the ADR-0004 fields: `schema_version: 2`, `who_was_letting` gains `non_resident_owner`, `under_thirty_days: yes|no|unclear`, `restriction_nature` on adverse records, `owner_freedom_characterization`; each judged field needs a supporting quote.
-- `render.py`: request = codebook + `# Batch <id> (<era> x <jurisdiction>)` header naming worker and batch id + per case: id, cite/name/court/year, provenance (selector ids and matched text), `### Opinion text`, `raw_text` (as the legacy mapper and the Stage 1 goldens; the gate normalizes). Under `mapper-v1.md` the rendering is byte-identical to the Stage 1 golden prompts (`tests/golden/prompts/`).
+- `render.py`: request = codebook + `# Batch <id> (<era> x <jurisdiction>)` header naming worker and batch id + per case: id, cite/name/court/year, provenance (selector ids and matched text), `### Opinion text`, `raw_text` (as the legacy mapper and the Stage 1 goldens; the gate normalizes). Under `mapper-v1.md` the rendering is byte-identical to the Stage 1 golden prompts (`tests/golden/prompts/`). A unit that carries a question (`plan_judgment`) renders it as a `## Question` block immediately after the batch header and before the first case; batch-extraction units carry none, which is what keeps the goldens byte-identical (added 2026-09-05, final review I3 — the question was put in `Unit.meta` and never rendered).
 - Pre-flight (before any paid request): (1) `store` norm version == the codebook's `validated_norm_version`; (2) a stability record exists at `domains/<domain>/codebooks/stability/<codebook sha>.json` (or the plan is itself the stability run); (3) the model pin resolves (model id exists; for open models the named provider serves it at the required precision) — probed with a metadata request, not a completion; (4) reader and checker families differ. Failure ⇒ `StopReason("preflight:<check>")`, nothing spent.
 - Stability check (ADR-0009): the winner reads the fixed fifty-case sample (`data/reader/kit-v1/sample-50.json`, named by `domain.yaml` `reader.stability_sample` and frozen from the reference set) twice; per-field self-agreement is recorded; the codebook is "stable" if agreement ≥ 90% on the three judged fields.
 
@@ -85,7 +88,7 @@ For each unit in plan order:
 5. Checker: if `hash(unit.id) % 100 < sample_pct` and a checker is configured, render the same unit for the checker (worker name differs), parse + gate the same way, and record `Disagreement(case_id, field, reader_value, checker_value)` for relevance, polarity, characterization.
 6. Append `UnitResult`; update spend/tokens/wall.
 
-Stop conditions: budget exhausted (`budget:usd|units|wall`), pre-flight failure, or plan end. The outcome carries `resume_command` (a literal CLI line re-running the same plan; the cache makes completed units free).
+Stop conditions: budget exhausted (`budget:usd|units|wall`), pre-flight failure, or plan end. The outcome carries `resume_command` (a literal CLI line re-running the same plan; the cache makes completed units free). **It has to name a program that exists** (2026-09-05, final review I9): a `batch_extraction` plan resumes through `tools\measure_reader.py --only <model id>`, the only entry point that builds a plan and calls `read()`, and a plan kind with no runner yet (`reread`, `judgment` — both 3B) gets an empty command plus a `manifest["resume"]` note saying so, rather than a line an operator would paste and watch fail.
 
 `ReadingOutcome`: units, records (verified), dropped-quote and nulled-field counts, disagreements, spend, tokens, wall seconds, stop reason, manifest `{codebook_sha, model_pin, provider_reported, tool_version, checker_pin, sample_pct, engine_version}`.
 
@@ -114,7 +117,7 @@ ADR-0007 amendment: checker transport (user decision, concern recorded), quantiz
 
 ## 7. Errors
 
-Provider error after the retry schedule ⇒ unit failed with the last status; the outcome's resume command re-runs failed units. Parse failure after the split ⇒ `parse_failed`, raw kept. Missing case in a response ⇒ stub record, never dropped. Pre-flight or budget ⇒ clean stop with a named reason. Codex CLI missing or unauthenticated ⇒ pre-flight failure naming the tool.
+Provider error after the retry schedule ⇒ unit failed with the last status; the outcome's resume command re-runs failed units. Parse failure after the split ⇒ `parse_failed`, raw kept. Missing case in a response ⇒ stub record, never dropped. Pre-flight or budget ⇒ clean stop with a named reason. Codex CLI missing or unauthenticated ⇒ pre-flight failure naming the tool. Any **other** exception is caught per unit too ⇒ `UnitResult(status="failed", error="failed:<ExceptionType>: <msg>")`, logged, and the plan continues (2026-09-05, final review I1): the handler used to catch only `ReaderError`, so one engine defect — a `TypeError` in the gate — aborted a whole paid candidate and had it recorded as a failed model. A one-case unit is never split (I4): it is written off `parse_failed` rather than buying a request for an empty half.
 
 ## 8. Testing (offline: cassette and scripted providers)
 
