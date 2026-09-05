@@ -1,0 +1,613 @@
+{
+ "era_partition": "1930-1970",
+ "jurisdiction": "Pa.",
+ "cases": [
+  {
+   "case_id": 1276897,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": "ciple of jurisprudence. * for instance, the philadelphia housing code, approved august 5, 1954, provides: \"no person shall occupy as owner occupant or shall let to another for occupancy any dwelling, rooming house, dwelling unit, or rooming unit which does not comply with the following minimum standard for safe and sanitary maintenance: 8.3 every window, exterior door and basement or cellar door and hatchway s",
+     "char_span": [
+      24483,
+      24496
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-001-shard-01"
+    },
+    {
+     "selector_id": "sro-35",
+     "selector_version": 1,
+     "matched_text": "tance, the philadelphia housing code, approved august 5, 1954, provides: \"no person shall occupy as owner occupant or shall let to another for occupancy any dwelling, rooming house, dwelling unit, or rooming unit which does not comply with the following minimum standard for safe and sanitary maintenance: 8.3 every window, exterior door and basement or cellar door and hatchway shall be substantially weathertig",
+     "char_span": [
+      24516,
+      24528
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-003-shard-01"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " and possession of the window are retained by the landlord rather than the tenant?3 a window has been defined as \"an opening in the wall of a building for admission of light andair, usually closed by casements or sashes containing transparent material, as glass, and capable of being opened and shut\": webster's new international dictionary (2nd ed.) (the merriam-webster). see also: benner v. benner",
+     "char_span": [
+      9235,
+      13654
+     ],
+     "chunk_id": 814063,
+     "cosine": 0.516080915927887,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 467280,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "1, 1943 3 to february 15, 1948, as holdover tenants from year to year at a monthly rental of $60.00, that they did not agree to new terms, i. e. the increased rentals, but on the contrary refused to heed the lessor's requests. the intentions and actions of the lessor negative a tenancy at sufferance at any time; the tenure was treated by the parties as from year to year, however, at disputed terms",
+     "char_span": [
+      6652,
+      10369
+     ],
+     "chunk_id": 186238,
+     "cosine": 0.4819064140319824,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "1, 1943 3 to february 15, 1948, as holdover tenants from year to year at a monthly rental of $60.00, that they did not agree to new terms, i. e. the increased rentals, but on the contrary refused to heed the lessor's requests. the intentions and actions of the lessor negative a tenancy at sufferance at any time; the tenure was treated by the parties as from year to year, however, at disputed terms",
+     "char_span": [
+      6652,
+      10369
+     ],
+     "chunk_id": 186238,
+     "cosine": 0.5226100087165833,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 695540,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " with tenants of the grant building in that building was derived through the tenants: harris v. keystone c. & c. co., supra; com. v. shapiro, 41 pa. superior ct. 96; and, except to the extent of fulfilling its existing contracts with such tenants, plaintiff's agents and employees were not invitees, but merely licensees as respects the grant building. in their efforts to renew contracts or solicit ",
+     "char_span": [
+      11003,
+      15150
+     ],
+     "chunk_id": 319532,
+     "cosine": 0.478571355342865,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " with tenants of the grant building in that building was derived through the tenants: harris v. keystone c. & c. co., supra; com. v. shapiro, 41 pa. superior ct. 96; and, except to the extent of fulfilling its existing contracts with such tenants, plaintiff's agents and employees were not invitees, but merely licensees as respects the grant building. in their efforts to renew contracts or solicit ",
+     "char_span": [
+      11003,
+      15150
+     ],
+     "chunk_id": 319532,
+     "cosine": 0.5198603868484497,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 753596,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " court below for the purpose of a decree in favor of the defendants. 1 the proviso was eliminated by the act of may 6, 1955, p. l. 46 \u00a71. dissenting opinion by ervin, j.: i am concerned about the definition given to a terretenant in the majority opinion. the governing statute as to notice of sale is the act of may 29, 1931, p. l. 280, \u00a77, 72 ps \u00a75971 (g). the act as it existed in 1951, and at the ",
+     "char_span": [
+      10101,
+      13692
+     ],
+     "chunk_id": 353760,
+     "cosine": 0.4742335081100464,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " court below for the purpose of a decree in favor of the defendants. 1 the proviso was eliminated by the act of may 6, 1955, p. l. 46 \u00a71. dissenting opinion by ervin, j.: i am concerned about the definition given to a terretenant in the majority opinion. the governing statute as to notice of sale is the act of may 29, 1931, p. l. 280, \u00a77, 72 ps \u00a75971 (g). the act as it existed in 1951, and at the ",
+     "char_span": [
+      10101,
+      13692
+     ],
+     "chunk_id": 353760,
+     "cosine": 0.5151646137237549,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1136924,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 1,
+     "matched_text": "yeager et al. v. traylor, appellant. march 14, 1932: argued february 2, 1932. before frazer, c. j., simpson, kephart, sohapper, maxey and drew, jj. fred b. gernerd, for appellant. a garage is a necessary appurtenance to a modern hotel. a building used for the parking of automobiles attached to a hotel and apartment house and exclusively used by its guests and patrons, without servicing or a rental",
+     "char_span": [
+      0,
+      4208
+     ],
+     "chunk_id": 705848,
+     "cosine": 0.5666701197624207,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": "yeager et al. v. traylor, appellant. march 14, 1932: argued february 2, 1932. before frazer, c. j., simpson, kephart, sohapper, maxey and drew, jj. fred b. gernerd, for appellant. a garage is a necessary appurtenance to a modern hotel. a building used for the parking of automobiles attached to a hotel and apartment house and exclusively used by its guests and patrons, without servicing or a rental",
+     "char_span": [
+      0,
+      4208
+     ],
+     "chunk_id": 705848,
+     "cosine": 0.5666701197624207,
+     "run_id": "cycle-002-shard-01"
+    },
+    {
+     "selector_id": "apartment-hotel-34",
+     "selector_version": 1,
+     "matched_text": "yeager et al. v. traylor, appellant. march 14, 1932: argued february 2, 1932. before frazer, c. j., simpson, kephart, sohapper, maxey and drew, jj. fred b. gernerd, for appellant. a garage is a necessary appurtenance to a modern hotel. a building used for the parking of automobiles attached to a hotel and apartment house and exclusively used by its guests and patrons, without servicing or a rental",
+     "char_span": [
+      0,
+      0
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1199898,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 1,
+     "matched_text": " none the less a dwelling house though occupied by a number of families but it is not a private dwelling house. the term 'private' in that connection means limitation for use privately, that is, apart from others, or in other words, singly by one family.\" in koch v. gorruflo, 77 n. j. e. 172, 75 atl. 767, the court of chancery of new jersey held that a covenant by a grantee not to use the premises",
+     "char_span": [
+      3697,
+      4978
+     ],
+     "chunk_id": 753526,
+     "cosine": 0.6760474443435669,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": " none the less a dwelling house though occupied by a number of families but it is not a private dwelling house. the term 'private' in that connection means limitation for use privately, that is, apart from others, or in other words, singly by one family.\" in koch v. gorruflo, 77 n. j. e. 172, 75 atl. 767, the court of chancery of new jersey held that a covenant by a grantee not to use the premises",
+     "char_span": [
+      3697,
+      4978
+     ],
+     "chunk_id": 753526,
+     "cosine": 0.6760474443435669,
+     "run_id": "cycle-002-shard-01"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " none the less a dwelling house though occupied by a number of families but it is not a private dwelling house. the term 'private' in that connection means limitation for use privately, that is, apart from others, or in other words, singly by one family.\" in koch v. gorruflo, 77 n. j. e. 172, 75 atl. 767, the court of chancery of new jersey held that a covenant by a grantee not to use the premises",
+     "char_span": [
+      3697,
+      4978
+     ],
+     "chunk_id": 753526,
+     "cosine": 0.5226665735244751,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1237995,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "tourist-home-15",
+     "selector_version": 1,
+     "matched_text": "laintiffs sought in the court below a mandamus to compel the public officials of the city of harrisburg to revoke the building permit previously issued to the intervenors for the erection of a motel (tourist court) which was the subject of litigation in the case of harrisburg v. pass, 372 pa. 318, 93 a. 2d 447. under , the decision in that case the present intervenors have no right to construct the motel in qu",
+     "char_span": [
+      514,
+      527
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-001-shard-01"
+    },
+    {
+     "selector_id": "tourist-home-15",
+     "selector_version": 2,
+     "matched_text": "laintiffs sought in the court below a mandamus to compel the public officials of the city of harrisburg to revoke the building permit previously issued to the intervenors for the erection of a motel (tourist court) which was the subject of litigation in the case of harrisburg v. pass, 372 pa. 318, 93 a. 2d 447. under , the decision in that case the present intervenors have no right to construct the motel in qu",
+     "char_span": [
+      514,
+      527
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-002-shard-01"
+    },
+    {
+     "selector_id": "motel-near-36",
+     "selector_version": 1,
+     "matched_text": "tern, plaintiffs sought in the court below a mandamus to compel the public officials of the city of harrisburg to revoke the building permit previously issued to the intervenors for the erection of a motel (tourist court) which was the subject of litigation in the case of harrisburg v. pass, 372 pa. 318, 93 a. 2d 447. under , the decision in that case the present intervenors have no right to construct ",
+     "char_span": [
+      507,
+      512
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1499716,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "mcknight v. kling. john j. haberstroh, for plaintiff; robert a. henderson, for defendant. july 17, 1930. patterson, p. j., this is a rule to show cause why a judgment to no. 163, january term, 1929, in the court of common pleas of blair county, wherein c. c. mcknight is plaintiff and william kling, sr., is defendant, should not be opened and defendant allowed to put in his defense. on january 20, ",
+     "char_span": [
+      0,
+      3432
+     ],
+     "chunk_id": 910608,
+     "cosine": 0.48300373554229736,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "mcknight v. kling. john j. haberstroh, for plaintiff; robert a. henderson, for defendant. july 17, 1930. patterson, p. j., this is a rule to show cause why a judgment to no. 163, january term, 1929, in the court of common pleas of blair county, wherein c. c. mcknight is plaintiff and william kling, sr., is defendant, should not be opened and defendant allowed to put in his defense. on january 20, ",
+     "char_span": [
+      0,
+      3432
+     ],
+     "chunk_id": 910608,
+     "cosine": 0.519669771194458,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1501641,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " outside this commonwealth involving the interpretation of the latter term that residence in the county is the essential qualification, in others that it is the ownership of a freehold situate in the county. so in interpreting the term 'freeholder' in the section of the act of march 20,1810, 5 sm. laws 161, relating to stay of execution it was held in clippinger v. creps, 2 watts 45, that it was t",
+     "char_span": [
+      3274,
+      4588
+     ],
+     "chunk_id": 911600,
+     "cosine": 0.4616653621196747,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " outside this commonwealth involving the interpretation of the latter term that residence in the county is the essential qualification, in others that it is the ownership of a freehold situate in the county. so in interpreting the term 'freeholder' in the section of the act of march 20,1810, 5 sm. laws 161, relating to stay of execution it was held in clippinger v. creps, 2 watts 45, that it was t",
+     "char_span": [
+      3274,
+      4588
+     ],
+     "chunk_id": 911600,
+     "cosine": 0.5151869058609009,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1538053,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "gagor is the owner, even of the legal title: bulger v. wilderman et al., supra, and cases cited. if the instant proceedings were between mortgagor and mortgagee, mrs. lesher's tenure, as mortgagee in possession or mortgagee with right to possession, would be a limited but substantial estate in the land. she could assert it by entry, by ejectment, or by notice to the tenants to pay the rent to her.",
+     "char_span": [
+      10092,
+      13985
+     ],
+     "chunk_id": 921715,
+     "cosine": 0.45577606558799744,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "gagor is the owner, even of the legal title: bulger v. wilderman et al., supra, and cases cited. if the instant proceedings were between mortgagor and mortgagee, mrs. lesher's tenure, as mortgagee in possession or mortgagee with right to possession, would be a limited but substantial estate in the land. she could assert it by entry, by ejectment, or by notice to the tenants to pay the rent to her.",
+     "char_span": [
+      10092,
+      13985
+     ],
+     "chunk_id": 921715,
+     "cosine": 0.5227846503257751,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1567333,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " who leases all or part of rented premises from an original lessee for a term less than that held by the original lessee, and \"subletting\" is where lessee demises the whole or a part of premises for a portion of the unexpired term. see also beall v. everson, 34 a. (2d) 41 (d. c.), and grassham v. robertson et al., 277 ky. 605, 126 s. w.(2d) 1063, 1064. in the case at bar, briefly, plaintiffs claim",
+     "char_span": [
+      3511,
+      4568
+     ],
+     "chunk_id": 928287,
+     "cosine": 0.5459111332893372,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " who leases all or part of rented premises from an original lessee for a term less than that held by the original lessee, and \"subletting\" is where lessee demises the whole or a part of premises for a portion of the unexpired term. see also beall v. everson, 34 a. (2d) 41 (d. c.), and grassham v. robertson et al., 277 ky. 605, 126 s. w.(2d) 1063, 1064. in the case at bar, briefly, plaintiffs claim",
+     "char_span": [
+      3511,
+      4568
+     ],
+     "chunk_id": 928287,
+     "cosine": 0.5117167234420776,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1603597,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": " are turned here, the landlord attempting to enforce, rather than resist, the holdover renewal, but the principle must be the same for both parties. we hold, therefore, that the option in this lease running in favor of the tenant and requiring positive action to exercise it created no right in favor of the landlord, since he has failed to reserve to himself any holdover rights in any form. there i",
+     "char_span": [
+      3974,
+      5712
+     ],
+     "chunk_id": 937154,
+     "cosine": 0.46061572432518005,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " are turned here, the landlord attempting to enforce, rather than resist, the holdover renewal, but the principle must be the same for both parties. we hold, therefore, that the option in this lease running in favor of the tenant and requiring positive action to exercise it created no right in favor of the landlord, since he has failed to reserve to himself any holdover rights in any form. there i",
+     "char_span": [
+      3974,
+      5712
+     ],
+     "chunk_id": 937154,
+     "cosine": 0.51932293176651,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1636517,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": "et . . . any . . . rooming unit which does not comply with the following minimum standards for light. . . . \"(g) every public hall and stairway in every two-family dwelling, multi-family dwelling and rooming house shall be adequately lighted at all times except that in a two-family dwelling an adequate lighting system which may be turned on when needed by conveniently located light switches shall be permitted ",
+     "char_span": [
+      5001,
+      5014
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-001-shard-01"
+    },
+    {
+     "selector_id": "sro-35",
+     "selector_version": 1,
+     "matched_text": "e code of general ordinances of the city of philadelphia. this code was enacted \"to protect the public health, safety and welfare\": \u00a77-101. it provides that \"no person shall . . . let . . . any . . . rooming unit which does not comply with the following minimum standards for light. . . . \"(g) every public hall and stairway in every two-family dwelling, multi-family dwelling and rooming house shall be adequate",
+     "char_span": [
+      4820,
+      4832
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1668346,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 1,
+     "matched_text": "., 303 pa. 257 (1931); satterthwait v. gibbs, 288 pa. 428 (1927); henry v. eves, 306 pa. 250 (1932); taylor v. lambert, 279 pa. 514 (1924); desanno v. earle, 273 pa. 265 (1922). the applicable legal principles were succinctly stated in jones v. park lane for convalescents, inc., supra, at page 272: \". . . restrictions on the use of land are not favored by the law because they are an interference w",
+     "char_span": [
+      10583,
+      14953
+     ],
+     "chunk_id": 956479,
+     "cosine": 0.6314646601676941,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": "., 303 pa. 257 (1931); satterthwait v. gibbs, 288 pa. 428 (1927); henry v. eves, 306 pa. 250 (1932); taylor v. lambert, 279 pa. 514 (1924); desanno v. earle, 273 pa. 265 (1922). the applicable legal principles were succinctly stated in jones v. park lane for convalescents, inc., supra, at page 272: \". . . restrictions on the use of land are not favored by the law because they are an interference w",
+     "char_span": [
+      10583,
+      14953
+     ],
+     "chunk_id": 956479,
+     "cosine": 0.6314646601676941,
+     "run_id": "cycle-002-shard-01"
+    },
+    {
+     "selector_id": "apartment-hotel-34",
+     "selector_version": 1,
+     "matched_text": " within the language \"residential purposes\". webster's new international dictionary, 2nd ed., defines \"residential\" as: \"used, serving, or designed as a residence or for occupation by residents; as a residential hotel. adapted to or occupied by residences; as a residential quarter. of, pertaining to, or connected with, residence or residences; as residential trade, qualifications or zones. of or pertaining to a re",
+     "char_span": [
+      17638,
+      17655
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1885942,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": "26, 1962, the decision of the board of adjustment of plymouth township is affirmed, subject to full compliance by the applicant, or his assigns, with the set-back requirements of section 902 of the plymouth township zoning ordinance of 1959____\" our review satisfies us that the proposed apartments clearly come within the exceptional use authorized by the ordinance. the sole error committed by the ",
+     "char_span": [
+      3710,
+      5374
+     ],
+     "chunk_id": 1052949,
+     "cosine": 0.5603637099266052,
+     "run_id": "cycle-002-shard-01"
+    },
+    {
+     "selector_id": "apartment-hotel-34",
+     "selector_version": 1,
+     "matched_text": "ial special districts, a \"building may be erected or used, and a lot may be used or occupied, for . . . the following purposes . . . . b. when authorized as a special exception, an apartment house or apartment hotel .. . .\" the ordinance in \u00a72102 b sets forth the standards to be applied by the board in granting special exceptions. in residential special districts, the ordinance by \u00a7902 establishes the minimum lo",
+     "char_span": [
+      1296,
+      1311
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 1898547,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": "polizzi, appellant, v. zoning board of adjustment. march 22, 1966 : argued january 14, 1966. before bell, c. j., musmanno, jones, cohen, eagen, o'brien and roberts, jj. charles l. guerin, jr., for appellant. matthew w. bullock, jr., second deputy city solicitor, with him gerald gornish, assistant city solicitor, and edward g. bauer, jr., city solicitor, for zoning board, appellee. samuel diamond, ",
+     "char_span": [
+      0,
+      2077
+     ],
+     "chunk_id": 1064973,
+     "cosine": 0.5526619553565979,
+     "run_id": "cycle-002-shard-01"
+    },
+    {
+     "selector_id": "sro-35",
+     "selector_version": 1,
+     "matched_text": ", all the units to be apartments with separate baths and kitchen facilities. the property was then being used legally under a variance allowed in 1940 for nine units (two housekeeping units and seven rooming units). the portion of the property fronting on walnut street is zoned r5, and multiple family occupancy is not permitted in such a zone. the rear 94 feet of the over-all 194 feet of the property, going b",
+     "char_span": [
+      941,
+      953
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 458936,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "search estate. argued march 4, 1947. before rhodes, p. j., reno, dithrich, ross and arnold, jj. (hirt, j., absent). t. g. wadzinsmj for appellant. stanley b. jones filed a brief for appelle\u00e9. april 16, 1947: opinion by ross, j., this is an appeal by a tenant in common from a rent charge against his distributive share in the proceeds of a sale of the property in a partition proceedings, and involve",
+     "char_span": [
+      0,
+      4127
+     ],
+     "chunk_id": 180418,
+     "cosine": 0.5625219345092773,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "search estate. argued march 4, 1947. before rhodes, p. j., reno, dithrich, ross and arnold, jj. (hirt, j., absent). t. g. wadzinsmj for appellant. stanley b. jones filed a brief for appelle\u00e9. april 16, 1947: opinion by ross, j., this is an appeal by a tenant in common from a rent charge against his distributive share in the proceeds of a sale of the property in a partition proceedings, and involve",
+     "char_span": [
+      0,
+      4127
+     ],
+     "chunk_id": 180418,
+     "cosine": 0.5625219345092773,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 459175,
+   "era_partition": "1930-1970",
+   "jurisdiction": "Pa.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " had, of necessity, to cross the \"reservation\". from the public thoroughfare to the doorway of the building there was no other means of access to her place of work. it was analogous to an uninclosed hallway to or in the building. whether the claimant was, when injured, \"employed\" within the statutory definition of \"premises of the employer\" is a question of law where the facts are undisputed : dic",
+     "char_span": [
+      3295,
+      6789
+     ],
+     "chunk_id": 180629,
+     "cosine": 0.513039767742157,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  }
+ ],
+ "batch_id": "cycle-003-shard-01-batch-005"
+}

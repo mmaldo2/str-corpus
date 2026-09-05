@@ -1,0 +1,421 @@
+{
+ "era_partition": "1900-1930",
+ "jurisdiction": "Tex.",
+ "cases": [
+  {
+   "case_id": 2284712,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "john o'neal v. m. a. quilter. no. 3060. decided november 2, 1921. (234 s. w., 528.) 1. - landlord and tenant - fixtures-dwelling erected by tenant. one who occupied free of rent land of his employer, with the latter's consent and for his convenience in the matter of nearness to his work, and, erecting thereon at his own cost a small dwelling for himself and family, removed it from the premises at ",
+     "char_span": [
+      0,
+      3577
+     ],
+     "chunk_id": 1371287,
+     "cosine": 0.6132153868675232,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "john o'neal v. m. a. quilter. no. 3060. decided november 2, 1921. (234 s. w., 528.) 1. - landlord and tenant - fixtures-dwelling erected by tenant. one who occupied free of rent land of his employer, with the latter's consent and for his convenience in the matter of nearness to his work, and, erecting thereon at his own cost a small dwelling for himself and family, removed it from the premises at ",
+     "char_span": [
+      0,
+      3577
+     ],
+     "chunk_id": 1371287,
+     "cosine": 0.6132153868675232,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2284727,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "rent-houses-37",
+     "selector_version": 1,
+     "matched_text": "n parker county and which he there received, stating that certain lots which defendant in error offered to exchange for land of plaintiff in error were improved lots in fort worth, with 32 three-room rent houses, about two years old, nicely papered and painted, a deep well, a wind mill, a,n electric pump and sewage system, and further stating that defendant in error would trade for plaintiff in error's land",
+     "char_span": [
+      11176,
+      11186
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2286452,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": ", in 1879, of the requirement of the statute, now article 7733, that a plaintiff suing in trespass to try title for an undivided interest in land, must state in his petition \"the amount\" of the interest, it was held that as against a trespasser a tenant in common was entitled to recover the exclusive possession upon establishing title to an undivided interest in the land though the interest was un",
+     "char_span": [
+      31375,
+      34521
+     ],
+     "chunk_id": 1373432,
+     "cosine": 0.5344897508621216,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": ", in 1879, of the requirement of the statute, now article 7733, that a plaintiff suing in trespass to try title for an undivided interest in land, must state in his petition \"the amount\" of the interest, it was held that as against a trespasser a tenant in common was entitled to recover the exclusive possession upon establishing title to an undivided interest in the land though the interest was un",
+     "char_span": [
+      31375,
+      34521
+     ],
+     "chunk_id": 1373432,
+     "cosine": 0.5344897508621216,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2286455,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 1,
+     "matched_text": " to give the lessee the space within the building. the claim of appellant is that the promise of inside space was void: because the contract, properly construed, was one of lease, in violation of the ordinance, of a part of the sidewalk unless and until the city should dispossess the lessee, and because the lease of the inside space was inseverable from the lease of part of the sidewalk. in our op",
+     "char_span": [
+      6759,
+      11291
+     ],
+     "chunk_id": 1373442,
+     "cosine": 0.49454501271247864,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": " to give the lessee the space within the building. the claim of appellant is that the promise of inside space was void: because the contract, properly construed, was one of lease, in violation of the ordinance, of a part of the sidewalk unless and until the city should dispossess the lessee, and because the lease of the inside space was inseverable from the lease of part of the sidewalk. in our op",
+     "char_span": [
+      6759,
+      11291
+     ],
+     "chunk_id": 1373442,
+     "cosine": 0.49454501271247864,
+     "run_id": "cycle-002-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2288320,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": " a building on ground not owned by the insured in fee simple; . . . or if any change, other than by the death of an insured, take place in the interest, title, or possession of the subject of insurance (except change of occupants without increase of hazard)' whether by legal process or judgment or by voluntary act of the insured, or otherwise.\" it is admitted that the insured was the unconditional",
+     "char_span": [
+      10371,
+      14458
+     ],
+     "chunk_id": 1375177,
+     "cosine": 0.4737369418144226,
+     "run_id": "cycle-002-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2288341,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "adverse-embed-regulation-29",
+     "selector_version": 1,
+     "matched_text": " l. r. co. v. goldsboro, 232 u. s., 549. the ordinance does not in any way undertake to control or interfere with any rights of conscience in matters of religion. as pointed out in chief justice waite's opinion in reynolds v. united states, 98 u. s. 161, the religious freedom, guaranteed by the united states constitution, does not deprive congress of legislative power, whereby actions may be reach",
+     "char_span": [
+      20945,
+      25617
+     ],
+     "chunk_id": 1375294,
+     "cosine": 0.6374872922897339,
+     "run_id": "cycle-001-shard-02"
+    }
+   ]
+  },
+  {
+   "case_id": 2288367,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": " 317; jessup v. carnagie, 80 n. y., 441; rev. stats., 1895, art. 643. , where the owner of land plats a townsite thereon, dedicates to public use the streets and alleys with the reserved right to designate who should use the streets and alleys for telephone purposes, a telephone company should be restrained from erecting poles on and over said streets and alleys over objection of the owner of the ",
+     "char_span": [
+      3097,
+      7103
+     ],
+     "chunk_id": 1375440,
+     "cosine": 0.47484588623046875,
+     "run_id": "cycle-002-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2341705,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "d. h. l. hunter v. adoue & lobit. decided march 22, 1905. 1. -lease by agent-undisclosed principal-bight to sue upon. where a lease of realty was made to defendant by plaintiffs as \"lessors, agents of the s. heirs,\" without any other reference to such heirs, it bound plaintiffs personally as lessors and agents of an undisclosed principal, and they could maintain suit thereon in their own name and ",
+     "char_span": [
+      0,
+      3227
+     ],
+     "chunk_id": 1416977,
+     "cosine": 0.52462238073349,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2342471,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "oriental hotel association v. e. m. faust. decided. march 29, 1905. hotel-baggage-loss while guest-presumption. a traveler having checked his baggage with the proper custodian at a hotel, in advance of his becoming a guest there, registered as such guest on the following day, and discovered, on presenting his check at departure, that the baggage was lost. held that these facts furnished evidence t",
+     "char_span": [
+      0,
+      3685
+     ],
+     "chunk_id": 1417491,
+     "cosine": 0.4529803395271301,
+     "run_id": "cycle-001-shard-02"
+    }
+   ]
+  },
+  {
+   "case_id": 2343355,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-short-letting-23",
+     "selector_version": 1,
+     "matched_text": "alfred abeel v. v. a. mcdonnell et al. decided may 17, 1905. 1.-landlord and tenant-lease-renewal by holding over. the tenant, by holding over without further agreement on the expiration of a lease for years, becomes tenant for another year on the same terms. 2.-same. a charge that if the tenant holding over after the expiration of a lease for a term of years notified the landlord that he would on",
+     "char_span": [
+      0,
+      4711
+     ],
+     "chunk_id": 1418085,
+     "cosine": 0.46860846877098083,
+     "run_id": "cycle-001-shard-02"
+    }
+   ]
+  },
+  {
+   "case_id": 2344366,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": ".saloon, and shall not be used for any disreputable purpose, nor shall any nuisance be permitted on the premises, and in case the lessee shall violate this provision, the owner may cancel the lease and take possession in the manner specified in paragraph three of this contract. it is further understood that the lessee shall have the privilege of subletting the premises, provided that no part of sa",
+     "char_span": [
+      9954,
+      14692
+     ],
+     "chunk_id": 1418542,
+     "cosine": 0.4848628044128418,
+     "run_id": "cycle-002-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2344966,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " a crop on the rented premises. ho question is raised as to antone's landlord's lien upon the bale of cotton bought by whitfield from miles, and of his right to have it subjected to the payment of this supply claim, unless it were defeated by the facts set forth in whitfield's plea of intervention. appellant's first assignment of error complains of the refusal of the court to give the following ch",
+     "char_span": [
+      7005,
+      11586
+     ],
+     "chunk_id": 1418847,
+     "cosine": 0.5340033173561096,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " a crop on the rented premises. ho question is raised as to antone's landlord's lien upon the bale of cotton bought by whitfield from miles, and of his right to have it subjected to the payment of this supply claim, unless it were defeated by the facts set forth in whitfield's plea of intervention. appellant's first assignment of error complains of the refusal of the court to give the following ch",
+     "char_span": [
+      7005,
+      11586
+     ],
+     "chunk_id": 1418847,
+     "cosine": 0.5340033173561096,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2345399,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "a. h. chambers v. josie e. mattingly. decided june 26, 1907. lease-damage by eire-agreement to repair. where leased premises were badly damaged by are the tenant remained liable for rent during the term, in the absence of a contract relieving him in that event; but where the landlord, after the fire, agreed to repair and the tenant surrendered possession for that purpose the landlord became bound ",
+     "char_span": [
+      0,
+      3347
+     ],
+     "chunk_id": 1419124,
+     "cosine": 0.5486581325531006,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "a. h. chambers v. josie e. mattingly. decided june 26, 1907. lease-damage by eire-agreement to repair. where leased premises were badly damaged by are the tenant remained liable for rent during the term, in the absence of a contract relieving him in that event; but where the landlord, after the fire, agreed to repair and the tenant surrendered possession for that purpose the landlord became bound ",
+     "char_span": [
+      0,
+      3347
+     ],
+     "chunk_id": 1419124,
+     "cosine": 0.5486581325531006,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2348614,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " of the property recites the fact that the guardian and the minor children are desirous of ratifying and confirming the original sale. the act of disaffirmance must be distinct and unequivocal. harris v. musgroves, 59 texas, 403. but whatever may be the legal result of the transactions with the minors and the conveyances made thereafter to hatton, the fact remains that the appellee was at least a ",
+     "char_span": [
+      33610,
+      35007
+     ],
+     "chunk_id": 1420754,
+     "cosine": 0.5198614001274109,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2368765,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": "ed herd v. the state. no. 3716. decided january 30, 1907. 1. -aggravated assault-private residence-gallery-words and phrases- statutes construed. upon trial for an aggravated assault where the evidence showed that if an assault and battery was committed it was upon the gallery of the alleged private residence; and the information charged that defendant went into a private residence and there commi",
+     "char_span": [
+      0,
+      4405
+     ],
+     "chunk_id": 1429597,
+     "cosine": 0.48040711879730225,
+     "run_id": "cycle-002-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2370351,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "adverse-embed-regulation-29",
+     "selector_version": 1,
+     "matched_text": " 646, 647-8, p. 690-5; newsome v. galveston, 76 texas, 559, 13 s. w., 368. the ordinance in question having been passed under an express power of the charter and having for its purpose the regulation of public streets by the board of commissioners in the exercise of the police power, the same is not invalid because' it invests the commissioners with the authority to refuse or grant permits, nor do",
+     "char_span": [
+      9135,
+      12509
+     ],
+     "chunk_id": 1430033,
+     "cosine": 0.6992408037185669,
+     "run_id": "cycle-001-shard-02"
+    }
+   ]
+  },
+  {
+   "case_id": 2370605,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "boarding-house-keeping-04",
+     "selector_version": 1,
+     "matched_text": "he part of the state shows that appellant and deceased (negroes) lived in the town of ballinger; appellant was a barber and deceased porter in a saloon. they boarded at ellen devall's (a negress) who kept a boarding house. this house contained six rooms. the main part of the house being two stories, containing two rooms below and two above; and an l, used for kitchen and dining room. ellen devall slept in the east roo",
+     "char_span": [
+      3123,
+      3144
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-001-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2372190,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 1,
+     "matched_text": " by the act of the twenty-seventh legislature (gen. laws, 1901, p. 26); 14 amer. & eng. ency. of law, 2nd ed., p. 665-7. the construction of this statute has been before this court in several respects, but we are not advised that this particular question has been decided. however, some of the cases appear to intimate that to play cards, without any bet or wager, at a private residence occupied by ",
+     "char_span": [
+      3797,
+      8289
+     ],
+     "chunk_id": 1430653,
+     "cosine": 0.5280336141586304,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": " by the act of the twenty-seventh legislature (gen. laws, 1901, p. 26); 14 amer. & eng. ency. of law, 2nd ed., p. 665-7. the construction of this statute has been before this court in several respects, but we are not advised that this particular question has been decided. however, some of the cases appear to intimate that to play cards, without any bet or wager, at a private residence occupied by ",
+     "char_span": [
+      3797,
+      8289
+     ],
+     "chunk_id": 1430653,
+     "cosine": 0.5280336141586304,
+     "run_id": "cycle-002-shard-01"
+    }
+   ]
+  }
+ ],
+ "batch_id": "cycle-003-shard-01-batch-002"
+}

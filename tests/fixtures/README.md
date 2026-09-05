@@ -7,6 +7,11 @@
   plus case metadata for every signalled case (`tools/capture_goldens.py`).
 - `cycle-003-already-read.json` — the exclusion set in force when cycle 003 was sharded.
 - `extractions/cycle-003-shard-01/batch-001.json`..`batch-005.json` and
-  `batches/cycle-003-shard-01/batch-001.json` — byte copies of the matching
-  `runs/cycle-003-shard-01/` files, so the characterization fixture-subset
-  tests reproduce on a fresh clone without `runs/` (which is gitignored).
+  `batches/cycle-003-shard-01/batch-001.json`..`batch-005.json` — byte copies of
+  the matching `runs/cycle-003-shard-01/` files, so the characterization
+  fixture-subset tests and the reader-render golden test reproduce on a fresh
+  clone without `runs/` (which is gitignored). Only batches 001-005 are copied
+  because `corpus-tiny.db` covers those cases; `tests/golden/prompts/cycle-003-shard-01/`
+  has ten golden prompts (batch-001..010) but only the first five are
+  reproducible against this fixture db — batches 006-010 reference cases the
+  tiny db doesn't carry.

@@ -1,0 +1,421 @@
+{
+ "era_partition": "1900-1930",
+ "jurisdiction": "Tex.",
+ "cases": [
+  {
+   "case_id": 8247431,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "right-to-lease-12",
+     "selector_version": 1,
+     "matched_text": " petition for injunction, alleging that plaintiff's lessor was formerly the owner in fee simple for the year 1916, must be construed as implying that he was not the owner of the land and had no legal right to lease to plaintiff, and is therefore insufficient to sustain a writ of injunction restraining the ejectment of plaintiff. [ed. note. - for other cases, see injunction, cent. dig. \u00a7 233; dec. dig. @=>118(2)",
+     "char_span": [
+      3028,
+      3042
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-001-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 8247471,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "adverse-embed-regulation-29",
+     "selector_version": 1,
+     "matched_text": " in its charter \"to prevent, forbid or regulate\" theatrical and kindred exhibitions in the interest of public morals. such act of the legislature neither directly nor by implication repeals, or undertakes to repeal or abrogate, the power of said city to regulate such exhibition. the legislature has not undertaken to cover the whole subject-matter covered by the ordinance in question. the contentio",
+     "char_span": [
+      31867,
+      36748
+     ],
+     "chunk_id": 2722117,
+     "cosine": 0.650100588798523,
+     "run_id": "cycle-001-shard-02"
+    }
+   ]
+  },
+  {
+   "case_id": 8247781,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "boarding-variants-32",
+     "selector_version": 1,
+     "matched_text": "s district included the lockhart office. appellee and miss sadie wilkins, another employ\u00e9 of appellant, were rooming at the residence of dold, and using his kitchen and dining room for the purpose of light housekeeping. on the morning of september 9th, dold had a conversation with miss wilkins in his dining room in the presence of his wife, in which he used language substantially the same as he subsequently used to",
+     "char_span": [
+      7366,
+      7384
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-002-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 8248448,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " if it owed appellee a duty to use care; and (2) that appellee was damaged as determined - is not questioned by any of the assignments. appellant's contentions are: (1) that appellee was a trespasser on its property, and that in operating the engine as it did in the condition it was in it violated no duty it owed to her; (2) that if it violated a duty it owed to her, she was guilty of contributory",
+     "char_span": [
+      3203,
+      7467
+     ],
+     "chunk_id": 2722753,
+     "cosine": 0.538500964641571,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " if it owed appellee a duty to use care; and (2) that appellee was damaged as determined - is not questioned by any of the assignments. appellant's contentions are: (1) that appellee was a trespasser on its property, and that in operating the engine as it did in the condition it was in it violated no duty it owed to her; (2) that if it violated a duty it owed to her, she was guilty of contributory",
+     "char_span": [
+      3203,
+      7467
+     ],
+     "chunk_id": 2722753,
+     "cosine": 0.538500964641571,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 8249199,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "garden valley mercantile co. et al. v. falkner et al. (no. 1608.) (court of civil appeals of texas. texarkana. july 5, 1916. rehearing denied oct. 5, 1916.) 1.venue <&wkey;18 - action foe conversion. action for conversion of personal property may be brought in the county of plaintiff's residence if one of the defendants has converted some of the property there. [ed. note. - for other cases, see ve",
+     "char_span": [
+      0,
+      3577
+     ],
+     "chunk_id": 2723314,
+     "cosine": 0.5743670463562012,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "garden valley mercantile co. et al. v. falkner et al. (no. 1608.) (court of civil appeals of texas. texarkana. july 5, 1916. rehearing denied oct. 5, 1916.) 1.venue <&wkey;18 - action foe conversion. action for conversion of personal property may be brought in the county of plaintiff's residence if one of the defendants has converted some of the property there. [ed. note. - for other cases, see ve",
+     "char_span": [
+      0,
+      3577
+     ],
+     "chunk_id": 2723314,
+     "cosine": 0.5743670463562012,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 8249407,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "city of laredo v. salinas. (no. 5736.) (court of civil appeals of texas. dec. 13, 1916. rehearing denied jan. 24, 1917.) 1. landlord and tenant <\u00ae=\u00bb63(1) - estop-pel to dispute landlord's title. the rule that a tenant cannot dispute his landlord's title applies where the tenant seeks to acquire title by virtue of the possession obtained by the lease, but not where he acquires an outstanding title,",
+     "char_span": [
+      0,
+      3877
+     ],
+     "chunk_id": 2723415,
+     "cosine": 0.537337064743042,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "city of laredo v. salinas. (no. 5736.) (court of civil appeals of texas. dec. 13, 1916. rehearing denied jan. 24, 1917.) 1. landlord and tenant <\u00ae=\u00bb63(1) - estop-pel to dispute landlord's title. the rule that a tenant cannot dispute his landlord's title applies where the tenant seeks to acquire title by virtue of the possession obtained by the lease, but not where he acquires an outstanding title,",
+     "char_span": [
+      0,
+      3877
+     ],
+     "chunk_id": 2723415,
+     "cosine": 0.537337064743042,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 8249947,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": " if plaintiff ever had a child, \"she had it of her own volition, and that he was not the father of same and had nothing to do with it\"; that at the time he met the defendant in error he had gone to a rooming house in the city of et. worth, for the purpose of securing a room; that he was there introduced to and met her; that at said meeting there were no improper relations between them, but that their acquainta",
+     "char_span": [
+      8035,
+      8048
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-001-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 8250182,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "rent-houses-37",
+     "selector_version": 1,
+     "matched_text": "nd found said knife on him. by cross-examination of mr. roberts the \u00e1ppellant proved that he rented 40 acres of tillable land from' boberts that year, and that he lived on roberts' farm in one of his rent houses, and that he had the right to place his work team in roberts' pasture, which he did all the year; that on the morning of september 14th, when fluitt phoned him to arrest appellant and his son and ta",
+     "char_span": [
+      9627,
+      9637
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 8250224,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "adverse-embed-regulation-29",
+     "selector_version": 1,
+     "matched_text": "ex parte sullivan. (no. 3506.) (court of criminal appeals of texas. may 5, 1915. rehearing denied june 9, 1915. dissenting opinion july 19, 1915.) municipal c'obpobations &wkey;703 - steeets- \"motob bus'' - regulations- validity. under pt. worth charter (sp. acts \u00bf1st leg. e. 31), vesting the board of commissioners with the power of making ordinances to protect health, life, and property, to regul",
+     "char_span": [
+      0,
+      4173
+     ],
+     "chunk_id": 2723887,
+     "cosine": 0.6656928062438965,
+     "run_id": "cycle-001-shard-02"
+    }
+   ]
+  },
+  {
+   "case_id": 8250285,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "roomers-boarders-14",
+     "selector_version": 1,
+     "matched_text": "ence also that the deceased and appellant's wife went to various places of amusement together, went to sutherland springs and went in bathing together, and one witness testified that he saw them in a rooming house together; all of which was brought to appellant's attention before the homicide. in august or september, 1913, appellant's wife sued him for a divorce, and, as we understand the record, he filed a cr",
+     "char_span": [
+      20920,
+      20933
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-001-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 8250698,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "incident-of-ownership-11",
+     "selector_version": 1,
+     "matched_text": "here is no material difference between the language of the statute and that of the constitution; but even if it were otherwise, we think that provision of the constitution which defines the liability incident to the ownership of shares of stock in banking corporations is self-executing and sufficiently broad to cover this case. the terms of the constitutional provision are very specific: \"each shareholder, so long as he o",
+     "char_span": [
+      10896,
+      10921
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-001-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 8251008,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "rent-houses-37",
+     "selector_version": 1,
+     "matched_text": "f in ft certain trade between the parties, in which coalson conveyed to holmes a league of land in taylor county in exchange for four lots of land in the city of ft. worth upon which were situated 32 rent houses. from that judgment holmes has appealed. h. h. allen and w. x. rockwell, composing the partnership of allen & rockwell, real estate brokers, who negotiated the trade for holmes, were also made parti",
+     "char_span": [
+      11352,
+      11362
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 8251011,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "ingram v. fred. (no. 8930.) * (court of civil appeals of texas. ft. worth. dec. 7, 1918. rehearing denied jan. 18, 1919.) 1. landlord and tenant @=5106, 195(1)- leases - repairs. a tenant, who leased a building for two years for a specific sum payable in monthly installments, may vacate and refuse to thereafter pay rent, where lessor has failed to keep building in repair and tenantable as agreed. ",
+     "char_span": [
+      0,
+      4175
+     ],
+     "chunk_id": 2724825,
+     "cosine": 0.5639467835426331,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "ingram v. fred. (no. 8930.) * (court of civil appeals of texas. ft. worth. dec. 7, 1918. rehearing denied jan. 18, 1919.) 1. landlord and tenant @=5106, 195(1)- leases - repairs. a tenant, who leased a building for two years for a specific sum payable in monthly installments, may vacate and refuse to thereafter pay rent, where lessor has failed to keep building in repair and tenantable as agreed. ",
+     "char_span": [
+      0,
+      4175
+     ],
+     "chunk_id": 2724825,
+     "cosine": 0.5639467835426331,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 8251061,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "right-to-lease-12",
+     "selector_version": 1,
+     "matched_text": "o years' statute of limitation. \"(g) that there is no rental value of the portion of jackson street for which plaintiff sues for title and possession; if there were any rental value, plaintiff has no right to rent said street or to receive the proceeds of any such rental value. \"(h) that this defendant procured its charter from the state of texas, authorizing it to build and construct its line of street railwa",
+     "char_span": [
+      14322,
+      14335
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-001-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 8251122,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "rent-houses-37",
+     "selector_version": 1,
+     "matched_text": "urpose of schooling his children, and also that his wife could be near a physician. when he went to his farm seven miles away in bailey county, in the summer of 1913, he left some of his goods in the rent house at farwell, stating to mr. nobles, the landlord, that either in september or october he desired the house again and was moving out temporarily; that if nobles had an opportunity to rent the house he ",
+     "char_span": [
+      32240,
+      32250
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 8251274,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 1,
+     "matched_text": " private residence at night does not use the word \"house\" in designating the private residence, but uses alone \"private residence.\" the indictment in this instance followed the statute in averring the burglary of a private residence. however, article 1309, p. c., defines what is meant by a house as \"any building or structure erected for public or private use, * * * and of whatever material it may ",
+     "char_span": [
+      25814,
+      28768
+     ],
+     "chunk_id": 2725218,
+     "cosine": 0.500561535358429,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-zoning-paying-occupants-22",
+     "selector_version": 2,
+     "matched_text": " private residence at night does not use the word \"house\" in designating the private residence, but uses alone \"private residence.\" the indictment in this instance followed the statute in averring the burglary of a private residence. however, article 1309, p. c., defines what is meant by a house as \"any building or structure erected for public or private use, * * * and of whatever material it may ",
+     "char_span": [
+      25814,
+      28768
+     ],
+     "chunk_id": 2725218,
+     "cosine": 0.500561535358429,
+     "run_id": "cycle-002-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 8251638,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "boarding-house-keeping-04",
+     "selector_version": 1,
+     "matched_text": " showing that appellant was only the lessee or tenant of the house. with the exception in the most inferential way, the evidence is silent as to her relations to the house. there is evidence that she kept a boarding house and had boarders. outside of this there is no testimony that shows she was the lessee or tenant. there was no evidence offered to show her relation to it outside of the facts stated. her relations to",
+     "char_span": [
+      3166,
+      3187
+     ],
+     "chunk_id": null,
+     "cosine": null,
+     "run_id": "cycle-001-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 8251672,
+   "era_partition": "1900-1930",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "broom et al. v. pearson et al. (no. 1854.) (court of civil appeals of texas. texarkana. nov. 28, 1917. rehearing denied dec. 20, 1917.) 1. trespass to try title <&wkey;38(l)-burden to prove interest in land. in a suit of trespass to try title, the burden was on plaintiffs to prove the extent of tlieir interest in the land, and, having failed, they have no right to complain that the interest awarde",
+     "char_span": [
+      0,
+      3876
+     ],
+     "chunk_id": 2725961,
+     "cosine": 0.5586919784545898,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "broom et al. v. pearson et al. (no. 1854.) (court of civil appeals of texas. texarkana. nov. 28, 1917. rehearing denied dec. 20, 1917.) 1. trespass to try title <&wkey;38(l)-burden to prove interest in land. in a suit of trespass to try title, the burden was on plaintiffs to prove the extent of tlieir interest in the land, and, having failed, they have no right to complain that the interest awarde",
+     "char_span": [
+      0,
+      3876
+     ],
+     "chunk_id": 2725961,
+     "cosine": 0.5586919784545898,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  }
+ ],
+ "batch_id": "cycle-003-shard-01-batch-003"
+}

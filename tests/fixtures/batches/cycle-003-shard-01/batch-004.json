@@ -1,0 +1,421 @@
+{
+ "era_partition": "pre-1860",
+ "jurisdiction": "Tex.",
+ "cases": [
+  {
+   "case_id": 2119096,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " amendment of answer admitting that lots 1, 2 and 3 were the separate property of the plaintiff, but alleging that the improvements thereon, consisting of a dwelling house and other improvements, were made after the marriage ; that the dwelling house was worth $1200, and the other improvements worth $200 ; that said property had always been occupied as the homestead of the plaintiff and defendant ",
+     "char_span": [
+      7773,
+      12512
+     ],
+     "chunk_id": 1234470,
+     "cosine": 0.4637845456600189,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " amendment of answer admitting that lots 1, 2 and 3 were the separate property of the plaintiff, but alleging that the improvements thereon, consisting of a dwelling house and other improvements, were made after the marriage ; that the dwelling house was worth $1200, and the other improvements worth $200 ; that said property had always been occupied as the homestead of the plaintiff and defendant ",
+     "char_span": [
+      7773,
+      12512
+     ],
+     "chunk_id": 1234470,
+     "cosine": 0.4637845456600189,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2119100,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " ; 15 id. 394.) but the same influence which operated to induce the making of the deed appear to have continued for several years after the making of it. the plaintiff appears to have supposed that he was receiving, and to receive the promised consideration. until he was undeceived, there can be no presumption of his acquiescence in a known assertion of right adverse to his interest. the plaintiff",
+     "char_span": [
+      7723,
+      10007
+     ],
+     "chunk_id": 1234483,
+     "cosine": 0.43859657645225525,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2119101,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "rebecca portis and another v. samuel a. cuummings. where a party receives money as guardian, he is not allowed to disclaim the-character in which he acted to avoid payment to the party entitled to it. appeal from austin. tried below before the hon. c. w. buckley. rebecca portis, representing herself as guardian of samuel a. cummings, demanded and received from p. d. mcneil, a former guardian, a su",
+     "char_span": [
+      0,
+      1204
+     ],
+     "chunk_id": 1234484,
+     "cosine": 0.43833866715431213,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2119111,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " the case. the plaintiff did not claim under a deed, but under a certificate and survey, which was color of title, as defined in the 15th section. the court further instructed the jury, in effect, that the pending of the suit of lane against rose was an interruption of the possession of this plaintiff in 1844, when rose was her tenant. this, we think, was error. we do not think she was affected by",
+     "char_span": [
+      7168,
+      9014
+     ],
+     "chunk_id": 1234512,
+     "cosine": 0.459433376789093,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " the case. the plaintiff did not claim under a deed, but under a certificate and survey, which was color of title, as defined in the 15th section. the court further instructed the jury, in effect, that the pending of the suit of lane against rose was an interruption of the possession of this plaintiff in 1844, when rose was her tenant. this, we think, was error. we do not think she was affected by",
+     "char_span": [
+      7168,
+      9014
+     ],
+     "chunk_id": 1234512,
+     "cosine": 0.459433376789093,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2119118,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " prima facie to be his domicil, until other facts establish the contrary. (id.) if stanley ha,d taken up his residence out of the country, that would have afforded prima facie proof of a change of domicil. but his last residence was in this country, and ms domicil must be taken to have continued here until there was proof of an intention to change it; and the burden of proof was on the defendants.",
+     "char_span": [
+      14638,
+      18857
+     ],
+     "chunk_id": 1234532,
+     "cosine": 0.4665062725543976,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " prima facie to be his domicil, until other facts establish the contrary. (id.) if stanley ha,d taken up his residence out of the country, that would have afforded prima facie proof of a change of domicil. but his last residence was in this country, and ms domicil must be taken to have continued here until there was proof of an intention to change it; and the burden of proof was on the defendants.",
+     "char_span": [
+      14638,
+      18857
+     ],
+     "chunk_id": 1234532,
+     "cosine": 0.4665062725543976,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2119129,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " 178 decided in 1802 ; smith, v. wright, 1 caines r., 43, decided in 1803 ; hampton v. brig thaddeus, 4 martin, 582, decided in 1817 ; barber v. brace, 3 conn., 9, decided in 1819 ; dodge v. bartol, 5 greenl., 286, decided in 1827 ; wolcot v. the eagle ins. co.,4 pick., 429, decided in 1827; the paragon, ware's r., 322, decided in 1836; crain v. aiken, 13 maine, 229, decided in 1836; sproat v. don",
+     "char_span": [
+      13409,
+      17114
+     ],
+     "chunk_id": 1234560,
+     "cosine": 0.44665470719337463,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2119145,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " the settler or occupant shall have the preference, if their claims be otherwise' equal; provided that no location or improvement made since the declaration of independence by persons who have since that time arrived in the country, should be regarded when they come in conflict with the claims of those who were here at the declaration of independence. but those individuals entitled to the six mont",
+     "char_span": [
+      57875,
+      62910
+     ],
+     "chunk_id": 1234621,
+     "cosine": 0.5017408728599548,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " the settler or occupant shall have the preference, if their claims be otherwise' equal; provided that no location or improvement made since the declaration of independence by persons who have since that time arrived in the country, should be regarded when they come in conflict with the claims of those who were here at the declaration of independence. but those individuals entitled to the six mont",
+     "char_span": [
+      57875,
+      62910
+     ],
+     "chunk_id": 1234621,
+     "cosine": 0.5017408728599548,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2119148,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "adverse-embed-regulation-29",
+     "selector_version": 1,
+     "matched_text": "james bumpus v. jacob fisher and another. a white person may be indicted for an assault and battery upon a slave under the general provisions of the criminal law ; the act relating to the \" cruel treatment of slaves\" more appropriately applies to injuries committed by some one having control of the slave. justices of the peace have jurisdiction to hear and determine cases of assault and battery co",
+     "char_span": [
+      0,
+      4536
+     ],
+     "chunk_id": 1234625,
+     "cosine": 0.4661768674850464,
+     "run_id": "cycle-001-shard-02"
+    }
+   ]
+  },
+  {
+   "case_id": 2119155,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "c. f. sossaman v. c. b. powell. the heirs of a deceased person may bring a suit in reference to the homestead occupied by him, without taking out administration on his estate. the homestead can in no event be converted to the use of creditors; it vests in the heirs with or without administration, and whether it be or be not set apart by the chief justice of the county court. appeal from san august",
+     "char_span": [
+      0,
+      4725
+     ],
+     "chunk_id": 1234639,
+     "cosine": 0.4450109899044037,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2119162,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "adverse-embed-regulation-29",
+     "selector_version": 1,
+     "matched_text": "the state v. howell wren and others. no authority was given to sheriff prior to the adoption of the code of criminal procedure, to take a bail bond, except where a defendant is committed in default of bail by a magistrate, or when taken by capias in vacation. nor had such officer the power to receive an accused from the hands of his former bail and take new, without process in his hands, or the or",
+     "char_span": [
+      0,
+      2432
+     ],
+     "chunk_id": 1234650,
+     "cosine": 0.49739086627960205,
+     "run_id": "cycle-001-shard-02"
+    }
+   ]
+  },
+  {
+   "case_id": 2119165,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "adverse-embed-regulation-29",
+     "selector_version": 1,
+     "matched_text": " all good citizens and passers by,\" which comes within the strictest rule. all good citizens can mean nothing less than the citizens of the state. a satisfactory answer to the objections raised, is that they are cured by verdict. the 69th section of the act of 1854 (laws of the 5th leg., p. 70,) provides \" that judgment in any criminal case, after verdict, shall not be arrested or reversed upon an",
+     "char_span": [
+      6820,
+      9292
+     ],
+     "chunk_id": 1234657,
+     "cosine": 0.5218530893325806,
+     "run_id": "cycle-001-shard-02"
+    }
+   ]
+  },
+  {
+   "case_id": 2121184,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": "james g. heard and another v. henry e. lockett. where a party uses the name of another in suing for his own use, when he might have sued in his own name, he may change the suit into his own name by amendment. where a makes a lease to b, and 0 takes an under lease from b, stipulating to pay to a the rent agreed to be paid by b, but a refuses to recognize 0 as his tenant, and demands the rent from b",
+     "char_span": [
+      0,
+      4498
+     ],
+     "chunk_id": 1235466,
+     "cosine": 0.46078673005104065,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "james g. heard and another v. henry e. lockett. where a party uses the name of another in suing for his own use, when he might have sued in his own name, he may change the suit into his own name by amendment. where a makes a lease to b, and 0 takes an under lease from b, stipulating to pay to a the rent agreed to be paid by b, but a refuses to recognize 0 as his tenant, and demands the rent from b",
+     "char_span": [
+      0,
+      4498
+     ],
+     "chunk_id": 1235466,
+     "cosine": 0.46078673005104065,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2121203,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 1,
+     "matched_text": " of money in the shape of fees from the colonist or emigrant amounted to nearly the same under both laws; and though the emigrant, under the act of 1839, was not required to settle upon and cultivate the particular land granted, as was the colonist under the law of 1823, yet the duties exacted of him were nearly tantamount in their character. the object of both laws was the same: to reclaim the wi",
+     "char_span": [
+      14223,
+      18899
+     ],
+     "chunk_id": 1235490,
+     "cosine": 0.4615821838378906,
+     "run_id": "cycle-001-shard-02"
+    },
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " of money in the shape of fees from the colonist or emigrant amounted to nearly the same under both laws; and though the emigrant, under the act of 1839, was not required to settle upon and cultivate the particular land granted, as was the colonist under the law of 1823, yet the duties exacted of him were nearly tantamount in their character. the object of both laws was the same: to reclaim the wi",
+     "char_span": [
+      14223,
+      18899
+     ],
+     "chunk_id": 1235490,
+     "cosine": 0.4615821838378906,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2121238,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "creed taylor v. robert hall and wife. a, living in bexar county, being joined as a defendant in a suit in gonzales county, for taking plaintiff's cattle, after an answer of general demurrer and general denial, filed a plea, not under oath, to the jurisdiction of the court, claiming his privilege to be sued in bexar, and alleging that the other defendants were joined merely to give the court jurisd",
+     "char_span": [
+      0,
+      4413
+     ],
+     "chunk_id": 1235536,
+     "cosine": 0.4367635250091553,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2121242,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": " could take or sue, and there was no privity of contract between the subscriber and trustees. the points of difference between that case and this are, first, the subscription, in that, was made in favor of no particular persons, nor was it delivered to any person; in this, it was delivered, and there were persons intended to receive the donation. that case was an action of assumpsit, founded on th",
+     "char_span": [
+      9860,
+      14197
+     ],
+     "chunk_id": 1235545,
+     "cosine": 0.44805264472961426,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2121245,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "adolph e. gouhenant v. alexander cockrell. admitting, however, as we have held, that less evidence than the acquisition of a new homestead, will be sufficient to prove such abandonment of a former homestead, as will subject the property to forced sale; and that where there is abandonment with a fixed intention not to return, the property may be opened to creditors; yet it must be undeniably clear,",
+     "char_span": [
+      0,
+      4691
+     ],
+     "chunk_id": 1235547,
+     "cosine": 0.44458505511283875,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  },
+  {
+   "case_id": 2121258,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "adverse-embed-regulation-29",
+     "selector_version": 1,
+     "matched_text": "a. g. walker and others v. tarrant county. the location and removal of county seats pertain to the legislative department; if that department acts directly, no judicial question can be made as to the' propriety or validity of its action; and if it acts through the medium of officers or agents, no judicial question can be made as to the propriety or validity of the acts of the officers or agents, u",
+     "char_span": [
+      0,
+      4434
+     ],
+     "chunk_id": 1235561,
+     "cosine": 0.476670503616333,
+     "run_id": "cycle-001-shard-02"
+    }
+   ]
+  },
+  {
+   "case_id": 2121260,
+   "era_partition": "pre-1860",
+   "jurisdiction": "Tex.",
+   "signals": [
+    {
+     "selector_id": "embed-householder-letting-21",
+     "selector_version": 2,
+     "matched_text": "william t. gamble v. james l. dabney and others. the possession of the wife's separate property by the husband is not such a possession as, after a continuance of three years, without record of the title of the real owner, raises a presumption under the statute, (hart. dig. art. 1452,) in favor of creditors and purchasers, that the absolute property is with the possession. in this case the husband",
+     "char_span": [
+      0,
+      4387
+     ],
+     "chunk_id": 1235565,
+     "cosine": 0.44754472374916077,
+     "run_id": "cycle-003-shard-01"
+    }
+   ]
+  }
+ ],
+ "batch_id": "cycle-003-shard-01-batch-004"
+}
