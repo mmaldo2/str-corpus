@@ -17,7 +17,7 @@ from corpus_engine.domain import load_domain                                    
 from corpus_engine.ranker.labels import sha256_file                                         # noqa: E402
 from corpus_engine.reader.cache import ResponseCache                                        # noqa: E402
 from corpus_engine.reader.codebook import load_codebook, stability_path                     # noqa: E402
-from corpus_engine.reader.driver import Reader, plan_batch_extraction                       # noqa: E402
+from corpus_engine.reader.driver import RESUME_TOOL, Reader, plan_batch_extraction          # noqa: E402
 from corpus_engine.reader.gate import gate_unit                                             # noqa: E402
 from corpus_engine.reader.measure import (load_kit, score_candidate, select_reader,         # noqa: E402
                                           stability_agreement)
@@ -137,7 +137,8 @@ def pin_for(cand: dict, prov: OpenRouterProvider) -> tuple[ModelPin | None, str]
 
 def run_candidate(pin: ModelPin, kit_batches, source, dom, prov, budget_state, cache, log):
     plan = plan_batch_extraction(kit_batches, dom.reader.codebook, pin,
-                                 Budget(max_usd=max(budget_state["remaining"], 0.0)), worker="reader")
+                                 Budget(max_usd=max(budget_state["remaining"], 0.0)), worker="reader",
+                                 resume_tool=RESUME_TOOL)
     out = Reader(prov, source, cache=cache, log=log, domain=dom,
                  store_norm_version=STORE_NORM_VERSION).read(plan)
     budget_state["remaining"] -= out.spend_usd

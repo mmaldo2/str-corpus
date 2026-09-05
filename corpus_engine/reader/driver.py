@@ -55,30 +55,28 @@ def agreement(a, b, fields) -> dict[str, float]:
     return out
 
 
-RESUME_TOOL = "tools\\measure_reader.py"        # the only entry point that builds a plan and calls read()
+RESUME_TOOL = "tools\\measure_reader.py"        # the tool the measurement passes as plan.resume_tool
 
 
 def resume_command(plan: Plan) -> str:
     """A literal CLI line that re-runs this plan (spec section 5); the response cache
     makes the units already bought free.
 
-    It has to name a program that exists. The first form named `pipeline/read.py --plan
-    <run>/plan.json --resume`: no such script, no such flag, and nothing ever wrote that
-    plan file, so every outcome carried a line that could not run (I9). Today the only
-    caller that builds a plan and calls `Reader.read` is `tools/measure_reader.py`,
-    whose `--only <model id>` re-reads exactly one candidate's plan and whose budget
-    fails closed (an omitted `--max-usd` reads the prior manifest's spend). Plan kinds
-    with no runner yet - `reread` and `judgment`, both Stage 3B - get no command at all
-    rather than one that cannot run; `manifest["resume"]` says why instead."""
-    if plan.kind == "batch_extraction":
-        return f".venv\\Scripts\\python {RESUME_TOOL} --only {plan.pin.model_id}"
+    It has to name a program that exists AND that built this plan. 3A hard-coded
+    tools/measure_reader.py for every batch_extraction plan, which was true while the
+    measurement was the only caller and stops being true the moment the map runner exists
+    (slice 2). The plan now carries its own tool; a plan that names none gets no command,
+    and `manifest["resume"]` says why."""
+    if plan.kind == "batch_extraction" and plan.resume_tool:
+        return f".venv\\Scripts\\python {plan.resume_tool} --only {plan.pin.model_id}"
     return ""
 
 
 def resume_note(plan: Plan) -> str:
-    if plan.kind == "batch_extraction":
-        return f"re-run through {RESUME_TOOL}; units already in the response cache are free"
-    return f"no runner exists yet for a {plan.kind!r} plan (Stage 3B); resume_command is empty by design"
+    if plan.kind == "batch_extraction" and plan.resume_tool:
+        return f"re-run through {plan.resume_tool}; units already in the response cache are free"
+    return (f"no runner recorded for this {plan.kind!r} plan (the planner passed no resume_tool); "
+            f"resume_command is empty by design")
 
 
 def _sampled(unit_id: str, pct: int) -> bool:
@@ -154,7 +152,7 @@ def preflight(plan: Plan, codebook: Codebook, cases, provider, checker, *, store
 
 class Reader:
     def __init__(self, provider, cases, *, checker=None, cache: ResponseCache | None = None, log=print,
-                 clock=time.time, domain=None, store_norm_version=None):
+                 clock=time.time, domain=None, store_norm_version):
         # No `sleep`: the retry schedules live in the provider adapters, so the driver was
         # storing a callable it never used (m10). Same for the old `run_dir`, which only fed
         # the resume line that named a script which does not exist (I9).
@@ -230,20 +228,23 @@ class Reader:
                                         stub_notes[cid] = "parse failed (split half)"
                                 else:
                                     recs.extend(part)
-                        except (_BudgetStop, ReaderError) as exc:
-                            # A half that never ran (budget tripped, N1) or that died on a
-                            # provider error (I2) must not take the other half's paid, parsed
-                            # records with it: what was bought is kept, only the rest is stubbed.
+                        except Exception as exc:            # noqa: BLE001 - see the unit handler
+                            # A half that never ran (budget tripped, N1), died on a provider
+                            # error (I2), or hit an engine defect (N6) must not take the other
+                            # half's paid, parsed records with it: what was bought is kept, only
+                            # the rest is stubbed.
                             budget = isinstance(exc, _BudgetStop)
-                            note = "budget stop before split half" if budget else "provider error on split half"
+                            detail = "" if budget else f"{type(exc).__name__}: {exc}"
+                            note = ("budget stop before split half" if budget else
+                                    f"failed on split half ({type(exc).__name__})")
                             for cid in (c for h in halves[i:] for c in h.case_ids):
                                 stub_notes[cid] = note
                             units.append(UnitResult(unit.id, "partial_parse",
                                                     self._assemble(unit, texts, recs, judged, stub_notes), resp, hit,
-                                                    "" if budget else str(exc)[:300], retried=True))
+                                                    detail[:300], retried=True))
                             if budget:
                                 raise
-                            self.log(f"{unit.id}: split half FAILED {exc}")
+                            self.log(f"{unit.id}: split half FAILED {detail}")
                             continue
                         if len(stub_notes) == len(unit.case_ids):
                             stub = tuple(_missing_stub(cid, "unit parse failed") for cid in unit.case_ids)

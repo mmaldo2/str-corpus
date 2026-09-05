@@ -4,7 +4,7 @@ from corpus_engine.domain import load_domain
 from corpus_engine.reader.cache import ResponseCache
 from corpus_engine.reader.codebook import load_codebook
 from corpus_engine.reader.driver import (Reader, agreement, plan_batch_extraction, plan_judgment, plan_reread,
-                                         preflight, resume_command)
+                                         preflight, resume_command, resume_note)
 from corpus_engine.reader.model import Budget, ModelPin, ReaderError, Unit
 from corpus_engine.reader.parse import split_unit
 from corpus_engine.reader.providers.codex_cli import CodexCliProvider
@@ -35,14 +35,14 @@ def test_read_gates_caches_budgets_and_reports(tmp_path, fixture_db, repo_root):
     prov = ScriptedProvider(_answer(conn), cost_per_call=0.5); cache = ResponseCache(tmp_path / "cache")
     plan = plan_batch_extraction(_batches(repo_root), "mapper-v1", PIN, Budget(max_usd=1.0), worker="claude")
     (tmp_path / "stab").mkdir()
-    out = Reader(prov, StoreCaseSource(conn), cache=cache, log=lambda *_: None, domain=dom).read(plan)
+    out = Reader(prov, StoreCaseSource(conn), cache=cache, log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
     assert out.stop.kind == "budget:usd" and len(out.units) == 2 and prov.calls == 2 and out.spend_usd == 1.0
     recs = out.records
     assert recs and all(r["holding_summary"] is None for r in recs) and all(r["polarity"] == "favorable" for r in recs)
     assert all(r["extraction_status"] == "partial" for r in recs)
-    assert out.resume_command == f".venv\\Scripts\\python tools\\measure_reader.py --only {PIN.model_id}"
+    assert out.resume_command == ""          # this plan names no tool; the manifest note says why
     assert out.manifest["codebook_sha"] and out.manifest["model_pin"] == PIN.label
-    out2 = Reader(prov, StoreCaseSource(conn), cache=cache, log=lambda *_: None, domain=dom).read(plan)   # resume: cached units are free
+    out2 = Reader(prov, StoreCaseSource(conn), cache=cache, log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)   # resume: cached units are free
     assert prov.calls == 3 and out2.stop.kind == "done" and len(out2.units) == 3 and sum(u.cache_hit for u in out2.units) == 2
 
 def test_checker_sampling_and_disagreements(tmp_path, fixture_db, repo_root):
@@ -56,12 +56,12 @@ def test_checker_sampling_and_disagreements(tmp_path, fixture_db, repo_root):
     batches10 = _batches(repo_root, 10)
     plan = plan_batch_extraction(batches10, "mapper-v1", PIN, Budget(), worker="claude",
                                  checker_pin=ModelPin("scripted-checker", "openai"), sample_pct=100)
-    out = Reader(reader, StoreCaseSource(conn), checker=checker, log=lambda *_: None, domain=dom).read(plan)
+    out = Reader(reader, StoreCaseSource(conn), checker=checker, log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
     assert checker.calls == len(batches10) and out.disagreements and all(d.field == "polarity" for d in out.disagreements)
     plan10 = plan_batch_extraction(batches10, "mapper-v1", PIN, Budget(), worker="claude",
                                    checker_pin=ModelPin("scripted-checker", "openai"), sample_pct=10)
     c2 = ScriptedProvider(flip)
-    Reader(ScriptedProvider(_answer(conn)), StoreCaseSource(conn), checker=c2, log=lambda *_: None, domain=dom).read(plan10)
+    Reader(ScriptedProvider(_answer(conn)), StoreCaseSource(conn), checker=c2, log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan10)
     assert 0 <= c2.calls <= len(batches10)
 
 def test_preflight_refuses_same_family_and_missing_checker(tmp_path, fixture_db, repo_root):
@@ -83,7 +83,7 @@ def test_budget_units_stop(tmp_path, fixture_db, repo_root):
     p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
     prov = ScriptedProvider(_answer(conn))
     plan = plan_batch_extraction(_batches(repo_root, 3), "mapper-v1", PIN, Budget(max_units=1), worker="claude")
-    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
     assert out.stop.kind == "budget:units" and prov.calls == 1 and len(out.units) == 1
 
 
@@ -93,7 +93,7 @@ def test_budget_wall_stop(tmp_path, fixture_db, repo_root):
     plan = plan_batch_extraction(_batches(repo_root, 3), "mapper-v1", PIN, Budget(max_wall_seconds=5), worker="claude")
     seq = iter([0, 0, 10, 10])
     clock = lambda: next(seq, 10)
-    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom, clock=clock).read(plan)
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom, clock=clock, store_norm_version="v1").read(plan)
     assert out.stop.kind == "budget:wall" and prov.calls == 1 and len(out.units) == 1
 
 
@@ -105,7 +105,7 @@ def test_split_retry_both_halves_parse(tmp_path, fixture_db, repo_root):
         return "not json at all" if calls["n"] == 1 else ans(req)
     prov = ScriptedProvider(f)
     plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(), worker="claude")
-    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
     assert prov.calls == 3
     u = out.units[0]
     assert u.status == "ok" and len(u.records) == len(plan.units[0].case_ids)
@@ -125,7 +125,7 @@ def test_split_retry_second_half_garbage(tmp_path, fixture_db, repo_root):
         return "still not json"
     prov = ScriptedProvider(f)
     plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(), worker="claude")
-    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
     assert prov.calls == 3
     u = out.units[0]
     assert u.status == "partial_parse" and len(u.records) == len(plan.units[0].case_ids)
@@ -147,7 +147,7 @@ def test_checker_reader_error_does_not_duplicate_unit(tmp_path, fixture_db, repo
     checker = BrokenChecker()
     plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(), worker="claude",
                                  checker_pin=ModelPin("scripted-checker", "openai"), sample_pct=100)
-    out = Reader(reader, StoreCaseSource(conn), checker=checker, log=lambda *_: None, domain=dom).read(plan)
+    out = Reader(reader, StoreCaseSource(conn), checker=checker, log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
     ids = [u.unit_id for u in out.units]
     assert len(ids) == len(set(ids)) == 1
     u = out.units[0]
@@ -161,7 +161,7 @@ def test_checker_unparsed_response(tmp_path, fixture_db, repo_root):
     checker = ScriptedProvider(["not json"])
     plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(), worker="claude",
                                  checker_pin=ModelPin("scripted-checker", "openai"), sample_pct=100)
-    out = Reader(reader, StoreCaseSource(conn), checker=checker, log=lambda *_: None, domain=dom).read(plan)
+    out = Reader(reader, StoreCaseSource(conn), checker=checker, log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
     assert out.units[0].checker == "unparsed"
     assert out.disagreements == []
     assert out.manifest["checker_unparsed"] == 1
@@ -171,7 +171,7 @@ def test_budget_rechecked_inside_split(tmp_path, fixture_db, repo_root):
     p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
     prov = ScriptedProvider(lambda req: "still not json", cost_per_call=0.5)
     plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(max_usd=1.0), worker="claude")
-    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
     assert out.stop.kind == "budget:usd"
     assert prov.calls == 2                       # primary + first half; second half's pre-check trips
     assert out.spend_usd <= 1.0 + 0.5             # never overspends by more than one request
@@ -194,7 +194,7 @@ def test_budget_stop_mid_split_keeps_parsed_half(tmp_path, fixture_db, repo_root
     prov = ScriptedProvider(f, cost_per_call=0.5)
     plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(max_usd=1.0), worker="claude")
     unit = plan.units[0]; first_half, second_half = split_unit(unit)
-    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
     assert out.stop.kind == "budget:usd" and prov.calls == 2         # primary + first half; second half's pre-check trips
     assert len(out.units) == 1
     u = out.units[0]
@@ -213,7 +213,7 @@ def test_budget_trips_exactly_at_checker_ask(tmp_path, fixture_db, repo_root):
     checker = ScriptedProvider(_answer(conn))
     plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(max_usd=1.0), worker="claude",
                                  checker_pin=ModelPin("scripted-checker", "openai"), sample_pct=100)
-    out = Reader(reader, StoreCaseSource(conn), checker=checker, log=lambda *_: None, domain=dom).read(plan)
+    out = Reader(reader, StoreCaseSource(conn), checker=checker, log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
     assert out.stop.kind == "budget:usd"
     ids = [u.unit_id for u in out.units]
     assert len(ids) == len(set(ids)) == 1
@@ -235,7 +235,7 @@ def test_a_non_reader_exception_costs_one_unit_not_the_whole_read(tmp_path, fixt
         return ans(req)
     prov = ScriptedProvider(f)
     plan = plan_batch_extraction(_batches(repo_root, 3), "mapper-v1", PIN, Budget(), worker="claude")
-    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
     assert out.stop.kind == "done" and len(out.units) == 3
     bad = out.units[0]
     assert bad.status == "failed" and bad.error.startswith("failed:TypeError: unhashable type")
@@ -252,10 +252,10 @@ def test_a_malformed_cache_entry_costs_one_unit_not_the_whole_read(tmp_path, fix
     cache = ResponseCache(tmp_path / "cache")
     plan = plan_batch_extraction(_batches(repo_root, 3), "mapper-v1", PIN, Budget(), worker="claude")
     src = StoreCaseSource(conn)
-    Reader(ScriptedProvider(_answer(conn)), src, cache=cache, log=lambda *_: None, domain=dom).read(plan)
+    Reader(ScriptedProvider(_answer(conn)), src, cache=cache, log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
     sorted(cache.dir.glob("*.json"))[0].write_text('{"text": "truncated', encoding="utf-8")
     prov = ScriptedProvider(_answer(conn))
-    out = Reader(prov, src, cache=cache, log=lambda *_: None, domain=dom).read(plan)
+    out = Reader(prov, src, cache=cache, log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
     assert out.stop.kind == "done" and len(out.units) == 3
     failed = [u for u in out.units if u.status == "failed"]
     assert len(failed) == 1 and "malformed cache entry" in failed[0].error
@@ -277,7 +277,7 @@ def test_provider_error_on_a_split_half_keeps_the_half_already_paid_for(tmp_path
     prov = ScriptedProvider(f)
     plan = plan_batch_extraction(_batches(repo_root, 2), "mapper-v1", PIN, Budget(), worker="claude")
     unit = plan.units[0]; first_half, second_half = split_unit(unit)
-    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
     assert out.stop.kind == "done" and len(out.units) == 2      # the read continues to the next unit
     u = out.units[0]
     assert u.status == "partial_parse" and u.retried and "gave up on the second half" in u.error
@@ -285,8 +285,36 @@ def test_provider_error_on_a_split_half_keeps_the_half_already_paid_for(tmp_path
     stubs = [r for r in u.records if r.case_id in set(second_half.case_ids)]
     assert len(real) == len(first_half.case_ids) and len(stubs) == len(second_half.case_ids)
     assert all(r.gate_status != "missing" and r.record.get("polarity") == "favorable" for r in real)
-    assert all(r.record["gate_notes"] == "provider error on split half" for r in stubs)
+    assert all(r.record["gate_notes"] == "failed on split half (ReaderError)" for r in stubs)
     assert [r.case_id for r in u.records] == list(unit.case_ids)
+
+
+def test_a_defect_in_one_split_half_keeps_the_half_already_paid_for(tmp_path, fixture_db, repo_root):
+    """N6. The unit loop catches Exception (an engine defect costs one unit, not the run),
+    but the split loop caught only ReaderError and _BudgetStop - so a TypeError raised while
+    the second half was being fetched threw away the first half, which had been bought."""
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
+    plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(), worker="claude")
+    unit = plan.units[0]
+    first, _second = split_unit(unit)
+    answer = _answer(conn)
+    calls = {"n": 0}
+
+    def flaky(req):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return "this will not parse"
+        if calls["n"] == 2:
+            return answer(req)
+        raise TypeError("engine defect on the second half")
+
+    out = Reader(ScriptedProvider(flaky), StoreCaseSource(conn), log=lambda *_: None, domain=dom,
+                 store_norm_version="v1").read(plan)
+    u = out.units[0]
+    assert u.status == "partial_parse" and u.retried is True and "TypeError" in u.error
+    kept = [r for r in u.records if r.record.get("extraction_status") != "missing"]
+    assert sorted(r.case_id for r in kept) == sorted(first.case_ids)
+    assert out.stop.kind == "done"                       # the run continues
 
 
 def test_a_one_case_unit_is_never_split_into_an_empty_half(tmp_path, fixture_db, repo_root):
@@ -298,7 +326,7 @@ def test_a_one_case_unit_is_never_split_into_an_empty_half(tmp_path, fixture_db,
     prov = ScriptedProvider(lambda req: "not json at all")
     plan = plan_reread([{"case_id": cid, "era_partition": "e", "jurisdiction": "j"}],
                        "mapper-v1", PIN, Budget(), worker="claude")
-    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom).read(plan)
+    out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
     assert prov.calls == 1                                   # the primary ask only; no empty half bought
     u = out.units[0]
     assert u.status == "parse_failed" and not u.retried and "never split" in u.error
@@ -308,7 +336,8 @@ def test_a_one_case_unit_is_never_split_into_an_empty_half(tmp_path, fixture_db,
 def test_resume_command_names_a_program_that_exists(repo_root):
     """I9. Every outcome used to carry `pipeline\\read.py --plan <run>\\plan.json --resume`:
     no such script, no such flag, and nothing ever wrote that plan file."""
-    plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(), worker="claude")
+    plan = plan_batch_extraction(_batches(repo_root, 1), "mapper-v1", PIN, Budget(), worker="claude",
+                                 resume_tool="tools\\measure_reader.py")
     cmd = resume_command(plan)
     program = cmd.split()[1]
     assert (repo_root / program.replace("\\", "/")).exists(), cmd
@@ -317,6 +346,18 @@ def test_resume_command_names_a_program_that_exists(repo_root):
     # a plan kind with no runner yet gets no line at all rather than one that cannot run
     judge = plan_judgment([1], "Did the court reach the merits?", "mapper-v1", PIN, Budget(), worker="claude")
     assert resume_command(judge) == ""
+
+
+def test_resume_command_names_the_tool_that_built_the_plan():
+    """I9 again, one step further: the line has to name a program that exists AND that
+    actually built this plan. A plan nothing has a runner for gets no command at all."""
+    plan = plan_batch_extraction([], "mapper-v1", PIN, Budget(), worker="reader",
+                                 resume_tool="tools\\measure_reader.py")
+    assert resume_command(plan) == f".venv\\Scripts\\python tools\\measure_reader.py --only {PIN.model_id}"
+    bare = plan_batch_extraction([], "mapper-v1", PIN, Budget(), worker="reader")
+    assert resume_command(bare) == ""
+    assert "no runner" in resume_note(bare)
+    assert plan_judgment([1], "q?", "mapper-v1", PIN, Budget(), worker="reader").resume_tool == ""
 
 
 def test_cache_key_composition_is_pinned(tmp_path):
@@ -343,6 +384,18 @@ def test_cache_key_composition_is_pinned(tmp_path):
     assert ResponseCache.key(sha_a, effort_high, unit, "prompt") == key
     assert list(inspect.signature(ResponseCache.key).parameters) == [
         "codebook_sha", "pin", "unit", "prompt", "schema_sha", "max_tokens", "effort"]
+
+
+def test_store_norm_version_is_required_so_the_guard_cannot_be_left_inert(tmp_path, fixture_db):
+    """I10. It defaulted to None, and None short-circuits pre-flight check (1) - the check
+    that stops a read of texts the codebook was never validated against. A caller now has to
+    say what the store holds, even if what it says is None."""
+    import pytest
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p)
+    with pytest.raises(TypeError, match="store_norm_version"):
+        Reader(ScriptedProvider(["[]"]), StoreCaseSource(conn))
+    r = Reader(ScriptedProvider(["[]"]), StoreCaseSource(conn), store_norm_version="v1")
+    assert r.norm == "v1"
 
 
 def test_preflight_refuses_a_store_at_the_wrong_norm_version(repo_root):
