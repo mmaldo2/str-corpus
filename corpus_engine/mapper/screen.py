@@ -23,10 +23,13 @@ from `maybe_run` means "the cell's block is unchanged"), same shape from `to_jso
 
 The dollar ceiling is checked BEFORE every paid request (tools/measure_reader.py's rule, kept
 here): a request is refused while the ceiling is already reached, rather than issued and then
-regretted. `Screen.from_domain` wires that check to OpenRouter's own `/credits` balance
-(`credits_remaining`, corpus_engine.reader.providers.factory) rather than trusting
-driver-tracked spend alone - the 2026-09-05 measurement found the two disagree in both
-directions (see `tools/measure_reader.py`'s `reconcile`)."""
+regretted. That check always reads driver-tracked spend (`self.spend_usd`); it never calls
+OpenRouter's `/credits` endpoint itself. Instead, `_reconcile` trues `self.spend_usd` up
+against `/credits` once per triggered run (post-hoc, mirroring `tools/measure_reader.py`'s
+`reconcile`/`settle` - called once a run finishes, not before every request in it) - the
+2026-09-05 measurement found the two disagree in both directions. A failed probe (network
+blip, timeout) is caught and logged; the screen degrades to driver-tracked spend rather than
+letting an unhandled exception out of `maybe_run` and killing the cell (review finding 1)."""
 from __future__ import annotations
 from typing import Mapping, Sequence
 
@@ -131,12 +134,31 @@ class Screen:
         return cls(factory, fallback_pin=pin, codebook=codebook, max_usd=max_usd, log=log,
                    spend_probe=probe)
 
+    def _reconcile(self) -> None:
+        """True `self.spend_usd` up against OpenRouter's own ledger once per triggered run
+        (called once, post-hoc, from the end of `maybe_run` - never from `_check_budget`,
+        so a probe never runs per request). A failed probe is logged and left as
+        driver-tracked spend rather than raised (review finding 1): the measurement tool's
+        `reconcile` degrades the same way. A no-op when this screen has no probe wired
+        (`Screen.off()`, or a caller that built one without `spend_probe`)."""
+        if self.spend_probe is None:
+            return
+        try:
+            real = self.spend_probe()
+        except Exception as exc:                                     # noqa: BLE001
+            self.log(f"screen: credits probe failed ({exc!r}); "
+                     f"falling back to driver-tracked spend ${self.spend_usd:.4f}")
+            return
+        self.log(f"screen: real spend ${real:.4f} (driver-tracked ${self.spend_usd:.4f})")
+        self.spend_usd = real
+
     def _check_budget(self) -> None:
         """The measurement tool's rule, kept: a request is refused while the ceiling is
-        already reached, rather than issued and then regretted."""
-        spent = self.spend_probe() if self.spend_probe else self.spend_usd
-        if spent >= self.max_usd:
-            raise ScreenBudgetExceeded(f"screen spend {spent:.2f} >= ceiling {self.max_usd:.2f}")
+        already reached, rather than issued and then regretted - checked against whatever
+        `self.spend_usd` currently holds (driver-tracked, periodically trued up by
+        `_reconcile`), never against a fresh probe (review finding 2)."""
+        if self.spend_usd >= self.max_usd:
+            raise ScreenBudgetExceeded(f"screen spend {self.spend_usd:.2f} >= ceiling {self.max_usd:.2f}")
 
     def to_json(self) -> dict:
         if self.reader_factory is None:
@@ -194,6 +216,7 @@ class Screen:
             # ONLY `relevant` is consumed. Everything else the fallback said is discarded -
             # only the pinned reader's records are ever admitted toward yield/admission (D10).
             hits += [int(r["case_id"]) for r in out.records if r.get("relevant") is True]
+        self._reconcile()          # post-hoc, once per triggered run (review finding 2)
         self.hits += len(hits)
         self.hit_case_ids += hits
         doc["hits"] = len(hits)

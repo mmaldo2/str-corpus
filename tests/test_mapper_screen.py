@@ -117,24 +117,95 @@ def test_rebatch_packs_the_hits_at_eighteen_and_keeps_the_cell_metadata():
 
 def test_the_ceiling_is_checked_before_every_request_and_stops_the_screen(monkeypatch):
     """The measurement tool's rule, kept: a request is refused while the ceiling is already
-    reached, rather than issued and then regretted."""
-    spend = {"usd": 0.0}
-    asked = []
+    reached, rather than issued and then regretted. `_check_budget` reads driver-tracked
+    spend (`self.spend_usd`) - it never calls the probe itself (review finding 2); the probe
+    fires only from `_reconcile`, once per triggered run."""
 
-    class _FakeReader:
-        def read(self, plan):
-            asked.append(plan.units[0].id)
-            spend["usd"] += 3.0
-            raise AssertionError("the screen must check its ceiling before it reads")
+    def _boom():
+        raise AssertionError("_check_budget must never call the probe directly")
 
-    s = Screen(lambda: _FakeReader(), fallback_pin=None, codebook=None, max_usd=5.0,
-               log=lambda *_: None, spend_probe=lambda: spend["usd"])
-    spend["usd"] = 5.0
+    s = Screen(lambda: None, fallback_pin=None, codebook=None, max_usd=5.0,
+              log=lambda *_: None, spend_probe=_boom)
+    s.spend_usd = 5.0
     with pytest.raises(ScreenBudgetExceeded):
         s._check_budget()
-    spend["usd"] = 4.99
+    s.spend_usd = 4.99
     s._check_budget()                     # under the ceiling: allowed
-    assert asked == []
+
+
+def test_reconcile_trues_up_driver_tracked_spend_once_per_triggered_run():
+    """Review finding 2: the `/credits` probe is called once per triggered run,
+    post-hoc, like `tools/measure_reader.py`'s `reconcile`/`settle` - not once per request.
+    The driver-tracked total this run accumulates (0.25 * 3 = 0.75) disagrees with what the
+    probe reports as actually charged (1.10); after the run, `self.spend_usd` reads the
+    probe's figure, not the driver-tracked one, and the probe was called exactly once."""
+    pool = {f"b{i}": {"batch_id": f"b{i}", "era_partition": "1930-1970", "jurisdiction": "N.Y.",
+                      "cases": [{"case_id": 100 * i + j, "era_partition": "1930-1970",
+                                 "jurisdiction": "N.Y.", "signals": [], "rank_score": 0.3}
+                                for j in range(4)]}
+            for i in range(1, 9)}
+
+    class _Src:
+        def get(self, bid):
+            return pool[bid]
+
+    class _Reader:
+        def read(self, plan):
+            unit = plan.units[0]
+            recs = [{"case_id": cid, "relevant": False, "quotes": []} for cid in unit.case_ids]
+            return type("O", (), {"records": recs, "spend_usd": 0.25,
+                                  "units": [type("U", (), {"unit_id": unit.id, "cache_hit": False,
+                                                           "response": 1})()]})()
+
+    calls = []
+
+    def probe():
+        calls.append(1)
+        return 1.10
+
+    s = Screen(lambda: _Reader(), fallback_pin=None, codebook=None, max_usd=5.0,
+              log=lambda *_: None, spend_probe=probe)
+    doc = s.maybe_run(CELL, CellStop("yield_floor", "..."), batch_source=_Src(),
+                      progress=_progress(3, yields=0))
+    assert doc["state"] == "ran"
+    assert len(calls) == 1                        # probed once for the whole run, not per request
+    assert s.spend_usd == pytest.approx(1.10)      # trued up from the probe, not driver-tracked
+
+
+def test_a_failing_probe_degrades_to_driver_tracked_spend_without_crashing_the_cell():
+    """Review finding 1: `_check_budget` used to call `self.spend_probe()` unhandled, so a
+    network blip or timeout on OpenRouter's `/credits` propagated out of `maybe_run` and
+    killed the whole cell. A failing probe must now be caught, logged, and leave
+    driver-tracked spend standing so the run completes."""
+    pool = {f"b{i}": {"batch_id": f"b{i}", "era_partition": "1930-1970", "jurisdiction": "N.Y.",
+                      "cases": [{"case_id": 100 * i + j, "era_partition": "1930-1970",
+                                 "jurisdiction": "N.Y.", "signals": [], "rank_score": 0.3}
+                                for j in range(4)]}
+            for i in range(1, 9)}
+
+    class _Src:
+        def get(self, bid):
+            return pool[bid]
+
+    class _Reader:
+        def read(self, plan):
+            unit = plan.units[0]
+            recs = [{"case_id": cid, "relevant": False, "quotes": []} for cid in unit.case_ids]
+            return type("O", (), {"records": recs, "spend_usd": 0.25,
+                                  "units": [type("U", (), {"unit_id": unit.id, "cache_hit": False,
+                                                           "response": 1})()]})()
+
+    def failing_probe():
+        raise TimeoutError("credits endpoint unreachable")
+
+    logged = []
+    s = Screen(lambda: _Reader(), fallback_pin=None, codebook=None, max_usd=5.0,
+              log=logged.append, spend_probe=failing_probe)
+    doc = s.maybe_run(CELL, CellStop("yield_floor", "..."), batch_source=_Src(),
+                      progress=_progress(3, yields=0))
+    assert doc["state"] == "ran"                          # the cell was not killed
+    assert s.spend_usd == pytest.approx(0.75)              # left as driver-tracked
+    assert any("credits probe failed" in m for m in logged)
 
 
 def test_a_screen_run_reads_the_remainder_records_the_hits_and_rebatches_them():
