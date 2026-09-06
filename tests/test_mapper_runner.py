@@ -5,6 +5,7 @@ moves to the next one; the per-process caps end the run cleanly with the manifes
 resume replays the cache for free; a failed unit costs one batch and never a cell; and the
 manifest carries what Task 7 needs to re-derive every record offline."""
 import json
+import os
 import shutil
 from pathlib import Path
 
@@ -533,3 +534,132 @@ def test_the_more_complete_walk_wins_a_cell_and_unit_rows_are_unioned():
     assert merged["cells"]["B"]["units"]                            # untouched cell kept whole
     assert merged["totals"]["units"] == 6                           # what both processes bought
     assert merged["totals"]["batches_completed"] == 1               # recomputed by the caller
+
+
+def _write_prior(path, cells, *, run_id="cycle-004-shard-01", schema=MANIFEST_SCHEMA):
+    path.write_bytes((json.dumps({"schema": schema, "run_id": run_id,
+                                  "cell_order": list(cells), "cells": cells,
+                                  "totals": {"units": 7}}, indent=1) + "\n").encode("utf-8"))
+
+
+def test_a_prior_manifest_in_the_older_row_shape_is_merged_forward(tmp_path, fixture_db,
+                                                                   repo_root):
+    """Re-review A. `map-manifest-v1` has meant two unit-row shapes: `cache_key: str` before
+    the split-half fix and `cache_keys: list` since. The older shape is read, not refused - a
+    key that was recorded is a key admission can still use."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 2})
+    _write_prior(tmp_path / "map-manifest.json",
+                 {"pre-1860|Pa.": {"batches_attempted": 1, "batches_completed": 1,
+                                   "units": [{"unit_id": "old-001", "cache_key": "legacy-key"}]}})
+    r = _runner(tmp_path, fixture_db, pool, answer=_answer(lambda bid: 1),
+                caps=RunnerCaps(max_units=50, max_wall_seconds=1e6))
+    out = r.run()
+    assert not (tmp_path / "map-manifest.fresh.json").exists()
+    old = out.manifest["cells"]["pre-1860|Pa."]
+    assert old["cache_keys"] == {"old-001": ["legacy-key"]}
+    assert old["checker_sampled"] == [] and old["checker_units"] == 0
+    assert set(out.manifest["cells"]) == {"1930-1970|N.Y.", "pre-1860|Pa."}
+    assert out.manifest["totals"]["units"] == 7 + 2                  # accumulated, not replaced
+
+
+def test_a_merge_that_raises_keeps_the_prior_file_and_writes_beside_it(tmp_path, fixture_db,
+                                                                       repo_root):
+    """Re-review A. The merge runs inside `run()`'s `finally`. A defect in it must not cost the
+    write, and must not destroy the record already on disk to make room for a partial one."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 2})
+    prior_path = tmp_path / "map-manifest.json"
+    _write_prior(prior_path, {"pre-1860|Pa.": "not a cell document at all"})
+    before = prior_path.read_bytes()
+    r = _runner(tmp_path, fixture_db, pool, answer=_answer(lambda bid: 1),
+                caps=RunnerCaps(max_units=50, max_wall_seconds=1e6))
+    out = r.run()
+    assert prior_path.read_bytes() == before                         # left exactly as it was
+    side = tmp_path / "map-manifest.fresh.json"
+    assert out.manifest_path == side and side.exists()
+    doc = json.loads(side.read_text(encoding="utf-8"))
+    assert set(doc["cells"]) == {"1930-1970|N.Y."} and doc["totals"]["units"] == 2
+
+
+def test_a_merge_failure_never_replaces_the_exception_that_was_propagating(tmp_path, fixture_db,
+                                                                           repo_root):
+    """Re-review A, the half that matters most: a KeyError raised inside a `finally` REPLACES
+    the exception on its way out, so a bad prior manifest would have turned every defect in a
+    map run into a lie about the merge."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 6})
+    _write_prior(tmp_path / "map-manifest.json", {"pre-1860|Pa.": "not a cell document at all"})
+
+    class Exploding:
+        def maybe_run(self, cell, stop, **kw):
+            raise RuntimeError("screen defect")
+
+        def pinned_units(self):
+            return []
+
+        def to_json(self):
+            return dict(SCREEN_OFF)
+
+    r = _runner(tmp_path, fixture_db, pool, answer=_answer(lambda bid: 0),
+                caps=RunnerCaps(max_units=50, max_wall_seconds=1e6), screen=Exploding())
+    with pytest.raises(RuntimeError, match="screen defect"):
+        r.run()
+    side = json.loads((tmp_path / "map-manifest.fresh.json").read_text(encoding="utf-8"))
+    assert side["cells"]["1930-1970|N.Y."]["batches_completed"] == 3
+
+
+def test_screen_pinned_units_counts_what_the_map_holds_not_what_each_resume_re_pinned(tmp_path,
+                                                                                      fixture_db,
+                                                                                      repo_root):
+    """Re-review B. A resume re-runs the screen, re-pins the same units and buys none of them,
+    so a pinned-unit count that accumulated like a purchase counter would grow on every replay
+    while the map stayed the same size."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 6})
+    db = tmp_path / "c.db"
+    shutil.copy(fixture_db, db)
+    conn = store.connect(db)
+    dom = load_domain()
+    cb = load_codebook(dom, "mapper-v3")
+    fb_pin = ModelPin("google/gemini-3.7-flash", "google", extra={"reasoning": {"effort": "low"}})
+    fb_cache = ResponseCache(tmp_path / "fbcache")
+
+    def make_screen():
+        fallback = ScriptedProvider(_answer(lambda bid: 1))
+
+        def fb_factory():
+            return Reader(fallback, StoreCaseSource(conn), cache=fb_cache,
+                          log=lambda *_: None, domain=dom, store_norm_version="v1")
+
+        return Screen(fb_factory, fallback_pin=fb_pin, codebook=cb, max_usd=5.0,
+                      log=lambda *_: None)
+
+    def run_once():
+        return _runner(tmp_path, fixture_db, pool,
+                       answer=_answer(lambda bid: 2 if bid.startswith("screen-") else 0),
+                       caps=RunnerCaps(max_units=50, max_wall_seconds=1e6),
+                       screen=make_screen()).run()
+
+    first = run_once()
+    assert first.manifest["totals"]["screen_pinned_units"] == 1
+    assert first.manifest["process"]["screen_pinned_units"] == 1
+    second = run_once()
+    assert second.units == 0                                  # everything replayed from cache
+    assert second.manifest["totals"]["screen_pinned_units"] == 1      # still one pinned unit
+    assert second.manifest["process"]["screen_pinned_units"] == 1     # walked again, bought none
+    assert second.manifest["totals"]["units"] == first.manifest["totals"]["units"]
+
+
+def test_the_manifest_is_moved_into_place_rather_than_written_over(tmp_path, fixture_db,
+                                                                   repo_root, monkeypatch):
+    """Re-review C. A torn manifest reads as unmergeable, and an unmergeable manifest sends the
+    next subset run back to overwriting the map - so the file is never partially written."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 2})
+    moved = []
+    real = os.replace
+    monkeypatch.setattr(os, "replace", lambda src, dst: (moved.append((str(src), str(dst))),
+                                                         real(src, dst))[1])
+    r = _runner(tmp_path, fixture_db, pool, answer=_answer(lambda bid: 1),
+                caps=RunnerCaps(max_units=50, max_wall_seconds=1e6))
+    out = r.run()
+    assert moved and moved[-1][1] == str(out.manifest_path)
+    assert moved[-1][0].endswith(".tmp")
+    assert not list(tmp_path.glob("*.tmp"))                   # nothing left behind
+    assert json.loads(Path(out.manifest_path).read_text(encoding="utf-8"))["cells"]

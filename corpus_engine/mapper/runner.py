@@ -37,6 +37,7 @@ silently dropped four candidates from the measurement (I8)."""
 from __future__ import annotations
 import json
 import math
+import os
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -80,8 +81,11 @@ CELL_SCREEN_OFF = {"state": "off"}
 # response cache and so adds exactly zero to every one of these, while two `--cells` runs over
 # different cells each add what they really spent. `process` records the same figures for the
 # one process that wrote this document.
-CUMULATIVE_TOTALS = ("units", "checker_units", "screen_pinned_units", "input_tokens",
-                     "output_tokens", "spend_usd", "unpriced_requests", "wall_seconds")
+# NOT `screen_pinned_units`: that counts pinned batches WALKED, and a resume re-runs the screen,
+# re-pins the same units and buys none of them again (re-review B). It is derived from the cells
+# like every other holding-count; what this process walked is in the `process` block.
+CUMULATIVE_TOTALS = ("units", "checker_units", "input_tokens", "output_tokens", "spend_usd",
+                     "unpriced_requests", "wall_seconds")
 
 
 @dataclass(frozen=True)
@@ -160,17 +164,37 @@ def unit_completed(unit) -> bool:
     return False
 
 
+def unit_keys(unit: Mapping) -> list:
+    """Every cache key a unit row records, in whatever shape recorded it. A row written before
+    the split-half fix carries `cache_key: str`; one written since carries `cache_keys: list`.
+    Reading both means an older manifest is merged forward rather than refused, and it is why
+    `derived` cannot raise on a row it did not write (re-review A)."""
+    keys = unit.get("cache_keys")
+    if keys is None:
+        keys = unit.get("cache_key")
+    if isinstance(keys, str):
+        return [keys] if keys else []
+    return [k for k in (keys or []) if k]
+
+
 def derived(units: Sequence[Mapping]) -> dict:
     """A cell's aggregates, computed from its unit rows and never accumulated beside them, so
     `checker_sampled` can no more disagree with the unit that says it was sampled than a sum
-    can disagree with its own addends."""
+    can disagree with its own addends.
+
+    Every field is read with `.get`: this runs over rows from a manifest ON DISK as well as
+    over this process's own, and it runs inside `run()`'s `finally`, where a `KeyError` would
+    cost the write and mask whatever exception was already propagating."""
+    rows = [u for u in units if u.get("unit_id")]
     return {
-        "cache_keys": {u["unit_id"]: list(u["cache_keys"]) for u in units if u["cache_keys"]},
-        "checker_sampled": [u["unit_id"] for u in units if u["checker"]["sampled"]],
-        "checker_status": {u["unit_id"]: u["checker"]["status"] for u in units
-                           if u["checker"]["sampled"]},
-        "checker_disagreements": [d for u in units for d in u["checker"]["disagreements"]],
-        "checker_units": sum(1 for u in units if u["checker"]["sampled"]),
+        "cache_keys": {u["unit_id"]: unit_keys(u) for u in rows if unit_keys(u)},
+        "checker_sampled": [u["unit_id"] for u in rows
+                            if (u.get("checker") or {}).get("sampled")],
+        "checker_status": {u["unit_id"]: (u.get("checker") or {}).get("status", "none")
+                           for u in rows if (u.get("checker") or {}).get("sampled")},
+        "checker_disagreements": [d for u in rows
+                                  for d in ((u.get("checker") or {}).get("disagreements") or [])],
+        "checker_units": sum(1 for u in rows if (u.get("checker") or {}).get("sampled")),
     }
 
 
@@ -184,9 +208,9 @@ def merge_cell(prior: Mapping, fresh: Mapping) -> dict:
     walk and wins; a `--dry-run-batches 1` over a cell already fully read is not, so the full
     walk survives it and only the dry run's (identical, cached) unit rows are folded in."""
     base = fresh if fresh.get("batches_attempted", 0) >= prior.get("batches_attempted", 0) else prior
-    order = [u["unit_id"] for u in base.get("units") or []]
-    rows = {u["unit_id"]: u for u in (prior.get("units") or [])}
-    rows.update({u["unit_id"]: u for u in (fresh.get("units") or [])})
+    rows = {u["unit_id"]: u for u in (prior.get("units") or []) if u.get("unit_id")}
+    rows.update({u["unit_id"]: u for u in (fresh.get("units") or []) if u.get("unit_id")})
+    order = [u["unit_id"] for u in (base.get("units") or []) if u.get("unit_id")]
     order += [uid for uid in rows if uid not in set(order)]
     doc = dict(base)
     doc["units"] = [rows[uid] for uid in order]
@@ -204,7 +228,11 @@ def merge_manifest(prior: Mapping, fresh: Mapping) -> dict:
     constant for why that is not double counting - and every other total is recomputed from the
     merged cells by the caller."""
     merged = {**prior, **fresh}
-    cells = dict(prior.get("cells") or {})
+    # Every prior cell is re-derived from its own unit rows, not copied through: a cell this
+    # process did not read may have been written in an older row shape (`unit_keys`), and a
+    # merged manifest that mixed two shapes would hand admission keys it cannot see.
+    cells = {key: {**doc, **derived((doc or {}).get("units") or [])}
+             for key, doc in (prior.get("cells") or {}).items()}
     for key, doc in (fresh.get("cells") or {}).items():
         cells[key] = merge_cell(cells[key], doc) if key in cells else doc
     merged["cells"] = cells
@@ -453,16 +481,52 @@ class MapRunner:
                 if stop in PROCESS_STOPS:
                     break
         finally:
-            manifest = self._manifest(cells, progress, records, counts, totals, seen, t0,
-                                      started, stop)
-            self.manifest_path.parent.mkdir(parents=True, exist_ok=True)
-            self.manifest_path.write_bytes(
-                (json.dumps(manifest, indent=1, sort_keys=True) + "\n").encode("utf-8"))
-            self.log(f"manifest -> {self.manifest_path}")
+            fresh = self._manifest(cells, progress, records, counts, totals, seen, t0,
+                                   started, stop)
+            manifest, written = self._merge_onto_prior(fresh, counts, totals, t0)
+            self._write(written, manifest)
+            self.log(f"manifest -> {written}")
             self.log(f"resume: {manifest['resume_command']}")
         return MapOutcome([manifest["cells"][k] for k in manifest["cell_order"]], counts["reader"],
-                          round(self.clock() - t0, 1), stop, manifest, self.manifest_path,
+                          round(self.clock() - t0, 1), stop, manifest, written,
                           manifest["resume_command"])
+
+    def _write(self, path: Path, doc: dict) -> None:
+        """Whole file or nothing (re-review C). A torn manifest reads as unmergeable, and an
+        unmergeable manifest degrades the next subset run back to overwriting the map - so the
+        document is built in full, written to a sibling temp file, and moved into place by one
+        `os.replace`, which is atomic on Windows and on POSIX alike."""
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_suffix(path.suffix + ".tmp")
+        tmp.write_bytes((json.dumps(doc, indent=1, sort_keys=True) + "\n").encode("utf-8"))
+        os.replace(tmp, path)
+
+    def _merge_onto_prior(self, fresh: dict, counts: dict, running: dict,
+                          t0: float) -> tuple[dict, Path]:
+        """What to write, and where.
+
+        The only caller is `run()`'s `finally`, which may be running with an exception already
+        in flight, so a defect in the merge must neither cost the write nor become the thing
+        that propagates in the original's place (re-review A). A merge that raises is logged,
+        the manifest on disk is left exactly as it was, and THIS process's map is written
+        beside it as `<name>.fresh.json`: nothing is lost, nothing is half-written, and the
+        original exception still reaches the caller."""
+        prior = self._prior()
+        if not prior:
+            return fresh, self.manifest_path
+        try:
+            merged = merge_manifest(prior, fresh)
+            merged["totals"] = {**merged["totals"],
+                                **{k: v for k, v in self._totals(merged["cells"], counts,
+                                                                 running, t0).items()
+                                   if k not in CUMULATIVE_TOTALS}}
+            return merged, self.manifest_path
+        except Exception as exc:                        # noqa: BLE001 - see the docstring
+            side = self.manifest_path.with_suffix(".fresh.json")
+            self.log(f"merge FAILED ({type(exc).__name__}: {exc}); {self.manifest_path} is left "
+                     f"as it was and this process's map goes to {side}")
+            return fresh, side
+
 
     def resume_command(self) -> str:
         """The SAME invocation, verbatim. Resuming a map is re-running the command that
@@ -481,7 +545,12 @@ class MapRunner:
     def _prior(self) -> dict:
         """The manifest already on disk for THIS run id, when there is a readable one. A file
         from another run, another schema, or a half-written one is ignored rather than merged
-        blind - the merge exists to protect a record, not to graft two of them together."""
+        blind - the merge exists to protect a record, not to graft two of them together.
+
+        These checks are necessary and not sufficient: `"map-manifest-v1"` has meant two unit-row
+        shapes (`cache_key` before the split-half fix, `cache_keys` since), so a document can
+        pass every check here and still be a shape this build did not write. `unit_keys` reads
+        both, and `_merge_onto_prior` catches whatever neither anticipated."""
         if not self.merge or not self.manifest_path.exists():
             return {}
         try:
@@ -498,27 +567,35 @@ class MapRunner:
         return prior
 
     def _totals(self, cell_docs: Mapping, counts: dict, running: dict, t0: float) -> dict:
+        """The map's holdings, summed from the cell documents. Every field is read with `.get`
+        for the same reason `derived` is: after a merge these are the cells of a manifest this
+        build may not have written, and this runs inside `run()`'s `finally` (re-review A)."""
+        def n(cell, key):
+            return cell.get(key) or 0
+
+        def ln(cell, key):
+            return len(cell.get(key) or [])
+
+        cells = list(cell_docs.values())
         return {
-            "cells_read": len(cell_docs),
-            "cells_stopped_on_yield": sum(1 for c in cell_docs.values()
+            "cells_read": len(cells),
+            "cells_stopped_on_yield": sum(1 for c in cells
                                           if (c.get("stop") or {}).get("kind") == "yield_floor"),
-            "cells_stopped_on_cap": sum(1 for c in cell_docs.values()
+            "cells_stopped_on_cap": sum(1 for c in cells
                                         if (c.get("stop") or {}).get("kind") == "cap_reached"),
-            "batches_attempted": sum(c["batches_attempted"] for c in cell_docs.values()),
-            "batches_completed": sum(c["batches_completed"] for c in cell_docs.values()),
-            "cases_read": sum(c["cases_read"] for c in cell_docs.values()),
-            "records": sum(c["records"] for c in cell_docs.values()),
+            "batches_attempted": sum(n(c, "batches_attempted") for c in cells),
+            "batches_completed": sum(n(c, "batches_completed") for c in cells),
+            "cases_read": sum(n(c, "cases_read") for c in cells),
+            "records": sum(n(c, "records") for c in cells),
             "units": counts["reader"],
             "checker_units": counts["checker"],
-            "screen_pinned_units": counts["screen_pinned"],
-            "relevant_accepted": sum(c["relevant_accepted"] for c in cell_docs.values()),
-            "irrelevant_accepted": sum(c["irrelevant_accepted"] for c in cell_docs.values()),
-            "failed_units": sum(len(c["failed_units"]) for c in cell_docs.values()),
-            "checker_sampled": sum(len(c["checker_sampled"]) for c in cell_docs.values()),
-            "checker_disagreements": sum(len(c["checker_disagreements"])
-                                         for c in cell_docs.values()),
-            "units_retried_after_split": sum(c["units_retried_after_split"]
-                                             for c in cell_docs.values()),
+            "screen_pinned_units": sum(ln(c, "screen_pinned") for c in cells),
+            "relevant_accepted": sum(n(c, "relevant_accepted") for c in cells),
+            "irrelevant_accepted": sum(n(c, "irrelevant_accepted") for c in cells),
+            "failed_units": sum(ln(c, "failed_units") for c in cells),
+            "checker_sampled": sum(ln(c, "checker_sampled") for c in cells),
+            "checker_disagreements": sum(ln(c, "checker_disagreements") for c in cells),
+            "units_retried_after_split": sum(n(c, "units_retried_after_split") for c in cells),
             "wall_seconds": round(self.clock() - t0, 1),
             "input_tokens": running["input_tokens"],
             "output_tokens": running["output_tokens"],
@@ -578,12 +655,4 @@ class MapRunner:
             "stop": stop,
             "screen": self.screen.to_json(),
         }
-        prior = self._prior()
-        if not prior:
-            return doc
-        merged = merge_manifest(prior, doc)
-        merged["totals"] = {**merged["totals"],
-                            **{k: v for k, v in self._totals(merged["cells"], counts, running,
-                                                             t0).items()
-                               if k not in CUMULATIVE_TOTALS}}
-        return merged
+        return doc

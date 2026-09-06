@@ -259,3 +259,20 @@ def test_the_help_does_not_promise_an_exact_unit_ceiling(wired):
     written against a promise of exactness would be wrong about what was bought."""
     help_text = mr.build_parser().format_help()
     assert "NOT exact" in help_text and "two split halves" in help_text
+
+
+def test_a_dry_run_reports_only_the_batches_it_actually_read(wired, capsys):
+    """Re-review D. Since the manifest merges, `cell_order` after a full map is every cell the
+    map has ever held; printing DRY RUN diagnostics for all of them would bury the N rows the
+    dry run exists to show under hundreds it never read."""
+    assert mr.main(["--sample-pct", "0"]) == 0
+    capsys.readouterr()
+    assert mr.main(["--dry-run-batches", "1", "--sample-pct", "0"]) == 0
+    out = capsys.readouterr().out
+    dry = [line for line in out.splitlines() if line.startswith("DRY RUN 1930-1970|N.Y.")]
+    assert len(dry) == 1
+    assert "DRY RUN pre-1860|Pa." not in out
+    assert out.count(f"{RUN_ID}-batch-001") >= 1
+    assert f"{RUN_ID}-batch-003" not in out      # the other cell's units are not dry-run rows
+    # ...while the merged manifest still holds both cells
+    assert set(_manifest(wired)["cells"]) == {"1930-1970|N.Y.", "pre-1860|Pa."}

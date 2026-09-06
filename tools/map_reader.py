@@ -174,7 +174,10 @@ def main(argv=None) -> int:
         log(f"DRY RUN schema_sha={out.manifest['schema_sha']} "
             f"codebook={out.manifest['codebook_id']}@{out.manifest['codebook_sha'][:12]} "
             f"effort={out.manifest['effort']} max_tokens={out.manifest['max_tokens']}")
-        for key in out.manifest["cell_order"]:
+        # The cells THIS invocation walked, not every cell the merged manifest now holds: a dry
+        # run after a full map would otherwise print hundreds of DRY RUN lines about batches it
+        # never read, burying the N rows it exists to show (re-review D).
+        for key in [c.key for c in cells if c.key in out.manifest["cells"]]:
             cell = out.manifest["cells"][key]
             log(f"DRY RUN {key}: {cell['records']} records, "
                 f"{cell['relevant_accepted']} relevant, {cell['irrelevant_accepted']} irrelevant, "
