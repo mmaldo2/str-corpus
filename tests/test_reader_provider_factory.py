@@ -6,7 +6,9 @@ budget as units and wall clock rather than dollars. Importing them out of tools/
 the measurement's OpenRouter ceiling and manifest merging into every map run."""
 import importlib.util
 from pathlib import Path
+from types import SimpleNamespace
 
+import pytest
 from corpus_engine.reader.model import Budget, ModelPin
 from corpus_engine.reader.providers import factory as F
 from corpus_engine.reader.providers.claude_cli import ClaudeCliProvider
@@ -53,9 +55,38 @@ def test_provider_for_picks_the_cli_transport_and_reports_why(monkeypatch):
     monkeypatch.setattr(ClaudeCliProvider, "version", lambda self: None)
     assert F.provider_for(SUB, None) == (None, None,
                                          "claude cli not available on PATH (shutil.which found nothing)")
-    # an OpenRouter candidate with no provider configured is skipped with a reason, never crashed on
-    provider2, pin2, why2 = F.provider_for(OPENR, None)
-    assert provider2 is None and pin2 is None and "OPENROUTER_API_KEY" in why2
+
+
+def test_provider_for_needs_no_prov_at_all_for_a_subscription_candidate(monkeypatch):
+    """R1: `prov` is optional, defaulting to None, precisely so a subscription-only caller
+    (map_reader) can resolve a candidate with the single-argument call `provider_for(cand)`
+    and never configure an OpenRouterProvider at all."""
+    monkeypatch.setattr(ClaudeCliProvider, "version", lambda self: "2.1.258 (Claude Code)")
+    provider, pin, why = F.provider_for(SUB)
+    assert provider.name == "claude-cli" and provider.cli_model == "claude-opus-5"
+    assert pin.model_id == "claude-cli/claude-opus-5" and "2.1.258" in why
+
+
+def test_provider_for_raises_on_an_openrouter_candidate_with_no_provider():
+    """R1: prov=None for a candidate that is NOT a subscription is a caller error - there is
+    no transport to resolve it over - so it raises ValueError naming the candidate rather
+    than returning a `(None, None, why)` reason tuple."""
+    with pytest.raises(ValueError, match="z-ai/glm-5.3"):
+        F.provider_for(OPENR)
+    with pytest.raises(ValueError, match="z-ai/glm-5.3"):
+        F.provider_for(OPENR, None)
+
+
+def test_provider_for_still_resolves_an_openrouter_candidate_when_prov_is_given(monkeypatch):
+    """With `prov` supplied, behaviour is unchanged from before R1: an OpenRouter candidate
+    resolves through `pin_for`, exactly as in 3A."""
+    fake_prov = SimpleNamespace(name="openrouter")
+    monkeypatch.setattr(F, "pin_for", lambda cand, prov: (
+        F.ModelPin(cand["model_id"], cand["family"], extra={"reasoning": F.REASONING}),
+        "closed-weight model; provider chosen by openrouter"))
+    provider, pin, why = F.provider_for(OPENR, fake_prov)
+    assert provider is fake_prov and pin.model_id == "z-ai/glm-5.3"
+    assert "closed-weight" in why
 
 
 def test_budget_for_never_puts_a_dollar_ceiling_on_the_subscription():

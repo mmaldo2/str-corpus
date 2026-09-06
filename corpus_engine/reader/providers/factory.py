@@ -114,10 +114,15 @@ def cli_pin(cand: dict) -> ModelPin:
                     {"effort": EFFORT, "cli_model": cand["cli_model"]})
 
 
-def provider_for(cand: dict, prov, timeout: int = READ_TIMEOUT):
+def provider_for(cand: dict, prov=None, *, timeout: int = READ_TIMEOUT):
     """(provider, pin, why) for one candidate. A subscription candidate is transported by the
-    Claude CLI and never touches OpenRouter; an OpenRouter candidate resolves its pin exactly
-    as in 3A (open weights pinned to a named bf16/fp8 endpoint or skipped)."""
+    Claude CLI and never touches OpenRouter, so it needs no `prov` at all - the single-argument
+    call `provider_for(cand)` is how a subscription-only caller (map_reader, R1) resolves one
+    without ever configuring an OpenRouterProvider. An OpenRouter candidate resolves its pin
+    exactly as in 3A (open weights pinned to a named bf16/fp8 endpoint or skipped), but it
+    cannot be resolved at all without one: calling it with `prov=None` for an OpenRouter
+    candidate is a caller error, not a runtime condition to report a reason for, so it raises
+    rather than returning a `(None, None, why)` tuple."""
     if is_subscription(cand):
         cli = ClaudeCliProvider(cand["cli_model"], timeout=timeout, effort=EFFORT)
         version = cli.version()
@@ -125,7 +130,8 @@ def provider_for(cand: dict, prov, timeout: int = READ_TIMEOUT):
             return None, None, "claude cli not available on PATH (shutil.which found nothing)"
         return cli, cli_pin(cand), f"subscription via claude cli {version}"
     if prov is None:
-        return None, None, "no openrouter provider configured (OPENROUTER_API_KEY absent)"
+        raise ValueError(f"{cand['model_id']} is not a subscription candidate and requires an "
+                         f"OpenRouterProvider (prov=None)")
     pin, why = pin_for(cand, prov)
     return (prov if pin is not None else None), pin, why
 

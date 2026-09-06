@@ -174,7 +174,7 @@ def test_provider_for_returns_the_cli_transport_for_a_subscription_candidate(mon
     assert provider2 is None and pin2 is None and "not available" in why2
 
 
-def test_a_subscription_only_invocation_needs_no_openrouter_key():
+def test_a_subscription_only_invocation_needs_no_openrouter_key(monkeypatch):
     """If OPENROUTER_API_KEY is absent and only subscription candidates are selected the
     tool still runs: the key check and the /credits pre-read are conditioned on there
     being something to buy there, not on the flags."""
@@ -183,9 +183,14 @@ def test_a_subscription_only_invocation_needs_no_openrouter_key():
     openr = {"model_id": "z-ai/glm-5.3", "family": "zai", "pin_open": True}
     assert mr.needs_openrouter([sub, openr]) and mr.needs_openrouter([openr])
     assert not mr.needs_openrouter([sub]) and not mr.needs_openrouter([])
-    # and an OpenRouter candidate with no provider is skipped with a reason, never crashed on
-    provider, pin, why = mr.provider_for(openr, None)
-    assert provider is None and pin is None and "OPENROUTER_API_KEY" in why
+    # R1: an OpenRouter candidate called with no provider is a caller error, not a runtime
+    # condition to report a reason for - `needs_openrouter` is what keeps main() from ever
+    # making this call with prov=None for a real OpenRouter candidate.
+    with pytest.raises(ValueError, match="z-ai/glm-5.3"):
+        mr.provider_for(openr, None)
+    # a subscription candidate needs no provider at all - the single-argument call resolves it
+    monkeypatch.setattr(mr.ClaudeCliProvider, "version", lambda self: "2.1.258 (Claude Code)")
+    assert mr.provider_for(sub)[1].model_id == sub["model_id"]
     src = (ROOT / "tools" / "measure_reader.py").read_text(encoding="utf-8")
     assert "if needs_openrouter(cands):" in src
 
