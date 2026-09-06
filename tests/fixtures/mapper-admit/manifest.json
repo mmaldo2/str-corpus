@@ -1,0 +1,58 @@
+{
+ "cell_order": [
+  "1860-1900|N.Y.",
+  "1930-1970|Ohio"
+ ],
+ "cells": {
+  "1860-1900|N.Y.": {
+   "cache_keys": {
+    "cycle-004-shard-01-batch-001": [
+     "key-001"
+    ]
+   },
+   "checker_disagreements": [
+    {
+     "case_id": 101,
+     "checker_value": "adverse",
+     "field": "polarity",
+     "reader_value": "favorable",
+     "unit_id": "cycle-004-shard-01-batch-001"
+    }
+   ],
+   "checker_sampled": [
+    "cycle-004-shard-01-batch-001"
+   ],
+   "checker_status": {
+    "cycle-004-shard-01-batch-001": "ok"
+   },
+   "era": "1860-1900",
+   "failed_units": [],
+   "jurisdiction": "N.Y."
+  },
+  "1930-1970|Ohio": {
+   "cache_keys": {
+    "cycle-004-shard-01-batch-002": [
+     "key-002",
+     "key-002-a",
+     "key-002-b"
+    ]
+   },
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "era": "1930-1970",
+   "failed_units": [],
+   "jurisdiction": "Ohio"
+  }
+ },
+ "checker_pin": "codex-cli@-:-",
+ "codebook_id": "mapper-v3",
+ "codebook_sha": "f920166813144f09d3a8a8de575eb860dbcce18a42b46b2270b4b17cc1a52752",
+ "cycle": "cycle-004",
+ "effort": "low",
+ "max_tokens": 64000,
+ "reader_pin": "claude-cli/claude-opus-5@claude-cli:-",
+ "run_id": "cycle-004-shard-01",
+ "schema": "map-manifest-v1",
+ "schema_sha": "0000000000000000000000000000000000000000000000000000000000000000"
+}

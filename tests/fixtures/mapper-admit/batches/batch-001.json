@@ -1,0 +1,18 @@
+{
+ "batch_id": "cycle-004-shard-01-batch-001",
+ "cases": [
+  {
+   "case_id": 101,
+   "rank_score": 0.9,
+   "signals": []
+  },
+  {
+   "case_id": 102,
+   "rank_score": 0.9,
+   "signals": []
+  }
+ ],
+ "era_partition": "1860-1900",
+ "jurisdiction": "N.Y.",
+ "ranker_id": "classifier:v1"
+}

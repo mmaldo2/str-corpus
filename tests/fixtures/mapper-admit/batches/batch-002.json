@@ -1,0 +1,18 @@
+{
+ "batch_id": "cycle-004-shard-01-batch-002",
+ "cases": [
+  {
+   "case_id": 201,
+   "rank_score": 0.9,
+   "signals": []
+  },
+  {
+   "case_id": 202,
+   "rank_score": 0.9,
+   "signals": []
+  }
+ ],
+ "era_partition": "1930-1970",
+ "jurisdiction": "Ohio",
+ "ranker_id": "classifier:v1"
+}

@@ -1,0 +1,10 @@
+{
+ "cost_usd": null,
+ "finish_reason": "stop",
+ "input_tokens": 1200,
+ "output_tokens": 400,
+ "provider_reported": {},
+ "raw": {},
+ "text": "{\"records\": [{\"case_id\": 201, \"relevant\": true, \"polarity\"",
+ "tool_version": "2.0.0"
+}

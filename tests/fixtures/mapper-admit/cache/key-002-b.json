@@ -1,0 +1,10 @@
+{
+ "cost_usd": null,
+ "finish_reason": "stop",
+ "input_tokens": 1200,
+ "output_tokens": 400,
+ "provider_reported": {},
+ "raw": {},
+ "text": "{\"records\": [{\"case_id\": 202, \"schema_version\": 3, \"cite\": \"9 Ohio App. 91\", \"court\": \"Ohio Ct. App.\", \"jurisdiction\": \"Ohio\", \"year\": 1949, \"relevant\": true, \"relevance_score\": 0.74, \"polarity\": \"favorable\", \"who_was_letting\": \"householder\", \"duration_of_occupancy\": \"nights\", \"characterization\": \"innkeeping\", \"under_thirty_days\": \"yes\", \"owner_freedom_characterization\": \"incident_of_ownership\", \"restriction_nature\": null, \"holding_summary\": \"Innkeeping is dealt with otherwise than the letting of a dwelling.\", \"doctrinal_concepts\": [], \"new_terms_observed\": [\"common_calling\"], \"quotes\": [{\"text\": \"the innkeeper is bound to receive all comers\", \"supports\": [\"polarity\", \"characterization\", \"under_thirty_days\", \"owner_freedom_characterization\", \"holding_summary\"]}], \"worker\": \"reader\", \"batch_id\": \"cycle-004-shard-01-batch-002\", \"notes\": \"\"}]}",
+ "tool_version": "2.0.0"
+}

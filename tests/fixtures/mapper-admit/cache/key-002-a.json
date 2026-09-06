@@ -1,0 +1,10 @@
+{
+ "cost_usd": null,
+ "finish_reason": "stop",
+ "input_tokens": 1200,
+ "output_tokens": 400,
+ "provider_reported": {},
+ "raw": {},
+ "text": "{\"records\": [{\"case_id\": 201, \"schema_version\": 3, \"cite\": \"9 Ohio App. 55\", \"court\": \"Ohio Ct. App.\", \"jurisdiction\": \"Ohio\", \"year\": 1941, \"relevant\": true, \"relevance_score\": 0.61, \"polarity\": \"adverse\", \"who_was_letting\": \"commercial_operator\", \"duration_of_occupancy\": \"months\", \"characterization\": \"lodging\", \"under_thirty_days\": \"no\", \"owner_freedom_characterization\": \"regulable_privilege\", \"restriction_nature\": \"zoning\", \"holding_summary\": \"A boarding house is a business use the zoning ordinance may forbid.\", \"doctrinal_concepts\": [\"zoning_power\"], \"new_terms_observed\": [], \"quotes\": [{\"text\": \"the court below plainly held that no such house may ever be kept\", \"supports\": [\"polarity\", \"characterization\", \"restriction_nature\", \"under_thirty_days\", \"owner_freedom_characterization\", \"holding_summary\"]}], \"worker\": \"reader\", \"batch_id\": \"cycle-004-shard-01-batch-002\", \"notes\": \"boarding house zoning\"}]}",
+ "tool_version": "2.0.0"
+}
