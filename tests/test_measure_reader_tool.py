@@ -335,13 +335,21 @@ def test_the_winners_checks_reconcile_credits_for_an_openrouter_winner(tmp_path,
 
 def test_a_dry_run_buys_one_batch_writes_the_diagnostics_and_selects_nothing(tmp_path, monkeypatch):
     """The gate before any field run. It writes into the SAME cache and measurement
-    directory, so the field run replays the batch for free rather than re-buying it."""
+    directory, so the field run replays the batch for free rather than re-buying it.
+
+    A fixed (non-advancing) clock, not `time.time`: `Ctx.__init__` fixes `sub_deadline` from
+    one `clock()` read, and `sub_seconds_left()` (which `budget_for_run` calls below) reads
+    `clock()` again to compute `max_wall_seconds` by subtraction. With the real wall clock
+    those two reads are microseconds apart, so `max_wall_seconds` comes back a hair under
+    `SUBSCRIPTION_MAX_WALL_SECONDS` and the exact-equality assert below flakes. A clock that
+    always returns the same instant makes the elapsed time between the two reads exactly
+    zero, deterministically, on every run."""
     calls = []
     monkeypatch.setattr(mr, "run_candidate", _strict_fake_run(calls))
     monkeypatch.setattr(mr.ClaudeCliProvider, "version", lambda self: "2.1.258 (Claude Code)")
     cand = {"model_id": "claude-cli/claude-sonnet-5", "family": "anthropic",
             "provider": "claude-cli", "cli_model": "claude-sonnet-5"}
-    ctx = _ctx(tmp_path)
+    ctx = _ctx(tmp_path, clock=lambda: 0.0)
     assert mr.dry_run([cand], 1, ctx, tmp_path / "measurement-v2") == 0
     assert [c["batches"] for c in calls] == [["b1"]]
     p = tmp_path / "measurement-v2" / "dry-run-claude-cli_claude-sonnet-5.json"
