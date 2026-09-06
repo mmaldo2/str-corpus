@@ -173,6 +173,33 @@ def is_subscription(cand: dict) -> bool:
     return cand.get("provider") == SUBSCRIPTION_PROVIDER
 
 
+def label_provider(label: str) -> str | None:
+    """The provider name out of a pin label, spelled exactly as `pin_from_label` reads it."""
+    prov = str(label).partition("@")[2].rpartition(":")[0]
+    return None if prov in ("", "-") else prov
+
+
+def subscription_labels(dom, pins: dict | None = None, prior: dict | None = None) -> set[str]:
+    """The pin LABELS of every subscription candidate on record - the form D4's tie-break is
+    keyed on (`measure.select_reader`, `measure.subscription_keys`).
+
+    Three sources, because selection is decided over every candidate on record and not only
+    the ones this process ran: the labels of the pins this process actually built, the labels
+    a prior manifest recorded whose provider part is `claude-cli`, and - for a subscription
+    candidate that was selected but never got as far as a pin (skipped, failed, not run) -
+    the label `cli_pin` deterministically builds for it.
+
+    Passing bare model ids here is the bug this replaces: the tie-break compared model ids
+    against keys that may be spelled as labels, so it could never match and the subscription
+    branch was dead code. A label matches either spelling; a model id only matches one."""
+    out = {cli_pin(c).label for c in dom.reader.candidates
+           if is_subscription(c) and c.get("cli_model")}
+    recorded = {**((prior or {}).get("pins") or {}), **(pins or {})}
+    out |= {label for label in recorded.values()
+            if label_provider(label) == SUBSCRIPTION_PROVIDER}
+    return out
+
+
 def needs_openrouter(cands) -> bool:
     """Whether this invocation has to authenticate to OpenRouter at all. A run of nothing
     but subscription candidates buys nothing there, so demanding a key (or reading
@@ -300,8 +327,25 @@ def score(out, reference, key: str, prior_spend: dict, spend_by: dict, tracked_b
           real_delta: float | None, *, excluded=None) -> dict:
     """Cost per accepted record is priced from the real charge for this run when the
     credits endpoint answered, else from driver-tracked spend. Controller ruling 2: a
-    cache hit makes either number an under-count, so add the first run's recorded spend
-    (manifest) and, if there is none to add, leave the score unpriced rather than cheap.
+    cache hit is a unit some EARLIER process paid for, so this run's own numbers under-count
+    it; the first run's recorded spend (manifest `spend_by_candidate`) is added back.
+
+    THE RULE, stated once: a candidate is priced when a usable spend figure exists for it,
+    and the figure is `(real_delta if /credits answered else driver-tracked) + recorded`.
+    Three sources can supply one, and any of them is enough:
+
+      * `real_delta`    - what /credits says this run was charged, None if the endpoint failed
+      * `out.spend_usd` - the driver's own tally of the units it actually bought, which is
+                          usable on its own only when nothing was replayed from cache
+      * `recorded`      - what an earlier process (a `--dry-run` included) wrote for this
+                          same key, which is what covers the replayed units
+
+    A cache hit alone therefore does NOT make a candidate unpriced - that is what marked
+    gemini `[UNPRICED]` with `cost_per_accepted` inf on 2026-09-05 after its first kit batch
+    replayed from the dry run, against $0.94 of real, reconciled spend. Only a run that
+    replayed from cache AND has no credits reading AND no recorded prior spend is left
+    unpriced, because then there is genuinely no figure to quote - and an absent price must
+    never win a cost comparison by looking cheap.
 
     A subscription run needs no special case here: every one of its responses carries
     `cost_usd is None`, `score_candidate` sees that and marks the candidate unpriced with
@@ -309,12 +353,9 @@ def score(out, reference, key: str, prior_spend: dict, spend_by: dict, tracked_b
     cached = any(u.cache_hit for u in out.units)
     recorded = prior_spend.get(key)
     base = out.spend_usd if real_delta is None else real_delta
-    priced = real_delta is not None or not cached
-    if cached:
-        if recorded is None:
-            priced = False
-        else:
-            base += recorded
+    priced = (not cached) or real_delta is not None or recorded is not None
+    if cached and recorded is not None:
+        base += recorded
     tracked_by[key] = round(out.spend_usd, 6)
     spend_by[key] = round(base, 6)
     return score_candidate(out, reference, spend_usd_override=(base if priced else None),
@@ -580,7 +621,7 @@ def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: Res
 MERGE_BY_CANDIDATE = ("pins", "providers", "scores", "spend_by_candidate",
                       "tracked_spend_by_candidate", "list_cost_by_candidate",
                       "priced_by_candidate", "effort_by_candidate", "read_timeout_by_candidate",
-                      "cache_keys", "skipped", "failed", "not_run")
+                      "cache_keys", "skipped", "failed", "not_run", "dry_runs")
 
 
 def merge_manifest(prior: dict, manifest: dict) -> dict:
@@ -752,17 +793,111 @@ def winner_checks(ctx: Ctx, w: str, wpin: ModelPin, provider, cand: dict, b18: d
     return out_m
 
 
-def dry_run(cands: list[dict], n_batches: int, ctx: Ctx, out_dir: Path) -> int:
+# Everything `winner_checks` writes. They belong to ONE candidate - the winner that earned
+# them - and there is no such thing as half of them applying to somebody else.
+WINNER_CHECK_FIELDS = ("batch_size_pair", "stability", "stable", "stability_flat_agreement",
+                       "stability_stops", "stability_error")
+
+
+def prior_checks_owner(prior: dict) -> str | None:
+    """Which candidate the manifest's recorded stability and batch-size pair belong to, or
+    None if it recorded none. `selection.winner` names it; a manifest that recorded only
+    `winner_pin` is resolved back through `pins`."""
+    if not any(prior.get(f) is not None for f in WINNER_CHECK_FIELDS):
+        return None
+    w = (prior.get("selection") or {}).get("winner")
+    if w:
+        return w
+    label = prior.get("winner_pin")
+    return next((mid for mid, l in (prior.get("pins") or {}).items() if l == label), None)
+
+
+def winner_model_fields(pin: ModelPin) -> dict:
+    """What domain.yaml's `reader.model` is set from, recorded for the pin that actually ran."""
+    return {"winner_pin": pin.label,
+            "winner_model": {"model_id": pin.model_id, "family": pin.family,
+                             "provider_name": pin.provider_name, "precision": pin.precision,
+                             "extra": dict(pin.extra)}}
+
+
+def unrun_winner_checks(ctx: Ctx, w: str, wpin: ModelPin | None, prior: dict, prov,
+                        merged_scores: dict, sp: Path, ts: str) -> dict:
+    """3A N5. The winner is recomputed over every candidate on record, so it can be one this
+    process did not run - and the `stability` / `batch_size_pair` already in the manifest may
+    then belong to a DIFFERENT candidate. `merge_manifest` keeps whole-manifest fields the
+    prior process wrote, so simply saying nothing here republished another model's stability
+    under the new winner's name, which is the one thing a pre-registered check may never do.
+
+    So: carry the recorded checks forward only when the manifest says they are this winner's;
+    otherwise run them for the real winner, on its own transport and inside whatever budget is
+    left; and when they cannot be run, write every one of them as null with the reason, so the
+    manifest says "missing" rather than showing somebody else's numbers."""
+    log, owner = ctx.log, prior_checks_owner(prior)
+    if owner == w:
+        log(f"\n== winner {w} was recorded by an earlier process and not re-run here; the "
+            f"batch-size pair and stability check in the manifest were recorded FOR IT and "
+            f"are carried forward (nothing spent on them)")
+        return {"winner_checks_source": f"carried forward from the prior manifest, recorded for {w}"}
+
+    cand = next((c for c in ctx.dom.reader.candidates if c["model_id"] == w), None)
+    why_not = None
+    if cand is None:
+        why_not = f"{w} is not a candidate in domain.yaml, so its checks cannot be run here"
+    elif not is_subscription(cand) and ctx.budget["remaining"] <= 0:
+        why_not = "the OpenRouter budget was exhausted before the winner's checks could run"
+    else:
+        try:
+            provider, pin, why = provider_for(cand, prov)
+        except Exception as exc:                                # noqa: BLE001 - as in the kit loop
+            provider, pin, why = None, None, f"resolving it raised {type(exc).__name__}: {str(exc)[:300]}"
+        if pin is None:
+            why_not = f"cannot resolve a transport for {w}: {why}"
+        else:
+            log(f"\n== winner {w} was not run by this process, and the checks recorded in the "
+                f"manifest belong to {owner or 'no candidate on record'} - running them for "
+                f"{pin.label} instead ({why})")
+            out = winner_checks(ctx, w, pin, provider, cand, merged_scores.get(w), sp, ts)
+            out.update(winner_model_fields(pin))
+            out["winner_checks_source"] = f"run by this process for {pin.label}, the recomputed winner"
+            return out
+
+    log(f"\n!! winner {w}: {why_not}. The batch-size pair and stability check recorded in the "
+        f"manifest belong to {owner or 'no candidate on record'} and are NOT carried forward.")
+    missing = {f: None for f in WINNER_CHECK_FIELDS}
+    missing["winner_checks_source"] = f"missing: {why_not}"
+    missing["winner_checks_missing"] = {"winner": w, "recorded_checks_belong_to": owner,
+                                        "reason": why_not}
+    if wpin is not None:
+        missing.update(winner_model_fields(wpin))
+    return missing
+
+
+def dry_run(cands: list[dict], n_batches: int, ctx: Ctx, out_dir: Path, *, prior: dict | None = None,
+            prior_usd: float = 0.0, ts: str | None = None) -> int:
     """Buy the first `n_batches` kit batches for each named candidate and stop, into the
     SAME cache and measurement directory the field run uses - so the gate is paid for once
-    and the field run replays it for free. Selects nothing and writes no manifest: a
-    one-batch read is not a measurement.
+    and the field run replays it for free. It selects nothing: a one-batch read is not a
+    measurement, so it writes no `scores` and no `selection`.
+
+    It does, however, write what it SPENT into the manifest, merged per candidate exactly as
+    a normal candidate run's spend is (`spend_by_candidate`, `tracked_spend_by_candidate`,
+    `cache_keys`, `pins`, `list_cost_by_candidate`, and the task totals). 9a re-review N1: the
+    dry-run dispatch sits outside `main`'s try/finally, so until now a dry run's money was
+    recorded nowhere. Two things went wrong with that. The next run's `resolve_prior_spend`
+    could not see it and re-granted a ceiling that was already partly spent; and `score`
+    found no `recorded` figure for the units the field run then replayed from the dry run's
+    cache, which is what marked gemini `[UNPRICED]` on 2026-09-05 against $0.94 of real spend.
 
     A candidate that cannot be resolved or that raises is recorded and the next one is still
     run: `sys.exit` mid-loop would kill the process after earlier candidates had already been
     bought. The exit status is non-zero if any candidate failed, so the gate is never read as
     passed on a partial result."""
     log, failures = ctx.log, {}
+    prior = prior or {}
+    ts = ts or time.strftime("%Y-%m-%dT%H:%M:%S")
+    pins: dict[str, str] = {}
+    cache_keys: dict[str, dict] = {}
+    dry_runs: dict[str, dict] = {}
     for cand in cands:
         mid = cand["model_id"]
         provider, pin, why = provider_for(cand, ctx.prov)
@@ -783,8 +918,17 @@ def dry_run(cands: list[dict], n_batches: int, ctx: Ctx, out_dir: Path) -> int:
             log(f"DRY RUN {mid} FAILED: {failures[mid]}")
             ctx.settle(cand)
             continue
-        ctx.settle(cand, out)
-        s = score_candidate(out, ctx.reference, excluded=ctx.excl)
+        real_delta = ctx.settle(cand, out)
+        # Scored through `score`, not `score_candidate`, for the same reason the field run
+        # is: it is what fills `spend_by`/`tracked_by` and applies the one pricing rule.
+        s = score(out, ctx.reference, mid, ctx.prior_spend, ctx.spend_by, ctx.tracked_by,
+                  real_delta, excluded=ctx.excl)
+        ctx.list_cost_by[mid] = s["list_cost_usd"]
+        pins[mid] = pin.label
+        unit_keys = keys_for(out.plan.units, ctx.cb, pin, ctx.source, ctx.cache, ctx.schema)
+        cache_keys[mid] = {"pin": pin.label, "units": unit_keys}
+        dry_runs[mid] = {"pin": pin.label, "batches": ids, "stop": out.stop.kind,
+                         "spend_usd": ctx.spend_by[mid], "priced": s["priced"], "ts": ts}
         payload = {"candidate": mid, "pin": pin.label, "provider": getattr(provider, "name", "?"),
                    "why": why, "batches": ids, "schema_sha": schema_sha(ctx.schema),
                    "stop": out.stop.kind, "effort": EFFORT, "read_timeout_seconds": READ_TIMEOUT,
@@ -806,11 +950,25 @@ def dry_run(cands: list[dict], n_batches: int, ctx: Ctx, out_dir: Path) -> int:
                    "dropped_quotes": sum(r.dropped_quotes for u in out.units for r in u.records),
                    "score": s, "priced": s["priced"], "list_cost_usd": s["list_cost_usd"],
                    "spend_usd": out.spend_usd, "wall_seconds": round(out.wall_seconds, 1),
-                   "cache_keys": keys_for(out.plan.units, ctx.cb, pin, ctx.source, ctx.cache, ctx.schema),
+                   "cache_keys": unit_keys,
                    "first_record": (out.records or [None])[0]}
         write_json(out_dir / f"dry-run-{mid.replace('/', '_')}.json", payload, indent=1, sort_keys=True)
         log(dumps({k: payload[k] for k in ("stop", "status_counts", "nulled_fields", "dropped_quotes",
                                            "spend_usd", "list_cost_usd", "wall_seconds")}, indent=1))
+
+    m: dict = {"pins": pins, "cache_keys": cache_keys, "dry_runs": dry_runs,
+               "spend_by_candidate": ctx.spend_by, "tracked_spend_by_candidate": ctx.tracked_by,
+               "list_cost_by_candidate": ctx.list_cost_by,
+               "tracked_spend_usd": round(ctx.budget["spent"], 4), "ts": ts}
+    if ctx.prov is None:
+        m["total_task_spend_usd"] = round(prior_usd, 4)
+    else:
+        m["credits_before"] = round(ctx.before, 4) if ctx.before is not None else None
+        m["spent_usd"] = round(ctx.budget["real_spent"], 4)
+        m["total_task_spend_usd"] = round(prior_usd + ctx.budget["real_spent"], 4)
+    write_json(out_dir / "manifest.json", merge_manifest(prior, m), indent=1, sort_keys=True)
+    log(f"dry run recorded ${m['total_task_spend_usd']} of measurement spend in "
+        f"{out_dir / 'manifest.json'} (nothing selected; no scores written)")
     if failures:
         log("DRY RUN FAILURES: " + dumps(failures, indent=1))
         return 1
@@ -909,7 +1067,7 @@ def main(argv=None) -> int:
     cands = selected_candidates(dom, a.only, a.dry_run)
     if not cands:
         sys.exit(f"{a.dry_run or a.only} is not a candidate in domain.yaml")
-    subscription = {c["model_id"] for c in dom.reader.candidates if is_subscription(c)}
+    subscription = sorted(c["model_id"] for c in dom.reader.candidates if is_subscription(c))
     excl = excluded_fields(reference)
     schema = record_schema(cb)
     print(f"schema sha {schema_sha(schema)[:12]}; {len(excl)} cases carry an excluded field", flush=True)
@@ -967,7 +1125,7 @@ def main(argv=None) -> int:
 
     # `--dry-run-batches` alone can no longer get here: it is refused at parse time.
     if a.dry_run:
-        return dry_run(cands, a.dry_run_batches or 1, ctx, out_dir)
+        return dry_run(cands, a.dry_run_batches or 1, ctx, out_dir, prior=prior, prior_usd=prior_usd)
 
     scores: dict[str, dict] = {}
     pins: dict[str, str] = {}
@@ -987,9 +1145,15 @@ def main(argv=None) -> int:
         """Selection is decided over every candidate on record, not only the ones this
         process ran, so `--only` can never crown its single candidate by construction (I8).
         It is wrapped because it is also called from the `finally` below, where raising
-        again would lose the spend record the finally exists to save."""
+        again would lose the spend record the finally exists to save.
+
+        D4's tie-break is keyed on pin LABELS, so that is what is handed over - the labels of
+        the pins this process built plus the subscription labels a prior manifest recorded
+        (`subscription_labels`), never bare model ids, which could not match a label-keyed
+        score and left the tie-break dead."""
         try:
-            return select_reader({**(prior.get("scores") or {}), **scores}, subscription=subscription)
+            return select_reader({**(prior.get("scores") or {}), **scores},
+                                 subscription=subscription_labels(dom, pins, prior))
         except Exception as exc:                                # noqa: BLE001
             return {"winner": None, "rule": f"selection failed: {type(exc).__name__}: {exc}",
                     "survivors": sorted(scores), "eliminated": {}, "shortfall": True,
@@ -1011,7 +1175,8 @@ def main(argv=None) -> int:
              "openrouter_ceiling_usd": OPENROUTER_CEILING, "budget_usd": a.max_usd,
              "prior_spend_usd": round(prior_usd, 4), "prior_spend_source": why_prior,
              "effective_budget_usd": round(ceiling, 4),
-             "subscription_candidates": sorted(subscription),
+             "subscription_candidates": list(subscription),
+             "subscription_pins": sorted(subscription_labels(dom, pins, prior)),
              "subscription_budget": {"max_units": sub_units_cap,
                                      "max_wall_seconds": a.sub_max_wall_seconds,
                                      "units_planned": unit_plan,
@@ -1026,6 +1191,12 @@ def main(argv=None) -> int:
              "priced_by_candidate": {k: s["priced"] for k, s in scores.items()},
              "pins": pins, "providers": providers, "skipped": skipped, "failed": failed,
              "not_run": not_run, "scores": scores, "selection": sel_now,
+             # D4's floors per candidate, with the exact number each failed on, so a reader
+             # sees that glm went out on a polarity decided rate of 0.8970 < 0.90 rather
+             # than guessing. Recomputed over the merged scores every run, so it is a
+             # whole-manifest field and never merged per candidate: a candidate that
+             # re-runs and now survives must not keep a stale elimination reason.
+             "eliminated_by_candidate": dict(sel_now.get("eliminated") or {}),
              "spend_by_candidate": spend_by, "tracked_spend_by_candidate": tracked_by,
              "tracked_spend_usd": round(budget["spent"], 4),
              "ts": ts}
@@ -1092,24 +1263,19 @@ def main(argv=None) -> int:
         manifest = assemble(sel)
 
         w = sel["winner"]
-        if w and w not in pin_objs:
-            if all_pins.get(w):
+        if w:
+            wpin = pin_objs.get(w)
+            if wpin is None and all_pins.get(w):
                 wpin = pin_from_label(all_pins[w], dom.reader.families)
-                manifest["winner_pin"] = wpin.label
-                manifest["winner_model"] = {"model_id": wpin.model_id, "family": wpin.family,
-                                            "provider_name": wpin.provider_name,
-                                            "precision": wpin.precision, "extra": dict(wpin.extra)}
-            print(f"\n== winner {w} was recorded by an earlier process and not re-run here; its "
-                  f"batch-size pair and stability check are carried forward from the prior manifest "
-                  f"(nothing spent on them)", flush=True)
-        elif w:
-            wpin = pin_objs[w]
-            manifest["winner_pin"] = wpin.label
-            manifest["winner_model"] = {"model_id": wpin.model_id, "family": wpin.family,
-                                        "provider_name": wpin.provider_name,
-                                        "precision": wpin.precision, "extra": dict(wpin.extra)}
-            manifest.update(winner_checks(ctx, w, wpin, provider_objs[w], cand_objs[w],
+            if wpin is not None:
+                manifest.update(winner_model_fields(wpin))
+        if w and w in pin_objs:
+            manifest.update(winner_checks(ctx, w, pin_objs[w], provider_objs[w], cand_objs[w],
                                           scores[w], sp, ts))
+            manifest["winner_checks_source"] = f"run by this process for {pin_objs[w].label}"
+        elif w:
+            manifest.update(unrun_winner_checks(ctx, w, wpin, prior, prov,
+                                                {**(prior.get("scores") or {}), **scores}, sp, ts))
 
         # the winner's checks spend and settle, so re-read the counters they moved
         manifest["tracked_spend_usd"] = round(budget["spent"], 4)

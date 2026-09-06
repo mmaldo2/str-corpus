@@ -3,6 +3,7 @@ how spend is attributed. Imported by path because tools/ is scripts, not a packa
 import importlib.util
 import inspect
 import json
+import math
 import time
 from pathlib import Path
 from types import SimpleNamespace
@@ -343,7 +344,11 @@ def test_a_dry_run_buys_one_batch_writes_the_diagnostics_and_selects_nothing(tmp
     assert payload["effort"] == "low" and payload["read_timeout_seconds"] == 1500
     assert payload["spend_usd"] == 0.0 and payload["schema_sha"] and "status_counts" in payload
     assert set(payload["status_counts"]) == {"ok", "partial", "extraction-invalid", "missing"}
-    assert "selection" not in payload and not (tmp_path / "measurement-v2" / "manifest.json").exists()
+    # It selects nothing - no scores, no selection - but it does record what it spent, so
+    # the field run can find it (see the dedicated dry-run-spend test below).
+    m = json.loads((tmp_path / "measurement-v2" / "manifest.json").read_text(encoding="utf-8"))
+    assert "selection" not in payload and "selection" not in m and not m.get("scores")
+    assert m["dry_runs"]["claude-cli/claude-sonnet-5"]["batches"] == ["b1"]
 
 
 def test_an_openrouter_dry_run_is_capped_far_below_the_slice_ceiling(tmp_path, monkeypatch):
@@ -405,7 +410,7 @@ def test_dry_run_batches_requires_a_named_candidate_and_refuses_zero(monkeypatch
     assert "exceeds this slice's approved OpenRouter ceiling" in str(over.value)
 
 
-def _outcome_scored(spend=0.5, *, cost=None, case_id=1, unpriced=0):
+def _outcome_scored(spend=0.5, *, cost=None, case_id=1, unpriced=0, cache_hit=False):
     """One accepted, fully-judged record, so `score_candidate` returns a real v2 score and
     the candidate is not thrown out as "no accepted records". `cost=None` on the response is
     what makes a run unpriced, which is how a subscription read is recognised."""
@@ -416,7 +421,7 @@ def _outcome_scored(spend=0.5, *, cost=None, case_id=1, unpriced=0):
            "who_was_letting": "householder", "extraction_status": "ok",
            "quotes": [{"text": "q", "supports": ["relevant"]}]}
     resp = Response("{}", 10, 10, cost, {"provider": "p"}, "stop")
-    ur = UnitResult("b1", "ok", (RecordResult(case_id, rec, "ok", 0, ()),), resp, False)
+    ur = UnitResult("b1", "ok", (RecordResult(case_id, rec, "ok", 0, ()),), resp, cache_hit)
     return ReadingOutcome(plan, [ur], [], spend, 10, 10, 3.0, StopReason("done"),
                           {"provider_reported": ["p"], "unpriced_requests": unpriced}, "")
 
@@ -589,3 +594,230 @@ def test_the_v1_inputs_can_only_be_named_for_the_offline_annotation(monkeypatch)
         assert "may only be passed with --annotate-only" in str(exc.value)
     src = (ROOT / "tools" / "measure_reader.py").read_text(encoding="utf-8")
     assert "sha256 not verified" in src              # and the annotation says so out loud
+
+
+# --- fix round 2: the selection defects the 2026-09-05 field run exposed --------------
+
+
+def test_the_tool_hands_select_reader_pin_labels_for_the_subscription_tie_break():
+    """Defect 1. The tie-break is keyed on pin labels (`measure.subscription_keys`), so the
+    tool has to pass labels: the pins it built this process, the subscription labels a prior
+    manifest recorded, and the label `cli_pin` builds for a candidate that never got a pin."""
+    sub = {"model_id": "claude-cli/claude-sonnet-5", "family": "anthropic",
+           "provider": "claude-cli", "cli_model": "claude-sonnet-5"}
+    openr = {"model_id": "google/gemini-3.7-flash", "family": "google"}
+    dom = SimpleNamespace(reader=SimpleNamespace(candidates=(sub, openr), families={}))
+
+    assert mr.subscription_labels(dom) == {"claude-cli/claude-sonnet-5@claude-cli:-"}
+    # a subscription pin only a prior manifest knows about is recognised from its label
+    prior = {"pins": {"claude-cli/claude-opus-5": "claude-cli/claude-opus-5@claude-cli:-",
+                      "google/gemini-3.7-flash": "google/gemini-3.7-flash@-:-"}}
+    assert mr.subscription_labels(dom, {}, prior) == {
+        "claude-cli/claude-sonnet-5@claude-cli:-", "claude-cli/claude-opus-5@claude-cli:-"}
+    assert mr.label_provider("google/gemini-3.7-flash@-:-") is None
+    assert mr.label_provider("z-ai/glm-5.3@AkashML:fp8") == "AkashML"
+
+    # a malformed subscription candidate (no cli_model) is skipped, never a KeyError that
+    # would take the whole selection with it
+    bad = SimpleNamespace(reader=SimpleNamespace(candidates=({"model_id": "x/y", "family": "f",
+                                                              "provider": "claude-cli"},),
+                                                 families={}))
+    assert mr.subscription_labels(bad) == set()
+    src = (ROOT / "tools" / "measure_reader.py").read_text(encoding="utf-8")
+    assert "subscription=subscription_labels(dom, pins, prior)" in src
+
+
+def test_a_cache_hit_covered_by_recorded_spend_is_priced_rather_than_written_off():
+    """Defect 2b. The 2026-09-05 field run scored gemini [UNPRICED] with cost_per_accepted
+    inf against $0.94 of real, reconciled spend, because its first kit batch replayed from
+    the dry run's cache. A cache hit is a unit an earlier process PAID for, not the absence
+    of a price: the figure is the credits delta plus what that earlier process recorded."""
+    ref = [{"case_id": 1, "source": "human", "relevant": True, "polarity": "favorable",
+            "who_was_letting": "householder"}]
+    spend_by, tracked_by = {}, {}
+    s = mr.score(_outcome_scored(0.60, cost=0.60, cache_hit=True), ref, "google/gemini-3.7-flash",
+                 {"google/gemini-3.7-flash": 0.34}, spend_by, tracked_by, 0.60)
+    assert s["priced"] is True and math.isfinite(s["cost_per_accepted"])
+    assert abs(s["spend_usd"] - 0.94) < 1e-9            # real_delta 0.60 + recorded 0.34
+    assert spend_by["google/gemini-3.7-flash"] == 0.94
+    assert tracked_by["google/gemini-3.7-flash"] == 0.6
+    assert "[UNPRICED]" not in mr.line(s)
+
+    # a credits reading alone is enough: one cached unit no longer condemns the candidate
+    s2 = mr.score(_outcome_scored(0.60, cost=0.60, cache_hit=True), ref, "g", {}, {}, {}, 0.60)
+    assert s2["priced"] is True and abs(s2["spend_usd"] - 0.60) < 1e-9
+
+    # and the one case that really has no figure to quote is still unpriced, never cheap
+    s3 = mr.score(_outcome_scored(0.0, cost=0.60, cache_hit=True), ref, "g", {}, {}, {}, None)
+    assert s3["priced"] is False and s3["cost_per_accepted"] == math.inf
+    assert "[UNPRICED]" in mr.line(s3)
+
+
+def test_a_dry_run_records_its_spend_so_the_field_run_can_price_the_units_it_replays(
+        tmp_path, monkeypatch):
+    """Defect 2a. The dry-run dispatch sits outside main's try/finally, so its money was
+    recorded nowhere: the next run's `resolve_prior_spend` could not see it, and `score`
+    found no recorded figure for the units the field run then replayed from its cache."""
+    cand = {"model_id": "g/one", "family": "google"}
+    real_dry_run = mr.dry_run
+    manifest_path = _main_env(tmp_path, monkeypatch, [cand])
+    monkeypatch.setattr(mr, "dry_run", real_dry_run)          # this test IS the dry-run path
+    monkeypatch.setattr(mr, "provider_for",
+                        lambda c, p: (SimpleNamespace(name="openrouter"),
+                                      mr.ModelPin(c["model_id"], c["family"]), "fake"))
+    monkeypatch.setattr(mr, "run_candidate", lambda *a, **k: _outcome_scored(0.6, cost=0.6))
+
+    _openrouter_env(monkeypatch, [100.0, 99.4])
+    assert mr.main(["--dry-run", "g/one"]) == 0
+    m = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert m["spend_by_candidate"] == {"g/one": 0.6} and m["total_task_spend_usd"] == 0.6
+    assert m["tracked_spend_by_candidate"] == {"g/one": 0.6}
+    assert m["pins"] == {"g/one": "g/one@-:-"} and m["dry_runs"]["g/one"]["batches"] == ["b1"]
+    assert not m.get("scores") and "selection" not in m    # a one-batch read is not a measurement
+
+    # the field run now replays that batch from cache and still prices the candidate
+    monkeypatch.setattr(mr, "run_candidate",
+                        lambda *a, **k: _outcome_scored(0.0, cost=0.6, cache_hit=True))
+    _openrouter_env(monkeypatch, [99.4, 99.0, 99.0])
+    assert mr.main([]) == 0
+    m2 = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert m2["scores"]["g/one"]["priced"] is True
+    assert m2["priced_by_candidate"] == {"g/one": True}
+    assert abs(m2["scores"]["g/one"]["spend_usd"] - 1.0) < 1e-9    # 0.4 charged now + 0.6 then
+    assert m2["spend_by_candidate"]["g/one"] == 1.0
+    assert m2["prior_spend_usd"] == 0.6 and m2["total_task_spend_usd"] == 1.0
+
+
+def _pinned_scores(by_key):
+    """Wrap the real `score` so a `main()` test can pin the macro and the decided rates a
+    candidate is credited with, while the spend arithmetic underneath stays real."""
+    real = mr.score
+
+    def fake(out, reference, key, *a, **k):
+        s = real(out, reference, key, *a, **k)
+        spec = by_key.get(key)
+        if spec:
+            s["macro"] = spec.get("macro", s["macro"])
+            for f, rate in (spec.get("decided") or {}).items():
+                s["fields"][f]["decided_rate"] = rate
+        return s
+    return fake
+
+
+def _prior_with_another_candidates_checks():
+    """A manifest whose stability and batch-size pair were earned by b/two, while a/one is
+    the candidate a recomputed selection now crowns."""
+    return {
+        "pins": {"a/one": "a/one@-:-", "b/two": "b/two@-:-"},
+        "scores": {"a/one": _score(0.95, 0.05, 190), "b/two": _score(0.60, 0.02, 180)},
+        "spend_by_candidate": {"a/one": 1.0, "b/two": 1.0},
+        "tracked_spend_by_candidate": {"a/one": 1.0, "b/two": 1.0},
+        "total_task_spend_usd": 2.0, "selection": {"winner": "b/two"}, "winner_pin": "b/two@-:-",
+        "stability": {"polarity": {"agreement_decided": 0.99, "decided_rate_b": 1.0}},
+        "stable": True, "stability_stops": ["done", "done"],
+        "batch_size_pair": {"b18": _score(0.60, 0.02, 180), "b5": _score(0.61, 0.02, 180)},
+    }
+
+
+def test_a_recomputed_winner_never_inherits_another_candidates_stability(tmp_path, monkeypatch):
+    """3A N5 / defect 3. Selection is recomputed over every candidate on record, so the
+    winner can be one this process did not run - and the stability and batch-size pair
+    already in the manifest may belong to somebody else. `merge_manifest` keeps
+    whole-manifest fields, so saying nothing republished b/two's stability as a/one's."""
+    prior = _prior_with_another_candidates_checks()
+    cands = [{"model_id": m, "family": "f"} for m in ("a/one", "b/two", "c/three")]
+    manifest_path = _main_env(tmp_path, monkeypatch, cands, prior=prior)
+    _openrouter_env(monkeypatch, [100.0] + [99.5] * 8)
+    pins_run = []
+
+    def resolve(cand, prov):
+        pins_run.append(cand["model_id"])
+        return SimpleNamespace(name="openrouter"), mr.ModelPin(cand["model_id"], cand["family"]), "fake"
+    monkeypatch.setattr(mr, "provider_for", resolve)
+    monkeypatch.setattr(mr, "run_candidate", lambda *a, **k: _outcome_scored(0.1, cost=0.1))
+    monkeypatch.setattr(mr, "score", _pinned_scores({"c/three": {"macro": 0.50}}))
+
+    assert mr.main(["--only", "c/three"]) == 0
+    m = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert m["selection"]["winner"] == "a/one"                  # not run here, and not b/two
+    assert m["winner_pin"] == "a/one@-:-"
+    assert m["stability"] != prior["stability"]                 # b/two's numbers are gone
+    assert m["batch_size_pair"] != prior["batch_size_pair"]
+    assert "a/one" in m["winner_checks_source"] and "recomputed winner" in m["winner_checks_source"]
+    assert set(m["stability"]) == {"relevant", "polarity", "who_was_letting"}
+    assert pins_run.count("a/one") == 1                        # resolved once, for the checks
+
+
+def test_checks_that_cannot_be_run_for_the_new_winner_are_marked_missing(tmp_path, monkeypatch):
+    """The other half of defect 3: when the recomputed winner's checks cannot be run - it is
+    not a candidate in domain.yaml, or the budget is gone - every field they would have
+    written is recorded as null with the reason, rather than left showing another
+    candidate's numbers."""
+    prior = _prior_with_another_candidates_checks()
+    prior["scores"]["d/four"] = _score(0.99, 0.01, 200)         # gone from domain.yaml
+    prior["pins"]["d/four"] = "d/four@-:-"
+    cands = [{"model_id": m, "family": "f"} for m in ("a/one", "b/two", "c/three")]
+    manifest_path = _main_env(tmp_path, monkeypatch, cands, prior=prior)
+    _openrouter_env(monkeypatch, [100.0, 99.5, 99.5])
+    monkeypatch.setattr(mr, "provider_for",
+                        lambda c, p: (SimpleNamespace(name="openrouter"),
+                                      mr.ModelPin(c["model_id"], c["family"]), "fake"))
+    monkeypatch.setattr(mr, "run_candidate", lambda *a, **k: _outcome_scored(0.1, cost=0.1))
+    monkeypatch.setattr(mr, "score", _pinned_scores({"c/three": {"macro": 0.50}}))
+
+    assert mr.main(["--only", "c/three"]) == 0
+    m = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert m["selection"]["winner"] == "d/four" and m["winner_pin"] == "d/four@-:-"
+    assert all(m[f] is None for f in mr.WINNER_CHECK_FIELDS)
+    assert m["winner_checks_missing"]["recorded_checks_belong_to"] == "b/two"
+    assert "not a candidate in domain.yaml" in m["winner_checks_missing"]["reason"]
+    assert m["winner_checks_source"].startswith("missing:")
+    assert mr.prior_checks_owner(prior) == "b/two"
+    assert mr.prior_checks_owner({}) is None
+
+
+def test_a_winners_own_recorded_checks_are_still_carried_forward(tmp_path, monkeypatch):
+    """The carry-forward is not removed, only narrowed to the case it was always meant for:
+    the manifest says these checks were recorded FOR this winner, so nothing is re-bought."""
+    prior = _prior_with_another_candidates_checks()
+    prior["scores"]["b/two"] = _score(0.95, 0.02, 180)          # b/two owns the checks AND wins
+    prior["scores"]["a/one"] = _score(0.60, 0.05, 190)
+    cands = [{"model_id": m, "family": "f"} for m in ("a/one", "b/two", "c/three")]
+    manifest_path = _main_env(tmp_path, monkeypatch, cands, prior=prior)
+    _openrouter_env(monkeypatch, [100.0, 99.5, 99.5])
+    monkeypatch.setattr(mr, "provider_for",
+                        lambda c, p: (SimpleNamespace(name="openrouter"),
+                                      mr.ModelPin(c["model_id"], c["family"]), "fake"))
+    monkeypatch.setattr(mr, "run_candidate", lambda *a, **k: _outcome_scored(0.1, cost=0.1))
+    monkeypatch.setattr(mr, "score", _pinned_scores({"c/three": {"macro": 0.50}}))
+
+    assert mr.main(["--only", "c/three"]) == 0
+    m = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert m["selection"]["winner"] == "b/two"
+    assert m["stability"] == prior["stability"] and m["stable"] is True
+    assert "carried forward" in m["winner_checks_source"] and "b/two" in m["winner_checks_source"]
+
+
+def test_the_manifest_records_why_each_eliminated_candidate_went_out(tmp_path, monkeypatch):
+    """Defect 4. `select_reader` already returns the reason and the number it failed on;
+    the manifest has to carry it per candidate so the report can say that glm went out on a
+    polarity decided rate of 0.8970 < 0.90 rather than leaving a reader to guess."""
+    cands = [{"model_id": m, "family": "f"} for m in ("z-ai/glm-5.3", "google/gemini-3.7-flash")]
+    manifest_path = _main_env(tmp_path, monkeypatch, cands)
+    _openrouter_env(monkeypatch, [100.0] + [99.5] * 8)
+    monkeypatch.setattr(mr, "provider_for",
+                        lambda c, p: (SimpleNamespace(name="openrouter"),
+                                      mr.ModelPin(c["model_id"], c["family"]), "fake"))
+    monkeypatch.setattr(mr, "run_candidate", lambda *a, **k: _outcome_scored(0.1, cost=0.1))
+
+    monkeypatch.setattr(mr, "score", _pinned_scores(
+        {"z-ai/glm-5.3": {"macro": 0.8512, "decided": {"polarity": 0.8970}},
+         "google/gemini-3.7-flash": {"macro": 0.8363}}))
+
+    assert mr.main([]) == 0
+    m = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert m["eliminated_by_candidate"] == {
+        "z-ai/glm-5.3": "decided rate below the 0.90 floor: polarity 0.8970 < 0.90"}
+    assert m["selection"]["winner"] == "google/gemini-3.7-flash"
+    # recomputed every run, never merged per candidate: a stale reason must not survive
+    assert "eliminated_by_candidate" not in mr.MERGE_BY_CANDIDATE
