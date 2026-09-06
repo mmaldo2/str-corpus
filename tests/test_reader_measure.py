@@ -8,7 +8,8 @@ import math
 import pytest
 
 from corpus_engine.reader.measure import (BAR_FIELDS, excluded_fields, field_scores,
-                                          score_candidate, select_reader, stability)
+                                          score_candidate, select_reader, stability,
+                                          subscription_keys)
 from corpus_engine.reader.model import (Budget, ModelPin, Plan, ReadingOutcome, RecordResult,
                                         Response, StopReason, Unit, UnitResult)
 
@@ -157,6 +158,53 @@ def test_the_tie_break_also_applies_when_nobody_reaches_the_bar():
                       subscription={"claude-cli/claude-opus-5"})
     assert r["winner"] == "claude-cli/claude-opus-5" and r["shortfall"] is True
     assert "no survivor reached 0.85" in r["rule"]
+
+
+SUB_LABEL = "claude-cli/claude-sonnet-5@claude-cli:-"
+
+
+def test_the_subscription_tie_break_is_keyed_on_pin_labels():
+    """The tie-break matches D4's subscription set against the keys of `scores`, and a
+    caller working from pins keys those by LABEL. So the set is labels: a subscription
+    label within 0.02 of the best surviving macro wins, exactly as the model-id spelling
+    was always meant to."""
+    scores = {"google/gemini-3.7-flash@-:-": _s(0.8900), SUB_LABEL: _s(0.8750)}
+    r = select_reader(scores, subscription={SUB_LABEL})
+    assert r["winner"] == SUB_LABEL and r["shortfall"] is False
+    assert "within 0.02" in r["rule"] and abs(r["best_macro"] - 0.8900) < 1e-9
+
+
+def test_the_model_id_form_alone_matches_nothing_when_the_scores_are_keyed_by_label():
+    """Regression for the dead tie-break: the tool passed `{c["model_id"] ...}` while the
+    keys being tested were pin labels, so `k in subscription` was never true and the
+    subscription branch could not fire. A label carries its own model id, so the label
+    form matches BOTH spellings; the bare model id matches only one."""
+    scores = {"google/gemini-3.7-flash@-:-": _s(0.8900), SUB_LABEL: _s(0.8750)}
+    dead = select_reader(scores, subscription={"claude-cli/claude-sonnet-5"})
+    assert dead["winner"] == "google/gemini-3.7-flash@-:-" and "highest macro" in dead["rule"]
+
+    # the same labels still win over the manifest's own model-id-keyed scores
+    by_id = {"google/gemini-3.7-flash": _s(0.8900), "claude-cli/claude-sonnet-5": _s(0.8750)}
+    assert select_reader(by_id, subscription={SUB_LABEL})["winner"] == "claude-cli/claude-sonnet-5"
+    assert subscription_keys(by_id, {SUB_LABEL}) == {"claude-cli/claude-sonnet-5"}
+    assert subscription_keys(scores, {SUB_LABEL}) == {SUB_LABEL}
+    assert subscription_keys(scores, {"claude-cli/claude-sonnet-5"}) == set()
+
+
+def test_the_decided_rate_floor_is_compared_unrounded_and_says_which_number_failed():
+    """The floor is applied to the rate as computed. 0.8974 rounds to 0.90 and is still
+    below the floor; 0.9000 is not below it and passes. The reason records the exact
+    number, so the manifest can say glm went out on a polarity decided rate of 0.8970
+    rather than leaving a reader to guess."""
+    assert select_reader({"a": _s(0.95, decided=0.8974)})["winner"] is None
+    assert select_reader({"a": _s(0.95, decided=0.9000)})["winner"] == "a"
+
+    glm = _s(0.8512)
+    glm["fields"]["polarity"]["decided_rate"] = 0.8970          # the live 2026-09-05 number
+    r = select_reader({"z-ai/glm-5.3": glm, "google/gemini-3.7-flash": _s(0.8363)})
+    assert r["eliminated"]["z-ai/glm-5.3"] == ("decided rate below the 0.90 floor: "
+                                               "polarity 0.8970 < 0.90")
+    assert r["winner"] == "google/gemini-3.7-flash" and r["survivors"] == ["google/gemini-3.7-flash"]
 
 
 def test_selection_is_deterministic_on_an_exact_tie():

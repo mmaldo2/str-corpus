@@ -158,6 +158,22 @@ def score_candidate(outcome: ReadingOutcome, reference: list[dict], *,
             "failed_units": outcome.failed_units, "stop": outcome.stop.kind}
 
 
+def subscription_keys(scores, subscription) -> set[str]:
+    """Which keys of `scores` name a subscription candidate.
+
+    CONTRACT: `subscription` is a set of PIN LABELS - `model_id@provider:precision`, the
+    identity a run actually read under (`ModelPin.label`) - because that is the only name
+    that distinguishes one read of a model from another. A `scores` key may be spelled
+    either way: the manifest keys candidates by bare model id, while a caller working from
+    pins keys them by label. So a label matches a key when the key IS the label or is the
+    label's model-id part, and passing bare model ids still works (each is its own
+    model-id part). What no longer works is the reverse - a caller passing model ids for
+    label-keyed scores - which is why this takes labels."""
+    labels = set(subscription)
+    ids = {label.partition("@")[0] for label in labels}
+    return {k for k in scores if k in labels or k in ids}
+
+
 def select_reader(scores: dict[str, dict], *, subscription=frozenset(), fidelity_floor: float = 0.97,
                   decided_floor: float = 0.90, agreement_bar: float = 0.85, tie_window: float = 0.02,
                   fields=BAR_FIELDS) -> dict:
@@ -169,17 +185,25 @@ def select_reader(scores: dict[str, dict], *, subscription=frozenset(), fidelity
     noise the 3A stability check measured. Cost per accepted record is reported but is not
     part of the rule: D4 has no cost term. The tie-break applies in the shortfall branch too
     (plan-writer resolution): the reason for it - the subscription read costs nothing - does
-    not change when nobody clears the agreement bar."""
+    not change when nobody clears the agreement bar.
+
+    `subscription` is a set of pin labels; see `subscription_keys` for how one is matched
+    against a `scores` key. Every floor is applied to the rate as computed, UNROUNDED: a
+    decided rate of 0.8974 fails the 0.90 floor even though it rounds to 0.90, and only a
+    rate that really reaches the floor passes. `eliminated` records, per candidate, which
+    floor it failed and the exact number it failed on, so the manifest and the report can
+    say why rather than guess."""
     eliminated: dict[str, str] = {}
     for k in sorted(scores):
         s = scores[k]
         if s["fidelity"] < fidelity_floor:
-            eliminated[k] = f"fidelity {s['fidelity']:.4f} < {fidelity_floor}"
+            eliminated[k] = f"fidelity {s['fidelity']:.4f} < {fidelity_floor:.2f}"
             continue
         low = [f for f in fields if s["fields"][f]["decided_rate"] < decided_floor]
         if low:
-            eliminated[k] = ("decided rate below " + f"{decided_floor}" + " on "
-                             + ", ".join(f"{f} {s['fields'][f]['decided_rate']:.4f}" for f in low))
+            eliminated[k] = (f"decided rate below the {decided_floor:.2f} floor: "
+                             + ", ".join(f"{f} {s['fields'][f]['decided_rate']:.4f} < {decided_floor:.2f}"
+                                         for f in low))
     survivors = {k: s for k, s in scores.items() if k not in eliminated}
     if not survivors:
         return {"winner": None, "rule": f"no candidate cleared the fidelity floor {fidelity_floor} "
@@ -190,7 +214,8 @@ def select_reader(scores: dict[str, dict], *, subscription=frozenset(), fidelity
     shortfall = not pool
     if shortfall:
         pool = dict(survivors)
-    near = {k: s for k, s in pool.items() if k in set(subscription) and s["macro"] >= best - tie_window}
+    subs = subscription_keys(pool, subscription)
+    near = {k: s for k, s in pool.items() if k in subs and s["macro"] >= best - tie_window}
     if near:
         winner = max(sorted(near), key=lambda k: near[k]["macro"])
         rule = (f"subscription candidate within {tie_window} of the best surviving macro "
