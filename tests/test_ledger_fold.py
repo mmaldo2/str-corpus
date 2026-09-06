@@ -97,7 +97,31 @@ def test_the_support_rule_is_scoped_by_the_prompt_that_read_the_record():
                                                 "restriction_nature", "under_thirty_days")
     assert supported_fields(MAPPER_V3) == SUPPORTED_BY_PROMPT["mapper-v3"]   # sha suffix ignored
     assert supported_fields("mapper-v1") == SUPPORTED
-    assert supported_fields(None) == SUPPORTED and supported_fields("mapper-v9") == SUPPORTED
+
+
+def test_supported_fields_falls_back_to_mapper_v1_only_when_missing_or_empty():
+    """Review finding 1 (controller amendment): `None`/missing/`""` is a real historical
+    state - every pre-D7 admit patch predates the field - and stays SUPPORTED. Anything
+    non-empty that isn't a known codebook version is a bug (typo, or a shipped codebook with
+    no SUPPORTED_BY_PROMPT entry) and must not be silently narrowed to three fields."""
+    assert supported_fields(None) == SUPPORTED
+    assert supported_fields("") == SUPPORTED
+
+
+def test_supported_fields_raises_on_an_unknown_non_empty_version_naming_it():
+    with pytest.raises(ValueError, match="mapper-v9"):
+        supported_fields("mapper-v9")
+    with pytest.raises(ValueError, match="mapper-v2"):
+        supported_fields("mapper-v2:deadbeefcafe")
+
+
+def test_supported_fields_lookup_is_exact_not_case_or_whitespace_folded():
+    """The lookup is on the segment before ':' verbatim - `"MAPPER-V3"` and `"mapper-v3 "`
+    (trailing space) are unknown, not aliases for `mapper-v3`."""
+    with pytest.raises(ValueError, match="MAPPER-V3"):
+        supported_fields("MAPPER-V3")
+    with pytest.raises(ValueError):
+        supported_fields("mapper-v3 ")
 
 
 def _admit(state, cid, basis, rec):
@@ -159,6 +183,39 @@ def test_the_admitting_prompt_is_remembered_without_touching_the_record():
     assert s.prompts[3] == MAPPER_V3
     assert "prompt_version" not in s.records[3] and set(rec) <= set(s.records[3])
     assert set(s.records[3]) - set(rec) == {"review"}
+
+
+def test_prompt_falls_back_to_the_earliest_judged_set_when_the_admit_carries_none():
+    """Review finding 2: spec section 8 does not require the D8 basis to live on the admit
+    patch itself. When an admit's own basis carries no `prompt_version` (here a rule-only
+    admit), the record's admitting prompt comes from the earliest `set` on a judged field
+    whose OWN basis carries one - and, once found, stays fixed (finding 3's guard applies
+    here too: a later judged `set` under a different basis must not move it)."""
+    s = State()
+    rec = {"case_id": 6, "relevant": True, "polarity": None, "quotes": []}
+    apply_patch(s, Patch(6, "admit", "", rec, "cycle-004 admit", Basis(rule_id="cycle-004-admit"),
+                         cycle="cycle-004"))
+    assert s.prompts[6] == ""
+    apply_patch(s, Patch(6, "set", "polarity", "favorable", "reader set", READER_V3))
+    assert s.prompts[6] == MAPPER_V3
+    apply_patch(s, Patch(6, "set", "characterization", "lease", "reviewer set",
+                         Basis(reviewer="mmaldo2")))
+    assert s.prompts[6] == MAPPER_V3                      # not erased by the reviewer's set
+
+
+def test_a_reviewer_readmit_does_not_erase_the_recorded_reader_prompt():
+    """Review finding 3: the admitting prompt is the first one ever recorded. A re-admit
+    under a reviewer-only basis (the `admit` branch does not require `can_judge`) carries no
+    `prompt_version` and must not narrow an already-known mapper-v3 record to mapper-v1."""
+    s = State()
+    rec = {"case_id": 7, "relevant": True, "polarity": "favorable", "quotes": []}
+    _admit(s, 7, READER_V3, rec)
+    assert s.prompts[7] == MAPPER_V3
+    readmit_rec = {"case_id": 7, "relevant": True, "polarity": "adverse", "quotes": []}
+    apply_patch(s, Patch(7, "admit", "", readmit_rec, "re-admit after correction",
+                         Basis(reviewer="mmaldo2"), cycle="cycle-004"))
+    assert s.prompts[7] == MAPPER_V3
+    assert s.records[7]["polarity"] == "adverse"
 
 
 def test_cascade_false_still_skips_the_cascade_under_the_v3_rule():

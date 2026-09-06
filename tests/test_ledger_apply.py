@@ -42,7 +42,10 @@ def test_apply_is_atomic_and_idempotent(tmp_path):
 
 def test_drop_quote_alone_does_not_count_as_reviewed(tmp_path):
     led = open_ledger(tmp_path, domain=load_domain())
-    led.apply([Patch(1, "admit", "", _rec(1, 1850), "v", Basis(model="m", prompt_version="v", run_id="r"), cycle="cycle-001")], note="seed")
+    # prompt_version must name a known codebook (fold.supported_fields raises on an
+    # unrecognised non-empty version per review finding 1) -- "mapper-v1" here is just a
+    # real value, not the thing under test.
+    led.apply([Patch(1, "admit", "", _rec(1, 1850), "v", Basis(model="m", prompt_version="mapper-v1", run_id="r"), cycle="cycle-001")], note="seed")
     led.apply([Patch(1, "drop_quote", "quotes", "q", "mismatch", Basis(reviewer="m"))], note="drop")
     assert led.view().reviewed(1) is False
     led.apply([Patch(1, "set", "review.status", "human-adjudicated", "x", Basis(reviewer="m"))], note="status")
@@ -77,8 +80,11 @@ def test_apply_honors_patch_cascade_flag_through_the_log(tmp_path):
     # cascade is now an explicit Patch field, replayed straight through
     # apply()'s validation loop and Ledger._replay -- no why-prefix sniffing.
     led = open_ledger(tmp_path, domain=load_domain())
-    led.apply([Patch(1, "admit", "", _rec(1, 1850), "v", Basis(model="m", prompt_version="v", run_id="r"), cycle="cycle-001"),
-               Patch(2, "admit", "", _rec(2, 1850), "v", Basis(model="m", prompt_version="v", run_id="r"), cycle="cycle-001")],
+    # prompt_version must name a known codebook (fold.supported_fields raises on an
+    # unrecognised non-empty version per review finding 1) -- "mapper-v1" here is just a
+    # real value, not the thing under test.
+    led.apply([Patch(1, "admit", "", _rec(1, 1850), "v", Basis(model="m", prompt_version="mapper-v1", run_id="r"), cycle="cycle-001"),
+               Patch(2, "admit", "", _rec(2, 1850), "v", Basis(model="m", prompt_version="mapper-v1", run_id="r"), cycle="cycle-001")],
               note="seed")
     led.apply([Patch(1, "drop_quote", "quotes", "q", "mismatch", Basis(reviewer="m"), cascade=False)], note="no cascade")
     rec1 = led.view().record(1)

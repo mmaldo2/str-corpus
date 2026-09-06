@@ -28,10 +28,22 @@ def supported_fields(prompt_version: str | None) -> tuple[str, ...]:
 
     D8 spells the basis as `mapper-v3:<first 12 of the codebook sha>`, so the lookup is on
     the part before the colon: the rule follows the codebook version, not the particular
-    file hash, and a codebook edit that keeps the version keeps the rule."""
+    file hash, and a codebook edit that keeps the version keeps the rule. The lookup is
+    exact - no case-folding, no stripping - so a typo (`MAPPER-V3`, `mapper-v3 `) is a bug
+    to surface, not a version to guess at.
+
+    `None`/missing/`""` is a legitimate historical state (every mapper-v1 admit patch predates
+    this field) and resolves to the mapper-v1 rule. Anything non-empty that doesn't name a
+    known codebook version raises: silently narrowing to three fields would leave a
+    mapper-v3 record's other judged fields standing on no surviving quote - the exact
+    evidence-discipline gap the cascade exists to close - with nothing downstream able to
+    tell the difference from a real mapper-v1 record (controller ruling, review finding 1)."""
     if not prompt_version:
         return SUPPORTED
-    return SUPPORTED_BY_PROMPT.get(str(prompt_version).split(":", 1)[0], SUPPORTED)
+    key = str(prompt_version).split(":", 1)[0]
+    if key not in SUPPORTED_BY_PROMPT:
+        raise ValueError(f"unknown prompt_version for supported_fields: {prompt_version!r}")
+    return SUPPORTED_BY_PROMPT[key]
 
 
 def quote_supports(quote: dict) -> tuple[str, ...]:
@@ -60,7 +72,26 @@ class State:
     # The prompt version each record was ADMITTED under, so `drop_quote` can pick the right
     # support rule. A side map, exactly like `cycles`: putting it on the record itself would
     # add a key to every rendered line and break the byte-identical snapshot replay.
+    #
+    # The value recorded here is fixed the first time it is known and never overwritten
+    # after that (review findings 2-3): it is set from the FIRST admit patch for the case
+    # that carries a `prompt_version` (spec section 8 does not require the admit patch
+    # itself to carry the D8 basis - Task 7 must; see `_record_admitting_prompt`), or, if
+    # no admit patch ever carries one, from the earliest `set` on a judged field whose
+    # basis does (see the `set` branch below). A later re-admit or re-set under a
+    # reviewer-only or rule-only basis (no `prompt_version`) leaves whatever is already
+    # recorded untouched - a re-admit is provenance for the record, not for the read that
+    # first produced it, and silently narrowing an already-known mapper-v3 rule to
+    # mapper-v1 the moment a human re-admits a record would be exactly the silent
+    # evidence-discipline gap `supported_fields` was just made to refuse for finding 1.
     prompts: dict[int, str] = field(default_factory=dict)
+
+
+def _record_admitting_prompt(state: "State", case_id: int, basis) -> None:
+    """Fix `state.prompts[case_id]` the first time it is known; never overwrite it after
+    that (review findings 2-3)."""
+    if not state.prompts.get(case_id):
+        state.prompts[case_id] = basis.prompt_version or ""
 
 
 def _resolve(rec: dict, path: str, create: bool = False):
@@ -88,13 +119,13 @@ def apply_patch(state: State, p: Patch, *, judged: tuple[str, ...] = JUDGED_DEFA
             old = state.records[p.case_id]
             state.records[p.case_id] = rec          # same position in state.order
             state.in_file[p.case_id] = bool(rec.get("relevant"))
-            state.prompts[p.case_id] = p.basis.prompt_version or ""
+            _record_admitting_prompt(state, p.case_id, p.basis)
             return old
         state.records[p.case_id] = rec
         state.order.append(p.case_id)
         state.cycles[p.case_id] = p.cycle
         state.in_file[p.case_id] = bool(rec.get("relevant"))
-        state.prompts[p.case_id] = p.basis.prompt_version or ""
+        _record_admitting_prompt(state, p.case_id, p.basis)
         return UNSET
     rec = state.records.get(p.case_id)
     if rec is None:
@@ -105,6 +136,13 @@ def apply_patch(state: State, p: Patch, *, judged: tuple[str, ...] = JUDGED_DEFA
         # judged field is a judgment and still needs one.
         if p.field in judged and p.new is not None and not p.basis.can_judge():
             raise MissingBasis(f"{p.field} on {p.case_id} needs a reviewer or model+prompt_version+run_id")
+        # Review finding 2: if no admit patch for this record ever carried a prompt_version
+        # (spec section 8 does not require the D8 basis to live on the admit patch itself),
+        # the earliest `set` on a judged field whose OWN basis carries one is the fallback
+        # source of the admitting prompt. `_record_admitting_prompt` is idempotent past the
+        # first non-empty value, so this only ever fires once per record.
+        if p.field in judged:
+            _record_admitting_prompt(state, p.case_id, p.basis)
         target, key = _resolve(rec, p.field, create=True)
         old = target.get(key, UNSET)
         target[key] = p.new
