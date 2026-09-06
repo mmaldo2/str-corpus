@@ -25,8 +25,8 @@ letting_tiers:                            # who_was_letting value -> tier
   commercial_operator: commercial
   unclear: unclear
 judged_fields: [relevant, polarity, who_was_letting, duration_of_occupancy,
-                characterization, holding_summary, under_30_days,
-                restriction_nature, right_characterization]
+                characterization, holding_summary, under_thirty_days,
+                restriction_nature, owner_freedom_characterization]
 curatorial_fields: [review.status, review.flags, review.notes, citator_status]
 paths:
   selectors: selectors/selectors.yaml
