@@ -13,6 +13,7 @@ from corpus_engine.domain import load_domain
 from corpus_engine.reader.codebook import load_codebook
 from corpus_engine.reader.model import (Plan, ReadingOutcome, RecordResult, Response,
                                         StopReason, Unit, UnitResult)
+from corpus_engine.reader.providers import factory
 
 ROOT = Path(__file__).resolve().parent.parent
 _spec = importlib.util.spec_from_file_location("measure_reader", ROOT / "tools" / "measure_reader.py")
@@ -357,7 +358,7 @@ def test_an_openrouter_dry_run_is_capped_far_below_the_slice_ceiling(tmp_path, m
     calls = []
     monkeypatch.setattr(mr, "run_candidate", _strict_fake_run(calls))
     monkeypatch.setattr(mr, "reconcile", lambda *a, **k: 0.4)
-    monkeypatch.setattr(mr, "pin_for", lambda cand, prov: (mr.ModelPin(cand["model_id"], cand["family"],
+    monkeypatch.setattr(factory, "pin_for", lambda cand, prov: (mr.ModelPin(cand["model_id"], cand["family"],
                                                                       extra={"reasoning": mr.REASONING}),
                                                            "closed-weight model"))
     cand = {"model_id": "google/gemini-3.7-flash", "family": "google"}
@@ -568,7 +569,7 @@ def test_a_dry_run_records_an_unavailable_candidate_and_still_runs_the_rest(tmp_
     monkeypatch.setattr(mr, "run_candidate", _strict_fake_run(calls))
     monkeypatch.setattr(mr.ClaudeCliProvider, "version", lambda self: None)      # cli not on PATH
     monkeypatch.setattr(mr, "reconcile", lambda *a, **k: 0.0)
-    monkeypatch.setattr(mr, "pin_for",
+    monkeypatch.setattr(factory, "pin_for",
                         lambda c, p: (mr.ModelPin(c["model_id"], c["family"],
                                                   extra={"reasoning": mr.REASONING}), "closed-weight"))
     bad = {"model_id": "claude-cli/claude-sonnet-5", "family": "anthropic",
