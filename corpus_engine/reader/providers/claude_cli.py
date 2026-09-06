@@ -27,6 +27,20 @@ THROTTLE_DELAYS = (60, 300, 900, 1800, 3600)
 THROTTLE_STATUS = ("429", "529")
 THROTTLE_TEXT = re.compile(r"usage limit|rate.?limit|too many requests|overloaded|"
                            r"capacity|try again later", re.IGNORECASE)
+# Every environment variable that can move this call OFF the subscription and onto something
+# that bills. `ANTHROPIC_API_KEY` was the only one stripped until 2026-09-05; `AUTH_TOKEN` and
+# `BASE_URL` route the CLI to a billed API or a gateway exactly as a key does, and the three
+# `CLAUDE_CODE_USE_*` switches route it to a cloud provider's model garden, where the charge
+# lands on that account instead. The whole `ANTHROPIC_` prefix goes rather than a list of
+# names, so a variable added by a later CLI version cannot re-open the hole (final-review I6).
+# Not verified against `claude --help`: this slice may not invoke the CLI, so the set is the
+# named one from the review plus the prefix rule, and cloud credentials (AWS_/GOOGLE_/AZURE_)
+# are deliberately left alone - they are inert once the USE_* switch above them is gone, and
+# stripping them would break an unrelated tool that shares this process's environment.
+SUBSCRIPTION_STRIPPED_ENV = ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN", "ANTHROPIC_BASE_URL",
+                             "CLAUDE_CODE_USE_BEDROCK", "CLAUDE_CODE_USE_VERTEX",
+                             "CLAUDE_CODE_USE_FOUNDRY")
+SUBSCRIPTION_STRIPPED_PREFIXES = ("ANTHROPIC_",)
 
 
 def _throttled(status: str, blob: str) -> bool:
@@ -71,9 +85,14 @@ class ClaudeCliProvider:
 
     @staticmethod
     def env() -> dict:
-        """The subscription pays for this call. With ANTHROPIC_API_KEY visible the CLI bills
-        the API instead - the route ADR-0007's amendment deliberately left."""
-        return {k: v for k, v in os.environ.items() if k != "ANTHROPIC_API_KEY"}
+        """The subscription pays for this call, and this is what makes that true rather than
+        merely likely: every variable in `SUBSCRIPTION_STRIPPED_ENV`, and everything under
+        `SUBSCRIPTION_STRIPPED_PREFIXES`, is removed from the child's environment. With any
+        one of them visible the CLI bills an API, a gateway or a cloud account instead - the
+        routes ADR-0007's amendment deliberately left."""
+        return {k: v for k, v in os.environ.items()
+                if k not in SUBSCRIPTION_STRIPPED_ENV
+                and not k.startswith(SUBSCRIPTION_STRIPPED_PREFIXES)}
 
     def complete(self, req: Request) -> Response:
         size = len(req.user.encode("utf-8"))

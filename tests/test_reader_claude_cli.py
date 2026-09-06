@@ -47,7 +47,9 @@ def runner_for(responses, calls):
 
 
 def test_every_flag_is_sent_and_the_api_key_is_stripped(monkeypatch):
-    monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-must-not-be-passed")
+    for name in cc.SUBSCRIPTION_STRIPPED_ENV:
+        monkeypatch.setenv(name, "must-not-be-passed")
+    monkeypatch.setenv("ANTHROPIC_MODEL", "must-not-be-passed")   # the prefix rule, not the list
     monkeypatch.setenv("STR_CORPUS_SENTINEL", "kept")
     calls = []
     p = ClaudeCliProvider("claude-sonnet-5", runner=runner_for([envelope()], calls), exe="claude")
@@ -61,7 +63,13 @@ def test_every_flag_is_sent_and_the_api_key_is_stripped(monkeypatch):
                        "--json-schema", json.dumps(SCHEMA, sort_keys=True)]
     assert kw["input"] == "the prompt" and kw["timeout"] == 1500 and kw["encoding"] == "utf-8"
     assert kw["capture_output"] is True and kw["text"] is True
-    assert "ANTHROPIC_API_KEY" not in kw["env"] and kw["env"]["STR_CORPUS_SENTINEL"] == "kept"
+    # I6: an API key is not the only way to move this call onto something that bills. Every
+    # name in the stripped set, and everything under the ANTHROPIC_ prefix, must be absent.
+    assert not [k for k in kw["env"] if k in cc.SUBSCRIPTION_STRIPPED_ENV
+                or k.startswith(cc.SUBSCRIPTION_STRIPPED_PREFIXES)]
+    assert {"ANTHROPIC_AUTH_TOKEN", "ANTHROPIC_BASE_URL", "CLAUDE_CODE_USE_BEDROCK",
+            "CLAUDE_CODE_USE_VERTEX", "CLAUDE_CODE_USE_FOUNDRY"} <= set(cc.SUBSCRIPTION_STRIPPED_ENV)
+    assert kw["env"]["STR_CORPUS_SENTINEL"] == "kept"
     # usage is the sum of the three input counters; the subscription has no marginal price
     assert r.input_tokens == 754 and r.output_tokens == 120 and r.cost_usd is None
     assert r.raw["list_cost_usd"] == 0.42
