@@ -80,21 +80,29 @@ finalists, manifest `data/reader/measurement-v2/manifest.json`, result in
 and superseded.
 
 > **Both measurements are finished and paid for** — v1 $41.67 of an approved $50,
-> v2 $6.91 of a $10 ceiling plus 45 subscription units at no charge. Running any
+> v2 $6.91 of a $10 ceiling plus 46 subscription units at no charge. Running any
 > of the lines below again spends real money on any unit not already in
 > `data/reader/cache`, and `--only <model id>` re-buys that candidate. A paid
 > re-run merges per candidate into the existing manifest and re-decides the
 > winner over every candidate on record, so it cannot drop the others - but it is
 > still spend, so read the ceiling guard in `resolve_prior_spend` before typing
-> it. `--max-usd` may never exceed $15 (spec decision D5).
+> it. `--max-usd` may never exceed $15 (spec decision D5), and it is a ceiling per
+> MANIFEST DIRECTORY: prior spend is read only from the manifest the run writes,
+> so a paid run pointed anywhere but `data/reader/measurement-v2` is refused
+> unless `--allow-measurement-dir` is passed with it.
 
 ```
 :: what v2 ran, in order. THESE SPEND.
 .venv\Scripts\python tools\measure_reader.py --dry-run google/gemini-3.7-flash --max-usd 10
 .venv\Scripts\python tools\measure_reader.py --dry-run claude-cli/claude-sonnet-5 --max-usd 10
 .venv\Scripts\python tools\measure_reader.py --max-usd 10 --prior-spend-usd 0.02
-.venv\Scripts\python tools\measure_reader.py --only openai/gpt-5.6-terra --max-usd 10
+.venv\Scripts\python tools\measure_reader.py --max-usd 10
 ```
+
+The last line is the merge pass, run after the strict-schema fix landed. It is the
+bare command over all five candidates - GPT live under the new dialect, the other
+four replayed from cache - not `--only openai/gpt-5.6-terra`, which could not have
+produced the manifest that is committed.
 
 A `--dry-run <candidate>` buys one kit batch, writes an inspection file, and
 stops without selecting anything; two of them (one OpenRouter candidate, one
@@ -115,7 +123,11 @@ spend**:
 
 The second line is how v1 is re-derived now that `domain.yaml` names `mapper-v3`
 and kit v2 by default; without those three flags `--annotate-only` would score
-v1's cache against v2's kit.
+v1's cache against v2's kit. Which cache-key composition each manifest is
+addressed with is read off the manifest itself (`cache_key_version`; v1 predates
+the field and is recognised by having no `schema_sha`), so neither line can be
+pointed at the other's cache. Both reproduce their manifest byte for byte apart
+from the derived records the annotation exists to add.
 
 Tests: `.venv\Scripts\python -m pytest tests -q`. Byte-for-byte
 characterization tests reproduce cycle-003 batches, verified files, and all

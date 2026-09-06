@@ -23,7 +23,8 @@ cached.
 - Raw responses: `data/reader/cache/` (gitignored). The manifest records the cache
   key of every unit behind every score under `cache_keys`. Regenerate the derived
   records at any time, without spending anything, with
-  `.venv\Scripts\python tools\measure_reader.py --annotate-only`.
+  `.venv\Scripts\python tools\measure_reader.py --annotate-only` (see Reproduction
+  for what that adds).
 - Measurement v1 (`reports/reader-measurement.md`, `data/reader/measurement-v1/`)
   is untouched.
 
@@ -88,6 +89,14 @@ beside them and **is not a charge**.
 
 Bold macro marks the four survivors eligible to win; the bold decided rate is the
 one number that eliminated a candidate.
+
+**Every column but `wall` is read straight out of the manifest.** `wall` is
+field-run wall clock, taken from the run console rather than from the manifest: the
+final merge pass replayed four of the five candidates from cache, so the manifest's
+`wall_seconds` (0.8–1.3 s) is replay time and says nothing about how long the reads
+took. The four field-run figures are not recoverable from the manifest or the cache
+and are reported here on the run log's authority alone; GPT's 597 s is its own
+strict-dialect run, which was live.
 
 - **Eliminated: `z-ai/glm-5.3`**, on the pre-registered decided-rate floor —
   `polarity` 0.8983 against 0.90. The manifest records the reason per candidate
@@ -288,8 +297,8 @@ the `/credits` delta, not summed from the parts):
 
 | | |
 | --- | ---: |
-| Subscription units used | **45 of a 137-unit process ceiling** (Sonnet 22, Opus 23) |
-| Wall clock for the two kit passes | ~47 min (Sonnet 1639 s, Opus 1198 s) |
+| Subscription units bought | **46 of a 137-unit process ceiling** (Sonnet 23, Opus 23) |
+| Wall clock for the two kit passes | ~47 min (Sonnet 1639 s, Opus 1198 s — run log) |
 | List-price equivalent, Sonnet over the kit | $7.81 — **not charged** |
 | List-price equivalent, Opus over the kit | $15.01 — **not charged** |
 | Dollars charged | **$0.00** |
@@ -302,6 +311,19 @@ manifest so the list price can never be summed into a spend total. No
 `ANTHROPIC_API_KEY` was present in the subprocess environment: the reads went
 through the subscription, as ADR-0007's 2026-09-05 amendment records the user
 directed. The licence question that amendment raises is not re-argued here.
+
+The units figure is the count of distinct subscription units this measurement
+bought, re-derived from the manifest's `cache_keys` map (23 for each of the two
+candidates) — **not** the manifest's `subscription_budget.units_used`, which reads
+`0`. That zero is a defect and not a measurement: `subscription_budget` is a
+whole-manifest field, and the final merge pass made no subscription call at all
+(every subscription unit replayed from cache), so it wrote its own zero over the
+field run's counter. `merge_manifest` now keeps the highest count any process
+reached, so a later merge cannot erase it again. An earlier draft of this report
+said "45 (Sonnet 22, Opus 23)", which was the field-run process's own counter —
+Sonnet's first batch having been bought by dry run 2 rather than by the field run.
+That number is not recoverable from the manifest or the cache and has been replaced
+by the one that is.
 
 ## Process disclosures
 
@@ -328,11 +350,15 @@ previously-optional ones made nullable, no `if`/`then`/`else`, enum vocabularies
 untouched (commit `5092ae5`). **GPT is therefore the only candidate measured under
 a different schema dialect than the rest of the field.** The transform is
 structural, the quote gate is unchanged, and GPT finished last among survivors
-anyway, but the asymmetry is real and is recorded rather than smoothed over. A
-visible consequence: the manifest's `cache_keys` map lists **zero units for GPT**,
-because it recomputes keys under the default dialect's schema sha and GPT's
-responses are keyed under the strict one. GPT's score is the only one in this
-report that cannot be traced to its responses through the manifest.
+anyway, but the asymmetry is real and is recorded rather than smoothed over. It had
+a second, purely mechanical consequence, now fixed: the manifest as first written
+listed **zero units for GPT** under `cache_keys`, because the key derivation hashed
+the default dialect's schema sha for every pin while GPT's responses were keyed
+under the strict one. The derivation now asks `driver.schema_for` which dialect the
+pin was actually sent, exactly as the driver asks it, and
+`--annotate-only` fills GPT's map with the 25 keys that were always on disk. GPT's
+score is traceable to its responses through the manifest like every other
+candidate's; the dialect asymmetry itself remains.
 
 **3. The winner's first batch was a cache hit** from dry run 1 — the same pin, the
 same codebook, the same schema, the same unit. One of the winner's 23 kit units was
@@ -382,8 +408,9 @@ computed by an older version of `score_candidate`.
 5. **`accepted` counts partial records**, so cost per accepted record is a lower
    bound (v1 Concern 8, spec §2 as amended). `accepted_full` is in the table and in
    the manifest; on the strict denominator the winner costs $0.0066 per record.
-6. **GPT's schema dialect differs from the field's** (disclosure 2) and its units
-   are untraceable through the manifest's cache-key map.
+6. **GPT's schema dialect differs from the field's** (disclosure 2). Its units are
+   traceable through the manifest's cache-key map again, but it is still the one
+   candidate measured under a schema the others were not sent.
 7. **$0.56 of $6.91 is attributed to no candidate**, with $0.50 of that a known
    overwrite of the stability reads' figures (see Spend).
 8. **`who_was_letting` is scored but not quote-gated**, and much of its reference is
@@ -463,6 +490,21 @@ Recompute this manifest's derived records — no request, no spend:
 .venv\Scripts\python tools\measure_reader.py --annotate-only
 ```
 
+It reads the key composition off the manifest (`cache_key_version`, `v2` here) and
+addresses the cache the way the run did, strict dialect included. **It reproduces
+the committed manifest byte for byte**, which is the check it exists to be: the
+annotation has already been applied, so a re-run is a no-op against git. What it
+added over what the run wrote was `accepted_by_candidate`, `cache_key_coverage`,
+`cache_key_version`, `discarded_spend_by_candidate`, `note`, `spend_attribution`,
+`superseded_cache_keys`, and — inside `cache_keys` — GPT's 25 units and the
+winner's `:b5` / `:stab1` / `:stab2` maps, none of which the run recorded. No score,
+spend or selection value moved, and `accepted_by_candidate` reproduces what the paid
+run scored for all five candidates (`matches_the_run` true throughout).
+
+The same command against `data/reader/measurement-v1` (with v1's three flags, below)
+reproduces that manifest byte for byte too, addressing its cache with the frozen
+Stage 3A key. Neither can be pointed at the other's cache by accident.
+
 Do the same for measurement v1, which needs its own codebook and kit passed
 explicitly now that `domain.yaml` names v3/v2 (still no request, no spend):
 
@@ -487,13 +529,26 @@ subscription units:**
 :: the field run - five candidates over kit v2, then the winner's checks
 .venv\Scripts\python tools\measure_reader.py --max-usd 10 --prior-spend-usd 0.02
 
-:: the GPT re-run under the strict schema dialect, merged into the same manifest
-.venv\Scripts\python tools\measure_reader.py --only openai/gpt-5.6-terra --max-usd 10
+:: the merge pass, after the strict-schema fix landed - the whole field again, not
+:: --only: GPT was live under the new dialect and the other four replayed from cache
+.venv\Scripts\python tools\measure_reader.py --max-usd 10
 ```
+
+The last line is the bare command, run over all five candidates, and it is what
+produced this manifest. An earlier draft printed it as `--only
+openai/gpt-5.6-terra`, which cannot have: `--only` filters the candidate list to
+one, so nothing but GPT's score and spend could have changed, yet the manifest
+records replay wall times for Gemini, Opus and Sonnet and a $0.2560 credits delta
+added to GLM in that same pass (Spend, defect 2). Following the `--only` line and
+diffing the result would leave a reader unable to account for four candidates.
 
 `--max-usd` is the whole slice's OpenRouter ceiling and may not exceed $15 (D5);
 $10 is what was granted here. Omit `--prior-spend-usd` and the tool reads what has
-already been spent off the existing manifest.
+already been spent off the existing manifest. That ceiling is enforced **per
+manifest directory** — prior spend is read only from the manifest the run writes —
+so the slice deliberately uses one directory, and a paid run pointed anywhere but
+`data/reader/measurement-v2` is refused unless `--allow-measurement-dir` is passed
+with it.
 
 ## Where this is recorded
 
