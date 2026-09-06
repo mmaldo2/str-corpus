@@ -9,9 +9,11 @@ import importlib.util
 from pathlib import Path
 
 from corpus_engine.domain import load_domain
+from corpus_engine.ledger import open_ledger
 from corpus_engine.ledger.fold import State, apply_patch
 from corpus_engine.ledger.ledger import LedgerView
 from corpus_engine.ledger.types import Basis, Patch
+from corpus_engine.reader.schema import FLAG_PREFIX
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -72,3 +74,22 @@ def test_a_mapper_v3_record_is_checked_against_the_six_field_rule_with_list_supp
     # remaining four of the six mapper-v3 fields have no surviving support.
     assert found == [(12, "polarity"), (12, "holding_summary"),
                      (12, "owner_freedom_characterization"), (12, "restriction_nature")]
+
+
+def test_the_review_flag_uses_the_shared_flag_prefix_constant(tmp_path, monkeypatch):
+    """The tool used to build its `review.flags` append with a hardcoded `"needs-review:"`
+    literal instead of `corpus_engine.reader.schema.FLAG_PREFIX`. Seeds and runs entirely
+    against a private tmp_path ledger (never the real `data/ledger`)."""
+    mod = _load("apply_retraction_cascade")
+    led = open_ledger(tmp_path, domain=load_domain())
+    led.apply([
+        Patch(11, "admit", "", V1_REC, "admit", READER_V1, cycle="cycle-001"),
+        Patch(11, "drop_quote", "quotes", "gone", "mismatch", Basis(reviewer="mmaldo2"),
+              cascade=False),
+    ], note="seed")
+    monkeypatch.setattr(mod, "open_ledger", lambda: led)
+    assert mod.main() == 0
+    flags = [p for p in led.view().patches if p.op == "append" and p.field == "review.flags"]
+    assert flags
+    assert all(p.new.startswith(FLAG_PREFIX) for p in flags)
+    assert {p.new for p in flags} == {f"{FLAG_PREFIX}polarity", f"{FLAG_PREFIX}holding_summary"}

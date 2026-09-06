@@ -22,6 +22,7 @@ sys.path.insert(0, str(ROOT))
 from corpus_engine.ledger import open_ledger
 from corpus_engine.ledger.fold import quote_supports, supported_fields
 from corpus_engine.ledger.types import Basis, Patch
+from corpus_engine.reader.schema import FLAG_PREFIX
 
 WHY = ("retraction cascade: the quote supporting this field was dropped as a "
        "human-confirmed mismatch at cycle close (bootstrap replayed with the "
@@ -69,7 +70,7 @@ def main() -> int:
     patches: list[Patch] = []
     for cid, field in unsupported:
         patches.append(Patch(cid, "set", field, None, WHY, basis))
-        patches.append(Patch(cid, "append", "review.flags", f"needs-review:{field}", WHY, basis))
+        patches.append(Patch(cid, "append", "review.flags", f"{FLAG_PREFIX}{field}", WHY, basis))
     print(f"{len(unsupported)} unsupported judged field(s) across "
           f"{len({cid for cid, _ in unsupported})} case(s):")
     for cid, field in unsupported:
