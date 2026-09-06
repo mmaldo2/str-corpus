@@ -8,12 +8,15 @@ import json
 import shutil
 from pathlib import Path
 
+import pytest
+
 from corpus_engine import store
 from corpus_engine.domain import load_domain
 from corpus_engine.mapper.cells import BatchSource, build_cells, load_batches, select_cells
 from corpus_engine.mapper.runner import (MANIFEST_SCHEMA, MAP_RESUME_TOOL, SCREEN_OFF, MapRunner,
-                                         NullScreen, RunnerCaps, default_max_units,
+                                         RunnerCaps, default_max_units, merge_manifest,
                                          relevant_accepted, unit_completed)
+from corpus_engine.mapper.screen import Screen
 from corpus_engine.reader.cache import ResponseCache
 from corpus_engine.reader.codebook import load_codebook
 from corpus_engine.reader.driver import Reader
@@ -52,7 +55,9 @@ def _answer(relevant_per_batch):
     """A provider whose relevance verdict is chosen per batch_id, so a cell's yield curve is
     scripted exactly. Every relevant record carries a verbatim quote so the gate keeps it."""
     def f(req):
-        bid = next(line.split()[1] for line in req.user.splitlines() if line.startswith("# Batch "))
+        # `# Batch <id> (<era> x <jur>)`: index 2 - index 1 is the word "Batch".
+        bid = next(line.split()[2] for line in req.user.splitlines()
+                   if line.startswith("# Batch "))
         want = relevant_per_batch(bid)
         ids = [int(line.split()[2]) for line in req.user.splitlines()
                if line.startswith("## case_id ")]
@@ -185,6 +190,13 @@ def test_a_failed_unit_costs_one_batch_and_never_the_cell(tmp_path, fixture_db, 
     assert out.manifest["totals"]["failed_units"] == 1
     # R11: a reader request that raised is a unit that was spent, not a free retry.
     assert out.units == cell["batches_attempted"]
+    # Review finding 6: a failed batch's stub records are not cases that were read.
+    failed = next(u for u in cell["units"] if u["unit_id"] == bad)
+    assert failed["records"] == 2 and failed["cases_read"] == 0 and failed["failed"] is True
+    assert cell["cases_read"] == 2 * cell["batches_completed"]
+    # Review finding 7: its key is kept, and the row says not to trust it.
+    assert cell["cache_keys"][bad] and all(u["failed"] is False for u in cell["units"]
+                                           if u["unit_id"] != bad)
 
 
 def test_the_manifest_records_the_cache_key_of_every_unit_it_bought(tmp_path, fixture_db,
@@ -196,7 +208,9 @@ def test_the_manifest_records_the_cache_key_of_every_unit_it_bought(tmp_path, fi
                 caps=RunnerCaps(max_units=50, max_wall_seconds=1e6))
     out = r.run()
     keys = out.manifest["cells"]["1930-1970|N.Y."]["cache_keys"]
-    assert keys and all((Path(tmp_path / "cache") / f"{k}.json").exists() for k in keys.values())
+    assert keys and all(len(v) == 1 for v in keys.values())          # nothing split here
+    assert all((Path(tmp_path / "cache") / f"{k}.json").exists()
+               for v in keys.values() for k in v)
     assert out.manifest["codebook_sha"] and out.manifest["schema_sha"]
     assert out.manifest["max_tokens"] == 64000 and out.manifest["effort"] == "low"
     assert out.manifest["reader_pin"] == PIN.label
@@ -271,7 +285,9 @@ def test_the_screen_is_off_by_default_and_says_so_in_the_shape_task_6_keeps(tmp_
     assert out.manifest["screen"] == SCREEN_OFF
     assert set(SCREEN_OFF) == {"state", "enabled", "max_usd", "screened_units", "hits"}
     assert out.manifest["cells"]["1930-1970|N.Y."]["screen"] == {"state": "off"}
-    assert NullScreen().maybe_run(object(), None) is None
+    off = Screen.off()
+    assert off.maybe_run(object(), None, batch_source=None, progress=None) is None
+    assert off.pinned_units() == [] and off.to_json() == SCREEN_OFF
 
 
 def test_a_screen_is_handed_the_cells_own_stop_and_never_re_derives_it(tmp_path, fixture_db,
@@ -287,6 +303,9 @@ def test_a_screen_is_handed_the_cells_own_stop_and_never_re_derives_it(tmp_path,
         def maybe_run(self, cell, stop, **kw):
             self.seen.append((cell.key, None if stop is None else stop.kind))
             return {"state": "considered", "hits": 0}
+
+        def pinned_units(self):
+            return []
 
         def to_json(self):
             return {"state": "considered", "enabled": True, "max_usd": 1.0,
@@ -309,6 +328,9 @@ def test_the_manifest_is_written_even_when_the_run_raises(tmp_path, fixture_db, 
     class Exploding:
         def maybe_run(self, cell, stop, **kw):
             raise RuntimeError("screen defect")
+
+        def pinned_units(self):
+            return []
 
         def to_json(self):
             return dict(SCREEN_OFF)
@@ -355,3 +377,159 @@ def test_the_resume_command_is_the_same_invocation(tmp_path, fixture_db, repo_ro
     out = r.run()
     assert out.resume_command == (f'.venv\\Scripts\\python {MAP_RESUME_TOOL} '
                                   f'--cells "1930-1970|N.Y." --max-units 40')
+
+
+def test_a_split_unit_records_the_half_keys_it_actually_bought(tmp_path, fixture_db, repo_root):
+    """Review finding 1. When the whole-unit response will not parse, the records that survive
+    come from the two split halves, cached under their OWN keys. A manifest that recorded only
+    the whole-unit key would hand admission the response that failed and none of the ones that
+    worked - and would do it silently, because the unit's status is still "ok"."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 2})
+    split_me = "cycle-004-shard-01-batch-001"
+
+    def answer(req):
+        ids = [line for line in req.user.splitlines() if line.startswith("## case_id ")]
+        if f"# Batch {split_me}" in req.user and len(ids) > 1:
+            return json.dumps({"records": []})       # answers for no case: the driver splits
+        return _answer(lambda bid: 1)(req)
+
+    r = _runner(tmp_path, fixture_db, pool, answer=answer,
+                caps=RunnerCaps(max_units=50, max_wall_seconds=1e6))
+    out = r.run()
+    cell = out.manifest["cells"]["1930-1970|N.Y."]
+    split = next(u for u in cell["units"] if u["unit_id"] == split_me)
+    whole = next(u for u in cell["units"] if u["unit_id"] != split_me)
+    assert split["retried"] is True and split["status"] == "ok" and split["records"] == 2
+    assert len(split["cache_keys"]) == 3 and len(set(split["cache_keys"])) == 3
+    assert len(whole["cache_keys"]) == 1
+    assert all((tmp_path / "cache" / f"{k}.json").exists() for k in split["cache_keys"])
+    assert cell["cache_keys"][split_me] == split["cache_keys"]
+    assert cell["units_retried_after_split"] == 1
+    assert out.units == 4                            # 1 unparseable + 2 halves + 1 whole
+
+
+def test_the_wall_clock_cap_ends_the_run_and_the_manifest_is_still_written(tmp_path, fixture_db,
+                                                                          repo_root):
+    """Review finding 5. `clock` is injectable precisely so the six-hour ceiling can be proven
+    without waiting six hours for it."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 6})
+    ticks = iter(range(0, 10_000, 2))
+
+    r = _runner(tmp_path, fixture_db, pool, answer=_answer(lambda bid: 2),
+                caps=RunnerCaps(max_units=50, max_wall_seconds=5),
+                clock=lambda: float(next(ticks)))
+    out = r.run()
+    assert out.stop == "budget:wall"
+    doc = json.loads((tmp_path / "map-manifest.json").read_text(encoding="utf-8"))
+    assert doc["stop"] == "budget:wall"
+    assert 0 < doc["totals"]["units"] < 6
+
+
+def test_a_keyboard_interrupt_leaves_the_manifest_and_still_propagates(tmp_path, fixture_db,
+                                                                       repo_root):
+    """Review finding 5. Ctrl-C is a BaseException, so the driver's per-unit `except Exception`
+    does not swallow it; the runner's `finally` still has to record what was bought before it
+    leaves (spec section 11)."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 6})
+
+    def answer(req):
+        if "# Batch cycle-004-shard-01-batch-002" in req.user:
+            raise KeyboardInterrupt
+        return _answer(lambda bid: 2)(req)
+
+    r = _runner(tmp_path, fixture_db, pool, answer=answer,
+                caps=RunnerCaps(max_units=50, max_wall_seconds=1e6))
+    with pytest.raises(KeyboardInterrupt):
+        r.run()
+    doc = json.loads((tmp_path / "map-manifest.json").read_text(encoding="utf-8"))
+    cell = doc["cells"]["1930-1970|N.Y."]
+    assert cell["batches_completed"] == 1 and doc["totals"]["units"] == 2
+    assert cell["cache_keys"]                        # the unit it did buy is still addressable
+
+
+def test_the_screens_hits_are_read_by_the_pinned_reader_in_the_same_cell(tmp_path, fixture_db,
+                                                                         repo_root):
+    """R10 wiring. The fallback screen only narrows the remainder; everything it flags is read
+    by the PINNED reader, in this cell, before the runner moves on - counted under --max-units
+    and folded into the cell's yield like any other batch. The screen's own fallback requests
+    are NOT reader units: they are OpenRouter spend, tracked in the screen block."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 6})
+    db = tmp_path / "c.db"
+    shutil.copy(fixture_db, db)
+    conn = store.connect(db)
+    dom = load_domain()
+    cb = load_codebook(dom, "mapper-v3")
+    fallback = ScriptedProvider(_answer(lambda bid: 1))
+    fb_pin = ModelPin("google/gemini-3.7-flash", "google", extra={"reasoning": {"effort": "low"}})
+
+    def fb_factory():
+        return Reader(fallback, StoreCaseSource(conn), cache=ResponseCache(tmp_path / "fbcache"),
+                      log=lambda *_: None, domain=dom, store_norm_version="v1")
+
+    screen = Screen(fb_factory, fallback_pin=fb_pin, codebook=cb, max_usd=5.0,
+                    log=lambda *_: None)
+    r = _runner(tmp_path, fixture_db, pool,
+                answer=_answer(lambda bid: 2 if bid.startswith("screen-") else 0),
+                caps=RunnerCaps(max_units=50, max_wall_seconds=1e6), screen=screen)
+    out = r.run()
+    cell = out.manifest["cells"]["1930-1970|N.Y."]
+    assert cell["screen"]["state"] == "ran" and cell["screen"]["screened_batches"] == 3
+    assert cell["screen"]["hits"] == 3 and len(cell["screen"]["rebatched"]) == 1
+    pinned = cell["screen"]["rebatched"][0]
+    assert cell["screen_pinned"] == [pinned]
+    # the pinned reader read it, so it cost a reader unit and its records reached the cell
+    assert out.units == 4 and out.manifest["totals"]["screen_pinned_units"] == 1
+    assert fallback.calls == 3                       # the screen's own units are not reader units
+    row = next(u for u in cell["units"] if u["unit_id"] == pinned)
+    assert row["records"] == 3 and row["relevant_accepted"] == 2 and row["cache_keys"]
+    assert {"batch_id": pinned, "relevant_accepted": 2} in cell["yield_series"]
+    assert cell["relevant_accepted"] == 2
+    # the walk's own verdict survives the screen rather than being rewritten by it
+    assert cell["stop"]["kind"] == "yield_floor"
+
+
+def test_a_subset_run_merges_into_the_manifest_instead_of_replacing_it(tmp_path, fixture_db,
+                                                                       repo_root):
+    """Review finding 3. `runs/<run-id>/map-manifest.json` is the tracked record of what the
+    subscription window bought; a one-cell re-run that overwrote it would delete every other
+    cell's cache keys - which is exactly what admission reads."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 2, ("pre-1860", "Pa."): 2})
+    cells = build_cells(load_batches(pool), era_depth={"pre-1860": 2, "1930-1970": 2})
+    full = _runner(tmp_path, fixture_db, pool, answer=_answer(lambda bid: 1),
+                   caps=RunnerCaps(max_units=50, max_wall_seconds=1e6), cells=cells)
+    before = full.run().manifest
+    assert set(before["cells"]) == {"1930-1970|N.Y.", "pre-1860|Pa."}
+
+    one = _runner(tmp_path, fixture_db, pool, answer=_answer(lambda bid: 1),
+                  caps=RunnerCaps(max_units=50, max_wall_seconds=1e6),
+                  cells=select_cells(cells, "pre-1860|Pa."))
+    after = one.run().manifest
+    assert after["cell_order"] == before["cell_order"]
+    assert (after["cells"]["1930-1970|N.Y."]["cache_keys"]
+            == before["cells"]["1930-1970|N.Y."]["cache_keys"])
+    assert after["totals"]["batches_completed"] == before["totals"]["batches_completed"]
+    # the second process re-read its cell from cache, so it added nothing to the price
+    assert after["totals"]["units"] == before["totals"]["units"]
+
+
+def test_the_more_complete_walk_wins_a_cell_and_unit_rows_are_unioned():
+    """`merge_cell`'s rule, stated on its own: a dry run over a cell already fully read must
+    not shrink that cell's walk, and must still contribute the rows it saw."""
+    def cell(attempted, units):
+        return {"batches_attempted": attempted, "batches_completed": attempted,
+                "units": [{"unit_id": u, "cache_keys": [f"k-{u}"],
+                           "checker": {"sampled": False, "status": "none", "disagreements": []}}
+                          for u in units]}
+
+    prior = {"schema": MANIFEST_SCHEMA, "cell_order": ["A", "B"],
+             "cells": {"A": cell(3, ["a1", "a2", "a3"]), "B": cell(2, ["b1", "b2"])},
+             "totals": {"units": 5, "batches_completed": 5}}
+    fresh = {"schema": MANIFEST_SCHEMA, "cell_order": ["A"],
+             "cells": {"A": cell(1, ["a1"])}, "totals": {"units": 1, "batches_completed": 1}}
+    merged = merge_manifest(prior, fresh)
+    assert merged["cell_order"] == ["A", "B"] and set(merged["cells"]) == {"A", "B"}
+    assert merged["cells"]["A"]["batches_attempted"] == 3           # the fuller walk survives
+    assert [u["unit_id"] for u in merged["cells"]["A"]["units"]] == ["a1", "a2", "a3"]
+    assert merged["cells"]["B"]["units"]                            # untouched cell kept whole
+    assert merged["totals"]["units"] == 6                           # what both processes bought
+    assert merged["totals"]["batches_completed"] == 1               # recomputed by the caller

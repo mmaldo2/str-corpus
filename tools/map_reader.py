@@ -67,9 +67,12 @@ def build_parser() -> argparse.ArgumentParser:
                          "gate / schema / checker diagnostics, and stop. Buys N units into the "
                          "same cache the full run replays for free.")
     ap.add_argument("--max-units", type=int, default=None,
-                    help="READER-request ceiling for this PROCESS (default: the selected cells' "
-                         "caps plus 10%%, printed before the run starts). Checker requests are "
-                         "counted separately and are never capped by it.")
+                    help="READER-request ceiling for this PROCESS, checked between batches "
+                         "(default: the selected cells' caps plus 10%%, printed before the run "
+                         "starts). NOT exact: one read can buy the unit plus two split halves, "
+                         "so a run can exceed it by at most 2 requests, once, when the last "
+                         "batch it begins will not parse. Checker requests are counted "
+                         "separately and are never capped by it.")
     ap.add_argument("--max-wall-seconds", type=float, default=DEFAULT_MAX_WALL_SECONDS)
     ap.add_argument("--window", type=int, default=WINDOW)
     ap.add_argument("--threshold", type=int, default=THRESHOLD)
@@ -110,6 +113,9 @@ def main(argv=None) -> int:
     if a.dry_run_batches is not None:
         first = cells[0]
         cells = [_replace(first, cap_batches=min(a.dry_run_batches, first.cap_batches))]
+    if a.cells or a.dry_run_batches is not None:
+        log(f"subset run: its cells are MERGED into {run_dir / 'map-manifest.json'}, never "
+            f"written over it")
     if a.screen:
         log("--screen is accepted but not implemented in this slice; no screen provider is "
             "constructed and nothing will be screened. The flag is recorded in the manifest.")
@@ -129,7 +135,8 @@ def main(argv=None) -> int:
         max_units=a.max_units if a.max_units is not None else default_max_units(cells),
         max_wall_seconds=a.max_wall_seconds)
     log(f"{len(cells)} cells, {sum(c.cap_batches for c in cells)} capped batches, "
-        f"caps: {caps.max_units} reader units / {caps.max_wall_seconds:.0f} s")
+        f"caps: {caps.max_units} reader units (+2 worst case, see --help) / "
+        f"{caps.max_wall_seconds:.0f} s")
 
     def factory():
         return Reader(provider, source, checker=checker, cache=cache, log=log, domain=dom,
@@ -143,6 +150,7 @@ def main(argv=None) -> int:
                                    else dom.reader.checker_sample_pct),
                        run_id=a.run_id, extractions_dir=run_dir / "extractions",
                        window=a.window, threshold=a.threshold, depth_column=a.depth_column,
+                       era_depth=DEPTH_COLUMNS[a.depth_column],
                        screen=None, families=dom.reader.families,
                        read_timeout_seconds=READ_TIMEOUT, resume_args=argv,
                        flags={"cells": a.cells, "dry_run_batches": a.dry_run_batches,
@@ -159,7 +167,9 @@ def main(argv=None) -> int:
     log(f"stop={out.stop} cells={t['cells_read']} batches={t['batches_completed']} "
         f"cases={t['cases_read']} relevant={t['relevant_accepted']} "
         f"irrelevant={t['irrelevant_accepted']} failed={t['failed_units']} "
-        f"units={t['units']} checker_units={t['checker_units']} wall={t['wall_seconds']:.0f}s")
+        f"units={out.units} (map total {t['units']}) "
+        f"checker_units={out.manifest['process']['checker_units']} "
+        f"wall={out.wall_seconds:.0f}s")
     if a.dry_run_batches is not None:
         log(f"DRY RUN schema_sha={out.manifest['schema_sha']} "
             f"codebook={out.manifest['codebook_id']}@{out.manifest['codebook_sha'][:12]} "

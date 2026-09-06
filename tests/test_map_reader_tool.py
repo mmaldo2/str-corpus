@@ -14,6 +14,7 @@ from pathlib import Path
 import pytest
 
 from corpus_engine.domain import load_domain
+from corpus_engine.mapper.cells import DEPTH_COLUMNS
 from corpus_engine.mapper.runner import SCREEN_OFF
 from corpus_engine.reader.model import ModelPin
 from corpus_engine.reader.providers import openrouter as openrouter_mod
@@ -31,7 +32,8 @@ PIN = ModelPin("claude-cli/claude-opus-5", "anthropic", "claude-cli", None,
 
 def _answer(req):
     """One relevant record per batch, quoted verbatim out of the prompt so the gate keeps it."""
-    bid = next(line.split()[1] for line in req.user.splitlines() if line.startswith("# Batch "))
+    # `# Batch <id> (<era> x <jurisdiction>)`: index 2, because index 1 is the word "Batch".
+    bid = next(line.split()[2] for line in req.user.splitlines() if line.startswith("# Batch "))
     ids = [int(line.split()[2]) for line in req.user.splitlines() if line.startswith("## case_id ")]
     recs = []
     for j, cid in enumerate(ids):
@@ -104,7 +106,8 @@ def test_a_full_run_reads_every_cell_and_writes_the_tracked_manifest(wired, caps
     assert doc["schema"] == "map-manifest-v1" and doc["run_id"] == RUN_ID
     assert doc["cycle"] == "cycle-004" and doc["stop"] == "done"
     assert doc["cell_order"] == ["1930-1970|N.Y.", "pre-1860|Pa."]
-    assert doc["totals"]["units"] == 4 and wired["reader"].calls == 4
+    assert doc["totals"]["units"] == 4 and doc["process"]["units"] == 4
+    assert wired["reader"].calls == 4
     assert doc["totals"]["relevant_accepted"] == 4 and doc["totals"]["records"] == 8
     assert doc["reader_pin"] == PIN.label and doc["checker_pin"] == "codex-cli@-:-"
     assert doc["store_norm_version"] == mr.STORE_NORM_VERSION
@@ -136,7 +139,9 @@ def test_a_resume_is_the_same_invocation_and_replays_the_cache_for_free(wired):
     assert mr.main(argv) == 0                      # the resume line, run again
     assert wired["reader"].calls == 2              # nothing re-bought
     again = _manifest(wired)
-    assert again["totals"]["units"] == 0 and again["totals"]["batches_completed"] == 2
+    # the process bought nothing; the manifest still says what the MAP cost
+    assert again["process"]["units"] == 0 and again["totals"]["units"] == 2
+    assert again["totals"]["batches_completed"] == 2
 
 
 def test_the_dry_run_buys_n_batches_of_the_first_cell_and_prints_the_diagnostics(wired, capsys):
@@ -206,3 +211,51 @@ def test_a_missing_pool_is_reported_instead_of_mapping_nothing(tmp_path, monkeyp
     with pytest.raises(SystemExit) as e:
         mr.main([])
     assert "no batches to map" in str(e.value)
+
+
+def test_two_cells_runs_leave_both_cells_keys_in_the_one_tracked_manifest(wired, capsys):
+    """Review finding 3, at the command level. `runs/<run-id>/map-manifest.json` is the only
+    tracked artefact of what the subscription window bought, and admission reads its cache
+    keys; a second `--cells` run that wrote over it would delete the first cell's."""
+    assert mr.main(["--cells", "1930-1970|N.Y.", "--sample-pct", "0"]) == 0
+    first = _manifest(wired)["cells"]["1930-1970|N.Y."]["cache_keys"]
+    assert first
+
+    assert mr.main(["--cells", "pre-1860|Pa.", "--sample-pct", "0"]) == 0
+    doc = _manifest(wired)
+    assert doc["cell_order"] == ["1930-1970|N.Y.", "pre-1860|Pa."]
+    assert doc["cells"]["1930-1970|N.Y."]["cache_keys"] == first
+    assert doc["cells"]["pre-1860|Pa."]["cache_keys"]
+    assert doc["totals"]["batches_completed"] == 4 and doc["totals"]["units"] == 4
+    assert doc["process"]["units"] == 2                  # this process bought only its own cell
+    assert "MERGED into" in capsys.readouterr().out
+
+
+def test_a_dry_run_after_a_full_map_does_not_shrink_what_the_map_recorded(wired):
+    """The dry run reads one batch of one cell. Its walk is the lesser one, so the full map's
+    survives it - and the dry run's (cached, identical) unit row is still folded in."""
+    assert mr.main(["--sample-pct", "0"]) == 0
+    before = _manifest(wired)
+    assert mr.main(["--dry-run-batches", "1", "--sample-pct", "0"]) == 0
+    after = _manifest(wired)
+    assert set(after["cells"]) == set(before["cells"])
+    assert after["cells"]["1930-1970|N.Y."]["batches_completed"] == 2
+    assert after["totals"]["batches_completed"] == before["totals"]["batches_completed"]
+    assert after["process"]["units"] == 0                # the dry run replayed the cache
+
+
+def test_the_manifest_records_the_depth_table_the_caps_came_from(wired):
+    """Review finding 4. `flags.depth_column` plus the code makes the table derivable; a
+    manifest read on its own could not show what the cell caps were computed against."""
+    assert mr.main(["--sample-pct", "0"]) == 0
+    doc = _manifest(wired)
+    assert doc["depth_column"] == "0.25"
+    assert doc["era_depth"] == DEPTH_COLUMNS["0.25"]
+    assert doc["max_units_note"].startswith("--max-units is a ceiling on READER requests")
+
+
+def test_the_help_does_not_promise_an_exact_unit_ceiling(wired):
+    """Review finding 2. The overrun is bounded and one-shot, but it is real, and a run note
+    written against a promise of exactness would be wrong about what was bought."""
+    help_text = mr.build_parser().format_help()
+    assert "NOT exact" in help_text and "two split halves" in help_text
