@@ -3,24 +3,17 @@ from __future__ import annotations
 from dataclasses import replace
 from corpus_engine.reader.model import CaseText, RecordResult
 from corpus_engine.verification import verify_quote
+from corpus_engine.ledger.fold import quote_supports as _supports
 
 DUPLICATE_NOTE = "duplicate records for this case_id in the response; the last one was kept"
 
-
-def _supports(quote: dict) -> tuple[str, ...]:
-    """Which judged fields a quote is offered in support of. The codebook asks for one
-    field name, but a passage genuinely can carry two findings and models say so: the
-    2026-09-05 measurement had deepseek-v4-flash return `["characterization",
-    "under_thirty_days"]`, which the gate used to feed straight to `set.add` and die on
-    (`unhashable type: 'list'`), taking the whole candidate down with it. A list is
-    honoured for every name in it; anything that is not a field name is ignored, so a
-    malformed value still leaves its field unsupported and therefore voided."""
-    s = quote.get("supports")
-    if isinstance(s, str):
-        return (s,) if s else ()
-    if isinstance(s, (list, tuple, set)):
-        return tuple(x for x in s if isinstance(x, str) and x)
-    return ()
+# _supports is corpus_engine.ledger.fold.quote_supports under its old local name: the
+# codebook asks for one field name, but a passage genuinely can carry two findings and
+# models say so (the 2026-09-05 measurement had deepseek-v4-flash return
+# `["characterization", "under_thirty_days"]`, which a bare `set.add` on the raw value
+# died on -- `unhashable type: 'list'` -- taking the whole candidate down with it). The
+# gate and the ledger's drop_quote cascade must never disagree about what a quote
+# supports, so this is one helper, not two copies (review finding 5).
 
 
 def gate_record(rec: dict, case: CaseText, judged_fields) -> RecordResult:

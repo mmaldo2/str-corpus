@@ -52,9 +52,11 @@ def quote_supports(quote: dict) -> tuple[str, ...]:
     mapper-v1 wrote a bare string; mapper-v3's schema makes `supports` an array, and a set
     literal over the raw value (`{q.get("supports") for q in quotes}`, which is what this
     module did) raises `unhashable type: 'list'` on the first drop_quote against an admitted
-    cycle-004 record - taking the whole `Ledger.apply` with it. Same normalisation as
-    `corpus_engine.reader.gate._supports`, so the gate and the fold can never disagree about
-    what a quote supports."""
+    cycle-004 record - taking the whole `Ledger.apply` with it. This is the one definition:
+    `corpus_engine.reader.gate` imports it under its old local name (`_supports`) and
+    `corpus_engine.verification`'s legacy quote-support check imports it directly, so the
+    gate, the fold, and the legacy pipeline can never disagree about what a quote supports
+    (review finding 5)."""
     s = quote.get("supports")
     if isinstance(s, str):
         return (s,) if s else ()
@@ -84,6 +86,14 @@ class State:
     # first produced it, and silently narrowing an already-known mapper-v3 rule to
     # mapper-v1 the moment a human re-admits a record would be exactly the silent
     # evidence-discipline gap `supported_fields` was just made to refuse for finding 1.
+    #
+    # Review finding 6: a caller that hand-builds a `State(...)` from a snapshot without
+    # passing `prompts` (e.g. to replay a subset of patches against a trial copy) gets an
+    # empty map, not an error - every case in it silently reads as the three-field
+    # mapper-v1 rule on its next `drop_quote`, even if the real record is mapper-v3. This
+    # is legal (missing must stay legal, per finding 1) but easy to trip over; a caller
+    # that wants the real rule preserved must copy `prompts` too, the same as it must copy
+    # `cycles` and `in_file`.
     prompts: dict[int, str] = field(default_factory=dict)
 
 

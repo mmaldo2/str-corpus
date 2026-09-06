@@ -69,6 +69,16 @@ def test_gate_accepts_a_quote_supporting_several_fields(tmp_path, fixture_db):
     assert bad.record["polarity"] is None
 
 
+def test_gate_supports_is_the_shared_ledger_helper():
+    """task-2-review finding 5: `gate._supports` duplicated
+    `corpus_engine.ledger.fold.quote_supports` verbatim. It is now an alias for the same
+    function object, so the gate's quote-support parsing and the ledger's drop_quote
+    cascade can never silently drift apart."""
+    from corpus_engine.reader import gate
+    from corpus_engine.ledger.fold import quote_supports
+    assert gate._supports is quote_supports
+
+
 def test_parse_bare_array_survives_a_stray_brace_in_prose():
     """task-1-review finding 1. The dispatch used to pick object-vs-array by comparing the
     *position* of the first `{`/`[`, so prose containing a stray, non-JSON `{` before the

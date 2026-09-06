@@ -11,6 +11,8 @@ Summary:
 ```python
 CaseId = int; Cycle = str
 JudgedField = Literal["relevant","polarity","who_was_letting","duration_of_occupancy","characterization","under_30_days","restriction_nature","right_characterization"]
+# `under_30_days` / `right_characterization` above are superseded by D7 (2026-09-06): the
+# ledger's actual JUDGED_DEFAULT spells them `under_thirty_days` / `owner_freedom_characterization`.
 Annotation = Literal["flag","note","citator_status"]
 @dataclass(frozen=True) class Human: reviewer_id: str
 @dataclass(frozen=True) class Reader: model: str; prompt_version: str

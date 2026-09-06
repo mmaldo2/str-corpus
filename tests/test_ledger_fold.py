@@ -218,6 +218,28 @@ def test_a_reviewer_readmit_does_not_erase_the_recorded_reader_prompt():
     assert s.records[7]["polarity"] == "adverse"
 
 
+def test_a_hand_built_state_missing_prompts_falls_back_to_the_three_field_rule():
+    """Review finding 6. A caller that reconstructs `State(records=..., order=..., cycles=...,
+    in_file=...)` from a snapshot without copying `prompts` (the pattern in
+    test_apply_validates_on_a_fresh_replay_not_a_mutated_trial) gets the mapper-v1 rule for
+    every case in it, even one admitted under mapper-v3 in the real ledger -- this is legal
+    (finding 1 requires missing to stay legal) but is documented here so the fallback is a
+    pinned, known behaviour rather than a surprise."""
+    real = State()
+    rec = {"case_id": 8, "relevant": True, "polarity": "favorable", "under_thirty_days": "yes",
+           "quotes": [{"text": "Q1", "supports": ["polarity", "under_thirty_days"]}]}
+    _admit(real, 8, READER_V3, rec)
+    assert real.prompts[8] == MAPPER_V3
+
+    trial = State(records=dict(real.records), order=list(real.order),
+                  cycles=dict(real.cycles), in_file=dict(real.in_file))  # prompts dropped
+    apply_patch(trial, Patch(8, "drop_quote", "quotes", "Q1", "quote failed", Basis(reviewer="m")))
+    out = trial.records[8]
+    assert out["polarity"] is None                            # both rules null this field
+    assert out["under_thirty_days"] == "yes"                  # mapper-v1 rule wrongly spares it
+    assert out["nulled_fields"] == ["polarity"]
+
+
 def test_cascade_false_still_skips_the_cascade_under_the_v3_rule():
     s = State()
     rec = {"case_id": 4, "relevant": True, "polarity": "favorable", "under_thirty_days": "yes",

@@ -7,6 +7,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "pipeline"))
 from textnorm import NORM_VERSION, normalize, normalize_text  # noqa: E402
+from corpus_engine.ledger.fold import quote_supports, supported_fields
 
 FUZZY_THRESHOLD = 92.0
 
@@ -92,14 +93,16 @@ def verify_record(conn, rec: dict) -> dict:
             any_failed = True
             continue
         kept_quotes.append({**q, **v})
-        if q.get("supports"):
-            supported_ok.add(q["supports"])
+        supported_ok.update(quote_supports(q))
     rec["quotes"] = kept_quotes
-    # null every doctrinal field whose support died (spec §8 hard requirement)
-    for field in ("characterization", "polarity", "holding_summary"):
-        if rec.get(field) is not None and field not in supported_ok:
-            rec[field] = None
-            rec.setdefault("nulled_fields", []).append(field)
+    # null every doctrinal field whose support died (spec §8 hard requirement); the rule
+    # follows the prompt version the record was admitted under (D7), same as the ledger's
+    # own drop_quote cascade (corpus_engine.ledger.fold) -- absent/unknown-legacy records
+    # fall back to the mapper-v1 three-field rule, matching this pipeline's historical output.
+    for f in supported_fields(rec.get("prompt_version")):
+        if rec.get(f) is not None and f not in supported_ok:
+            rec[f] = None
+            rec.setdefault("nulled_fields", []).append(f)
     if any_failed or rec.get("nulled_fields"):
         rec["extraction_status"] = "extraction-invalid" if not kept_quotes else "partial"
     else:
