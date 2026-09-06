@@ -62,6 +62,21 @@ def test_read_state_refuses_an_unsaved_page_and_a_bad_decision(tmp_path):
         arr.read_state(saved_page(tmp_path, [bad]))      # decision fails the same way
 
 
+def test_a_field_with_no_closed_vocabulary_opts_out_of_the_value_check_and_only_it(tmp_path):
+    """tools/apply_map_review.py decides fields this tool has no frozenset for (`quotes`, and
+    whatever a later codebook adds), so `values[field] is None` means "no vocabulary here".
+    The opt-out is per field and explicit: the reference page passes neither, and its own two
+    fields are validated exactly as before."""
+    page = saved_page(tmp_path, [_d(65116, "polarity", "set", "whatever-the-codebook-says")])
+    got = arr.read_state(page, fields=("polarity",), values={"polarity": None})
+    assert got[0]["value"] == "whatever-the-codebook-says"
+    with pytest.raises(ValueError, match="value"):        # the same page, default vocabulary
+        arr.read_state(page)
+    with pytest.raises(ValueError, match="value"):        # ...and an opt-out for another field
+        arr.read_state(page, fields=("polarity", "who_was_letting"),
+                       values={"polarity": arr.VALUES["polarity"], "who_was_letting": None})
+
+
 def test_a_note_containing_a_closing_script_tag_survives_the_page(tmp_path):
     """The state block is read out of the HTML with a regex, so an unescaped `</script>` in a
     reviewer note would end it early and truncate the decisions. The page escapes `<`."""

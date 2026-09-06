@@ -115,7 +115,13 @@ def read_state(html: str, *, fields: Sequence[str] = FIELDS,
         if decision not in DECISIONS:
             raise ValueError(f"decision {i}: decision {decision!r} is not one of {DECISIONS}")
         value = _value(field, d.get("value"))
-        if decision in ("adopt", "set") and value not in values[field]:
+        # `None` for a field means "this page has no closed vocabulary for it" - the map
+        # round decides fields (`quotes`, and any field a codebook adds) whose accepted
+        # values are not a frozenset this tool can hold. Absent that opt-out, the only way
+        # to read such a page would be to skip validation for every field, including the
+        # two the reference page does have a vocabulary for.
+        allowed = values.get(field)
+        if decision in ("adopt", "set") and allowed is not None and value not in allowed:
             raise ValueError(f"decision {i}: value {value!r} is not a {field} value")
         try:
             case_id = int(d["case_id"])
