@@ -28,6 +28,7 @@ from pathlib import Path
 from typing import Callable, Sequence
 
 from corpus_engine.mapper.cells import Cell
+from corpus_engine.mapper.screen import Screen
 from corpus_engine.mapper.yield_stop import THRESHOLD, WINDOW, CellProgress
 from corpus_engine.reader.cache import ResponseCache
 from corpus_engine.reader.driver import ENGINE_VERSION, plan_batch_extraction, schema_for
@@ -47,8 +48,10 @@ PROCESS_STOPS = ("budget:units", "budget:wall", "budget:usd")
 # call are never cut off half way, which would record a checker as `failed:budget` for no
 # reason other than arithmetic (driver N2).
 DRIVER_UNIT_HEADROOM = 3
-# The `screen` block a run with no screen writes. Task 6 replaces `NullScreen` with the real
-# one and keeps this shape, so a consumer never has to branch on whether the screen exists.
+# The `screen` block a run with no screen writes. `corpus_engine.mapper.screen.Screen.off()`
+# (Task 6) is now the runner's default in place of `NullScreen` below, and its `to_json()`
+# reproduces this shape verbatim, so a consumer never has to branch on whether the screen
+# exists - only what its block says.
 SCREEN_OFF = {"state": "off", "enabled": False, "max_usd": 0.0, "screened_units": 0, "hits": 0}
 CELL_SCREEN_OFF = {"state": "off"}
 
@@ -71,11 +74,11 @@ class MapOutcome:
 
 
 class NullScreen:
-    """The screen that is off (R2/R3). Task 6's `corpus_engine.mapper.screen.Screen` has the
-    same two methods, so `MapRunner` never asks whether it has a screen - only what its block
-    says. `maybe_run` returns nothing, which the runner reads as "the cell's screen block is
-    unchanged"; it is handed the cell's own `CellStop` because the screen triggers on
-    `yield_floor` with cap remaining and must never re-derive that verdict for itself."""
+    """The screen that was off before Task 6 (R2/R3). `MapRunner` no longer builds this by
+    default - `corpus_engine.mapper.screen.Screen.off()` does, with the same two methods and
+    the same reading (`maybe_run` returns nothing, which the runner reads as "the cell's
+    screen block is unchanged") - but the class stays here, and stays this simple, as the
+    plainest possible restatement of that contract."""
 
     def maybe_run(self, cell, stop, **kw):
         return None
@@ -157,7 +160,7 @@ class MapRunner:
         self.sample_pct, self.run_id = int(sample_pct), run_id
         self.extractions_dir = Path(extractions_dir) if extractions_dir else None
         self.window, self.threshold, self.depth_column = int(window), int(threshold), depth_column
-        self.screen = screen if screen is not None else NullScreen()
+        self.screen = screen if screen is not None else Screen.off()
         self.families = dict(families or {})
         self.flags = dict(flags or {})
         self.worker = worker
