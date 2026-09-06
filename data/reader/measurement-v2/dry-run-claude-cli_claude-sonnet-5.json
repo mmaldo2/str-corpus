@@ -1,0 +1,115 @@
+{
+ "batches": [
+  "kit-v2-batch-001"
+ ],
+ "budget": {
+  "max_units": 114,
+  "max_usd": null,
+  "max_wall_seconds": 21599.90416765213
+ },
+ "cache_keys": {
+  "kit-v2-batch-001": "d3bd95621351660b0729e22e330f901deea8716e2c1060fa82016a94d259dd6b"
+ },
+ "candidate": "claude-cli/claude-sonnet-5",
+ "dropped_quotes": 0,
+ "effort": "low",
+ "first_record": {
+  "batch_id": "kit-v2-batch-001",
+  "case_id": 2454289,
+  "characterization": null,
+  "cite": "30 La. Ann. 133",
+  "court": "Louisiana Supreme Court",
+  "doctrinal_concepts": [],
+  "duration_of_occupancy": null,
+  "extraction_status": "ok",
+  "holding_summary": "Succession administration case about compensating a plantation keeper when leasing was impracticable; not about short-term letting of a dwelling.",
+  "jurisdiction": "La.",
+  "new_terms_observed": [],
+  "notes": "Discusses failed attempts to lease a farm/plantation on a monthly basis but core holding is about succession administration expenses/privileged debts, not the owner's right to let short-term lodging; not relevant to the corpus focus.",
+  "owner_freedom_characterization": null,
+  "polarity": null,
+  "quotes": [],
+  "relevance_score": 0.05,
+  "relevant": false,
+  "restriction_nature": null,
+  "schema_version": 3,
+  "under_thirty_days": null,
+  "who_was_letting": null,
+  "worker": "reader",
+  "year": 1878
+ },
+ "list_cost_usd": 0.160821,
+ "max_tokens": 64000,
+ "nulled_fields": [],
+ "pin": "claude-cli/claude-sonnet-5@claude-cli:-",
+ "priced": false,
+ "provider": "claude-cli",
+ "read_timeout_seconds": 1500,
+ "schema_sha": "be8cb3909d96d5bf03c9f16c541e21c37100fca0c8bc6357ef64421b62b65e59",
+ "score": {
+  "accepted": 6,
+  "accepted_full": 6,
+  "agreement_machine_irrelevant": 0.05,
+  "cost_per_accepted": null,
+  "failed_units": [],
+  "fidelity": 1.0,
+  "fields": {
+   "polarity": {
+    "agreement_decided": 0.5,
+    "decided_rate": 1.0,
+    "n_both_decided": 2,
+    "n_prediction_irrelevant": 2,
+    "n_reference_decided": 2
+   },
+   "relevant": {
+    "agreement_decided": 0.5,
+    "decided_rate": 1.0,
+    "n_both_decided": 4,
+    "n_prediction_irrelevant": 0,
+    "n_reference_decided": 4
+   },
+   "who_was_letting": {
+    "agreement_decided": 0.5,
+    "decided_rate": 1.0,
+    "n_both_decided": 2,
+    "n_prediction_irrelevant": 2,
+    "n_reference_decided": 2
+   }
+  },
+  "list_cost_usd": 0.160821,
+  "macro": 0.5,
+  "missing_records": 0,
+  "priced": false,
+  "provider_reported": [
+   "claude-cli"
+  ],
+  "schema_compliance": 1.0,
+  "spend_usd": 0.0,
+  "stop": "done",
+  "wall_seconds": 50.5
+ },
+ "spend_usd": 0.0,
+ "status_counts": {
+  "extraction-invalid": 0,
+  "missing": 0,
+  "ok": 6,
+  "partial": 0
+ },
+ "stop": "done",
+ "units": [
+  {
+   "cache_hit": false,
+   "cost_usd": null,
+   "error": "",
+   "finish_reason": "tool_use",
+   "input_tokens": 41921,
+   "list_cost_usd": 0.1608207,
+   "output_tokens": 5772,
+   "retried": false,
+   "status": "ok",
+   "unit_id": "kit-v2-batch-001"
+  }
+ ],
+ "wall_seconds": 50.5,
+ "why": "subscription via claude cli 2.1.258 (Claude Code)"
+}

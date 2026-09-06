@@ -1,0 +1,23 @@
+{
+ "codebook": "mapper-v3",
+ "codebook_sha": "f920166813144f09d3a8a8de575eb860dbcce18a42b46b2270b4b17cc1a52752",
+ "model_pin": "google/gemini-3.7-flash@-:-",
+ "sample": "data/reader/kit-v2/sample-50.json",
+ "agreement": {
+  "relevant": {
+   "agreement_decided": 0.92,
+   "decided_rate_b": 1.0
+  },
+  "polarity": {
+   "agreement_decided": 0.9705882352941176,
+   "decided_rate_b": 0.72
+  },
+  "who_was_letting": {
+   "agreement_decided": 0.9411764705882353,
+   "decided_rate_b": 0.72
+  }
+ },
+ "stable": true,
+ "bar": 0.9,
+ "ts": "2026-09-05T21:24:31"
+}

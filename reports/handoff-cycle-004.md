@@ -11,8 +11,11 @@ document is the operational state and the order of work.
 - Corpus: TX/PA/LA/NY, 1,301,147 unique cases (1799–2020), FTS + Qwen3-0.6B
   embeddings (3.88M chunks, 512d int8), `data/db/corpus.db` (~30 GB).
 - Ledgers: `data/ledger/cycle-00{1,2,3}.jsonl`. Per
-  `open_ledger().view().counts().total.as_claim("relevant cases")`: **710
-  relevant cases (150 human-reviewed, 560 machine-only; lower bound)**.
+  `open_ledger().view().counts().total.as_claim("relevant cases")`: **693
+  relevant cases (133 human-reviewed, 560 machine-only; lower bound)**
+  (2026-09-05: was 710 / 150 human-reviewed before the Stage-3B reference
+  adjudication — the user judged 17 reviewed cases irrelevant across two review
+  pages; see item 7).
   Tradition-matrix pre-1860 householder count (favorable, from
   `view().matrix()`): 2 (1 human-reviewed, 1 machine-only).
   `tools/apply_retraction_cascade.py` (Stage 1 final-review fix wave): 11
@@ -26,10 +29,13 @@ document is the operational state and the order of work.
 - Tradition matrix (favorable, by jurisdiction × era):
   La. 2/9/28/11/3, N.Y. 14/89/68/22/16, Pa. 2/11/16/10/16, Tex. 2/8/20/13/8
   for pre-1860 / 1860-1900 / 1900-1930 / 1930-1970 / 1970-2020.
-  Favorable householder (138) by era × duration (nights/weeks/months/unclear):
-  pre-1860 1/0/0/1; 1860-1900 0/1/16/22; 1900-1930 4/10/12/27;
-  1930-1970 0/5/11/7; 1970-2020 7/3/7/4. **The founding and antebellum era
-  is the empty cell.**
+  Favorable householder (137, was 138) by era × duration
+  (nights/weeks/months/unclear): pre-1860 1/0/0/1; 1860-1900 0/1/18/22;
+  1900-1930 2/9/12/28; 1930-1970 0/5/11/8; 1970-2020 4/2/7/6. **The founding and
+  antebellum era is the empty cell.** Re-derived 2026-09-05 from
+  `view().matrix()` after the reference adjudication; the favorable total is
+  unchanged at 367 and the `owner` tier, empty since Stage 1, now holds 9
+  (the `letting_tiers` key was misspelled `owner_nonresident`).
 - Recall (gold v1, development set): brief-letting 6/9, treatise 22/29.
   Precision trend 28% → 12% → 6.6%.
 - Citator: nothing is citator-checked (`reports/citator-prescreen.md`).
@@ -107,17 +113,38 @@ review page publishable as an artifact; reviewer identity recorded.
      non-null-pagerank count equals metadata-with-pagerank count exactly
      for `ad2d/1`, 493 = 493), so the coverage figures reflect upstream
      data completeness, not a backfill defect.
-7. **Reader-model measurement** (ADR-0007) — **DONE** 2026-09-05: all ten
-   approved candidates ran over the frozen kit (195 cases) under `mapper-v2`;
-   endpoints and precision recorded; $41.67 of the $50 approved. Winner
-   **`anthropic/claude-opus-5`** (fidelity 0.9975, macro agreement 0.7075,
-   $0.0498 per accepted record), now set as `reader.model` in `domain.yaml`.
-   Two caveats to carry into the maps: **nobody met the 0.85 agreement bar**
-   (best 0.7075), so the pre-registered no-survivor fallback applied and the
-   shortfall is disclosed; and **`mapper-v2` failed its stability check** on
-   `polarity` (0.82 against 0.90). Codebook revision is Stage 3B, and a
-   `mapper-v3` needs its own stability run and its own measurement. Full result:
-   `reports/reader-measurement.md`; ADR-0007 amendment 2026-09-05.
+7. **Reader-model measurement** (ADR-0007) — **v1 DONE 2026-09-04/05, v2 DONE
+   2026-09-05 and it supersedes v1.**
+   - *v1* (`reports/reader-measurement.md`): ten candidates over kit v1 under
+     `mapper-v2`, $41.67 of $50. Winner `anthropic/claude-opus-5` at macro
+     0.7075. **Nobody met the 0.85 bar** and **`mapper-v2` failed its stability
+     check** on `polarity` (0.82). That is what sent the codebook to Stage 3B.
+   - *v2* (`reports/reader-measurement-v2.md`, manifest
+     `data/reader/measurement-v2/manifest.json`) — **the slice-1 remeasurement is
+     done.** Five finalists over kit v2 (same 195 cases, relabelled) under
+     `mapper-v3`: two on the Claude subscription through the CLI, three on
+     OpenRouter. $6.91 of a $10 ceiling (lowered from D5's $15 before any
+     purchase because the balance was $10.49), plus 45 subscription units and
+     ~47 min of wall clock at no charge.
+     **Winner `google/gemini-3.7-flash`** (fidelity 1.0000, macro 0.8363,
+     $0.0051 per accepted record), now set as `reader.model` in `domain.yaml`.
+     **The 0.85 bar was still not met** — the shortfall rule fired again, though
+     the gap fell from 0.14 to 0.014. Three things to carry into the maps:
+     (a) `z-ai/glm-5.3` had the field's best macro (0.8512, above the bar) and
+     was eliminated on the pre-registered decided-rate floor, `polarity` 0.8983
+     against 0.90 — one case out of 118; (b) the D4 subscription tie-break did
+     **not** fire, `claude-cli/claude-opus-5` being 0.0243 behind against a 0.02
+     window, so the pin is not the subscription reader the user prefers and
+     overriding it is the user's call; (c) **`mapper-v3` is stable** (0.92 /
+     0.97 / 0.94 on decided answers, bar 0.90) but the winner's *relevance call*
+     is not — its second read of the fifty-case sample decided polarity and
+     `who_was_letting` on only 72% of the cases the first read decided. Do not
+     treat a Gemini `relevant: false` as settled without the checker.
+   - *Reference*: kit v2's labels come from two user review pages (82 + 28
+     decisions) and a 4-of-5 model consensus that confirmed all 70 of the
+     never-reviewed `who_was_letting` labels it settled. Corpus counts moved
+     710 → 693 relevant, favorable 367 unchanged, favorable householder
+     138 → 137. Three cases carry an excluded field (D6).
 8. **DC demo report**: refreshed attorney report built on the tradition
    matrix drilling to verified quotes with pin cites, plus a one-case
    walkthrough and a methodology page. Ships before cycle 004 maps.
@@ -142,6 +169,17 @@ review page publishable as an artifact; reviewer identity recorded.
     A `ranker-heldout-v2` slice must be frozen once cycle-004 reads yield
     labelled reads in the six new states (Cal., Mass., N.J., Ohio, Conn.,
     D.C.), and the ship rule re-run against it.
+
+    **Slice 2 (next): the cycle-004 map runner and its per-cell budget.** The
+    reader is now pinned (`reader.model` = `google/gemini-3.7-flash`, effort
+    `low`, batch size 18) and the kit is v2 under `mapper-v3`, so the map runner
+    inherits a measured reader and a stable codebook rather than choosing either.
+    Two things it must carry from item 7: the winner is priced (~$0.005 per
+    accepted record, so a per-cell budget is expressible in dollars as well as in
+    cases read), and its relevance call is the unstable part, so the checker
+    sample is load-bearing rather than decorative. If the user overrides the pin
+    to `claude-cli/claude-opus-5`, the budget becomes units and wall clock
+    instead, and the map runner must handle both kinds.
 
     **Measured cost of a corpus-wide vector selector (2026-09-04, live index,
     read-only `probe()`).** One `probe()` of `embed-householder-letting-21@v2`

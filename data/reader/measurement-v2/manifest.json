@@ -1,0 +1,595 @@
+{
+ "batch_size": 18,
+ "batch_size_pair": {
+  "b18": {
+   "accepted": 195,
+   "accepted_full": 149,
+   "agreement_machine_irrelevant": 1.0,
+   "cost_per_accepted": 0.005059907692307692,
+   "failed_units": [],
+   "fidelity": 1.0,
+   "fields": {
+    "polarity": {
+     "agreement_decided": 0.7560975609756098,
+     "decided_rate": 1.0,
+     "n_both_decided": 123,
+     "n_prediction_irrelevant": 8,
+     "n_reference_decided": 123
+    },
+    "relevant": {
+     "agreement_decided": 0.9096774193548387,
+     "decided_rate": 1.0,
+     "n_both_decided": 155,
+     "n_prediction_irrelevant": 0,
+     "n_reference_decided": 155
+    },
+    "who_was_letting": {
+     "agreement_decided": 0.8429752066115702,
+     "decided_rate": 1.0,
+     "n_both_decided": 121,
+     "n_prediction_irrelevant": 10,
+     "n_reference_decided": 121
+    }
+   },
+   "list_cost_usd": null,
+   "macro": 0.8362500623140062,
+   "missing_records": 0,
+   "priced": true,
+   "provider_reported": [
+    "Google"
+   ],
+   "schema_compliance": 1.0,
+   "spend_usd": 0.986682,
+   "stop": "done",
+   "wall_seconds": 0.8
+  },
+  "b5": {
+   "accepted": 195,
+   "accepted_full": 163,
+   "agreement_machine_irrelevant": 1.0,
+   "cost_per_accepted": 0.005416148717948718,
+   "failed_units": [],
+   "fidelity": 1.0,
+   "fields": {
+    "polarity": {
+     "agreement_decided": 0.7522123893805309,
+     "decided_rate": 1.0,
+     "n_both_decided": 113,
+     "n_prediction_irrelevant": 18,
+     "n_reference_decided": 113
+    },
+    "relevant": {
+     "agreement_decided": 0.8516129032258064,
+     "decided_rate": 1.0,
+     "n_both_decided": 155,
+     "n_prediction_irrelevant": 0,
+     "n_reference_decided": 155
+    },
+    "who_was_letting": {
+     "agreement_decided": 0.8378378378378378,
+     "decided_rate": 1.0,
+     "n_both_decided": 111,
+     "n_prediction_irrelevant": 20,
+     "n_reference_decided": 111
+    }
+   },
+   "list_cost_usd": null,
+   "macro": 0.8138877101480584,
+   "missing_records": 0,
+   "priced": true,
+   "provider_reported": [
+    "Google"
+   ],
+   "schema_compliance": 1.0,
+   "spend_usd": 1.056149,
+   "stop": "done",
+   "wall_seconds": 1.2
+  }
+ },
+ "budget_usd": 10.0,
+ "cache_keys": {
+  "claude-cli/claude-opus-5": {
+   "pin": "claude-cli/claude-opus-5@claude-cli:-",
+   "units": {
+    "kit-v2-batch-001": "6f0c9bbe9bb443391294fb1d8bfb8445e3025e906854a9d4004f14fcac2fcdb7",
+    "kit-v2-batch-002": "040da9b408ac218fadc382803a1b12ab5e61eb23a02624bb09bb5b2a29a74f45",
+    "kit-v2-batch-003": "b3e96a9286661173e5119132aa42f9706cbaacf9e2660d0cf4c7e777a660c438",
+    "kit-v2-batch-004": "a78946ba2a380c73eef4268391f67b91a2dbc7eb813a371315f03f1b7de05ebb",
+    "kit-v2-batch-005": "df0f0b5e376be304683444fd730d93c61b67b977765fe305c504ce6bfb544c26",
+    "kit-v2-batch-006": "eaea8e94e5e25a7e9af473c377574a33bf3f7cf66dcb0f49ead61c060348998b",
+    "kit-v2-batch-007": "350cdf774ab208b3d6430da7faf40d6d35141df2d9c694d195fee2f3832f762e",
+    "kit-v2-batch-008": "0b99dac85cd5a67702f3376734ab8965d379a57f9c70093c5d14be353e0236e9",
+    "kit-v2-batch-009": "bbaa2add245eeffa85fa5a0314dafa0fe1182e165d16791395ddb4a0d9ca1d30",
+    "kit-v2-batch-010": "2cae184ee994914299108c529c2b96a37fc2e74f50c72e4c80a82c896849ec06",
+    "kit-v2-batch-011": "c1b5b053926ef7fc3c539f9b249144813fafc643f22014c093d7dc1092b0eee5",
+    "kit-v2-batch-012": "972e5297864cfd6920efb580634bf6d7dd173dc9c57f1c7d207459991b06a13c",
+    "kit-v2-batch-013": "0789d7db47e073d484732fa1e454dfc907e680af453010f22ea795ee17f4c669",
+    "kit-v2-batch-014": "1ee37b72b6cc255b6a047cac5c933efb4ba3c1512220929a7c52313463d34d17",
+    "kit-v2-batch-015": "0eb022fa2770251dc27b2e7311f010f51bff01234beacc8a33a683a6c85fe326",
+    "kit-v2-batch-016": "22d72566ea453ed7e8b99faeb9cf3ce4fae0d6d03787dd470b7327d08f8c6c94",
+    "kit-v2-batch-017": "93ce5306ec3e9922325fc2cde88cb8746f033d9dca9d093b509761daddf0959b",
+    "kit-v2-batch-018": "0dcd771e54f3620f19c835d43929928412e7cabbbb0fe613db01f1fa8504b7a4",
+    "kit-v2-batch-019": "70f07a99d6c3e2e57bac45cdf7d2144d1bdc2c2627b485d120380632305569ea",
+    "kit-v2-batch-020": "5db6a5701573fba93c03a5dde9567438fb38398e6f7fc9961351a21592940c31",
+    "kit-v2-batch-021": "e878b31ce9e82ccb962cc1df61f9808f9cc30c89cf46ff943f5646c3f69856a4",
+    "kit-v2-batch-022": "8c3c620831a3c951bbe02e4427cb22fff33d2c295e3d571f9d112470a07f891f",
+    "kit-v2-batch-023": "ef67ac4d5402a8eefe09b4827a2fe107a47c6778b7dcd9e20e25902daffb5f53"
+   }
+  },
+  "claude-cli/claude-sonnet-5": {
+   "pin": "claude-cli/claude-sonnet-5@claude-cli:-",
+   "units": {
+    "kit-v2-batch-001": "d3bd95621351660b0729e22e330f901deea8716e2c1060fa82016a94d259dd6b",
+    "kit-v2-batch-002": "1d0d2aec06e986af05f6c0519d398e3f62011d0a4dee37bde84bc1f59e7acec1",
+    "kit-v2-batch-003": "89fca115f9bd3e255a32c22965cd2db252a49a857c9e83843c7f6fdabcf65db2",
+    "kit-v2-batch-004": "f05d4d71389eb7a9fb8f456487b9692e26b4deb546387ba5039f04b238d22964",
+    "kit-v2-batch-005": "1f641b29a8b0366332bb73c6f5581de8189f11eb04df9cb90ead51e0c9b0e435",
+    "kit-v2-batch-006": "0457b09f17b43e1cd53b2156757f8f4bcf228fdc501c1b11638dfc322d2288a9",
+    "kit-v2-batch-007": "9791f538f128e488cf2796d17a5e608ff0cb57a7df0d5d5e19d4ac46ee38ab5a",
+    "kit-v2-batch-008": "feeaa2cca8c2e792126a966566545fe4e0e118d673444b5cb897a07cc02541d0",
+    "kit-v2-batch-009": "37933f297b69e554756622f147f0b611751a34ae3157d695911037b94c284b4f",
+    "kit-v2-batch-010": "e526aa53bdd58c8f6f6b25b19b5b0b6d9f033780c5d7d0a6a2cb014c802b9098",
+    "kit-v2-batch-011": "8a2a149fa62538b55ca79080e14742813754b570ace99e57438d76ae41cc8e1b",
+    "kit-v2-batch-012": "d891a481170389d62b35f780555dc6bef9fcd38e31bc410b9e5a2ac0e468bd79",
+    "kit-v2-batch-013": "a7a8f6b9a17de47425bae2f867fdb97d9d122e62c4ed5d27a8854e3590027d95",
+    "kit-v2-batch-014": "aa717f9cbfdc7754129a6da6215b41a6e60d0232b10bc007a48ca0300b7b9c36",
+    "kit-v2-batch-015": "141ae94c43bda456619830ac1af3a6c2c66416ef6aa9fa5c1a847c3a44c9f94d",
+    "kit-v2-batch-016": "549e58064210a9479194d58d62fa6e1ac6018e1d19226cc3f4fde68696320f00",
+    "kit-v2-batch-017": "a57283aae7367d5f349e1e2e71ba5a28113a6f56aed51f8da2b368ec2d4836e7",
+    "kit-v2-batch-018": "637aece1ab161059c02a0220034e33825d386c980ddd3fb8ef52d58215992f09",
+    "kit-v2-batch-019": "285c8347fc4534988b9bd638e92a7a26b05fe5f38f9aae3e18c05a3a8754990f",
+    "kit-v2-batch-020": "e3dfa219cc7be7fa394fdf69e7c37c325adf85e3ca5e6454a035cc55924b6e00",
+    "kit-v2-batch-021": "55e07ff628d354f123e291b793e5f3d4aae1fc08cb98dadfe3c7d10ee6c6e1a9",
+    "kit-v2-batch-022": "d8d300e192569cdecc1d6063b1a800434c07b50779cfb20bad51b44965886835",
+    "kit-v2-batch-023": "469699b0adb4e14d85d227885b4525c8b0906618d9f5dcd630211e2f7d033cd3"
+   }
+  },
+  "google/gemini-3.7-flash": {
+   "pin": "google/gemini-3.7-flash@-:-",
+   "units": {
+    "kit-v2-batch-001": "67896645a9aad6f10e7b109712099c5401249de0abbbfa0b77e332b0257f8cb6",
+    "kit-v2-batch-002": "64b48e1ccaacc4f3b8cbfa7a4f85f84c9eb19b3559f5a4588335bd23bbea5f0e",
+    "kit-v2-batch-003": "589a0a109f551b19032d6da061a2dd1d8eb61c5d0c0093e02295913a2c36199f",
+    "kit-v2-batch-004": "7083f466e6d8b9d7cadb168f1dcec664e6facb8df6e35db8fd40af8bb198299d",
+    "kit-v2-batch-005": "e2d03374278702ee480e8a78c3a4cdcbf89aa8cae83f261fe2eb382fe0b1a822",
+    "kit-v2-batch-006": "7acbc3e62214821d2fed8334623eaf090bcdcafe18fe51bc38c24432078478d6",
+    "kit-v2-batch-006-a": "91c30f27574d5d2b5b6f55412371d662463660a650f48d48106cf8639add1f39",
+    "kit-v2-batch-006-b": "86f0807443b60ec4b0a01b70e4d779614b83cfd2783438907d309dcfa374e9cd",
+    "kit-v2-batch-007": "10eea77b0d4e202d804a5fcd1a99d67a6170ee4eb3e4a309551d33e4881c6a24",
+    "kit-v2-batch-008": "1ae72d76afbfb0d8d38105a17260698de32b396de5b347d39ada2f2977f2db74",
+    "kit-v2-batch-009": "df8bb001137e885df9b38a6651fd2b3ada9b5a96e7f84d69b6f1be84fd850dd2",
+    "kit-v2-batch-010": "6443d896300192bcabeb741e5729a527dca5245c17a616f04d804cd660bc88af",
+    "kit-v2-batch-011": "6d6a088ea84c599b6fa4f6d2e9ef5ee0c682fd7fd3e7c0bd8acab45295dc4098",
+    "kit-v2-batch-012": "c7f1ff673f9eb8eed5d24ae30783266afbcda3769bc34873ca924a7ff591c313",
+    "kit-v2-batch-013": "aad482e5b73cc41dd1a65a50df355278d1c81f66f19f09f371d10150b5253f10",
+    "kit-v2-batch-014": "00889863726faa66e47e80ee5ae39bab80f49bd3a9ab1470550cfb9bb90f1946",
+    "kit-v2-batch-015": "b95fcefc048d07f98f53ba8ae0b2dca05668bfac386c4db945523286d4447234",
+    "kit-v2-batch-016": "db1068e10e4c946553749ad15260f7acf6473df2c64f2dce6b8abba6234157c7",
+    "kit-v2-batch-017": "329f22304d437bcccd617c26b349e2924f0622c432e49622e985abe2baaf0ceb",
+    "kit-v2-batch-018": "d940c71b8895fc2379df08ed36feaadbbf5d7eaacba15c779cb4c68a716f6e22",
+    "kit-v2-batch-019": "82b29cb08c9d00e52ad080ec7004258eca245a36e766b86895b25d50cc3df1a0",
+    "kit-v2-batch-020": "0f76c3366b08743edf417358d9ce86ccad03940d91ad193720cda29f1c774073",
+    "kit-v2-batch-021": "163c1e3c03e8b1c78b87740ac09bf5033ccf6156e12a35bdfbe371c72d000c27",
+    "kit-v2-batch-022": "3a1a28400c308f280ee092e145e3b1db69c9574b8c02b94b29d8d94e2ad58a0a",
+    "kit-v2-batch-023": "e6adeed076c5cdefdd5b350218384f9351ad5ca9ef69df9e981d707391265424"
+   }
+  },
+  "openai/gpt-5.6-terra": {
+   "pin": "openai/gpt-5.6-terra@-:-",
+   "units": {}
+  },
+  "z-ai/glm-5.3": {
+   "pin": "z-ai/glm-5.3@AkashML:fp8",
+   "units": {
+    "kit-v2-batch-001": "8828418a8f168b390111c50f1090f5bccaf1ac8cac32c2d2aca4649f6cf50d8e",
+    "kit-v2-batch-002": "1179ee0162ab709f295f4c5d092e7a3be7044b08a44c7739f861a6695485e568",
+    "kit-v2-batch-003": "d07b996a3c362a204472f23ca9fb556b26b2d4726f52e2b826d270119101c04b",
+    "kit-v2-batch-004": "8f7f8d62626290a8ed3fe2f7099c25682420aca5507b9ea982e007ee8e7d63d2",
+    "kit-v2-batch-005": "9b32ffd1575b8da09360b57c8151eb9fd5038f5910f647efb71e7548bc8a0bd6",
+    "kit-v2-batch-006": "4165cbc2fcc799ba487765b107acbbc9df2134b316ba022f1d12008330c7f67b",
+    "kit-v2-batch-007": "03d3055fd42b2defcb11bb8cdd0463106d19580c5bd0230123d3e3c7f0ee2c25",
+    "kit-v2-batch-008": "ef7864efd81612ba8785ef029295f9e62b6a20deddfb326753862ed79a91bb83",
+    "kit-v2-batch-009": "e542bfdca543ef59198302f72cf9328846d13f2a4baf5d564428d7947750ae09",
+    "kit-v2-batch-010": "1bf8cde5b29dba304369b6638957442c94185111335657121cefe68c3a9c4295",
+    "kit-v2-batch-011": "f9d0606d7d597f7a6f2790fef7dd7552c63e9afa51a2c8c7c655830979049cfd",
+    "kit-v2-batch-012": "dc525fe78353ea1d0e0678f0e3133a594d947fd97082b3a2556d114e49b6ebb8",
+    "kit-v2-batch-013": "60dc9d93f9fca99ccd5a3891d79e011956c62cc641cae187e0c288715a22d9e4",
+    "kit-v2-batch-014": "bd084566bb95f6e4b85718a672575ebcaaa40e0caef1f6ffa6a92ac59afec3e7",
+    "kit-v2-batch-015": "5f74f3f4f3a992483a10b0930a839e04aae6dd8e88468243e0fdb2cb56a4112b",
+    "kit-v2-batch-016": "0e211217b751f6f1b531008b406cf6e92c5b208b2975587a734b0fcd6de2c15f",
+    "kit-v2-batch-017": "d6ec726cdb02dba0beae463a41e9dccf7128cade89f9cd09e8c72a2ade4891ee",
+    "kit-v2-batch-018": "8fd459503bd64dc9cecf9d2895e7d0bf15e8de5fa37fd110b951c3d31ac22ce7",
+    "kit-v2-batch-019": "4fd16e7c1f370207f1434ae798baa20a320157d69e9fbadb75364b795eaf41b1",
+    "kit-v2-batch-020": "f040a4950cac496e7a8f147059bb16ac4bc986b6ebff7c66542fc13af08126f2",
+    "kit-v2-batch-021": "5ce1a321edec49b96f5d46513e5cf2d6e18fc7f3d2eab85218fa71275ad3ccb0",
+    "kit-v2-batch-022": "5e37d94d9f9dff4c6083a7b89208d961b15b3935e353fe029ad4e66f362c1eb8",
+    "kit-v2-batch-023": "1eae0d1d06324442091eec5be33d20b816477512de248ff92a60581f2e3c70aa"
+   }
+  }
+ },
+ "codebook": "mapper-v3",
+ "codebook_sha": "f920166813144f09d3a8a8de575eb860dbcce18a42b46b2270b4b17cc1a52752",
+ "credits_after": 3.554,
+ "credits_before": 6.4228,
+ "dry_runs": {},
+ "effective_budget_usd": 5.9595,
+ "effort_by_candidate": {
+  "claude-cli/claude-opus-5": "low",
+  "claude-cli/claude-sonnet-5": "low",
+  "google/gemini-3.7-flash": "low",
+  "openai/gpt-5.6-terra": "low",
+  "z-ai/glm-5.3": "low"
+ },
+ "eliminated_by_candidate": {
+  "z-ai/glm-5.3": "decided rate below the 0.90 floor: polarity 0.8983 < 0.90"
+ },
+ "excluded_fields_by_case": {
+  "1177933": [
+   "who_was_letting"
+  ],
+  "2186819": [
+   "characterization"
+  ],
+  "937195": [
+   "who_was_letting"
+  ]
+ },
+ "failed": {
+  "openai/gpt-5.6-terra": "no accepted records (23 units, stop=done; 400: {'error': {'message': 'Provider returned error', 'code': 400, 'metadata': {'raw': '{\\n  \"error\": {\\n    \"message\": \"Invalid schema for response_format \\'records\\': In context=(\\'properties\\', \\'record)"
+ },
+ "kit_path": "data/reader/kit-v2/kit.json",
+ "kit_sha256": "6914c0d243fec3a5f268788f3bd571a1c7bf19d5432c49dc805296184f65686d",
+ "list_cost_by_candidate": {
+  "claude-cli/claude-opus-5": 15.005579,
+  "claude-cli/claude-sonnet-5": 7.805013,
+  "google/gemini-3.7-flash": null,
+  "google/gemini-3.7-flash:b5": null,
+  "openai/gpt-5.6-terra": null,
+  "z-ai/glm-5.3": null
+ },
+ "max_tokens": 64000,
+ "not_run": {},
+ "openrouter_ceiling_usd": 15.0,
+ "pins": {
+  "claude-cli/claude-opus-5": "claude-cli/claude-opus-5@claude-cli:-",
+  "claude-cli/claude-sonnet-5": "claude-cli/claude-sonnet-5@claude-cli:-",
+  "google/gemini-3.7-flash": "google/gemini-3.7-flash@-:-",
+  "openai/gpt-5.6-terra": "openai/gpt-5.6-terra@-:-",
+  "z-ai/glm-5.3": "z-ai/glm-5.3@AkashML:fp8"
+ },
+ "priced_by_candidate": {
+  "claude-cli/claude-opus-5": false,
+  "claude-cli/claude-sonnet-5": false,
+  "google/gemini-3.7-flash": true,
+  "openai/gpt-5.6-terra": true,
+  "z-ai/glm-5.3": true
+ },
+ "prior_spend_source": "derived from the prior manifest's total_task_spend_usd",
+ "prior_spend_usd": 4.0405,
+ "providers": {
+  "claude-cli/claude-opus-5": "claude-cli",
+  "claude-cli/claude-sonnet-5": "claude-cli",
+  "google/gemini-3.7-flash": "openrouter",
+  "openai/gpt-5.6-terra": "openrouter",
+  "z-ai/glm-5.3": "openrouter"
+ },
+ "read_timeout_by_candidate": {
+  "claude-cli/claude-opus-5": 1500,
+  "claude-cli/claude-sonnet-5": 1500,
+  "google/gemini-3.7-flash": 1500,
+  "openai/gpt-5.6-terra": 1500,
+  "z-ai/glm-5.3": 1500
+ },
+ "reasoning": {
+  "effort": "low"
+ },
+ "schema_sha": "be8cb3909d96d5bf03c9f16c541e21c37100fca0c8bc6357ef64421b62b65e59",
+ "scores": {
+  "claude-cli/claude-opus-5": {
+   "accepted": 195,
+   "accepted_full": 168,
+   "agreement_machine_irrelevant": 0.85,
+   "cost_per_accepted": null,
+   "failed_units": [],
+   "fidelity": 1.0,
+   "fields": {
+    "polarity": {
+     "agreement_decided": 0.7734375,
+     "decided_rate": 0.9922480620155039,
+     "n_both_decided": 128,
+     "n_prediction_irrelevant": 2,
+     "n_reference_decided": 129
+    },
+    "relevant": {
+     "agreement_decided": 0.896774193548387,
+     "decided_rate": 1.0,
+     "n_both_decided": 155,
+     "n_prediction_irrelevant": 0,
+     "n_reference_decided": 155
+    },
+    "who_was_letting": {
+     "agreement_decided": 0.765625,
+     "decided_rate": 1.0,
+     "n_both_decided": 128,
+     "n_prediction_irrelevant": 3,
+     "n_reference_decided": 128
+    }
+   },
+   "list_cost_usd": 15.005579,
+   "macro": 0.811945564516129,
+   "missing_records": 0,
+   "priced": false,
+   "provider_reported": [
+    "claude-cli"
+   ],
+   "schema_compliance": 1.0,
+   "spend_usd": 0.0,
+   "stop": "done",
+   "wall_seconds": 0.8
+  },
+  "claude-cli/claude-sonnet-5": {
+   "accepted": 195,
+   "accepted_full": 128,
+   "agreement_machine_irrelevant": 1.0,
+   "cost_per_accepted": null,
+   "failed_units": [],
+   "fidelity": 0.9754901960784313,
+   "fields": {
+    "polarity": {
+     "agreement_decided": 0.797752808988764,
+     "decided_rate": 0.9468085106382979,
+     "n_both_decided": 89,
+     "n_prediction_irrelevant": 37,
+     "n_reference_decided": 94
+    },
+    "relevant": {
+     "agreement_decided": 0.7354838709677419,
+     "decided_rate": 1.0,
+     "n_both_decided": 155,
+     "n_prediction_irrelevant": 0,
+     "n_reference_decided": 155
+    },
+    "who_was_letting": {
+     "agreement_decided": 0.8586956521739131,
+     "decided_rate": 1.0,
+     "n_both_decided": 92,
+     "n_prediction_irrelevant": 39,
+     "n_reference_decided": 92
+    }
+   },
+   "list_cost_usd": 7.805013,
+   "macro": 0.7973107773768063,
+   "missing_records": 0,
+   "priced": false,
+   "provider_reported": [
+    "claude-cli"
+   ],
+   "schema_compliance": 1.0,
+   "spend_usd": 0.0,
+   "stop": "done",
+   "wall_seconds": 0.9
+  },
+  "google/gemini-3.7-flash": {
+   "accepted": 195,
+   "accepted_full": 149,
+   "agreement_machine_irrelevant": 1.0,
+   "cost_per_accepted": 0.005059907692307692,
+   "failed_units": [],
+   "fidelity": 1.0,
+   "fields": {
+    "polarity": {
+     "agreement_decided": 0.7560975609756098,
+     "decided_rate": 1.0,
+     "n_both_decided": 123,
+     "n_prediction_irrelevant": 8,
+     "n_reference_decided": 123
+    },
+    "relevant": {
+     "agreement_decided": 0.9096774193548387,
+     "decided_rate": 1.0,
+     "n_both_decided": 155,
+     "n_prediction_irrelevant": 0,
+     "n_reference_decided": 155
+    },
+    "who_was_letting": {
+     "agreement_decided": 0.8429752066115702,
+     "decided_rate": 1.0,
+     "n_both_decided": 121,
+     "n_prediction_irrelevant": 10,
+     "n_reference_decided": 121
+    }
+   },
+   "list_cost_usd": null,
+   "macro": 0.8362500623140062,
+   "missing_records": 0,
+   "priced": true,
+   "provider_reported": [
+    "Google"
+   ],
+   "schema_compliance": 1.0,
+   "spend_usd": 0.986682,
+   "stop": "done",
+   "wall_seconds": 0.8
+  },
+  "openai/gpt-5.6-terra": {
+   "accepted": 195,
+   "accepted_full": 145,
+   "agreement_machine_irrelevant": 0.925,
+   "cost_per_accepted": 0.013399151282051236,
+   "failed_units": [],
+   "fidelity": 0.9930555555555556,
+   "fields": {
+    "polarity": {
+     "agreement_decided": 0.68,
+     "decided_rate": 0.9541984732824428,
+     "n_both_decided": 125,
+     "n_prediction_irrelevant": 0,
+     "n_reference_decided": 131
+    },
+    "relevant": {
+     "agreement_decided": 0.8774193548387097,
+     "decided_rate": 1.0,
+     "n_both_decided": 155,
+     "n_prediction_irrelevant": 0,
+     "n_reference_decided": 155
+    },
+    "who_was_letting": {
+     "agreement_decided": 0.8,
+     "decided_rate": 1.0,
+     "n_both_decided": 130,
+     "n_prediction_irrelevant": 1,
+     "n_reference_decided": 130
+    }
+   },
+   "list_cost_usd": null,
+   "macro": 0.7858064516129032,
+   "missing_records": 0,
+   "priced": true,
+   "provider_reported": [
+    "OpenAI"
+   ],
+   "schema_compliance": 1.0,
+   "spend_usd": 2.612834499999991,
+   "stop": "done",
+   "wall_seconds": 597.4
+  },
+  "z-ai/glm-5.3": {
+   "accepted": 195,
+   "accepted_full": 154,
+   "agreement_machine_irrelevant": 0.95,
+   "cost_per_accepted": 0.008695853846153909,
+   "failed_units": [],
+   "fidelity": 0.9950372208436724,
+   "fields": {
+    "polarity": {
+     "agreement_decided": 0.7924528301886793,
+     "decided_rate": 0.8983050847457628,
+     "n_both_decided": 106,
+     "n_prediction_irrelevant": 13,
+     "n_reference_decided": 118
+    },
+    "relevant": {
+     "agreement_decided": 0.864516129032258,
+     "decided_rate": 1.0,
+     "n_both_decided": 155,
+     "n_prediction_irrelevant": 0,
+     "n_reference_decided": 155
+    },
+    "who_was_letting": {
+     "agreement_decided": 0.896551724137931,
+     "decided_rate": 1.0,
+     "n_both_decided": 116,
+     "n_prediction_irrelevant": 15,
+     "n_reference_decided": 116
+    }
+   },
+   "list_cost_usd": null,
+   "macro": 0.8511735611196228,
+   "missing_records": 0,
+   "priced": true,
+   "provider_reported": [
+    "AkashML"
+   ],
+   "schema_compliance": 1.0,
+   "spend_usd": 1.6956915000000121,
+   "stop": "done",
+   "wall_seconds": 1.3
+  }
+ },
+ "selection": {
+  "best_macro": 0.8362500623140062,
+  "eliminated": {
+   "z-ai/glm-5.3": "decided rate below the 0.90 floor: polarity 0.8983 < 0.90"
+  },
+  "rule": "highest macro agreement among survivors; no survivor reached 0.85 (shortfall disclosed)",
+  "shortfall": true,
+  "survivors": [
+   "claude-cli/claude-opus-5",
+   "claude-cli/claude-sonnet-5",
+   "google/gemini-3.7-flash",
+   "openai/gpt-5.6-terra"
+  ],
+  "winner": "google/gemini-3.7-flash"
+ },
+ "skipped": {},
+ "spend_by_candidate": {
+  "claude-cli/claude-opus-5": 0.0,
+  "claude-cli/claude-sonnet-5": 0.0,
+  "google/gemini-3.7-flash": 0.986682,
+  "google/gemini-3.7-flash:b5": 1.056149,
+  "google/gemini-3.7-flash:stab1": 0.0,
+  "google/gemini-3.7-flash:stab2": 0.0,
+  "openai/gpt-5.6-terra": 2.612834,
+  "z-ai/glm-5.3": 1.695692
+ },
+ "spent_usd": 2.8688,
+ "stability": {
+  "polarity": {
+   "agreement_decided": 0.9705882352941176,
+   "decided_rate_b": 0.72
+  },
+  "relevant": {
+   "agreement_decided": 0.92,
+   "decided_rate_b": 1.0
+  },
+  "who_was_letting": {
+   "agreement_decided": 0.9411764705882353,
+   "decided_rate_b": 0.72
+  }
+ },
+ "stability_flat_agreement": {
+  "polarity": 0.9,
+  "relevant": 0.92,
+  "who_was_letting": 0.88
+ },
+ "stability_stops": [
+  "done",
+  "done"
+ ],
+ "stable": true,
+ "subscription_budget": {
+  "fallback_max_units": 60,
+  "max_units": 137,
+  "max_wall_seconds": 21600,
+  "units_planned": {
+   "batch_size_pair": 49,
+   "kit": 46,
+   "margin": 10,
+   "stability": 32,
+   "total": 137
+  },
+  "units_used": 0
+ },
+ "subscription_candidates": [
+  "claude-cli/claude-opus-5",
+  "claude-cli/claude-sonnet-5"
+ ],
+ "subscription_pins": [
+  "claude-cli/claude-opus-5@claude-cli:-",
+  "claude-cli/claude-sonnet-5@claude-cli:-"
+ ],
+ "total_task_spend_usd": 6.9093,
+ "tracked_spend_by_candidate": {
+  "claude-cli/claude-opus-5": 0.0,
+  "claude-cli/claude-sonnet-5": 0.0,
+  "google/gemini-3.7-flash": 0.0,
+  "google/gemini-3.7-flash:b5": 0.0,
+  "openai/gpt-5.6-terra": 2.949038,
+  "z-ai/glm-5.3": 0.0
+ },
+ "tracked_spend_usd": 2.949,
+ "ts": "2026-09-05T21:24:31",
+ "winner_checks_source": "run by this process for google/gemini-3.7-flash@-:-",
+ "winner_model": {
+  "extra": {
+   "reasoning": {
+    "effort": "low"
+   }
+  },
+  "family": "google",
+  "model_id": "google/gemini-3.7-flash",
+  "precision": null,
+  "provider_name": null
+ },
+ "winner_pin": "google/gemini-3.7-flash@-:-"
+}

@@ -69,20 +69,53 @@ snapshot, `data/ledger/patches.jsonl` the append-only log,
 `pipeline/` are thin wrappers during the staged refactor. Every count comes
 from `open_ledger().view().counts()`; never compute one by hand.
 
-Tools: `.venv\Scripts\python tools\measure_reader.py --max-usd 50` runs the
-pre-registered reader-model measurement (ADR-0007) over the frozen kit and
-writes `data/reader/measurement-v1/manifest.json`; result in
-`reports/reader-measurement.md`.
+Tools: `tools\measure_reader.py` runs the pre-registered reader-model
+measurement (ADR-0007, bar D4) over the frozen kit and writes a manifest under
+`data/reader/`. **Measurement v2 is the current one**: kit v2
+(`data/reader/kit-v2/kit.json`, 195 cases) under codebook `mapper-v3`, five
+finalists, manifest `data/reader/measurement-v2/manifest.json`, result in
+`reports/reader-measurement-v2.md`. Winner `google/gemini-3.7-flash`, pinned as
+`reader.model` in `domains/str-right-to-let/domain.yaml`. Measurement v1
+(ten candidates, kit v1, `mapper-v2`, `reports/reader-measurement.md`) is frozen
+and superseded.
 
-> **The measurement is finished and paid for ($41.67 of the approved $50).**
-> Running that line again spends real money on any unit not already in
-> `data/reader/cache`, and `--only <model id>` re-buys that candidate. To
-> recompute the manifest's derived records instead, use
-> `.venv\Scripts\python tools\measure_reader.py --annotate-only`, which issues no
-> request of any kind. A paid re-run now merges per candidate into the existing
-> manifest and re-decides the winner over every candidate on record, so it can no
-> longer drop the other nine - but it is still spend, so read the ceiling guard in
-> `resolve_prior_spend` before typing it.
+> **Both measurements are finished and paid for** — v1 $41.67 of an approved $50,
+> v2 $6.91 of a $10 ceiling plus 45 subscription units at no charge. Running any
+> of the lines below again spends real money on any unit not already in
+> `data/reader/cache`, and `--only <model id>` re-buys that candidate. A paid
+> re-run merges per candidate into the existing manifest and re-decides the
+> winner over every candidate on record, so it cannot drop the others - but it is
+> still spend, so read the ceiling guard in `resolve_prior_spend` before typing
+> it. `--max-usd` may never exceed $15 (spec decision D5).
+
+```
+:: what v2 ran, in order. THESE SPEND.
+.venv\Scripts\python tools\measure_reader.py --dry-run google/gemini-3.7-flash --max-usd 10
+.venv\Scripts\python tools\measure_reader.py --dry-run claude-cli/claude-sonnet-5 --max-usd 10
+.venv\Scripts\python tools\measure_reader.py --max-usd 10 --prior-spend-usd 0.02
+.venv\Scripts\python tools\measure_reader.py --only openai/gpt-5.6-terra --max-usd 10
+```
+
+A `--dry-run <candidate>` buys one kit batch, writes an inspection file, and
+stops without selecting anything; two of them (one OpenRouter candidate, one
+subscription candidate) are the gate the spec puts before any field run. A
+`claude-cli/*` candidate runs on the user's Claude subscription through the CLI
+and is budgeted in units and wall clock, not dollars.
+
+To recompute a manifest's derived records instead - **no request of any kind, no
+spend**:
+
+```
+.venv\Scripts\python tools\measure_reader.py --annotate-only
+.venv\Scripts\python tools\measure_reader.py --annotate-only ^
+  --measurement-dir data/reader/measurement-v1 --codebook mapper-v2 ^
+  --kit-path data/reader/kit-v1/kit.json ^
+  --stability-sample data/reader/kit-v1/sample-50.json
+```
+
+The second line is how v1 is re-derived now that `domain.yaml` names `mapper-v3`
+and kit v2 by default; without those three flags `--annotate-only` would score
+v1's cache against v2's kit.
 
 Tests: `.venv\Scripts\python -m pytest tests -q`. Byte-for-byte
 characterization tests reproduce cycle-003 batches, verified files, and all

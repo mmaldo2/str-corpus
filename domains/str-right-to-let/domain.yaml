@@ -101,15 +101,18 @@ reader:
     - {model_id: openai/gpt-5.6-terra, family: openai}
     - {model_id: z-ai/glm-5.3, family: zai, pin_open: true}
     - {model_id: google/gemini-3.7-flash, family: google}
-  # measured 2026-09-05 (reports/reader-measurement.md, ADR-0007 amendment). Winner on the
-  # pre-registered rule; the 0.85 agreement bar was met by nobody, so this is the
-  # highest-agreement survivor and the shortfall is disclosed. Closed-weight, so no
-  # provider/precision pin: openrouter routes it (it served "Claude Platform on AWS").
-  # STILL THE 3A PIN: measurement v1 bought it, so it stands until measurement v2 over kit v2
-  # under mapper-v3 replaces it (Task 9b). Do not hand-edit it to a candidate above.
+  # measured 2026-09-05 by measurement v2 (reports/reader-measurement-v2.md, ADR-0007 result
+  # note; manifest data/reader/measurement-v2/manifest.json) over kit v2 under mapper-v3.
+  # RULE THAT FIRED: the SHORTFALL rule - no survivor reached the pre-registered 0.85 macro
+  # agreement bar, so the highest-agreement survivor wins and the shortfall is disclosed.
+  # Best macro 0.8363. The D4 subscription tie-break was evaluated and did NOT fire:
+  # claude-cli/claude-opus-5 is 0.0243 behind, outside the 0.02 window. The user's stated
+  # preference is a subscription reader; overriding this pin to opus is the user's call and
+  # has not been made. Closed-weight, so no provider/precision pin: openrouter routes it.
+  # Written exactly as tools/measure_reader.py printed it.
   model:
-    model_id: anthropic/claude-opus-5
-    family: anthropic
+    model_id: google/gemini-3.7-flash
+    family: google
     provider_name: null
     precision: null
     extra:

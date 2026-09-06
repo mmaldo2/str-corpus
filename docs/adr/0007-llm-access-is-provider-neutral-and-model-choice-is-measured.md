@@ -158,3 +158,43 @@ cases read. (3) OpenRouter remains the fallback provider and the route for any
 candidate the subscription cannot reach. (4) `reader.model` is re-pinned only
 after mapper-v2's polarity instructions are revised and the finalists are
 remeasured; the opus-5 pin above stands until then and nothing is bought under it.
+
+
+### Result note 2026-09-05: measurement v2 (kit v2, `mapper-v3`)
+
+The remeasurement the amendment above asks for has run. Five finalists over the
+same 195 cases, relabelled: `claude-cli/claude-sonnet-5` and
+`claude-cli/claude-opus-5` on the subscription, `openai/gpt-5.6-terra`,
+`z-ai/glm-5.3` (AkashML, fp8) and `google/gemini-3.7-flash` on OpenRouter, all at
+effort `low`, batch size 18, `max_tokens` 64000, read timeout 1500 s. $6.91 of a
+$10 ceiling (lowered from D5's $15 before any purchase, because the OpenRouter
+balance was $10.49); 45 subscription units and ~47 minutes of wall clock, charged
+nothing.
+
+**Winner: `google/gemini-3.7-flash`, macro 0.8363, on the shortfall rule.** The
+0.85 agreement bar was **not met** — by anyone — so the highest-agreement survivor
+was chosen and the shortfall is disclosed, as in v1, though the gap fell from 0.14
+to 0.014. `z-ai/glm-5.3` scored the field's best macro (0.8512, above the bar) and
+was eliminated first on the pre-registered decided-rate floor: `polarity` 0.8983
+against 0.90, one case out of 118. The D4 subscription tie-break was evaluated and
+did not fire: `claude-cli/claude-opus-5` is 0.0243 behind, outside the 0.02 window.
+The user's stated preference is a subscription reader; overriding the pin to Opus
+is the user's call and has not been made.
+
+**`mapper-v3` is stable** where `mapper-v2` was not: self-agreement on decided
+answers over two reads of the fifty-case sample is `relevant` 0.92, `polarity`
+0.97, `who_was_letting` 0.94, all at or above the 0.90 bar
+(`domains/str-right-to-let/codebooks/stability/f9201668….json`, `"stable": true`).
+The caveat recorded with it: the winner's second read gave a decided polarity or
+`who_was_letting` on only 72% of the cases it decided on the first read, because it
+changed the relevance call. The codebook is reproducible; the winner's relevance
+judgment is less so.
+
+`reader.model` now points at the winner. One disclosure belongs in this ADR
+because it concerns provider neutrality: `openai/gpt-5.6-terra` could not read the
+default response schema at all (OpenRouter returned OpenAI's strict-dialect 400 on
+every unit, at $0) and was measured under an `openai-strict` variant of the same
+schema — same vocabularies, same gate, structural transform only. It is the one
+candidate in the field not measured under a byte-identical schema, which is a real
+limit on the neutrality this ADR claims for the harness. Full result and the rest
+of the disclosures: `reports/reader-measurement-v2.md`.
