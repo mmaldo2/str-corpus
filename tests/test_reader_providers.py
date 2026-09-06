@@ -1,3 +1,4 @@
+import os
 import json, pytest
 from corpus_engine.reader.model import ModelPin, Request, ReaderError
 from corpus_engine.reader.providers.cassette import CassetteProvider
@@ -96,7 +97,7 @@ def test_codex_cli_parses_events_and_records_version():
     def runner(cmd, **kw):
         if cmd[1] == "--version":
             return P("codex-cli 9.9.9\n")
-        assert cmd[:3] == ["codex", "exec", "--sandbox"] and "--model" in cmd and cmd[cmd.index("--model") + 1] == "gpt-5.6-terra"
+        assert os.path.basename(cmd[0]).lower().startswith("codex") and cmd[1:3] == ["exec", "--sandbox"] and "--model" in cmd and cmd[cmd.index("--model") + 1] == "gpt-5.6-terra"
         events = [{"type": "item.started"}, {"type": "item.completed", "item": {"type": "agent_message", "text": "draft"}},
                   {"type": "item.completed", "item": {"type": "agent_message", "text": "[{\"case_id\": 1}]"}},
                   {"type": "turn.completed", "usage": {"input_tokens": 100, "output_tokens": 20}}]
