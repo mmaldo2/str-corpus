@@ -198,3 +198,21 @@ schema — same vocabularies, same gate, structural transform only. It is the on
 candidate in the field not measured under a byte-identical schema, which is a real
 limit on the neutrality this ADR claims for the harness. Full result and the rest
 of the disclosures: `reports/reader-measurement-v2.md`.
+
+### User override of the measurement-v2 pin (2026-09-05)
+
+The rule selected `google/gemini-3.7-flash`. The user, having seen the full table,
+overrode the pin to `claude-cli/claude-opus-5` on the subscription, and the controller
+recommended it. Grounds: the two tie on relevance (0.90 vs 0.91), which is the map's
+job; opus produced 168 fully judged records to gemini's 149; gemini's second read of
+the fifty-case sample re-decided only 72% of the polarity and who-was-letting answers
+it had given the first time, a relevance flip a map cannot review its way out of; and
+the subscription read has no marginal cost. The 2.4-point macro gap sits inside the
+reference's own noise (a model majority contradicts the human label on a third of the
+contested cases). `reader.fallback_model` keeps gemini as the screening and fallback
+provider for slice 2's deep-tail relevance pass and for a subscription window that
+runs out mid-cycle. The rule's own selection is preserved, unedited, in
+`data/reader/measurement-v2/manifest.json`; this paragraph is the only place the
+override lives, so a reader can see that the measurement said one thing and the
+project chose another, and why. Terms-of-use considerations were expressly taken on
+by the user (see the amendment of 2026-09-05 above).

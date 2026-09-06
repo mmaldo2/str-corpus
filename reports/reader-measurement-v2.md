@@ -202,6 +202,17 @@ under the same rule, including in this shortfall branch (the plan-writer's
 resolution: the reason for the tie-break — a subscription read costs nothing —
 does not change when nobody clears the bar).
 
+## Decision (user override, 2026-09-05)
+
+The rule's winner is recorded above and in the manifest. The project pins
+`claude-cli/claude-opus-5` instead, by user decision on the controller's
+recommendation: tied with gemini on relevance (0.90 vs 0.91), 168 vs 149 fully judged
+records, and repeat-read consistency (gemini re-decided only 72% of the sample's
+polarity and who-was-letting answers on its second read), at zero marginal cost on the
+subscription. `google/gemini-3.7-flash` is retained as `reader.fallback_model`: the
+screening pass over the ranked pool's deep tail and the fallback if the subscription
+window runs out. The reasoning and the terms note are in ADR-0007.
+
 ## The winner's checks
 
 ### Batch-size pair

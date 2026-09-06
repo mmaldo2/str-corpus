@@ -127,6 +127,8 @@ review page publishable as an artifact; reviewer identity recorded.
      purchase because the balance was $10.49), plus 46 subscription units and
      ~47 min of wall clock at no charge.
      **Winner `google/gemini-3.7-flash`** (fidelity 1.0000, macro 0.8363,
+   USER OVERRIDE 2026-09-05: `reader.model` is `claude-cli/claude-opus-5` on the
+   subscription (ADR-0007, override section); gemini is `reader.fallback_model`.
      $0.0051 per accepted record), now set as `reader.model` in `domain.yaml`.
      **The 0.85 bar was still not met** — the shortfall rule fired again, though
      the gap fell from 0.14 to 0.014. Three things to carry into the maps:

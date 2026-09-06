@@ -43,12 +43,14 @@ class ReaderSpec:
     model: Mapping | None = None
     stability_sample: str = ""
     checker: Mapping | None = None
+    fallback_model: Mapping | None = None      # screening / fallback reader (ADR-0007 override 2026-09-05)
     def __post_init__(self):
         object.__setattr__(self, "families", dict(self.families or {}))
         object.__setattr__(self, "judged_fields", tuple(self.judged_fields))
         object.__setattr__(self, "candidates", tuple(dict(c) for c in (self.candidates or ())))
         object.__setattr__(self, "model", dict(self.model) if self.model else None)
         object.__setattr__(self, "checker", dict(self.checker) if self.checker else None)
+        object.__setattr__(self, "fallback_model", dict(self.fallback_model) if self.fallback_model else None)
 
 
 @dataclass(frozen=True)

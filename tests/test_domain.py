@@ -21,3 +21,14 @@ def test_letting_tiers_cover_exactly_the_reader_schema_who_values():
     cell while 14 records carried `non_resident_owner`."""
     from corpus_engine.reader.schema import WHO_VALUES
     assert set(load_domain("str-right-to-let").letting_tiers) == set(WHO_VALUES)
+
+
+def test_reader_pin_is_the_user_override_with_gemini_as_fallback():
+    """ADR-0007 override 2026-09-05: the rule chose gemini; the project pins opus on the
+    subscription and keeps gemini as the screening/fallback reader."""
+    from corpus_engine.domain import load_domain
+    d = load_domain("str-right-to-let")
+    assert d.reader.model["model_id"] == "claude-cli/claude-opus-5"
+    assert d.reader.model["provider"] == "claude-cli" and d.reader.model["cli_model"] == "claude-opus-5"
+    assert d.reader.fallback_model["model_id"] == "google/gemini-3.7-flash"
+
