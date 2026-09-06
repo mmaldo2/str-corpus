@@ -9,12 +9,17 @@ CONTEXT.md, reports/ranking-cycle-004.md sections 3 and 5.
 
 ## 1. Goal
 
-Read the cycle-004 candidate pool (1,845 ranked batches, 32,795 cases, five eras, eleven
+Read the cycle-004 candidate pool (1,845 ranked batches, 32,795 cases, five eras, ten
 jurisdictions) with the pinned reader on the user's Claude subscription under a per-cell budget
 that stops on yield; admit the accepted records to the ledger as machine-only records with full
 provenance; assemble a priority-ordered human review queue of at most 150 cards per round and
 turn the user's decisions into human-basis patches; publish the updated two-tier counts and a
 cycle-004 map report.
+
+(Corrected 2026-09-06: ten jurisdictions, not eleven — the batches carry Cal., Conn., D.C., La.,
+Mass., N.J., N.Y., Ohio, Pa., Tex.; see the plan-writer's ruling in
+`.superpowers/sdd/2026-09-06-stage-3b-slice-2-map-runner/progress.md` and the cell table in
+`reports/map-cycle-004.md`.)
 
 Out of scope (slice 3): re-reading cycles 1-3 under mapper-v3; freezing ranker-heldout-v2 from
 the new human-reviewed labels and re-running the classifier ship rule; running the Gemini

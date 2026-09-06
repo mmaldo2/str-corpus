@@ -45,6 +45,13 @@ document is the operational state and the order of work.
   denominator; polarity drift in cycles 1–2 only partially re-reviewed;
   adverse ontology concepts have empty anchor lists; `model_rev` absent
   from embedding selectors; duplicate selector ids across version bumps.
+- **Superseded 2026-09-06 by the cycle-004 map** (item 11, `reports/map-cycle-004.md`): the
+  693/367/137 figures and the four-jurisdiction tradition matrix above are the cycles-001-003
+  baseline this section is titled for. Current published counts (`open_ledger().view().counts()`)
+  are relevant 2,939 (133 human-reviewed, 2,806 machine-only), favorable 1,261 (58/1,203),
+  favorable+householder 326 (19/307) — pending the still-open review round 1 decisions. The
+  tradition matrix now spans ten jurisdictions and is not re-derived here; see the map report's
+  per-cell table for the cycle-004 breakdown.
 
 ## Decisions (see docs/adr/ for reasoning)
 
@@ -147,6 +154,15 @@ review page publishable as an artifact; reviewer identity recorded.
      never-reviewed `who_was_letting` labels it settled. Corpus counts moved
      710 → 693 relevant, favorable 367 unchanged, favorable householder
      138 → 137. Three cases carry an excluded field (D6).
+   - *Cycle-004 map, empirical (2026-09-06, `reports/map-cycle-004.md`)*: the
+     override pin (`claude-cli/claude-opus-5`) read all 6,831 pool cases at a
+     measured **$479.96 list-price equivalent** (~$1.26/batch, ~$0.070/case) —
+     zero actual spend since the user upgraded to Max 20x mid-run. The
+     instability this item flagged in the winner's *relevance* call (not
+     polarity/characterization) shows up again at map scale: the review-round
+     checker (Codex) disputed relevance on 46 of the top 150 favorable cases,
+     while agreeing with polarity 94% of the time where both decided. This
+     confirms the checker-sample design (D5) was load-bearing, not decorative.
 8. **DC demo report**: refreshed attorney report built on the tradition
    matrix drilling to verified quotes with pin cites, plus a one-case
    walkthrough and a methodology page. Ships before cycle 004 maps.
@@ -172,16 +188,27 @@ review page publishable as an artifact; reviewer identity recorded.
     labelled reads in the six new states (Cal., Mass., N.J., Ohio, Conn.,
     D.C.), and the ship rule re-run against it.
 
-    **Slice 2 (next): the cycle-004 map runner and its per-cell budget.** The
-    reader is now pinned (`reader.model` = `google/gemini-3.7-flash`, effort
-    `low`, batch size 18) and the kit is v2 under `mapper-v3`, so the map runner
-    inherits a measured reader and a stable codebook rather than choosing either.
-    Two things it must carry from item 7: the winner is priced (~$0.005 per
-    accepted record, so a per-cell budget is expressible in dollars as well as in
-    cases read), and its relevance call is the unstable part, so the checker
-    sample is load-bearing rather than decorative. If the user overrides the pin
-    to `claude-cli/claude-opus-5`, the budget becomes units and wall clock
-    instead, and the map runner must handle both kinds.
+    **Slice 2: the cycle-004 map runner and its per-cell budget — DONE
+    2026-09-06.** Ran under the ADR-0007 override pin (`claude-cli/claude-opus-5`,
+    effort low, batch size 18, `mapper-v3`), budget in reader units and wall
+    clock (not dollars, since the override reader has no per-token price on the
+    subscription): 50 of 50 cells read, 380 of 399 capped batches, 6,831 cases,
+    2,246 relevant accepted; 47 cells stopped on their depth cap and 3 on the
+    yield floor (`pre-1860|Pa.`, `1930-1970|Tex.`, `1970-2020|Tex.`). Two
+    detached processes (a 6 h wall cap, then a 24 h resume that finished
+    `stop=done`); 0 failed units. Admitted as 30,398 patches
+    (`data/ledger/cycle-004.jsonl`, commit `3dce174`): published relevant
+    693 → **2,939** (133 human-reviewed unchanged, 2,806 machine-only),
+    favorable 367 → **1,261**, favorable+householder 137 → **326**. Review
+    round 1 (`0a5e84e`) selected 150 of 903 qualifying records (section A
+    favorable+under-thirty 126, section B householder-by-the-night 24; C–F
+    empty; 753 deferred; 23 fuzzy quotes auto-accepted); the Codex checker read
+    100% of the 150 and disputed relevance on 46. **The user's decisions on
+    round 1 are pending** — `tools/apply_map_review.py` will turn them into
+    human-basis patches and move qualifying records into the human-reviewed
+    tier once decided. Full detail: `reports/map-cycle-004.md`. The screen
+    (D10) stayed off; cycles 1-3 re-read, `ranker-heldout-v2`, and the ship-rule
+    re-run remain slice 3.
 
     **Measured cost of a corpus-wide vector selector (2026-09-04, live index,
     read-only `probe()`).** One `probe()` of `embed-householder-letting-21@v2`

@@ -86,7 +86,11 @@ series, stop reasons, caps and flags); `runs\<run-id>\batches\` and
 `runs\<run-id>\extractions\` are gitignored, and the response cache under
 `data\reader\cache\` is never committed.
 
-Results: see `reports\map-cycle-004.md` (to be written).
+Results: see `reports\map-cycle-004.md`. Cycle 004: 50 of 50 cells read, 380 of 399 capped
+batches, 6,831 cases, 2,246 relevant accepted (47 cells stopped on cap, 3 on the yield floor);
+admitted as 30,398 patches, moving published relevant 693 -> 2,939 (133 human-reviewed
+unchanged, 2,806 machine-only). Review round 1 selected 150 of 903 qualifying records; the
+user's decisions on that round are pending.
 
 ## Layout
 
