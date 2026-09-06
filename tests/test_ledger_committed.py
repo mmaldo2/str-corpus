@@ -23,8 +23,8 @@ def test_the_rename_leaves_the_committed_counts_and_the_replay_untouched(repo_ro
     log = (repo_root / "data" / "ledger" / "patches.jsonl").read_text(encoding="utf-8")
     assert "under_30_days" not in log and "right_characterization" not in log
     v = open_ledger(domain=dom).view()
-    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 693
+    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 2939   # 693 before the cycle-004 map admission (2026-09-06): +2,246 relevant machine-only
     fav = v.counts(polarity="favorable").total
-    assert fav.human_reviewed + fav.machine_only == 367
+    assert fav.human_reviewed + fav.machine_only == 1261   # 367 before the cycle-004 map admission
     hh = v.counts(polarity="favorable", who_was_letting="householder").total
-    assert hh.human_reviewed + hh.machine_only == 137
+    assert hh.human_reviewed + hh.machine_only == 326    # 137 before the cycle-004 map admission
