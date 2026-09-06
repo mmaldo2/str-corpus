@@ -1,4 +1,36 @@
 {
+ "accepted_by_candidate": {
+  "claude-cli/claude-opus-5": {
+   "accepted": 195,
+   "accepted_full": 168,
+   "accepted_recorded_by_the_run": 195,
+   "matches_the_run": true
+  },
+  "claude-cli/claude-sonnet-5": {
+   "accepted": 195,
+   "accepted_full": 128,
+   "accepted_recorded_by_the_run": 195,
+   "matches_the_run": true
+  },
+  "google/gemini-3.7-flash": {
+   "accepted": 195,
+   "accepted_full": 149,
+   "accepted_recorded_by_the_run": 195,
+   "matches_the_run": true
+  },
+  "openai/gpt-5.6-terra": {
+   "accepted": 195,
+   "accepted_full": 145,
+   "accepted_recorded_by_the_run": 195,
+   "matches_the_run": true
+  },
+  "z-ai/glm-5.3": {
+   "accepted": 195,
+   "accepted_full": 154,
+   "accepted_recorded_by_the_run": 195,
+   "matches_the_run": true
+  }
+ },
  "batch_size": 18,
  "batch_size_pair": {
   "b18": {
@@ -87,6 +119,13 @@
   }
  },
  "budget_usd": 10.0,
+ "cache_key_coverage": {
+  "cache_files": 204,
+  "keys_recorded": 204,
+  "superseded_keys_recorded": 0,
+  "unaccounted": 0
+ },
+ "cache_key_version": "v2",
  "cache_keys": {
   "claude-cli/claude-opus-5": {
    "pin": "claude-cli/claude-opus-5@claude-cli:-",
@@ -174,9 +213,135 @@
     "kit-v2-batch-023": "e6adeed076c5cdefdd5b350218384f9351ad5ca9ef69df9e981d707391265424"
    }
   },
+  "google/gemini-3.7-flash:b5": {
+   "pin": "google/gemini-3.7-flash@-:-",
+   "units": {
+    "kit-v2-batch-001-s1": "85641f3976dda289adc68ae9fcb398712e88bb3e252e35a3dffb1abcf19afce4",
+    "kit-v2-batch-001-s2": "204c5dd207c79ab3a041773cc336415cdd59639500b506a23c602255fa74c10a",
+    "kit-v2-batch-002-s1": "781ed6caee5265b0d8c40ac4098bca1aada8ab1e3cfd64577d61f86b1a678cb5",
+    "kit-v2-batch-002-s2": "3aeeb51e65806a53879f18e7597b3421fea2df5725f9e89e20ab217cd3e1be90",
+    "kit-v2-batch-002-s3": "76a1f31f13669d279fff68b8cbe144d7bb6626dd78ead7b3bd80ba2eddaa46cd",
+    "kit-v2-batch-002-s4": "fd8e97165dfb231302a75d3054bf900973632185116984aa09d51e9345749f2c",
+    "kit-v2-batch-003-s1": "72e1cf49f5f192a7914c00f6fb230ba938b7ba460b00ca4b53dcd7f74fd53f90",
+    "kit-v2-batch-003-s2": "3131acd900cf227fabff00c77d2217d40b52724e931033c75a1fcfc2ad9d23ec",
+    "kit-v2-batch-003-s3": "5cc7847a4eab7bf3065bfb492c2584327b679fad7f870d8362b8c32192a28cae",
+    "kit-v2-batch-004-s1": "6dcd7c1bca72dca261555fb72aac0460deef4169294f966e1145a88bf2a4a59f",
+    "kit-v2-batch-005-s1": "f5ab0e06636c817eaf8e86b3ebfa571cac03f2c6ee97cb565c7fb74c6ee57ddb",
+    "kit-v2-batch-005-s2": "f943e6967cb8704702f94c127f93157667f1b7d829c3edf05c0a8629b9f1a2e5",
+    "kit-v2-batch-006-s1": "fbc900dee489d1f36df64ec99f4e65632145554c4945b3df778dee50c3100ee5",
+    "kit-v2-batch-006-s2": "b762f6937da36c1b8d91e873946bf143a36a2a246df6dde96d813fda4a03d8cc",
+    "kit-v2-batch-006-s3": "2adcea22cbeea855a36047c16efbfaaeab280821a05020c9433e903ed173c5c2",
+    "kit-v2-batch-007-s1": "e6d7b81905cb66df8b3429a99fe29ea9d35b2f75641c46e79c1652364fe5c47b",
+    "kit-v2-batch-007-s2": "7708dec7c6748c81e0169a9c2bbcc85d085d5374fa71685750bf127b3cc6a761",
+    "kit-v2-batch-007-s3": "bfe95aee4fb8a68227769f6f805b5085c708b0d6e62a80c289e570aa4bd04f89",
+    "kit-v2-batch-007-s4": "346c532441a2e031d4bbd8790c459f91708a3f34529ccb4f6d8bac5f904a45d0",
+    "kit-v2-batch-007-s4-a": "cd1ea78d8dd42dc368f1dadc2cc467d5485b3d22d29cccb3e986baed59c4c306",
+    "kit-v2-batch-007-s4-b": "e7884198c02f8c7ee860ce1ebb78137a4924ee66c3122ea9cb9f47ac4b8bd257",
+    "kit-v2-batch-008-s1": "472e9c6776821f3819ae13ec52ffd43cff59bbcb7096baae862f8b0692e6d528",
+    "kit-v2-batch-008-s2": "ee1958e2a6ba3af2f6ebd2750b6c9f3f183516125f089bbef04a2300bd992876",
+    "kit-v2-batch-008-s2-a": "b721d393a4cbb4085b71679939f42fa0dc4dc4844bcad836490f90f30717ec52",
+    "kit-v2-batch-008-s2-b": "3ca644627b99e699c81cce235e3df21132f40460e430a36d67e3b49cee2af2b6",
+    "kit-v2-batch-009-s1": "e45531ac2a62bfb3a94c2148f9d75cb57be687a39b313e5512e23287813d1506",
+    "kit-v2-batch-009-s2": "b319486037643769e0e0e74d08503c43e019be1e888aa6caf4ddbceb9c3d9749",
+    "kit-v2-batch-010-s1": "f779acef32d8defb9a9308674de50326e3d453f5195360f6e93b06a5eb595f94",
+    "kit-v2-batch-010-s2": "9e0d5103fd87672a9ba54ca850f1939d8f0e91ffcda84840146a25721385f70d",
+    "kit-v2-batch-011-s1": "a12c01f6ec4d2fcbabb9d32ffca9620d4783ef028ca95a84c00e7338d2fb4b77",
+    "kit-v2-batch-011-s2": "85c0d6eb7ea92e4788474b39ecf0b120c97233ef7d8cf0c7b2e33fe40d1a3258",
+    "kit-v2-batch-012-s1": "507d384424000cfe0f89990f631fe4be9f4b9b9ac6c6fde87cbbbd7fc3cb806e",
+    "kit-v2-batch-012-s2": "037ef80e6f90587b5ab6df5564f1592ad8e4e49f975380e5fcefdb08baf51d17",
+    "kit-v2-batch-012-s3": "2580952b025718f4987014248ff8d8a4017e06d169079705736b53ca6e1632b8",
+    "kit-v2-batch-013-s1": "e11f3989d83c6b7392a103463e6906f2ec7162e61c8c1c18eecbfebfc5b9ab94",
+    "kit-v2-batch-014-s1": "4ce50e101616b150c6ce77117be4146ca480912524114376dce2b7c71196a69d",
+    "kit-v2-batch-015-s1": "821e32998e26a57425b48a2f6aec773d7a2cc393bffd36abc75b149c089894f0",
+    "kit-v2-batch-016-s1": "f2b239b2f1a38218fb0ff62a78ec0e11acd32172c4029c654163f9173a708ab1",
+    "kit-v2-batch-016-s2": "01410e9e36140a857e827de8a29fda47549834fd50b776b7f1ee94035f539c7b",
+    "kit-v2-batch-016-s3": "a6d950a86f46a675720e1e9d8fab4517b606463e336122e3bad33fb4c8ed61a7",
+    "kit-v2-batch-016-s4": "30b84e787df57e045676b055523fa0b58d3bc2a3ecee7d33dab353ad483c378e",
+    "kit-v2-batch-017-s1": "60d1515e376b55cb1e3a7a8773283aea20a180e0a5e2a78d324217cf22babb11",
+    "kit-v2-batch-017-s2": "878b5e0a37aab85ebf5abaaceb8f3b867069bbb33e58ecd759559796395d834c",
+    "kit-v2-batch-017-s3": "0b03139b54d092aa659ae52a0e7ae660ea8a0576c1e23a79198d1cdf5f9cb954",
+    "kit-v2-batch-018-s1": "2f7ad3500c585f56c72b8a5615a07f60a5a322b5161b27c3f862954abc1e2aac",
+    "kit-v2-batch-018-s2": "26f2c1fa174b72b43c6586665470afc8dae6d87a559e3881cbd80d9cd67524fc",
+    "kit-v2-batch-019-s1": "269b3103e5b5c729e90bfb03f1c3483491a70bdea1621c2c0ad4994487b32a1a",
+    "kit-v2-batch-020-s1": "4704605cabeedb352e0cf83976c3495ce5c8c083bccadea5a9b9c187d0e1aef2",
+    "kit-v2-batch-021-s1": "1ba659fc5d8f7bfc84cfe31eaaa9952f62456debb2bae2363e0fa1abcdd008e5",
+    "kit-v2-batch-021-s2": "6105a44707a7744132539226511d403fca32125b34236e791bf5b652b9f2f200",
+    "kit-v2-batch-021-s3": "1e49c90d44237a35d7b1fc41eaae0e6d21541085e37a0099613eaa07ee9b55a4",
+    "kit-v2-batch-022-s1": "fd2ebc13c05a45e06f0147417e6149bdeb83ce2b685e624d67635ed849d823f8",
+    "kit-v2-batch-023-s1": "ec2fedbeb4636cbeeacceb26c140fcd8cd316bb1702c38ce982a8a954a9fafde"
+   }
+  },
+  "google/gemini-3.7-flash:stab1": {
+   "pin": "google/gemini-3.7-flash@-:-",
+   "units": {
+    "kit-v2-batch-001-st1": "a01f4a6a6cf9b21a206a7ad2015d083bb4f73389434a5fa7ca20afae3bea9f56",
+    "kit-v2-batch-002-st1": "ff3e977d6c9b2d2a75b513269eace4368298728c4d21dd09d941eec6eff170da",
+    "kit-v2-batch-003-st1": "118063ed1e7c8f78b654e4118935f456b4c3dc26807e51efc3251274c865817e",
+    "kit-v2-batch-005-st1": "0ce93cf131899797a07abb8a2b6a657e0632e8dec74e237ba3692907a800370c",
+    "kit-v2-batch-006-st1": "393ce7a632ccf5c8acc41d78d9fe926606bc0afb3e0543ddb6b4b898cfbfdae8",
+    "kit-v2-batch-007-st1": "529306c7ea7212f0b4f8adefc734e1a84467cfc9a8325e0d5ccb02a8047ad75b",
+    "kit-v2-batch-008-st1": "c744e4ce76fa00b1fa0900e0ba27c3e554fbe115eb814781ef9ce1a86e0858b9",
+    "kit-v2-batch-010-st1": "a100b765ca2777f9cf689410b9deff82dc4c39807d82d063d55619033c3bd215",
+    "kit-v2-batch-011-st1": "08745069a352ed33e89fee7e470599519fd3354a04fee62ea7255a97724ae821",
+    "kit-v2-batch-012-st1": "6b46e4be269fa9dd481cd1096a4f075dc97e8989d0491206ca594c04de732d04",
+    "kit-v2-batch-014-st1": "58042dd63ce642b78f883d2b9dc2f9891b5d74f546152aa29f00bd3b69c23f01",
+    "kit-v2-batch-016-st1": "e98628526300dc914face1987451fdfcc4a9ec757e0e4194d3ac2b359309d527",
+    "kit-v2-batch-017-st1": "f345128097c7e79c7e952d9ddf5f264d81adf2d30eab1240ea59f685b67332c9",
+    "kit-v2-batch-018-st1": "900baeb510654f36ad7f67315571d1c948c4b93e9f2e02436544c2160fc807a0",
+    "kit-v2-batch-019-st1": "803c43ddd23ef90b1c04e35bbf890ee1ec52cb66830560ae03a32c38b22b583c",
+    "kit-v2-batch-021-st1": "365e85c91879b73d10db1cc6639589eba784f9c2896b03819f2fe8572f379e2e"
+   }
+  },
+  "google/gemini-3.7-flash:stab2": {
+   "pin": "google/gemini-3.7-flash@-:-",
+   "units": {
+    "kit-v2-batch-001-st2": "321a4107b4d17ad7234155b95d1d3bada112da3f4742198694ef2e2e330d067e",
+    "kit-v2-batch-002-st2": "af4691c49063d50629b5e6f930e45b81de6305ea7f6aaa223b6d3ceb7ead702e",
+    "kit-v2-batch-003-st2": "553a0806f30c55c0b14aafeb8b89e8501d3bace947c72f7fedeb2bdd027b7bdc",
+    "kit-v2-batch-005-st2": "5349689f0f4e26842dfd4333f91a6bc98571f62a3e7e7b3bd58072fa1f923078",
+    "kit-v2-batch-006-st2": "e16940de29dfc77c0c859caa66377055acc56b9179794b6eb994bb6a9c0be61a",
+    "kit-v2-batch-007-st2": "5f88bf406f0a5ec5b8aa727c55aff496615d08e7bb854e949158b5708319cfdc",
+    "kit-v2-batch-008-st2": "57257895e30e67c732da02eea097664f33e154236471f85dd0daa6df7c5f21fd",
+    "kit-v2-batch-010-st2": "21a0e986576820f55d0207a96105eafa5b9fff6904593a8ade7827144ea33ede",
+    "kit-v2-batch-011-st2": "85f3345bc65ccddcd6660df141ff1c68743179d4cf23136ade550d1e55d09b61",
+    "kit-v2-batch-012-st2": "1592cfa792dae49cd01dcbe07dd8649bab3f72bd8891f5072915f9060e3bbbd8",
+    "kit-v2-batch-014-st2": "d8c9e6b0a762ddd15e70a56ea5f6926ac985310dfb290d96a9f638d5e2655060",
+    "kit-v2-batch-016-st2": "bd46428e94d62c22bef8a724133963223816088014873462f91bc88178814d29",
+    "kit-v2-batch-017-st2": "6a6d801c5fea856cc66e326bdd0d211601fc3678813e54217472abe7ca0016cf",
+    "kit-v2-batch-018-st2": "898b931b89ec544e7dd4a2f19baf5aee8f57cc5a738e9d47e7c8ec83044a5e4b",
+    "kit-v2-batch-019-st2": "8cf3be64201a33abb8ee51f1b24a90f662be5f2cee9a6e1dc79cbadcd760a407",
+    "kit-v2-batch-021-st2": "4359146907db6ae660aa57545cb3d5244b97896d426c3d8114fcf31e2acfd539"
+   }
+  },
   "openai/gpt-5.6-terra": {
    "pin": "openai/gpt-5.6-terra@-:-",
-   "units": {}
+   "units": {
+    "kit-v2-batch-001": "0d44118251cf60419d68cd558d5d25f707a8c763b4bcd1710cfbffda4eec1770",
+    "kit-v2-batch-002": "cc617412064c9adbba7ad931cccc5ae3130bf87a975492b985472ea337131df4",
+    "kit-v2-batch-003": "08c1e2c09cd822ab386ad27f975e5d84eaf213a58bc26c9ae2c640b36b885bdb",
+    "kit-v2-batch-004": "f5b0ab22d2d005c40762852b6e41f85e0fedafb250fd00e1af31327baf26fa12",
+    "kit-v2-batch-005": "7f29efd552506c23c5d385691fbc7f3014333980496f944bbc19a2afb02062e2",
+    "kit-v2-batch-006": "11f2e4b3cb53835c09925ebb28595134a1a7e3dfe163625736f9bdd92f5f4c25",
+    "kit-v2-batch-007": "37e77181cde09513d129d7024025925c442d279faa9998eae5d28e0b0f7abde3",
+    "kit-v2-batch-008": "729dfc74eeae3f4e83841618c4db750b147aa9066f31f301a3cb13b6022a4aa8",
+    "kit-v2-batch-009": "3490c4a3e992e4ee95a4a598928297481a6fe5c81b79805c8ab69175190bcdf5",
+    "kit-v2-batch-010": "d80def49c18f97cc126f05ab6c448ea489cef7995899755f71430f8eafca9f4c",
+    "kit-v2-batch-011": "26f52797443a288e0ccba60b108499ad176bb110e510bd5a518fb3291aa4fabb",
+    "kit-v2-batch-012": "fdd7f6abbfbfb246d461887c2552c0baeab0aa1377203d2642e0dbd7a5e308e8",
+    "kit-v2-batch-013": "4dbc5b17a9f7c1a3a3b618be6f99c2322bdc9b384dd61c3fe763ff260c0b3ef3",
+    "kit-v2-batch-014": "fee4873e14acda7f33e59ec010aa7e3a65f2a6fa47caac0bfa0e3a44c4a6404f",
+    "kit-v2-batch-015": "e5748b95d72ec760e86093409f0e345fad38cb294cb4f1ff3f0129a7eeafef85",
+    "kit-v2-batch-016": "37018f38d40bf27c6ec604ab462aa58c1d44c35697b12f50a76efde3ee5af22b",
+    "kit-v2-batch-017": "75626787db9da9fc1aa66f07b6db2f827167d652f0cbc1515f84a528a86809d7",
+    "kit-v2-batch-018": "54ed8a4683835fb5263068f079770410883b55387c4f9f0f1c53aee14d95e586",
+    "kit-v2-batch-018-a": "2e236ea19921bafe785f54c75b72c45b15603c307d93fa491db3abf472141d57",
+    "kit-v2-batch-018-b": "51afe6f1aebcb45ca6f20c5e969167bfed785697b94b84f6244b5de925ebc69f",
+    "kit-v2-batch-019": "de97e749872ed66a046ba170aa7596ed831d68a369758af3e1f0f2a1b6d59670",
+    "kit-v2-batch-020": "af5de5c94717d7ba7dc560201acee75177f282a90cd977ce329fdf2daf48de49",
+    "kit-v2-batch-021": "2299ff25a0774368a3af84fdc0b75ba22deb6ac7ef27e2bfddcad0dd46bc15d2",
+    "kit-v2-batch-022": "768ee2c6f9b3f07a9172b62edb7aa8cb640abf32e38d9c40d6d6930fa30c001a",
+    "kit-v2-batch-023": "354a4236638ed1ab37ac23c69e87d9957d9e53dd1f38b88f910cfb2de082f318"
+   }
   },
   "z-ai/glm-5.3": {
    "pin": "z-ai/glm-5.3@AkashML:fp8",
@@ -211,6 +376,7 @@
  "codebook_sha": "f920166813144f09d3a8a8de575eb860dbcce18a42b46b2270b4b17cc1a52752",
  "credits_after": 3.554,
  "credits_before": 6.4228,
+ "discarded_spend_by_candidate": {},
  "dry_runs": {},
  "effective_budget_usd": 5.9595,
  "effort_by_candidate": {
@@ -249,6 +415,7 @@
  },
  "max_tokens": 64000,
  "not_run": {},
+ "note": "Derived records recomputed offline by `tools/measure_reader.py --annotate-only` (no requests, no spend). cache_keys holds, per candidate and per unit, the key the driver computes as sha256(codebook_sha|pin.label|unit id|sorted case ids|rendered prompt); only keys present in data/reader/cache are recorded, and the split halves a unit falls back to on a parse failure appear as <unit>-a / <unit>-b. accepted_by_candidate re-derives each candidate's accepted records from its own cached responses (parse, split-half fallback, quote gate - no request, no spend): `accepted` is the pre-registered denominator and reproduces what the paid run scored (`matches_the_run`), while `accepted_full` counts only the records whose judged fields all survived the gate, so `accepted` minus `accepted_full` is how many accepted records were partial. The key is the WIDENED one (cache_key_version v2): sha256 over the same parts plus the sha of the schema actually sent for that pin's family - the openai-strict dialect for an openai-family pin - plus max_tokens and reasoning effort, both read back from this manifest rather than from the tool's current constants.",
  "openrouter_ceiling_usd": 15.0,
  "pins": {
   "claude-cli/claude-opus-5": "claude-cli/claude-opus-5@claude-cli:-",
@@ -512,6 +679,12 @@
   "winner": "google/gemini-3.7-flash"
  },
  "skipped": {},
+ "spend_attribution": {
+  "attributed_to_candidates_usd": 6.3514,
+  "charged_usd": 6.9093,
+  "superseded_purchases_usd": 0,
+  "unattributed_usd": 0.5579
+ },
  "spend_by_candidate": {
   "claude-cli/claude-opus-5": 0.0,
   "claude-cli/claude-sonnet-5": 0.0,
@@ -568,6 +741,7 @@
   "claude-cli/claude-opus-5@claude-cli:-",
   "claude-cli/claude-sonnet-5@claude-cli:-"
  ],
+ "superseded_cache_keys": {},
  "total_task_spend_usd": 6.9093,
  "tracked_spend_by_candidate": {
   "claude-cli/claude-opus-5": 0.0,
