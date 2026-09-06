@@ -1,0 +1,161 @@
+# Cycle-004 map review - cycle-004-shard-01
+
+150 cards this round (cap 150); 753 carried to the next round.
+Page: reports/review-queue-map-cycle-004.html (decisions are saved into the page itself).
+
+
+## A. Favorable and under thirty days (126)
+
+- [ ] 18 Ohio St. 343 -  [43707] - decide polarity reader=favorable also=-
+- [ ] 4 N.J. 309 -  [110744] - decide polarity reader=favorable also=-
+- [ ] 119 N.J.L. 61 -  [154104] - decide polarity reader=favorable also=-
+- [ ] 107 N.J.L. 58 -  [178133] - decide polarity reader=favorable also=-
+- [ ] 327 N.J. Super. 544 -  [220679] - decide polarity reader=favorable also=-
+- [ ] 59 Cal. App. 4th 237 -  [261185] - decide polarity reader=favorable also=-
+- [ ] 76 N.J.L. 242 -  [293050] - decide polarity reader=favorable also=-
+- [ ] 231 N.J. Super. 546 -  [300677] - decide polarity reader=favorable also=-
+- [ ] 91 N.J. Super. 172 -  [331147] - decide polarity reader=favorable also=-
+- [ ] 246 N.J. Super. 644 -  [331396] - decide polarity reader=favorable also=-
+- [ ] 261 N.J. Super. 252 -  [340467] - decide polarity reader=favorable also=-
+- [ ] 95 Conn. 34 -  [398484] - decide polarity reader=favorable also=-
+- [ ] 36 N.J. Super. 46 -  [407673] - decide polarity reader=favorable also=-
+- [ ] 333 Mass. 114 -  [487657] - decide polarity reader=favorable also=-
+- [ ] 349 Mass. 426 -  [524353] - decide polarity reader=favorable also=gate_erased
+- [ ] 83 Cal. App. 4th 139 -  [525248] - decide polarity reader=favorable also=-
+- [ ] 177 Conn. 440 -  [704532] - decide polarity reader=favorable also=-
+- [ ] 15 Conn. Supp. 293 -  [706864] - decide polarity reader=favorable also=-
+- [ ] 115 Mass. 70 -  [718124] - decide polarity reader=favorable also=-
+- [ ] 176 Pa. Super. 316 -  [722999] - decide polarity reader=favorable also=checker_disagreement
+- [ ] 203 Pa. Super. 323 -  [767914] - decide polarity reader=favorable also=-
+- [ ] 116 Misc. 2d 394 -  [802544] - decide polarity reader=favorable also=gate_erased
+- [ ] 22 N.Y. Crim. 506 -  [809070] - decide polarity reader=favorable also=-
+- [ ] 402 Mass. 137 -  [820822] - decide polarity reader=favorable also=-
+- [ ] 267 Mass. 229 -  [844100] - decide polarity reader=favorable also=-
+- [ ] 165 Misc. 559 -  [870922] - decide polarity reader=favorable also=-
+- [ ] 161 N.J. Super. 414 -  [879371] - decide polarity reader=favorable also=-
+- [ ] 259 A.D.2d 864 -  [890424] - decide polarity reader=favorable also=householder_nights
+- [ ] 168 N.J. Super. 140 -  [898154] - decide polarity reader=favorable also=-
+- [ ] 187 Misc. 319 -  [928641] - decide polarity reader=favorable also=-
+- [ ] 151 Ohio St. 276 -  [1046823] - decide polarity reader=favorable also=fuzzy_quote
+- [ ] 231 A.D.2d 882 -  [1052797] - decide polarity reader=favorable also=householder_nights
+- [ ] 23 Misc. 2d 515 -  [1066529] - decide polarity reader=favorable also=-
+- [ ] 29 Misc. 2d 933 -  [1088051] - decide polarity reader=favorable also=-
+- [ ] 60 Conn. App. 446 -  [1160035] - decide polarity reader=favorable also=-
+- [ ] 336 Pa. 171 -  [1195610] - decide polarity reader=favorable also=-
+- [ ] 76 Misc. 2d 915 -  [1271214] - decide polarity reader=favorable also=-
+- [ ] 3 Liquor Tax Rep. 424 -  [1292284] - decide polarity reader=favorable also=-
+- [ ] 16 Misc. 59 -  [1294119] - decide polarity reader=favorable also=checker_disagreement
+- [ ] 23 App. D.C. 272 -  [1342485] - decide polarity reader=favorable also=-
+- [ ] 35 App. D.C. 65 -  [1362808] - decide polarity reader=favorable also=-
+- [ ] 143 Pa. Commw. 107 -  [1423174] - decide polarity reader=favorable also=checker_disagreement
+- [ ] 103 Ohio App. 379 -  [1427400] - decide polarity reader=favorable also=-
+- [ ] 31 Pa. D. & C. 226 -  [1533069] - decide polarity reader=favorable also=-
+- [ ] 37 Pa. D. & C. 97 -  [1542816] - decide polarity reader=favorable also=-
+- [ ] 26 Misc. 591 -  [1613326] - decide polarity reader=favorable also=-
+- [ ] 87 Ohio App. 3d 389 -  [1694267] - decide polarity reader=favorable also=-
+- [ ] 58 Ohio Law Abs. 169 -  [1757996] - decide polarity reader=favorable also=-
+- [ ] 84 Ohio Law Abs. 8 -  [1802656] - decide polarity reader=favorable also=-
+- [ ] 89 Ohio Law Abs. 140 -  [1810135] - decide polarity reader=favorable also=-
+- [ ] 45 Pa. Commw. 141 -  [1900632] - decide polarity reader=favorable also=-
+- [ ] 12 Conn. App. 90 -  [1970904] - decide polarity reader=favorable also=householder_nights
+- [ ] 20 Mass. 300 -  [2010272] - decide polarity reader=favorable also=-
+- [ ] 85 Cal. App. 3d 871 -  [2021145] - decide polarity reader=favorable also=-
+- [ ] 25 Wend. 653 -  [2026536] - decide polarity reader=favorable also=-
+- [ ] 73 Cal. App. 3d 152 -  [2034118] - decide polarity reader=favorable also=-
+- [ ] 122 Cal. App. 3d 539 -  [2066046] - decide polarity reader=favorable also=-
+- [ ] 54 Cal. App. 719 -  [2072630] - decide polarity reader=favorable also=-
+- [ ] 27 Tex. 547 -  [2105509] - decide polarity reader=favorable also=-
+- [ ] 142 Cal. 681 -  [2108519] - decide polarity reader=favorable also=gate_erased
+- [ ] 224 Cal. App. 2d 184 -  [2134894] - decide polarity reader=favorable also=-
+- [ ] 122 Cal. App. 2d 948 -  [2211690] - decide polarity reader=favorable also=-
+- [ ] 112 Cal. App. 2d 213 -  [2237088] - decide polarity reader=favorable also=-
+- [ ] 51 Barb. 632 -  [2246488] - decide polarity reader=favorable also=-
+- [ ] 93 Cal. App. 2d 864 -  [2253280] - decide polarity reader=favorable also=-
+- [ ] 16 Cal. 181 -  [2279220] - decide polarity reader=favorable also=householder_nights
+- [ ] 202 Cal. App. 2d 120 -  [2298514] - decide polarity reader=favorable also=-
+- [ ] 190 Cal. App. 2d 274 -  [2334451] - decide polarity reader=favorable also=-
+- [ ] 179 Cal. App. 282 -  [2345463] - decide polarity reader=favorable also=-
+- [ ] 42 A.D. 423 -  [2386721] - decide polarity reader=favorable also=-
+- [ ] 129 A.D. 229 -  [2578331] - decide polarity reader=favorable also=-
+- [ ] 127 A.D. 241 -  [2596640] - decide polarity reader=favorable also=-
+- [ ] 268 A.D. 277 -  [2718829] - decide polarity reader=favorable also=-
+- [ ] 182 A.D. 49 -  [2936070] - decide polarity reader=favorable also=-
+- [ ] 48 A.D.2d 633 -  [2939277] - decide polarity reader=favorable also=householder_nights
+- [ ] 190 A.D. 767 -  [3005800] - decide polarity reader=favorable also=-
+- [ ] 3 Mass. Supp. 341 -  [3294738] - decide polarity reader=favorable also=-
+- [ ] 94 A.D.2d 685 -  [3328420] - decide polarity reader=favorable also=-
+- [ ] 226 U.S. App. D.C. 231 -  [3641174] - decide polarity reader=favorable also=-
+- [ ] 227 U.S. App. D.C. 284 -  [3642161] - decide polarity reader=favorable also=gate_erased
+- [ ] 36 Misc. 3d 845 -  [3784318] - decide polarity reader=favorable also=householder_nights
+- [ ] 262 Mass. 41 -  [3822195] - decide polarity reader=favorable also=-
+- [ ] 347 Mass. 179 -  [3858594] - decide polarity reader=favorable also=-
+- [ ] 187 Ohio App. 3d 117 -  [3868578] - decide polarity reader=favorable also=-
+- [ ] 135 A.D.3d 1130 -  [4040465] - decide polarity reader=favorable also=householder_nights
+- [ ] 179 Cal. App. 4th 825 -  [4210318] - decide polarity reader=favorable also=-
+- [ ] 185 Cal. App. 4th 771 -  [4220662] - decide polarity reader=favorable also=-
+- [ ] 25 N.Y.S. 279 -  [4303017] - decide polarity reader=favorable also=-
+- [ ] 26 N.J. Tax 549 -  [4305654] - decide polarity reader=favorable also=-
+- [ ] 42 How. Pr. 378 -  [4461482] - decide polarity reader=favorable also=-
+- [ ] 60 Cal. App. 2d 338 -  [4676948] - decide polarity reader=favorable also=-
+- [ ] 215 A.D. 294 -  [4789591] - decide polarity reader=favorable also=-
+- [ ] 59 A.D. 25 -  [4804553] - decide polarity reader=favorable also=-
+- [ ] 90 A.D.2d 74 -  [5620164] - decide polarity reader=favorable also=-
+- [ ] 77 A.D.3d 133 -  [5750884] - decide polarity reader=favorable also=-
+- [ ] 87 N.Y.S. 225 -  [5811051] - decide polarity reader=favorable also=gate_erased
+- [ ] 10 Conn. Supp. 229 -  [6034850] - decide polarity reader=favorable also=-
+- [ ] 47 Cal. App. 2d 164 -  [6039056] - decide polarity reader=favorable also=-
+- [ ] 46 Cal. App. 3d 777 -  [6039401] - decide polarity reader=favorable also=-
+- [ ] 1982 Mass. App. Div. 84 -  [6067734] - decide polarity reader=favorable also=-
+- [ ] 13 Ohio App. 3d 399 -  [6709097] - decide polarity reader=favorable also=gate_erased
+- [ ] 138 A.3d 142 -  [6800365] - decide polarity reader=favorable also=-
+- [ ] 196 Ohio App. 3d 127 -  [6948110] - decide polarity reader=favorable also=householder_nights,checker_disagreement
+- [ ] 645 So. 2d 1139 -  [7463255] - decide polarity reader=favorable also=-
+- [ ] 566 So. 2d 626 -  [7532441] - decide polarity reader=favorable also=householder_nights
+- [ ] 469 So. 2d 1140 -  [7626972] - decide polarity reader=favorable also=-
+- [ ] 113 N.Y.S. 392 -  [7665074] - decide polarity reader=favorable also=-
+- [ ] 59 N.Y.S. 123 -  [7732267] - decide polarity reader=favorable also=-
+- [ ] 5 Pelt. 277 -  [8500982] - decide polarity reader=favorable also=-
+- [ ] 5 Pelt. 705 -  [8502839] - decide polarity reader=favorable also=-
+- [ ] 72 Pa. D. & C. 88 -  [8730010] - decide polarity reader=favorable also=-
+- [ ] 85 Ohio Law Abs. 492 -  [8751860] - decide polarity reader=favorable also=-
+- [ ] 789 A.2d 333 -  [9399498] - decide polarity reader=favorable also=-
+- [ ] 250 So. 2d 94 -  [9710150] - decide polarity reader=favorable also=-
+- [ ] 141 So. 2d 885 -  [9882897] - decide polarity reader=favorable also=-
+- [ ] 548 S.W.2d 52 -  [9926133] - decide polarity reader=favorable also=-
+- [ ] 142 So. 212 -  [10027758] - decide polarity reader=favorable also=gate_erased
+- [ ] 31 So. 2d 31 -  [10030056] - decide polarity reader=favorable also=-
+- [ ] 538 S.W.2d 137 -  [10123307] - decide polarity reader=favorable also=-
+- [ ] 173 S.W.2d 318 -  [10203881] - decide polarity reader=favorable also=-
+- [ ] 174 S.W.2d 1006 -  [10224203] - decide polarity reader=favorable also=checker_disagreement
+- [ ] 131 S.W.2d 261 -  [10230347] - decide polarity reader=favorable also=checker_disagreement,gate_erased
+- [ ] 130 S.W.2d 1096 -  [10254017] - decide polarity reader=favorable also=-
+- [ ] 705 So. 2d 1126 -  [11874376] - decide polarity reader=favorable also=-
+- [ ] 230 Cal. Rptr. 3d 827 -  [12514375] - decide polarity reader=favorable also=fuzzy_quote
+- [ ] 243 Cal. Rptr. 3d 322 -  [12515276] - decide polarity reader=favorable also=householder_nights
+
+## B. Householder letting by the night (24)
+
+- [ ] 1 Ohio St. 15 -  [501893] - decide who_was_letting reader=householder also=polarity_mixed
+- [ ] 5 Ohio 324 -  [579788] - decide who_was_letting reader=householder also=-
+- [ ] 302 A.D.2d 831 -  [729404] - decide who_was_letting reader=householder also=-
+- [ ] 146 Misc. 218 -  [827528] - decide who_was_letting reader=householder also=-
+- [ ] 63 Ohio St. 183 -  [950650] - decide who_was_letting reader=householder also=-
+- [ ] 300 A.D.2d 62 -  [957413] - decide who_was_letting reader=householder also=-
+- [ ] 389 Pa. 510 -  [1274020] - decide who_was_letting reader=householder also=gate_erased
+- [ ] 20 N.J. 17 -  [1346285] - decide who_was_letting reader=householder also=polarity_mixed,gate_erased
+- [ ] 58 Ohio App. 51 -  [1355612] - decide who_was_letting reader=householder also=gate_erased
+- [ ] 25 Ohio Law Abs. 695 -  [1682163] - decide who_was_letting reader=householder also=-
+- [ ] 50 La. Ann. 549 -  [2571073] - decide who_was_letting reader=householder also=polarity_mixed
+- [ ] 21 Mass. L. Rptr. 453 -  [3534328] - decide who_was_letting reader=householder also=polarity_mixed
+- [ ] 44 Misc. 3d 351 -  [4109630] - decide who_was_letting reader=householder also=polarity_mixed
+- [ ] 231 Cal. App. 3d 1289 -  [4390123] - decide who_was_letting reader=householder also=-
+- [ ] 58 Tex. Crim. 176 -  [4581973] - decide who_was_letting reader=householder also=polarity_mixed
+- [ ] 11 Misc. 3d 40 -  [5809526] - decide who_was_letting reader=householder also=-
+- [ ] 243 Cal. App. 4th Supp. 13 -  [6054269] - decide who_was_letting reader=householder also=-
+- [ ] 542 So. 2d 17 -  [7543522] - decide who_was_letting reader=householder also=-
+- [ ] 187 S.W. 341 -  [8246395] - decide who_was_letting reader=householder also=fuzzy_quote
+- [ ] 206 S.W. 521 -  [8272468] - decide who_was_letting reader=householder also=gate_erased
+- [ ] 165 S.W. 596 -  [8277410] - decide who_was_letting reader=householder also=-
+- [ ] 26 So. 2d 498 -  [10059112] - decide who_was_letting reader=householder also=-
+- [ ] 56 Misc. 3d 227 -  [12297918] - decide who_was_letting reader=householder also=gate_erased
+- [ ] 230 Cal. Rptr. 3d 901 -  [12514384] - decide who_was_letting reader=householder also=-
