@@ -9,6 +9,8 @@ from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
+from corpus_engine.domain import load_domain
+from corpus_engine.reader.codebook import load_codebook
 from corpus_engine.reader.model import (Plan, ReadingOutcome, RecordResult, Response,
                                         StopReason, Unit, UnitResult)
 
@@ -821,3 +823,213 @@ def test_the_manifest_records_why_each_eliminated_candidate_went_out(tmp_path, m
     assert m["selection"]["winner"] == "google/gemini-3.7-flash"
     # recomputed every run, never merged per candidate: a stale reason must not survive
     assert "eliminated_by_candidate" not in mr.MERGE_BY_CANDIDATE
+
+
+# --- final review: the fixes C1, I1, I2, I3, I5 and M3 --------------------------------
+
+
+def _tiny_v2_kit(tmp_path):
+    """A one-case, one-batch kit in the shape `load_kit` reads, so a cache-key derivation can
+    be exercised against the real codebook and the real prompt renderer without touching the
+    6 MB kit the measurement was bought over."""
+    raw = "The defendant let the premises to travellers for short periods. " * 8
+    kit = {"reference": [{"case_id": 1, "source": "human", "relevant": True,
+                          "polarity": "favorable", "who_was_letting": "householder"}],
+           "batches": [{"batch_id": "kit-tiny-001", "era_partition": "e", "jurisdiction": "j",
+                        "cases": [{"case_id": 1, "signals": []}]}],
+           "texts": {"1": {"cite": "1 Rep 1", "name": "Rex v. Tiny", "court": "KB",
+                           "jurisdiction": "j", "year": 1900, "raw_text": raw,
+                           "norm_text": raw, "page_map": [[0, 1]]}}}
+    p = tmp_path / "kit-tiny.json"
+    p.write_text(json.dumps(kit), encoding="utf-8")
+    return mr.load_kit(p)
+
+
+def _cached_response(cache, key, *, model, provider, cost, case_ids=(1,)):
+    """A response file in the shape the cache writes, for a key the test chose."""
+    recs = [{"case_id": c, "relevant": True, "polarity": "favorable", "who_was_letting":
+             "householder", "characterization": "license", "holding_summary": None,
+             "quotes": [{"text": "let the premises to travellers", "supports": "polarity"}],
+             "worker": "reader", "batch_id": "kit-tiny-001"} for c in case_ids]
+    (cache.dir / f"{key}.json").write_text(json.dumps(
+        {"text": json.dumps({"records": recs}), "input_tokens": 10, "output_tokens": 5,
+         "cost_usd": cost, "provider_reported": {"model": model, "provider": provider},
+         "finish_reason": "stop", "tool_version": None, "raw": {}}), encoding="utf-8")
+
+
+def test_annotating_a_v2_manifest_uses_the_key_the_run_used_not_the_v1_one(tmp_path):
+    """C1. `--annotate-only` addressed the cache with `ResponseCache.key_v1` while
+    `--measurement-dir` defaulted to measurement-v2, so the command three documents offered
+    as the safe offline one found 0 of v2's keys and overwrote the recorded map with empty
+    objects. The composition is now read off the manifest, and for a v2 manifest it is the
+    widened key - including the openai-strict schema dialect an openai-family pin was
+    actually sent, which is why gpt's unit map came back empty even in the paid run (I2)."""
+    from corpus_engine.reader.cache import ResponseCache
+    from corpus_engine.reader.driver import plan_batch_extraction, schema_for
+    from corpus_engine.reader.model import Budget
+    from corpus_engine.reader.render import render_unit
+    from corpus_engine.reader.schema import record_schema, schema_sha
+
+    dom = load_domain()
+    cb = load_codebook(dom, "mapper-v3")
+    reference, batches, source = _tiny_v2_kit(tmp_path)
+    cache = mr.ResponseCache(tmp_path / "cache")
+    families = dom.reader.families
+    schema = record_schema(cb)
+
+    gpt = mr.pin_from_label("openai/gpt-5.6-terra@-:-", families)
+    glm = mr.pin_from_label("z-ai/glm-5.3@AkashML:fp8", families)
+    unit = plan_batch_extraction(batches, cb.id, gpt, Budget(), worker="reader").units[0]
+    prompt = render_unit(cb, unit, source.fetch(unit.case_ids), "reader")
+
+    # the key the RUN computed for an openai-family pin: the strict dialect, max_tokens and
+    # effort all hashed in
+    strict = schema_sha(schema_for(schema, cb, gpt, families))
+    assert strict != schema_sha(schema)                      # the two dialects differ, as v2 records
+    gpt_key = ResponseCache.key(cb.sha, gpt, unit, prompt, schema_sha=strict,
+                                max_tokens=64000, effort="low")
+    glm_key = ResponseCache.key(cb.sha, glm, unit, prompt, schema_sha=schema_sha(schema),
+                                max_tokens=64000, effort="low")
+    _cached_response(cache, gpt_key, model="openai/gpt-5.6-terra", provider="OpenAI", cost=0.5)
+    _cached_response(cache, glm_key, model="z-ai/glm-5.3", provider="AkashML", cost=0.25)
+    # what the frozen v1 composition would have addressed: a key that is not on disk at all,
+    # which is exactly why the old annotator recorded `units: {}` and said nothing
+    assert not (cache.dir / f"{ResponseCache.key_v1(cb.sha, gpt, unit, prompt)}.json").exists()
+
+    # I1: a purchase of the SAME model id under another provider, bought by some OTHER
+    # measurement (its key is not derivable from this manifest's codebook, kit and key
+    # composition). Its money must not appear in this manifest's superseded figures.
+    _cached_response(cache, "0" * 64, model="z-ai/glm-5.3", provider="Reka", cost=9.99)
+
+    prior = {"schema_sha": schema_sha(schema), "max_tokens": 64000,
+             "effort_by_candidate": {"openai/gpt-5.6-terra": "low", "z-ai/glm-5.3": "low"},
+             "read_timeout_by_candidate": {"openai/gpt-5.6-terra": 1500, "z-ai/glm-5.3": 1500},
+             "pins": {"openai/gpt-5.6-terra": "openai/gpt-5.6-terra@-:-",
+                      "z-ai/glm-5.3": "z-ai/glm-5.3@AkashML:fp8"},
+             "scores": {"openai/gpt-5.6-terra": {"accepted": 1}, "z-ai/glm-5.3": {"accepted": 1}},
+             "spend_by_candidate": {"openai/gpt-5.6-terra": 0.5, "z-ai/glm-5.3": 0.25},
+             "total_task_spend_usd": 0.75}
+    assert mr.cache_key_version(prior) == "v2"
+    assert mr.cache_key_version({"pins": {}}) == "v1"        # measurement-v1 carries no schema_sha
+
+    path = tmp_path / "manifest.json"
+    assert mr.annotate(prior, path, cb, batches, source, dom, cache,
+                       stability_sample="data/reader/kit-v1/sample-50.json") == 0
+    m = json.loads(path.read_text(encoding="utf-8"))
+
+    assert m["cache_key_version"] == "v2"
+    assert m["cache_keys"]["openai/gpt-5.6-terra"]["units"] == {"kit-tiny-001": gpt_key}
+    assert m["cache_keys"]["z-ai/glm-5.3"]["units"] == {"kit-tiny-001": glm_key}
+    # the control that the whole annotation exists to be: what the run scored, re-derived
+    assert m["accepted_by_candidate"]["openai/gpt-5.6-terra"]["matches_the_run"] is True
+    assert m["accepted_by_candidate"]["z-ai/glm-5.3"]["matches_the_run"] is True
+    # I1: the other measurement's $9.99 is not imported, and no superseded entry invents itself
+    assert m["discarded_spend_by_candidate"] == {}
+    assert m["superseded_cache_keys"] == {}
+    assert m["spend_attribution"]["superseded_purchases_usd"] == 0
+    # scoped coverage: this measurement's own two files, not the three in the shared directory
+    assert m["cache_key_coverage"] == {"keys_recorded": 2, "superseded_keys_recorded": 0,
+                                       "cache_files": 2, "unaccounted": 0}
+    # a measured setting is never overwritten by an offline re-derivation, and v1's
+    # provenance constants are not stamped onto a later measurement
+    assert m["read_timeout_by_candidate"] == {"openai/gpt-5.6-terra": 1500, "z-ai/glm-5.3": 1500}
+    assert "approved_ceiling_usd" not in m and "discarded_attempts_usd" not in m
+    assert "LIMITATION" not in m["note"] and "cache_key_version v2" in m["note"]
+
+
+def test_keys_for_hashes_the_dialect_each_family_was_actually_sent(tmp_path):
+    """I2. The cache key hashes the schema that went out, and `driver.schema_for` sends the
+    openai-strict dialect to an openai-family pin. `keys_for` hashed the plan's schema for
+    every pin, so it looked for a key that was never written and recorded nothing - the
+    manifest's `cache_keys[\"openai/gpt-5.6-terra\"].units` was `{}` for a candidate that had
+    run all 23 units."""
+    from corpus_engine.reader.cache import ResponseCache
+    from corpus_engine.reader.driver import plan_batch_extraction, schema_for
+    from corpus_engine.reader.model import Budget
+    from corpus_engine.reader.render import render_unit
+    from corpus_engine.reader.schema import record_schema, schema_sha
+
+    dom = load_domain()
+    cb = load_codebook(dom, "mapper-v3")
+    reference, batches, source = _tiny_v2_kit(tmp_path)
+    cache = mr.ResponseCache(tmp_path / "cache")
+    families = dom.reader.families
+    schema = record_schema(cb)
+    gpt = mr.pin_from_label("openai/gpt-5.6-terra@-:-", families)
+    units = plan_batch_extraction(batches, cb.id, gpt, Budget(), worker="reader").units
+    prompt = render_unit(cb, units[0], source.fetch(units[0].case_ids), "reader")
+
+    strict_key = ResponseCache.key(cb.sha, gpt, units[0], prompt,
+                                   schema_sha=schema_sha(schema_for(schema, cb, gpt, families)),
+                                   max_tokens=mr.Request.max_tokens, effort="low")
+    default_key = ResponseCache.key(cb.sha, gpt, units[0], prompt, schema_sha=schema_sha(schema),
+                                    max_tokens=mr.Request.max_tokens, effort="low")
+    assert strict_key != default_key
+    _cached_response(cache, strict_key, model="openai/gpt-5.6-terra", provider="OpenAI", cost=0.1)
+
+    assert mr.keys_for(units, cb, gpt, source, cache, schema, families) == {"kit-tiny-001": strict_key}
+    # and a family that is not openai still gets the plan's own dialect
+    gem = mr.pin_from_label("google/gemini-3.7-flash@-:-", families)
+    gem_prompt = render_unit(cb, units[0], source.fetch(units[0].case_ids), "reader")
+    gem_key = ResponseCache.key(cb.sha, gem, units[0], prompt, schema_sha=schema_sha(schema),
+                                max_tokens=mr.Request.max_tokens, effort="low")
+    _cached_response(cache, gem_key, model="google/gemini-3.7-flash", provider="Google", cost=0.1)
+    assert gem_prompt == prompt
+    assert mr.keys_for(units, cb, gem, source, cache, schema, families) == {"kit-tiny-001": gem_key}
+
+
+def test_a_paid_run_refuses_a_measurement_dir_it_was_not_pointed_at(monkeypatch):
+    """I3. `resolve_prior_spend` reads prior spend out of the manifest in the directory the
+    run writes, and only that one, so a paid run pointed at a second directory is granted the
+    whole --max-usd ceiling a second time. The slice spends against exactly one directory."""
+    monkeypatch.setattr(mr, "load_domain", _raise("main got past the directory guard"))
+    with pytest.raises(SystemExit) as exc:
+        mr.main(["--measurement-dir", "data/reader/measurement-v3"])
+    assert "granted the whole --max-usd ceiling a second time" in str(exc.value)
+    # an operator who says the word out loud gets through the guard, and so does the offline
+    # annotation - both reach load_domain, which this test has booby-trapped
+    for extra in (["--allow-measurement-dir"], ["--annotate-only"]):
+        with pytest.raises(RuntimeError, match="past the directory guard"):
+            mr.main(["--measurement-dir", "data/reader/measurement-v3"] + extra)
+    assert mr.DEFAULT_MEASUREMENT_DIR == "data/reader/measurement-v2"
+
+
+def test_merging_a_manifest_keeps_the_subscription_units_an_earlier_process_used():
+    """I5. `subscription_budget` is a whole-manifest field, so the 2026-09-05 merge pass -
+    which made no subscription call, every unit having replayed from cache - wrote its zero
+    over the field run's count. The manifest said 0 units used against a report that said 45."""
+    prior = {"subscription_budget": {"max_units": 137, "units_used": 45, "units_planned": {}}}
+    fresh = {"subscription_budget": {"max_units": 137, "units_used": 0, "units_planned": {}}}
+    assert mr.merge_manifest(prior, fresh)["subscription_budget"]["units_used"] == 45
+    # a process that really did make more calls owns the higher figure
+    assert mr.merge_manifest(prior, {"subscription_budget": {"units_used": 60}}
+                             )["subscription_budget"]["units_used"] == 60
+    # and a manifest with no subscription block at all is left alone
+    assert "subscription_budget" not in mr.merge_manifest({"pins": {}}, {"pins": {}})
+
+
+def test_a_dry_run_records_its_spend_even_when_the_payload_assembly_raises(tmp_path, monkeypatch):
+    """M3. `keys_for` and the payload assembly run after a paid candidate and outside the
+    per-candidate try, so a raise there lost the dry run's spend record - the exact N1 failure
+    `dry_run`'s docstring says it fixed. `main` writes from a finally; now so does this."""
+    cand = {"model_id": "g/one", "family": "google"}
+    real_dry_run = mr.dry_run
+    manifest_path = _main_env(tmp_path, monkeypatch, [cand])
+    monkeypatch.setattr(mr, "dry_run", real_dry_run)
+    monkeypatch.setattr(mr, "provider_for",
+                        lambda c, p: (SimpleNamespace(name="openrouter"),
+                                      mr.ModelPin(c["model_id"], c["family"]), "fake"))
+    monkeypatch.setattr(mr, "run_candidate", lambda *a, **k: _outcome_scored(0.6, cost=0.6))
+    monkeypatch.setattr(mr, "keys_for", _raise("cache-key derivation blew up"))
+    _openrouter_env(monkeypatch, [100.0, 99.4])
+
+    with pytest.raises(RuntimeError):
+        mr.main(["--dry-run", "g/one"])
+    m = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert m["spend_by_candidate"] == {"g/one": 0.6} and m["total_task_spend_usd"] == 0.6
+
+
+def _raise(msg):
+    def f(*a, **k):
+        raise RuntimeError(msg)
+    return f

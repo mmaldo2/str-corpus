@@ -29,7 +29,8 @@ from corpus_engine.domain import load_domain                                    
 from corpus_engine.ranker.labels import sha256_file                                         # noqa: E402
 from corpus_engine.reader.cache import ResponseCache                                        # noqa: E402
 from corpus_engine.reader.codebook import load_codebook, stability_path                     # noqa: E402
-from corpus_engine.reader.driver import RESUME_TOOL, Reader, plan_batch_extraction          # noqa: E402
+from corpus_engine.reader.driver import (RESUME_TOOL, Reader, plan_batch_extraction,        # noqa: E402
+                                          schema_for)
 from corpus_engine.reader.gate import gate_unit                                             # noqa: E402
 from corpus_engine.reader.measure import (excluded_fields, load_kit, score_candidate,       # noqa: E402
                                           select_reader, stability as stability_decided,
@@ -80,6 +81,10 @@ SUBSCRIPTION_MAX_WALL_SECONDS = 6 * 3600
 SUBSCRIPTION_UNIT_MARGIN = 10
 DRY_RUN_MAX_USD = 2.0
 OUT_DIR = "measurement-v2"
+# The ONE manifest directory this slice spends against. The OpenRouter ceiling is enforced per
+# directory (`resolve_prior_spend` reads the manifest in the directory the run writes), so a
+# paid run that names another one is refused unless --allow-measurement-dir says so (I3).
+DEFAULT_MEASUREMENT_DIR = f"data/reader/{OUT_DIR}"
 # v1 provenance, read only by --annotate-only over data/reader/measurement-v1.
 APPROVED_CEILING = 50.0
 DISCARDED_ATTEMPTS = 2.85
@@ -278,20 +283,22 @@ def run_candidate(pin: ModelPin, provider, budget: Budget, kit_batches, source, 
     return out
 
 
-def keys_for(units, cb, pin: ModelPin, source, cache: ResponseCache, schema) -> dict:
+def keys_for(units, cb, pin: ModelPin, source, cache: ResponseCache, schema, families,
+             *, max_tokens: int = Request.max_tokens, effort: str | None = None) -> dict:
     """The v2 cache key for each unit and for the split halves it falls back to. Only keys
-    present in the cache are recorded, so the map is evidence rather than prediction."""
-    found = {}
-    for unit in units:
-        for u in (unit, *split_unit(unit)):
-            if not u.case_ids:
-                continue
-            prompt = render_unit(cb, u, source.fetch(u.case_ids), "reader")
-            k = ResponseCache.key(cb.sha, pin, u, prompt, schema_sha=schema_sha(schema),
-                                  max_tokens=Request.max_tokens, effort=effort_of(pin))
-            if (cache.dir / f"{k}.json").exists():
-                found[u.id] = k
-    return found
+    present in the cache are recorded, so the map is evidence rather than prediction.
+
+    `schema` is the PLAN's schema; which dialect this pin's request actually carried is
+    decided here by `driver.schema_for`, exactly as the driver decides it, because the key
+    hashes what was sent. Hashing the plan schema for every pin is what left
+    `openai/gpt-5.6-terra` with an empty unit map in measurement v2 - the default-dialect key
+    is simply not in the cache, `keys_for` records only keys it finds, and the hole was
+    therefore silent (final-review I2). `max_tokens` and `effort` are parameters rather than
+    module constants so an offline re-derivation can pass the values the RUN recorded instead
+    of today's."""
+    keyer = v2_keyer(cb, families, schema, max_tokens=max_tokens,
+                     efforts={} if effort is None else {pin.model_id: effort})
+    return keys_in_cache(units, cb, pin, source, cache, keyer)
 
 
 def reconcile(prov, before: float, ceiling: float, budget: dict, log) -> float | None:
@@ -414,39 +421,102 @@ def sample_batches(batches, ids: set, tag: str):
     return out
 
 
-def keys_for_v1(units, cb, pin: ModelPin, source, cache: ResponseCache) -> dict:
-    """The Stage 3A cache key the driver used to compute for each unit, and for the split
-    halves a unit falls back to when its response will not parse. Only keys actually present
-    in the cache are recorded, so the map is evidence rather than prediction.
+def keys_in_cache(units, cb, pin: ModelPin, source, cache: ResponseCache, keyer) -> dict:
+    """The cache key of each unit, and of the split halves a unit falls back to when its
+    response will not parse, for every key `keyer` computes that is actually on disk. Only
+    keys present in the cache are recorded, so the map is evidence rather than prediction.
 
-    Addresses the purchased measurement-v1 cache with `ResponseCache.key_v1`; the live v2
-    read uses the widened key and `keys_for`."""
+    `keyer` decides which composition addresses this measurement's purchases - `v1_keyer`
+    for the frozen Stage 3A cache, `v2_keyer` for anything bought under the widened key."""
     found = {}
     for unit in units:
         for u in (unit, *split_unit(unit)):
+            if not u.case_ids:
+                continue
             prompt = render_unit(cb, u, source.fetch(u.case_ids), "reader")
-            k = ResponseCache.key_v1(cb.sha, pin, u, prompt)
+            k = keyer(pin, u, prompt)
             if (cache.dir / f"{k}.json").exists():
                 found[u.id] = k
     return found
 
 
-def records_from_cache(cb, pin: ModelPin, units, source, cache: ResponseCache, judged) -> list[dict]:
+def v1_keyer(cb):
+    """Addresses the purchased measurement-v1 cache: `ResponseCache.key_v1`, the frozen
+    Stage 3A composition, which hashes neither the schema nor max_tokens nor effort."""
+    def keyer(pin: ModelPin, unit, prompt: str) -> str:
+        return ResponseCache.key_v1(cb.sha, pin, unit, prompt)
+    return keyer
+
+
+def v2_keyer(cb, families, schema, *, max_tokens: int = Request.max_tokens, efforts=None):
+    """Addresses a cache bought under the widened key: `ResponseCache.key`, hashing the
+    schema ACTUALLY SENT for this pin's family (`driver.schema_for`, so an openai-family pin
+    is addressed under the strict dialect), max_tokens, and effort.
+
+    `max_tokens` and `efforts` are passed in rather than read from this module's constants so
+    an offline re-derivation addresses the cache with the values the RUN recorded, not with
+    today's - a later slice that raises either would otherwise silently stop finding the keys
+    behind a finished measurement. `efforts` maps model id to the recorded effort; a pin not
+    named there falls back to what the pin itself carries."""
+    efforts = dict(efforts or {})
+    shas: dict[str, str] = {}
+
+    def keyer(pin: ModelPin, unit, prompt: str) -> str:
+        if pin.label not in shas:
+            shas[pin.label] = schema_sha(schema_for(schema, cb, pin, families))
+        return ResponseCache.key(cb.sha, pin, unit, prompt, schema_sha=shas[pin.label],
+                                 max_tokens=int(max_tokens),
+                                 effort=efforts.get(pin.model_id, effort_of(pin)))
+    return keyer
+
+
+def cache_key_version(prior: dict) -> str:
+    """Which key composition addresses THIS manifest's purchases - the single question C1
+    turned on. `--annotate-only` used `key_v1` unconditionally while `--measurement-dir`
+    defaulted to measurement-v2, so the documented "safe, offline" command found 0 of v2's 94
+    keys and overwrote the recorded map with empty objects.
+
+    `cache_key_version` is recorded by every manifest written from now on. Manifests written
+    before it existed are told apart by `schema_sha`, which v2's `assemble` writes and v1's
+    never did: measurement-v1 is the only manifest without one, and it is frozen, so the
+    marker is deliberately NOT backfilled into it - writing one would change the frozen
+    file the whole v1 record is checked against."""
+    recorded = prior.get("cache_key_version")
+    if recorded in ("v1", "v2"):
+        return str(recorded)
+    return "v2" if prior.get("schema_sha") else "v1"
+
+
+def keyer_for_manifest(prior: dict, cb, families, schema) -> tuple:
+    """(version, keyer) for the manifest being annotated."""
+    version = cache_key_version(prior)
+    if version == "v1":
+        return version, v1_keyer(cb)
+    return version, v2_keyer(cb, families, schema,
+                             max_tokens=int(prior.get("max_tokens") or Request.max_tokens),
+                             efforts=prior.get("effort_by_candidate") or {})
+
+
+def records_from_cache(cb, pin: ModelPin, units, source, cache: ResponseCache, judged,
+                       keyer=None) -> list[dict]:
     """One candidate's gated records, re-derived from its own cached responses. Offline:
     reads the response cache and the frozen kit, issues no request, spends nothing. Mirrors
     the driver exactly - parse, split-half fallback on a parse failure, then the quote gate.
 
-    The measurement-v1 cache is addressed with `ResponseCache.key_v1`: slice 1 widened the
-    live key with the schema, max_tokens and effort, and those responses were bought under
-    the old composition.
+    `keyer` says which cache composition answers for this candidate, and defaults to the v1
+    one because the only caller that omits it (tools/consensus_reference.py) reads
+    measurement-v1 and refuses to run if the codebook has moved off the sha v1 was bought
+    under. `annotate` passes the keyer its manifest calls for.
 
     Kept separate from `accepted_from_cache` because two callers want the same derivation
     for different reasons - the manifest annotation counts these records, and the
-    who-was-letting consensus (tools/consensus_reference.py) reads their field values. One
-    derivation means the two can never disagree about what a candidate said."""
+    who-was-letting consensus reads their field values. One derivation means the two can
+    never disagree about what a candidate said."""
+    key = v1_keyer(cb) if keyer is None else keyer
+
     def cached(u):
         texts = source.fetch(u.case_ids)
-        p = cache.dir / f"{ResponseCache.key_v1(cb.sha, pin, u, render_unit(cb, u, texts, 'reader'))}.json"
+        p = cache.dir / f"{key(pin, u, render_unit(cb, u, texts, 'reader'))}.json"
         return texts, (json.loads(p.read_text(encoding="utf-8"))["text"] if p.exists() else None)
 
     records = []
@@ -472,7 +542,8 @@ def records_from_cache(cb, pin: ModelPin, units, source, cache: ResponseCache, j
     return records
 
 
-def accepted_from_cache(cb, pin: ModelPin, units, source, cache: ResponseCache, judged) -> dict:
+def accepted_from_cache(cb, pin: ModelPin, units, source, cache: ResponseCache, judged,
+                        keyer=None) -> dict:
     """Re-derive one candidate's accepted counts from its own cached responses, over exactly
     the records `records_from_cache` yields.
 
@@ -483,7 +554,7 @@ def accepted_from_cache(cb, pin: ModelPin, units, source, cache: ResponseCache, 
     is why cost per accepted record is a lower bound on the cost of a fully judged record
     (I7). Recomputing `accepted` as well is the control: it has to reproduce what the paid
     run scored, and the annotation records whether it did."""
-    live = [r for r in records_from_cache(cb, pin, units, source, cache, judged)
+    live = [r for r in records_from_cache(cb, pin, units, source, cache, judged, keyer)
             if r.get("extraction_status") != "missing"]
     return {"accepted": sum(1 for r in live if r.get("extraction_status") in ("ok", "partial")
                             and r.get("relevant") is not None),
@@ -491,27 +562,51 @@ def accepted_from_cache(cb, pin: ModelPin, units, source, cache: ResponseCache, 
                                  and r.get("relevant") is not None)}
 
 
+# The closing sentence of the manifest `note`, per key composition. v1's is the frozen text
+# already on disk and describes v1's real limitation; it must not be told about v2's key.
+V1_NOTE_LIMITATION = (
+    "LIMITATION: the cache "
+    "key hashes only the pin label, so it distinguishes neither reasoning effort nor "
+    "max_tokens, and two runs differing only in those would collide. The key was left "
+    "alone deliberately - changing it would orphan the whole purchased cache - and "
+    "fixing it belongs to Stage 3B.")
+V2_NOTE_KEY = (
+    "The key is the WIDENED one (cache_key_version v2): sha256 over the same parts plus the "
+    "sha of the schema actually sent for that pin's family - the openai-strict dialect for an "
+    "openai-family pin - plus max_tokens and reasoning effort, both read back from this "
+    "manifest rather than from the tool's current constants.")
+
+
 def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: ResponseCache,
              stability_sample: str = "") -> int:
-    """Recompute the measurement-v1 manifest's derived records offline. Issues no request of
-    any kind: everything comes from the existing manifest, the frozen kit and the response
-    cache, so it can be re-run at any time for nothing.
+    """Recompute a measurement manifest's derived records offline. Issues no request of any
+    kind: everything comes from the existing manifest, the frozen kit and the response cache,
+    so it can be re-run at any time for nothing.
 
-    Frozen against measurement-v1: it addresses the purchased v1 cache with `key_v1` and
-    rebuilds v1's pins. domain.yaml has since moved on to mapper-v3 and kit v2, so the v1
-    inputs are named explicitly:
+    Which cache composition it addresses is READ OFF THE MANIFEST (`cache_key_version`) and
+    never assumed: measurement-v1 was bought under the Stage 3A key, measurement-v2 and
+    everything after it under the widened one. Annotating v1 also means naming v1's own
+    codebook, kit and sample, because domain.yaml has moved on to mapper-v3 and kit v2:
 
-        --annotate-only --measurement-dir data/reader/measurement-v1         --codebook mapper-v2 --kit-path data/reader/kit-v1/kit.json         --stability-sample data/reader/kit-v1/sample-50.json
-    """
+        --annotate-only --measurement-dir data/reader/measurement-v1
+        --codebook mapper-v2 --kit-path data/reader/kit-v1/kit.json
+        --stability-sample data/reader/kit-v1/sample-50.json
+
+    Two things are written only for a v1 manifest. `read_timeout_by_candidate` is attributed
+    there from cache-file mtimes because v1 straddles the commit that raised the read ceiling
+    and recorded no per-candidate value; a v2 manifest records the real setting per candidate
+    at run time, and guessing over it from mtimes would replace a measured number with an
+    inferred one. `approved_ceiling_usd` / `discarded_attempts_usd` are v1 provenance
+    constants and mean nothing for a later measurement."""
     if not prior.get("pins"):
         sys.exit("no manifest with pins to annotate")
     m = dict(prior)
     families = dom.reader.families
-    by_model = {}
-    for f in cache.dir.glob("*.json"):
-        d = json.loads(f.read_text(encoding="utf-8"))
-        pr = d.get("provider_reported") or {}
-        by_model.setdefault(pr.get("model"), []).append((d, pr.get("provider")))
+    schema = record_schema(cb)
+    version, keyer = keyer_for_manifest(prior, cb, families, schema)
+    print(f"manifest cache_key_version={version}; keys derived with "
+          f"ResponseCache.{'key_v1' if version == 'v1' else 'key'} over codebook {cb.id} "
+          f"{cb.sha[:12]}", flush=True)
 
     cache_keys, timeouts = {}, {}
     sample = stability_sample or dom.reader.stability_sample
@@ -528,8 +623,11 @@ def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: Res
     for name, label, bs in jobs:
         pin = pin_from_label(label, families)
         units = plan_batch_extraction(bs, cb.id, pin, Budget(), worker="reader").units
-        found = keys_for_v1(units, cb, pin, source, cache)
+        found = keys_in_cache(units, cb, pin, source, cache, keyer)
         cache_keys[name] = {"pin": label, "units": found}
+        if version != "v1":
+            print(f"{name:<36} {len(found):>3} keys", flush=True)
+            continue
         mtimes = [(cache.dir / f"{k}.json").stat().st_mtime for k in found.values()]
         old = sum(1 for t in mtimes if t < TIMEOUT_CHANGE_EPOCH)
         new = len(mtimes) - old
@@ -544,7 +642,7 @@ def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: Res
     for mid, label in sorted(m["pins"].items()):
         pin = pin_from_label(label, families)
         units = plan_batch_extraction(batches, cb.id, pin, Budget(), worker="reader").units
-        counts = accepted_from_cache(cb, pin, units, source, cache, cb.judged_fields)
+        counts = accepted_from_cache(cb, pin, units, source, cache, cb.judged_fields, keyer)
         counts["accepted_recorded_by_the_run"] = ((m.get("scores") or {}).get(mid) or {}).get("accepted")
         counts["matches_the_run"] = counts["accepted_recorded_by_the_run"] == counts["accepted"]
         accepted[mid] = counts
@@ -555,23 +653,35 @@ def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: Res
     # Money spent on responses no score rests on: an open-weight candidate whose pin
     # resolved to a different provider on a later run re-bought its whole kit, and the
     # superseded purchase is charged to the measurement but attributed to no candidate.
+    #
+    # I1: scoped to THIS measurement's own purchases. The provider scan below reads the whole
+    # shared cache, which holds every measurement's responses side by side, so a provider
+    # counts as a superseded purchase of this one only if the alternate pin's keys - this
+    # manifest's codebook, kit and key composition - are actually on disk, and only the cost
+    # of THOSE files is summed. Totalling every file the shared cache holds for the model id
+    # instead imported a measurement-v2 charge ($1.588175 of z-ai/glm-5.3@AkashML) into the
+    # frozen v1 record and moved its superseded total from $1.51 to $3.10.
+    by_model: dict[str, set] = {}
+    for f in cache.dir.glob("*.json"):
+        pr = json.loads(f.read_text(encoding="utf-8")).get("provider_reported") or {}
+        if pr.get("model") and pr.get("provider"):
+            by_model.setdefault(pr["model"], set()).add(pr["provider"])
+
     discarded, superseded_keys = {}, {}
     for mid, label in sorted(m["pins"].items()):
         scored = pin_from_label(label, families)
         if not scored.provider_name:
             continue
-        others = {prov for d, prov in by_model.get(mid, []) if prov and prov != scored.provider_name}
-        for prov in sorted(others):
-            for d, p2 in by_model.get(mid, []):
-                if p2 == prov:
-                    k = f"{mid}@{prov}"
-                    discarded[k] = round(discarded.get(k, 0.0) + (d.get("cost_usd") or 0.0), 6)
-            # the superseded run's responses are still in the cache; key them too, so the
-            # money recorded as discarded is tied to the same evidence as the money kept
+        for prov in sorted(p for p in by_model.get(mid, set()) if p != scored.provider_name):
             alt = ModelPin(mid, scored.family, prov, scored.precision, {"reasoning": REASONING})
             units = plan_batch_extraction(batches, cb.id, alt, Budget(), worker="reader").units
-            superseded_keys[f"{mid}@{prov}"] = {"pin": alt.label,
-                                                "units": keys_for_v1(units, cb, alt, source, cache)}
+            found = keys_in_cache(units, cb, alt, source, cache, keyer)
+            if not found:
+                continue          # this provider's responses belong to some other measurement
+            k = f"{mid}@{prov}"
+            superseded_keys[k] = {"pin": alt.label, "units": found}
+            discarded[k] = round(sum((json.loads((cache.dir / f"{key}.json").read_text(encoding="utf-8"))
+                                      .get("cost_usd") or 0.0) for key in found.values()), 6)
 
     attributed = sum((m.get("spend_by_candidate") or {}).values())
     charged_total = m.get("total_task_spend_usd")           # not `charged`: that is a module function (m1)
@@ -579,14 +689,23 @@ def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: Res
     m["superseded_cache_keys"] = superseded_keys
     kept = sum(len(v["units"]) for v in cache_keys.values())
     sup = sum(len(v["units"]) for v in superseded_keys.values())
+    # Scoped to this measurement, like everything else here: `cache_files` counts the DISTINCT
+    # response files this manifest accounts for, not every file in the shared cache directory,
+    # which holds v1's and v2's purchases together and would make the number mean nothing.
+    # `unaccounted` stays the consistency check it was - it goes negative if one key were
+    # recorded twice, as both kept and superseded.
+    distinct = len({k for v in cache_keys.values() for k in v["units"].values()}
+                   | {k for v in superseded_keys.values() for k in v["units"].values()})
     m["cache_key_coverage"] = {"keys_recorded": kept, "superseded_keys_recorded": sup,
-                               "cache_files": len(list(cache.dir.glob("*.json"))),
-                               "unaccounted": len(list(cache.dir.glob("*.json"))) - kept - sup}
-    m["read_timeout_by_candidate"] = timeouts
-    m.pop("read_timeout_seconds", None)
+                               "cache_files": distinct, "unaccounted": distinct - kept - sup}
+    if version == "v1":
+        m["read_timeout_by_candidate"] = timeouts
+        m.pop("read_timeout_seconds", None)
+        m["approved_ceiling_usd"] = APPROVED_CEILING
+        m["discarded_attempts_usd"] = DISCARDED_ATTEMPTS
+    else:
+        m["cache_key_version"] = version
     m["discarded_spend_by_candidate"] = discarded
-    m["approved_ceiling_usd"] = APPROVED_CEILING
-    m["discarded_attempts_usd"] = DISCARDED_ATTEMPTS
     m["spend_attribution"] = {"attributed_to_candidates_usd": round(attributed, 4),
                               "charged_usd": charged_total,
                               "unattributed_usd": round((charged_total or 0.0) - attributed, 4),
@@ -597,20 +716,18 @@ def annotate(prior: dict, prior_path: Path, cb, batches, source, dom, cache: Res
         "driver computes as sha256(codebook_sha|pin.label|unit id|sorted case ids|rendered "
         "prompt); only keys present in data/reader/cache are recorded, and the split halves "
         "a unit falls back to on a parse failure appear as <unit>-a / <unit>-b. "
-        "read_timeout_by_candidate is attributed from each candidate's own cache-file mtimes "
-        "against the commit time of " + TIMEOUT_CHANGE_COMMIT + ", which raised the read "
-        "ceiling from " + str(TIMEOUT_BEFORE_CHANGE) + "s to " + str(READ_TIMEOUT) + "s; a "
-        "candidate with units on both sides is recorded as \"mixed\". "
+        + ("read_timeout_by_candidate is attributed from each candidate's own cache-file mtimes "
+           "against the commit time of " + TIMEOUT_CHANGE_COMMIT + ", which raised the read "
+           "ceiling from " + str(TIMEOUT_BEFORE_CHANGE) + "s to " + str(READ_TIMEOUT) + "s; a "
+           "candidate with units on both sides is recorded as \"mixed\". "
+           if version == "v1" else "") +
         "accepted_by_candidate re-derives each candidate's accepted records from its own "
         "cached responses (parse, split-half fallback, quote gate - no request, no spend): "
         "`accepted` is the pre-registered denominator and reproduces what the paid run "
         "scored (`matches_the_run`), while `accepted_full` counts only the records whose "
         "judged fields all survived the gate, so `accepted` minus `accepted_full` is how "
-        "many accepted records were partial. LIMITATION: the cache "
-        "key hashes only the pin label, so it distinguishes neither reasoning effort nor "
-        "max_tokens, and two runs differing only in those would collide. The key was left "
-        "alone deliberately - changing it would orphan the whole purchased cache - and "
-        "fixing it belongs to Stage 3B.")
+        "many accepted records were partial. "
+        + (V1_NOTE_LIMITATION if version == "v1" else V2_NOTE_KEY))
     write_json(prior_path, m, indent=1, sort_keys=True)
     print("\ncoverage: " + dumps(m["cache_key_coverage"]), flush=True)
     print("superseded purchases:", dumps(discarded), flush=True)
@@ -637,10 +754,24 @@ def merge_manifest(prior: dict, manifest: dict) -> dict:
     Per-candidate maps merge key by key, this process winning for the candidates it actually
     ran; every other field is whole-manifest and the fresher process owns it. `selection` is
     recomputed by the caller over the MERGED scores, so a re-run of one candidate is judged
-    against all five and never against itself alone."""
+    against all five and never against itself alone.
+
+    `subscription_budget` is the one whole-manifest field the fresher process may NOT simply
+    own. Its `units_used` is a count of subscription calls the measurement made, and the
+    2026-09-05 merge pass - which made none, because every subscription unit replayed from
+    cache - wrote its zero over the field run's count and left the manifest saying 0 units
+    against a report that says 45 (final-review I5). The maximum is kept rather than the sum:
+    a resume re-reads the same units for free, so summing would count them twice; the highest
+    figure any process reached is the count of calls the measurement actually made."""
     merged = {**prior, **manifest}
     for k in MERGE_BY_CANDIDATE:
         merged[k] = {**(prior.get(k) or {}), **(manifest.get(k) or {})}
+    sub = merged.get("subscription_budget")
+    if isinstance(sub, dict):
+        merged["subscription_budget"] = {
+            **sub,
+            "units_used": max(int((prior.get("subscription_budget") or {}).get("units_used") or 0),
+                              int((manifest.get("subscription_budget") or {}).get("units_used") or 0))}
     return merged
 
 
@@ -683,13 +814,18 @@ class Ctx:
     None under that loader and raises at import time."""
 
     def __init__(self, *, batches, reference, source, dom, cb, cache, schema, excl, budget,
-                 prior_spend, spend_by, tracked_by, list_cost_by, ids50=(), prov=None,
-                 before=None, ceiling=0.0, sub_units_cap=SUBSCRIPTION_MAX_UNITS,
+                 prior_spend, spend_by, tracked_by, list_cost_by, cache_keys=None, ids50=(),
+                 prov=None, before=None, ceiling=0.0, sub_units_cap=SUBSCRIPTION_MAX_UNITS,
                  sub_max_wall=SUBSCRIPTION_MAX_WALL_SECONDS, clock=time.time, log=print):
         self.batches, self.reference, self.source = batches, reference, source
         self.dom, self.cb, self.cache, self.schema, self.excl = dom, cb, cache, schema, excl
         self.budget, self.prior_spend = budget, prior_spend
         self.spend_by, self.tracked_by, self.list_cost_by = spend_by, tracked_by, list_cost_by
+        # The per-unit cache-key map the manifest publishes. It lives on the context because
+        # the winner's checks fill it too: spec section 6 asks for per-unit keys for every
+        # candidate, and `winner_checks` recorded none, so the b5 and stability reads that
+        # decide `stable` had no key evidence behind them at all (final-review I2).
+        self.cache_keys = {} if cache_keys is None else cache_keys
         self.ids50 = set(ids50)
         self.prov = prov                     # the OpenRouter provider, or None if unused
         self.before = before                 # credits before this process, or None
@@ -702,6 +838,11 @@ class Ctx:
         self.sub_max_wall = float(sub_max_wall)
         self.sub_deadline = self.clock() + self.sub_max_wall
         self.budget.setdefault("sub_units", 0)
+
+    def keys_for_run(self, out, pin: ModelPin) -> dict:
+        """The per-unit cache keys behind one finished read, through this context's inputs."""
+        return keys_for(out.plan.units, self.cb, pin, self.source, self.cache, self.schema,
+                        self.dom.reader.families)
 
     def sub_units_left(self) -> int:
         return max(self.sub_units_cap - int(self.budget.get("sub_units", 0)), 0)
@@ -753,6 +894,7 @@ def winner_checks(ctx: Ctx, w: str, wpin: ModelPin, provider, cand: dict, b18: d
         s5 = score(out5, ctx.reference, f"{w}:b5", ctx.prior_spend, ctx.spend_by, ctx.tracked_by,
                    d5, excluded=ctx.excl)
         ctx.list_cost_by[f"{w}:b5"] = s5["list_cost_usd"]
+        ctx.cache_keys[f"{w}:b5"] = {"pin": wpin.label, "units": ctx.keys_for_run(out5, wpin)}
         out_m["batch_size_pair"] = {"b18": b18, "b5": s5}
         log(line(s5))
     except Exception as exc:                                    # noqa: BLE001
@@ -768,10 +910,12 @@ def winner_checks(ctx: Ctx, w: str, wpin: ModelPin, provider, cand: dict, b18: d
                            ctx.cb, ctx.cache, log, ctx.budget)
         d1 = ctx.settle(cand, o1)
         ctx.spend_by[f"{w}:stab1"] = charged(d1, o1.spend_usd)
+        ctx.cache_keys[f"{w}:stab1"] = {"pin": wpin.label, "units": ctx.keys_for_run(o1, wpin)}
         o2 = run_candidate(wpin, provider, ctx.budget_for_run(cand, st2), st2, ctx.source, ctx.dom,
                            ctx.cb, ctx.cache, log, ctx.budget)
         d2 = ctx.settle(cand, o2)
         ctx.spend_by[f"{w}:stab2"] = charged(d2, o2.spend_usd)
+        ctx.cache_keys[f"{w}:stab2"] = {"pin": wpin.label, "units": ctx.keys_for_run(o2, wpin)}
         # R12: the bar is agreement among the answers BOTH reads decided. A field the
         # second read left null is not instability, it is a decided-rate fact, reported
         # beside it as `decided_rate_b`. `stability_flat_agreement` is the blended v1
@@ -898,77 +1042,89 @@ def dry_run(cands: list[dict], n_batches: int, ctx: Ctx, out_dir: Path, *, prior
     pins: dict[str, str] = {}
     cache_keys: dict[str, dict] = {}
     dry_runs: dict[str, dict] = {}
-    for cand in cands:
-        mid = cand["model_id"]
-        provider, pin, why = provider_for(cand, ctx.prov)
-        if pin is None:
-            failures[mid] = f"cannot run: {why}"
-            log(f"DRY RUN {mid} SKIPPED: {why}")
-            continue
-        one = ctx.batches[:max(1, int(n_batches))]
-        ids = [b["batch_id"] for b in one]
-        log(f"DRY RUN {pin.label} over {', '.join(ids)} "
-            f"({sum(len(b['cases']) for b in one)} cases): {why}")
-        budget = ctx.budget_for_run(cand, one, cap=DRY_RUN_MAX_USD)
-        try:
-            out = run_candidate(pin, provider, budget, one, ctx.source, ctx.dom, ctx.cb, ctx.cache,
-                                log, ctx.budget)
-        except Exception as exc:                                # noqa: BLE001 - one candidate never aborts the gate
-            failures[mid] = f"run raised {type(exc).__name__}: {str(exc)[:300]}"
-            log(f"DRY RUN {mid} FAILED: {failures[mid]}")
-            ctx.settle(cand)
-            continue
-        real_delta = ctx.settle(cand, out)
-        # Scored through `score`, not `score_candidate`, for the same reason the field run
-        # is: it is what fills `spend_by`/`tracked_by` and applies the one pricing rule.
-        s = score(out, ctx.reference, mid, ctx.prior_spend, ctx.spend_by, ctx.tracked_by,
-                  real_delta, excluded=ctx.excl)
-        ctx.list_cost_by[mid] = s["list_cost_usd"]
-        pins[mid] = pin.label
-        unit_keys = keys_for(out.plan.units, ctx.cb, pin, ctx.source, ctx.cache, ctx.schema)
-        cache_keys[mid] = {"pin": pin.label, "units": unit_keys}
-        dry_runs[mid] = {"pin": pin.label, "batches": ids, "stop": out.stop.kind,
-                         "spend_usd": ctx.spend_by[mid], "priced": s["priced"], "ts": ts}
-        payload = {"candidate": mid, "pin": pin.label, "provider": getattr(provider, "name", "?"),
-                   "why": why, "batches": ids, "schema_sha": schema_sha(ctx.schema),
-                   "stop": out.stop.kind, "effort": EFFORT, "read_timeout_seconds": READ_TIMEOUT,
-                   "max_tokens": Request.max_tokens,
-                   "budget": {"max_usd": budget.max_usd, "max_units": budget.max_units,
-                              "max_wall_seconds": budget.max_wall_seconds},
-                   "units": [{"unit_id": u.unit_id, "status": u.status, "cache_hit": u.cache_hit,
-                              "retried": u.retried, "error": u.error,
-                              "finish_reason": (u.response.finish_reason if u.response else None),
-                              "input_tokens": (u.response.input_tokens if u.response else None),
-                              "output_tokens": (u.response.output_tokens if u.response else None),
-                              "cost_usd": (u.response.cost_usd if u.response else None),
-                              "list_cost_usd": ((u.response.raw or {}).get("list_cost_usd")
-                                                if u.response else None)}
-                             for u in out.units],
-                   "status_counts": {st: sum(1 for r in out.records if r.get("extraction_status") == st)
-                                     for st in ("ok", "partial", "extraction-invalid", "missing")},
-                   "nulled_fields": sorted({f for u in out.units for r in u.records for f in r.nulled_fields}),
-                   "dropped_quotes": sum(r.dropped_quotes for u in out.units for r in u.records),
-                   "score": s, "priced": s["priced"], "list_cost_usd": s["list_cost_usd"],
-                   "spend_usd": out.spend_usd, "wall_seconds": round(out.wall_seconds, 1),
-                   "cache_keys": unit_keys,
-                   "first_record": (out.records or [None])[0]}
-        write_json(out_dir / f"dry-run-{mid.replace('/', '_')}.json", payload, indent=1, sort_keys=True)
-        log(dumps({k: payload[k] for k in ("stop", "status_counts", "nulled_fields", "dropped_quotes",
-                                           "spend_usd", "list_cost_usd", "wall_seconds")}, indent=1))
+    # M3: the record of what this dry run spent is written from a `finally`, exactly as
+    # `main` writes its own. `keys_for` and the payload assembly below run AFTER a paid
+    # candidate and outside the per-candidate `try`, so a raise there used to lose the
+    # spend record - which is the N1 failure this function's docstring says it fixed.
+    finished = False
+    try:
+        for cand in cands:
+            mid = cand["model_id"]
+            provider, pin, why = provider_for(cand, ctx.prov)
+            if pin is None:
+                failures[mid] = f"cannot run: {why}"
+                log(f"DRY RUN {mid} SKIPPED: {why}")
+                continue
+            one = ctx.batches[:max(1, int(n_batches))]
+            ids = [b["batch_id"] for b in one]
+            log(f"DRY RUN {pin.label} over {', '.join(ids)} "
+                f"({sum(len(b['cases']) for b in one)} cases): {why}")
+            budget = ctx.budget_for_run(cand, one, cap=DRY_RUN_MAX_USD)
+            try:
+                out = run_candidate(pin, provider, budget, one, ctx.source, ctx.dom, ctx.cb, ctx.cache,
+                                    log, ctx.budget)
+            except Exception as exc:                                # noqa: BLE001 - one candidate never aborts the gate
+                failures[mid] = f"run raised {type(exc).__name__}: {str(exc)[:300]}"
+                log(f"DRY RUN {mid} FAILED: {failures[mid]}")
+                ctx.settle(cand)
+                continue
+            real_delta = ctx.settle(cand, out)
+            # Scored through `score`, not `score_candidate`, for the same reason the field run
+            # is: it is what fills `spend_by`/`tracked_by` and applies the one pricing rule.
+            s = score(out, ctx.reference, mid, ctx.prior_spend, ctx.spend_by, ctx.tracked_by,
+                      real_delta, excluded=ctx.excl)
+            ctx.list_cost_by[mid] = s["list_cost_usd"]
+            pins[mid] = pin.label
+            unit_keys = keys_for(out.plan.units, ctx.cb, pin, ctx.source, ctx.cache, ctx.schema,
+                                 ctx.dom.reader.families)
+            cache_keys[mid] = {"pin": pin.label, "units": unit_keys}
+            dry_runs[mid] = {"pin": pin.label, "batches": ids, "stop": out.stop.kind,
+                             "spend_usd": ctx.spend_by[mid], "priced": s["priced"], "ts": ts}
+            payload = {"candidate": mid, "pin": pin.label, "provider": getattr(provider, "name", "?"),
+                       "why": why, "batches": ids, "schema_sha": schema_sha(ctx.schema),
+                       "stop": out.stop.kind, "effort": EFFORT, "read_timeout_seconds": READ_TIMEOUT,
+                       "max_tokens": Request.max_tokens,
+                       "budget": {"max_usd": budget.max_usd, "max_units": budget.max_units,
+                                  "max_wall_seconds": budget.max_wall_seconds},
+                       "units": [{"unit_id": u.unit_id, "status": u.status, "cache_hit": u.cache_hit,
+                                  "retried": u.retried, "error": u.error,
+                                  "finish_reason": (u.response.finish_reason if u.response else None),
+                                  "input_tokens": (u.response.input_tokens if u.response else None),
+                                  "output_tokens": (u.response.output_tokens if u.response else None),
+                                  "cost_usd": (u.response.cost_usd if u.response else None),
+                                  "list_cost_usd": ((u.response.raw or {}).get("list_cost_usd")
+                                                    if u.response else None)}
+                                 for u in out.units],
+                       "status_counts": {st: sum(1 for r in out.records if r.get("extraction_status") == st)
+                                         for st in ("ok", "partial", "extraction-invalid", "missing")},
+                       "nulled_fields": sorted({f for u in out.units for r in u.records for f in r.nulled_fields}),
+                       "dropped_quotes": sum(r.dropped_quotes for u in out.units for r in u.records),
+                       "score": s, "priced": s["priced"], "list_cost_usd": s["list_cost_usd"],
+                       "spend_usd": out.spend_usd, "wall_seconds": round(out.wall_seconds, 1),
+                       "cache_keys": unit_keys,
+                       "first_record": (out.records or [None])[0]}
+            write_json(out_dir / f"dry-run-{mid.replace('/', '_')}.json", payload, indent=1, sort_keys=True)
+            log(dumps({k: payload[k] for k in ("stop", "status_counts", "nulled_fields", "dropped_quotes",
+                                               "spend_usd", "list_cost_usd", "wall_seconds")}, indent=1))
 
-    m: dict = {"pins": pins, "cache_keys": cache_keys, "dry_runs": dry_runs,
-               "spend_by_candidate": ctx.spend_by, "tracked_spend_by_candidate": ctx.tracked_by,
-               "list_cost_by_candidate": ctx.list_cost_by,
-               "tracked_spend_usd": round(ctx.budget["spent"], 4), "ts": ts}
-    if ctx.prov is None:
-        m["total_task_spend_usd"] = round(prior_usd, 4)
-    else:
-        m["credits_before"] = round(ctx.before, 4) if ctx.before is not None else None
-        m["spent_usd"] = round(ctx.budget["real_spent"], 4)
-        m["total_task_spend_usd"] = round(prior_usd + ctx.budget["real_spent"], 4)
-    write_json(out_dir / "manifest.json", merge_manifest(prior, m), indent=1, sort_keys=True)
-    log(f"dry run recorded ${m['total_task_spend_usd']} of measurement spend in "
-        f"{out_dir / 'manifest.json'} (nothing selected; no scores written)")
+        finished = True
+    finally:
+        m: dict = {"pins": pins, "cache_keys": cache_keys, "dry_runs": dry_runs,
+                   "spend_by_candidate": ctx.spend_by, "tracked_spend_by_candidate": ctx.tracked_by,
+                   "list_cost_by_candidate": ctx.list_cost_by,
+                   "tracked_spend_usd": round(ctx.budget["spent"], 4), "ts": ts}
+        if ctx.prov is None:
+            m["total_task_spend_usd"] = round(prior_usd, 4)
+        else:
+            m["credits_before"] = round(ctx.before, 4) if ctx.before is not None else None
+            m["spent_usd"] = round(ctx.budget["real_spent"], 4)
+            m["total_task_spend_usd"] = round(prior_usd + ctx.budget["real_spent"], 4)
+        write_json(out_dir / "manifest.json", merge_manifest(prior, m), indent=1, sort_keys=True)
+        log(f"dry run recorded ${m['total_task_spend_usd']} of measurement spend in "
+            f"{out_dir / 'manifest.json'} (nothing selected; no scores written)")
+        if not finished:
+            log('!! the dry run raised before it finished; the spend above is what it had '
+                'charged at that point, so the next run\'s ceiling guard is not under-counted')
     if failures:
         log("DRY RUN FAILURES: " + dumps(failures, indent=1))
         return 1
@@ -983,9 +1139,16 @@ def main(argv=None) -> int:
     # Omitted, this is read off the prior manifest (see resolve_prior_spend); pass an
     # explicit 0 to deliberately re-grant the whole ceiling.
     ap.add_argument("--prior-spend-usd", type=float, default=None)
-    ap.add_argument("--measurement-dir", default=f"data/reader/{OUT_DIR}",
+    ap.add_argument("--measurement-dir", default=DEFAULT_MEASUREMENT_DIR,
                     help="where the manifest and the dry-run files are written, relative to the "
-                         "repo root. measurement-v1 is frozen; pass it only with --annotate-only.")
+                         "repo root. measurement-v1 is frozen; pass it only with --annotate-only. "
+                         "A run that SPENDS refuses any other value unless --allow-measurement-dir "
+                         "is passed with it (the ceiling is per manifest directory).")
+    ap.add_argument("--allow-measurement-dir", action="store_true",
+                    help="permit a paid run to write somewhere other than "
+                         f"{DEFAULT_MEASUREMENT_DIR}. Read the ceiling note on --measurement-dir "
+                         "first: prior spend is read from the manifest in THAT directory, so a "
+                         "second directory is granted the full --max-usd a second time.")
     ap.add_argument("--dry-run", default=None,
                     help="run the first --dry-run-batches kit batches for this candidate, write "
                          "the inspection file, and stop without selecting anything")
@@ -1013,6 +1176,19 @@ def main(argv=None) -> int:
                          "response cache. Makes no request of any kind and spends nothing.")
     a = ap.parse_args(argv)
 
+    # I3: --max-usd is a ceiling on the SLICE, and `resolve_prior_spend` reads what has
+    # already been spent out of the manifest in `--measurement-dir` - only that one. A paid
+    # run pointed at a fresh directory therefore sees prior spend 0.0 and is granted the whole
+    # ceiling again, so two directories can spend $30 of a $15 cap. The slice uses exactly one
+    # directory, and a run that spends may not silently move: naming another one is a
+    # deliberate act that has to be typed out.
+    if (a.measurement_dir != DEFAULT_MEASUREMENT_DIR and not a.annotate_only
+            and not a.allow_measurement_dir):
+        sys.exit(f"--measurement-dir {a.measurement_dir} is not {DEFAULT_MEASUREMENT_DIR}, and a "
+                 f"run that spends reads prior spend only out of the manifest in the directory "
+                 f"it writes: a second directory would be granted the whole --max-usd ceiling a "
+                 f"second time. Pass --annotate-only (offline), or --allow-measurement-dir if a "
+                 f"separate ceiling is really what you want.")
     if a.max_usd > OPENROUTER_CEILING:
         sys.exit(f"--max-usd {a.max_usd} exceeds this slice's approved OpenRouter ceiling "
                  f"${OPENROUTER_CEILING:.2f} (spec decision D5)")
@@ -1117,10 +1293,13 @@ def main(argv=None) -> int:
               f"{unit_plan['margin']} margin for split halves"
               + ("" if a.sub_max_units is None else "; overridden by --sub-max-units") + "); "
               f"{a.sub_max_wall_seconds:.0f}s of wall clock from now", flush=True)
+    # Defined before the context so the winner's checks can add their own units to the same
+    # map the kit runs fill (I2); `main`'s loop below writes into this very dict.
+    cache_keys: dict[str, dict] = {}
     ctx = Ctx(batches=batches, reference=reference, source=source, dom=dom, cb=cb, cache=cache,
               schema=schema, excl=excl, budget=budget, prior_spend=prior_spend, spend_by=spend_by,
-              tracked_by=tracked_by, list_cost_by=list_cost_by, ids50=ids50, prov=prov,
-              before=before, ceiling=ceiling, sub_units_cap=sub_units_cap,
+              tracked_by=tracked_by, list_cost_by=list_cost_by, cache_keys=cache_keys,
+              ids50=ids50, prov=prov, before=before, ceiling=ceiling, sub_units_cap=sub_units_cap,
               sub_max_wall=a.sub_max_wall_seconds, log=print)
 
     # `--dry-run-batches` alone can no longer get here: it is refused at parse time.
@@ -1135,7 +1314,6 @@ def main(argv=None) -> int:
     cand_objs: dict[str, dict] = {}
     efforts: dict[str, str] = {}
     timeouts: dict[str, int] = {}
-    cache_keys: dict[str, dict] = {}
     skipped: dict[str, str] = {}
     failed: dict[str, str] = {}
     not_run: dict[str, str] = {}
@@ -1172,6 +1350,10 @@ def main(argv=None) -> int:
         `{**prior, **manifest}` leaves the prior values standing."""
         m = {"kit_sha256": dom.reader.kit_sha256, "kit_path": dom.reader.kit_path,
              "codebook": cb.id, "codebook_sha": cb.sha, "schema_sha": schema_sha(schema),
+             # Which composition of ResponseCache.key addresses this manifest's purchases, so
+             # `--annotate-only` never has to guess (C1). measurement-v1 carries no marker and
+             # is recognised by the absence of `schema_sha`; see `cache_key_version`.
+             "cache_key_version": "v2",
              "openrouter_ceiling_usd": OPENROUTER_CEILING, "budget_usd": a.max_usd,
              "prior_spend_usd": round(prior_usd, 4), "prior_spend_source": why_prior,
              "effective_budget_usd": round(ceiling, 4),
@@ -1192,7 +1374,7 @@ def main(argv=None) -> int:
              "pins": pins, "providers": providers, "skipped": skipped, "failed": failed,
              "not_run": not_run, "scores": scores, "selection": sel_now,
              # D4's floors per candidate, with the exact number each failed on, so a reader
-             # sees that glm went out on a polarity decided rate of 0.8970 < 0.90 rather
+             # sees that glm went out on a polarity decided rate of 0.8983 < 0.90 rather
              # than guessing. Recomputed over the merged scores every run, so it is a
              # whole-manifest field and never merged per candidate: a candidate that
              # re-runs and now survives must not keep a stale elimination reason.
@@ -1253,7 +1435,8 @@ def main(argv=None) -> int:
             timeouts[mid] = READ_TIMEOUT
             list_cost_by[mid] = s["list_cost_usd"]
             cache_keys[mid] = {"pin": pin.label,
-                               "units": keys_for(out.plan.units, cb, pin, source, cache, schema)}
+                               "units": keys_for(out.plan.units, cb, pin, source, cache, schema,
+                                                 dom.reader.families)}
             print(line(s), flush=True)
             if not is_subscription(cand) and budget["remaining"] <= 0:
                 print("budget exhausted", flush=True)
