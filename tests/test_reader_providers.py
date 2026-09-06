@@ -107,3 +107,16 @@ def test_codex_cli_parses_events_and_records_version():
     assert p.is_available()
     bad = CodexCliProvider("m", runner=lambda cmd, **kw: (_ for _ in ()).throw(FileNotFoundError("codex")))
     assert not bad.is_available()
+
+
+def test_codex_cli_provider_resolves_the_executable_through_which(monkeypatch):
+    """Windows installs the npm shim as codex.CMD; a bare name is not findable by subprocess
+    without a shell, so the provider resolves it exactly as ClaudeCliProvider does."""
+    import shutil
+    from corpus_engine.reader.providers.codex_cli import CodexCliProvider
+    monkeypatch.setattr(shutil, "which", lambda name: r"C:\shim\codex.CMD" if name == "codex" else None)
+    prov = CodexCliProvider("gpt-5.6-terra")
+    assert prov.exe == r"C:\shim\codex.CMD"
+    monkeypatch.setattr(shutil, "which", lambda name: None)
+    assert CodexCliProvider("gpt-5.6-terra", exe="codex-nowhere").exe == "codex-nowhere"
+

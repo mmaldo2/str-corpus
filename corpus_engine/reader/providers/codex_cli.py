@@ -1,13 +1,16 @@
 """Checker transport: the Codex command-line tool via subprocess, as in cycles 1-3 (user decision, ADR-0007 amendment)."""
 from __future__ import annotations
-import json, subprocess
+import json, shutil, subprocess
 from corpus_engine.reader.model import ReaderError, Request, Response
 
 
 class CodexCliProvider:
     name = "codex-cli"
     def __init__(self, cli_model: str, *, runner=subprocess.run, timeout: int = 900, exe: str = "codex"):
-        self.cli_model, self.runner, self.timeout, self.exe = cli_model, runner, timeout, exe
+        # Resolve the executable the way ClaudeCliProvider does: on Windows the npm shim is
+        # `codex.CMD`, which subprocess cannot find under the bare name without a shell.
+        self.cli_model, self.runner, self.timeout = cli_model, runner, timeout
+        self.exe = shutil.which(exe) or exe
         self._version: str | None = None
 
     def version(self) -> str | None:
