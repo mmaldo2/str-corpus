@@ -9,6 +9,24 @@ what it can no longer do is fill a judged field and name that field in no quote'
 minimum: `parse_records` rejects a response whose records omit `polarity` or `quotes`, and
 a schema that permitted the omission would buy a split retry for a record the model was
 entitled to send. Both are nullable/empty for an irrelevant record, so nothing is forced.
+
+Two dialects. `dialect="default"` is the schema above, unchanged, and every non-openai
+family (anthropic, google, deepseek, zai, minimax, qwen) accepts it. `dialect="openai-strict"`
+is a pure structural transform of the same schema for OpenAI's structured-output ("strict")
+JSON Schema subset, which the 2026-09-05 measurement found rejects it wholesale: every
+request to openai/gpt-5.6-terra through OpenRouter failed with HTTP 400 "Invalid schema for
+response_format" because the default schema sets `additionalProperties: True`, leaves most
+properties out of `required`, and uses an `if`/`then` OpenAI's dialect does not support. The
+transform (`_to_openai_strict`) walks the default schema and, on every object node: sets
+`additionalProperties: False`; adds every property to `required`; and for a property that
+was NOT already required, or that is an enum already carrying `None` (nullable by the
+codebook's own vocabulary - see POLARITY_VALUES et al.), makes it nullable - a bare `type`
+becomes `[type, "null"]`, an enum becomes `anyOf: [{"enum": [...]}, {"type": "null"}]` (the
+form OpenAI's docs show for a nullable enum; a plain `enum` array mixing string values with
+a `None` literal is the shape most likely to be rejected by "same-typed enum values" checks,
+which is why this dialect never emits one). `if`/`then` is dropped outright: the
+`quotes: minItems 1 when relevant` rule they encoded is still enforced by the codebook text
+and by `gate.py`'s quote gate, neither of which reads this schema.
 """
 from __future__ import annotations
 import hashlib, json
@@ -32,8 +50,22 @@ REQUIRED_RECORD_FIELDS = ["case_id", "relevant", "polarity", "quotes"]
 FLAG_PREFIX = "needs-review:"
 
 
-def record_schema(codebook: Codebook) -> dict:
-    """The schema for `{"records": [Record, ...]}` under `codebook`'s judged fields."""
+def record_schema(codebook: Codebook, *, dialect: str = "default") -> dict:
+    """The schema for `{"records": [Record, ...]}` under `codebook`'s judged fields.
+
+    `dialect="default"` (the only shape before 2026-09-05) is returned unchanged - its
+    sha is pinned in tests/test_reader_schema.py so this stays non-disruptive.
+    `dialect="openai-strict"` runs the same schema through `_to_openai_strict` for the
+    OpenAI structured-output subset (module docstring)."""
+    schema = _default_schema(codebook)
+    if dialect == "default":
+        return schema
+    if dialect == "openai-strict":
+        return _to_openai_strict(schema)
+    raise ValueError(f"unknown schema dialect: {dialect!r}")
+
+
+def _default_schema(codebook: Codebook) -> dict:
     supports = list(codebook.judged_fields) + ["relevant"]
     record = {
         "type": "object",
@@ -80,6 +112,47 @@ def record_schema(codebook: Codebook) -> dict:
     }
     return {"type": "object", "additionalProperties": False, "required": ["records"],
             "properties": {"records": {"type": "array", "items": record}}}
+
+
+_STRIP_KEYS = ("if", "then", "else")
+
+
+def _make_nullable(sub: dict) -> dict:
+    """`sub` is already recursively transformed. Widen it to also accept `null`,
+    without touching a shape that already does."""
+    if "enum" in sub:
+        values = [v for v in sub["enum"] if v is not None]
+        return {"anyOf": [{"enum": values}, {"type": "null"}]}
+    if "anyOf" in sub:
+        if not any(o == {"type": "null"} for o in sub["anyOf"]):
+            return {**sub, "anyOf": [*sub["anyOf"], {"type": "null"}]}
+        return sub
+    t = sub.get("type")
+    if isinstance(t, list):
+        return sub if "null" in t else {**sub, "type": [*t, "null"]}
+    if isinstance(t, str):
+        return {**sub, "type": [t, "null"]}
+    return sub          # no type/enum on this node (shouldn't occur in our schemas) - leave it
+
+
+def _to_openai_strict(node):
+    """Pure structural transform (module docstring): drop `if`/`then`/`else`; on every
+    object node, require every property and make the ones that were optional (or an
+    already-nullable enum) accept `null` too."""
+    if isinstance(node, list):
+        return [_to_openai_strict(v) for v in node]
+    if not isinstance(node, dict):
+        return node
+    node = {k: _to_openai_strict(v) for k, v in node.items() if k not in _STRIP_KEYS}
+    if node.get("type") == "object" and "properties" in node:
+        original_required = set(node.get("required", []))
+        props = node["properties"]                       # already recursively transformed above
+        new_props = {}
+        for name, sub in props.items():
+            needs_null = name not in original_required or ("enum" in sub and None in sub["enum"])
+            new_props[name] = _make_nullable(sub) if needs_null else sub
+        node = {**node, "properties": new_props, "required": list(props.keys()), "additionalProperties": False}
+    return node
 
 
 def schema_sha(schema: dict | None) -> str:

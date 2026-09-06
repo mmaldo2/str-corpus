@@ -9,10 +9,15 @@ from corpus_engine.reader.model import (Budget, Disagreement, ModelPin, Plan, Re
                                         StopReason, Unit, UnitResult, RecordResult, effort_of)
 from corpus_engine.reader.parse import parse_records, split_unit
 from corpus_engine.reader.render import render_unit
-from corpus_engine.reader.schema import schema_sha
+from corpus_engine.reader.schema import record_schema, schema_sha
 
 ENGINE_VERSION = "reader-v1"
 COMPARE_FIELDS = ("relevant", "polarity", "characterization")
+# The family whose OpenRouter requests need schema.py's "openai-strict" dialect (2026-09-05:
+# every request to openai/gpt-5.6-terra failed HTTP 400 "Invalid schema for response_format"
+# against the default dialect). Picked here, in the request planner, rather than inside
+# OpenRouterProvider, so the cache key below hashes the schema actually sent.
+OPENAI_STRICT_FAMILY = "openai"
 
 
 def plan_batch_extraction(batches, codebook_id: str, pin: ModelPin, budget: Budget, *, worker: str,
@@ -164,11 +169,26 @@ class Reader:
             raise ReaderError("Reader needs a domain to load codebooks")
         return load_codebook(self.domain, plan.codebook_id)
 
+    def _schema_for(self, plan: Plan, cb: Codebook, pin: ModelPin) -> dict | None:
+        """The schema this pin's request carries. Every family but openai gets
+        `plan.json_schema` unchanged (whatever dialect the caller built it with); an
+        openai-family pin gets a fresh "openai-strict" schema derived from the same
+        codebook, so a family-openai unit and the same unit for another family only
+        ever differ by schema sha - never by plan identity or cache-key shape."""
+        if plan.json_schema is None:
+            return None
+        families = self.domain.reader.families if self.domain is not None else {}
+        family = families.get(pin.model_id, pin.family)
+        if family == OPENAI_STRICT_FAMILY:
+            return record_schema(cb, dialect="openai-strict")
+        return plan.json_schema
+
     def _ask(self, plan: Plan, cb: Codebook, unit: Unit, pin: ModelPin, worker: str, provider, state: _ReadState):
         texts = self.cases.fetch(unit.case_ids)
         prompt = render_unit(cb, unit, texts, worker)
-        req = Request(pin, prompt, json_schema=plan.json_schema)
-        key = (ResponseCache.key(cb.sha, pin, unit, prompt, schema_sha=schema_sha(plan.json_schema),
+        schema = self._schema_for(plan, cb, pin)
+        req = Request(pin, prompt, json_schema=schema)
+        key = (ResponseCache.key(cb.sha, pin, unit, prompt, schema_sha=schema_sha(schema),
                                  max_tokens=req.max_tokens, effort=effort_of(pin)) if self.cache else None)
         resp = self.cache.get(key) if key else None; hit = resp is not None
         if resp is None:
@@ -241,7 +261,7 @@ class Reader:
                                 stub_notes[cid] = note
                             units.append(UnitResult(unit.id, "partial_parse",
                                                     self._assemble(unit, texts, recs, judged, stub_notes), resp, hit,
-                                                    detail[:300], retried=True))
+                                                    detail[:1000], retried=True))
                             if budget:
                                 raise
                             self.log(f"{unit.id}: split half FAILED {detail}")
@@ -293,7 +313,7 @@ class Reader:
                     stop = bs.reason; break
                 except ReaderError as exc:
                     stub = tuple(_missing_stub(cid, f"unit failed: {exc}") for cid in unit.case_ids)
-                    units.append(UnitResult(unit.id, "failed", stub, None, False, str(exc)[:300]))
+                    units.append(UnitResult(unit.id, "failed", stub, None, False, str(exc)[:1000]))
                     self.log(f"{unit.id}: FAILED {exc}")
                 except Exception as exc:                               # noqa: BLE001 - deliberate
                     # An unexpected defect costs one unit, never the whole plan and every paid
@@ -304,7 +324,7 @@ class Reader:
                     # an engine defect is never mistaken for a provider failure.
                     detail = f"{type(exc).__name__}: {exc}"
                     stub = tuple(_missing_stub(cid, f"unit failed: {detail}") for cid in unit.case_ids)
-                    units.append(UnitResult(unit.id, "failed", stub, None, False, f"failed:{detail}"[:300]))
+                    units.append(UnitResult(unit.id, "failed", stub, None, False, f"failed:{detail}"[:1000]))
                     self.log(f"{unit.id}: FAILED {detail}")
         manifest = {"engine_version": ENGINE_VERSION, "codebook_id": cb.id, "codebook_sha": cb.sha, "model_pin": plan.pin.label,
                     "checker_pin": plan.checker_pin.label if plan.checker_pin else None, "sample_pct": plan.sample_pct,

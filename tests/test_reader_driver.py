@@ -8,7 +8,9 @@ from corpus_engine.reader.driver import (Reader, agreement, plan_batch_extractio
 from corpus_engine.reader.model import Budget, ModelPin, ReaderError, Unit
 from corpus_engine.reader.parse import split_unit
 from corpus_engine.reader.providers.codex_cli import CodexCliProvider
+from corpus_engine.reader.providers.openrouter import OpenRouterProvider
 from corpus_engine.reader.providers.scripted import ScriptedProvider
+from corpus_engine.reader.schema import record_schema
 from corpus_engine.reader.sources import StoreCaseSource
 
 PIN = ModelPin("anthropic/claude-haiku-4.5", "anthropic")
@@ -396,6 +398,40 @@ def test_store_norm_version_is_required_so_the_guard_cannot_be_left_inert(tmp_pa
         Reader(ScriptedProvider(["[]"]), StoreCaseSource(conn))
     r = Reader(ScriptedProvider(["[]"]), StoreCaseSource(conn), store_norm_version="v1")
     assert r.norm == "v1"
+
+
+def test_openrouter_family_picks_the_strict_schema_dialect(tmp_path, fixture_db, repo_root):
+    """2026-09-05: every OpenRouter request to openai/gpt-5.6-terra failed HTTP 400
+    "Invalid schema for response_format" against the default dialect. The request
+    planner (Reader._schema_for), not OpenRouterProvider, picks the dialect - so the
+    wire body for an openai-family pin is the strict schema throughout, and a
+    non-openai pin's body carries the default schema completely unchanged."""
+    p = tmp_path / "c.db"; shutil.copy(fixture_db, p); conn = store.connect(p); dom = load_domain()
+    cb = load_codebook(dom, "mapper-v1")
+    schema = record_schema(cb)
+    batch = json.loads(sorted((repo_root / "tests/fixtures/batches/cycle-003-shard-01")
+                              .glob("batch-*.json"))[0].read_text(encoding="utf-8"))
+    case_ids = [int(c["case_id"]) for c in batch["cases"]]
+
+    def sent_schema(pin):
+        bodies = []
+        def transport(url, json_body, headers, timeout):
+            bodies.append(json_body)
+            answer = {"records": [{"case_id": c, "relevant": False, "polarity": None, "quotes": []} for c in case_ids]}
+            return 200, {"choices": [{"message": {"content": json.dumps(answer)}, "finish_reason": "stop"}], "usage": {}}
+        prov = OpenRouterProvider("k", transport=transport)
+        prov.probe_model = lambda model_id: {"id": model_id}          # no network in a test
+        plan = plan_batch_extraction([batch], "mapper-v1", pin, Budget(), worker="claude", json_schema=schema)
+        out = Reader(prov, StoreCaseSource(conn), log=lambda *_: None, domain=dom, store_norm_version="v1").read(plan)
+        assert out.stop.kind == "done"
+        return bodies[0]["response_format"]["json_schema"]["schema"]
+
+    openai_schema = sent_schema(ModelPin("openai/gpt-5.6-terra", "openai"))
+    anthropic_schema = sent_schema(ModelPin("anthropic/claude-sonnet-5", "anthropic"))
+    assert openai_schema["additionalProperties"] is False
+    assert openai_schema["properties"]["records"]["items"]["additionalProperties"] is False
+    assert anthropic_schema == schema
+    assert anthropic_schema["properties"]["records"]["items"]["additionalProperties"] is True
 
 
 def test_preflight_refuses_a_store_at_the_wrong_norm_version(repo_root):

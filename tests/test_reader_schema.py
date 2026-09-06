@@ -4,6 +4,8 @@ read is being re-bought anyway: the 3A key hashed only the pin label, so two run
 differed in effort, max_tokens or schema collided (measurement-v1 manifest, LIMITATION)."""
 import hashlib, json, shutil
 
+import pytest
+
 from corpus_engine import store
 from corpus_engine.domain import load_domain
 from corpus_engine.reader.cache import ResponseCache
@@ -38,6 +40,77 @@ def test_record_schema_pins_the_vocabularies_and_the_supports_rule():
     assert rec["then"] == {"properties": {"quotes": {"minItems": 1}}}
     assert schema_sha(s) == hashlib.sha256(json.dumps(s, sort_keys=True).encode("utf-8")).hexdigest()
     assert schema_sha(None) == ""
+
+
+# Pinned so the openai-strict dialect (added 2026-09-05 for the OpenRouter HTTP 400 "Invalid
+# schema for response_format" failure) is proven non-disruptive to the schema every other
+# family already relies on: this sha was computed BEFORE that change and must not move.
+DEFAULT_SCHEMA_SHA = "be8cb3909d96d5bf03c9f16c541e21c37100fca0c8bc6357ef64421b62b65e59"
+
+
+def test_default_dialect_is_unchanged_byte_for_byte():
+    cb = load_codebook(load_domain(), "mapper-v2")
+    assert schema_sha(record_schema(cb)) == DEFAULT_SCHEMA_SHA
+    assert schema_sha(record_schema(cb, dialect="default")) == DEFAULT_SCHEMA_SHA
+
+
+def _walk_objects(node, path=""):
+    """Yield (path, node) for every object-typed schema node under `node`."""
+    if isinstance(node, dict):
+        for k in ("if", "then", "else"):
+            assert k not in node, f"unsupported keyword {k!r} survived at {path or '<root>'}"
+        if node.get("type") == "object" and "properties" in node:
+            yield path or "<root>", node
+        for k, v in node.items():
+            yield from _walk_objects(v, f"{path}/{k}")
+    elif isinstance(node, list):
+        for i, v in enumerate(node):
+            yield from _walk_objects(v, f"{path}[{i}]")
+
+
+def test_openai_strict_dialect_is_a_pure_structural_transform():
+    """Every OpenAI structured-output constraint the 2026-09-05 HTTP 400 named: no
+    if/then anywhere, additionalProperties false on every object, every property
+    required (optionality expressed as nullability instead)."""
+    cb = load_codebook(load_domain(), "mapper-v2")
+    default = record_schema(cb)
+    strict = record_schema(cb, dialect="openai-strict")
+    assert strict is not default and schema_sha(strict) != schema_sha(default)
+
+    objects = list(_walk_objects(strict))
+    assert objects, "the walk should find at least the wrapper and the record object"
+    for path, obj in objects:
+        assert obj["additionalProperties"] is False, f"additionalProperties not locked down at {path}"
+        assert set(obj["properties"]) == set(obj["required"]), f"not every property required at {path}"
+
+    rec = strict["properties"]["records"]["items"]
+    # enums intact: no vocabulary value was dropped or added by the transform
+    polarity = rec["properties"]["polarity"]
+    assert [o for o in polarity["anyOf"] if "enum" in o][0]["enum"] == ["favorable", "adverse", "mixed"]
+    assert {"type": "null"} in polarity["anyOf"]
+    who = rec["properties"]["who_was_letting"]
+    assert [o for o in who["anyOf"] if "enum" in o][0]["enum"] == [
+        "householder", "commercial_operator", "non_resident_owner", "unclear"]
+    assert {"type": "null"} in who["anyOf"]
+    # a field that was already required and non-nullable stays that way
+    assert rec["properties"]["case_id"]["type"] == ["integer", "string"]
+    assert rec["properties"]["relevant"]["type"] == "boolean"
+    assert rec["properties"]["quotes"]["type"] == "array"          # required, not nullable
+    # a field that was optional and already nullable just gains `required`
+    assert rec["properties"]["holding_summary"]["type"] == ["string", "null"]
+    # a field that was optional and NOT nullable (a plain array) becomes nullable too
+    assert rec["properties"]["doctrinal_concepts"]["type"] == ["array", "null"]
+    # the quote object nested two levels down is strict too
+    quote = rec["properties"]["quotes"]["items"]
+    assert quote["additionalProperties"] is False and set(quote["required"]) == {"text", "supports"}
+    assert quote["properties"]["supports"]["items"]["enum"] == \
+        rec["properties"]["quotes"]["items"]["properties"]["supports"]["items"]["enum"]
+
+
+def test_unknown_dialect_rejected():
+    cb = load_codebook(load_domain(), "mapper-v2")
+    with pytest.raises(ValueError, match="dialect"):
+        record_schema(cb, dialect="nonsense")
 
 
 def test_parse_accepts_the_wrapped_object_and_the_bare_array():
