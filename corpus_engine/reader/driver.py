@@ -20,6 +20,27 @@ COMPARE_FIELDS = ("relevant", "polarity", "characterization")
 OPENAI_STRICT_FAMILY = "openai"
 
 
+def schema_for(plan_schema: dict | None, cb: Codebook, pin: ModelPin, families: Mapping) -> dict | None:
+    """The schema THIS pin's request carries, and therefore the schema its cache key hashes.
+
+    Every family but openai gets `plan_schema` unchanged (whatever dialect the caller built
+    it with); an openai-family pin gets a fresh "openai-strict" schema derived from the same
+    codebook, so a family-openai unit and the same unit for another family only ever differ
+    by schema sha - never by plan identity or cache-key shape.
+
+    Module-level, not a `Reader` method, because two callers have to agree about it: the
+    driver, which sends the schema, and the offline cache-key derivation in
+    tools/measure_reader.py, which has to address what the driver sent. While the rule lived
+    only inside `Reader`, the annotator hashed the default dialect for every pin and found no
+    key at all for openai/gpt-5.6-terra - the manifest recorded an empty unit map for one of
+    five candidates and nothing said why (final-review I2)."""
+    if plan_schema is None:
+        return None
+    if families.get(pin.model_id, pin.family) == OPENAI_STRICT_FAMILY:
+        return record_schema(cb, dialect="openai-strict")
+    return plan_schema
+
+
 def plan_batch_extraction(batches, codebook_id: str, pin: ModelPin, budget: Budget, *, worker: str,
                           checker_pin: ModelPin | None = None, sample_pct: int = 10,
                           json_schema: dict | None = None, resume_tool: str = "") -> Plan:
@@ -170,18 +191,9 @@ class Reader:
         return load_codebook(self.domain, plan.codebook_id)
 
     def _schema_for(self, plan: Plan, cb: Codebook, pin: ModelPin) -> dict | None:
-        """The schema this pin's request carries. Every family but openai gets
-        `plan.json_schema` unchanged (whatever dialect the caller built it with); an
-        openai-family pin gets a fresh "openai-strict" schema derived from the same
-        codebook, so a family-openai unit and the same unit for another family only
-        ever differ by schema sha - never by plan identity or cache-key shape."""
-        if plan.json_schema is None:
-            return None
+        """This read's view of `schema_for`, with the domain's family map filled in."""
         families = self.domain.reader.families if self.domain is not None else {}
-        family = families.get(pin.model_id, pin.family)
-        if family == OPENAI_STRICT_FAMILY:
-            return record_schema(cb, dialect="openai-strict")
-        return plan.json_schema
+        return schema_for(plan.json_schema, cb, pin, families)
 
     def _ask(self, plan: Plan, cb: Codebook, unit: Unit, pin: ModelPin, worker: str, provider, state: _ReadState):
         texts = self.cases.fetch(unit.case_ids)
