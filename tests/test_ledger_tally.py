@@ -27,7 +27,7 @@ def test_counts_and_matrix_on_the_real_ledger(repo_root):
     assert hh.total.human_reviewed + hh.total.machine_only == 326    # 137 before the cycle-004 map admission   # 138 before reference v2
     m = v.matrix()
     pre = {k: t for k, t in m.cells.items() if k[0] == "pre-1860" and k[2] == "householder"}
-    assert sum(t.human_reviewed + t.machine_only for t in pre.values()) == 2
+    assert sum(t.human_reviewed + t.machine_only for t in pre.values()) == 15   # 2 before the cycle-004 map admission
     assert ("pre-1860", "south", "householder", "nights") in m.empty_cells(minimum=3, tier="either")
     assert "| era |" in m.render_markdown()
 
