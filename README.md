@@ -49,6 +49,45 @@ Every machine recommendation on the page (fuzzy verdicts, disagreement
 adjudications, re-map contests) is a recommendation only; the human's
 saved decision is the record.
 
+## Cycle map (slice 2)
+
+Reads a cycle's ranked candidate pool under a per-cell budget instead of one
+batch at a time. Each cell (an era x jurisdiction slice) stops on a yield
+floor -- no relevant accepted record in the last 3 completed batches (window
+3, threshold 2) -- or on its depth cap, whichever comes first; the cap is
+derived per cell from the 0.25 depth column of the era-depth table.
+
+```powershell
+$R = "cycle-004-shard-01"
+# Dry run: buys 2 units into the cache, prints parse/gate/schema/checker diagnostics
+.venv\Scripts\python tools\map_reader.py --cells "<era|jurisdiction>" --dry-run-batches 2
+# Field run (subscription reader, per-cell budget; resumable). --max-wall-seconds
+# stops the process cleanly and prints the resume command; re-running the identical
+# line resumes from the cache at no extra cost. A run can exceed --max-units by at
+# most 2 requests, once, when the last batch it begins needs to split and re-read.
+.venv\Scripts\python tools\map_reader.py --max-units 439 --max-wall-seconds 21600
+# Admission (offline; --dry-run first, always). --apply refuses a run id already
+# admitted unless --force.
+.venv\Scripts\python tools\admit_map.py --dry-run
+.venv\Scripts\python tools\admit_map.py --apply
+# Review queue: --check runs the checker (Codex) over 100% of the queued records;
+# --build renders the self-saving decision page. The controller publishes the page
+# as an Artifact and the user decides.
+.venv\Scripts\python tools\make_map_review.py --check --queue runs\$R\review-round-1.json --checker runs\$R\review-round-1-checker.json
+.venv\Scripts\python tools\make_map_review.py --build --queue runs\$R\review-round-1.json --checker runs\$R\review-round-1-checker.json --out-stem reports\review-queue-map-cycle-004
+# Decision apply: --dry-run first, always; --run-id guards against re-applying the
+# same saved page twice.
+.venv\Scripts\python tools\apply_map_review.py --saved <saved page> --checker runs\$R\review-round-1-checker.json --run-id map-cycle-004-round-1 --dry-run
+.venv\Scripts\python tools\apply_map_review.py --saved <saved page> --checker runs\$R\review-round-1-checker.json --run-id map-cycle-004-round-1
+```
+
+`runs\<run-id>\map-manifest.json` is tracked (small: per-cell progress, yield
+series, stop reasons, caps and flags); `runs\<run-id>\batches\` and
+`runs\<run-id>\extractions\` are gitignored, and the response cache under
+`data\reader\cache\` is never committed.
+
+Results: see `reports\map-cycle-004.md` (to be written).
+
 ## Layout
 
 Per spec §3. `selectors/selectors.yaml` is the load-bearing versioned artifact;

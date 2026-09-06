@@ -248,6 +248,33 @@ to compare against (human-adjudicated rows, plus rows the method already
 judged irrelevant). Sha-pinned in `domain.yaml` and never edited; a change
 means a new kit version.
 
+**Map**:
+One pass of the reader over a cycle's ranked candidate pool under a
+budget; produces accepted records and a map manifest.
+_Avoid_: run, crawl
+
+**Cell**:
+An era x jurisdiction slice of the candidate pool; the unit the budget is
+set on.
+
+**Yield**:
+Relevant accepted records per completed batch in a cell; the quantity the
+stop rule watches.
+
+**Admission**:
+Turning a map's accepted records into machine-only ledger records with
+reader basis.
+_Avoid_: import, load
+
+**Review queue**:
+The priority-ordered set of admitted records a human decides on in one
+round; six sections, capped.
+_Avoid_: backlog
+
+**Screen**:
+An optional relevance-only pass by the fallback reader over a cell's
+remainder.
+
 ## Measuring the method
 
 **Gold set**:
