@@ -1,0 +1,428 @@
+"""The map runner (spec section 6, D6, D9).
+
+One `plan_batch_extraction` per batch, through the same `Reader` the measurement used, so the
+gate, the cache, the split retry, the checker sample and the budget stop all behave exactly as
+they were measured. The runner adds only what is above one read: the order of the cells, when
+a cell has stopped paying, the per-PROCESS ceilings, and the manifest.
+
+Two things it deliberately does NOT do. It never writes the ledger - admission is a separate
+tool over the same cache (D9), so a map can be re-read and re-admitted independently. And it
+never treats the extraction files as authoritative: they are a derived convenience, gitignored,
+and Task 7 re-parses and re-gates from the response cache instead.
+
+Unit accounting (R11). `--max-units` is a ceiling on READER requests only, and it counts every
+reader request the process made - a split half, and a request that raised before it returned,
+are units that were spent. Checker (Codex) requests are counted separately as `checker_units`
+and are never capped by `--max-units`: sampling the reader at 10% is part of what a map IS
+(D5), so cutting the checker off to buy one more batch would be trading the evidence for the
+volume. Both counters come from a wrapper around the provider's `complete`, not from the
+`UnitResult`s: a cached split half is invisible in the outcome, and a request that raised
+leaves no `Response` at all.
+"""
+from __future__ import annotations
+import json
+import math
+import time
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Callable, Sequence
+
+from corpus_engine.mapper.cells import Cell
+from corpus_engine.mapper.yield_stop import THRESHOLD, WINDOW, CellProgress
+from corpus_engine.reader.cache import ResponseCache
+from corpus_engine.reader.driver import ENGINE_VERSION, plan_batch_extraction, schema_for
+from corpus_engine.reader.model import Budget, ModelPin, Request, effort_of
+from corpus_engine.reader.render import render_unit
+from corpus_engine.reader.schema import record_schema, schema_sha
+
+MAP_RESUME_TOOL = "tools\\map_reader.py"
+MANIFEST_SCHEMA = "map-manifest-v1"
+DEFAULT_MAX_WALL_SECONDS = 21600            # 6 h, the same window the measurement used
+UNIT_MARGIN_PCT = 10                        # headroom for split halves and checker units
+# The driver's stop kinds that mean "this process is done", as opposed to "this unit failed".
+PROCESS_STOPS = ("budget:units", "budget:wall", "budget:usd")
+# Headroom handed to the driver's own unit budget on top of the reader units still allowed.
+# The runner's cap is enforced BETWEEN batches (one batch per read), so the driver's budget is
+# only a runaway guard; it has to be loose enough that a unit's split halves and its checker
+# call are never cut off half way, which would record a checker as `failed:budget` for no
+# reason other than arithmetic (driver N2).
+DRIVER_UNIT_HEADROOM = 3
+# The `screen` block a run with no screen writes. Task 6 replaces `NullScreen` with the real
+# one and keeps this shape, so a consumer never has to branch on whether the screen exists.
+SCREEN_OFF = {"state": "off", "enabled": False, "max_usd": 0.0, "screened_units": 0, "hits": 0}
+CELL_SCREEN_OFF = {"state": "off"}
+
+
+@dataclass(frozen=True)
+class RunnerCaps:
+    max_units: int
+    max_wall_seconds: float
+
+
+@dataclass
+class MapOutcome:
+    cells: list
+    units: int
+    wall_seconds: float
+    stop: str
+    manifest: dict
+    manifest_path: Path
+    resume_command: str
+
+
+class NullScreen:
+    """The screen that is off (R2/R3). Task 6's `corpus_engine.mapper.screen.Screen` has the
+    same two methods, so `MapRunner` never asks whether it has a screen - only what its block
+    says. `maybe_run` returns nothing, which the runner reads as "the cell's screen block is
+    unchanged"; it is handed the cell's own `CellStop` because the screen triggers on
+    `yield_floor` with cap remaining and must never re-derive that verdict for itself."""
+
+    def maybe_run(self, cell, stop, **kw):
+        return None
+
+    def to_json(self) -> dict:
+        return dict(SCREEN_OFF)
+
+
+class _CountingProvider:
+    """Counts `complete` calls, including the ones that raise (R11).
+
+    Wrapping the provider is the only place every paid request is visible: a cache hit never
+    reaches it, a split half does, and a request that raised increments before the call so the
+    unit it cost is not lost. Everything else - `name`, `is_available`, `probe_model`,
+    `version` - is forwarded, and forwarded by absence too: `hasattr(wrapper, "probe_model")`
+    is False when the wrapped provider has none, which is what the driver's preflight asks."""
+
+    def __init__(self, inner, counts: dict, key: str):
+        self._inner, self._counts, self._key = inner, counts, key
+
+    def __getattr__(self, name):
+        return getattr(self._inner, name)
+
+    def complete(self, req):
+        self._counts[self._key] = self._counts.get(self._key, 0) + 1
+        return self._inner.complete(req)
+
+
+def default_max_units(cells: Sequence[Cell]) -> int:
+    """Every batch the caps allow, plus a tenth. The margin is not generosity: a unit whose
+    response will not parse buys two split halves, and a sampled unit buys a checker call."""
+    return math.ceil(sum(c.cap_batches for c in cells) * (1 + UNIT_MARGIN_PCT / 100))
+
+
+def relevant_accepted(unit) -> int:
+    """Accepted records this unit contributed that the reader called relevant. `accepted` is
+    the measurement's definition (spec section 2 as amended): parsed, gated, and back with a
+    decided `relevant` - status "ok" or "partial", never "missing"."""
+    return sum(1 for r in unit.records
+               if r.record.get("extraction_status") in ("ok", "partial")
+               and r.record.get("relevant") is True)
+
+
+def irrelevant_accepted(unit) -> int:
+    return sum(1 for r in unit.records
+               if r.record.get("extraction_status") in ("ok", "partial")
+               and r.record.get("relevant") is False)
+
+
+def unit_completed(unit) -> bool:
+    """Whether this batch counts toward the yield window (spec section 5): status ok, or
+    partial with at least one accepted record. A failed or wholly unparsed unit does not."""
+    if unit.status == "ok":
+        return True
+    if unit.status == "partial_parse":
+        return any(r.record.get("extraction_status") in ("ok", "partial") for r in unit.records)
+    return False
+
+
+def _quote(arg: str) -> str:
+    return f'"{arg}"' if (not arg or any(c in arg for c in ' \t|"')) else arg
+
+
+class MapRunner:
+    def __init__(self, reader_factory: Callable[[], object], cells: Sequence[Cell], *,
+                 batch_source, cache: ResponseCache, manifest_path: Path, caps: RunnerCaps,
+                 log=print, clock=time.time, codebook=None, pin: ModelPin | None = None,
+                 checker_pin: ModelPin | None = None, sample_pct: int = 10, run_id: str = "",
+                 extractions_dir: Path | None = None, window: int = WINDOW,
+                 threshold: int = THRESHOLD, depth_column: str = "0.25", screen=None,
+                 families=None, flags: dict | None = None, worker: str = "reader",
+                 read_timeout_seconds: int | None = None,
+                 resume_args: Sequence[str] | None = None):
+        self.reader_factory, self.cells = reader_factory, list(cells)
+        self.batch_source, self.cache = batch_source, cache
+        self.manifest_path = Path(manifest_path)
+        self.caps, self.log, self.clock = caps, log, clock
+        self.codebook, self.pin, self.checker_pin = codebook, pin, checker_pin
+        self.sample_pct, self.run_id = int(sample_pct), run_id
+        self.extractions_dir = Path(extractions_dir) if extractions_dir else None
+        self.window, self.threshold, self.depth_column = int(window), int(threshold), depth_column
+        self.screen = screen if screen is not None else NullScreen()
+        self.families = dict(families or {})
+        self.flags = dict(flags or {})
+        self.worker = worker
+        self.read_timeout_seconds = read_timeout_seconds
+        self.resume_args = list(resume_args or ())
+        self.schema = record_schema(codebook) if codebook is not None else None
+        self._reader = None                 # the last Reader built, for its domain / norm version
+
+    # ---- cache key, recorded so admission can re-derive the record offline ----------------
+    def _families(self) -> dict:
+        """The family map the DRIVER will use, whenever it can be seen, because the cache key
+        hashes the schema that map selects (`driver.schema_for`). A runner told one thing and
+        a reader configured with another would record keys that address nothing - the silent
+        failure `schema_for`'s docstring is about."""
+        dom = getattr(self._reader, "domain", None)
+        if dom is not None:
+            return dict(dom.reader.families)
+        return self.families
+
+    def _sent_schema(self):
+        if self.schema is None or self.codebook is None or self.pin is None:
+            return None
+        return schema_for(self.schema, self.codebook, self.pin, self._families())
+
+    def _cache_key(self, reader, unit) -> str:
+        texts = reader.cases.fetch(unit.case_ids)
+        prompt = render_unit(self.codebook, unit, texts, self.worker)
+        return ResponseCache.key(self.codebook.sha, self.pin, unit, prompt,
+                                 schema_sha=schema_sha(self._sent_schema()),
+                                 max_tokens=Request.max_tokens, effort=effort_of(self.pin))
+
+    def _write_extraction(self, batch_id: str, unit) -> None:
+        if self.extractions_dir is None:
+            return
+        self.extractions_dir.mkdir(parents=True, exist_ok=True)
+        doc = {"batch_id": batch_id, "run_id": self.run_id, "status": unit.status,
+               "records": [r.record for r in unit.records]}
+        (self.extractions_dir / f"{batch_id}.json").write_bytes(
+            (json.dumps(doc, indent=1, sort_keys=True) + "\n").encode("utf-8"))
+
+    def _budget(self, reader_units: int, t0: float) -> Budget:
+        """The PROCESS ceilings, expressed as this read's budget. `max_usd` stays None: the
+        subscription reports no per-call price and the driver refuses a usd budget over an
+        unpriced provider (`preflight:budget_unpriced`). `max_units` carries headroom over the
+        reader units still allowed - see DRIVER_UNIT_HEADROOM; the runner's own check between
+        batches is what actually enforces the cap."""
+        left = max(0, self.caps.max_units - reader_units)
+        wall = self.caps.max_wall_seconds - (self.clock() - t0)
+        return Budget(max_usd=None, max_units=left + DRIVER_UNIT_HEADROOM,
+                      max_wall_seconds=max(1.0, wall))
+
+    def _reader_for(self, counts: dict):
+        reader = self.reader_factory()
+        if not isinstance(getattr(reader, "provider", None), _CountingProvider):
+            reader.provider = _CountingProvider(reader.provider, counts, "reader")
+        if reader.checker is not None and not isinstance(reader.checker, _CountingProvider):
+            reader.checker = _CountingProvider(reader.checker, counts, "checker")
+        self._reader = reader
+        return reader
+
+    def _unit_doc(self, unit, key: str | None, disagreements) -> dict:
+        """One unit's row in the manifest (R6). The checker block is always present and says
+        `"none"` when the unit was not sampled, so "not sampled" and "sampled and silent" are
+        never the same reading."""
+        mine = [{"unit_id": d.unit_id, "case_id": d.case_id, "field": d.field,
+                 "reader_value": d.reader_value, "checker_value": d.checker_value}
+                for d in disagreements if d.unit_id == unit.unit_id]
+        resp = unit.response
+        return {
+            "unit_id": unit.unit_id, "status": unit.status, "cache_hit": bool(unit.cache_hit),
+            "retried": bool(unit.retried), "error": unit.error or "",
+            "records": len(unit.records),
+            "relevant_accepted": relevant_accepted(unit),
+            "irrelevant_accepted": irrelevant_accepted(unit),
+            "dropped_quotes": sum(r.dropped_quotes for r in unit.records),
+            "nulled_fields": sorted({f for r in unit.records for f in r.nulled_fields}),
+            "status_counts": {st: sum(1 for r in unit.records
+                                      if r.record.get("extraction_status") == st)
+                              for st in ("ok", "partial", "extraction-invalid", "missing")},
+            "finish_reason": (resp.finish_reason if resp else None),
+            "input_tokens": (resp.input_tokens if resp else None),
+            "output_tokens": (resp.output_tokens if resp else None),
+            "cache_key": key,
+            "checker": {"sampled": unit.checker is not None,
+                        "status": unit.checker or "none",
+                        "disagreements": mine},
+        }
+
+    def run(self, cells: Sequence[Cell] | None = None) -> MapOutcome:
+        cells = list(self.cells if cells is None else cells)
+        t0 = self.clock()
+        started = time.strftime("%Y-%m-%dT%H:%M:%S")
+        counts = {"reader": 0, "checker": 0}
+        totals = {"input_tokens": 0, "output_tokens": 0, "spend_usd": 0.0, "unpriced_requests": 0}
+        seen = {"provider": None, "provider_reported": set(), "tool_version": None}
+        progress: dict[str, CellProgress] = {}
+        records: dict[str, dict] = {}
+        stop = "done"
+        try:
+            for cell in cells:
+                prog = CellProgress(cell.key, cell.cap_batches)
+                progress[cell.key] = prog
+                acc = records.setdefault(cell.key, {
+                    **cell.to_json(), "units": [], "cases_read": 0, "irrelevant_accepted": 0,
+                    "records": 0, "failures": [], "units_retried_after_split": 0,
+                    "screen": dict(CELL_SCREEN_OFF), "wall_seconds": 0.0})
+                cell_t0 = self.clock()
+                for batch_id in cell.capped_ids:
+                    if prog.should_stop(window=self.window, threshold=self.threshold) is not None:
+                        break
+                    if counts["reader"] >= self.caps.max_units:
+                        stop = "budget:units"
+                        break
+                    if self.clock() - t0 >= self.caps.max_wall_seconds:
+                        stop = "budget:wall"
+                        break
+                    batch = self.batch_source.get(batch_id)
+                    reader = self._reader_for(counts)
+                    plan = plan_batch_extraction(
+                        [batch], self.codebook.id, self.pin, self._budget(counts["reader"], t0),
+                        worker=self.worker, checker_pin=self.checker_pin,
+                        sample_pct=self.sample_pct, json_schema=self.schema,
+                        resume_tool=MAP_RESUME_TOOL)
+                    out = reader.read(plan)
+                    if out.stop.kind.startswith("preflight:"):
+                        raise RuntimeError(f"preflight refused the map: {out.stop.kind} "
+                                           f"{out.stop.detail}")
+                    totals["input_tokens"] += out.input_tokens
+                    totals["output_tokens"] += out.output_tokens
+                    totals["spend_usd"] += out.spend_usd
+                    totals["unpriced_requests"] += out.manifest.get("unpriced_requests", 0)
+                    seen["provider"] = out.manifest.get("provider") or seen["provider"]
+                    seen["provider_reported"].update(
+                        p for p in (out.manifest.get("provider_reported") or []) if p != "None")
+                    seen["tool_version"] = seen["tool_version"] or out.manifest.get("tool_version")
+                    for u in out.units:
+                        key = None
+                        try:
+                            planned = next(p for p in plan.units if p.id == u.unit_id)
+                            key = self._cache_key(reader, planned)
+                        except Exception as exc:                       # noqa: BLE001
+                            self.log(f"{u.unit_id}: cache key not recorded ({exc})")
+                        acc["units"].append(self._unit_doc(u, key, out.disagreements))
+                        acc["records"] += len(u.records)
+                        acc["cases_read"] += len(u.records)
+                        acc["irrelevant_accepted"] += irrelevant_accepted(u)
+                        acc["units_retried_after_split"] += 1 if u.retried else 0
+                        if u.status != "ok":
+                            acc["failures"].append({"unit_id": u.unit_id, "status": u.status,
+                                                    "error": u.error})
+                        self._write_extraction(u.unit_id, u)
+                        prog.add(u.unit_id, relevant_accepted(u), unit_completed(u))
+                        self.log(f"{cell.key} {u.unit_id}: {relevant_accepted(u)} relevant, "
+                                 f"{counts['reader']}/{self.caps.max_units} units")
+                    if out.stop.kind in PROCESS_STOPS:
+                        stop = out.stop.kind
+                        break
+                acc["wall_seconds"] = round(self.clock() - cell_t0, 1)
+                block = self.screen.maybe_run(
+                    cell, prog.should_stop(window=self.window, threshold=self.threshold),
+                    batch_source=self.batch_source, progress=prog)
+                if block:
+                    acc["screen"] = dict(block)
+                if stop in PROCESS_STOPS:
+                    break
+        finally:
+            manifest = self._manifest(cells, progress, records, counts, totals, seen, t0,
+                                      started, stop)
+            self.manifest_path.parent.mkdir(parents=True, exist_ok=True)
+            self.manifest_path.write_bytes(
+                (json.dumps(manifest, indent=1, sort_keys=True) + "\n").encode("utf-8"))
+            self.log(f"manifest -> {self.manifest_path}")
+            self.log(f"resume: {manifest['resume_command']}")
+        return MapOutcome([manifest["cells"][k] for k in manifest["cell_order"]], counts["reader"],
+                          round(self.clock() - t0, 1), stop, manifest, self.manifest_path,
+                          manifest["resume_command"])
+
+    def resume_command(self) -> str:
+        """The SAME invocation, verbatim. Resuming a map is re-running the command that
+        started it: every unit already in the response cache is replayed for free, so the
+        only thing a resume buys is what the last process did not reach."""
+        base = f".venv\\Scripts\\python {MAP_RESUME_TOOL}"
+        return f"{base} {' '.join(_quote(a) for a in self.resume_args)}" if self.resume_args else base
+
+    def _cell_doc(self, acc: dict, prog: CellProgress) -> dict:
+        """A cell's manifest entry. The per-unit rows are the single record of what happened;
+        every aggregate below is derived from them, so a cell's `checker_sampled` can never
+        disagree with the unit that says it was sampled."""
+        doc = dict(acc)
+        doc.update(prog.to_json(window=self.window, threshold=self.threshold))
+        units = acc["units"]
+        doc["cache_keys"] = {u["unit_id"]: u["cache_key"] for u in units if u["cache_key"]}
+        doc["checker_sampled"] = [u["unit_id"] for u in units if u["checker"]["sampled"]]
+        doc["checker_status"] = {u["unit_id"]: u["checker"]["status"] for u in units
+                                 if u["checker"]["sampled"]}
+        doc["checker_disagreements"] = [d for u in units for d in u["checker"]["disagreements"]]
+        doc["checker_units"] = len(doc["checker_sampled"])
+        return doc
+
+    def _manifest(self, cells, progress, records, counts, running, seen, t0, started,
+                  stop) -> dict:
+        cell_docs = {}
+        for cell in cells:
+            if cell.key not in records:
+                continue
+            cell_docs[cell.key] = self._cell_doc(records[cell.key], progress[cell.key])
+        all_units = [u for c in cell_docs.values() for u in c["units"]]
+        totals = {
+            "cells_read": len(cell_docs),
+            "cells_stopped_on_yield": sum(1 for c in cell_docs.values()
+                                          if (c.get("stop") or {}).get("kind") == "yield_floor"),
+            "cells_stopped_on_cap": sum(1 for c in cell_docs.values()
+                                        if (c.get("stop") or {}).get("kind") == "cap_reached"),
+            "batches_attempted": sum(c["batches_attempted"] for c in cell_docs.values()),
+            "batches_completed": sum(c["batches_completed"] for c in cell_docs.values()),
+            "cases_read": sum(c["cases_read"] for c in cell_docs.values()),
+            "records": sum(c["records"] for c in cell_docs.values()),
+            "units": counts["reader"],
+            "checker_units": counts["checker"],
+            "relevant_accepted": sum(c["relevant_accepted"] for c in cell_docs.values()),
+            "irrelevant_accepted": sum(c["irrelevant_accepted"] for c in cell_docs.values()),
+            "failed_units": sum(len(c["failed_units"]) for c in cell_docs.values()),
+            "checker_sampled": sum(len(c["checker_sampled"]) for c in cell_docs.values()),
+            "checker_disagreements": sum(len(c["checker_disagreements"])
+                                         for c in cell_docs.values()),
+            "units_retried_after_split": sum(c["units_retried_after_split"]
+                                             for c in cell_docs.values()),
+            "wall_seconds": round(self.clock() - t0, 1),
+            "input_tokens": running["input_tokens"],
+            "output_tokens": running["output_tokens"],
+            "spend_usd": round(running["spend_usd"], 6),
+            "unpriced_requests": running["unpriced_requests"],
+        }
+        return {
+            "schema": MANIFEST_SCHEMA,
+            "run_id": self.run_id,
+            "cycle": self.run_id.split("-shard")[0],
+            "tool": MAP_RESUME_TOOL.replace("\\", "/"),
+            "resume_command": self.resume_command(),
+            "started_at": started,
+            "ended_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
+            "engine_version": ENGINE_VERSION,
+            "reader_pin": self.pin.label if self.pin else None,
+            "checker_pin": self.checker_pin.label if self.checker_pin else None,
+            "provider": seen["provider"],
+            "provider_reported": sorted(seen["provider_reported"]),
+            "tool_version": seen["tool_version"],
+            "codebook_id": self.codebook.id if self.codebook else None,
+            "codebook_sha": self.codebook.sha if self.codebook else None,
+            "schema_sha": schema_sha(self._sent_schema()),
+            "store_norm_version": getattr(self._reader, "norm", None),
+            "effort": effort_of(self.pin) if self.pin else "",
+            # What the pool actually handed the reader, not a constant that could drift from
+            # it: the widest unit this process read, or null if it read nothing.
+            "batch_size": max((u["records"] for u in all_units), default=None),
+            "max_tokens": Request.max_tokens,
+            "read_timeout_seconds": self.read_timeout_seconds,
+            "sample_pct": self.sample_pct,
+            "flags": {"window": self.window, "threshold": self.threshold,
+                      "depth_column": self.depth_column,
+                      "max_units": self.caps.max_units,
+                      "max_wall_seconds": self.caps.max_wall_seconds, **self.flags},
+            "cell_order": list(cell_docs),
+            "cells": cell_docs,
+            "totals": totals,
+            "stop": stop,
+            "screen": self.screen.to_json(),
+        }
