@@ -185,6 +185,39 @@ def test_check_mode_runs_the_checker_over_the_queue_and_records_the_path(tmp_pat
     assert saved["checker_results"] == out_path.as_posix()
 
 
+def test_check_mode_loads_the_domains_own_codebook_not_a_hardcoded_version(tmp_path, monkeypatch):
+    """task-8-review finding 1: `main()`'s `--check` branch hardcoded
+    `load_codebook(domain, "mapper-v3")` instead of reading `domain.reader.codebook`, unlike
+    `tools/map_reader.py`'s `load_codebook(dom, dom.reader.codebook)` - a latent drift risk
+    if the codebook id ever changes. It must load whatever `domain.reader.codebook` names."""
+    import corpus_engine.reader.codebook as codebook_mod
+    from corpus_engine.domain import load_domain
+    from corpus_engine.reader.model import ModelPin
+
+    domain = load_domain()
+    seen = []
+    real_load_codebook = codebook_mod.load_codebook
+
+    def _spy(dom, version):
+        seen.append(version)
+        return real_load_codebook(dom, version)
+
+    monkeypatch.setattr(codebook_mod, "load_codebook", _spy)
+    monkeypatch.setattr(mk, "default_checker",
+                        lambda dom: ((lambda: None), ModelPin("codex-cli", "openai", "codex-cli"),
+                                    "stub"))
+    monkeypatch.setattr(mk, "run_check", lambda *a, **kw: {})
+
+    doc = _queue_doc()
+    queue_path = tmp_path / "review-round-1.json"
+    queue_path.write_text(json.dumps(doc), encoding="utf-8")
+
+    assert mk.main(["--check", "--queue", str(queue_path)]) == 0
+    # The point is not that this differs from "mapper-v3" today (it doesn't) - it is that the
+    # call reads it from the domain rather than a hardcoded literal.
+    assert seen == [domain.reader.codebook]
+
+
 def test_the_queue_manifest_reads_back_as_the_round_that_was_written():
     doc = _queue_doc(disagreements=[{"unit_id": "b1", "case_id": 702, "field": "polarity",
                                      "reader_value": "mixed", "checker_value": "adverse"}])

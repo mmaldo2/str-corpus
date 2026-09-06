@@ -230,7 +230,7 @@ def main(argv=None) -> int:
         n = sum(len(v) for v in (doc.get("sections") or {}).values())
         budget = Budget(max_units=a.max_units if a.max_units is not None else n)
         factory, pin, why = default_checker(domain)
-        codebook = load_codebook(domain, "mapper-v3")
+        codebook = load_codebook(domain, domain.reader.codebook)
         print(f"checker: {why}; {n} queued records at 100%", flush=True)
         results = run_check(doc, checker_out, reader_factory=factory, codebook=codebook,
                             checker_pin=pin, budget=budget, manifest_path=queue_path)
