@@ -418,6 +418,10 @@ computed by an older version of `score_candidate`.
 9. **The served provider is still a measured output, not an input**, for pinned
    open-weight candidates (v1 Concern 3). Only GLM was open-weight here; it
    resolved to AkashML at fp8, recorded in the pin label.
+- **`cache_key_coverage.cache_files` counts this measurement's distinct cache files**, not
+  the shared cache directory's total, since the directory now holds two measurements
+  (v1: 364 files; v2 adds its own). The v1 manifest reproduces its original `{364, 0}`
+  under this definition; before the final fix wave the field meant the directory total.
 
 ## What changed since v1, and what it did
 

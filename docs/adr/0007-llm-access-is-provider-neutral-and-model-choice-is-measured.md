@@ -168,7 +168,7 @@ same 195 cases, relabelled: `claude-cli/claude-sonnet-5` and
 `z-ai/glm-5.3` (AkashML, fp8) and `google/gemini-3.7-flash` on OpenRouter, all at
 effort `low`, batch size 18, `max_tokens` 64000, read timeout 1500 s. $6.91 of a
 $10 ceiling (lowered from D5's $15 before any purchase, because the OpenRouter
-balance was $10.49); 45 subscription units and ~47 minutes of wall clock, charged
+balance was $10.49); 46 subscription units and ~47 minutes of wall clock, charged
 nothing.
 
 **Winner: `google/gemini-3.7-flash`, macro 0.8363, on the shortfall rule.** The

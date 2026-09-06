@@ -124,7 +124,7 @@ review page publishable as an artifact; reviewer identity recorded.
      done.** Five finalists over kit v2 (same 195 cases, relabelled) under
      `mapper-v3`: two on the Claude subscription through the CLI, three on
      OpenRouter. $6.91 of a $10 ceiling (lowered from D5's $15 before any
-     purchase because the balance was $10.49), plus 45 subscription units and
+     purchase because the balance was $10.49), plus 46 subscription units and
      ~47 min of wall clock at no charge.
      **Winner `google/gemini-3.7-flash`** (fidelity 1.0000, macro 0.8363,
      $0.0051 per accepted record), now set as `reader.model` in `domain.yaml`.
