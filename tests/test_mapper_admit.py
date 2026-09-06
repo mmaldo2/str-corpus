@@ -212,12 +212,17 @@ def test_the_pre_amendment_single_string_key_still_admits(tmp_path, fixture_dir,
 
 
 # ------------------------------------------------------------------- the checker's verdict -
-def test_checker_notes_carry_the_disagreement_and_the_agreement(manifest):
+def test_checker_notes_carry_the_disagreement_and_the_sampling(manifest):
     by_unit = {UNIT_NY: (101, 102)}
     notes = checker_notes(manifest, case_ids_by_unit=by_unit)
     assert notes[101] == "checker:codex-cli: polarity 'favorable' vs 'adverse'"
-    # a case in a SAMPLED unit the checker did not contradict is an agreement, not silence
-    assert notes[102] == "checker:codex-cli: agreed on relevant, polarity, characterization"
+    # A case in a SAMPLED unit with nothing recorded against it gets the claim the manifest
+    # can actually support. It must NOT say the checker agreed: `checker_status == "ok"` means
+    # the response parsed, not that it carried a record for this case, and `driver.read` skips
+    # the cases the checker omitted - so "agreed" would assert a read that never happened.
+    assert notes[102] == ("checker:codex-cli: unit sampled, no disagreement recorded on "
+                          "relevant, polarity, characterization")
+    assert "agreed" not in notes[102]
     assert 201 not in notes and 202 not in notes          # that unit was never sampled
     assert checker_notes(manifest) == {101: notes[101]}   # without the case map: the contra only
 
@@ -234,6 +239,8 @@ def test_the_checker_verdict_reaches_review_notes(manifest, derive):
     notes = [p.new for p in ps if p.case_id == 101 and p.field == "review.notes"]
     assert notes == ["reader: boarders by the night",
                      "checker:codex-cli: polarity 'favorable' vs 'adverse'"]
+    sampled = [p.new for p in ps if p.case_id == 102 and p.field == "review.notes"]
+    assert sampled == []          # an irrelevant read carries no notes at all (section 8)
 
 
 # ------------------------------------------------------------------------- the patch shapes -
@@ -303,6 +310,48 @@ def test_counts_by_cell_are_what_the_dry_run_prints(manifest, derive):
     got = counts_by_cell(derive(manifest))
     assert got[CELL_NY] == {"records": 2, "relevant": 1, "irrelevant": 1}
     assert got[CELL_OHIO] == {"records": 2, "relevant": 2, "irrelevant": 0}
+
+
+def test_the_admitted_identity_is_the_stores_not_the_models(manifest, derive, fixture_dir):
+    """The Critical of fix round 1. `cite`, `court`, `jurisdiction` and `year` are optional,
+    nullable, model-emitted schema properties the quote gate never touches, so a hallucinated
+    citation would otherwise become the record's identity in the ledger - and `jurisdiction`
+    and `year` are what the published counts and the era analysis slice on. In the fixture the
+    reader answered for 102 with a Cal. 1899 citation and for 201 with an Ind. 1802 one; the
+    store says Ohio 1954 and Ohio 1941."""
+    store = json.loads((fixture_dir / "cases.json").read_text(encoding="utf-8"))
+    admitted = _by_case(derive(manifest))
+    for cid in (101, 102, 201, 202):
+        rec, want = admitted[cid].record, store[str(cid)]
+        assert (rec["cite"], rec["court"], rec["jurisdiction"], rec["year"]) == (
+            want["cite"], want["court"], want["jurisdiction"], want["year"]), cid
+    # ... and the model's own answer really did contradict it, so this is not a tautology
+    cached = json.loads(json.loads(
+        (fixture_dir / "cache" / "key-001.json").read_text(encoding="utf-8"))["text"])
+    assert next(r for r in cached["records"] if r["case_id"] == 102)["jurisdiction"] == "Cal."
+
+
+def test_the_bookkeeping_fields_are_stamped_not_carried_through(manifest, derive):
+    """`worker`, `batch_id` and `schema_version` say what admission KNOWS. The fixture's 102
+    claims worker "codex", batch "some-other-batch" and schema_version 99."""
+    for cid, unit in ((101, UNIT_NY), (102, UNIT_NY), (201, UNIT_OHIO), (202, UNIT_OHIO)):
+        rec = _by_case(derive(manifest))[cid].record
+        assert (rec["worker"], rec["batch_id"], rec["schema_version"]) == ("reader", unit, 3)
+
+
+def test_the_identity_override_reaches_the_admit_body(manifest, derive):
+    body = next(p.new for p in patches_for(derive(manifest), manifest=manifest)
+                if p.case_id == 102)
+    assert body["jurisdiction"] == "Ohio" and body["year"] == 1954
+    assert body["cite"] == "44 Ohio St. 12" and body["schema_version"] == 3
+    assert set(body) <= set(IDENTITY_FIELDS)
+
+
+def test_the_worker_comes_from_the_manifest_when_it_records_one(manifest, derive):
+    """`MapRunner.worker` is configurable and the manifest does not yet record it, so the
+    stamp falls back to "reader"; when a manifest does carry one, that is what is stamped."""
+    got = _by_case(derive({**manifest, "worker": "screener"}))
+    assert got[101].record["worker"] == "screener"
 
 
 def test_admitted_record_is_frozen():
@@ -398,3 +447,79 @@ def test_the_tool_refuses_a_codebook_that_has_moved_since_the_map(admit_map, tmp
     with pytest.raises(SystemExit) as exc:
         admit_map.main(["--dry-run", "--manifest", str(p)])
     assert "different codebook" in str(exc.value)
+
+
+# The store the tool's own `--db` opens. The fixture cases are synthetic, so the rehearsal
+# needs a store that holds them; `store.connect` over a scratch file plus the four rows is
+# the whole dependency, and it is what makes `main()` runnable end to end (finding 5).
+def _scratch_db(tmp_path, fixture_dir):
+    from corpus_engine import store
+    db = tmp_path / "cases.db"
+    conn = store.connect(db)
+    conn.execute("""CREATE TABLE IF NOT EXISTS cases (
+                      case_id INTEGER PRIMARY KEY, cite TEXT, name_abbreviation TEXT,
+                      court TEXT, jurisdiction TEXT, decision_year INTEGER,
+                      raw_text TEXT, norm_text TEXT, page_map TEXT)""")
+    for cid, c in json.loads((fixture_dir / "cases.json").read_text(encoding="utf-8")).items():
+        norm, _o = normalize(c["raw_text"])
+        conn.execute("INSERT OR REPLACE INTO cases VALUES (?,?,?,?,?,?,?,?,?)",
+                     (int(cid), c["cite"], c["name"], c["court"], c["jurisdiction"], c["year"],
+                      c["raw_text"], norm, json.dumps([[0, "1"]])))
+    conn.commit()
+    conn.close()
+    return db
+
+
+def _rehearsal_argv(tmp_path, fixture_dir, *extra):
+    return ["--manifest", str(fixture_dir / "manifest.json"),
+            "--batches", str(fixture_dir / "batches"),
+            "--cache", str(fixture_dir / "cache"),
+            "--db", str(_scratch_db(tmp_path, fixture_dir)),
+            "--ledger", str(tmp_path / "ledger"), *extra]
+
+
+def test_the_tool_runs_end_to_end_on_a_dry_run_and_writes_nothing(admit_map, tmp_path,
+                                                                  fixture_dir, capsys):
+    """`main()`'s happy path, over the fixture map and a scratch ledger - the rehearsal Task 9
+    needs before it touches the real one."""
+    assert admit_map.main(_rehearsal_argv(tmp_path, fixture_dir, "--dry-run")) == 0
+    out = capsys.readouterr().out
+    assert "4 accepted records -> 29 patches" in out
+    assert f"  {CELL_NY}: 2 records (1 relevant, 1 irrelevant)" in out
+    assert f"  {CELL_OHIO}: 2 records (2 relevant, 0 irrelevant)" in out
+    assert "29 would apply, 0 already present (dry run)" in out
+    assert "before: relevant 0 records (0 human-reviewed, 0 machine-only" in out
+    assert "after:  relevant 3 records (0 human-reviewed, 3 machine-only" in out
+    assert not (tmp_path / "ledger").exists()          # nothing was written, not even the dir
+
+
+def test_the_tool_applies_and_then_refuses_the_same_run_id_but_never_a_dry_run(admit_map,
+                                                                               tmp_path,
+                                                                               fixture_dir,
+                                                                               capsys):
+    assert admit_map.main(_rehearsal_argv(tmp_path, fixture_dir, "--apply")) == 0
+    assert "29 applied, 0 already present; replay_ok=True" in capsys.readouterr().out
+    assert (tmp_path / "ledger" / "patches.jsonl").exists()
+    with pytest.raises(SystemExit) as exc:
+        admit_map.main(_rehearsal_argv(tmp_path, fixture_dir, "--apply"))
+    assert "already has patches in the ledger" in str(exc.value)
+    assert "cycle-004-shard-01" in str(exc.value)
+    # --force gets past it, and an identical re-admission is skipped patch by patch anyway
+    assert admit_map.main(_rehearsal_argv(tmp_path, fixture_dir, "--apply", "--force")) == 0
+    assert "0 applied, 29 already present" in capsys.readouterr().out
+    # ... and a dry run is NEVER refused: inspecting an admitted run must not need --force
+    assert admit_map.main(_rehearsal_argv(tmp_path, fixture_dir, "--dry-run")) == 0
+
+
+def test_the_guard_asks_about_the_manifests_run_id_not_the_flags(admit_map, tmp_path,
+                                                                 fixture_dir, manifest, capsys):
+    """`--manifest` may point at another run's manifest, and `basis_for` takes the run id from
+    THERE. Keying the guard off `--run-id` would ask the ledger about a run the patches do not
+    carry, silently disarming the duplicate-admission refusal."""
+    admit_map.main(_rehearsal_argv(tmp_path, fixture_dir, "--apply"))
+    capsys.readouterr()
+    argv = _rehearsal_argv(tmp_path, fixture_dir, "--apply", "--run-id", "cycle-009-shard-07")
+    with pytest.raises(SystemExit) as exc:
+        admit_map.main(argv)
+    assert "cycle-004-shard-01" in str(exc.value) and "cycle-009" not in str(exc.value)
+    assert "the manifest's run id is 'cycle-004-shard-01'" in capsys.readouterr().out

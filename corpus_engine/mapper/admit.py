@@ -24,6 +24,15 @@ judgment with provenance (D3), and what a later human decision supersedes. The s
 put on the `admit` patch too, because `fold._record_admitting_prompt` keys the quote-support
 rule off the record's FIRST admit patch carrying a prompt_version: an admit under a bare basis
 would leave a mapper-v3 record folding under the mapper-v1 three-field cascade (D7).
+
+Only the JUDGMENT is the model's. The admitted record's identity - `cite`, `court`,
+`jurisdiction`, `year` - is taken from the store row the gate ran against, never from the
+record the reader wrote. Every one of those is an optional, nullable, model-emitted property of
+the mapper-v3 schema that the quote gate does not touch, so a hallucinated citation, a
+misremembered court, or a `jurisdiction` that disagrees with the cell the batch came from would
+otherwise become that record's identity in the ledger - and `jurisdiction` and `year` are
+exactly the fields the published counts and the era analysis slice on. `worker`, `batch_id` and
+`schema_version` are stamped from what admission KNOWS for the same reason.
 """
 from __future__ import annotations
 from dataclasses import dataclass
@@ -53,9 +62,22 @@ IDENTITY_FIELDS = ("case_id", "schema_version", "cite", "court", "jurisdiction",
 # segment it does not know. Admission is therefore only defined for a mapper-v3 map: a v1/v2
 # manifest is refused here rather than admitted under a support rule it was never read under.
 CODEBOOK_ID = "mapper-v3"
+# Every record admitted here is by construction a mapper-v3 record, so the version is stamped
+# rather than carried through from whatever the model happened to put in the field.
+SCHEMA_VERSION = 3
 WHY = "map admission"
-# The runner's worker, needed only to re-render a prompt for the pre-amendment key derivation.
+# The worker the map was read under. It is what the record is stamped with, and it is what the
+# pre-amendment key derivation has to re-render the prompt as. LIMITATION: the manifest does not
+# record the worker (`MapRunner.worker` is constructor-configurable and `_manifest` omits it), so
+# a map read under any other worker would be stamped wrongly here and, on the compatibility path
+# only, would derive half keys that address nothing. `worker_of` reads the manifest first so the
+# fix is a manifest field, not a change here.
 WORKER = "reader"
+
+
+def worker_of(manifest: Mapping) -> str:
+    """The worker the map was read under: the manifest's own, when it records one (see WORKER)."""
+    return str(manifest.get("worker") or WORKER)
 
 
 def prompt_version(codebook_sha: str) -> str:
@@ -112,31 +134,41 @@ def _cell_units(manifest: Mapping):
 
 
 def checker_notes(manifest: Mapping, *, case_ids_by_unit: Mapping | None = None) -> dict[int, str]:
-    """One `review.notes` line per case the checker actually read (D8).
+    """One `review.notes` line per case in a unit the checker was sampled on (D8).
 
-    A disagreement names the field and both answers; a case in a sampled unit the checker
-    returned cleanly and did not contradict is recorded as an agreement rather than as
-    silence, because "the checker said nothing about this case" and "the checker read this
-    case and agreed" are the two readings a sample exists to separate. A unit whose checker
-    call FAILED is neither: it is not in `checker_status` as "ok", so its cases get no note.
+    A disagreement names the field and both answers. A case in a sampled unit with no
+    disagreement against it gets the WEAKER claim the manifest can actually support: the unit
+    was sampled and nothing was recorded against this case. It deliberately does not say the
+    checker agreed - `checker_status == "ok"` means the checker's response PARSED, not that it
+    carried a record for every case in the unit, and `driver.read` only ever compares the cases
+    the checker returned (`cr = cby.get(rr.case_id); if cr is None: continue`). A case the
+    checker silently omitted therefore produces no disagreement, and calling that agreement
+    would put a provenance claim about a read that never happened into the ledger under a
+    reader basis. Saying "the checker read this case and agreed" needs the runner to record
+    which cases the checker returned per unit; until the manifest carries that, this is the
+    true statement.
 
-    `case_ids_by_unit` is what makes the agreement line possible - the manifest records which
+    A unit whose checker call FAILED gets nothing at all: it is not in `checker_status` as
+    "ok", so "the checker never answered" stays distinct from both of the above.
+
+    `case_ids_by_unit` is what makes the sampled line possible - the manifest records which
     UNITS were sampled, not which cases they held. Called without it (the shape T8 asks for)
     the result is the disagreements alone."""
     pin = str(manifest.get("checker_pin") or "checker").partition("@")[0]
     by_case: dict[int, list[str]] = {}
-    agreed_units: list[str] = []
+    sampled_units: list[str] = []
     for cell in (manifest.get("cells") or {}).values():
         for d in cell.get("checker_disagreements") or ():
             by_case.setdefault(int(d["case_id"]), []).append(
                 f"{d['field']} {d['reader_value']!r} vs {d['checker_value']!r}")
         # `checker_status` is written for sampled units only, so its keys ARE the sample.
-        agreed_units += [u for u, st in (cell.get("checker_status") or {}).items() if st == "ok"]
+        sampled_units += [u for u, st in (cell.get("checker_status") or {}).items() if st == "ok"]
     out = {cid: f"checker:{pin}: " + "; ".join(parts) for cid, parts in by_case.items()}
-    agreement = f"checker:{pin}: agreed on {', '.join(COMPARE_FIELDS)}"
-    for unit_id in agreed_units:
+    sampled = (f"checker:{pin}: unit sampled, no disagreement recorded on "
+               f"{', '.join(COMPARE_FIELDS)}")
+    for unit_id in sampled_units:
         for cid in (case_ids_by_unit or {}).get(unit_id, ()):
-            out.setdefault(int(cid), agreement)
+            out.setdefault(int(cid), sampled)
     return out
 
 
@@ -166,7 +198,7 @@ def _derived_half_keys(manifest: Mapping, unit: Unit, halves, *, codebook, pin, 
         if not half.case_ids:
             out.append("")
             continue
-        prompt = render_unit(codebook, half, cases.fetch(half.case_ids), WORKER)
+        prompt = render_unit(codebook, half, cases.fetch(half.case_ids), worker_of(manifest))
         out.append(ResponseCache.key(codebook.sha, pin, half, prompt,
                                      schema_sha=schema_sha(sent), max_tokens=max_tokens,
                                      effort=effort))
@@ -180,6 +212,22 @@ def _cached_text(cache: ResponseCache, key: str) -> str | None:
     return None if resp is None else resp.text
 
 
+def _with_identity(record: Mapping, case, unit_id: str, worker: str) -> dict:
+    """The gated record with its identity replaced by what admission KNOWS.
+
+    `cite`, `court`, `jurisdiction` and `year` come from the store row the gate just verified
+    the quotes against; `worker`, `batch_id` and `schema_version` from the map itself. All
+    seven are optional, nullable, model-emitted properties of the mapper-v3 schema that the
+    gate never touches, so leaving them as the reader wrote them would let a hallucinated
+    citation or a `jurisdiction` that contradicts the cell become the record's identity in the
+    ledger - and `jurisdiction` and `year` are what the published counts and the era analysis
+    slice on. The model's judgment is still entirely the model's; only its bookkeeping is
+    overridden."""
+    return {**record, "cite": case.cite, "court": case.court, "jurisdiction": case.jurisdiction,
+            "year": case.year, "worker": worker, "batch_id": unit_id,
+            "schema_version": SCHEMA_VERSION}
+
+
 def records_from_manifest(manifest: Mapping, *, batch_source, cache: ResponseCache, codebook,
                           cases, pin, families: Mapping) -> list[AdmittedRecord]:
     """Every accepted record this map bought, re-parsed and re-gated from the cache.
@@ -189,7 +237,9 @@ def records_from_manifest(manifest: Mapping, *, batch_source, cache: ResponseCac
     cache entry is gone is skipped rather than guessed at - admission under-claims rather than
     invents. `accepted` is the measurement's definition (spec section 2 as amended): a record
     that parsed, gated, and came back with a DECIDED `relevant`; a missing stub is neither
-    admitted nor counted as an irrelevant read."""
+    admitted nor counted as an irrelevant read.
+
+    The record that comes out carries the STORE's identity, not the model's (`_with_identity`)."""
     judged = tuple(codebook.judged_fields)
     units: list[tuple[str, str, list[str], dict]] = []
     case_ids_by_unit: dict[str, tuple[int, ...]] = {}
@@ -201,10 +251,12 @@ def records_from_manifest(manifest: Mapping, *, batch_source, cache: ResponseCac
         case_ids_by_unit[unit_id] = tuple(int(c["case_id"]) for c in batch["cases"])
     notes = checker_notes(manifest, case_ids_by_unit=case_ids_by_unit)
 
+    worker = worker_of(manifest)
     out: list[AdmittedRecord] = []
     for cell_key, unit_id, keys, batch in units:
         unit = _unit_for(batch)
         texts = cases.fetch(unit.case_ids)
+        by_case = {t.case_id: t for t in texts}
         recs = parse_records(_cached_text(cache, keys[0]) or "", unit.case_ids)
         key_of = dict.fromkeys(unit.case_ids, keys[0])
         if recs is None:
@@ -226,7 +278,9 @@ def records_from_manifest(manifest: Mapping, *, batch_source, cache: ResponseCac
             if res.record.get("relevant") is None:
                 continue                        # no decided relevance: not an accepted record
             out.append(AdmittedRecord(res.case_id, cell_key, unit_id, key_of[res.case_id],
-                                      res.record, notes.get(res.case_id, "")))
+                                      _with_identity(res.record, by_case[res.case_id], unit_id,
+                                                     worker),
+                                      notes.get(res.case_id, "")))
     return out
 
 
