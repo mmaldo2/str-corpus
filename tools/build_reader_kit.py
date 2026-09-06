@@ -21,10 +21,10 @@ from corpus_engine.domain import load_domain                                    
 from corpus_engine.ledger import open_ledger                                     # noqa: E402
 from corpus_engine.ranker.labels import labelled_reads, read_extractions         # noqa: E402
 from corpus_engine.reader.measure import KIT_SEED, POLARITY_VALUES, kit_sample_50  # noqa: E402
+from corpus_engine.reader.schema import FLAG_PREFIX                              # noqa: E402
 from corpus_engine.reader.sources import StoreCaseSource                         # noqa: E402
 
 BATCH_SIZE = 18
-FLAG_PREFIX = "needs-review:"
 
 
 def case_ids_from(kit_path: Path) -> list[dict]:
