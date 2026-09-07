@@ -609,3 +609,16 @@ def test_courtlistener_url_matches_the_pages_own_encoding():
     """The same %22-quoted-cite search the review page's client-side `clq` builds."""
     url = ec.courtlistener_url("119 N.J.L. 61")
     assert url == "https://www.courtlistener.com/?q=%22119%20N.J.L.%2061%22"
+
+
+def test_an_unsure_decision_does_not_set_human_adjudicated_status():
+    """D3: unsure flags the field for a human and leaves the record machine-only; only keep,
+    adopt and set carry the record into the human-reviewed tier."""
+    import tools.apply_map_review as ap
+    unsure = ap.patches_for([_d(840, "polarity", "unsure")], {840: _rec(840)}, "mmaldo2",
+                            assisted_by="GPT Astra")
+    assert not [p for p in unsure if p.field == "review.status"]
+    assert any("left unsure, not confirmed" in str(p.new) for p in unsure if p.field == "review.notes")
+    kept = ap.patches_for([_d(841, "polarity", "keep")], {841: _rec(841)}, "mmaldo2",
+                          assisted_by="GPT Astra")
+    assert [p for p in kept if p.field == "review.status" and p.new == "human-adjudicated"]

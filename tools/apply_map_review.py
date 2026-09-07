@@ -223,11 +223,16 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
             out += arr._clear_flag(live, records, cid, field, why, basis, tag)
         if assisted_by:
             out.append(Patch(cid, "append", "review.notes",
-                             f"{tag}: first pass drafted by {assisted_by}; confirmed by the "
-                             f"reviewer", why, basis))
+                             f"{tag}: first pass drafted by {assisted_by}; "
+                             + ("left unsure, not confirmed" if decision == "unsure"
+                                else "confirmed by the reviewer"), why, basis))
         if d.get("note"):
             out.append(Patch(cid, "append", "review.notes", f"user note: {d['note']}", why, basis))
-        out.append(Patch(cid, "set", "review.status", "human-adjudicated", why, basis))
+        # Only a decided card is human-adjudicated. An `unsure` card keeps its machine-only
+        # status: its flag says a human looked and declined to decide, and LedgerView.reviewed()
+        # must not count it in the human-reviewed tier (two-tier claim, D3).
+        if decision != "unsure":
+            out.append(Patch(cid, "set", "review.status", "human-adjudicated", why, basis))
     return out
 
 

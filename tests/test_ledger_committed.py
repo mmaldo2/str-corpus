@@ -25,6 +25,6 @@ def test_the_rename_leaves_the_committed_counts_and_the_replay_untouched(repo_ro
     v = open_ledger(domain=dom).view()
     assert v.counts().total.human_reviewed + v.counts().total.machine_only == 2939   # 693 before the cycle-004 map admission (2026-09-06): +2,246 relevant machine-only
     fav = v.counts(polarity="favorable").total
-    assert fav.human_reviewed + fav.machine_only == 1261   # 367 before the cycle-004 map admission
+    assert fav.human_reviewed + fav.machine_only == 1259   # 1261 after the map admission; 2 favorable -> adverse in review round 1
     hh = v.counts(polarity="favorable", who_was_letting="householder").total
-    assert hh.human_reviewed + hh.machine_only == 326    # 137 before the cycle-004 map admission
+    assert hh.human_reviewed + hh.machine_only == 325    # 326 after the map admission; 1 householder reclassified in review round 1

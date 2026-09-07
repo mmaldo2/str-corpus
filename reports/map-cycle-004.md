@@ -18,7 +18,9 @@ first review round. Spec:
 - Admitted 6,831 records as 30,398 patches (`3dce174`); published relevant moved 693 -> 2,939
   (133 human-reviewed unchanged, 2,806 machine-only).
 - Review round 1 selected 150 of 903 qualifying records (`0a5e84e`); Codex checked 100% of the
-  150 and disputed relevance on 46; the user's decisions are pending.
+  150 and disputed relevance on 46. Round 1 was decided on 2026-09-06: a first pass drafted
+  by GPT Astra, confirmed card by card by the user — 73 keep, 9 set, 1 adopt (83 records into
+  the human-reviewed tier) and 67 unsure, which stay machine-only with a needs-review flag.
 
 ## What was read
 
@@ -251,9 +253,13 @@ deferred to round 2 in the same priority order. 23 fuzzy quote matches were auto
   and gave opposite values on 22; Codex gave no opinion on 59 of the cards the reader decided
   (plus 2 where neither decided).
 
-The "after round 1" published counts are **pending** the user's decisions on the 150-card page;
-once decided, `tools/apply_map_review.py --saved <page> --checker runs/cycle-004-shard-01/review-round-1-checker.json --run-id map-cycle-004-round-1 --apply` turns them into human-basis
-patches and moves qualifying records from the machine-only tier to the human-reviewed tier.
+After round 1 (applied 2026-09-06 with `tools/apply_map_review.py --decisions
+runs/cycle-004-shard-01/review-round-1-decisions-astra.json --assisted-by "GPT Astra"`, 610
+patches, replay ok): relevant 2,939 (216 human-reviewed, 2,723 machine-only); favorable 1,259
+(125 human-reviewed; two favorable -> adverse); favorable householder 325 (27 human-reviewed; one
+householder -> commercial operator among eight such reclassifications). Every applied decision
+carries the note that the first pass was model-drafted and human-confirmed; the 67 unsure cards
+wait for a full read (page or round 2).
 
 ## Limitations
 
