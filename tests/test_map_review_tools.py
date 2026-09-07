@@ -28,6 +28,7 @@ def _load(name: str):
 mk = _load("make_map_review")
 ap = _load("apply_map_review")
 arr = _load("apply_reference_review")
+ec = _load("export_review_cards")
 
 
 def _rec(cid, **over):
@@ -403,3 +404,208 @@ def test_an_unknown_decision_is_refused_rather_than_silently_dropped():
     with pytest.raises(ValueError, match="maybe"):
         ap.patches_for([{"case_id": 1, "field": "polarity", "decision": "maybe",
                          "value": "adverse", "note": ""}], {1: _rec(1)}, "mmaldo2")
+
+
+# ------------------------------------------------------------ the --decisions file path
+
+FIELDS = ("polarity", "who_was_letting", "characterization", "quotes")
+
+
+def test_a_decisions_file_reads_the_same_way_a_saved_page_does(tmp_path):
+    """`ap.read_decisions` and `ap.read_page` both funnel through
+    `apply_reference_review._decisions_from_list` - the same schema the page embeds,
+    validated by the same rules, whether it arrives wrapped in a page or as a bare list."""
+    raw = [_d(700, "polarity", "adopt", "adverse"),
+          _d(701, "who_was_letting", "keep", "unclear"),
+          _d(702, "polarity", "set", "favorable", note="both ways"),
+          _d(703, "quotes", "unsure")]
+    got = ap.read_decisions(raw, FIELDS)
+    page = _saved_page(tmp_path, raw)
+    from_page = ap.read_page(page.read_text(encoding="utf-8"), FIELDS)
+    assert got == from_page
+
+
+def test_the_decisions_file_path_checks_every_case_against_the_queue_and_applies_each_kind(
+        tmp_path, monkeypatch):
+    """Round-trip through `ap.main`: keep, set, adopt and unsure, each on the card the queue
+    actually asked about, with --assisted-by recording the first pass."""
+    import sys as _sys
+
+    from corpus_engine.domain import load_domain
+    from corpus_engine.ledger import open_ledger as real_open_ledger
+    from corpus_engine.ledger.types import Basis, Patch
+
+    doc = _queue_doc()
+    queue_path = tmp_path / "review-round-1.json"
+    queue_path.write_text(json.dumps(doc), encoding="utf-8")
+    checker = {700: {"values": {"polarity": "adverse"}, "status": "ok"},
+              702: {"values": {"polarity": "adverse"}, "status": "ok"}}
+    checker_path = tmp_path / "review-round-1-checker.json"
+    checker_path.write_text(json.dumps(checker), encoding="utf-8")
+
+    decisions = [
+        _d(700, "polarity", "keep", "favorable"),
+        _d(701, "who_was_letting", "set", "commercial_operator", note="reassessed"),
+        _d(702, "polarity", "adopt"),
+        _d(703, "characterization", "unsure"),
+    ]
+    dec_path = tmp_path / "decisions.json"
+    dec_path.write_text(json.dumps(decisions), encoding="utf-8")
+
+    dom = load_domain()
+    ledger_dir = tmp_path / "ledger"
+    led = real_open_ledger(ledger_dir, domain=dom)
+    seed_basis = Basis(model="m", prompt_version="v", run_id="seed")
+    admits = [Patch(r["case_id"], "admit", "", r, "seed", seed_basis, cycle="cycle-001")
+             for r in [_rec(700, polarity="favorable", under_thirty_days="yes"),
+                       _rec(701, who_was_letting="householder", duration_of_occupancy="nights"),
+                       _rec(702, polarity="mixed"),
+                       _rec(703, nulled_fields=["characterization"])]]
+    led.apply(admits, note="seed")
+
+    monkeypatch.setattr(ap, "open_ledger", lambda *a, **kw: real_open_ledger(
+        ledger_dir, domain=kw.get("domain") or dom))
+    monkeypatch.setattr(_sys, "argv",
+                        ["apply_map_review.py", "--decisions", str(dec_path),
+                         "--queue", str(queue_path), "--checker", str(checker_path),
+                         "--run-id", "map-cycle-004-round-1", "--assisted-by", "GPT Astra",
+                         "--dry-run"])
+    assert ap.main() == 0
+
+    monkeypatch.setattr(_sys, "argv",
+                        ["apply_map_review.py", "--decisions", str(dec_path),
+                         "--queue", str(queue_path), "--checker", str(checker_path),
+                         "--run-id", "map-cycle-004-round-1", "--assisted-by", "GPT Astra"])
+    assert ap.main() == 0
+
+    # `led`'s own `.view()` is cached from the seed apply() above and would not see writes
+    # made through the fresh Ledger instances `ap.main()` opens on every call - a new
+    # instance over the same directory reads the log as it stands now.
+    after = real_open_ledger(ledger_dir, domain=dom).view()
+    assert after.state.records[701]["who_was_letting"] == "commercial_operator"
+    assert after.state.records[702]["polarity"] == "adverse"          # adopt took the checker
+    assert after.state.records[700]["polarity"] == "favorable"        # keep left it standing
+    notes = "\n".join(after.state.records[701]["review"]["notes"])
+    assert "first pass drafted by GPT Astra; confirmed by the reviewer" in notes
+    flags = after.state.records[703]["review"]["flags"]
+    assert "needs-review:characterization" in flags
+
+
+def test_a_decisions_file_rejects_an_unknown_case_id():
+    doc = _queue_doc()
+    with pytest.raises(ValueError, match="9999.*not a card"):
+        ap.check_against_queue([{"case_id": 9999, "field": "polarity"}], doc)
+
+
+def test_a_decisions_file_rejects_a_wrong_field():
+    doc = _queue_doc()
+    with pytest.raises(ValueError, match=r"700.*decides 'polarity'.*'characterization'"):
+        ap.check_against_queue([{"case_id": 700, "field": "characterization"}], doc)
+
+
+def test_a_decisions_file_rejects_an_invalid_value():
+    with pytest.raises(ValueError, match="FAVORABEL"):
+        ap.read_decisions([_d(700, "polarity", "set", "FAVORABEL")], FIELDS)
+
+
+def test_assisted_by_adds_a_note_and_marks_the_why_string():
+    ps = ap.patches_for([_d(810, "polarity", "set", "mixed")], {810: _rec(810)}, "mmaldo2",
+                        assisted_by="GPT Astra")
+    notes = [p.new for p in ps if p.op == "append" and p.field == "review.notes"]
+    assert any("first pass drafted by GPT Astra; confirmed by the reviewer" in n for n in notes)
+    assert all("assisted by GPT Astra" in p.why for p in ps)
+
+
+def test_assisted_by_is_absent_by_default():
+    ps = ap.patches_for([_d(811, "polarity", "keep", "adverse")], {811: _rec(811)}, "mmaldo2")
+    notes = [p.new for p in ps if p.op == "append" and p.field == "review.notes"]
+    assert not any("drafted by" in n for n in notes)
+    assert not any("assisted by" in p.why for p in ps)
+
+
+def test_saved_and_decisions_are_mutually_exclusive():
+    with pytest.raises(SystemExit):        # neither given: the mutually exclusive group is required
+        ap.main([])
+    with pytest.raises(SystemExit):        # both given: argparse refuses the pair
+        ap.main(["--saved", "x", "--decisions", "y"])
+
+
+# ------------------------------------------------------------------- export_review_cards
+
+def test_cards_from_queue_carries_every_field_the_page_shows(tmp_path):
+    doc = _queue_doc()
+    cards = ec.cards_from_queue(doc, CHECKER)
+    assert [c["case_id"] for c in cards] == [700, 701, 702, 703]
+    assert [c["section"] for c in cards] == ["A", "B", "D", "E"]
+    c700 = cards[0]
+    assert c700["section_title"] == "Favorable and under thirty days"
+    assert c700["decide_field"] == "polarity"
+    assert c700["reader"]["polarity"] == "favorable"
+    assert c700["reader"]["under_thirty_days"] == "yes"
+    assert c700["checker"] == {"relevant": None, "polarity": "adverse", "characterization": None}
+    assert c700["holding_summary"] == "the lodger has the use only"
+    assert c700["quotes"] == [{"text": "q", "supports": ["polarity"]}]
+    assert c700["nulled_fields"] == []
+    assert c700["other_reasons"] == []
+    assert "courtlistener.com" in c700["courtlistener_url"] and "700" in c700["courtlistener_url"]
+
+
+def test_a_card_with_no_checker_answer_carries_none_not_a_dict_of_nulls():
+    doc = _queue_doc()
+    cards = ec.cards_from_queue(doc, {})
+    assert all(c["checker"] is None for c in cards)
+
+
+def test_cards_from_queue_respects_nulled_fields_and_other_reasons(tmp_path):
+    doc = _queue_doc(disagreements=[{"unit_id": "b1", "case_id": 702, "field": "polarity",
+                                     "reader_value": "mixed", "checker_value": "adverse"}])
+    cards = ec.cards_from_queue(doc, {})
+    by_id = {c["case_id"]: c for c in cards}
+    assert by_id[703]["nulled_fields"] == ["characterization"]
+    assert by_id[703]["decide_field"] == "characterization"
+
+
+def test_markdown_has_one_heading_per_section_and_every_card(tmp_path):
+    doc = _queue_doc()
+    cards = ec.cards_from_queue(doc, CHECKER)
+    md = ec.markdown_for(cards, doc["run_id"])
+    assert md.endswith("\n")
+    assert "## A. Favorable and under thirty days" in md
+    assert "## B. Householder letting by the night" in md
+    assert "## D. Polarity mixed" in md
+    assert "## E. Judged fields erased by the quote gate" in md
+    for cid in (700, 701, 702, 703):
+        assert f"[{cid}]" in md
+    assert "not asked" in md          # 701/702/703 have no checker entry in CHECKER
+
+
+def test_main_writes_deterministic_json_and_markdown(tmp_path):
+    doc = _queue_doc()
+    queue_path = tmp_path / "review-round-1.json"
+    queue_path.write_text(json.dumps(doc), encoding="utf-8")
+    checker_path = tmp_path / "review-round-1-checker.json"
+    checker_path.write_text(json.dumps(CHECKER), encoding="utf-8")
+    out_stem = tmp_path / "cards"
+
+    assert ec.main(["--queue", str(queue_path), "--checker", str(checker_path),
+                    "--out-stem", str(out_stem)]) == 0
+    json_path = Path(str(out_stem) + ".json")
+    md_path = Path(str(out_stem) + ".md")
+    raw = json_path.read_bytes()
+    assert raw.endswith(b"\n") and b"\r\n" not in raw
+    cards = json.loads(raw.decode("utf-8"))
+    assert len(cards) == 4
+    md_raw = md_path.read_bytes()
+    assert md_raw.endswith(b"\n") and b"\r\n" not in md_raw
+
+    # a second run over the same inputs writes byte-identical files
+    out_stem2 = tmp_path / "cards2"
+    ec.main(["--queue", str(queue_path), "--checker", str(checker_path),
+            "--out-stem", str(out_stem2)])
+    assert json_path.read_bytes() == Path(str(out_stem2) + ".json").read_bytes()
+
+
+def test_courtlistener_url_matches_the_pages_own_encoding():
+    """The same %22-quoted-cite search the review page's client-side `clq` builds."""
+    url = ec.courtlistener_url("119 N.J.L. 61")
+    assert url == "https://www.courtlistener.com/?q=%22119%20N.J.L.%2061%22"

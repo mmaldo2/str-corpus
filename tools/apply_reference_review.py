@@ -94,16 +94,16 @@ def _value(field: str, raw):
     return None if raw in NULLS else raw
 
 
-def read_state(html: str, *, fields: Sequence[str] = FIELDS,
-               values: Mapping[str, frozenset] = VALUES) -> list[dict]:
-    """The decisions a saved page carries, validated. A page that was never saved carries
-    `[]`, and applying nothing silently would look exactly like applying everything."""
-    m = STATE_RE.search(html)
-    if not m:
-        raise ValueError("no review-state block in this page; is it the page make_reference_review.py wrote?")
-    raw = json.loads(m.group(1))
+def _decisions_from_list(raw, *, fields: Sequence[str],
+                         values: Mapping[str, frozenset]) -> list[dict]:
+    """The per-item checks every saved decision must pass, whatever container it arrived in:
+    field in `fields`, decision in `DECISIONS`, and (except where `values[field]` is `None`,
+    the free-text opt-out) the value in the field's own vocabulary. `read_state` calls this
+    on the list it pulls out of a saved page's state block; `tools/apply_map_review.py`'s
+    `--decisions` path calls it on a bare JSON list read straight off disk - one function, so
+    a page and a decisions file can never be validated under different rules."""
     if not isinstance(raw, list) or not raw:
-        raise ValueError("the page carries no decisions; save the page after deciding, then re-run")
+        raise ValueError("no decisions to apply")
     out = []
     for i, d in enumerate(raw):
         if not isinstance(d, dict):
@@ -130,6 +130,23 @@ def read_state(html: str, *, fields: Sequence[str] = FIELDS,
         out.append({"case_id": case_id, "field": field, "decision": decision,
                     "value": value, "note": (d.get("note") or "").strip()})
     return out
+
+
+def read_state(html: str, *, fields: Sequence[str] = FIELDS,
+               values: Mapping[str, frozenset] = VALUES) -> list[dict]:
+    """The decisions a saved page carries, validated. A page that was never saved carries
+    `[]`, and applying nothing silently would look exactly like applying everything."""
+    m = STATE_RE.search(html)
+    if not m:
+        raise ValueError("no review-state block in this page; is it the page make_reference_review.py wrote?")
+    raw = json.loads(m.group(1))
+    try:
+        return _decisions_from_list(raw, fields=fields, values=values)
+    except ValueError as exc:
+        if str(exc) == "no decisions to apply":
+            raise ValueError("the page carries no decisions; save the page after deciding, "
+                             "then re-run") from None
+        raise
 
 
 def _live_flags(records: Mapping[int, dict], cid: int) -> list:

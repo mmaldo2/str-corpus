@@ -32,9 +32,28 @@ Re-applying a page is refused for the same reason the reference tool refuses it:
 already-applied page re-emits a fresh note restating the old value as if it had just changed,
 and the ledger is append-only. Pass `--force` only if that is really what you want.
 
+`--decisions <json>` is the alternative to `--saved <html>`, for a first pass done by another
+model working from files (the exported cards) rather than the self-saving page: a bare JSON
+list in the same schema the page's state block embeds - `{case_id, field, decision, value,
+note}` - read and validated by exactly the same per-item rules a saved page's state is
+(`apply_reference_review._decisions_from_list`). It is checked against the round's own queue
+manifest before anything else runs: every case_id must be a card the round actually queued,
+deciding exactly that card's `decide_field`, or the whole file is refused - case id and
+reason, before a single patch is built - because a decisions file is free-form text a model
+wrote, not a page whose every field was rendered from the queue in the first place. Exactly
+one of `--saved` / `--decisions` is required.
+
+`--assisted-by "<name>"` marks a `--decisions` run as a first pass a model drafted: every
+applied decision's `review.notes` patch gets an extra note ("first pass drafted by <name>;
+confirmed by the reviewer"), and the run's own tag records the same fact in every `why`
+string this run writes - so the human-reviewed tier stays honest about model assistance
+rather than reading identically to a page the reviewer decided unaided.
+
   .venv\Scripts\python tools\apply_map_review.py --saved <page> --checker <json> --dry-run
   .venv\Scripts\python tools\apply_map_review.py --saved <page> --checker <json> \
       --run-id map-cycle-004-round-1
+  .venv\Scripts\python tools\apply_map_review.py --decisions <json> --checker <json> \
+      --assisted-by "GPT Astra" --dry-run
 """
 from __future__ import annotations
 
@@ -112,6 +131,41 @@ def read_page(html: str, fields: Sequence[str]) -> list[dict]:
     return arr.read_state(html, fields=tuple(fields), values=values_for(fields))
 
 
+def read_decisions(raw, fields: Sequence[str]) -> list[dict]:
+    """The decisions a `--decisions` file carries, validated by the exact same per-item rules
+    a saved page's state block is: vocabulary check per field (I1), decision one of
+    `keep|adopt|set|unsure`, field one of the round's decide fields. `raw` is the file's own
+    parsed JSON - a bare list, not a page - so this calls the shared validator directly
+    rather than going through `read_page`'s HTML parsing."""
+    try:
+        return arr._decisions_from_list(raw, fields=tuple(fields), values=values_for(fields))
+    except ValueError as exc:
+        if str(exc) == "no decisions to apply":
+            raise ValueError("the decisions file carries no decisions") from None
+        raise
+
+
+def check_against_queue(decisions: Sequence[dict], queue_doc: Mapping) -> None:
+    """A `--decisions` file may only answer the questions this round actually asked: every
+    case_id has to be a card in `queue_doc` (`Queue.to_json()`), deciding exactly that card's
+    `decide_field` - a model cannot answer a different field than the one the round queued a
+    case on, or answer for a case the round never queued at all. Every bad entry is named,
+    case id and reason, and collected rather than raised on the first one, so fixing the file
+    takes one pass instead of one exit per re-run - and nothing is written until this passes."""
+    decide_field = {int(c["case_id"]): c["decide_field"]
+                    for cards in (queue_doc.get("sections") or {}).values() for c in cards}
+    errors = []
+    for d in decisions:
+        cid, field = d["case_id"], d["field"]
+        want = decide_field.get(cid)
+        if want is None:
+            errors.append(f"case {cid}: not a card in the round's queue manifest")
+        elif field != want:
+            errors.append(f"case {cid}: this round's card decides {want!r}, not {field!r}")
+    if errors:
+        raise ValueError("; ".join(errors))
+
+
 def _checked(case_id: int, field: str, value):
     """The value about to be written, or a refusal naming the case and the field. This catches
     what `read_state` cannot: an `adopt` writes the CHECKER's value, not the page's."""
@@ -123,10 +177,20 @@ def _checked(case_id: int, field: str, value):
 
 
 def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer: str, *,
-                run_id: str = RUN_ID, checker: Mapping | None = None) -> list[Patch]:
-    """One saved page -> reviewer-basis patches. Deterministic: case id, then field."""
+                run_id: str = RUN_ID, checker: Mapping | None = None,
+                assisted_by: str | None = None) -> list[Patch]:
+    """One saved page (or decisions file) -> reviewer-basis patches. Deterministic: case id,
+    then field.
+
+    `assisted_by`, when given, marks every patch this call writes as a first pass a model
+    drafted: the tag carried in every `why` string records the name, and every decided case
+    also gets an extra `review.notes` patch saying so in plain words - the human-reviewed
+    tier must stay honest about model assistance, not read identically to a page the
+    reviewer decided unaided."""
     basis = Basis(reviewer=reviewer, run_id=run_id)
     tag = arr._label(run_id)
+    if assisted_by:
+        tag = f"{tag} (assisted by {assisted_by})"
     checker = {int(k): v for k, v in (checker or {}).items()}
     live: dict[int, list] = {}          # review.flags as this page has left them so far
     out: list[Patch] = []
@@ -157,6 +221,10 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
                              f"{tag}: {field} {old!r} -> {value!r} ({decision})", why, basis))
             out.append(Patch(cid, "set", field, value, why, basis))
             out += arr._clear_flag(live, records, cid, field, why, basis, tag)
+        if assisted_by:
+            out.append(Patch(cid, "append", "review.notes",
+                             f"{tag}: first pass drafted by {assisted_by}; confirmed by the "
+                             f"reviewer", why, basis))
         if d.get("note"):
             out.append(Patch(cid, "append", "review.notes", f"user note: {d['note']}", why, basis))
         out.append(Patch(cid, "set", "review.status", "human-adjudicated", why, basis))
@@ -165,12 +233,24 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--saved", required=True, help="the review page, saved with decisions in it")
+    mode = ap.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--saved", default=None, help="the review page, saved with decisions in it")
+    mode.add_argument("--decisions", default=None,
+                      help="a JSON list of {case_id, field, decision, value, note} - the same "
+                           "schema the page embeds - for a first pass done from files instead "
+                           "of the self-saving page")
+    ap.add_argument("--queue", default="runs/cycle-004-shard-01/review-round-1.json",
+                    help="the round's queue manifest, to check every --decisions entry "
+                         "against a real card (ignored for --saved)")
     ap.add_argument("--checker", default=None,
                     help="the check_queue JSON this round was built with")
     ap.add_argument("--run-id", default=RUN_ID)
     ap.add_argument("--fields", default=None,
                     help="comma-separated fields the page may decide (default: the domain's)")
+    ap.add_argument("--assisted-by", default=None,
+                    help="a first-pass model's name (--decisions only): every applied "
+                         "decision's review.notes patch records that it was drafted by this "
+                         "name and confirmed by the reviewer")
     ap.add_argument("--force", action="store_true",
                     help="apply even though this --run-id already has patches in the ledger")
     ap.add_argument("--dry-run", action="store_true")
@@ -178,10 +258,19 @@ def main(argv=None) -> int:
     dom = load_domain()
     fields = (tuple(f.strip() for f in a.fields.split(",") if f.strip()) if a.fields
               else tuple(dom.judged_fields) + EXTRA_FIELDS)
-    try:
-        decisions = read_page(Path(a.saved).read_text(encoding="utf-8"), fields)
-    except ValueError as exc:                   # a page this tool will not read is not a page
-        sys.exit(f"{a.saved}: {exc}")           # to apply half of; nothing is written
+    if a.saved:
+        try:
+            decisions = read_page(Path(a.saved).read_text(encoding="utf-8"), fields)
+        except ValueError as exc:               # a page this tool will not read is not a page
+            sys.exit(f"{a.saved}: {exc}")       # to apply half of; nothing is written
+    else:
+        try:
+            raw = json.loads(Path(a.decisions).read_text(encoding="utf-8"))
+            decisions = read_decisions(raw, fields)
+            queue_doc = json.loads(Path(a.queue).read_text(encoding="utf-8"))
+            check_against_queue(decisions, queue_doc)
+        except ValueError as exc:
+            sys.exit(f"{a.decisions}: {exc}")
     checker = json.loads(Path(a.checker).read_text(encoding="utf-8")) if a.checker else {}
     led = open_ledger(domain=dom)
     head = led.view()
@@ -190,7 +279,7 @@ def main(argv=None) -> int:
                  f"re-emit a fresh review.notes patch for every decision. Pass --force only if "
                  f"that is really what you want.")
     patches = patches_for(decisions, head.state.records, dom.reviewer_default,
-                          run_id=a.run_id, checker=checker)
+                          run_id=a.run_id, checker=checker, assisted_by=a.assisted_by)
     counts = {d: sum(1 for x in decisions if x["decision"] == d) for d in DECISIONS}
     print(f"{len(decisions)} decisions {counts} over "
           f"{len({d['case_id'] for d in decisions})} cases -> {len(patches)} patches", flush=True)
