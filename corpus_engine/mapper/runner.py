@@ -29,6 +29,17 @@ overrun, not an exact count, and it is written that way in `--help` and in the m
 checker requests against one budget, so an exact remainder would cut a sampled unit's checker
 off for arithmetic reasons (driver N2).
 
+Lost cases (final-review I3). A unit can COMPLETE and still not answer for every case in
+its batch: `cycle-004-shard-01-batch-146` came back with 9 of its 18 cases missing after the
+split retry, and because the unit completed it is not a failed unit, a resume replays it from
+cache, and nothing ever re-asks for those 9. They are recorded per unit as `cases_lost`,
+summed into the cell and the totals, and `--retry-lost` re-plans them as fresh units - so a
+partial parse costs a re-ask, not nine cases silently missing from the corpus and from the
+labelled negatives the next cycle's ranker trains on. A failed unit is a different thing and
+stays a different number: it did not complete, it consumed no cell walk, and a resume re-reads
+it. `failed_units` counts units that did not complete, `failures` lists units whose status was
+not "ok", and `cases_lost` counts cases a unit that DID complete never answered for.
+
 Merging (task-5-review finding 3). `runs/<run-id>/map-manifest.json` is the tracked record of
 what a subscription window bought, and a `--cells` sub-run or a dry run reads a strict subset
 of it. Every run therefore MERGES into what is already on disk (`merge_manifest`) rather than
@@ -65,6 +76,9 @@ PROCESS_STOPS = ("budget:units", "budget:wall", "budget:usd")
 # call are never cut off half way, which would record a checker as `failed:budget` for no
 # reason other than arithmetic (driver N2). See the module docstring for what this costs.
 DRIVER_UNIT_HEADROOM = 3
+# Cases per retry unit. The same 18 the shard packed its batches at (domain.yaml
+# `sharding.batch_size`): a retry is a fresh read of the same size, not a special small one.
+RETRY_UNIT_SIZE = 18
 MAX_UNITS_NOTE = (
     "--max-units is a ceiling on READER requests, checked between batches. One read can buy "
     "the unit plus two split halves, so a run can exceed it by at most DRIVER_UNIT_HEADROOM-1 "
@@ -154,6 +168,33 @@ def accepted_records(unit) -> int:
                if r.record.get("extraction_status") in ("ok", "partial"))
 
 
+def answered_case_ids(unit) -> list[int]:
+    """The cases this unit came back with a record for at all.
+
+    Wider than `accepted_records`, deliberately: a record the gate emptied is
+    `extraction-invalid` rather than accepted, but it exists, it is admitted, and re-asking
+    for it would buy a case the corpus already holds. Only a `missing` stub means the response
+    never carried that case."""
+    return sorted(r.case_id for r in unit.records
+                  if r.record.get("extraction_status") != "missing")
+
+
+def lost_case_ids(unit) -> list[int]:
+    """The cases a COMPLETED unit dropped (I3).
+
+    A unit that parsed, was folded into the cell and counted toward its yield, but that simply
+    had no record for these ids - the driver's own `missing` stubs. They are not failures: the
+    unit's status can be "ok", `failed_units` does not count it, and a resume replays it from
+    cache, so nothing re-asks for them unless `--retry-lost` does.
+
+    A unit that did NOT complete contributes none: every one of its cases is missing, the batch
+    is in `failed_units`, and re-reading the batch is what recovers it."""
+    if not unit_completed(unit):
+        return []
+    answered = set(answered_case_ids(unit))
+    return sorted(r.case_id for r in unit.records if r.case_id not in answered)
+
+
 def unit_completed(unit) -> bool:
     """Whether this batch counts toward the yield window (spec section 5): status ok, or
     partial with at least one accepted record. A failed or wholly unparsed unit does not."""
@@ -180,13 +221,28 @@ def unit_keys(unit: Mapping) -> list:
 def derived(units: Sequence[Mapping]) -> dict:
     """A cell's aggregates, computed from its unit rows and never accumulated beside them, so
     `checker_sampled` can no more disagree with the unit that says it was sampled than a sum
-    can disagree with its own addends.
+    can disagree with its own addends. That is also what makes a merge exact: a `--retry-lost`
+    run adds one row to a cell of twenty-one and the cell's counts follow it, where an
+    accumulator carried on the cell document would have been taken whole from whichever process
+    walked further and would have kept the pre-retry figure (I3).
 
     Every field is read with `.get`: this runs over rows from a manifest ON DISK as well as
     over this process's own, and it runs inside `run()`'s `finally`, where a `KeyError` would
     cost the write and mask whatever exception was already propagating."""
     rows = [u for u in units if u.get("unit_id")]
+    lost = {c for u in rows for c in (u.get("cases_lost") or [])}
+    # A retry unit records the ids it ANSWERED, so a case recovered by a later unit stops being
+    # a lost case of the cell without anything having to rewrite the row that lost it.
+    answered = {c for u in rows for c in (u.get("cases_answered") or [])}
     return {
+        "cases_lost": sorted(lost - answered),
+        "records": sum(u.get("records") or 0 for u in rows),
+        "cases_read": sum(u.get("cases_read") or 0 for u in rows),
+        "relevant_accepted": sum(u.get("relevant_accepted") or 0 for u in rows),
+        "irrelevant_accepted": sum(u.get("irrelevant_accepted") or 0 for u in rows),
+        "units_retried_after_split": sum(1 for u in rows if u.get("retried")),
+        "failures": [{"unit_id": u["unit_id"], "status": u.get("status"),
+                      "error": u.get("error") or ""} for u in rows if u.get("status") != "ok"],
         "cache_keys": {u["unit_id"]: unit_keys(u) for u in rows if unit_keys(u)},
         "checker_sampled": [u["unit_id"] for u in rows
                             if (u.get("checker") or {}).get("sampled")],
@@ -243,6 +299,85 @@ def merge_manifest(prior: Mapping, fresh: Mapping) -> dict:
     merged["totals"] = {**ft, **{k: round((pt.get(k) or 0) + (ft.get(k) or 0), 6)
                                  for k in CUMULATIVE_TOTALS if k in pt or k in ft}}
     return merged
+
+
+def lost_cases(manifest: Mapping) -> dict[str, list[int]]:
+    """Cell key -> the cases completed units dropped and no later unit has answered (I3).
+
+    Re-derived from the unit rows through `derived`, so it is right for a manifest written
+    before this field existed and for one that has already been retried once."""
+    cells = manifest.get("cells") or {}
+    order = [k for k in (manifest.get("cell_order") or []) if k in cells]
+    order += [k for k in cells if k not in set(order)]
+    out = {}
+    for key in order:
+        ids = derived((cells.get(key) or {}).get("units") or [])["cases_lost"]
+        if ids:
+            out[key] = ids
+    return out
+
+
+def retry_file_name(batch_id: str) -> str:
+    """The file a retry unit is written as: `<run>-retry-004` -> `retry-004.json`, which
+    `cells.RETRY_GLOB` serves and `cells.load_batches` ignores."""
+    return f"retry-{batch_id.rsplit('-retry-', 1)[-1]}.json"
+
+
+def plan_retry_units(manifest: Mapping, batch_source, *, size: int = RETRY_UNIT_SIZE,
+                     run_id: str = "", lost: Mapping[str, Sequence[int]] | None = None
+                     ) -> list[dict]:
+    """Fresh batches over every lost case in the manifest, at most `size` cases each (I3).
+
+    `lost` defaults to `lost_cases(manifest)` - what the unit rows themselves record. A caller
+    holding the response cache can pass a better map: a manifest written before `cases_lost`
+    existed records how many cases a unit dropped (`status_counts.missing`) but not which, and
+    `admit.unanswered_cases` recovers the ids exactly, from the same cached responses admission
+    re-derives every record from.
+
+    The cases are copied VERBATIM out of the batch files they came from - same case ids, same
+    signals, same rank scores - so the retry asks exactly what the first read asked, under a
+    new batch id and therefore a new cache key (a replay of the old id would just hand back
+    the response that lost them). Cases are grouped by CELL rather than packed across the
+    manifest, because a unit's records are folded into one cell and a mixed unit would belong
+    to neither.
+
+    A lost case whose batch file is gone cannot be re-planned and is left out; the caller
+    compares the number planned against the number lost."""
+    run_id = run_id or str(manifest.get("run_id") or "")
+    cells = manifest.get("cells") or {}
+    taken = set(batch_source.ids())
+    out: list[dict] = []
+    n = 0
+    for key, ids in (lost_cases(manifest) if lost is None else lost).items():
+        doc = cells.get(key) or {}
+        wanted = {int(c) for c in ids}
+        by_case: dict[int, dict] = {}
+        unit_of: dict[int, str] = {}
+        ranker = ""
+        for row in doc.get("units") or []:
+            unit_id = row.get("unit_id")
+            if not unit_id or unit_id not in batch_source:
+                continue
+            batch = batch_source.get(unit_id)
+            for case in batch.get("cases") or []:
+                cid = int(case["case_id"])
+                if cid in wanted and cid not in by_case:
+                    by_case[cid], unit_of[cid] = case, unit_id
+                    ranker = ranker or (batch.get("ranker_id") or "")
+        cases = [by_case[c] for c in ids if c in by_case]
+        for i in range(0, len(cases), size):
+            chunk = cases[i:i + size]
+            n += 1
+            bid = f"{run_id}-retry-{n:03d}"
+            while bid in taken:
+                n += 1
+                bid = f"{run_id}-retry-{n:03d}"
+            taken.add(bid)
+            out.append({"batch_id": bid, "ranker_id": ranker,
+                        "era_partition": doc.get("era"), "jurisdiction": doc.get("jurisdiction"),
+                        "retry_of": sorted({unit_of[int(c["case_id"])] for c in chunk}),
+                        "cases": chunk})
+    return out
 
 
 def _quote(arg: str) -> str:
@@ -344,10 +479,14 @@ class MapRunner:
         self._reader = reader
         return reader
 
-    def _unit_doc(self, unit, keys: list, disagreements) -> dict:
+    def _unit_doc(self, unit, keys: list, disagreements, *, retry: bool = False) -> dict:
         """One unit's row in the manifest (R6). The checker block is always present and says
         `"none"` when the unit was not sampled, so "not sampled" and "sampled and silent" are
-        never the same reading."""
+        never the same reading.
+
+        `cases_lost` says which cases a COMPLETED unit did not answer for (I3); a retry unit
+        also records the ids it did answer, which is how `derived` knows a lost case has since
+        been recovered."""
         mine = [{"unit_id": d.unit_id, "case_id": d.case_id, "field": d.field,
                  "reader_value": d.reader_value, "checker_value": d.checker_value}
                 for d in disagreements if d.unit_id == unit.unit_id]
@@ -360,6 +499,7 @@ class MapRunner:
             "failed": resp is None,
             "records": len(unit.records),
             "cases_read": accepted_records(unit),
+            "cases_lost": lost_case_ids(unit),
             "relevant_accepted": relevant_accepted(unit),
             "irrelevant_accepted": irrelevant_accepted(unit),
             "dropped_quotes": sum(r.dropped_quotes for r in unit.records),
@@ -374,6 +514,7 @@ class MapRunner:
             "checker": {"sampled": unit.checker is not None,
                         "status": unit.checker or "none",
                         "disagreements": mine},
+            **({"retry": True, "cases_answered": answered_case_ids(unit)} if retry else {}),
         }
 
     def _gate(self, counts: dict, t0: float) -> str | None:
@@ -384,11 +525,16 @@ class MapRunner:
             return "budget:wall"
         return None
 
-    def _read_batch(self, cell, batch, acc, prog, counts, totals, seen, t0) -> str | None:
+    def _read_batch(self, cell, batch, acc, prog, counts, totals, seen, t0, *,
+                    retry: bool = False) -> str | None:
         """One batch through the pinned reader, folded into the cell. Returns a process stop
         kind when the driver ended the process, else None. Screen-pinned batches (R10) come
         through here too, so their units count under `--max-units` and their records count
-        toward the cell's yield and toward admission exactly like any other batch's."""
+        toward the cell's yield and toward admission exactly like any other batch's.
+
+        A `retry=True` unit is the one exception to "toward the cell's yield": it is a repair
+        of a batch the cell already walked, so it consumes a reader unit and its records join
+        the cell, but it does not enter the yield window and does not consume the cap (I3)."""
         reader = self._reader_for(counts)
         plan = plan_batch_extraction(
             [batch], self.codebook.id, self.pin, self._budget(counts["reader"], t0),
@@ -412,21 +558,23 @@ class MapRunner:
                 keys = self._cache_keys(reader, planned, u)
             except Exception as exc:                       # noqa: BLE001
                 self.log(f"{u.unit_id}: cache keys not recorded ({exc})")
-            acc["units"].append(self._unit_doc(u, keys, out.disagreements))
-            acc["records"] += len(u.records)
-            acc["cases_read"] += accepted_records(u)
-            acc["irrelevant_accepted"] += irrelevant_accepted(u)
-            acc["units_retried_after_split"] += 1 if u.retried else 0
-            if u.status != "ok":
-                acc["failures"].append({"unit_id": u.unit_id, "status": u.status,
-                                        "error": u.error})
+            acc["units"].append(self._unit_doc(u, keys, out.disagreements, retry=retry))
             self._write_extraction(u.unit_id, u)
-            prog.add(u.unit_id, relevant_accepted(u), unit_completed(u))
+            if not retry:
+                prog.add(u.unit_id, relevant_accepted(u), unit_completed(u))
             self.log(f"{cell.key} {u.unit_id}: {relevant_accepted(u)} relevant, "
                      f"{counts['reader']}/{self.caps.max_units} units")
         return out.stop.kind if out.stop.kind in PROCESS_STOPS else None
 
-    def run(self, cells: Sequence[Cell] | None = None) -> MapOutcome:
+    def run(self, cells: Sequence[Cell] | None = None, *,
+            retry_ids: Mapping[str, Sequence[str]] | None = None) -> MapOutcome:
+        """The map, or - with `retry_ids` - the lost cases of one (I3).
+
+        A retry walks the retry batches `plan_retry_units` planned for each cell instead of the
+        cell's capped head. Everything else is the same run: the same ceilings between batches,
+        the same manifest written from the same `finally`, the same merge onto what is on disk.
+        The cell's own walk is untouched - no yield window, no cap, no screen - so the merged
+        cell keeps the traversal the map made and gains the repair."""
         cells = list(self.cells if cells is None else cells)
         t0 = self.clock()
         started = time.strftime("%Y-%m-%dT%H:%M:%S")
@@ -441,25 +589,28 @@ class MapRunner:
                 prog = CellProgress(cell.key, cell.cap_batches)
                 progress[cell.key] = prog
                 acc = records.setdefault(cell.key, {
-                    **cell.to_json(), "units": [], "cases_read": 0, "irrelevant_accepted": 0,
-                    "records": 0, "failures": [], "units_retried_after_split": 0,
+                    **cell.to_json(), "units": [],
                     "screen": dict(CELL_SCREEN_OFF), "screen_pinned": [], "wall_seconds": 0.0})
                 cell_t0 = self.clock()
-                for batch_id in cell.capped_ids:
-                    if prog.should_stop(window=self.window, threshold=self.threshold) is not None:
+                walk = (cell.capped_ids if retry_ids is None
+                        else tuple(retry_ids.get(cell.key) or ()))
+                for batch_id in walk:
+                    if retry_ids is None and prog.should_stop(
+                            window=self.window, threshold=self.threshold) is not None:
                         break
                     stop = self._gate(counts, t0) or stop
                     if stop in PROCESS_STOPS:
                         break
                     stop = self._read_batch(cell, self.batch_source.get(batch_id), acc, prog,
-                                            counts, totals, seen, t0) or stop
+                                            counts, totals, seen, t0,
+                                            retry=retry_ids is not None) or stop
                     if stop in PROCESS_STOPS:
                         break
                 # The cell's stop is the one the WALK ended on, recorded before the screen so
                 # the screen's own pinned reads cannot rewrite a `yield_floor` into a
                 # `cap_reached` after the fact.
                 cell_stop = prog.should_stop(window=self.window, threshold=self.threshold)
-                if stop not in PROCESS_STOPS:
+                if retry_ids is None and stop not in PROCESS_STOPS:
                     block = self.screen.maybe_run(cell, cell_stop,
                                                   batch_source=self.batch_source, progress=prog)
                     if block:
@@ -593,6 +744,11 @@ class MapRunner:
             "relevant_accepted": sum(n(c, "relevant_accepted") for c in cells),
             "irrelevant_accepted": sum(n(c, "irrelevant_accepted") for c in cells),
             "failed_units": sum(ln(c, "failed_units") for c in cells),
+            # Three different things, deliberately three numbers (I3): units that did not
+            # complete, units whose status was not "ok", and cases a unit that DID complete
+            # never answered for. A map can have 0 failed units and still be missing cases.
+            "units_not_ok": sum(ln(c, "failures") for c in cells),
+            "cases_lost": sum(ln(c, "cases_lost") for c in cells),
             "checker_sampled": sum(ln(c, "checker_sampled") for c in cells),
             "checker_disagreements": sum(ln(c, "checker_disagreements") for c in cells),
             "units_retried_after_split": sum(n(c, "units_retried_after_split") for c in cells),

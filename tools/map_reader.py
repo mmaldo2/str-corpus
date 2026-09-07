@@ -6,6 +6,13 @@ already holds - so re-running the SAME command is how a map is resumed.
 
 It never writes the ledger. Admission is a separate tool over the same cache (D9).
 
+`--retry-lost` is the one invocation that does not read the pool: it re-plans the cases a
+COMPLETED unit dropped (a partial parse that came back for fewer cases than it was asked
+about) as fresh units of up to 18, writes them beside the pool as `retry-NNN.json`, and reads
+them. They count under `--max-units` like any other reader unit and merge into the same
+manifest, but they are not part of the pool the cells are built from, so a retry can never
+change a cell's cap or what a resume of the original command would read.
+
 The reader is the pinned subscription model, resolved from domain.yaml through
 `provider_for(dict(dom.reader.model))` alone: this tool never constructs an OpenRouter
 provider, never reads the credits endpoint and never needs a key (R1). The Codex checker is
@@ -14,6 +21,7 @@ reader units `--max-units` governs (R11).
 
   .venv\Scripts\python tools\map_reader.py --dry-run-batches 2 --cells "1930-1970|N.Y."
   .venv\Scripts\python tools\map_reader.py --max-wall-seconds 21600
+  .venv\Scripts\python tools\map_reader.py --retry-lost
 """
 from __future__ import annotations
 import argparse
@@ -27,10 +35,12 @@ sys.path.insert(0, str(ROOT))
 
 from corpus_engine import store                                                     # noqa: E402
 from corpus_engine.domain import load_domain                                        # noqa: E402
+from corpus_engine.mapper.admit import unanswered_cases                              # noqa: E402
 from corpus_engine.mapper.cells import (DEPTH_COLUMNS, BatchSource, build_cells,    # noqa: E402
                                         load_batches, select_cells)
 from corpus_engine.mapper.runner import (DEFAULT_MAX_WALL_SECONDS, MapRunner,       # noqa: E402
-                                         RunnerCaps, default_max_units)
+                                         RunnerCaps, default_max_units, lost_cases,
+                                         plan_retry_units, retry_file_name)
 from corpus_engine.mapper.yield_stop import THRESHOLD, WINDOW                       # noqa: E402
 from corpus_engine.reader.cache import ResponseCache                                # noqa: E402
 from corpus_engine.reader.codebook import load_codebook                             # noqa: E402
@@ -79,6 +89,12 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--depth-column", default="0.25", choices=sorted(DEPTH_COLUMNS))
     ap.add_argument("--sample-pct", type=int, default=None,
                     help="checker sample percentage (default: domain.yaml's checker_sample_pct)")
+    ap.add_argument("--retry-lost", action="store_true",
+                    help="re-read the cases a COMPLETED unit dropped (its parse came back for "
+                         "fewer cases than the batch held). Re-plans every such case in the "
+                         "manifest as fresh units of up to 18, beside the pool as "
+                         "retry-NNN.json, and reads them; they count under --max-units and "
+                         "merge into the same manifest. Buys nothing if nothing was lost.")
     ap.add_argument("--screen", action="store_true",
                     help="run the fallback-reader relevance screen over a cell that stopped on "
                          "yield with cap remaining (D10). OFF by default and NOT implemented in "
@@ -93,6 +109,9 @@ def main(argv=None) -> int:
     a = build_parser().parse_args(argv)
     if a.dry_run_batches is not None and a.dry_run_batches < 1:
         sys.exit(f"--dry-run-batches {a.dry_run_batches} buys nothing; pass 1 or more, or omit it")
+    if a.retry_lost and a.dry_run_batches is not None:
+        sys.exit("--retry-lost reads the cases the map lost, not the head of a cell; it cannot "
+                 "be combined with --dry-run-batches")
 
     def log(msg):
         print(msg, flush=True)
@@ -116,6 +135,48 @@ def main(argv=None) -> int:
     if a.cells or a.dry_run_batches is not None:
         log(f"subset run: its cells are MERGED into {run_dir / 'map-manifest.json'}, never "
             f"written over it")
+
+    manifest_path = run_dir / "map-manifest.json"
+    retry_ids = None
+    if a.retry_lost:
+        if not manifest_path.exists():
+            sys.exit(f"no map to retry: {manifest_path} does not exist")
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if manifest.get("run_id") != a.run_id:
+            sys.exit(f"{manifest_path} was written by run {manifest.get('run_id')!r}, not "
+                     f"{a.run_id!r}; a retry only ever repairs its own map")
+        source = BatchSource(batches_dir)
+        cache = ResponseCache(ROOT / "data" / "reader" / "cache")
+        # Two readings of the same question, unioned. The unit rows carry `cases_lost` since
+        # I3; every row written before it carries only the COUNT, and the ids come back from
+        # the cached responses instead (`unanswered_cases`). Both subtract what has since been
+        # answered, so a second --retry-lost over a repaired map plans nothing.
+        rows, cached = lost_cases(manifest), unanswered_cases(manifest, batch_source=source,
+                                                              cache=cache)
+        lost = {k: sorted(set(rows.get(k) or ()) | set(cached.get(k) or ()))
+                for k in set(rows) | set(cached)}
+        planned = plan_retry_units(manifest, source, run_id=a.run_id, lost=lost)
+        n_lost, n_planned = sum(len(v) for v in lost.values()), sum(len(b["cases"])
+                                                                   for b in planned)
+        if not planned:
+            log(f"no lost cases in {manifest_path}: nothing to retry, nothing bought")
+            return 0
+        for b in planned:                       # written before BatchSource is built for the
+            path = batches_dir / retry_file_name(b["batch_id"])   # run: admission re-derives
+            path.write_bytes((json.dumps(b, indent=1, sort_keys=True) + "\n")  # every record
+                             .encode("utf-8"))                     # from the batch file
+            log(f"retry unit {b['batch_id']}: {len(b['cases'])} cases -> {path}")
+        retry_ids = {}
+        for b in planned:
+            retry_ids.setdefault(f"{b['era_partition']}|{b['jurisdiction']}",
+                                 []).append(b["batch_id"])
+        if n_planned != n_lost:
+            log(f"WARNING: {n_lost - n_planned} lost cases could not be re-planned (their batch "
+                f"file is gone); {n_planned} of {n_lost} are in this retry")
+        cells = [c for c in cells if c.key in retry_ids]
+        if not cells:
+            sys.exit(f"the cells holding the lost cases ({', '.join(sorted(retry_ids))}) are "
+                     f"not in this --cells selection")
     if a.screen:
         log("--screen is accepted but not implemented in this slice; no screen provider is "
             "constructed and nothing will be screened. The flag is recorded in the manifest.")
@@ -129,11 +190,14 @@ def main(argv=None) -> int:
         sys.exit("codex cli not available; the checker sample is part of the map (D5)")
 
     conn = store.connect(ROOT / "data" / "db" / "corpus.db")
-    cache = ResponseCache(ROOT / "data" / "reader" / "cache")
+    cache = ResponseCache(ROOT / "data" / "reader" / "cache")   # re-read: --retry-lost above
     source = StoreCaseSource(conn)
-    caps = RunnerCaps(
-        max_units=a.max_units if a.max_units is not None else default_max_units(cells),
-        max_wall_seconds=a.max_wall_seconds)
+    # A retry's own ceiling is the units it planned: it reads exactly the batches it wrote,
+    # and the cells' caps are about the pool, which a retry does not touch.
+    default_units = (sum(len(v) for v in retry_ids.values()) if retry_ids is not None
+                     else default_max_units(cells))
+    caps = RunnerCaps(max_units=a.max_units if a.max_units is not None else default_units,
+                      max_wall_seconds=a.max_wall_seconds)
     log(f"{len(cells)} cells, {sum(c.cap_batches for c in cells)} capped batches, "
         f"caps: {caps.max_units} reader units (+2 worst case, see --help) / "
         f"{caps.max_wall_seconds:.0f} s")
@@ -143,7 +207,7 @@ def main(argv=None) -> int:
                       store_norm_version=STORE_NORM_VERSION)
 
     runner = MapRunner(factory, cells, batch_source=BatchSource(batches_dir), cache=cache,
-                       manifest_path=run_dir / "map-manifest.json", caps=caps, log=log,
+                       manifest_path=manifest_path, caps=caps, log=log,
                        codebook=cb, pin=pin,
                        checker_pin=checker_pin(dom) if checker is not None else None,
                        sample_pct=(a.sample_pct if a.sample_pct is not None
@@ -154,11 +218,15 @@ def main(argv=None) -> int:
                        screen=None, families=dom.reader.families,
                        read_timeout_seconds=READ_TIMEOUT, resume_args=argv,
                        flags={"cells": a.cells, "dry_run_batches": a.dry_run_batches,
-                              "screen": bool(a.screen), "screen_max_usd": a.screen_max_usd,
+                              "retry_lost": bool(a.retry_lost),
+                              # M6: the flag records what was ASKED for. `screen.state` records
+                              # what was BUILT, which in this slice is always "off".
+                              "screen_requested": bool(a.screen),
+                              "screen_max_usd": a.screen_max_usd,
                               "sample_pct": (a.sample_pct if a.sample_pct is not None
                                              else dom.reader.checker_sample_pct)})
     try:
-        out = runner.run()
+        out = runner.run(retry_ids=retry_ids)
     except KeyboardInterrupt:
         # The manifest was already written from the runner's finally; say where, and leave.
         log(f"interrupted; the manifest of what was bought is {run_dir / 'map-manifest.json'}")
@@ -167,6 +235,7 @@ def main(argv=None) -> int:
     log(f"stop={out.stop} cells={t['cells_read']} batches={t['batches_completed']} "
         f"cases={t['cases_read']} relevant={t['relevant_accepted']} "
         f"irrelevant={t['irrelevant_accepted']} failed={t['failed_units']} "
+        f"cases_lost={t['cases_lost']} "
         f"units={out.units} (map total {t['units']}) "
         f"checker_units={out.manifest['process']['checker_units']} "
         f"wall={out.wall_seconds:.0f}s")

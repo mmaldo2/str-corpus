@@ -143,6 +143,24 @@ def test_batch_source_serves_batches_by_id_without_reloading_the_pool(tmp_path):
         src.get("cycle-004-shard-01-batch-999")
 
 
+def test_a_retry_unit_is_served_as_a_batch_but_is_not_part_of_the_pool(tmp_path):
+    """I3. `--retry-lost` writes its units beside the pool as `retry-NNN.json`. `BatchSource`
+    has to serve them - the runner reads them, and admission re-derives every record from the
+    batch file, so a retry unit it could not find would be nine cases silently not admitted.
+    `load_batches` must NOT see them: the cells and their proportional caps are built from the
+    pool, and a repair that added a batch to a cell would shift the whole era's caps."""
+    d = _fixture(tmp_path, {("pre-1860", "N.Y."): [[0.5], [0.6]]})
+    retry = {"batch_id": "cycle-004-shard-01-retry-001", "ranker_id": "classifier:v1",
+             "era_partition": "pre-1860", "jurisdiction": "N.Y.",
+             "cases": [{"case_id": 1000, "signals": [], "rank_score": 0.5}]}
+    (d / "retry-001.json").write_bytes((json.dumps(retry, indent=1) + "\n").encode("utf-8"))
+    assert [b["batch_id"] for b in load_batches(d)] == ["cycle-004-shard-01-batch-001",
+                                                        "cycle-004-shard-01-batch-002"]
+    src = BatchSource(d)
+    assert "cycle-004-shard-01-retry-001" in src
+    assert src.get("cycle-004-shard-01-retry-001")["cases"][0]["case_id"] == 1000
+
+
 def test_select_cells_filters_by_key_and_refuses_an_unknown_one(tmp_path):
     d = _fixture(tmp_path, {("pre-1860", "N.Y."): [[0.5]], ("pre-1860", "Pa."): [[0.9]]})
     cells = build_cells(load_batches(d), era_depth={"pre-1860": 2})

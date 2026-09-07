@@ -94,10 +94,11 @@ def test_the_parser_carries_every_flag_the_map_is_run_with():
     flags = {a for action in ap._actions for a in action.option_strings}
     assert {"--run-id", "--cells", "--dry-run-batches", "--max-units", "--max-wall-seconds",
             "--window", "--threshold", "--depth-column", "--sample-pct", "--screen",
-            "--screen-max-usd"} <= flags
+            "--screen-max-usd", "--retry-lost"} <= flags
     a = ap.parse_args([])
     assert (a.run_id, a.window, a.threshold, a.depth_column) == ("cycle-004-shard-01", 3, 2, "0.25")
     assert a.max_wall_seconds == 21600 and a.max_units is None and a.screen is False
+    assert a.retry_lost is False
 
 
 def test_a_full_run_reads_every_cell_and_writes_the_tracked_manifest(wired, capsys):
@@ -192,7 +193,10 @@ def test_screen_is_accepted_but_constructs_no_provider(wired, monkeypatch):
     monkeypatch.setattr(openrouter_mod.OpenRouterProvider, "__init__", explode)
     assert mr.main(["--screen", "--sample-pct", "0"]) == 0
     doc = _manifest(wired)
-    assert doc["flags"]["screen"] is True and doc["screen"] == SCREEN_OFF
+    # M6: the flag says what was ASKED for, `screen` says what was BUILT. Under the old
+    # name (`flags.screen: true` beside `screen.state: "off"`) the two read as a contradiction.
+    assert doc["flags"]["screen_requested"] is True and doc["screen"] == SCREEN_OFF
+    assert "screen" not in doc["flags"]
     assert all(c["screen"] == {"state": "off"} for c in doc["cells"].values())
 
 
@@ -276,3 +280,75 @@ def test_a_dry_run_reports_only_the_batches_it_actually_read(wired, capsys):
     assert f"{RUN_ID}-batch-003" not in out      # the other cell's units are not dry-run rows
     # ...while the merged manifest still holds both cells
     assert set(_manifest(wired)["cells"]) == {"1930-1970|N.Y.", "pre-1860|Pa."}
+
+
+# ---------------------------------------------------------------- --retry-lost (I3) --------
+def _drop_one(pool, batch_id):
+    """A reader that answers for every case but the last one of `batch_id`, so that unit
+    completes as a partial parse with one case simply missing - the shape batch-146 came back
+    in. `answers` flips it off, so the same closure serves the retry."""
+    doc = json.loads((pool / "batch-001.json").read_text(encoding="utf-8"))
+    lost = int(doc["cases"][-1]["case_id"])
+    state = {"drop": True}
+
+    def answer(req):
+        text = _answer(req)
+        if not state["drop"] or f"# Batch {batch_id}" not in req.user:
+            return text
+        return json.dumps({"records": [r for r in json.loads(text)["records"]
+                                       if int(r["case_id"]) != lost]})
+    return answer, state, lost
+
+
+def test_retry_lost_reads_the_cases_the_map_dropped_and_merges_them_in(wired, monkeypatch,
+                                                                       capsys):
+    """I3 end to end through the tool. The first run loses a case on a unit that COMPLETES;
+    `--retry-lost` re-plans it as a fresh unit beside the pool, reads it, and merges it into
+    the same manifest. The pool the cells are built from is unchanged, so the cells, their
+    caps and what a plain resume would read are all exactly what they were."""
+    pool = wired["root"] / "runs" / RUN_ID / "batches"
+    bad = f"{RUN_ID}-batch-001"
+    answer, state, lost = _drop_one(pool, bad)
+    monkeypatch.setattr(mr, "provider_for",
+                        lambda cand: (ScriptedProvider(answer), PIN, "scripted, for the test"))
+    assert mr.main(["--sample-pct", "0"]) == 0
+    doc = _manifest(wired)
+    assert doc["cells"]["1930-1970|N.Y."]["cases_lost"] == [lost]
+    assert doc["totals"]["cases_lost"] == 1 and doc["totals"]["failed_units"] == 0
+    cells_before = {k: (c["n_batches"], c["cap_batches"]) for k, c in doc["cells"].items()}
+
+    state["drop"] = False
+    assert mr.main(["--retry-lost", "--sample-pct", "0"]) == 0
+    out = capsys.readouterr().out
+    assert f"{RUN_ID}-retry-001: 1 cases" in out and "cases_lost=0" in out
+    doc = _manifest(wired)
+    assert doc["totals"]["cases_lost"] == 0 and doc["cells"]["1930-1970|N.Y."]["cases_lost"] == []
+    row = next(u for u in doc["cells"]["1930-1970|N.Y."]["units"]
+               if u["unit_id"] == f"{RUN_ID}-retry-001")
+    assert row["cases_answered"] == [lost] and row["cases_read"] == 1
+    assert doc["flags"]["retry_lost"] is True and doc["process"]["units"] == 1
+    # The retry unit is a batch file beside the pool, readable by admission and invisible to
+    # the cells: same cells, same caps, same n_batches.
+    assert (pool / "retry-001.json").exists()
+    assert {k: (c["n_batches"], c["cap_batches"]) for k, c in doc["cells"].items()} == cells_before
+
+
+def test_retry_lost_buys_nothing_when_the_map_lost_nothing(wired, capsys):
+    assert mr.main(["--sample-pct", "0"]) == 0
+    calls = wired["reader"].calls
+    assert mr.main(["--retry-lost", "--sample-pct", "0"]) == 0
+    assert "nothing to retry" in capsys.readouterr().out
+    assert wired["reader"].calls == calls
+
+
+def test_retry_lost_refuses_a_manifest_that_is_not_this_runs(wired):
+    """A retry repairs its own map. Without the guard it would plan lost cases out of another
+    run's manifest and read them into this one."""
+    assert mr.main(["--sample-pct", "0"]) == 0
+    path = Path(wired["manifest"])
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    doc["run_id"] = "cycle-005-shard-01"
+    path.write_bytes((json.dumps(doc, indent=1, sort_keys=True) + "\n").encode("utf-8"))
+    with pytest.raises(SystemExit) as exc:
+        mr.main(["--retry-lost"])
+    assert "cycle-005-shard-01" in str(exc.value)

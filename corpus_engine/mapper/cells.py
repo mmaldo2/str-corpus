@@ -22,6 +22,13 @@ ERA_DEPTH_050 = {"pre-1860": 13, "1860-1900": 16, "1900-1930": 27, "1930-1970": 
                  "1970-2020": 55}
 DEPTH_COLUMNS = {"0.25": ERA_DEPTH_025, "0.5": ERA_DEPTH_050}
 BATCH_GLOB = "batch-*.json"
+# Units `--retry-lost` planned over the cases a completed unit dropped (I3). They live beside
+# the pool's own batch files and are read like any other batch - `BatchSource` serves them, and
+# admission needs to find them or the cases it recovered are re-derived from nothing - but they
+# are NOT part of the pool the cells are built from: `load_batches` globs BATCH_GLOB only, so a
+# retry can never add a batch to a cell, shift an era's proportional caps, or change what a
+# resume of the original command would read.
+RETRY_GLOB = "retry-*.json"
 
 
 @dataclass(frozen=True)
@@ -106,11 +113,16 @@ def select_cells(cells: Sequence[Cell], spec: str | None) -> list[Cell]:
 
 class BatchSource:
     """One batch file at a time, by id. The runner reads 1,845 files' worth of metadata once
-    through `load_batches` to build the cells, then pulls only the batches it actually plans."""
+    through `load_batches` to build the cells, then pulls only the batches it actually plans.
+
+    It serves the pool's batches AND the retry units `--retry-lost` wrote (RETRY_GLOB), because
+    both were read and both have to be re-derivable offline by admission. `load_batches` does
+    not - see RETRY_GLOB."""
 
     def __init__(self, batches_dir: Path):
         self.dir = Path(batches_dir)
-        self._by_id = {p.stem: p for p in sorted(self.dir.glob(BATCH_GLOB))}
+        files = sorted(self.dir.glob(BATCH_GLOB)) + sorted(self.dir.glob(RETRY_GLOB))
+        self._by_id = {p.stem: p for p in files}
         self._index: dict[str, Path] = {}
         for p in self._by_id.values():
             self._index[json.loads(p.read_text(encoding="utf-8"))["batch_id"]] = p

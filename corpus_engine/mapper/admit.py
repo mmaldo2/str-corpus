@@ -22,8 +22,8 @@ would enter the ledger with no judging authority recorded against it; a `set` un
 `Basis(model=..., prompt_version=..., run_id=...)` is what makes the record a machine-only
 judgment with provenance (D3), and what a later human decision supersedes. The same basis is
 put on the `admit` patch too, because `fold._record_admitting_prompt` keys the quote-support
-rule off the record's FIRST admit patch carrying a prompt_version: an admit under a bare basis
-would leave a mapper-v3 record folding under the mapper-v1 three-field cascade (D7).
+rule off the LATEST admit patch carrying a prompt_version: an admit under a bare basis would
+leave a mapper-v3 record folding under the mapper-v1 three-field cascade (D7).
 
 Only the JUDGMENT is the model's. The admitted record's identity - `cite`, `court`,
 `jurisdiction`, `year` - is taken from the store row the gate ran against, never from the
@@ -131,6 +131,61 @@ def _cell_units(manifest: Mapping):
             if isinstance(keys, str):
                 keys = [keys] if keys else []
             yield cell_key, unit_id, [str(k) for k in (keys or ()) if k]
+
+
+def _row_completed(row: Mapping) -> bool:
+    """`runner.unit_completed`, read off the row the runner wrote instead of off a live
+    `UnitResult`: status "ok", or "partial_parse" with at least one case read."""
+    return (row.get("status") == "ok"
+            or (row.get("status") == "partial_parse" and (row.get("cases_read") or 0) > 0))
+
+
+def unanswered_cases(manifest: Mapping, *, batch_source, cache: ResponseCache) -> dict:
+    """Cell key -> the case ids no cached response of that cell answers for (I3).
+
+    The same question `runner.lost_cases` answers off the unit rows, asked of the CACHE - which
+    is the only place that can answer it for a manifest written before `cases_lost` existed.
+    Such a row records how many cases its unit dropped (`status_counts.missing: 9` on
+    `cycle-004-shard-01-batch-146`) but not which, and the ids are what a retry needs.
+
+    It is `records_from_manifest` without the gate: parse the whole unit's cached response,
+    fall back to the two split halves exactly as the driver did, and take the difference
+    against the batch's own case ids. No case texts, no store, nothing bought.
+
+    Cases answered by ANY unit of the cell are subtracted, so a case a retry unit has since
+    recovered is not offered again, and running this twice over the same map plans the same
+    work twice only if that work is genuinely still undone. Units that did not complete
+    contribute nothing: those are failed units, and a resume re-reads the whole batch."""
+    cells = manifest.get("cells") or {}
+    out: dict[str, list[int]] = {}
+    for cell_key in (manifest.get("cell_order") or list(cells)):
+        cell = cells.get(cell_key) or {}
+        keys_by_unit = cell.get("cache_keys") or {}
+        missing: list[int] = []
+        answered: set[int] = set()
+        for row in cell.get("units") or []:
+            unit_id = row.get("unit_id")
+            if not unit_id or unit_id not in batch_source:
+                continue
+            keys = keys_by_unit.get(unit_id) or []
+            keys = [keys] if isinstance(keys, str) else [str(k) for k in keys if k]
+            unit = _unit_for(batch_source.get(unit_id))
+            if parse_records(_cached_text(cache, keys[0] if keys else "") or "",
+                             unit.case_ids) is not None:
+                answered.update(unit.case_ids)
+                continue
+            halves = [h for h in split_unit(unit) if h.case_ids]
+            got: set[int] = set()
+            for half, hkey in zip(halves, list(keys[1:]) + [""] * len(halves)):
+                if parse_records(_cached_text(cache, hkey) or "", half.case_ids) is not None:
+                    got.update(half.case_ids)
+            answered.update(got)
+            if _row_completed(row):
+                missing.extend(c for c in unit.case_ids if c not in got)
+        rest = sorted(set(missing) - answered)
+        if rest:
+            out[cell_key] = rest
+    return out
 
 
 def checker_notes(manifest: Mapping, *, case_ids_by_unit: Mapping | None = None) -> dict[int, str]:

@@ -13,10 +13,12 @@ import pytest
 
 from corpus_engine import store
 from corpus_engine.domain import load_domain
+from corpus_engine.mapper.admit import unanswered_cases
 from corpus_engine.mapper.cells import BatchSource, build_cells, load_batches, select_cells
-from corpus_engine.mapper.runner import (MANIFEST_SCHEMA, MAP_RESUME_TOOL, SCREEN_OFF, MapRunner,
-                                         RunnerCaps, default_max_units, merge_manifest,
-                                         relevant_accepted, unit_completed)
+from corpus_engine.mapper.runner import (MANIFEST_SCHEMA, MAP_RESUME_TOOL, RETRY_UNIT_SIZE,
+                                         SCREEN_OFF, MapRunner, RunnerCaps, default_max_units,
+                                         lost_cases, merge_manifest, plan_retry_units,
+                                         relevant_accepted, retry_file_name, unit_completed)
 from corpus_engine.mapper.screen import Screen
 from corpus_engine.reader.cache import ResponseCache
 from corpus_engine.reader.codebook import load_codebook
@@ -189,6 +191,9 @@ def test_a_failed_unit_costs_one_batch_and_never_the_cell(tmp_path, fixture_db, 
     assert bad not in [e["batch_id"] for e in cell["yield_series"]]
     assert cell["failures"][0]["status"] == "failed" and "exploded" in cell["failures"][0]["error"]
     assert out.manifest["totals"]["failed_units"] == 1
+    # I3: a failed unit is not a lost case. It did not complete, it is in `failed_units`, and
+    # re-running the same command re-reads the whole batch - so nothing is left to retry.
+    assert cell["cases_lost"] == [] and out.manifest["totals"]["cases_lost"] == 0
     # R11: a reader request that raised is a unit that was spent, not a free retry.
     assert out.units == cell["batches_attempted"]
     # Review finding 6: a failed batch's stub records are not cases that were read.
@@ -663,3 +668,199 @@ def test_the_manifest_is_moved_into_place_rather_than_written_over(tmp_path, fix
     assert moved[-1][0].endswith(".tmp")
     assert not list(tmp_path.glob("*.tmp"))                   # nothing left behind
     assert json.loads(Path(out.manifest_path).read_text(encoding="utf-8"))["cells"]
+
+
+# ---------------------------------------------------------------- lost cases (I3) ----------
+def _lost_case_of(pool, batch_id):
+    """The last case of a pool batch - the one `_dropping` never answers for."""
+    doc = json.loads(next(p for p in pool.glob("batch-*.json")
+                          if json.loads(p.read_text(encoding="utf-8"))["batch_id"] == batch_id)
+                     .read_text(encoding="utf-8"))
+    return int(doc["cases"][-1]["case_id"])
+
+
+def _dropping(pool, batch_id):
+    """A provider that answers for every case but ONE of `batch_id` - the shape
+    `cycle-004-shard-01-batch-146` came back in. The whole-unit parse fails (a requested case
+    id is missing from an otherwise valid response), the driver splits, the half holding that
+    case comes back empty and fails to parse again, and the unit COMPLETES as `partial_parse`
+    with the case simply gone."""
+    lost = _lost_case_of(pool, batch_id)
+
+    def answer(req):
+        text = _answer(lambda bid: 1)(req)
+        if f"# Batch {batch_id}" not in req.user:
+            return text
+        return json.dumps({"records": [r for r in json.loads(text)["records"]
+                                       if int(r["case_id"]) != lost]})
+    return answer
+
+
+def test_a_completed_unit_that_dropped_cases_records_them_as_lost(tmp_path, fixture_db,
+                                                                  repo_root):
+    """I3. A unit can complete - be folded into the cell, count toward its yield, consume a
+    batch of its cap - and still not answer for every case it was asked about. Those cases are
+    in no headline number: not relevant, not irrelevant, not a failed unit, and a resume
+    replays the unit from cache, so nothing ever re-asks for them."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 2})
+    bad = "cycle-004-shard-01-batch-001"
+    lost = _lost_case_of(pool, bad)
+    r = _runner(tmp_path, fixture_db, pool, answer=_dropping(pool, bad),
+                caps=RunnerCaps(max_units=50, max_wall_seconds=1e6))
+    out = r.run()
+    cell = out.manifest["cells"]["1930-1970|N.Y."]
+    row = next(u for u in cell["units"] if u["unit_id"] == bad)
+    assert row["status"] == "partial_parse" and row["retried"] is True
+    assert row["records"] == 2 and row["cases_read"] == 1 and row["cases_lost"] == [lost]
+    assert cell["cases_lost"] == [lost] and out.manifest["totals"]["cases_lost"] == 1
+    # None of the existing numbers say so: the unit completed.
+    assert cell["failed_units"] == [] and out.manifest["totals"]["failed_units"] == 0
+    assert cell["batches_completed"] == 2 and bad in [e["batch_id"] for e in cell["yield_series"]]
+    assert cell["cases_read"] == 3            # 1 + 2, where the cell holds 4 cases
+    assert out.manifest["totals"]["units_not_ok"] == 1
+
+
+def test_retry_lost_replans_the_lost_cases_as_fresh_units_and_merges_them_back(tmp_path,
+                                                                              fixture_db,
+                                                                              repo_root):
+    """The repair path. The lost cases are re-planned as a fresh batch beside the pool, read
+    under a NEW cache key (replaying the old id would just hand back the response that lost
+    them), and merged into the same manifest - where the cell's counts follow its unit rows,
+    so the recovered case stops being lost without anything rewriting the row that lost it."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 2})
+    bad = "cycle-004-shard-01-batch-001"
+    lost = _lost_case_of(pool, bad)
+    first = _runner(tmp_path, fixture_db, pool, answer=_dropping(pool, bad),
+                    caps=RunnerCaps(max_units=50, max_wall_seconds=1e6))
+    manifest = first.run().manifest
+    assert lost_cases(manifest) == {"1930-1970|N.Y.": [lost]}
+    walked = {k: manifest["cells"]["1930-1970|N.Y."][k]
+              for k in ("stop", "yield_series", "batches_completed", "batches_attempted")}
+
+    planned = plan_retry_units(manifest, BatchSource(pool), run_id="cycle-004-shard-01")
+    assert [b["batch_id"] for b in planned] == ["cycle-004-shard-01-retry-001"]
+    assert [c["case_id"] for c in planned[0]["cases"]] == [lost]
+    assert planned[0]["era_partition"] == "1930-1970" and planned[0]["jurisdiction"] == "N.Y."
+    assert planned[0]["retry_of"] == [bad]
+    for b in planned:
+        (pool / retry_file_name(b["batch_id"])).write_bytes(
+            (json.dumps(b, indent=1, sort_keys=True) + "\n").encode("utf-8"))
+    # The retry unit is readable as a batch but is NOT in the pool the cells are built from:
+    # it can never add a batch to a cell or shift an era's proportional caps.
+    assert len(load_batches(pool)) == 2 and "cycle-004-shard-01-retry-001" in BatchSource(pool)
+
+    calls = []
+    second = _runner(tmp_path, fixture_db, pool, answer=_answer(lambda bid: 1),
+                     caps=RunnerCaps(max_units=50, max_wall_seconds=1e6), calls=calls)
+    out = second.run(retry_ids={"1930-1970|N.Y.": ["cycle-004-shard-01-retry-001"]})
+    assert calls[0].calls == 1                       # exactly the one fresh unit, from no cache
+
+    cell = out.manifest["cells"]["1930-1970|N.Y."]
+    retry = next(u for u in cell["units"] if u["unit_id"] == "cycle-004-shard-01-retry-001")
+    assert retry["retry"] is True and retry["cases_answered"] == [lost]
+    assert retry["cases_read"] == 1 and cell["cases_lost"] == []
+    assert out.manifest["totals"]["cases_lost"] == 0
+    assert cell["cases_read"] == 4 and out.manifest["totals"]["cases_read"] == 4
+    # The cell's WALK is untouched: the repair is not a batch of the cell's cap or its window.
+    assert {k: cell[k] for k in walked} == walked
+    assert [e["batch_id"] for e in cell["yield_series"]] == [bad,
+                                                             "cycle-004-shard-01-batch-002"]
+    # Admission re-derives from the cache key, so the retry unit has to carry one.
+    assert cell["cache_keys"]["cycle-004-shard-01-retry-001"]
+    # 4 the map bought (batch-001 plus its two split halves, then batch-002) and 1 here: the
+    # retry is a reader unit like any other and accumulates into the map's price.
+    assert out.manifest["totals"]["units"] == 5 and out.manifest["process"]["units"] == 1
+
+
+def test_a_second_retry_only_re_plans_what_is_still_lost(tmp_path, fixture_db, repo_root):
+    """`lost_cases` is re-derived from the unit rows, so a case a retry recovered is not
+    offered again - and a case a retry lost AGAIN still is."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 2})
+    bad = "cycle-004-shard-01-batch-001"
+    lost = _lost_case_of(pool, bad)
+    manifest = _runner(tmp_path, fixture_db, pool, answer=_dropping(pool, bad),
+                       caps=RunnerCaps(max_units=50, max_wall_seconds=1e6)).run().manifest
+    planned = plan_retry_units(manifest, BatchSource(pool), run_id="cycle-004-shard-01")
+    for b in planned:
+        (pool / retry_file_name(b["batch_id"])).write_bytes(
+            (json.dumps(b, indent=1, sort_keys=True) + "\n").encode("utf-8"))
+    out = _runner(tmp_path, fixture_db, pool, answer=_answer(lambda bid: 1),
+                  caps=RunnerCaps(max_units=50, max_wall_seconds=1e6)).run(
+        retry_ids={"1930-1970|N.Y.": ["cycle-004-shard-01-retry-001"]})
+    assert lost_cases(out.manifest) == {}
+    assert unanswered_cases(out.manifest, batch_source=BatchSource(pool),
+                            cache=ResponseCache(tmp_path / "cache")) == {}
+    assert plan_retry_units(out.manifest, BatchSource(pool)) == []
+    assert lost == lost                                  # named for the reader of this test
+
+
+def test_retry_units_are_planned_per_cell_at_up_to_eighteen_cases():
+    """Cases are grouped by CELL, not packed across the manifest: a unit's records are folded
+    into one cell, and a unit mixing two would belong to neither. Within a cell they fill
+    units of `RETRY_UNIT_SIZE`, the same 18 the shard packed its batches at, and the case
+    objects are copied verbatim so the retry asks exactly what the first read asked."""
+    class _Src:
+        def __init__(self, batches):
+            self._b = {b["batch_id"]: b for b in batches}
+
+        def ids(self):
+            return tuple(self._b)
+
+        def __contains__(self, bid):
+            return bid in self._b
+
+        def get(self, bid):
+            return self._b[bid]
+
+    ny = [{"case_id": i, "signals": ["s"], "rank_score": 0.9} for i in range(1, 41)]
+    pa = [{"case_id": i, "signals": [], "rank_score": 0.5} for i in range(100, 103)]
+    src = _Src([{"batch_id": "r-batch-001", "ranker_id": "classifier:v1",
+                 "era_partition": "1930-1970", "jurisdiction": "N.Y.", "cases": ny},
+                {"batch_id": "r-batch-002", "ranker_id": "classifier:v1",
+                 "era_partition": "pre-1860", "jurisdiction": "Pa.", "cases": pa}])
+    manifest = {
+        "run_id": "r", "cell_order": ["1930-1970|N.Y.", "pre-1860|Pa."],
+        "cells": {"1930-1970|N.Y.": {"era": "1930-1970", "jurisdiction": "N.Y.", "units": [
+                      {"unit_id": "r-batch-001", "cases_lost": [c["case_id"] for c in ny]}]},
+                  "pre-1860|Pa.": {"era": "pre-1860", "jurisdiction": "Pa.", "units": [
+                      {"unit_id": "r-batch-002", "cases_lost": [100, 102]}]}}}
+    planned = plan_retry_units(manifest, src, run_id="r")
+    assert RETRY_UNIT_SIZE == 18
+    assert [b["batch_id"] for b in planned] == ["r-retry-001", "r-retry-002", "r-retry-003",
+                                                "r-retry-004"]
+    assert [len(b["cases"]) for b in planned] == [18, 18, 4, 2]
+    assert [b["jurisdiction"] for b in planned] == ["N.Y.", "N.Y.", "N.Y.", "Pa."]
+    assert [c["case_id"] for b in planned[:3] for c in b["cases"]] == list(range(1, 41))
+    assert planned[3]["cases"] == [pa[0], pa[2]]         # verbatim, signals and score included
+    assert retry_file_name("r-retry-004") == "retry-004.json"
+
+
+def test_the_lost_ids_are_recovered_from_the_cache_when_the_rows_never_recorded_them(
+        tmp_path, fixture_db, repo_root):
+    """The live cycle-004 manifest was written before `cases_lost` existed: its rows say HOW
+    MANY cases a unit dropped (`status_counts.missing: 9` on batch-146) and not which. The ids
+    come back from the cached responses instead - parsed the way the driver parsed them, whole
+    unit then split halves - so `--retry-lost` works on the map that is already on disk and not
+    only on maps read after this fix. (`unanswered_cases` lives in `mapper.admit`, which is the
+    module that re-derives from the cache.)"""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 2})
+    bad = "cycle-004-shard-01-batch-001"
+    lost = _lost_case_of(pool, bad)
+    manifest = _runner(tmp_path, fixture_db, pool, answer=_dropping(pool, bad),
+                       caps=RunnerCaps(max_units=50, max_wall_seconds=1e6)).run().manifest
+
+    legacy = json.loads(json.dumps(manifest))          # the shape the older build wrote
+    for cell in legacy["cells"].values():
+        cell.pop("cases_lost", None)
+        for row in cell["units"]:
+            row.pop("cases_lost", None)
+    assert lost_cases(legacy) == {}                    # the rows no longer say
+
+    cache = ResponseCache(tmp_path / "cache")
+    assert unanswered_cases(legacy, batch_source=BatchSource(pool),
+                            cache=cache) == {"1930-1970|N.Y.": [lost]}
+    planned = plan_retry_units(legacy, BatchSource(pool), run_id="cycle-004-shard-01",
+                               lost=unanswered_cases(legacy, batch_source=BatchSource(pool),
+                                                     cache=cache))
+    assert [[c["case_id"] for c in b["cases"]] for b in planned] == [[lost]]
+    assert planned[0]["retry_of"] == [bad]
