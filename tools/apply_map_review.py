@@ -14,19 +14,23 @@ reader from a different family, and a card that offered no checker value offers 
 A decision on a field also clears any `needs-review:<field>` flag it supersedes, through
 `apply_reference_review._clear_flag`, so the two tools can never disagree about that rule.
 
-RELEVANCE OVERTURN (round-1b addendum): every card in a map round decides polarity or
-who_was_letting, so a card has no way to say the case is not a letting case at all - the
-question a full read of the opinion can raise even on a card that only queued polarity. On
-ANY card, whatever its own decide_field, `{"field": "relevant", "decision": "set",
-"value": false}` (also spelled `"False"`) says exactly that: it writes the same patches
-`apply_reference_review.patches_for` writes for its `irrelevant` polarity adoption - `relevant`
-false, `polarity` and `who_was_letting` null, a `review.notes` line, `review.status`
-human-adjudicated - because a case out of the corpus carries no polarity or who_was_letting
-either way. `relevant` true is not an accepted decision (the reader's value is already true
-for every queued case, so `keep` already covers confirming it), and a case already `relevant`
-false has no relevance left to overturn. This is the one field a decisions file may name
-besides the card's own decide_field; `check_against_queue` waves it through on every card,
-and `patches_for` is what actually enforces `set`-to-`False`-only.
+RELEVANCE OVERTURN (round-1b addendum, extended in round 2): every card in a map round decides
+polarity or who_was_letting - or, since round 2, `relevant` itself on a section-C card the
+checker disputed relevance on - so most cards have no way to say the case is not a letting
+case at all except through this path. On ANY card, whatever its own decide_field,
+`{"field": "relevant", "decision": "set", "value": false}` (also spelled `"False"`) says
+exactly that, and round 2 adds the `adopt` counterpart for a section-C card whose OWN
+decide_field is `relevant`: `{"field": "relevant", "decision": "adopt"}` takes the checker's
+value for it - always False, since a queued record's relevant is already True and that is the
+only value a checker can have disagreed with it about. Either spelling writes the same
+patches `apply_reference_review.patches_for` writes for its `irrelevant` polarity adoption -
+`relevant` false, `polarity` and `who_was_letting` null, a `review.notes` line,
+`review.status` human-adjudicated - because a case out of the corpus carries no polarity or
+who_was_letting either way. `relevant` true is not an accepted decision (the reader's value is
+already true for every queued case, so `keep` already covers confirming it), and a case
+already `relevant` false has no relevance left to overturn. This is the one field a decisions
+file may name besides the card's own decide_field; `check_against_queue` waves it through on
+every card, and `patches_for` is what actually enforces `set`/`adopt`-to-`False`-only.
 
 EVERY decided value is validated against the field's own vocabulary before any patch is built
 (final-review I1). The ledger performs no value validation of its own - `fold.apply_patch`
@@ -225,16 +229,23 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
         if decision not in DECISIONS:
             raise ValueError(f"case {cid}: decision {decision!r} is not one of {DECISIONS}")
         why = f"{tag}: {field}"
-        if field == "relevant" and decision == "set":
-            # The relevance-overturn path (round-1b, spec addendum): on ANY card, whatever its
-            # own decide_field, a reviewer with the full opinion in front of them may rule the
-            # case is not a letting case at all. `relevant` true is not accepted here - the
-            # reader's value is already true for every queued case, and `keep` already covers
-            # confirming it - so this branch only ever writes `False`, never a value patch to
-            # `True`. It emits the same patches the reference review's `irrelevant` adoption
-            # does (`apply_reference_review.patches_for`): the case carries no polarity or
-            # who_was_letting once it is out of the corpus.
-            value = _value(field, d.get("value"))
+        if field == "relevant" and decision in ("set", "adopt"):
+            # The relevance-overturn path (round-1b, spec addendum), and round 2's extension
+            # of it: on ANY card, whatever its own decide_field, a reviewer with the full
+            # opinion in front of them may rule the case is not a letting case at all - by
+            # `set`ting relevant to False directly, or (round 2) by a section-C card whose OWN
+            # decide_field is `relevant` `adopt`ing the checker's disagreement, which is only
+            # ever False (a queued record's relevant is already True, so the only relevance
+            # value a checker can disagree with it about is False). Either way `relevant` true
+            # is not accepted here - the reader's value is already true for every queued case,
+            # and `keep` already covers confirming it - so this branch only ever writes
+            # `False`, never a value patch to `True`. It emits the same patches the reference
+            # review's `irrelevant` adoption does (`apply_reference_review.patches_for`): the
+            # case carries no polarity or who_was_letting once it is out of the corpus.
+            if decision == "adopt":
+                value = _value(field, ((checker.get(cid) or {}).get("values") or {}).get(field))
+            else:
+                value = _value(field, d.get("value"))
             if value is not False:
                 raise ValueError(f"case {cid}: relevant may only be set to False (not a "
                                  f"letting case); relevant true is not accepted as a "

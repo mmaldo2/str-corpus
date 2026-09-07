@@ -787,6 +787,77 @@ def test_main_chunks_names_files_out_stem_partk(tmp_path, monkeypatch):
     assert all("opinion_text" in c for c in json_cards)
 
 
+# ------------------------------------------------------ round 2: adopt on relevant cascades
+#
+# Section C can now decide `relevant` itself (the checker disputed relevance directly, not
+# some other field) - `adopt` there must write the same relevant/polarity/who_was_letting
+# cascade the round-1b `set`-False relevance overturn writes, not a bare `relevant` patch that
+# would leave stale polarity/who_was_letting values sitting on a record that is no longer
+# relevant.
+
+def test_adopting_the_checkers_relevant_false_on_its_own_decide_field_cascades():
+    rec = _rec(860, polarity="favorable", who_was_letting="householder")
+    ps = ap.patches_for([_d(860, "relevant", "adopt")], {860: rec}, "mmaldo2",
+                        checker={860: {"values": {"relevant": False}, "status": "ok"}})
+    ops = [(p.op, p.field, p.new) for p in ps]
+    assert ("set", "relevant", False) in ops
+    assert ("set", "polarity", None) in ops
+    assert ("set", "who_was_letting", None) in ops
+    assert ("set", "review.status", "human-adjudicated") in ops
+    assert len(ps) == 5          # note + 3 sets + status, same shape as the set-False overturn
+
+
+def test_keep_on_a_relevant_decide_field_does_not_cascade():
+    """`keep` leaves the reader's already-True value standing - nothing about the case
+    changed, so there is nothing to cascade."""
+    rec = _rec(861, polarity="favorable", who_was_letting="householder")
+    ps = ap.patches_for([_d(861, "relevant", "keep", True)], {861: rec}, "mmaldo2")
+    ops = [(p.op, p.field, p.new) for p in ps]
+    assert not any(op == "set" and f in ("polarity", "who_was_letting", "relevant")
+                   for op, f, _v in ops)
+    assert ("set", "review.status", "human-adjudicated") in ops
+
+
+def test_adopting_relevant_true_is_still_rejected():
+    """A queued record's relevant is already True, so in practice a checker can only ever
+    disagree with False - but the rule holds regardless of decision kind."""
+    with pytest.raises(ValueError, match="862.*not accepted"):
+        ap.patches_for([_d(862, "relevant", "adopt")], {862: _rec(862)}, "mmaldo2",
+                       checker={862: {"values": {"relevant": True}, "status": "ok"}})
+
+
+def test_adopting_relevant_on_an_already_irrelevant_record_is_rejected():
+    rec = _rec(863, relevant=False, polarity=None, who_was_letting=None)
+    with pytest.raises(ValueError, match="863.*already relevant false"):
+        ap.patches_for([_d(863, "relevant", "adopt")], {863: rec}, "mmaldo2",
+                       checker={863: {"values": {"relevant": False}, "status": "ok"}})
+
+
+# --------------------------------------------------- round 2: section-E field vocabularies
+
+@pytest.mark.parametrize("field,good,bad", [
+    ("under_thirty_days", "yes", "sometimes"),
+    ("owner_freedom_characterization", "regulable_privilege", "bogus_freedom"),
+    ("restriction_nature", "zoning", "bogus_restriction"),
+    ("characterization", "lodging", "bogus_characterization"),
+])
+def test_set_on_a_section_e_field_validates_against_its_own_vocabulary(field, good, bad):
+    ps = ap.patches_for([_d(870, field, "set", good)], {870: _rec(870, **{field: None})},
+                        "mmaldo2")
+    assert ("set", field, good) in [(p.op, p.field, p.new) for p in ps]
+    with pytest.raises(ValueError, match=f"871.*{field}"):
+        ap.patches_for([_d(871, field, "set", bad)], {871: _rec(871, **{field: None})},
+                       "mmaldo2")
+
+
+def test_set_on_holding_summary_accepts_free_text_with_no_vocabulary_check():
+    """`holding_summary` (ap.VALUES['holding_summary'] is None) is one of the two free-text
+    opt-outs - unlike the closed-vocabulary judged fields above, any string is accepted."""
+    text = "the court held the lease terminable at will, no letting restriction at issue"
+    ps = ap.patches_for([_d(872, "holding_summary", "set", text)], {872: _rec(872)}, "mmaldo2")
+    assert ("set", "holding_summary", text) in [(p.op, p.field, p.new) for p in ps]
+
+
 def test_an_unsure_decision_does_not_set_human_adjudicated_status():
     """D3: unsure flags the field for a human and leaves the record machine-only; only keep,
     adopt and set carry the record into the human-reviewed tier."""
@@ -798,3 +869,224 @@ def test_an_unsure_decision_does_not_set_human_adjudicated_status():
     kept = ap.patches_for([_d(841, "polarity", "keep")], {841: _rec(841)}, "mmaldo2",
                           assisted_by="GPT Astra")
     assert [p for p in kept if p.field == "review.status" and p.new == "human-adjudicated"]
+
+
+# --------------------------------------------- round 2: --full-text-sections, section-C markdown
+
+def test_markdown_shows_reader_vs_checker_prominently_for_section_c():
+    doc = _queue_doc(disagreements=[{"unit_id": "b1", "case_id": 702, "field": "polarity",
+                                     "reader_value": "mixed", "checker_value": "adverse"}])
+    checker = {702: {"values": {"polarity": "adverse"}, "status": "ok"}}
+    cards = ec.cards_from_queue(doc, checker)
+    assert [c["section"] for c in cards] == ["A", "B", "C", "E"]     # 702 -> C, per queue.py
+    md = ec.markdown_for(cards, doc["run_id"])
+    assert "Reader says mixed; checker says adverse" in md
+
+
+def test_markdown_says_not_available_when_section_c_has_no_checker_entry():
+    """A section-C card without a checker value (missing/not asked) gets no "Reader says"
+    line - there is nothing to contrast the reader's answer against."""
+    doc = _queue_doc(disagreements=[{"unit_id": "b1", "case_id": 702, "field": "polarity",
+                                     "reader_value": "mixed", "checker_value": "adverse"}])
+    cards = ec.cards_from_queue(doc, {})               # no checker file loaded
+    md = ec.markdown_for(cards, doc["run_id"])
+    assert "Reader says" not in md
+
+
+def test_full_text_sections_attaches_opinion_text_only_to_the_named_sections(tmp_path, monkeypatch):
+    doc = _queue_doc()          # 700 A, 701 B, 702 D, 703 E
+    queue_path = tmp_path / "review-round-2.json"
+    queue_path.write_text(json.dumps(doc), encoding="utf-8")
+    checker_path = tmp_path / "review-round-2-checker.json"
+    checker_path.write_text(json.dumps(CHECKER), encoding="utf-8")
+    out_stem = tmp_path / "cards"
+
+    monkeypatch.setattr(ec, "StoreCaseSource",
+                        lambda conn: _FakeTextSource({700: "t700", 701: "t701",
+                                                       702: "t702", 703: "t703"}))
+    monkeypatch.setattr(ec.store, "connect", lambda *a, **kw: None)
+
+    assert ec.main(["--queue", str(queue_path), "--checker", str(checker_path),
+                    "--out-stem", str(out_stem), "--full-text-sections", "D"]) == 0
+    cards = json.loads(Path(str(out_stem) + ".json").read_bytes().decode("utf-8"))
+    by_id = {c["case_id"]: c for c in cards}
+    assert by_id[702]["opinion_text"] == "t702"        # section D: included
+    assert "opinion_text" not in by_id[700]            # section A: excluded
+    assert "opinion_text" not in by_id[701]            # section B: excluded
+
+
+def test_full_text_sections_takes_priority_over_full_text_when_both_are_given(tmp_path, monkeypatch):
+    doc = _queue_doc()
+    queue_path = tmp_path / "review-round-2.json"
+    queue_path.write_text(json.dumps(doc), encoding="utf-8")
+    out_stem = tmp_path / "cards"
+
+    monkeypatch.setattr(ec, "StoreCaseSource",
+                        lambda conn: _FakeTextSource({700: "t700", 701: "t701",
+                                                       702: "t702", 703: "t703"}))
+    monkeypatch.setattr(ec.store, "connect", lambda *a, **kw: None)
+
+    assert ec.main(["--queue", str(queue_path), "--checker", str(tmp_path / "none.json"),
+                    "--out-stem", str(out_stem), "--full-text-sections", "B",
+                    "--full-text"]) == 0
+    cards = json.loads(Path(str(out_stem) + ".json").read_bytes().decode("utf-8"))
+    by_id = {c["case_id"]: c for c in cards}
+    assert by_id[701]["opinion_text"] == "t701"        # section B: included
+    assert "opinion_text" not in by_id[700]            # --full-text alone did not win
+
+
+# ------------------------------------------------------------- round 2: section-E erased_value
+
+def test_unit_cache_keys_flattens_across_every_cell():
+    manifest = {"cells": {"c1": {"cache_keys": {"batch-001": ["k1"]}},
+                          "c2": {"cache_keys": {"batch-002": ["k2", "k3"]}}}}
+    assert ec.unit_cache_keys(manifest) == {"batch-001": ["k1"], "batch-002": ["k2", "k3"]}
+
+
+def test_unit_cache_keys_handles_a_manifest_with_no_cells():
+    assert ec.unit_cache_keys({}) == {}
+
+
+def test_case_unit_index_maps_case_id_to_the_batch_that_read_it():
+    batches = [{"batch_id": "batch-001", "cases": [{"case_id": 700}, {"case_id": 701}]},
+              {"batch_id": "batch-002", "cases": [{"case_id": 703}]}]
+    assert ec.case_unit_index(batches) == {700: "batch-001", 701: "batch-001", 703: "batch-002"}
+
+
+def test_erased_value_reads_the_raw_pre_gate_field_from_the_cached_response(tmp_path):
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir()
+    raw_text = json.dumps([{"case_id": 703, "relevant": True, "polarity": "adverse",
+                            "quotes": [], "characterization": "innkeeping"}])
+    (cache_dir / "k1.json").write_text(json.dumps({"text": raw_text}), encoding="utf-8")
+
+    got = ec.erased_value(703, "characterization", unit_of={703: "batch-002"},
+                          cache_keys={"batch-002": ["k1"]}, cache_dir=cache_dir)
+    assert got == "innkeeping"
+
+
+def test_erased_value_is_none_when_the_case_has_no_known_unit(tmp_path):
+    assert ec.erased_value(999, "characterization", unit_of={}, cache_keys={},
+                           cache_dir=tmp_path) is None
+
+
+def test_erased_value_is_none_when_no_cache_key_is_on_disk(tmp_path):
+    got = ec.erased_value(703, "characterization", unit_of={703: "batch-002"},
+                          cache_keys={"batch-002": ["missing-key"]}, cache_dir=tmp_path)
+    assert got is None
+
+
+def test_erased_value_is_none_when_the_cached_response_will_not_parse(tmp_path):
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir()
+    (cache_dir / "k1.json").write_text(json.dumps({"text": "not json at all"}),
+                                       encoding="utf-8")
+    got = ec.erased_value(703, "characterization", unit_of={703: "batch-002"},
+                          cache_keys={"batch-002": ["k1"]}, cache_dir=cache_dir)
+    assert got is None
+
+
+def test_erased_value_is_none_when_the_field_is_absent_from_the_raw_record(tmp_path):
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir()
+    raw_text = json.dumps([{"case_id": 703, "relevant": True, "polarity": "adverse",
+                            "quotes": []}])                    # no characterization key
+    (cache_dir / "k1.json").write_text(json.dumps({"text": raw_text}), encoding="utf-8")
+    got = ec.erased_value(703, "characterization", unit_of={703: "batch-002"},
+                          cache_keys={"batch-002": ["k1"]}, cache_dir=cache_dir)
+    assert got is None
+
+
+def test_attach_erased_values_skips_io_entirely_when_no_section_e_card_is_present(tmp_path):
+    doc = _queue_doc()
+    cards = [c for c in ec.cards_from_queue(doc, {}) if c["section"] != "E"]
+
+    class _ExplodingManifest(dict):
+        def get(self, *a, **kw):
+            raise AssertionError("manifest read despite no section-E card")
+
+    out = ec.attach_erased_values(cards, manifest=_ExplodingManifest(), batches=[],
+                                  cache_dir=tmp_path)
+    assert all("erased_value" not in c for c in out)
+
+
+def test_attach_erased_values_adds_it_only_to_section_e_cards(tmp_path):
+    doc = _queue_doc()
+    cards = ec.cards_from_queue(doc, {})
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir()
+    raw_text = json.dumps([{"case_id": 703, "relevant": True, "polarity": "adverse",
+                            "quotes": [], "characterization": "innkeeping"}])
+    (cache_dir / "k1.json").write_text(json.dumps({"text": raw_text}), encoding="utf-8")
+    manifest = {"cells": {"c1": {"cache_keys": {"batch-002": ["k1"]}}}}
+    batches = [{"batch_id": "batch-002", "cases": [{"case_id": 703}]}]
+
+    out = ec.attach_erased_values(cards, manifest=manifest, batches=batches,
+                                  cache_dir=cache_dir)
+    by_id = {c["case_id"]: c for c in out}
+    assert by_id[703]["erased_value"] == "innkeeping"
+    assert "erased_value" not in by_id[700]
+
+
+def test_markdown_shows_erased_value_for_section_e_when_present():
+    doc = _queue_doc()
+    cards = ec.cards_from_queue(doc, {})
+    for c in cards:
+        if c["section"] == "E":
+            c["erased_value"] = "innkeeping"
+    md = ec.markdown_for(cards, doc["run_id"])
+    assert "Erased value for characterization" in md and "innkeeping" in md
+
+
+def test_markdown_has_no_erased_value_line_when_the_key_is_absent():
+    doc = _queue_doc()
+    cards = ec.cards_from_queue(doc, {})
+    md = ec.markdown_for(cards, doc["run_id"])
+    assert "Erased value" not in md
+
+
+def test_main_computes_erased_value_for_section_e_cards_via_manifest_and_batches(tmp_path):
+    doc = _queue_doc()
+    queue_path = tmp_path / "review-round-2.json"
+    queue_path.write_text(json.dumps(doc), encoding="utf-8")
+
+    manifest_path = tmp_path / "map-manifest.json"
+    manifest_path.write_text(json.dumps(
+        {"cells": {"c1": {"cache_keys": {"batch-002": ["k1"]}}}}), encoding="utf-8")
+
+    batches_dir = tmp_path / "batches"
+    batches_dir.mkdir()
+    (batches_dir / "batch-002.json").write_text(json.dumps(
+        {"batch_id": "batch-002", "cases": [{"case_id": 703}]}), encoding="utf-8")
+
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir()
+    raw_text = json.dumps([{"case_id": 703, "relevant": True, "polarity": "adverse",
+                            "quotes": [], "characterization": "innkeeping"}])
+    (cache_dir / "k1.json").write_text(json.dumps({"text": raw_text}), encoding="utf-8")
+
+    out_stem = tmp_path / "cards"
+    assert ec.main(["--queue", str(queue_path), "--checker", str(tmp_path / "none.json"),
+                    "--out-stem", str(out_stem), "--map-manifest", str(manifest_path),
+                    "--batches-dir", str(batches_dir), "--reader-cache", str(cache_dir)]) == 0
+    cards = json.loads(Path(str(out_stem) + ".json").read_bytes().decode("utf-8"))
+    by_id = {c["case_id"]: c for c in cards}
+    assert by_id[703]["erased_value"] == "innkeeping"
+    assert "erased_value" not in by_id[700]
+
+
+def test_main_never_reads_map_manifest_or_batches_when_no_section_e_card(tmp_path):
+    """The default paths (the real run's manifest and ~1,846 pool batch files) must not be
+    touched at all for a round with no section-E cards, like this round's own (B 1, C 100,
+    D 149, no E) - passing nonexistent defaults must not raise."""
+    doc = _queue_doc(records=[_rec(700, polarity="favorable", under_thirty_days="yes")])
+    queue_path = tmp_path / "review-round-2.json"
+    queue_path.write_text(json.dumps(doc), encoding="utf-8")
+    out_stem = tmp_path / "cards"
+
+    assert ec.main(["--queue", str(queue_path), "--checker", str(tmp_path / "none.json"),
+                    "--out-stem", str(out_stem), "--map-manifest", str(tmp_path / "nope.json"),
+                    "--batches-dir", str(tmp_path / "nope-dir"),
+                    "--reader-cache", str(tmp_path / "nope-cache")]) == 0
+    cards = json.loads(Path(str(out_stem) + ".json").read_bytes().decode("utf-8"))
+    assert "erased_value" not in cards[0]

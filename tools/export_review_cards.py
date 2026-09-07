@@ -34,11 +34,27 @@ by total character size (dominated by `opinion_text` when `--full-text` is set) 
 splitting a card across two files. The default, `--chunks 1`, writes the single
 `<out-stem>.md` this tool always wrote; passing it explicitly changes nothing.
 
+Round 2 adds two more things, for a round that mixes sections which want full text (C, D)
+with sections that do not (B), and that may carry section-E cards in a later round:
+
+`--full-text-sections C,D` restricts `opinion_text` to cards in the named sections, instead of
+every card `--full-text` attaches it to - the two are documented above their `argparse`
+entries; passing both prefers `--full-text-sections`.
+
+A section-E card (a judged field the quote gate erased) automatically gets `erased_value`: the
+value the reader gave that field BEFORE the gate nulled it, read from the unit's own cached
+response via the run's map manifest and pool batches (`--map-manifest`, `--batches-dir`,
+`--reader-cache`) - `None` when it cannot be recovered. Those three files are only read when
+the export actually contains a section-E card.
+
   .venv\Scripts\python tools\export_review_cards.py \
       --queue runs\cycle-004-shard-01\review-round-1.json
   .venv\Scripts\python tools\export_review_cards.py \
       --only-unsure runs\cycle-004-shard-01\review-round-1-decisions-astra.json --full-text \
       --chunks 4 --out-stem reports\review-round-1b-unsure-cards
+  .venv\Scripts\python tools\export_review_cards.py \
+      --queue runs\cycle-004-shard-01\review-round-2.json --full-text-sections C,D \
+      --chunks 8 --out-stem reports\review-round-2-cards
 """
 from __future__ import annotations
 
@@ -53,7 +69,9 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from corpus_engine import store                          # noqa: E402
+from corpus_engine.mapper.cells import load_batches      # noqa: E402
 from corpus_engine.mapper.queue import SECTIONS          # noqa: E402
+from corpus_engine.reader.parse import _as_case_id, parse_records  # noqa: E402
 from corpus_engine.reader.sources import StoreCaseSource  # noqa: E402
 
 # The card's comparison fields (corpus_engine.mapper.queue.CARD_VALUE_FIELDS), and the
@@ -157,8 +175,17 @@ def markdown_for(cards: Sequence[dict], run_id: str, *, part: tuple[int, int] | 
             lines.append(f"- Checker: {checker}")
         else:
             lines.append("- Checker: not asked")
+        if c["section"] == "C" and c["checker"] is not None:
+            # Section C decides whichever field the reader and checker disagreed on - make
+            # that disagreement the first thing a reviewer sees, not something they have to
+            # cross-reference from the two lines above.
+            rv, cv = c["reader"].get(c["decide_field"]), c["checker"].get(c["decide_field"])
+            lines.append(f"- **Reader says {_fmt(rv)}; checker says {_fmt(cv)}**")
         if c["nulled_fields"]:
             lines.append(f"- Nulled by the quote gate: {', '.join(c['nulled_fields'])}")
+        if "erased_value" in c:                 # section E only, see attach_erased_values
+            lines.append(f"- Erased value for {c['decide_field']} (the reader's answer before "
+                         f"the quote gate nulled it): {_fmt(c['erased_value'])}")
         if c["holding_summary"]:
             lines.append(f"- Holding: {c['holding_summary']}")
         lines.append(f"- CourtListener: {c['courtlistener_url']}")
@@ -233,6 +260,88 @@ def attach_opinion_text(cards: Sequence[dict], source) -> list[dict]:
     return cards
 
 
+def unit_cache_keys(manifest: Mapping) -> dict[str, list[str]]:
+    """unit_id -> cache keys, flattened across every cell in a map manifest
+    (`runs/<run-id>/map-manifest.json`). Unit ids are unique across the whole run - each cell
+    only ever names the units it read - so one flat dict answers for the run regardless of
+    which cell a case's unit belongs to."""
+    out: dict[str, list[str]] = {}
+    for cell in (manifest.get("cells") or {}).values():
+        for unit_id, keys in (cell.get("cache_keys") or {}).items():
+            out[str(unit_id)] = list(keys)
+    return out
+
+
+def case_unit_index(batches: Sequence[Mapping]) -> dict[int, str]:
+    """case_id -> the batch (unit) id that read it, from the map's own pool batch files
+    (`corpus_engine.mapper.cells.load_batches`) - `batch_id` doubles as the reader's `unit.id`
+    for a map read, so this is the same identifier `unit_cache_keys` is keyed by. A case is
+    read by exactly one pool batch."""
+    out: dict[int, str] = {}
+    for b in batches:
+        bid = b.get("batch_id")
+        if bid is None:
+            continue
+        for c in b.get("cases") or ():
+            cid = c.get("case_id")
+            if cid is not None:
+                out[int(cid)] = str(bid)
+    return out
+
+
+def erased_value(case_id: int, field: str, *, unit_of: Mapping[int, str],
+                 cache_keys: Mapping[str, Sequence[str]], cache_dir) -> object:
+    """The value the reader gave `field` on `case_id` BEFORE the quote gate erased it -
+    section E's whole reason for existing (`corpus_engine.mapper.queue.reasons_for`: a judged
+    field the reader answered but no verbatim quote backed, so a mechanical check nulled it).
+    The card's own `values` only carry what SURVIVED the gate (null, for this field) - this
+    reads the RAW answer, from the unit's own cached response, the same way
+    `tools/measure_reader.py`'s offline re-derivation does: `corpus_engine.reader.parse` on
+    the cached text, never the gated record.
+
+    `None` when it cannot be recovered - the case's unit is not known, none of the unit's
+    cache keys are on disk, the cached response will not parse, or the field is missing from
+    the parsed record - because a section-E card must never be blocked on this, only enriched
+    by it when it is there."""
+    unit_id = unit_of.get(int(case_id))
+    if unit_id is None:
+        return None
+    cache_dir = Path(cache_dir)
+    for key in cache_keys.get(unit_id) or ():
+        p = cache_dir / f"{key}.json"
+        if not p.exists():
+            continue
+        try:
+            text = json.loads(p.read_text(encoding="utf-8"))["text"]
+        except (json.JSONDecodeError, KeyError, TypeError):
+            continue
+        recs = parse_records(text, [case_id])
+        if not recs:
+            continue
+        for r in recs:
+            if _as_case_id(r.get("case_id")) == int(case_id) and field in r:
+                return r[field]
+    return None
+
+
+def attach_erased_values(cards: Sequence[dict], *, manifest: Mapping, batches: Sequence[Mapping],
+                         cache_dir) -> list[dict]:
+    """`cards` with `erased_value` added to every section-E card (see `erased_value`, above);
+    every other card is returned untouched. `manifest`/`batches` are only consulted when at
+    least one section-E card is present, so an export with none (this round's own, D5.2)
+    never has to read the run's ~thousands of pool batch files for nothing."""
+    cards = list(cards)
+    e_cards = [c for c in cards if c.get("section") == "E"]
+    if not e_cards:
+        return cards
+    unit_of = case_unit_index(batches)
+    keys_by_unit = unit_cache_keys(manifest)
+    for c in e_cards:
+        c["erased_value"] = erased_value(c["case_id"], c["decide_field"], unit_of=unit_of,
+                                         cache_keys=keys_by_unit, cache_dir=cache_dir)
+    return cards
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--queue", default="runs/cycle-004-shard-01/review-round-1.json",
@@ -246,10 +355,26 @@ def main(argv=None) -> int:
     ap.add_argument("--full-text", action="store_true",
                     help="add opinion_text (the store's norm_text) to every exported card, "
                          "via corpus_engine.reader.sources.StoreCaseSource - read-only")
+    ap.add_argument("--full-text-sections", default=None,
+                    help="comma-separated section letters (e.g. C,D); add opinion_text only "
+                         "to cards in these sections, instead of every card. Takes priority "
+                         "over --full-text when both are given; --full-text alone still means "
+                         "every card, unchanged from before this option existed")
     ap.add_argument("--chunks", type=int, default=1,
                     help="split the markdown export into N roughly-equal <out-stem>-partK.md "
                          "files, whole cards only (default 1: the single <out-stem>.md this "
                          "tool has always written)")
+    ap.add_argument("--map-manifest", default="runs/cycle-004-shard-01/map-manifest.json",
+                    help="the run's map manifest (runs/<run-id>/map-manifest.json); read only "
+                         "when the export includes a section-E card, for erased_value's "
+                         "cache-key lookup")
+    ap.add_argument("--batches-dir", default="runs/cycle-004-shard-01/batches",
+                    help="the run's pool batch directory; read only when the export includes "
+                         "a section-E card, for erased_value's case -> unit lookup")
+    ap.add_argument("--reader-cache", default="data/reader/cache",
+                    help="the reader response cache directory (relative to the repo root "
+                         "unless absolute); read only when the export includes a section-E "
+                         "card, for erased_value's cached response lookup")
     a = ap.parse_args(argv)
 
     queue_path = Path(a.queue)
@@ -262,8 +387,18 @@ def main(argv=None) -> int:
     if a.only_unsure:
         ids = only_unsure_ids(a.only_unsure)
         cards = [c for c in cards if c["case_id"] in ids]
-    if a.full_text:
+    if a.full_text_sections:
+        wanted = {s.strip().upper() for s in a.full_text_sections.split(",") if s.strip()}
+        attach_opinion_text([c for c in cards if c["section"] in wanted],
+                            StoreCaseSource(store.connect()))
+    elif a.full_text:
         cards = attach_opinion_text(cards, StoreCaseSource(store.connect()))
+    if any(c["section"] == "E" for c in cards):
+        manifest = json.loads(Path(a.map_manifest).read_text(encoding="utf-8"))
+        batches = load_batches(Path(a.batches_dir))
+        cache_dir = Path(a.reader_cache)
+        cache_dir = cache_dir if cache_dir.is_absolute() else ROOT / cache_dir
+        attach_erased_values(cards, manifest=manifest, batches=batches, cache_dir=cache_dir)
 
     json_path = Path(str(a.out_stem) + ".json")
     write_text(json_path, json.dumps(cards, indent=1))
