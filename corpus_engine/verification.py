@@ -7,7 +7,8 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "pipeline"))
 from textnorm import NORM_VERSION, normalize, normalize_text  # noqa: E402
-from corpus_engine.ledger.fold import quote_supports, supported_fields
+from corpus_engine.ledger.fold import supported_fields
+from corpus_engine.quotes import quote_supports
 
 FUZZY_THRESHOLD = 92.0
 

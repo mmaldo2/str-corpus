@@ -3,17 +3,19 @@ from __future__ import annotations
 from dataclasses import replace
 from corpus_engine.reader.model import CaseText, RecordResult
 from corpus_engine.verification import verify_quote
-from corpus_engine.ledger.fold import quote_supports as _supports
+from corpus_engine.quotes import quote_supports as _supports
 
 DUPLICATE_NOTE = "duplicate records for this case_id in the response; the last one was kept"
 
-# _supports is corpus_engine.ledger.fold.quote_supports under its old local name: the
+# _supports is corpus_engine.quotes.quote_supports under its old local name: the
 # codebook asks for one field name, but a passage genuinely can carry two findings and
 # models say so (the 2026-09-05 measurement had deepseek-v4-flash return
 # `["characterization", "under_thirty_days"]`, which a bare `set.add` on the raw value
 # died on -- `unhashable type: 'list'` -- taking the whole candidate down with it). The
 # gate and the ledger's drop_quote cascade must never disagree about what a quote
-# supports, so this is one helper, not two copies (review finding 5).
+# supports, so this is one helper, not two copies (review finding 5). It lives in
+# corpus_engine.quotes rather than in the ledger: the reader is upstream of the ledger, and
+# importing downstream to read a response was the dependency the wrong way round (M4).
 
 
 def gate_record(rec: dict, case: CaseText, judged_fields) -> RecordResult:

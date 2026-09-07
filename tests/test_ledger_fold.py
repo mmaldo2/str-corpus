@@ -111,8 +111,19 @@ def test_supported_fields_falls_back_to_mapper_v1_only_when_missing_or_empty():
 def test_supported_fields_raises_on_an_unknown_non_empty_version_naming_it():
     with pytest.raises(ValueError, match="mapper-v9"):
         supported_fields("mapper-v9")
-    with pytest.raises(ValueError, match="mapper-v2"):
-        supported_fields("mapper-v2:deadbeefcafe")
+    with pytest.raises(ValueError, match="mapper-v4"):
+        supported_fields("mapper-v4:deadbeefcafe")
+
+
+def test_every_shipped_codebook_has_a_support_rule(repo_root):
+    """M5. `mapper-v2.md` shipped and had no entry, so a legacy record carrying it would have
+    raised straight out of `corpus_engine.verification` and taken the pipeline down. Its own
+    hard requirement 1 names the same six fields mapper-v3's does."""
+    shipped = sorted(p.stem for p in
+                     (repo_root / "domains/str-right-to-let/codebooks").glob("mapper-v*.md"))
+    assert shipped == ["mapper-v1", "mapper-v2", "mapper-v3"]
+    assert all(v in SUPPORTED_BY_PROMPT for v in shipped)
+    assert supported_fields("mapper-v2:deadbeefcafe") == SUPPORTED_BY_PROMPT["mapper-v3"]
 
 
 def test_supported_fields_lookup_is_exact_not_case_or_whitespace_folded():
@@ -204,9 +215,9 @@ def test_prompt_falls_back_to_the_earliest_judged_set_when_the_admit_carries_non
 
 
 def test_a_reviewer_readmit_does_not_erase_the_recorded_reader_prompt():
-    """Review finding 3: the admitting prompt is the first one ever recorded. A re-admit
-    under a reviewer-only basis (the `admit` branch does not require `can_judge`) carries no
-    `prompt_version` and must not narrow an already-known mapper-v3 record to mapper-v1."""
+    """Task-2 review finding 3, still in force under I2: a re-admit under a reviewer-only
+    basis (the `admit` branch does not require `can_judge`) carries no `prompt_version` and
+    must not narrow an already-known mapper-v3 record to mapper-v1."""
     s = State()
     rec = {"case_id": 7, "relevant": True, "polarity": "favorable", "quotes": []}
     _admit(s, 7, READER_V3, rec)
@@ -216,6 +227,53 @@ def test_a_reviewer_readmit_does_not_erase_the_recorded_reader_prompt():
                          Basis(reviewer="mmaldo2"), cycle="cycle-004"))
     assert s.prompts[7] == MAPPER_V3
     assert s.records[7]["polarity"] == "adverse"
+
+
+def test_a_re_read_under_a_new_codebook_moves_the_record_to_the_new_support_rule():
+    """Final-review I2, which REVERSES the Task-2 fix-round rule that pinned the admitting
+    prompt at first sight. Slice 3 re-reads cycles 1-3 under mapper-v3, and a re-read
+    re-admits: the record now stands on the new read's quotes, so it must fold under the new
+    codebook's six-field rule. Pinned at first sight, its mapper-v3 values would survive a
+    dropped quote on evidence the mapper-v1 codebook never asked for."""
+    s = State()
+    v1_rec = {"case_id": 9, "relevant": True, "polarity": "favorable",
+              "characterization": "lease", "holding_summary": "h",
+              "quotes": [{"text": "Q1", "supports": "polarity"}]}
+    apply_patch(s, Patch(9, "admit", "", v1_rec, "cycle-001 admit", READER_V1,
+                         cycle="cycle-001"))
+    assert s.prompts[9] == "mapper-v1"
+
+    v3_rec = {"case_id": 9, "relevant": True, "polarity": "favorable",
+              "characterization": "lodging", "under_thirty_days": "yes",
+              "owner_freedom_characterization": "incident_of_ownership",
+              "restriction_nature": "zoning", "holding_summary": "h",
+              "quotes": [{"text": "Q1", "supports": ["polarity"]},
+                         {"text": "Q2", "supports": ["characterization"]}]}
+    apply_patch(s, Patch(9, "admit", "", v3_rec, "slice 3 re-read", READER_V3,
+                         cycle="cycle-001"))
+    assert s.prompts[9] == MAPPER_V3
+
+    apply_patch(s, Patch(9, "drop_quote", "quotes", "Q1", "quote failed",
+                         Basis(reviewer="mmaldo2")))
+    out = s.records[9]
+    assert out["characterization"] == "lodging"           # Q2 still supports it
+    assert out["polarity"] is None                        # both rules null this one
+    assert out["under_thirty_days"] is None               # only the six-field rule nulls these
+    assert out["owner_freedom_characterization"] is None and out["restriction_nature"] is None
+    assert out["holding_summary"] is None
+
+
+def test_a_later_admit_that_names_no_prompt_leaves_the_read_that_did_standing():
+    """The other half of I2: only an admit that NAMES a prompt moves the record. A rule-only
+    or reviewer-only re-admit is provenance for the record, not for the read."""
+    s = State()
+    _admit(s, 10, READER_V3, {"case_id": 10, "relevant": True, "quotes": []})
+    apply_patch(s, Patch(10, "admit", "", {"case_id": 10, "relevant": True, "quotes": []},
+                         "rule-only re-admit", Basis(rule_id="cycle-004-admit"),
+                         cycle="cycle-004"))
+    assert s.prompts[10] == MAPPER_V3
+    apply_patch(s, Patch(10, "set", "polarity", "adverse", "reader set", READER_V1))
+    assert s.prompts[10] == MAPPER_V3                     # nor does a later judged `set`
 
 
 def test_a_hand_built_state_missing_prompts_falls_back_to_the_three_field_rule():

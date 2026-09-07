@@ -4,6 +4,10 @@ import copy
 from dataclasses import dataclass, field
 from typing import Any
 from corpus_engine.ledger.types import Patch, UNSET, UnknownCase, DuplicateRecord, MissingBasis, UnknownField
+# M4: the definition lives in corpus_engine.quotes, upstream of both the reader and the
+# ledger; re-exported here because the gate, the fold and verification.py all learned it
+# from this module and must go on sharing exactly one implementation.
+from corpus_engine.quotes import quote_supports
 
 JUDGED_DEFAULT = ("relevant", "polarity", "who_was_letting", "duration_of_occupancy",
                   "characterization", "holding_summary", "under_thirty_days",
@@ -15,10 +19,17 @@ SUPPORTED = ("characterization", "polarity", "holding_summary")
 # mapper-v3 record was asked to support all six judged fields with a quote, so dropping a
 # quote must void all six; a mapper-v1 record was only ever asked for three, and widening
 # the cascade for it would null fields on evidence that was never demanded.
+SUPPORTED_SIX = ("characterization", "polarity", "holding_summary",
+                 "owner_freedom_characterization", "restriction_nature", "under_thirty_days")
+# mapper-v2 is here because it SHIPPED (domains/str-right-to-let/codebooks/mapper-v2.md) and
+# its hard requirement 1 demands a supporting quote for the same six fields mapper-v3 does -
+# it differs only in writing `supports` as a bare string. No record carries it today, but a
+# legacy record that did would otherwise raise out of `supported_fields` and take the whole
+# verification pipeline down (M5).
 SUPPORTED_BY_PROMPT = {
     "mapper-v1": SUPPORTED,
-    "mapper-v3": ("characterization", "polarity", "holding_summary",
-                  "owner_freedom_characterization", "restriction_nature", "under_thirty_days"),
+    "mapper-v2": SUPPORTED_SIX,
+    "mapper-v3": SUPPORTED_SIX,
 }
 REVIEW_DEFAULT = {"status": "machine", "flags": [], "notes": []}
 
@@ -46,25 +57,6 @@ def supported_fields(prompt_version: str | None) -> tuple[str, ...]:
     return SUPPORTED_BY_PROMPT[key]
 
 
-def quote_supports(quote: dict) -> tuple[str, ...]:
-    """Which judged fields a quote is offered in support of, whichever shape it arrived in.
-
-    mapper-v1 wrote a bare string; mapper-v3's schema makes `supports` an array, and a set
-    literal over the raw value (`{q.get("supports") for q in quotes}`, which is what this
-    module did) raises `unhashable type: 'list'` on the first drop_quote against an admitted
-    cycle-004 record - taking the whole `Ledger.apply` with it. This is the one definition:
-    `corpus_engine.reader.gate` imports it under its old local name (`_supports`) and
-    `corpus_engine.verification`'s legacy quote-support check imports it directly, so the
-    gate, the fold, and the legacy pipeline can never disagree about what a quote supports
-    (review finding 5)."""
-    s = quote.get("supports")
-    if isinstance(s, str):
-        return (s,) if s else ()
-    if isinstance(s, (list, tuple, set)):
-        return tuple(x for x in s if isinstance(x, str) and x)
-    return ()
-
-
 @dataclass
 class State:
     records: dict[int, dict] = field(default_factory=dict)
@@ -75,17 +67,24 @@ class State:
     # support rule. A side map, exactly like `cycles`: putting it on the record itself would
     # add a key to every rendered line and break the byte-identical snapshot replay.
     #
-    # The value recorded here is fixed the first time it is known and never overwritten
-    # after that (review findings 2-3): it is set from the FIRST admit patch for the case
-    # that carries a `prompt_version` (spec section 8 does not require the admit patch
-    # itself to carry the D8 basis - Task 7 must; see `_record_admitting_prompt`), or, if
-    # no admit patch ever carries one, from the earliest `set` on a judged field whose
-    # basis does (see the `set` branch below). A later re-admit or re-set under a
-    # reviewer-only or rule-only basis (no `prompt_version`) leaves whatever is already
-    # recorded untouched - a re-admit is provenance for the record, not for the read that
-    # first produced it, and silently narrowing an already-known mapper-v3 rule to
-    # mapper-v1 the moment a human re-admits a record would be exactly the silent
-    # evidence-discipline gap `supported_fields` was just made to refuse for finding 1.
+    # The value is the LATEST admit patch that names a `prompt_version` (final-review I2,
+    # which reverses the Task-2 fix-round rule that pinned it at first sight): re-reading a
+    # record under a new codebook RE-ADMITS it, and the record then stands on the new read's
+    # quotes under the new codebook's support rule. Slice 3's first item is exactly that - a
+    # re-read of cycles 1-3 under mapper-v3 - and a value pinned at first sight would leave
+    # those records folding under the mapper-v1 three-field cascade with their mapper-v3
+    # values standing on quotes nothing demanded, which is the gap D7 exists to close.
+    #
+    # An admit whose basis carries NO `prompt_version` (a reviewer re-admit, a rule-only
+    # admit) never changes what is recorded: a re-admit by a human is provenance for the
+    # record, not for the read that produced it, and narrowing an already-known mapper-v3
+    # rule to mapper-v1 the moment a human re-admits would be the same silent gap from the
+    # other side (Task-2 review finding 3, still in force).
+    #
+    # If no admit patch ever carries one, the fallback is the EARLIEST `set` on a judged
+    # field whose own basis does (spec section 8 does not require the D8 basis to live on
+    # the admit patch itself - Task 7 puts it there; see the `set` branch below). A `set`
+    # never moves a version that is already recorded.
     #
     # Review finding 6: a caller that hand-builds a `State(...)` from a snapshot without
     # passing `prompts` (e.g. to replay a subset of patches against a trial copy) gets an
@@ -97,11 +96,19 @@ class State:
     prompts: dict[int, str] = field(default_factory=dict)
 
 
-def _record_admitting_prompt(state: "State", case_id: int, basis) -> None:
-    """Fix `state.prompts[case_id]` the first time it is known; never overwrite it after
-    that (review findings 2-3)."""
-    if not state.prompts.get(case_id):
-        state.prompts[case_id] = basis.prompt_version or ""
+def _record_admitting_prompt(state: "State", case_id: int, basis, *,
+                             admit: bool = False) -> None:
+    """Record which prompt the record now stands on - see `State.prompts` for the rule.
+
+    `admit=True` and a basis that names a prompt: that read is the record's read now, even
+    if an earlier one already recorded a different version (I2). Anything else only fills a
+    value that is not there yet, so neither a reviewer's re-admit nor a later `set` can move
+    a version a read has already established."""
+    version = basis.prompt_version or ""
+    if admit and version:
+        state.prompts[case_id] = version
+    elif not state.prompts.get(case_id):
+        state.prompts[case_id] = version
 
 
 def _resolve(rec: dict, path: str, create: bool = False):
@@ -129,13 +136,13 @@ def apply_patch(state: State, p: Patch, *, judged: tuple[str, ...] = JUDGED_DEFA
             old = state.records[p.case_id]
             state.records[p.case_id] = rec          # same position in state.order
             state.in_file[p.case_id] = bool(rec.get("relevant"))
-            _record_admitting_prompt(state, p.case_id, p.basis)
+            _record_admitting_prompt(state, p.case_id, p.basis, admit=True)
             return old
         state.records[p.case_id] = rec
         state.order.append(p.case_id)
         state.cycles[p.case_id] = p.cycle
         state.in_file[p.case_id] = bool(rec.get("relevant"))
-        _record_admitting_prompt(state, p.case_id, p.basis)
+        _record_admitting_prompt(state, p.case_id, p.basis, admit=True)
         return UNSET
     rec = state.records.get(p.case_id)
     if rec is None:

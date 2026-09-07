@@ -20,7 +20,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from corpus_engine.ledger import open_ledger
-from corpus_engine.ledger.fold import quote_supports, supported_fields
+from corpus_engine.ledger.fold import supported_fields
+from corpus_engine.quotes import quote_supports
 from corpus_engine.ledger.types import Basis, Patch
 from corpus_engine.reader.schema import FLAG_PREFIX
 
