@@ -1,0 +1,23 @@
+[
+ {
+  "case_id": 2134894,
+  "field": "polarity",
+  "decision": "set",
+  "value": "mixed",
+  "note": "reviewer: opinion leaves lodger-vs-tenant status to the jury; both sides hold"
+ },
+ {
+  "case_id": 3642161,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "reviewer: Fourth Amendment search of a hotel room; not about the right to let"
+ },
+ {
+  "case_id": 9926133,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "reviewer: burglary-of-habitation status of a rented hotel room; not about the right to let"
+ }
+]

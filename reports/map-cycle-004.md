@@ -269,6 +269,14 @@ operator), 3 still unsure. Published after round 1b: relevant 2,911 (252 human-r
 machine-only); favorable 1,231 (152 human-reviewed); favorable householder 319 (28 human-reviewed).
 Of the 46 cases Codex called irrelevant, 28 were removed and most of the rest stood.
 
+Round 1c (applied 2026-09-07, run id map-cycle-004-round-1c, 16 patches, replay ok): the user
+decided the last three cards on a page, without model assistance — 2134894 polarity -> mixed;
+3642161 and 9926133 overturned on relevance (a Fourth Amendment hotel-room search and a
+burglary-of-habitation case: neither decides anything about the right to let). Round 1 is
+closed: all 150 cards decided. Published: relevant 2,909 (253 human-reviewed, 2,656 machine-only);
+favorable 1,228 (152 human-reviewed); favorable householder 319 (28 human-reviewed). Round 2 =
+the 753 deferred records (sections C-F).
+
 ## Limitations
 
 - **D6 window**: three cases carry an excluded field from the pre-map reference adjudication
