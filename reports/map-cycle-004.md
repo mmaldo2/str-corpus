@@ -261,6 +261,14 @@ householder -> commercial operator among eight such reclassifications). Every ap
 carries the note that the first pass was model-drafted and human-confirmed; the 67 unsure cards
 wait for a full read (page or round 2).
 
+Round 1b (applied 2026-09-07, run id map-cycle-004-round-1b, 405 patches, replay ok): the 67 unsure
+cards were re-read by GPT Astra with the FULL opinion text (reports/review-round-1b-*) and confirmed
+by the user: 28 overturned on relevance (not letting cases; relevant false, polarity and who
+cleared), 27 polarity kept, 9 values set (6 who -> unclear, 2 polarity -> adverse, 1 -> commercial
+operator), 3 still unsure. Published after round 1b: relevant 2,911 (252 human-reviewed, 2,659
+machine-only); favorable 1,231 (152 human-reviewed); favorable householder 319 (28 human-reviewed).
+Of the 46 cases Codex called irrelevant, 28 were removed and most of the rest stood.
+
 ## Limitations
 
 - **D6 window**: three cases carry an excluded field from the pre-map reference adjudication

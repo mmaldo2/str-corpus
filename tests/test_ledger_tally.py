@@ -20,11 +20,11 @@ def test_counts_and_matrix_on_the_real_ledger(repo_root):
     # whole drop lands on that tier and machine_only is unchanged. Favorable
     # holds at 367 -- 11 records gained the label and 12 lost it, one of the 12
     # being 1262336, which was outside the counted population either way.
-    assert c.total == TierCount(human_reviewed=216, machine_only=2723)   # 133/2806 after admission; review round 1 confirmed 83 (67 unsure stay machine-only)
+    assert c.total == TierCount(human_reviewed=252, machine_only=2659)   # 216/2723 after round 1; round 1b decided 64 of the 67 unsure (28 now irrelevant)
     pol = v.counts(by=("polarity",))
-    assert pol[("favorable",)].human_reviewed + pol[("favorable",)].machine_only == 1259   # 1261 after the map admission; 2 favorable -> adverse in review round 1
+    assert pol[("favorable",)].human_reviewed + pol[("favorable",)].machine_only == 1231   # 1259 after round 1; round 1b removed 28 irrelevant + 2 flips
     hh = v.counts(polarity="favorable", who_was_letting="householder")
-    assert hh.total.human_reviewed + hh.total.machine_only == 325    # 326 after the map admission; 1 householder reclassified in review round 1   # 138 before reference v2
+    assert hh.total.human_reviewed + hh.total.machine_only == 319    # 325 after round 1; round 1b   # 138 before reference v2
     m = v.matrix()
     pre = {k: t for k, t in m.cells.items() if k[0] == "pre-1860" and k[2] == "householder"}
     assert sum(t.human_reviewed + t.machine_only for t in pre.values()) == 15   # 2 before the cycle-004 map admission

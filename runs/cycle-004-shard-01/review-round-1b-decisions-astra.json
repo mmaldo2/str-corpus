@@ -1,0 +1,471 @@
+[
+  {
+    "case_id": 331147,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The opinion resolves charitable immunity for a YMCA member's diving-board injury by beneficiary status; it assumes paying-guest status without deciding the legal character, terms or regulation of his lodging."
+  },
+  {
+    "case_id": 398484,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court expressly leaves the handbag taking unjustified as a trespass and reverses solely for lack of felonious intent under general larceny principles; it recognizes no landlord lien or letting right."
+  },
+  {
+    "case_id": 524353,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court limits the implied suitability warranty for short furnished lettings to premises actually demised and holds the shared landing was outside the demise, rejecting that additional obligation on the room owner."
+  },
+  {
+    "case_id": 704532,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The majority protects synagogue sleeping accommodations as accessory to members' religious fellowship and rejects any resort purpose; the dispute concerns worship use, with no compensated letting arrangement established."
+  },
+  {
+    "case_id": 722999,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "Construing all four sections of the 1913 innkeeper act, the court applies section four to property in a guest's room and removes insurer liability for accidental fire, limiting a legal burden inherent in paid innkeeping."
+  },
+  {
+    "case_id": 844100,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court holds that a guest who knowingly hired the room with an obvious slippery floor assumed that condition, negating a duty to alter or warn about it; the holding limits obligations attached to that room letting."
+  },
+  {
+    "case_id": 870922,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court limits the special insurer obligation of innkeeping to goods within the inn or its custody, holding that overnight room rental does not extend that obligation to goods left in the guest's car."
+  },
+  {
+    "case_id": 890424,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The decision turns on the site and residential purpose of renovation work for a carpenter's Labor Law claim and expressly disclaims a categorical bed-and-breakfast exemption; it decides no lodging terms or permission."
+  },
+  {
+    "case_id": 928641,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court directly construes the innkeeper's lodging-reservation obligations, refusing emotional-distress damages for a nonwillful failure to supply the promised room while leaving ordinary contract damages available."
+  },
+  {
+    "case_id": 1046823,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "Beyond statutory proof rules, the court expressly permits assigning a roof-accessible room with a properly fastened window and rejects an additional screen or warning duty, protecting the hotel's existing room offering."
+  },
+  {
+    "case_id": 1052797,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court applies the construction-law homeowner exemption to barn-roof work serving a substantial residential purpose; later bed-and-breakfast permits are background, not a letting issue adjudicated here."
+  },
+  {
+    "case_id": 1066529,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court authorizes Thornfield as a religious education and worship center with incidental residential programs; the opinion establishes no compensated occupancy arrangement or regulation of paid letting."
+  },
+  {
+    "case_id": 1294119,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The appellate court decides only the admissibility of older evidence and preservation of objections under general evidentiary principles, ordering a new trial without deciding the hotel tenancy or right to let."
+  },
+  {
+    "case_id": 1342485,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court expressly bases curbside-carriage rights on adjacent ownership equally shared by merchants and private residents; the adjudicated activity is street use and vehicle licensing rather than room occupancy."
+  },
+  {
+    "case_id": 1423174,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court authorizes office reconstruction under the amended permitted-use list; it expressly avoids the variance issue, and the former executive-suite lodging operation supplies only the property's history."
+  },
+  {
+    "case_id": 1694267,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court holds the statutory safe, locks and notice requirements displace the trial court's ordinary-security standard for the innkeeper and requires their application on remand, protecting the statutory conditions of hotel operation."
+  },
+  {
+    "case_id": 1757996,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The majority expressly treats baggage handling at registration as an incident of innkeeper and guest status and enforces the fifty-dollar statutory limit absent written assumption of greater liability."
+  },
+  {
+    "case_id": 1802656,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The rented premises are picnic grounds and a refreshment pavilion, not dwelling or sleeping accommodation; the court applies charitable immunity and general out-of-possession landlord rules to a picnic injury."
+  },
+  {
+    "case_id": 1900632,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court treats the guest-entertainment building as part of the already licensed hotel premises and rejects a separate sleeping-room requirement, permitting expansion of the integrated hotel operation."
+  },
+  {
+    "case_id": 1970904,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "Marion Craft personally used her house on weekends before retiring there full time; the holding protects her own occupancy, while paid cottage rentals appear only in distinguished precedents."
+  },
+  {
+    "case_id": 2021145,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court upholds Colorado's innkeeper protection against constitutional attack and finds no liability for diamonds withheld from the supplied safe; it expressly preserves the hotel's choice whether to assume greater liability in writing."
+  },
+  {
+    "case_id": 2026536,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court upholds a lien for feeding and keeping horses and expressly says the owner need not be a lodging guest; compensated human occupancy is unnecessary to the transaction or holding."
+  },
+  {
+    "case_id": 2072630,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The operative agreement concerns the manager's entitlement to cleaning receipts as compensation, and the holdings address malicious prosecution and damages; the guests' two-week rental terms are not adjudicated."
+  },
+  {
+    "case_id": 2105509,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court reverses an instruction demanding gross guest negligence and recognizes ordinary guest negligence as a defense to the innkeeper's special property liability, reducing the burden arising from paid transient lodging."
+  },
+  {
+    "case_id": 2108519,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court separately rejects the proposed common-carrier-like duty of absolute protection for hotel guests and holds innkeeping does not make the proprietor an insurer against employees' assaults."
+  },
+  {
+    "case_id": 2134894,
+    "field": "polarity",
+    "decision": "unsure",
+    "value": null,
+    "note": "The full opinion expressly leaves tenant-versus-lodger status uncertain and sustains alternative factual grounds, including causation; it is relevant, but the defense verdict supplies no definite holding on letting freedom for the available polarity labels."
+  },
+  {
+    "case_id": 2211690,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court treats proprietor and resident managers as one hotel keeper and enforces a single statutory cap, explaining that greater liability depends on the innkeeper's agreement rather than the guest's unilateral demand."
+  },
+  {
+    "case_id": 2246488,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court applies the innkeeper-protection statute to all undeclared guest money, including travel expenses, and rejects a judicial exception that would restore insurer liability despite safe provision and notice."
+  },
+  {
+    "case_id": 2298514,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court holds that failure to post safe notice does not restore common-law insurer liability; the innkeeper retains the statutory depositary standard and cap, with greater exposure ordinarily dependent on written consent."
+  },
+  {
+    "case_id": 2334451,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court upholds the hotel's policy of refusing declared-value deposits, finds no duty to inquire into value and no waiver of the statutory cap, expressly preserving its choice whether to accept greater guest-property liability."
+  },
+  {
+    "case_id": 2939277,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "The court declares the cooperative lessor's overnight-presence rule invalid and holds the proprietary lessee entitled to family use under her lease; dismissal of her damages claim does not restore the owner's rejected occupancy restriction."
+  },
+  {
+    "case_id": 3328420,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The requested injunction would compel approval of a stock and proprietary-lease sale, and the court remands corporate classification and good-faith questions; no right to rent rooms or term of guest occupancy is adjudicated."
+  },
+  {
+    "case_id": 3641174,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The claimants lodged at another hotel and visited this defendant only for lunch; the court excludes an innkeeper-guest relationship and remands ordinary bailment liability for restaurant patrons' jewelry."
+  },
+  {
+    "case_id": 3642161,
+    "field": "polarity",
+    "decision": "unsure",
+    "value": null,
+    "note": "The opinion directly treats the rented hotel room as the occupant's temporary dwelling despite third-party payment, so relevance is established; its protection runs against police searches, with no holding favoring or restricting the proprietor's letting freedom."
+  },
+  {
+    "case_id": 3858594,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court applies an undisputed reasonable-care standard and rejects proof of defect notice and expert causation; it does not classify the occupancy or decide a contested term, warranty scope or regulation of letting."
+  },
+  {
+    "case_id": 4040465,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court exempts residential roof work from construction-worker strict liability under the site-and-purpose test; the separately located bed-and-breakfast room does not make this a holding on letting."
+  },
+  {
+    "case_id": 4210318,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The conclusion expressly confines the holding to access to mandamus before tax payment and declines operator status, tax merits and sanctions; the case decides a general local-tax litigation prerequisite, not regulation of the letting arrangement itself."
+  },
+  {
+    "case_id": 4303017,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "The court holds continued possession does not conclusively establish acceptance of the first owner's monthly price: the tenant may show a later rental from the co-owner, defeating enforcement of unaccepted terms by presumption alone."
+  },
+  {
+    "case_id": 4461482,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The claimant never was a guest and his son attended only a ball; the later robe deposit was a favor after departure, resolved through the temporary clerk's agency authority rather than compensated room occupancy."
+  },
+  {
+    "case_id": 4676948,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court enforces the innkeeper's statutory fifty-dollar baggage limit and holds ordinary brass checks do not constitute written consent to greater liability, preserving the hotel's choice whether to accept valuable deposits on expanded terms."
+  },
+  {
+    "case_id": 4789591,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The complaint fails because the recommended physician is not alleged to be the hotel's employee or incompetently selected; the holding concerns independent professional negligence and agency, not the terms or legal character of room occupancy."
+  },
+  {
+    "case_id": 4804553,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court holds that entertaining travelers established the statutory hotel status and that temporary vacancy did not abandon it, preserving the property's hotel-based licensing privilege without neighboring owners' consent."
+  },
+  {
+    "case_id": 5811051,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court applies general neighboring-property nuisance law and measures lost usable value through hotel receipts; it adjudicates neither permission to let nor the legal character or terms of guest occupancy."
+  },
+  {
+    "case_id": 6034850,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court accepts innkeeper status and the established guest-fault exception, then finds the guest herself caused the cigarette fire; the dispositive issue is factual causation rather than a disputed lodging right or obligation."
+  },
+  {
+    "case_id": 6039056,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The appellate court expressly avoids deciding innkeeper-versus-lessor status and reverses because the admitted latent defect and inspection evidence cannot establish negligence under either status; no contested letting obligation is resolved."
+  },
+  {
+    "case_id": 6709097,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The shelter receives public funding under a city services contract, and the court permits its transient sleeping accommodations as a hotel despite no guest fee, dormitory layout or some longer stays, dissolving the zoning injunction."
+  },
+  {
+    "case_id": 7532441,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court recognizes a prescribed nonconforming right to rent the mansion for private functions and dismisses the zoning injunction; this directly protects compensated short use of the dwelling, although the use was events rather than overnight lodging."
+  },
+  {
+    "case_id": 7626972,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The majority applies the innkeeper statute to losses by theft or otherwise and preserves its one-hundred-dollar limit absent proven negligence, confirming the statutory scope of liability attached to the guests' hotel stay."
+  },
+  {
+    "case_id": 8500982,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court rejects a traveling-expense exception to the statutory safe-deposit protection and reverses the award, holding that compliant innkeepers are protected as to all undeclared guest money."
+  },
+  {
+    "case_id": 8502839,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The defendant is a baggage-transfer carrier delivering trunks to the travelers' residence; innkeeper provisions govern only through a statutory cross-reference, with no paid room occupancy or lodging arrangement at issue."
+  },
+  {
+    "case_id": 8751860,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court directly rejects proposed requirements for tub mats, extra handholds, special tub bottoms and warnings, and refuses a higher duty for luxury hotels, preserving the operator's existing bathing facilities for paying guests."
+  },
+  {
+    "case_id": 9710150,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court expressly makes the posted innkeeper liability limit effective even if the hotel was negligent and rejects treating a specially locked display room as a substitute vault, protecting statutory limits on the paid lodging obligation."
+  },
+  {
+    "case_id": 9926133,
+    "field": "polarity",
+    "decision": "unsure",
+    "value": null,
+    "note": "The opinion classifies the rented room and concurrent management interest for burglary law but expressly puts aside the relative possessory rights of manager and renter; that holding supports relevance without settling polarity on the owner's terms of letting."
+  },
+  {
+    "case_id": 10027758,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court states that only facts are at issue and finds the tenant requested removal of his effects and later collected them; it establishes no right to evict or remove property without consent."
+  },
+  {
+    "case_id": 10030056,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court treats the statutory cap as an authorized term of the innkeeper-guest relationship, allowing it despite employee theft or negligence and reserving greater liability for a special agreement, reducing the guest's award."
+  },
+  {
+    "case_id": 10224203,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court holds that innkeepers have no legal duty to use particular construction materials or provide, inspect and train staff on firefighting equipment absent a prescribed requirement; these substantive limits support the dismissal independently of deficient warning allegations."
+  },
+  {
+    "case_id": 10230347,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court remands for failures of proof on fire causation and timely rescue and separately rejects corporate agency; it applies ordinary reasonable care without adjudicating a disputed letting classification, condition or permission."
+  },
+  {
+    "case_id": 11874376,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court limits the innkeeper's heightened guest-protection duty to property sufficiently within its control, rejecting a duty to warn or protect a guest jogging 150 yards away on nonadjacent public streets."
+  },
+  {
+    "case_id": 1346285,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "commercial_operator",
+    "note": "The plaintiffs seek to erect and operate a twenty-seven-unit motel on their land; householders renting spare rooms are the ordinance's contrasting permitted category, not the plaintiffs' proposed operation."
+  },
+  {
+    "case_id": 2571073,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court sets aside fines imposed without proof of prohibited use or a hearing for defense witnesses; neither an actual compensated lodging arrangement nor the identity of a room lessor is established in the opinion."
+  },
+  {
+    "case_id": 4109630,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "unclear",
+    "note": "The subpoena covers all platform hosts, including occasional home sharers and hosts regularly offering apartments; no single lessor or uniform residence-and-business pattern is established for this collective investigation."
+  },
+  {
+    "case_id": 4581973,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "unclear",
+    "note": "Riley rented and lived in the house while supplying lodging and board to visitors; the opinion establishes resident operation but neither owner-householder status nor enough scale or organization to distinguish a commercial boarding enterprise."
+  },
+  {
+    "case_id": 6054269,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "unclear",
+    "note": "Kraft is expressly the long-term tenant offering a spare room in her own family residence through Airbnb; the supplied owner-householder definition does not fit her title, while the record does not establish a separate hotel or multiple-property enterprise."
+  },
+  {
+    "case_id": 8272468,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "Reversal rests on police witnesses lacking a basis for reputation testimony and the resulting evidentiary prejudice; the court neither decides the room rentals' legality nor establishes the keeper's substantive obligations."
+  },
+  {
+    "case_id": 8277410,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "unclear",
+    "note": "Barden is the property owner; Hearne resides with her family and controls and rents rooms in part of his house, making her a statutory keeper but not establishing owner-householder status or a separately defined commercial lodging enterprise."
+  },
+  {
+    "case_id": 12297918,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "unclear",
+    "note": "The parties dispute whether the property remains an investment lodging business or the owners' principal home, and the court orders a factual hearing; the daughter's former summer inn and later seasonal rentals do not establish one settled lessor category."
+  },
+  {
+    "case_id": 12514384,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "unclear",
+    "note": "The compelled records cover thousands of listings by property owners, renters, managers and agents collectively; the opinion classifies their transactions as commercial association but does not establish that the lessors share one residence or enterprise category."
+  }
+]
