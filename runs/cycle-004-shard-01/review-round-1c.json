@@ -1,0 +1,726 @@
+{
+ "run_id": "cycle-004-shard-01",
+ "cap": 3,
+ "titles": {
+  "A": "Favorable and under thirty days",
+  "B": "Householder letting by the night",
+  "C": "Reader / checker disagreement",
+  "D": "Polarity mixed",
+  "E": "Judged fields erased by the quote gate",
+  "F": "Fuzzy quote match"
+ },
+ "sections": {
+  "A": [
+   {
+    "case_id": 2134894,
+    "section": "A",
+    "reason": "favorable_under_thirty",
+    "other_reasons": [
+     "round 1b first pass (GPT Astra) left this unsure: The full opinion expressly leaves tenant-versus-lodger status uncertain and sustains alternative factual grounds, including causation; it is relevant, but the defense verdict supplies no definite holding on letting freedom for the available polarity labels."
+    ],
+    "decide_field": "polarity",
+    "cite": "224 Cal. App. 2d 184",
+    "name": null,
+    "court": "District Court of Appeal of the State of California",
+    "jur": "Cal.",
+    "year": 1964,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "weeks",
+     "characterization": "other",
+     "under_thirty_days": "yes",
+     "owner_freedom_characterization": "commercial_use",
+     "restriction_nature": null
+    },
+    "holding_summary": "Defense verdict affirmed for a motel owner; whether the weekly occupant was a lodger (owner retaining control) or a tenant with responsibility for the premises was a question of fact for the jury.",
+    "quotes": [
+     {
+      "supports": [
+       "characterization",
+       "holding_summary"
+      ],
+      "text": "A “lodger” has only the right to use the premises, subject to the landlord’s retention of control and right of access. A “tenant” has exclusive legal possession of premises and is responsible for their care and condition.",
+      "status": "verified",
+      "raw_span": [
+       6644,
+       6865
+      ],
+      "reporter_page": "190"
+     },
+     {
+      "supports": [
+       "under_thirty_days",
+       "holding_summary"
+      ],
+      "text": "the family rented accommodations by the week at the Eederest Inn Motor Court in Humboldt County from the respondent Watson",
+      "status": "verified",
+      "raw_span": [
+       1638,
+       1760
+      ],
+      "reporter_page": "188"
+     },
+     {
+      "supports": [
+       "polarity",
+       "owner_freedom_characterization"
+      ],
+      "text": "The jury could conclude that the relationship of the parties was more that of landlord and tenant than lodger and proprietor, or that, even if the appellant was a lodger, she prevented Watson and his agents from carrying out their duties.",
+      "status": "verified",
+      "raw_span": [
+       8381,
+       8619
+      ],
+      "reporter_page": "191"
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": []
+   },
+   {
+    "case_id": 3642161,
+    "section": "A",
+    "reason": "favorable_under_thirty",
+    "other_reasons": [
+     "gate_erased",
+     "round 1b first pass (GPT Astra) left this unsure: The opinion directly treats the rented hotel room as the occupant's temporary dwelling despite third-party payment, so relevance is established; its protection runs against police searches, with no holding favoring or restricting the proprietor's letting freedom."
+    ],
+    "decide_field": "polarity",
+    "cite": "227 U.S. App. D.C. 284",
+    "name": null,
+    "court": "United States Court of Appeals for the District of Columbia Circuit",
+    "jur": "D.C.",
+    "year": 1983,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "nights",
+     "characterization": "other",
+     "under_thirty_days": "yes",
+     "owner_freedom_characterization": null,
+     "restriction_nature": null
+    },
+    "holding_summary": "Warrantless post-arrest search of a hotel room occupant's closet violated the Fourth Amendment; a hotel guest, even one whose room was paid for by another, has a legitimate expectation of privacy in the room as a temporary dwelling.",
+    "quotes": [
+     {
+      "supports": [
+       "holding_summary",
+       "polarity",
+       "characterization"
+      ],
+      "text": "a guest in a hotel room is entitled to constitutional protection against unreasonable searches and seizures",
+      "status": "verified",
+      "raw_span": [
+       8923,
+       9030
+      ],
+      "reporter_page": "289"
+     },
+     {
+      "supports": [
+       "holding_summary",
+       "under_thirty_days",
+       "characterization"
+      ],
+      "text": "Just as the protections due a person ensconced in his dwelling are not diminished by the fact that his residence is temporary, see Stoner v. California, 376 U.S. at 490, 84 S.Ct. at 893, so they are not vitiated by the fact that someone other than the dweller is paying the mortgage or rental.",
+      "status": "verified",
+      "raw_span": [
+       14377,
+       14670
+      ],
+      "reporter_page": "290"
+     }
+    ],
+    "nulled_fields": [
+     "owner_freedom_characterization"
+    ],
+    "extraction_status": "partial",
+    "disagreements": [],
+    "fuzzy": []
+   },
+   {
+    "case_id": 9926133,
+    "section": "A",
+    "reason": "favorable_under_thirty",
+    "other_reasons": [
+     "round 1b first pass (GPT Astra) left this unsure: The opinion classifies the rented room and concurrent management interest for burglary law but expressly puts aside the relative possessory rights of manager and renter; that holding supports relevance without settling polarity on the owner's terms of letting."
+    ],
+    "decide_field": "polarity",
+    "cite": "548 S.W.2d 52",
+    "name": null,
+    "court": "Texas Court of Criminal Appeals",
+    "jur": "Tex.",
+    "year": 1977,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "nights",
+     "characterization": "innkeeping",
+     "under_thirty_days": "yes",
+     "owner_freedom_characterization": "incident_of_ownership",
+     "restriction_nature": null
+    },
+    "holding_summary": "In a burglary of a habitation prosecution, a rented hotel room is a separately secured or occupied habitation, and either the guest renting the room or the hotel manager, who had care, custody and management of the premises, could be alleged as owner.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "characterization",
+       "owner_freedom_characterization"
+      ],
+      "text": "While it would have been proper to have alleged the woman renter of the hotel room as the owner, we conclude it was also proper to have alleged Burns, the hotel manager, as the owner.",
+      "status": "verified",
+      "raw_span": [
+       4385,
+       4568
+      ],
+      "reporter_page": "53"
+     },
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days",
+       "holding_summary"
+      ],
+      "text": "‘Habitation’ also includes garages and other outbuildings, Section 30.01(1)(B), and ‘separately secured and occupied portions’ of a habitation, to cover those who, while legally in an apartment building or hotel, for example, enter another’s room",
+      "status": "verified",
+      "raw_span": [
+       2751,
+       2997
+      ],
+      "reporter_page": "53"
+     },
+     {
+      "supports": [
+       "owner_freedom_characterization",
+       "under_thirty_days"
+      ],
+      "text": "The evidence showed that as manager he had care, custody and management of the entire Ramada Inn, including Room 225, at the time in question",
+      "status": "verified",
+      "raw_span": [
+       4569,
+       4710
+      ],
+      "reporter_page": "54"
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": []
+   }
+  ]
+ },
+ "deferred": [],
+ "fuzzy_auto_accepted": [
+  {
+   "supports": [
+    "under_thirty_days",
+    "characterization"
+   ],
+   "text": "The units would be sold as time sharing condominiums wherein fifty (50) weekly intervals of each unit would be sold.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    3724,
+    3840
+   ],
+   "reporter_page": "343",
+   "fuzzy_score": 99.13793103448276,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 3294738,
+   "source": "its were added in 1965 and that some of the units have kitchen facilities. there are plans to add seven (7) more units for a total of forty-three (43). the units would be sold as time-sharing condominiums wherein fifty (50) weekly intervals of each unit would be sold. the time sharing would exclude the first two weeks in january of each year. the court took a view of the locus. the court found that the premises in questio",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "polarity",
+    "holding_summary",
+    "owner_freedom_characterization"
+   ],
+   "text": "“no variance ] was] required to effect the change of use from a motel to a time sharing condominium.”",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    36386,
+    36487
+   ],
+   "reporter_page": "93",
+   "fuzzy_score": 99.00990099009901,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.979,
+   "miss_runs": [
+    2
+   ],
+   "case_id": 6067734,
+   "source": "herein (emphasis added). the second major issue on the merits is whether or not the defendants had to obtain a variance. the court found and ruled that' 'no variance ] was] required to effect the change of use from a motel to a time sharing condominium.\" findings no. 8. it is necessary to determine, first, if there was a ' 'change of use, ' ' and, if so, what the effect thereof is. under the by-law, the",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "polarity",
+    "owner_freedom_characterization",
+    "restriction_nature"
+   ],
+   "text": "The restrictions against profiteering in sublet situations have traditionally not been applied to living arrangements involving roommates",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    5726,
+    5863
+   ],
+   "reporter_page": "741",
+   "fuzzy_score": 99.27007299270073,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.993,
+   "miss_runs": [
+    1
+   ],
+   "case_id": 1187367,
+   "source": "enants on this ground, the landlord did not have any basis to evict a rent-controlled tenant on this ground. the 270 riverside dr., inc. v braun decision noted that \"[t]he restrictions against profiteering in sublet situations have traditionally not been applied to living arrangements involving roommates\" (4 misc 3d at 78-79, citing 520 e. 81st st. assoc. v roughton-hester, 157 ad2d 199 [1st dept 1990]). the court noted that prior to promulgation ",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "under_thirty_days"
+   ],
+   "text": "‘transient’ to be a person who is an occupant for less than 90 consecutive calendar days",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    2287,
+    2375
+   ],
+   "reporter_page": "241",
+   "fuzzy_score": 97.72727272727273,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 261185,
+   "source": "unless the occupancy is for any period of more than 30 days.\" the san bernardino city ordinance provides for a tax on transients and defines \"transient\" to be a person who is an occupant for less than 90 consecutive calendar days or who \"occupies premises intended for transient occupancy on a temporary basis for more than ninety days without contracting for occupancy on a permanent basis",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "holding_summary",
+    "polarity"
+   ],
+   "text": "the charter amendment’s requirement that landlords obtain certificates of eviction before seeking repossession of rent-controlled units cannot stand",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    38082,
+    38230
+   ],
+   "reporter_page": "152",
+   "fuzzy_score": 98.64864864864865,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.98,
+   "miss_runs": [
+    3
+   ],
+   "case_id": 2292862,
+   "source": "sessing compensation for condemned property and therefore a city charter cannot make the recoveiy of such compensation more onerous. thus we conclude that the present charter amendment's requirement that landlords obtain certificates of eviction before seeking repossession of rent-controlled units cannot stand in the face of state statutes that fully occupy the field of landlord's possessoiy remedies. insofar as the charter amendment simply prohibits eviction o",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "under_thirty_days",
+    "characterization"
+   ],
+   "text": "“Transient” means any person who exercises occupancy or is entitled to occupancy by reason of concession, permit, right of access, license or other agreement for a period of less than thirty consecutive calendar days",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    7917,
+    8133
+   ],
+   "reporter_page": "549",
+   "fuzzy_score": 99.07407407407408,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 6047737,
+   "source": " house, dormitory, public or private club, mobile-home or house trailer at a fixed location, or other similar structure or portion thereof.\" \" 'transient' means any person who exercises occupancy or is entitled to occupancy by reason of concession, permit, right of access, license or other agreement for a period of less than thirty consecutive calendar days, counting portions of calendar days as full days, any such person so occupying a space in a hotel shall be deemed a transient until the period has expired unless there is an agreement in wri",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "holding_summary",
+    "polarity"
+   ],
+   "text": "we now hold that a minor is not a tenant under the Rent Ordinance provisions that pertain to Ellis Act evictions",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    1823,
+    1935
+   ],
+   "reporter_page": "506",
+   "fuzzy_score": 99.09909909909909,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 12451336,
+   "source": "itled to a relocation payment pursuant to section 37.9a(e)(3)(a) of the san francisco rent ordinance.\" we accepted transfer of this case and now hold that a minor is not a tenant under the rent ordinance provisions that pertain to ellis act evictions. ii. statutory overview a. two statutory schemes in 1979, the san francisco board of supervisors enacted the rent ordinance \" 'because the lack of affordable rental hous",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "under_thirty_days"
+   ],
+   "text": "It wa,s leg,sed to the defendants by the former owner for a term commencing July 1, 1941, and expiring September 30, 1946, at an animal rental of $3,300 payable at the rate of $275 per month.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    590,
+    781
+   ],
+   "reporter_page": "100",
+   "fuzzy_score": 99.47643979057592,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.973,
+   "miss_runs": [
+    3,
+    2
+   ],
+   "case_id": 5347495,
+   "source": " premises under an expired lease from the plaintiffs' predecessor in title. the building in question is a converted private dwelling consisting of five apartments. it was leg,sed to the defendants by the former owner for a term commencing july 1, 1941, and expiring september 30, 1946, at an animal rental of $3,300 payable at the rate of $275 per month. the defendants occupy one apartment for their own dwelling purposes and sublet the other apartments apparently unfurnished at rentals aggregating more than $275 pe",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "under_thirty_days"
+   ],
+   "text": "The premises of which possession is sought were occupied by the defendant as a tenant of the plaintiffs",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    1614,
+    1717
+   ],
+   "reporter_page": "255",
+   "fuzzy_score": 99.02912621359224,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 510391,
+   "source": "t court the case was tried to a judge without a jury and there was a finding for the plaintiffs for possession. the facts, which are not in dispute, are these. the premises' of which possession is sought were occupied by the defendant as a tenant of the plaintiffs and are \"'controlled housing accommodations' with respect to which a maximum rent is in effect within a 'defense rental area,' all as defined i",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "characterization",
+    "under_thirty_days"
+   ],
+   "text": "she registered at Beryl’s Motor Hotel, a modern luxury motel, located in the city of Cleveland",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    985,
+    1079
+   ],
+   "reporter_page": "494",
+   "fuzzy_score": 98.93617021276596,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.989,
+   "miss_runs": [
+    1
+   ],
+   "case_id": 8751860,
+   "source": "lant, dorothy coyle, a resident of pittsburgh, pennsylvania, was engaged in a marketing research program for tbe east ohio gas co. on june 11, 1956, she registered at beryl's motor hotel, a modern luxury motel, located in tbe city of cleveland. in the room assigned to mrs. coyle, there was a combination tub and shower bath. on the evening of june 11, mrs. coyle availed herself of the use of the",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "relevant",
+    "polarity",
+    "holding_summary",
+    "restriction_nature",
+    "owner_freedom_characterization"
+   ],
+   "text": "This common law principle is significantly modified by General Statutes § 47a-7 which, among other things, requires the landlord to “make all repairs and do whatever is necessary to put and keep the premises in a fit and habitable condition",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    2256,
+    2496
+   ],
+   "reporter_page": "605",
+   "fuzzy_score": 99.58333333333333,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 1659558,
+   "source": "r any portion of the premises leased to and in the exclusive possession and control of the lessee.\" thomas v. roper, 162 conn. 343, 348, 294 a.2d 321 (1972). this common law principle is significantly modified by general statutes § 47a-72 which, among other things, requires the landlord to \"make all repairs and do whatever is necessary to put and keep the premises in a fit and habitable condition . . . [and to] maintain in good and safe working order and condition all electrical, plumbing, sanitary, heating, ventilating and other facilities and appliances . . . supplied by ",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "polarity",
+    "holding_summary",
+    "owner_freedom_characterization"
+   ],
+   "text": "Nothing in N. J. S. A. 40 :55-30, which grants zoning powers to municipalities, authorizes a zoning regulation-limiting the age of those, whether it be individuals or families, who may reside in a structure, be it a house or mobile home, otherwise permitted in a particular zoning district.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    5154,
+    5444
+   ],
+   "reporter_page": "380",
+   "fuzzy_score": 99.6551724137931,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.996,
+   "miss_runs": [
+    1
+   ],
+   "case_id": 298727,
+   "source": ", and those under that age but over 18 years old who are members of a family \"the head of which, or his spouse, is 52 years of age or over.\" hothing in n. j. s. a. 40 :55-30, which grants zoning powers to municipalities, authorizes a zoning regulation-limiting the age of those, whether it be individuals or families, who may reside in a structure, be it a house or mobile home, otherwise permitted in a particular zoning district. all that a municipality may validly be concerned with in the exercise of its zoning power is the physical use of lands and structures thereon. bridge park co. v. highland park, 113 n. j. super. 219, 221-222 (ap",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "under_thirty_days",
+    "relevant"
+   ],
+   "text": "The protections afforded by N.J.S.A. 2A:18-61.1 expressly do not apply to a transient or seasonal tenants residing at a hotel, motel or other guest house.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    6794,
+    6948
+   ],
+   "reporter_page": "485",
+   "fuzzy_score": 99.35064935064936,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.993,
+   "miss_runs": [
+    1
+   ],
+   "case_id": 360279,
+   "source": "siding on a week-to-week basis at the passaic y.m.c.a., which plaintiff conceded to be a hotel for purposes of this case.\" id. at 142, 401 a.2d 1124. we also noted that \"[t]he protections afforded by n.j.s.a. 2a:18-61.1 expressly do not apply to a transient or seasonal tenants residing at a hotel, motel or other guest house.\" id. thus, we concurred in the ultimate conclusions of the trial judge \"that plaintiff failed to establish a claim for being locked out of his ro",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "owner_freedom_characterization"
+   ],
+   "text": "N. J. S. A. 40:55-30 does not empower a municipality through zoning to regulate the ownership of buildings or the types of tenancies permitted.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    43162,
+    43305
+   ],
+   "reporter_page": "417",
+   "fuzzy_score": 99.3006993006993,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 873743,
+   "source": "ng regulations. as a matter of fact, the building inspector, marrone, testified that he based his denial of the use on that very ground. the position is not tenable. n. j. s. a. 40:55-308 does not empower a municipality through zoning to regulate the ownership of buildings or the types of tenancies permitted. it is obvious that the statute aforesaid utilizes the word \"use\" solely as a reference to the actual or physical purposes to which land or building",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "polarity",
+    "holding_summary"
+   ],
+   "text": "New Jersey courts have consistently invalidated zoning ordinances that were unreasonably restrictive in delineating permissible occupants.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    26207,
+    26345
+   ],
+   "reporter_page": "224",
+   "fuzzy_score": 99.27536231884058,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.993,
+   "miss_runs": [
+    1
+   ],
+   "case_id": 1927309,
+   "source": "se no threat to the style of family living sought to be preserved. as such, we cannot conclude that the definition of \"family\" is reasonable. hew jersey courts have consistently invalidated zoning ordinances that were unreasonably restrictive in delineating permissible occupants. for example, in kirsch holding co. v. borough of manasquan, supra, we struck down regulations which restrictively defined \"family\" and prohibited group rentals in two seas",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "characterization",
+    "under_thirty_days",
+    "relevant"
+   ],
+   "text": "Applicants seek a liquor license under the resort area exception of the Liquor Code for a restaurant they plan to operate as part of a “bed and breakfast” country inn located in the Borough of Ebensburg.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    838,
+    1041
+   ],
+   "reporter_page": "427",
+   "fuzzy_score": 99.50738916256158,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 1361130,
+   "source": " boards denial of an application for a new restaurant liquor license filed by lewis h. ripley, jr. and jeannette hessler ripley (applicants). applicants seek a liquor license under the resort area exception of the liquor code1 for a restaurant they plan to operate as part of a \"bed and breakfast\" country inn located in the borough of ebensburg. there are no protestants to the application. a hearing examiner for the board conducted an evidentiary hearing on november 14, 1985 following which he issued a detailed report recommendi",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "owner_freedom_characterization",
+    "polarity"
+   ],
+   "text": "An ordinance is not invalid merely because it does not permit the most lucrative use of property.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    14393,
+    14490
+   ],
+   "reporter_page": "919",
+   "fuzzy_score": 98.96907216494846,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.99,
+   "miss_runs": [
+    1
+   ],
+   "case_id": 7312711,
+   "source": "operty as a single-family residence for many years. howell testified that renting the property as a duplex would not maximize its economic potential, but \"[a]n ordinance is not invalid merely because it does not permit the most lucrative use of property.\" keinath v. township of edgmont, 964 a.2d 458, 463 (pa.cmwlth.), appeal denied, 603 pa. 697, 983 a.2d 730 (2009). in sum, the trust's evidence did",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "characterization"
+   ],
+   "text": "The permitted uses to which defendants analogize are tourist homes, and boarding or lodging homes.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    16847,
+    16945
+   ],
+   "reporter_page": "22",
+   "fuzzy_score": 97.95918367346938,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.969,
+   "miss_runs": [
+    3
+   ],
+   "case_id": 7543522,
+   "source": "ature, sets forth the uses permitted and does not have to specifically exclude every non-permitted use. see, article v, sec. 1 of the 1953 ordinance. the permitted uses to which defendants analogize are tourist homes, and boarding or lodging houses. reviewing the definitions of those uses in the 1953 ordinance this court points out that both provide for no more than 15 rooms with sleeping facilities",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "characterization",
+    "polarity",
+    "owner_freedom_characterization"
+   ],
+   "text": "he came to lodge with the plaintiff, who kept a student rooming-house",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    5436,
+    5505
+   ],
+   "reporter_page": "602",
+   "fuzzy_score": 97.10144927536231,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.971,
+   "miss_runs": [
+    2
+   ],
+   "case_id": 792065,
+   "source": "the plaintiff was given the life use of one third of the remainder, with remainder over to her son. in september, 1904, charles sold his home, and came to lodge with the plaintiff, who kept a student rooming-house. he later began to take his meals at her table. in the course of time, she, at his request, gave up taking other roomers, and he arranged with her to furni",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "characterization",
+    "owner_freedom_characterization"
+   ],
+   "text": "his wife, by occupying said house as a boarding-house, liad supported and maintained herself and their said children",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    2113,
+    2229
+   ],
+   "reporter_page": "639",
+   "fuzzy_score": 98.68995633187772,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.974,
+   "miss_runs": [
+    3
+   ],
+   "case_id": 6755719,
+   "source": "d said mary remained so occupying, until the i 3th of january, 1814 ; and the defendant, in consideration of the premises, and that his said wife, by occupying said house as a boarding-house, liad supported and maintained herself and their said children, assumed, ac. the other counts were general. where a man, absent from his family, liad knowledge, that his wife was keeping a boarding, house, to support herself and child",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "characterization",
+    "under_thirty_days"
+   ],
+   "text": "Comunidad intended to use the property for low-income housing and sought and received a tax exemption for that purpose.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    11427,
+    11546
+   ],
+   "reporter_page": "485",
+   "fuzzy_score": 99.15966386554622,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.983,
+   "miss_runs": [
+    2
+   ],
+   "case_id": 7093127,
+   "source": " comu-nidad's distinct investment-backed expectations when comunidad purchased the complex, it was occupied and did not violate existing fire ordinances. comuni-dad intended to use the property for low-income housing and sought and received a tax exemption for that purpose. subsequently, the city amended the fire ordinances in such a way that makes it economically infeasible for comunidad to operate the complex. \"the existin",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "polarity",
+    "restriction_nature",
+    "owner_freedom_characterization",
+    "holding_summary"
+   ],
+   "text": "It shall be the duty of any owner or agerit for owner of any factory, workshop, tenement house, inn, or public house, if such factory, workshop, tenement house, inn, or public house be more than two stories high, to provide a convenient exit from the different upper stories ■of said building",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    14531,
+    14822
+   ],
+   "reporter_page": "220",
+   "fuzzy_score": 99.65635738831615,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 8841077,
+   "source": "sary -to consider sections 2573 and 2574, revised statutes, relating to the providing of exits from buildings. as enacted april 19, 1883, these sections are as follows. \"section 2573. it shall be the duty of any owner or agerit for' owner of any factory, workshop, tenement house, inn, or public house, if such factory, workshop, tenement house, inn, or public house be more than two stories high, to provide a convenient exit from the different upper stories of said building, which shall be easily accessible in case of fire, and any owner or person having control of any such inn or public house where travelers or boarders are lodged in any ",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "characterization",
+    "under_thirty_days",
+    "relevant"
+   ],
+   "text": "Cook proposed to remain, and did remain, at his house as a lodger and boarder, defendant then keeping public house, and of his own free will, and without any influence or request by this defendant, continued to board with this defendant until the making of the agreement for his maintenance during life",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    22850,
+    23152
+   ],
+   "reporter_page": "532",
+   "fuzzy_score": 99.66887417218543,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 789570,
+   "source": "s defendant offered him from the table which supplied his family ; that cook refused to partake of what was thus offered, and desired to have such food as he particularized, which was then procured for him ; that cook proposed'to remain, and did remain, at his house as a lodger and boarder, defendant then keeping public house, and of his own free will, and without any influence or request by this defendant, continued to board with this defendant until the making of the agreement for his maintenance during life, hereinafter mentioned, and paid for his board agreeably to the terms stipulated between him and this defendant. he denies that at any period",
+   "auto_accepted": true
+  }
+ ],
+ "checker_path": {
+  "plan": "reread",
+  "worker": "checker",
+  "pin": "codex-cli@-:-",
+  "cases_per_unit": 1,
+  "unit_cap": 150,
+  "sample_pct": 100
+ },
+ "checker_results": "runs/cycle-004-shard-01/review-round-1-checker.json"
+}
