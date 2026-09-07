@@ -9,7 +9,8 @@ first review round. Spec:
 ## Headline
 
 - **50 of 50 cells read**, 380 of 399 capped batches (95%), 6,831 cases, **2,246 relevant
-  accepted / 4,585 irrelevant accepted**, 0 failed units.
+  accepted / 4,585 irrelevant accepted**, 0 failed units - but **9 cases lost** to one
+  unit that completed without answering for them (see Lost cases).
 - 47 cells stopped on their depth cap; **3 stopped on the yield floor** (window 3, threshold 2)
   before reaching cap: `pre-1860|Pa.` (4 of 5 batches), `1930-1970|Tex.` (10 of 21),
   `1970-2020|Tex.` (7 of 14).
@@ -106,6 +107,27 @@ stopped after batch 378, last three yielded 0); `pre-1860|Pa.` (4, 0, 1, 1 — s
 374, last three yielded 2). Texas is the only jurisdiction that tripped the yield floor, in both
 of its largest-cap eras.
 
+## Lost cases
+
+**9 of the 18 cases in `cycle-004-shard-01-batch-146` (`1930-1970|N.Y.`) were never answered
+for, and are not in the corpus.** The unit's first response would not parse, the driver split
+it, one half came back and the other did not - so the unit COMPLETED (`status:
+"partial_parse"`, `records: 18`, `cases_read: 9`, `status_counts.missing: 9`) and is not a
+failed unit. That is why the cell's row reads 369 cases where 21 batches x 18 would be 378,
+and why `totals.records` 6,840 exceeds `totals.cases_read` 6,831 by exactly 9.
+
+Those 9 cases are missing from both sides of the map: they are not among the 2,246 relevant
+records, and they are not among the 4,585 labelled negatives `ranker-heldout-v2` will train
+on. A resume cannot recover them - it replays the unit from the response cache, which holds
+the answer that lost them.
+
+A retry is pending. `tools/map_reader.py --retry-lost` re-plans exactly those case ids
+(835703, 880999, 899345, 1008910, 1046562, 2264542, 3223841, 5412641, 5790700) as one fresh
+unit of 9, reads it, and merges it into this manifest; admission then picks it up like any
+other unit. This report will be updated with the outcome. Every unit row now records
+`cases_lost` so a future partial parse says which cases it dropped rather than leaving the
+difference between two totals as the only trace.
+
 ## Reader, codebook, schema, caps and flags
 
 | | |
@@ -113,7 +135,8 @@ of its largest-cap eras.
 | Reader pin | `claude-cli/claude-opus-5@claude-cli:-`, effort low, batch size 18, read timeout 1500 s |
 | Checker pin | `codex-cli@-:-` (gpt-5.6-terra), 10% of units during the map (`sha256(unit id) % 100 < 10`) |
 | Codebook | `mapper-v3`, sha `f920166813144f09d3a8a8de575eb860dbcce18a42b46b2270b4b17cc1a52752` |
-| Schema | `map-manifest-v1`, sha `be8cb3909d96d5bf03c9f16c541e21c37100fca0c8bc6357ef64421b62b65e59` |
+| Manifest schema | `map-manifest-v1` (`runs/cycle-004-shard-01/map-manifest.json`) |
+| Record JSON schema | sha `be8cb3909d96d5bf03c9f16c541e21c37100fca0c8bc6357ef64421b62b65e59` (`manifest.schema_sha`, the schema sent to the model) |
 | Yield stop | window 3, threshold 2 (a cell stops when its last 3 completed batches yield <= 2 relevant combined) |
 | Screen | off (`screen.state = "off"`, 0 screened units, 0 hits) — designed, not run this slice |
 | Store norm version | v1 |
@@ -133,8 +156,9 @@ Run 1 hit its 6 h `--max-wall-seconds` default; the user's decision was to let i
 rather than raise it up front, then relaunch with `--max-wall-seconds 86400` so the remainder
 would finish in one process — it did, reaching `stop=done` at 380 of 399 capped batches (the
 19 batches short of 399 belong to the 3 cells that stopped on their yield floor before their cap).
-0 failed units and 0 retried-after-split events beyond the 3 total across the whole map
-(`units_retried_after_split: 3`).
+0 failed units - no unit failed to come back - and 3 units retried after a split across
+the whole map (`units_retried_after_split: 3`). One of those three came back partially:
+see Lost cases above.
 
 Before the field run, a Codex CLI adapter fix (`9765518`, `67e35bf`) was needed to get the
 checker responding; a 2-batch dry run on `1970-2020|Mass.` then read 36 cases, 32 relevant, 0

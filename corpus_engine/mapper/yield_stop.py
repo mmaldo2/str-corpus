@@ -36,8 +36,16 @@ class CellProgress:
         """One batch's result. `completed` is the driver's verdict: a unit whose status is
         "ok", or "partial_parse" with at least one accepted record. A failed unit is recorded
         so the manifest can list it and the next invocation can re-read it, but it never
-        enters the window - an outage is not evidence that a cell has stopped paying - and it
-        does not consume the cap."""
+        enters the window: an outage is not evidence that a cell has stopped paying.
+
+        It does not consume the cap AS THIS RULE COUNTS IT - `completed_batches` is the only
+        thing `should_stop` compares against `cap_batches` - but it does consume one of the
+        batches the RUNNER walks, because `MapRunner.run` iterates `cell.capped_ids`, which is
+        the cell's head cut to `cap_batches` (M2). So a cell that loses batches to failures
+        ends its walk with neither `cap_reached` nor `yield_floor` and is never offered to the
+        screen. Nothing was lost this run (0 failed units); a noisier provider would feel it,
+        and the fix would be to walk `batch_ids` until `cap_batches` COMPLETIONS - a change to
+        what a cell costs, which is why it is written down here rather than made quietly."""
         if completed:
             self._series.append({"batch_id": batch_id, "relevant_accepted": int(relevant_accepted)})
         else:

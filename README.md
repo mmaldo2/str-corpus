@@ -66,6 +66,11 @@ $R = "cycle-004-shard-01"
 # line resumes from the cache at no extra cost. A run can exceed --max-units by at
 # most 2 requests, once, when the last batch it begins needs to split and re-read.
 .venv\Scripts\python tools\map_reader.py --max-units 439 --max-wall-seconds 21600
+# Lost cases: a unit can COMPLETE and still not answer for every case in its batch
+# (a partial parse). Those case ids are recorded per unit as cases_lost; --retry-lost
+# re-plans every one still outstanding as fresh units of up to 18, reads them, and
+# merges them into the same manifest. Buys nothing if nothing was lost. Re-admit after.
+.venv\Scripts\python tools\map_reader.py --retry-lost
 # Admission (offline; --dry-run first, always). --apply refuses a run id already
 # admitted unless --force.
 .venv\Scripts\python tools\admit_map.py --dry-run
@@ -82,7 +87,9 @@ $R = "cycle-004-shard-01"
 ```
 
 `runs\<run-id>\map-manifest.json` is tracked (small: per-cell progress, yield
-series, stop reasons, caps and flags); `runs\<run-id>\batches\` and
+series, stop reasons, caps, flags, and the cases any completed unit lost); the
+round-1 queue and checker answers under `runs\<run-id>\review-round-1*.json` are
+tracked too, as that round's durable record; `runs\<run-id>\batches\` and
 `runs\<run-id>\extractions\` are gitignored, and the response cache under
 `data\reader\cache\` is never committed.
 

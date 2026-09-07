@@ -97,11 +97,14 @@ cases with rank_score; 18 cases). Cap: `ceil(era_depth[era] * n_cell_batches / n
 minimum 1. Cells are read in descending order of the mean rank_score of their first `cap_batches`
 batches, so the cells most likely to yield are read first in a window that may end early. The manifest records the order and the caps.
 
-## 5. Yield stop (`corpus_engine/mapper/yield.py`)
+## 5. Yield stop (`corpus_engine/mapper/yield_stop.py`)
 
 Pure state machine: `CellProgress.add(batch_id, relevant_accepted: int, completed: bool)`;
-`should_stop(window=3, threshold=2) -> StopReason | None` where StopReason in
-{yield_floor, cap_reached}. Only completed batches (unit status ok or partial with accepted
+`should_stop(window=3, threshold=2) -> CellStop | None` where `CellStop.kind` is
+`yield_floor` or `cap_reached`. (Both renames are ruled in `progress.md`, rulings 1 and
+3: `yield` is a Python keyword and cannot be a module name, and `StopReason` was already
+taken by `corpus_engine.reader.model` for the driver's budget stops, which the runner
+handles in the same function.) Only completed batches (unit status ok or partial with accepted
 records) enter the window; a failed unit is recorded but skipped. Both parameters and each
 cell's yield series and stop reason are written to the manifest.
 
