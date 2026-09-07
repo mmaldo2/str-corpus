@@ -1,0 +1,2002 @@
+{
+ "20882": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "44899": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "87911": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "103356": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "128002": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "131566": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "137638": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "166621": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "184062": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "186118": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "189292": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "213192": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "228561": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "236277": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "280595": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "292865": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "293845": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "295763": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "300801": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "303455": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "305870": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "308044": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "309790": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "314657": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "318381": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "321652": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "335757": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "338477": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "359604": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "397159": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "398356": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "399701": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "400667": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "409286": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "435132": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "436505": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "439792": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "439951": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "458474": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "475024": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "475923": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "477399": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "485411": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "488272": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "497520": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "499800": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "500363": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "501596": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "506264": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "515472": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "518380": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "523091": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "525237": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "537065": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "611613": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "615248": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "622139": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "632507": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "636289": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "650640": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "651264": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "679032": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "689047": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "710486": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "716230": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "722769": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "732521": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "733113": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "742345": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "743985": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "751533": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "766453": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "769719": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "776615": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "789175": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "789570": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "792045": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "799757": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "799848": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "802473": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "807491": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "810193": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "817515": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "851627": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "868683": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "872725": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "882850": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "883132": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "884906": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "887084": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "896931": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "900723": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "902802": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "903722": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "904495": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "917411": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "930508": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "931282": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "939733": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "942338": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "951767": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "957464": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "license"
+  },
+  "status": "ok"
+ },
+ "971120": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "971126": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "983618": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "1008891": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "1013127": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1025332": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1028424": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "1035563": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "1047926": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1049525": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1063334": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1070397": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1090570": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1108765": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "1109062": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1119733": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "1137837": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "1144611": {
+  "values": {
+   "relevant": null,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "failed:codex exited 1: 2026-09-07T19:58:50.505803Z ERROR codex_models_manager::cache: failed to load models cache: missing fiel"
+ },
+ "1187367": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "1187716": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "1192428": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "1196644": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "1246052": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1246491": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1257989": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1262815": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "1293458": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "1336202": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "1341009": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "1350983": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "1352962": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "1361130": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1381102": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "1391591": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "1395477": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "1419023": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1425864": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "1436856": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1439643": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "1445235": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "1451918": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1452459": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1455253": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1475674": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "1513612": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "1531505": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "1567330": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1587796": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1588823": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1599098": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "1610457": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1621659": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "1634156": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "1659558": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "1662050": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "1663733": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "1666448": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1674216": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "1693813": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1744289": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1746074": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "1779683": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "1804496": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1811261": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "1813219": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "1818721": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1824453": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1830575": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "1834793": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1849252": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "1856302": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1909248": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "1922440": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1927309": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1927774": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "1936363": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "1941308": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "1960646": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "2017180": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "2027028": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "2037557": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "2048154": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "2049676": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "2074731": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "2087978": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "2096685": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "2128098": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "2147120": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "2164457": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "2173177": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "2199434": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "2216124": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "2217159": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "2224539": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "2238794": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "2241983": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "2253316": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "2253520": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "2264192": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "2272579": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "2292862": {
+  "values": {
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "2302556": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "2307078": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "2312235": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "2343364": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "2346596": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "2348177": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "2509134": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "2515650": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "2772504": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "2882389": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "3141223": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "3313366": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "3317247": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "3331048": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "3338363": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "3478214": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "3554254": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "3839855": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "3848545": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "4270710": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "4397898": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "4505652": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "4574786": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "4767291": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "4888338": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "5307146": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "5769759": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "6043794": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "6682892": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "innkeeping"
+  },
+  "status": "ok"
+ },
+ "6708774": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "6813857": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "6814286": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "7291235": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "7312809": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lodging"
+  },
+  "status": "ok"
+ },
+ "8155459": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "8290566": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "8291442": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "8456243": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "8729866": {
+  "values": {
+   "relevant": false,
+   "polarity": null,
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "9384715": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "10187249": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "10200613": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "10287911": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "11442033": {
+  "values": {
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
+  },
+  "status": "ok"
+ },
+ "12320603": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": null
+  },
+  "status": "ok"
+ },
+ "12350643": {
+  "values": {
+   "relevant": true,
+   "polarity": null,
+   "characterization": "other"
+  },
+  "status": "ok"
+ },
+ "12515449": {
+  "values": {
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
+  },
+  "status": "ok"
+ }
+}

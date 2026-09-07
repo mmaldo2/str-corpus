@@ -1,0 +1,264 @@
+# Cycle-004 map review - cycle-004-shard-01
+
+250 cards this round (cap 250); 503 carried to the next round.
+Page: reports/review-queue-map-cycle-004-round-2.html (decisions are saved into the page itself).
+
+
+## B. Householder letting by the night (1)
+
+- [ ] 245 Cal. Rptr. 3d 592 -  [12515449] - decide who_was_letting reader=householder also=-
+
+## C. Reader / checker disagreement (100)
+
+- [ ] 51 N.J. Eq. 78 -  [103356] - decide relevant reader=True also=gate_erased
+- [ ] 129 N.J.L. 179 -  [131566] - decide polarity reader=None also=-
+- [ ] 102 N.J.L. 626 -  [166621] - decide relevant reader=True also=-
+- [ ] 343 N.J. Super. 1 -  [186118] - decide polarity reader=adverse also=-
+- [ ] 9 Mass. L. Rptr. 437 -  [189292] - decide characterization reader=lease also=fuzzy_quote
+- [ ] 131 Ohio App. 3d 734 -  [228561] - decide characterization reader=lodging also=-
+- [ ] 22 Tex. Civ. App. 446 -  [280595] - decide relevant reader=True also=gate_erased
+- [ ] 58 N.J.L. 475 -  [300801] - decide polarity reader=favorable also=-
+- [ ] 226 N.J. Super. 666 -  [303455] - decide relevant reader=True also=gate_erased
+- [ ] 67 N.J.L. 1 -  [318381] - decide polarity reader=adverse also=-
+- [ ] 50 N.J.L. 26 -  [335757] - decide polarity reader=mixed also=polarity_mixed,gate_erased
+- [ ] 1 N.J. Tax. 602 -  [398356] - decide relevant reader=True also=-
+- [ ] 22 Ohio C.C. (n.s.) 443 -  [400667] - decide polarity reader=adverse also=-
+- [ ] 26 N.J. Misc. 65 -  [436505] - decide characterization reader=other also=-
+- [ ] 3 N.J. Misc. 1169 -  [439951] - decide relevant reader=True also=-
+- [ ] 360 Pa. 552 -  [475024] - decide polarity reader=mixed also=polarity_mixed
+- [ ] 362 Pa. 116 -  [477399] - decide characterization reader=lease also=-
+- [ ] 319 Mass. 7 -  [497520] - decide relevant reader=True also=-
+- [ ] 338 Mass. 368 -  [515472] - decide characterization reader=lease also=-
+- [ ] 121 Ohio App. 3d 297 -  [523091] - decide relevant reader=True also=polarity_mixed
+- [ ] 83 Cal. App. 4th 759 -  [525237] - decide polarity reader=None also=gate_erased
+- [ ] 69 Pa. Super. 289 -  [632507] - decide relevant reader=True also=gate_erased
+- [ ] 19 N.Y. St. Rep. 599 -  [650640] - decide polarity reader=mixed also=polarity_mixed
+- [ ] 428 Mass. 112 -  [651264] - decide relevant reader=True also=-
+- [ ] 4 Misc. 330 -  [689047] - decide relevant reader=True also=polarity_mixed,gate_erased
+- [ ] 2 N.J. Misc. 754 -  [722769] - decide relevant reader=True also=gate_erased
+- [ ] 6 N.J. Misc. 520 -  [732521] - decide relevant reader=True also=-
+- [ ] 6 N.J. Misc. 1000 -  [733113] - decide relevant reader=True also=-
+- [ ] 208 Pa. Super. 42 -  [776615] - decide relevant reader=True also=-
+- [ ] 165 Mass. 588 -  [817515] - decide characterization reader=lodging also=-
+- [ ] 33 Pa. Super. 378 -  [868683] - decide polarity reader=favorable also=-
+- [ ] 35 Pa. Super. Ct. 297 -  [872725] - decide relevant reader=True also=-
+- [ ] 185 N.J. Super. 163 -  [887084] - decide polarity reader=mixed also=polarity_mixed,fuzzy_quote
+- [ ] 385 Mass. 184 -  [900723] - decide relevant reader=True also=-
+- [ ] 134 N.J. Super. 54 -  [930508] - decide characterization reader=lodging also=-
+- [ ] 188 Misc. 769 -  [931282] - decide relevant reader=True also=polarity_mixed
+- [ ] 191 Misc. 945 -  [939733] - decide relevant reader=True also=gate_erased
+- [ ] 193 Misc. 306 -  [942338] - decide characterization reader=lease also=-
+- [ ] 5 Misc. 2d 435 -  [1008891] - decide characterization reader=lease also=-
+- [ ] 133 Pa. Super. 318 -  [1013127] - decide relevant reader=True also=-
+- [ ] 40 Mass. App. Ct. 420 -  [1035563] - decide characterization reader=other also=gate_erased
+- [ ] 158 Pa. Super. 329 -  [1063334] - decide polarity reader=favorable also=-
+- [ ] 24 Misc. 2d 552 -  [1070397] - decide relevant reader=True also=-
+- [ ] 34 Misc. 2d 14 -  [1108765] - decide characterization reader=other also=gate_erased
+- [ ] 34 Misc. 2d 666 -  [1109062] - decide polarity reader=favorable also=-
+- [ ] 37 Misc. 2d 722 -  [1119733] - decide characterization reader=lease also=-
+- [ ] 378 N.J. Super. 160 -  [1144611] - decide relevant reader=True also=-
+- [ ] 56 Misc. 2d 1 -  [1192428] - decide polarity reader=mixed also=polarity_mixed
+- [ ] 106 Ohio St. 3d 293 -  [1257989] - decide characterization reader=lease also=-
+- [ ] 5 Park. Crim. Rep. 130 -  [1262815] - decide polarity reader=mixed also=polarity_mixed
+- [ ] 90 Pa. Commw. 350 -  [1336202] - decide characterization reader=lease also=-
+- [ ] 99 Pa. Commw. 155 -  [1350983] - decide polarity reader=favorable also=gate_erased
+- [ ] 127 Pa. Commw. 445 -  [1391591] - decide relevant reader=True also=gate_erased
+- [ ] 129 Pa. Commw. 247 -  [1395477] - decide polarity reader=favorable also=-
+- [ ] 61 Ohio App. 3d 308 -  [1445235] - decide polarity reader=adverse also=-
+- [ ] 21 Pa. D. & C. 460 -  [1513612] - decide polarity reader=adverse also=-
+- [ ] 73 Pa. D. & C. 53 -  [1588823] - decide polarity reader=favorable also=-
+- [ ] 24 Misc. 552 -  [1610457] - decide relevant reader=True also=gate_erased
+- [ ] 9 Pa. D. & C.2d 58 -  [1621659] - decide polarity reader=adverse also=-
+- [ ] 39 Pa. D. & C.2d 368 -  [1693813] - decide relevant reader=True also=gate_erased
+- [ ] 4 Ohio App. 268 -  [1834793] - decide polarity reader=adverse also=-
+- [ ] 5 Pa. Commw. 216 -  [1849252] - decide characterization reader=lease also=-
+- [ ] 437 Pa. 481 -  [1927774] - decide relevant reader=True also=-
+- [ ] 44 N.Y. St. Rep. 567 -  [2074731] - decide relevant reader=True also=polarity_mixed,gate_erased
+- [ ] 3 Cal. 83 -  [2199434] - decide relevant reader=True also=-
+- [ ] 113 Cal. App. 2d 128 -  [2238794] - decide characterization reader=other also=gate_erased
+- [ ] 9 Rob. 411 -  [2509134] - decide relevant reader=True also=polarity_mixed,gate_erased
+- [ ] 7 La. 205 -  [2515650] - decide polarity reader=favorable also=-
+- [ ] 130 Cal. App. 4th 816 -  [2882389] - decide polarity reader=mixed also=polarity_mixed
+- [ ] 38 N.Y.S. 167 -  [3478214] - decide relevant reader=True also=gate_erased
+- [ ] 395 N.J. Super. 632 -  [3554254] - decide relevant reader=True also=gate_erased
+- [ ] 78 Mass. App. Ct. 767 -  [3839855] - decide characterization reader=lodging also=-
+- [ ] 337 Mass. 230 -  [3848545] - decide polarity reader=mixed also=polarity_mixed
+- [ ] 459 Mass. 9 -  [4270710] - decide relevant reader=True also=-
+- [ ] 62 Tex. Civ. App. 1 -  [4397898] - decide relevant reader=True also=polarity_mixed
+- [ ] 45 N.Y. Sup. Ct. 545 -  [4505652] - decide polarity reader=adverse also=gate_erased
+- [ ] 67 Cal. App. 2d 828 -  [4574786] - decide relevant reader=True also=gate_erased
+- [ ] 54 A.D. 427 -  [4767291] - decide polarity reader=favorable also=gate_erased
+- [ ] 68 A.D. 370 -  [4888338] - decide relevant reader=True also=-
+- [ ] 124 A.D. 328 -  [5307146] - decide relevant reader=True also=-
+- [ ] 42 Pa. D. & C.5th 359 -  [5769759] - decide relevant reader=True also=gate_erased
+- [ ] 53 Cal. App. 2d 541 -  [6043794] - decide characterization reader=lease also=gate_erased
+- [ ] 1 Cal. 221 -  [6682892] - decide polarity reader=adverse also=-
+- [ ] 116 Ohio Misc. 2d 24 -  [6708774] - decide relevant reader=True also=-
+- [ ] 1985 Mass. App. Div. 72 -  [6813857] - decide characterization reader=other also=-
+- [ ] 1992 Mass. App. Div. 186 -  [6814286] - decide characterization reader=lease also=-
+- [ ] 994 A.2d 1185 -  [7291235] - decide characterization reader=lodging also=-
+- [ ] 55 A.3d 1285 -  [7312809] - decide polarity reader=adverse also=gate_erased
+- [ ] 2 Cal. Dist. Ct. 136 -  [8155459] - decide relevant reader=True also=polarity_mixed,gate_erased
+- [ ] 159 S.W. 713 -  [8290566] - decide relevant reader=True also=fuzzy_quote
+- [ ] 146 S.W. 919 -  [8291442] - decide relevant reader=True also=-
+- [ ] 908 A.2d 336 -  [8456243] - decide polarity reader=favorable also=-
+- [ ] 80 Pa. D. & C. 184 -  [8729866] - decide characterization reader=lease also=gate_erased
+- [ ] 2002 Mass. App. Div. 220 -  [9384715] - decide polarity reader=mixed also=polarity_mixed
+- [ ] 201 S.W.2d 144 -  [10187249] - decide characterization reader=lease also=-
+- [ ] 225 S.W.2d 438 -  [10200613] - decide characterization reader=lease also=-
+- [ ] 8 S.W.2d 126 -  [10287911] - decide polarity reader=favorable also=gate_erased
+- [ ] 352 N.J. Super. 1 -  [11442033] - decide characterization reader=None also=gate_erased
+- [ ] 153 A.3d 1159 -  [12320603] - decide characterization reader=lease also=-
+- [ ] 176 A.3d 429 -  [12350643] - decide polarity reader=mixed also=polarity_mixed,gate_erased
+
+## D. Polarity mixed (149)
+
+- [ ] 94 N.J. Eq. 511 -  [20882] - decide polarity reader=mixed also=-
+- [ ] 25 Ohio St. 580 -  [44899] - decide polarity reader=mixed also=-
+- [ ] 10 Misc. 3d 655 -  [87911] - decide polarity reader=mixed also=-
+- [ ] 58 N.J. Eq. 396 -  [128002] - decide polarity reader=mixed also=gate_erased,fuzzy_quote
+- [ ] 132 N.J.L. 229 -  [137638] - decide polarity reader=mixed also=-
+- [ ] 81 N.J. Eq. 327 -  [184062] - decide polarity reader=mixed also=gate_erased
+- [ ] 312 Pa. Super. 424 -  [213192] - decide polarity reader=mixed also=-
+- [ ] 89 N.J.L. 144 -  [236277] - decide polarity reader=mixed also=-
+- [ ] 76 N.J.L. 354 -  [292865] - decide polarity reader=mixed also=-
+- [ ] 78 N.J. 200 -  [293845] - decide polarity reader=mixed also=fuzzy_quote
+- [ ] 153 N.J. Super. 181 -  [295763] - decide polarity reader=mixed also=-
+- [ ] 143 N.J. Super. 222 -  [305870] - decide polarity reader=mixed also=-
+- [ ] 253 N.J. Super. 673 -  [308044] - decide polarity reader=mixed also=gate_erased
+- [ ] 369 Mass. 452 -  [309790] - decide polarity reader=mixed also=gate_erased
+- [ ] 59 Mass. 31 -  [314657] - decide polarity reader=mixed also=-
+- [ ] 68 N.J.L. 337 -  [321652] - decide polarity reader=mixed also=-
+- [ ] 119 N.J. Super. 338 -  [338477] - decide polarity reader=mixed also=-
+- [ ] 73 N.J. Super. 562 -  [359604] - decide polarity reader=mixed also=gate_erased
+- [ ] 54 N.J. Super. 384 -  [397159] - decide polarity reader=mixed also=gate_erased
+- [ ] 177 Misc. 2d 431 -  [399701] - decide polarity reader=mixed also=-
+- [ ] 25 N.J.L. 285 -  [409286] - decide polarity reader=mixed also=-
+- [ ] 53 Pa. Super. 383 -  [435132] - decide polarity reader=mixed also=-
+- [ ] 3 N.J. Misc. 377 -  [439792] - decide polarity reader=mixed also=-
+- [ ] 191 Mass. 433 -  [458474] - decide polarity reader=mixed also=-
+- [ ] 390 Pa. Super. 112 -  [475923] - decide polarity reader=mixed also=-
+- [ ] 4 Denio 311 -  [485411] - decide polarity reader=mixed also=gate_erased
+- [ ] 35 Conn. 183 -  [488272] - decide polarity reader=mixed also=-
+- [ ] 321 Mass. 179 -  [499800] - decide polarity reader=mixed also=-
+- [ ] 83 Conn. 407 -  [500363] - decide polarity reader=mixed also=-
+- [ ] 204 Conn. 67 -  [501596] - decide polarity reader=mixed also=fuzzy_quote
+- [ ] 50 Conn. 411 -  [506264] - decide polarity reader=mixed also=-
+- [ ] 346 Mass. 361 -  [518380] - decide polarity reader=mixed also=gate_erased
+- [ ] 33 Conn. 91 -  [537065] - decide polarity reader=mixed also=gate_erased
+- [ ] 270 N.J. Super. 323 -  [611613] - decide polarity reader=mixed also=gate_erased
+- [ ] 2 Posey 387 -  [615248] - decide polarity reader=mixed also=-
+- [ ] 71 N.J.L. 92 -  [622139] - decide polarity reader=mixed also=-
+- [ ] 34 Ohio C.C. Dec. 153 -  [636289] - decide polarity reader=mixed also=-
+- [ ] 190 Conn. 114 -  [679032] - decide polarity reader=mixed also=gate_erased
+- [ ] 217 N.J. Super. 56 -  [710486] - decide polarity reader=mixed also=gate_erased
+- [ ] 28 Conn. App. 256 -  [716230] - decide polarity reader=mixed also=gate_erased
+- [ ] 37 Conn. 469 -  [742345] - decide polarity reader=mixed also=gate_erased
+- [ ] 40 Conn. 293 -  [743985] - decide polarity reader=mixed also=gate_erased
+- [ ] 118 Misc. 260 -  [751533] - decide polarity reader=mixed also=-
+- [ ] 123 Misc. 930 -  [766453] - decide polarity reader=mixed also=-
+- [ ] 70 Conn. 348 -  [769719] - decide polarity reader=mixed also=-
+- [ ] 86 Conn. 263 -  [789175] - decide polarity reader=mixed also=-
+- [ ] 6 N.J. Eq. 522 -  [789570] - decide polarity reader=mixed also=-
+- [ ] 82 Conn. 111 -  [792045] - decide polarity reader=mixed also=gate_erased
+- [ ] 115 Misc. 2d 553 -  [799757] - decide polarity reader=mixed also=-
+- [ ] 115 Misc. 2d 820 -  [799848] - decide polarity reader=mixed also=-
+- [ ] 116 Misc. 2d 609 -  [802473] - decide polarity reader=mixed also=gate_erased
+- [ ] 139 Misc. 888 -  [807491] - decide polarity reader=mixed also=-
+- [ ] 118 Misc. 2d 498 -  [810193] - decide polarity reader=mixed also=gate_erased
+- [ ] 132 Misc. 2d 1081 -  [851627] - decide polarity reader=mixed also=-
+- [ ] 177 N.J. Super. 1 -  [882850] - decide polarity reader=mixed also=-
+- [ ] 170 Misc. 618 -  [883132] - decide polarity reader=mixed also=-
+- [ ] 4 E.D. Smith 88 -  [884906] - decide polarity reader=mixed also=-
+- [ ] 10 Ohio Law Abs. 274 -  [896931] - decide polarity reader=mixed also=-
+- [ ] 153 Misc. 2d 194 -  [902802] - decide polarity reader=mixed also=gate_erased
+- [ ] 142 N.J. Eq. 174 -  [903722] - decide polarity reader=mixed also=-
+- [ ] 178 Misc. 363 -  [904495] - decide polarity reader=mixed also=-
+- [ ] 15 N.J.L. 181 -  [917411] - decide polarity reader=mixed also=-
+- [ ] 196 Misc. 140 -  [951767] - decide polarity reader=mixed also=-
+- [ ] 300 A.D.2d 87 -  [957464] - decide polarity reader=mixed also=-
+- [ ] 202 Misc. 247 -  [971120] - decide polarity reader=mixed also=-
+- [ ] 202 Misc. 341 -  [971126] - decide polarity reader=mixed also=-
+- [ ] 206 Misc. 444 -  [983618] - decide polarity reader=mixed also=-
+- [ ] 11 Misc. 2d 821 -  [1025332] - decide polarity reader=mixed also=-
+- [ ] 12 Misc. 2d 71 -  [1028424] - decide polarity reader=mixed also=-
+- [ ] 59 Conn. App. 462 -  [1047926] - decide polarity reader=mixed also=-
+- [ ] 19 Misc. 2d 961 -  [1049525] - decide polarity reader=mixed also=gate_erased
+- [ ] 283 Pa. 114 -  [1090570] - decide polarity reader=mixed also=-
+- [ ] 42 Misc. 2d 385 -  [1137837] - decide polarity reader=mixed also=-
+- [ ] 7 Misc. 3d 738 -  [1187367] - decide polarity reader=mixed also=-
+- [ ] 55 Misc. 2d 80 -  [1187716] - decide polarity reader=mixed also=-
+- [ ] 57 Misc. 2d 579 -  [1196644] - decide polarity reader=mixed also=-
+- [ ] 3 Pa. D. & C.4th 348 -  [1246052] - decide polarity reader=mixed also=-
+- [ ] 70 Misc. 2d 1060 -  [1246491] - decide polarity reader=mixed also=gate_erased,fuzzy_quote
+- [ ] 2 Liquor Tax Rep. 63 -  [1293458] - decide polarity reader=mixed also=-
+- [ ] 7 Conn. Supp. 154 -  [1341009] - decide polarity reader=mixed also=gate_erased
+- [ ] 55 Ohio App. 402 -  [1352962] - decide polarity reader=mixed also=-
+- [ ] 107 Pa. Commw. 425 -  [1361130] - decide polarity reader=mixed also=-
+- [ ] 122 Pa. Commw. 42 -  [1381102] - decide polarity reader=mixed also=fuzzy_quote
+- [ ] 98 Ohio App. 55 -  [1419023] - decide polarity reader=mixed also=gate_erased
+- [ ] 102 Ohio App. 440 -  [1425864] - decide polarity reader=mixed also=-
+- [ ] 15 Ohio Misc. 17 -  [1436856] - decide polarity reader=mixed also=-
+- [ ] 23 Ohio Misc. 211 -  [1439643] - decide polarity reader=mixed also=-
+- [ ] 119 Ohio App. 159 -  [1451918] - decide polarity reader=mixed also=-
+- [ ] 64 Ohio App. 3d 493 -  [1452459] - decide polarity reader=mixed also=gate_erased
+- [ ] 1 Ohio App. 2d 244 -  [1455253] - decide polarity reader=mixed also=-
+- [ ] 372 N.J. Super. 203 -  [1475674] - decide polarity reader=mixed also=-
+- [ ] 106 Conn. 551 -  [1531505] - decide polarity reader=mixed also=-
+- [ ] 58 Pa. D. & C. 55 -  [1567330] - decide polarity reader=mixed also=-
+- [ ] 71 Pa. D. & C. 595 -  [1587796] - decide polarity reader=mixed also=-
+- [ ] 23 Ohio C.C. (n.s.) 111 -  [1599098] - decide polarity reader=mixed also=-
+- [ ] 8 Ohio Law Abs. 167 -  [1634156] - decide polarity reader=mixed also=gate_erased
+- [ ] 38 Conn. Supp. 603 -  [1659558] - decide polarity reader=mixed also=-
+- [ ] 37 Conn. Supp. 688 -  [1662050] - decide polarity reader=mixed also=-
+- [ ] 19 Ohio Law Abs. 81 -  [1663733] - decide polarity reader=mixed also=-
+- [ ] 32 Ohio C.C. Dec. 585 -  [1666448] - decide polarity reader=mixed also=-
+- [ ] 31 Conn. Supp. 197 -  [1674216] - decide polarity reader=mixed also=-
+- [ ] 50 Ohio Law Abs. 129 -  [1744289] - decide polarity reader=mixed also=-
+- [ ] 51 Ohio Law Abs. 125 -  [1746074] - decide polarity reader=mixed also=gate_erased
+- [ ] 70 Ohio Law Abs. 411 -  [1779683] - decide polarity reader=mixed also=gate_erased
+- [ ] 514 Pa. 221 -  [1804496] - decide polarity reader=mixed also=-
+- [ ] 11 Ohio C.C. (n.s.) 380 -  [1811261] - decide polarity reader=mixed also=-
+- [ ] 12 Ohio C.C. (n.s.) 570 -  [1813219] - decide polarity reader=mixed also=-
+- [ ] 18 Ohio C.C. (N.S.) 43 -  [1818721] - decide polarity reader=mixed also=-
+- [ ] 44 Misc. 222 -  [1824453] - decide polarity reader=mixed also=-
+- [ ] 48 Misc. 177 -  [1830575] - decide polarity reader=mixed also=-
+- [ ] 25 Ohio App. 344 -  [1856302] - decide polarity reader=mixed also=-
+- [ ] 92 Misc. 2d 480 -  [1909248] - decide polarity reader=mixed also=-
+- [ ] 60 Pa. Commw. 190 -  [1922440] - decide polarity reader=mixed also=-
+- [ ] 71 N.J. 206 -  [1927309] - decide polarity reader=mixed also=-
+- [ ] 45 N.J. 268 -  [1936363] - decide polarity reader=mixed also=-
+- [ ] 93 Cal. 253 -  [1941308] - decide polarity reader=mixed also=-
+- [ ] 98 Cal. 678 -  [1960646] - decide polarity reader=mixed also=-
+- [ ] 81 Cal. App. 3d 604 -  [2017180] - decide polarity reader=mixed also=-
+- [ ] 10 Mass. 36 -  [2027028] - decide polarity reader=mixed also=gate_erased
+- [ ] 36 Mass. 470 -  [2037557] - decide polarity reader=mixed also=-
+- [ ] 43 N.Y. 539 -  [2048154] - decide polarity reader=mixed also=-
+- [ ] 19 Mass. 139 -  [2049676] - decide polarity reader=mixed also=-
+- [ ] 62 Cal. App. 309 -  [2087978] - decide polarity reader=mixed also=-
+- [ ] 84 Cal. App. 272 -  [2096685] - decide polarity reader=mixed also=-
+- [ ] 130 Mass. 240 -  [2128098] - decide polarity reader=mixed also=-
+- [ ] 211 Cal. 408 -  [2147120] - decide polarity reader=mixed also=-
+- [ ] 130 Cal. App. 2d Supp. 883 -  [2164457] - decide polarity reader=mixed also=gate_erased
+- [ ] 59 Tex. 32 -  [2173177] - decide polarity reader=mixed also=-
+- [ ] 194 Cal. App. 3d 1524 -  [2216124] - decide polarity reader=mixed also=-
+- [ ] 251 Cal. App. 2d 528 -  [2217159] - decide polarity reader=mixed also=-
+- [ ] 127 Cal. App. 2d 93 -  [2224539] - decide polarity reader=mixed also=gate_erased
+- [ ] 3 Cal. 2d 180 -  [2241983] - decide polarity reader=mixed also=gate_erased
+- [ ] 93 Cal. App. 2d 241 -  [2253316] - decide polarity reader=mixed also=gate_erased
+- [ ] 24 Cal. 2d 549 -  [2253520] - decide polarity reader=mixed also=-
+- [ ] 33 Cal. 557 -  [2264192] - decide polarity reader=mixed also=-
+- [ ] 90 Cal. App. 2d 641 -  [2272579] - decide polarity reader=mixed also=-
+- [ ] 17 Cal. 3d 129 -  [2292862] - decide polarity reader=mixed also=-
+- [ ] 200 Cal. App. 2d 69 -  [2302556] - decide polarity reader=mixed also=-
+- [ ] 62 Cal. 286 -  [2307078] - decide polarity reader=mixed also=-
+- [ ] 5 Cal. App. 4th 24 -  [2312235] - decide polarity reader=mixed also=-
+- [ ] 221 Cal. App. 3d 1072 -  [2343364] - decide polarity reader=mixed also=-
+- [ ] 40 Cal. 2d 254 -  [2346596] - decide polarity reader=mixed also=-
+- [ ] 39 Cal. 2d 52 -  [2348177] - decide polarity reader=mixed also=gate_erased,fuzzy_quote
+- [ ] 274 A.D. 74 -  [2772504] - decide polarity reader=mixed also=-
+- [ ] 223 La. 259 -  [3141223] - decide polarity reader=mixed also=-
+- [ ] 92 A.D.2d 452 -  [3313366] - decide polarity reader=mixed also=-
+- [ ] 8 La. App. 220 -  [3317247] - decide polarity reader=mixed also=-
+- [ ] 95 A.D.2d 560 -  [3331048] - decide polarity reader=mixed also=gate_erased
+- [ ] 13 La. App. 83 -  [3338363] - decide polarity reader=mixed also=gate_erased
