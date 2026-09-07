@@ -14,6 +14,20 @@ reader from a different family, and a card that offered no checker value offers 
 A decision on a field also clears any `needs-review:<field>` flag it supersedes, through
 `apply_reference_review._clear_flag`, so the two tools can never disagree about that rule.
 
+RELEVANCE OVERTURN (round-1b addendum): every card in a map round decides polarity or
+who_was_letting, so a card has no way to say the case is not a letting case at all - the
+question a full read of the opinion can raise even on a card that only queued polarity. On
+ANY card, whatever its own decide_field, `{"field": "relevant", "decision": "set",
+"value": false}` (also spelled `"False"`) says exactly that: it writes the same patches
+`apply_reference_review.patches_for` writes for its `irrelevant` polarity adoption - `relevant`
+false, `polarity` and `who_was_letting` null, a `review.notes` line, `review.status`
+human-adjudicated - because a case out of the corpus carries no polarity or who_was_letting
+either way. `relevant` true is not an accepted decision (the reader's value is already true
+for every queued case, so `keep` already covers confirming it), and a case already `relevant`
+false has no relevance left to overturn. This is the one field a decisions file may name
+besides the card's own decide_field; `check_against_queue` waves it through on every card,
+and `patches_for` is what actually enforces `set`-to-`False`-only.
+
 EVERY decided value is validated against the field's own vocabulary before any patch is built
 (final-review I1). The ledger performs no value validation of its own - `fold.apply_patch`
 raises `UnknownField` for an unknown PATH, never for an unknown value - so this is the only
@@ -89,12 +103,16 @@ NULLS = (None, "null", "")
 # The page spells `relevant` as a string because an HTML radio has no other kind of value
 # (`make_map_review.VOCAB`), while the record, the checker and `counts` all carry a real
 # boolean. Both spellings are accepted and the string is converted, so a card that puts a case
-# out of the corpus writes `False` rather than the truthy string `"false"`.
+# out of the corpus writes `False` rather than the truthy string `"false"`. Both cases of the
+# string survive too (`"false"`/`"False"`) - a relevance-overturn decision (below) is typed by
+# a model reading files, not clicked off a radio, and is not worth refusing over capitalization.
 BOOLS = {"true": True, "false": False}
 # The vocabulary each field is validated against (I1), read from the reader's schema. `None`
 # means "this field has no closed vocabulary" - the opt-out `apply_reference_review.read_state`
-# documents - and exactly two fields get it.
-VALUES = {"relevant": frozenset({"true", "false", True, False}),
+# documents - and exactly two fields get it. `relevant`'s vocabulary carries both letter cases
+# of the string so a differently-capitalized value is refused by `_checked`'s message, not by
+# the earlier, less specific vocabulary gate in `_decisions_from_list`.
+VALUES = {"relevant": frozenset({"true", "false", "True", "False", True, False}),
           "polarity": frozenset(POLARITY_VALUES) | {None},
           "who_was_letting": frozenset(WHO_VALUES) | {None},
           "duration_of_occupancy": frozenset(DURATION_VALUES) | {None},
@@ -109,7 +127,7 @@ VALUES = {"relevant": frozenset({"true", "false", True, False}),
 def _value(field: str, raw):
     if raw in NULLS:
         return None
-    return BOOLS.get(raw, raw) if field == "relevant" else raw
+    return BOOLS.get(raw.lower(), raw) if field == "relevant" and isinstance(raw, str) else raw
 
 
 def values_for(fields: Sequence[str]) -> dict:
@@ -151,7 +169,15 @@ def check_against_queue(decisions: Sequence[dict], queue_doc: Mapping) -> None:
     `decide_field` - a model cannot answer a different field than the one the round queued a
     case on, or answer for a case the round never queued at all. Every bad entry is named,
     case id and reason, and collected rather than raised on the first one, so fixing the file
-    takes one pass instead of one exit per re-run - and nothing is written until this passes."""
+    takes one pass instead of one exit per re-run - and nothing is written until this passes.
+
+    `field == "relevant"` is the one exception, on ANY queued card, whatever that card's own
+    `decide_field` is: a card that queues polarity or who_was_letting can still turn out, once
+    the reviewer has the full opinion text in front of them, not to be a letting case at all -
+    and a card cannot express that through its own decide_field, because every field on offer
+    there decides polarity or who it was let by, never whether the case belongs in the corpus.
+    `patches_for` is stricter still about what a `relevant` decision may say (`set` to `False`
+    only); this function only clears the way for the field to reach it."""
     decide_field = {int(c["case_id"]): c["decide_field"]
                     for cards in (queue_doc.get("sections") or {}).values() for c in cards}
     errors = []
@@ -160,7 +186,7 @@ def check_against_queue(decisions: Sequence[dict], queue_doc: Mapping) -> None:
         want = decide_field.get(cid)
         if want is None:
             errors.append(f"case {cid}: not a card in the round's queue manifest")
-        elif field != want:
+        elif field != want and field != "relevant":
             errors.append(f"case {cid}: this round's card decides {want!r}, not {field!r}")
     if errors:
         raise ValueError("; ".join(errors))
@@ -199,6 +225,35 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
         if decision not in DECISIONS:
             raise ValueError(f"case {cid}: decision {decision!r} is not one of {DECISIONS}")
         why = f"{tag}: {field}"
+        if field == "relevant" and decision == "set":
+            # The relevance-overturn path (round-1b, spec addendum): on ANY card, whatever its
+            # own decide_field, a reviewer with the full opinion in front of them may rule the
+            # case is not a letting case at all. `relevant` true is not accepted here - the
+            # reader's value is already true for every queued case, and `keep` already covers
+            # confirming it - so this branch only ever writes `False`, never a value patch to
+            # `True`. It emits the same patches the reference review's `irrelevant` adoption
+            # does (`apply_reference_review.patches_for`): the case carries no polarity or
+            # who_was_letting once it is out of the corpus.
+            value = _value(field, d.get("value"))
+            if value is not False:
+                raise ValueError(f"case {cid}: relevant may only be set to False (not a "
+                                 f"letting case); relevant true is not accepted as a "
+                                 f"decision - keep covers it")
+            if (records.get(cid) or {}).get("relevant") is False:
+                raise ValueError(f"case {cid}: already relevant false; no relevance decision "
+                                 f"to overturn")
+            out.append(Patch(cid, "append", "review.notes",
+                             f"{tag}: relevance overturned by the reviewer: {d.get('note') or ''}",
+                             why, basis))
+            out.append(Patch(cid, "set", "relevant", False, why, basis))
+            out.append(Patch(cid, "set", "polarity", None, why, basis))
+            out.append(Patch(cid, "set", "who_was_letting", None, why, basis))
+            if assisted_by:
+                out.append(Patch(cid, "append", "review.notes",
+                                 f"{tag}: first pass drafted by {assisted_by}; confirmed by "
+                                 f"the reviewer", why, basis))
+            out.append(Patch(cid, "set", "review.status", "human-adjudicated", why, basis))
+            continue
         old = (records.get(cid) or {}).get(field)
         if decision == "adopt":
             value = _value(field, ((checker.get(cid) or {}).get("values") or {}).get(field))

@@ -323,6 +323,59 @@ def test_a_relevance_decision_writes_a_boolean_and_not_the_pages_string():
     assert [p.new for p in ps if p.op == "set" and p.field == "relevant"] == [False]
 
 
+# --------------------------------------------------- round-1b: relevance-overturn decisions
+
+def test_a_relevance_overturn_is_accepted_on_a_card_whose_decide_field_is_polarity():
+    """The round-1b addendum: every card in the round decides polarity or who_was_letting, so
+    the reviewer needs a way to say the case is not a letting case at all even though that is
+    not the field the card queued. `relevant`/`set`/`false` on a polarity card writes the
+    relevant/polarity/who_was_letting cascade plus a note and human-adjudicated status - four
+    patches, nothing else, no generic `polarity` patch since polarity was never decided."""
+    rec = _rec(850, polarity="favorable", who_was_letting="householder")
+    ps = ap.patches_for([_d(850, "relevant", "set", False, note="not a letting case at all")],
+                        {850: rec}, "mmaldo2")
+    ops = [(p.op, p.field, p.new) for p in ps]
+    assert ("set", "relevant", False) in ops
+    assert ("set", "polarity", None) in ops
+    assert ("set", "who_was_letting", None) in ops
+    assert ("set", "review.status", "human-adjudicated") in ops
+    notes = [p.new for p in ps if p.op == "append" and p.field == "review.notes"]
+    assert any("relevance overturned by the reviewer: not a letting case at all" in n
+               for n in notes)
+    assert len(ps) == 5          # note + 3 sets + status - no generic patches on top
+
+
+def test_a_relevance_overturn_accepts_both_letter_cases_of_the_string():
+    for cid, spelling in ((851, "false"), (852, "False")):
+        ps = ap.patches_for([_d(cid, "relevant", "set", spelling)], {cid: _rec(cid)}, "mmaldo2")
+        assert ("set", "relevant", False) in [(p.op, p.field, p.new) for p in ps]
+
+
+def test_a_relevance_overturn_rejects_relevant_true():
+    with pytest.raises(ValueError, match="853.*not accepted"):
+        ap.patches_for([_d(853, "relevant", "set", True)], {853: _rec(853)}, "mmaldo2")
+
+
+def test_a_relevance_overturn_rejects_a_case_already_relevant_false():
+    rec = _rec(854, relevant=False, polarity=None, who_was_letting=None)
+    with pytest.raises(ValueError, match="854.*already relevant false"):
+        ap.patches_for([_d(854, "relevant", "set", False)], {854: rec}, "mmaldo2")
+
+
+def test_check_against_queue_accepts_relevant_on_any_card():
+    """`field == "relevant"` is the one exception to "deciding exactly that card's
+    decide_field" - it is waved through no matter what the card's own decide_field is."""
+    doc = _queue_doc()          # 700's decide_field is polarity, 701's is who_was_letting
+    ap.check_against_queue([{"case_id": 700, "field": "relevant"},
+                            {"case_id": 701, "field": "relevant"}], doc)   # does not raise
+
+
+def test_check_against_queue_still_rejects_a_field_that_is_neither_relevant_nor_the_decide_field():
+    doc = _queue_doc()
+    with pytest.raises(ValueError, match=r"700.*decides 'polarity'.*'characterization'"):
+        ap.check_against_queue([{"case_id": 700, "field": "characterization"}], doc)
+
+
 def test_the_four_decisions_become_the_right_human_basis_patches():
     assert ap.DECISIONS == ("keep", "adopt", "set", "unsure")
     records = {800: _rec(800, polarity="favorable"), 801: _rec(801, polarity="favorable"),
@@ -609,6 +662,129 @@ def test_courtlistener_url_matches_the_pages_own_encoding():
     """The same %22-quoted-cite search the review page's client-side `clq` builds."""
     url = ec.courtlistener_url("119 N.J.L. 61")
     assert url == "https://www.courtlistener.com/?q=%22119%20N.J.L.%2061%22"
+
+
+# ------------------------------------------------------- round-1b: unsure, full text, chunks
+
+class _FakeTextSource:
+    """The `StoreCaseSource` interface (`fetch(ids) -> [CaseText, ...]`), backed by a plain
+    dict of short texts instead of a real corpus.db connection."""
+    def __init__(self, texts: dict):
+        self.texts = texts
+
+    def fetch(self, ids):
+        from corpus_engine.reader.model import CaseText
+        return [CaseText(int(i), "", "", "", "", 1890, "", self.texts[int(i)], [])
+               for i in ids]
+
+
+def test_only_unsure_ids_reads_the_decisions_file_schema(tmp_path):
+    dec_path = tmp_path / "decisions.json"
+    dec_path.write_text(json.dumps([
+        {"case_id": 700, "field": "polarity", "decision": "unsure", "value": None, "note": ""},
+        {"case_id": 701, "field": "who_was_letting", "decision": "set",
+         "value": "householder", "note": ""},
+        {"case_id": 702, "field": "polarity", "decision": "unsure", "value": None, "note": ""},
+    ]), encoding="utf-8")
+    assert ec.only_unsure_ids(dec_path) == {700, 702}
+
+
+def test_main_only_unsure_restricts_the_export_to_the_flagged_cases(tmp_path):
+    doc = _queue_doc()
+    queue_path = tmp_path / "review-round-1.json"
+    queue_path.write_text(json.dumps(doc), encoding="utf-8")
+    dec_path = tmp_path / "decisions.json"
+    dec_path.write_text(json.dumps([
+        {"case_id": 700, "field": "polarity", "decision": "unsure", "value": None, "note": ""},
+        {"case_id": 702, "field": "polarity", "decision": "unsure", "value": None, "note": ""},
+    ]), encoding="utf-8")
+    out_stem = tmp_path / "unsure-cards"
+
+    assert ec.main(["--queue", str(queue_path), "--checker", str(tmp_path / "none.json"),
+                    "--only-unsure", str(dec_path), "--out-stem", str(out_stem)]) == 0
+    cards = json.loads(Path(str(out_stem) + ".json").read_bytes().decode("utf-8"))
+    assert sorted(c["case_id"] for c in cards) == [700, 702]
+
+
+def test_attach_opinion_text_adds_norm_text_via_the_injected_source():
+    cards = ec.cards_from_queue(_queue_doc(), {})
+    got = ec.attach_opinion_text(cards, _FakeTextSource({700: "op 700", 701: "op 701",
+                                                          702: "op 702", 703: "op 703"}))
+    assert {c["case_id"]: c["opinion_text"] for c in got} == {
+        700: "op 700", 701: "op 701", 702: "op 702", 703: "op 703"}
+
+
+def test_full_text_puts_opinion_text_after_the_card_fields_in_markdown():
+    cards = ec.cards_from_queue(_queue_doc(), CHECKER)
+    ec.attach_opinion_text(cards, _FakeTextSource({700: "the opinion text for 700",
+                                                   701: "op 701", 702: "op 702", 703: "op 703"}))
+    md = ec.markdown_for(cards, "cycle-004-shard-01")
+    assert "#### Opinion text" in md
+    assert "the opinion text for 700" in md
+    court_at = md.index("- CourtListener:")
+    heading_at = md.index("#### Opinion text")
+    text_at = md.index("the opinion text for 700")
+    assert court_at < heading_at < text_at        # opinion text follows the card fields
+
+
+def test_markdown_for_without_full_text_has_no_opinion_heading():
+    cards = ec.cards_from_queue(_queue_doc(), CHECKER)
+    md = ec.markdown_for(cards, "cycle-004-shard-01")
+    assert "#### Opinion text" not in md
+
+
+def test_chunks_default_writes_the_single_file_unsuffixed(tmp_path):
+    cards = ec.cards_from_queue(_queue_doc(), CHECKER)
+    parts = ec.markdown_parts(cards, "cycle-004-shard-01", 1)
+    assert len(parts) == 1
+    assert parts[0] == ec.markdown_for(cards, "cycle-004-shard-01")   # byte-identical
+
+
+def test_chunks_splits_into_n_files_without_splitting_a_card():
+    cards = ec.cards_from_queue(_queue_doc(), CHECKER)
+    for c in cards:
+        c["opinion_text"] = "x" * 1000       # equal weights: an even split by card count
+    parts = ec.markdown_parts(cards, "cycle-004-shard-01", 4)
+    assert len(parts) == 4
+    seen = []
+    for p in parts:
+        for cid in (700, 701, 702, 703):
+            if f"[{cid}]" in p:
+                seen.append(cid)
+    assert sorted(seen) == [700, 701, 702, 703]        # every card appears exactly once
+    assert all(p.endswith("\n") for p in parts)
+    assert all("part " in p.split("\n", 1)[0] for p in parts)
+
+
+def test_chunks_more_than_cards_caps_at_one_part_per_card():
+    cards = ec.cards_from_queue(_queue_doc(), CHECKER)
+    parts = ec.markdown_parts(cards, "cycle-004-shard-01", 99)
+    assert len(parts) == len(cards)
+
+
+def test_main_chunks_names_files_out_stem_partk(tmp_path, monkeypatch):
+    doc = _queue_doc()
+    queue_path = tmp_path / "review-round-1.json"
+    queue_path.write_text(json.dumps(doc), encoding="utf-8")
+    checker_path = tmp_path / "review-round-1-checker.json"
+    checker_path.write_text(json.dumps(CHECKER), encoding="utf-8")
+    out_stem = tmp_path / "cards"
+
+    monkeypatch.setattr(ec, "StoreCaseSource",
+                        lambda conn: _FakeTextSource({700: "t700", 701: "t701",
+                                                       702: "t702", 703: "t703"}))
+    monkeypatch.setattr(ec.store, "connect", lambda *a, **kw: None)
+
+    assert ec.main(["--queue", str(queue_path), "--checker", str(checker_path),
+                    "--out-stem", str(out_stem), "--full-text", "--chunks", "2"]) == 0
+    for k in (1, 2):
+        p = Path(str(out_stem) + f"-part{k}.md")
+        assert p.exists()
+        raw = p.read_bytes()
+        assert raw.endswith(b"\n") and b"\r\n" not in raw
+    assert not Path(str(out_stem) + ".md").exists()
+    json_cards = json.loads(Path(str(out_stem) + ".json").read_bytes().decode("utf-8"))
+    assert all("opinion_text" in c for c in json_cards)
 
 
 def test_an_unsure_decision_does_not_set_human_adjudicated_status():

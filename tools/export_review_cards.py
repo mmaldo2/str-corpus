@@ -12,10 +12,33 @@ Input : runs/<run-id>/review-round-<n>.json          (Queue.to_json(), the round
         runs/<run-id>/review-round-<n>-checker.json  (check_queue output)
 Output: reports/review-round-1-cards.{json,md}
 
-Read-only: no network, no reader, no ledger. Just reformats files already on disk.
+Read-only over the queue and checker files: no network, no reader, no ledger. `--full-text`
+adds one more read - the store, through `corpus_engine.reader.sources.StoreCaseSource`, whose
+`fetch` only ever runs a `SELECT`.
+
+Three round-1b additions, for a second first-pass round over the cards round 1 left unsure,
+with the full opinion text in hand this time:
+
+`--only-unsure <decisions.json>` restricts the export to the case ids a decisions file (the
+schema `tools/apply_map_review.py --decisions` reads) marks `"decision": "unsure"` - the round
+that needs a second look, not the 150 the first round queued.
+
+`--full-text` adds `opinion_text` to every exported card: the store's `norm_text` for that
+case, fetched in one batched call through `StoreCaseSource` rather than one round trip per
+card. Mean opinion length across the corpus is ~15k characters, max ~55k - large enough that
+a model reading the export may not hold the whole round in context at once, which is what
+`--chunks` is for.
+
+`--chunks N` splits the markdown export into N roughly-equal files, `<out-stem>-part<k>.md`,
+by total character size (dominated by `opinion_text` when `--full-text` is set) - never
+splitting a card across two files. The default, `--chunks 1`, writes the single
+`<out-stem>.md` this tool always wrote; passing it explicitly changes nothing.
 
   .venv\Scripts\python tools\export_review_cards.py \
       --queue runs\cycle-004-shard-01\review-round-1.json
+  .venv\Scripts\python tools\export_review_cards.py \
+      --only-unsure runs\cycle-004-shard-01\review-round-1-decisions-astra.json --full-text \
+      --chunks 4 --out-stem reports\review-round-1b-unsure-cards
 """
 from __future__ import annotations
 
@@ -29,7 +52,9 @@ from urllib.parse import quote
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from corpus_engine.mapper.queue import SECTIONS  # noqa: E402
+from corpus_engine import store                          # noqa: E402
+from corpus_engine.mapper.queue import SECTIONS          # noqa: E402
+from corpus_engine.reader.sources import StoreCaseSource  # noqa: E402
 
 # The card's comparison fields (corpus_engine.mapper.queue.CARD_VALUE_FIELDS), and the
 # narrower slice check_queue actually asks the checker for (corpus_engine.reader.driver
@@ -100,10 +125,17 @@ def _fmt(v) -> str:
     return "null" if v is None else str(v)
 
 
-def markdown_for(cards: Sequence[dict], run_id: str) -> str:
+def markdown_for(cards: Sequence[dict], run_id: str, *, part: tuple[int, int] | None = None) -> str:
     """One readable card per record, headed by section - the markdown twin of the JSON
-    export, for a model (or a human) reading files rather than parsing JSON by hand."""
-    lines = [f"# Cycle-004 map review round 1 - cards ({run_id})", "",
+    export, for a model (or a human) reading files rather than parsing JSON by hand.
+
+    `part`, when given, is `(k, n)` - this is file k of n from `markdown_parts` - and adds
+    only a title suffix; `part=None` (every direct call, and `markdown_parts` with `n <= 1`)
+    is byte-identical to what this function has always written."""
+    title = f"# Cycle-004 map review round 1 - cards ({run_id})"
+    if part is not None:
+        title += f" - part {part[0]} of {part[1]}"
+    lines = [title, "",
             f"{len(cards)} cards, one per record, grouped by section in the round's priority "
             "order. Written by tools/export_review_cards.py from the queue manifest and the "
             "checker file - read-only, the same values the review page itself shows.", ""]
@@ -136,8 +168,69 @@ def markdown_for(cards: Sequence[dict], run_id: str) -> str:
                 supports = ", ".join(q["supports"]) or "-"
                 lines.append(f"  > {q['text']}")
                 lines.append(f"  > (supports: {supports})")
+        if "opinion_text" in c:                 # --full-text only; absent otherwise
+            lines.append("")
+            lines.append("#### Opinion text")
+            lines.append("")
+            lines.append(c["opinion_text"] or "")
         lines.append("")
     return "\n".join(lines)
+
+
+def _card_weight(c: Mapping) -> int:
+    """A rough size estimate for balancing `--chunks` parts. `opinion_text` (mean ~15k chars,
+    max ~55k) dominates every other field on a card once `--full-text` is set, so counting it
+    plus a fixed overhead for the rest of the card is close enough to "roughly equal" without
+    rendering every card twice just to measure it. With no `opinion_text` every card weighs
+    the same, so `--chunks` alone (no `--full-text`) splits by card count."""
+    return 400 + len(c.get("opinion_text") or "")
+
+
+def markdown_parts(cards: Sequence[dict], run_id: str, n: int = 1) -> list[str]:
+    """`markdown_for`'s text, split into `n` roughly-equal files by `_card_weight` - never
+    splitting a card across two files, and never reordering them. `n <= 1` (the default) hands
+    back a single part, byte-identical to `markdown_for(cards, run_id)`."""
+    if not cards or n <= 1:
+        return [markdown_for(cards, run_id)]
+    n = min(int(n), len(cards))
+    weights = [_card_weight(c) for c in cards]
+    target = sum(weights) / n
+    groups: list[list[dict]] = []
+    current: list[dict] = []
+    cum = 0
+    for c, w in zip(cards, weights):
+        current.append(c)
+        cum += w
+        if len(groups) < n - 1 and cum >= target * (len(groups) + 1):
+            groups.append(current)
+            current = []
+    if current:
+        groups.append(current)
+    return [markdown_for(g, run_id, part=(k + 1, len(groups))) for k, g in enumerate(groups)]
+
+
+def only_unsure_ids(decisions_path: str | Path) -> set[int]:
+    """The case ids a `--decisions`-schema file (`tools/apply_map_review.py`'s
+    `{case_id, field, decision, value, note}` list) marks `"decision": "unsure"` - the round
+    that needs a second look with the full opinion text, not every card the first round
+    queued."""
+    raw = json.loads(Path(decisions_path).read_text(encoding="utf-8"))
+    return {int(d["case_id"]) for d in raw if d.get("decision") == "unsure"}
+
+
+def attach_opinion_text(cards: Sequence[dict], source) -> list[dict]:
+    """`cards` with `opinion_text` added - the store's `norm_text` for every card, fetched in
+    one batched call through `source.fetch` (the `StoreCaseSource` interface - real for
+    `main()`, a fake with the same shape in tests) rather than one round trip per card. A
+    card the source has no text for (should not happen for an admitted case, but `fetch`
+    itself is what enforces that) is left to raise there rather than silently writing `""`."""
+    cards = list(cards)
+    if not cards:
+        return cards
+    texts = {t.case_id: t.norm_text for t in source.fetch([c["case_id"] for c in cards])}
+    for c in cards:
+        c["opinion_text"] = texts[c["case_id"]]
+    return cards
 
 
 def main(argv=None) -> int:
@@ -147,6 +240,16 @@ def main(argv=None) -> int:
     ap.add_argument("--checker", default=None,
                     help="check_queue output; defaults to <queue>-checker.json")
     ap.add_argument("--out-stem", default=DEFAULT_STEM)
+    ap.add_argument("--only-unsure", default=None,
+                    help="a decisions file (tools/apply_map_review.py's --decisions schema); "
+                         "restrict the export to the case ids it marks unsure")
+    ap.add_argument("--full-text", action="store_true",
+                    help="add opinion_text (the store's norm_text) to every exported card, "
+                         "via corpus_engine.reader.sources.StoreCaseSource - read-only")
+    ap.add_argument("--chunks", type=int, default=1,
+                    help="split the markdown export into N roughly-equal <out-stem>-partK.md "
+                         "files, whole cards only (default 1: the single <out-stem>.md this "
+                         "tool has always written)")
     a = ap.parse_args(argv)
 
     queue_path = Path(a.queue)
@@ -156,11 +259,24 @@ def main(argv=None) -> int:
     checker = json.loads(checker_path.read_text(encoding="utf-8")) if checker_path.exists() else {}
 
     cards = cards_from_queue(doc, checker)
+    if a.only_unsure:
+        ids = only_unsure_ids(a.only_unsure)
+        cards = [c for c in cards if c["case_id"] in ids]
+    if a.full_text:
+        cards = attach_opinion_text(cards, StoreCaseSource(store.connect()))
+
     json_path = Path(str(a.out_stem) + ".json")
-    md_path = Path(str(a.out_stem) + ".md")
     write_text(json_path, json.dumps(cards, indent=1))
-    write_text(md_path, markdown_for(cards, doc.get("run_id", "")))
-    print(f"{len(cards)} cards -> {json_path.as_posix()}, {md_path.as_posix()}", flush=True)
+
+    parts = markdown_parts(cards, doc.get("run_id", ""), a.chunks)
+    if len(parts) == 1:
+        md_paths = [Path(str(a.out_stem) + ".md")]
+    else:
+        md_paths = [Path(str(a.out_stem) + f"-part{k}.md") for k in range(1, len(parts) + 1)]
+    for path, text in zip(md_paths, parts):
+        write_text(path, text)
+    print(f"{len(cards)} cards -> {json_path.as_posix()}, "
+         + ", ".join(p.as_posix() for p in md_paths), flush=True)
     return 0
 
 
