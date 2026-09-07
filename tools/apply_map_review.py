@@ -14,6 +14,19 @@ reader from a different family, and a card that offered no checker value offers 
 A decision on a field also clears any `needs-review:<field>` flag it supersedes, through
 `apply_reference_review._clear_flag`, so the two tools can never disagree about that rule.
 
+EVERY decided value is validated against the field's own vocabulary before any patch is built
+(final-review I1). The ledger performs no value validation of its own - `fold.apply_patch`
+raises `UnknownField` for an unknown PATH, never for an unknown value - so this is the only
+guard between a saved page and the published counts, and `polarity` is the field the headline
+`counts(polarity="favorable")` slices on. The vocabulary is read from
+`corpus_engine/reader/schema.py`, never re-declared here, so a codebook that adds a value works
+without editing this tool; `holding_summary` (free text) and `quotes` (kept or sent for a full
+read, never re-typed) are the only two fields with no closed vocabulary, and they are opted out
+by name rather than by turning the check off for everything. The check runs twice, deliberately:
+`read_state` refuses a bad value on the page, and `patches_for` refuses one again on the value
+that will actually be written - which is the only place an `adopt` is caught, because an adopt
+takes the CHECKER's value and never the page's.
+
 Re-applying a page is refused for the same reason the reference tool refuses it: every
 `review.notes` patch here interpolates the field's CURRENT value, so a second run over an
 already-applied page re-emits a fresh note restating the old value as if it had just changed,
@@ -38,7 +51,10 @@ sys.path.insert(0, str(ROOT))
 from corpus_engine.domain import load_domain                        # noqa: E402
 from corpus_engine.ledger import open_ledger                        # noqa: E402
 from corpus_engine.ledger.types import Basis, Patch                 # noqa: E402
-from corpus_engine.reader.schema import FLAG_PREFIX                 # noqa: E402
+from corpus_engine.reader.schema import (CHARACTERIZATION_VALUES,   # noqa: E402
+                                         DURATION_VALUES, FLAG_PREFIX,
+                                         OWNER_FREEDOM_VALUES, POLARITY_VALUES,
+                                         RESTRICTION_VALUES, UNDER_THIRTY_VALUES, WHO_VALUES)
 
 _spec = importlib.util.spec_from_file_location("apply_reference_review",
                                                ROOT / "tools" / "apply_reference_review.py")
@@ -51,10 +67,59 @@ RUN_ID = "map-cycle-004-round-1"
 # reviewer keeps the fuzzy quote or sends the record for a full read, never re-types it.
 EXTRA_FIELDS = ("quotes",)
 NULLS = (None, "null", "")
+# The page spells `relevant` as a string because an HTML radio has no other kind of value
+# (`make_map_review.VOCAB`), while the record, the checker and `counts` all carry a real
+# boolean. Both spellings are accepted and the string is converted, so a card that puts a case
+# out of the corpus writes `False` rather than the truthy string `"false"`.
+BOOLS = {"true": True, "false": False}
+# The vocabulary each field is validated against (I1), read from the reader's schema. `None`
+# means "this field has no closed vocabulary" - the opt-out `apply_reference_review.read_state`
+# documents - and exactly two fields get it.
+VALUES = {"relevant": frozenset({"true", "false", True, False}),
+          "polarity": frozenset(POLARITY_VALUES) | {None},
+          "who_was_letting": frozenset(WHO_VALUES) | {None},
+          "duration_of_occupancy": frozenset(DURATION_VALUES) | {None},
+          "characterization": frozenset(CHARACTERIZATION_VALUES) | {None},
+          "under_thirty_days": frozenset(UNDER_THIRTY_VALUES) | {None},
+          "owner_freedom_characterization": frozenset(OWNER_FREEDOM_VALUES) | {None},
+          "restriction_nature": frozenset(RESTRICTION_VALUES) | {None},
+          "holding_summary": None,
+          "quotes": None}
 
 
-def _value(raw):
-    return None if raw in NULLS else raw
+def _value(field: str, raw):
+    if raw in NULLS:
+        return None
+    return BOOLS.get(raw, raw) if field == "relevant" else raw
+
+
+def values_for(fields: Sequence[str]) -> dict:
+    """The `values` map `read_state` validates this page against.
+
+    A field with no entry in `VALUES` is refused rather than waved through: it is either a
+    codebook this tool has not been taught or a tampered page, and passing `None` for it would
+    be the very opt-out I1 exists to close."""
+    unknown = [f for f in fields if f not in VALUES]
+    if unknown:
+        raise ValueError(f"no vocabulary for {unknown}; teach tools/apply_map_review.py "
+                         f"before a page may decide them")
+    return {f: VALUES[f] for f in fields}
+
+
+def read_page(html: str, fields: Sequence[str]) -> list[dict]:
+    """The decisions a saved page carries, validated against the vocabulary - one function, so
+    the tool and its tests can never read a page under different rules."""
+    return arr.read_state(html, fields=tuple(fields), values=values_for(fields))
+
+
+def _checked(case_id: int, field: str, value):
+    """The value about to be written, or a refusal naming the case and the field. This catches
+    what `read_state` cannot: an `adopt` writes the CHECKER's value, not the page's."""
+    allowed = VALUES.get(field)
+    if allowed is not None and value not in allowed:
+        raise ValueError(f"case {case_id}: {value!r} is not a {field} value "
+                         f"({', '.join(sorted(repr(v) for v in allowed))})")
+    return value
 
 
 def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer: str, *,
@@ -72,9 +137,11 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
         why = f"{tag}: {field}"
         old = (records.get(cid) or {}).get(field)
         if decision == "adopt":
-            value = _value(((checker.get(cid) or {}).get("values") or {}).get(field))
+            value = _value(field, ((checker.get(cid) or {}).get("values") or {}).get(field))
         else:
-            value = _value(d.get("value"))
+            value = _value(field, d.get("value"))
+        if decision in ("adopt", "set"):
+            _checked(cid, field, value)
         if decision == "unsure":
             out.append(Patch(cid, "append", "review.flags", f"{FLAG_PREFIX}{field}", why, basis))
             out.append(Patch(cid, "append", "review.notes",
@@ -111,8 +178,10 @@ def main(argv=None) -> int:
     dom = load_domain()
     fields = (tuple(f.strip() for f in a.fields.split(",") if f.strip()) if a.fields
               else tuple(dom.judged_fields) + EXTRA_FIELDS)
-    decisions = arr.read_state(Path(a.saved).read_text(encoding="utf-8"), fields=fields,
-                               values={f: None for f in fields})
+    try:
+        decisions = read_page(Path(a.saved).read_text(encoding="utf-8"), fields)
+    except ValueError as exc:                   # a page this tool will not read is not a page
+        sys.exit(f"{a.saved}: {exc}")           # to apply half of; nothing is written
     checker = json.loads(Path(a.checker).read_text(encoding="utf-8")) if a.checker else {}
     led = open_ledger(domain=dom)
     head = led.view()
@@ -129,8 +198,8 @@ def main(argv=None) -> int:
         for d in sorted(decisions, key=lambda d: (int(d["case_id"]), d["field"])):
             cid = int(d["case_id"])
             print(f"  {cid} {d['field']}: {d['decision']} "
-                  f"{(head.state.records.get(cid) or {}).get(d['field'])!r} -> {d['value']!r}",
-                  flush=True)
+                  f"{(head.state.records.get(cid) or {}).get(d['field'])!r} -> "
+                  f"{_value(d['field'], d['value'])!r}", flush=True)
     res = led.apply(patches, note=f"{arr._label(a.run_id)} map review", dry_run=a.dry_run)
     print(f"{len(res.applied)} applied, {len(res.skipped)} already present; "
           f"replay_ok={res.replay_ok}{' (dry run)' if a.dry_run else ''}", flush=True)

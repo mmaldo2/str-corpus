@@ -12,6 +12,7 @@ from pathlib import Path
 
 import pytest
 
+from corpus_engine.domain import load_domain
 from corpus_engine.mapper.queue import SECTIONS, select_queue
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -256,8 +257,7 @@ def test_the_saved_page_parses_back_through_the_reference_tools_state_reader(tmp
                                   _d(701, "who_was_letting", "keep", "unclear"),
                                   _d(702, "polarity", "set", "favorable", note="both ways"),
                                   _d(703, "quotes", "unsure")])
-    got = arr.read_state(page.read_text(encoding="utf-8"), fields=fields,
-                         values={f: None for f in fields})
+    got = ap.read_page(page.read_text(encoding="utf-8"), fields)
     assert [(d["case_id"], d["field"], d["decision"], d["value"]) for d in got] == [
         (700, "polarity", "adopt", "adverse"), (701, "who_was_letting", "keep", "unclear"),
         (702, "polarity", "set", "favorable"), (703, "quotes", "unsure", None)]
@@ -267,9 +267,59 @@ def test_the_saved_page_parses_back_through_the_reference_tools_state_reader(tmp
 def test_a_note_containing_a_closing_script_tag_survives_the_page(tmp_path):
     note = "the court cites </script> in the syllabus"
     page = _saved_page(tmp_path, [_d(700, "polarity", "keep", "favorable", note=note)])
-    got = arr.read_state(page.read_text(encoding="utf-8"), fields=("polarity",),
-                         values={"polarity": None})
+    got = ap.read_page(page.read_text(encoding="utf-8"), ("polarity",))
     assert len(got) == 1 and got[0]["note"] == note
+
+
+def test_a_tampered_saved_page_is_refused_by_the_vocabulary_check(tmp_path):
+    """I1. `read_state` was called with `values={f: None for f in fields}`, which is the
+    "this field has no closed vocabulary" opt-out - passed for EVERY field, it turned the
+    check off everywhere, and the ledger performs no value validation of its own. A page
+    carrying `FAVORABEL` on the field the published favorable count slices on has to be
+    refused, by name, before a single patch is built."""
+    fields = ("polarity", "who_was_letting", "characterization", "quotes")
+    page = _saved_page(tmp_path, [_d(700, "polarity", "keep", "adverse"),
+                                  _d(701, "polarity", "set", "FAVORABEL")])
+    with pytest.raises(ValueError, match="FAVORABEL"):
+        ap.read_page(page.read_text(encoding="utf-8"), fields)
+
+
+def test_the_vocabulary_is_the_readers_schema_and_only_free_text_opts_out():
+    """Read from `corpus_engine.reader.schema`, never re-declared here, so a codebook that
+    adds a value works without editing the tool. Only `holding_summary` (free text) and
+    `quotes` (kept, or sent for a full read) have no closed vocabulary."""
+    from corpus_engine.reader.schema import CHARACTERIZATION_VALUES, POLARITY_VALUES
+    dom = load_domain()
+    fields = tuple(dom.judged_fields) + ap.EXTRA_FIELDS
+    values = ap.values_for(fields)
+    assert set(values) == set(fields)
+    assert [f for f, v in values.items() if v is None] == ["holding_summary", "quotes"]
+    assert values["polarity"] == frozenset(POLARITY_VALUES) | {None}
+    assert values["characterization"] == frozenset(CHARACTERIZATION_VALUES) | {None}
+    with pytest.raises(ValueError, match="citator_status"):
+        ap.values_for(("polarity", "citator_status"))
+
+
+def test_an_invalid_checker_value_is_refused_naming_the_case_and_the_field():
+    """`adopt` writes the CHECKER's value, which never passes through `read_state` at all -
+    so the tool checks again on the value that will actually be written."""
+    with pytest.raises(ValueError, match="801.*lodgingg.*characterization"):
+        ap.patches_for([_d(801, "characterization", "adopt")], {801: _rec(801)}, "mmaldo2",
+                       checker={801: {"values": {"characterization": "lodgingg"},
+                                      "status": "ok"}})
+    with pytest.raises(ValueError, match="802.*polarity"):
+        ap.patches_for([_d(802, "polarity", "set", "favourable")], {802: _rec(802)}, "mmaldo2")
+
+
+def test_a_relevance_decision_writes_a_boolean_and_not_the_pages_string():
+    """The page spells `relevant` as a radio's string; the record, the checker and `counts`
+    all carry a real boolean, and `"false"` is truthy. Section C can decide this field: the
+    checker disputed relevance on 46 of round 1's 150 cards."""
+    ps = ap.patches_for([_d(830, "relevant", "set", "false")], {830: _rec(830)}, "mmaldo2")
+    assert [p.new for p in ps if p.op == "set" and p.field == "relevant"] == [False]
+    ps = ap.patches_for([_d(831, "relevant", "adopt")], {831: _rec(831)}, "mmaldo2",
+                        checker={831: {"values": {"relevant": False}, "status": "ok"}})
+    assert [p.new for p in ps if p.op == "set" and p.field == "relevant"] == [False]
 
 
 def test_the_four_decisions_become_the_right_human_basis_patches():
