@@ -9,8 +9,8 @@ first review round. Spec:
 ## Headline
 
 - **50 of 50 cells read**, 380 of 399 capped batches (95%), 6,831 cases, **2,246 relevant
-  accepted / 4,585 irrelevant accepted**, 0 failed units - but **9 cases lost** to one
-  unit that completed without answering for them (see Lost cases).
+  accepted / 4,594 irrelevant accepted**, 0 failed units; **9 cases were lost** to one unit
+  that completed without answering for them and were recovered by a retry (see Lost cases).
 - 47 cells stopped on their depth cap; **3 stopped on the yield floor** (window 3, threshold 2)
   before reaching cap: `pre-1860|Pa.` (4 of 5 batches), `1930-1970|Tex.` (10 of 21),
   `1970-2020|Tex.` (7 of 14).
@@ -121,12 +121,15 @@ records, and they are not among the 4,585 labelled negatives `ranker-heldout-v2`
 on. A resume cannot recover them - it replays the unit from the response cache, which holds
 the answer that lost them.
 
-A retry is pending. `tools/map_reader.py --retry-lost` re-plans exactly those case ids
-(835703, 880999, 899345, 1008910, 1046562, 2264542, 3223841, 5412641, 5790700) as one fresh
-unit of 9, reads it, and merges it into this manifest; admission then picks it up like any
-other unit. This report will be updated with the outcome. Every unit row now records
-`cases_lost` so a future partial parse says which cases it dropped rather than leaving the
-difference between two totals as the only trace.
+The retry ran on 2026-09-06 (`tools/map_reader.py --retry-lost`): the nine case ids
+(835703, 880999, 899345, 1008910, 1046562, 2264542, 3223841, 5412641, 5790700) were re-planned
+as one fresh unit (`cycle-004-shard-01-retry-001`), read in 13 s, all nine answered - **0
+relevant, 9 irrelevant** - and merged into this manifest (`cases_lost` 0; totals 6,840 cases
+read, 2,246 relevant, 4,594 irrelevant, 387 reader units). Admission picked them up as nine
+relevant-false admit patches (`9 applied, 30398 already present; replay_ok=True`); the
+published counts did not move. Every unit row now records `cases_lost`, so a future partial
+parse names the cases it dropped rather than leaving the difference between two totals as
+the only trace.
 
 ## Reader, codebook, schema, caps and flags
 

@@ -1,5 +1,5 @@
 {
- "batch_size": 18,
+ "batch_size": 9,
  "cell_order": [
   "1970-2020|Mass.",
   "1970-2020|N.Y.",
@@ -71,6 +71,7 @@
     ]
    },
    "cap_batches": 4,
+   "cases_lost": [],
    "cases_read": 72,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -264,6 +265,7 @@
     ]
    },
    "cap_batches": 3,
+   "cases_lost": [],
    "cases_read": 54,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -420,6 +422,7 @@
     ]
    },
    "cap_batches": 3,
+   "cases_lost": [],
    "cases_read": 54,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -571,6 +574,7 @@
     ]
    },
    "cap_batches": 2,
+   "cases_lost": [],
    "cases_read": 36,
    "checker_disagreements": [
     {
@@ -755,6 +759,7 @@
     ]
    },
    "cap_batches": 5,
+   "cases_lost": [],
    "cases_read": 90,
    "checker_disagreements": [
     {
@@ -1199,6 +1204,7 @@
     ]
    },
    "cap_batches": 4,
+   "cases_lost": [],
    "cases_read": 72,
    "checker_disagreements": [
     {
@@ -1586,6 +1592,7 @@
     ]
    },
    "cap_batches": 5,
+   "cases_lost": [],
    "cases_read": 90,
    "checker_disagreements": [
     {
@@ -2101,6 +2108,7 @@
     ]
    },
    "cap_batches": 4,
+   "cases_lost": [],
    "cases_read": 72,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -2287,6 +2295,7 @@
     ]
    },
    "cap_batches": 3,
+   "cases_lost": [],
    "cases_read": 54,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -2436,6 +2445,7 @@
     ]
    },
    "cap_batches": 3,
+   "cases_lost": [],
    "cases_read": 54,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -2602,6 +2612,7 @@
     ]
    },
    "cap_batches": 8,
+   "cases_lost": [],
    "cases_read": 144,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -2941,6 +2952,7 @@
     ]
    },
    "cap_batches": 4,
+   "cases_lost": [],
    "cases_read": 72,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -3136,6 +3148,7 @@
     ]
    },
    "cap_batches": 4,
+   "cases_lost": [],
    "cases_read": 72,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -3322,6 +3335,7 @@
     ]
    },
    "cap_batches": 3,
+   "cases_lost": [],
    "cases_read": 54,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -3485,6 +3499,7 @@
     ]
    },
    "cap_batches": 7,
+   "cases_lost": [],
    "cases_read": 126,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -3799,6 +3814,7 @@
     ]
    },
    "cap_batches": 8,
+   "cases_lost": [],
    "cases_read": 144,
    "checker_disagreements": [
     {
@@ -4375,6 +4391,7 @@
     ]
    },
    "cap_batches": 6,
+   "cases_lost": [],
    "cases_read": 108,
    "checker_disagreements": [
     {
@@ -5038,6 +5055,7 @@
     ]
    },
    "cap_batches": 7,
+   "cases_lost": [],
    "cases_read": 126,
    "checker_disagreements": [
     {
@@ -5435,6 +5453,7 @@
     ]
    },
    "cap_batches": 6,
+   "cases_lost": [],
    "cases_read": 108,
    "checker_disagreements": [
     {
@@ -5929,6 +5948,7 @@
     ]
    },
    "cap_batches": 12,
+   "cases_lost": [],
    "cases_read": 216,
    "checker_disagreements": [
     {
@@ -6694,6 +6714,7 @@
     ]
    },
    "cap_batches": 18,
+   "cases_lost": [],
    "cases_read": 324,
    "checker_disagreements": [
     {
@@ -7592,6 +7613,7 @@
     ]
    },
    "cap_batches": 11,
+   "cases_lost": [],
    "cases_read": 198,
    "checker_disagreements": [
     {
@@ -8290,6 +8312,7 @@
     ]
    },
    "cap_batches": 3,
+   "cases_lost": [],
    "cases_read": 54,
    "checker_disagreements": [],
    "checker_sampled": [
@@ -8482,6 +8505,7 @@
     ]
    },
    "cap_batches": 15,
+   "cases_lost": [],
    "cases_read": 270,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -9103,6 +9127,7 @@
     ]
    },
    "cap_batches": 12,
+   "cases_lost": [],
    "cases_read": 216,
    "checker_disagreements": [
     {
@@ -9695,6 +9720,7 @@
     ]
    },
    "cap_batches": 13,
+   "cases_lost": [],
    "cases_read": 234,
    "checker_disagreements": [
     {
@@ -10374,10 +10400,14 @@
     ],
     "cycle-004-shard-01-batch-293": [
      "667f16333ce58c17c5b6cfc5808d246fe2c8b8e059260c452fd79a4702d05ef7"
+    ],
+    "cycle-004-shard-01-retry-001": [
+     "321931747fdb6f616c4b2142412fc1ced5a8f5995b8bbd6494fe91086c97e8b7"
     ]
    },
    "cap_batches": 21,
-   "cases_read": 369,
+   "cases_lost": [],
+   "cases_read": 378,
    "checker_disagreements": [
     {
      "case_id": 1008891,
@@ -10529,11 +10559,11 @@
      "unit_id": "cycle-004-shard-01-batch-146"
     }
    ],
-   "irrelevant_accepted": 177,
+   "irrelevant_accepted": 186,
    "jurisdiction": "N.Y.",
    "mean_rank_score": 0.656692,
    "n_batches": 75,
-   "records": 378,
+   "records": 387,
    "relevant_accepted": 192,
    "screen": {
     "state": "off"
@@ -11361,6 +11391,50 @@
       "partial": 0
      },
      "unit_id": "cycle-004-shard-01-batch-293"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "321931747fdb6f616c4b2142412fc1ced5a8f5995b8bbd6494fe91086c97e8b7"
+     ],
+     "cases_answered": [
+      835703,
+      880999,
+      899345,
+      1008910,
+      1046562,
+      2264542,
+      3223841,
+      5412641,
+      5790700
+     ],
+     "cases_lost": [],
+     "cases_read": 9,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 42969,
+     "irrelevant_accepted": 9,
+     "nulled_fields": [],
+     "output_tokens": 1123,
+     "records": 9,
+     "relevant_accepted": 0,
+     "retried": false,
+     "retry": true,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 9,
+      "partial": 0
+     },
+     "unit_id": "cycle-004-shard-01-retry-001"
     }
    ],
    "units_retried_after_split": 1,
@@ -11499,6 +11573,7 @@
     ]
    },
    "cap_batches": 13,
+   "cases_lost": [],
    "cases_read": 234,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -12070,6 +12145,7 @@
     ]
    },
    "cap_batches": 18,
+   "cases_lost": [],
    "cases_read": 324,
    "checker_disagreements": [
     {
@@ -13209,6 +13285,7 @@
     ]
    },
    "cap_batches": 21,
+   "cases_lost": [],
    "cases_read": 180,
    "checker_disagreements": [
     {
@@ -13707,6 +13784,7 @@
     ]
    },
    "cap_batches": 12,
+   "cases_lost": [],
    "cases_read": 216,
    "checker_disagreements": [
     {
@@ -14284,6 +14362,7 @@
     ]
    },
    "cap_batches": 9,
+   "cases_lost": [],
    "cases_read": 162,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -14659,6 +14738,7 @@
     ]
    },
    "cap_batches": 4,
+   "cases_lost": [],
    "cases_read": 72,
    "checker_disagreements": [],
    "checker_sampled": [
@@ -14889,6 +14969,7 @@
     ]
    },
    "cap_batches": 16,
+   "cases_lost": [],
    "cases_read": 288,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -15526,6 +15607,7 @@
     ]
    },
    "cap_batches": 10,
+   "cases_lost": [],
    "cases_read": 180,
    "checker_disagreements": [
     {
@@ -16168,6 +16250,7 @@
     ]
    },
    "cap_batches": 9,
+   "cases_lost": [],
    "cases_read": 162,
    "checker_disagreements": [
     {
@@ -16807,6 +16890,7 @@
     ]
    },
    "cap_batches": 18,
+   "cases_lost": [],
    "cases_read": 324,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -17540,6 +17624,7 @@
     ]
    },
    "cap_batches": 11,
+   "cases_lost": [],
    "cases_read": 198,
    "checker_disagreements": [
     {
@@ -18196,6 +18281,7 @@
     ]
    },
    "cap_batches": 13,
+   "cases_lost": [],
    "cases_read": 234,
    "checker_disagreements": [
     {
@@ -19064,6 +19150,7 @@
     ]
    },
    "cap_batches": 14,
+   "cases_lost": [],
    "cases_read": 126,
    "checker_disagreements": [
     {
@@ -19419,6 +19506,7 @@
     ]
    },
    "cap_batches": 3,
+   "cases_lost": [],
    "cases_read": 54,
    "checker_disagreements": [
     {
@@ -19758,6 +19846,7 @@
     ]
    },
    "cap_batches": 3,
+   "cases_lost": [],
    "cases_read": 54,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -19904,6 +19993,7 @@
     ]
    },
    "cap_batches": 2,
+   "cases_lost": [],
    "cases_read": 36,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -20021,6 +20111,7 @@
     ]
    },
    "cap_batches": 4,
+   "cases_lost": [],
    "cases_read": 72,
    "checker_disagreements": [
     {
@@ -20378,6 +20469,7 @@
     ]
    },
    "cap_batches": 4,
+   "cases_lost": [],
    "cases_read": 72,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -20574,6 +20666,7 @@
     ]
    },
    "cap_batches": 4,
+   "cases_lost": [],
    "cases_read": 72,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -20767,6 +20860,7 @@
     ]
    },
    "cap_batches": 5,
+   "cases_lost": [],
    "cases_read": 90,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -20995,6 +21089,7 @@
     ]
    },
    "cap_batches": 3,
+   "cases_lost": [],
    "cases_read": 54,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -21147,6 +21242,7 @@
     ]
    },
    "cap_batches": 5,
+   "cases_lost": [],
    "cases_read": 72,
    "checker_disagreements": [],
    "checker_sampled": [
@@ -21344,6 +21440,7 @@
     ]
    },
    "cap_batches": 4,
+   "cases_lost": [],
    "cases_read": 72,
    "checker_disagreements": [],
    "checker_sampled": [],
@@ -21522,7 +21619,7 @@
  "cycle": "cycle-004",
  "depth_column": "0.25",
  "effort": "low",
- "ended_at": "2026-09-06T18:38:02",
+ "ended_at": "2026-09-06T20:41:37",
  "engine_version": "reader-v1",
  "era_depth": {
   "1860-1900": 32,
@@ -21535,22 +21632,23 @@
   "cells": null,
   "depth_column": "0.25",
   "dry_run_batches": null,
-  "max_units": 439,
-  "max_wall_seconds": 86400.0,
+  "max_units": 1,
+  "max_wall_seconds": 21600,
+  "retry_lost": true,
   "sample_pct": 10,
-  "screen": false,
   "screen_max_usd": 5.0,
+  "screen_requested": false,
   "threshold": 2,
   "window": 3
  },
  "max_tokens": 64000,
  "max_units_note": "--max-units is a ceiling on READER requests, checked between batches. One read can buy the unit plus two split halves, so a run can exceed it by at most DRIVER_UNIT_HEADROOM-1 (2) requests, once, when the last batch it begins will not parse. Checker requests are counted separately as checker_units and are never capped by it.",
  "process": {
-  "checker_units": 16,
+  "checker_units": 0,
   "screen_pinned_units": 0,
   "stop": "done",
-  "units": 153,
-  "wall_seconds": 11012.2
+  "units": 1,
+  "wall_seconds": 13.3
  },
  "provider": "claude-cli",
  "provider_reported": [
@@ -21558,7 +21656,7 @@
  ],
  "read_timeout_seconds": 1500,
  "reader_pin": "claude-cli/claude-opus-5@claude-cli:-",
- "resume_command": ".venv\\Scripts\\python tools\\map_reader.py --run-id cycle-004-shard-01 --max-wall-seconds 86400",
+ "resume_command": ".venv\\Scripts\\python tools\\map_reader.py --run-id cycle-004-shard-01 --retry-lost",
  "run_id": "cycle-004-shard-01",
  "sample_pct": 10,
  "schema": "map-manifest-v1",
@@ -21570,7 +21668,7 @@
   "screened_units": 0,
   "state": "off"
  },
- "started_at": "2026-09-06T15:34:30",
+ "started_at": "2026-09-06T20:41:24",
  "stop": "done",
  "store_norm_version": "v1",
  "tool": "tools/map_reader.py",
@@ -21578,7 +21676,8 @@
  "totals": {
   "batches_attempted": 380,
   "batches_completed": 380,
-  "cases_read": 6831,
+  "cases_lost": 0,
+  "cases_read": 6840,
   "cells_read": 50,
   "cells_stopped_on_cap": 47,
   "cells_stopped_on_yield": 3,
@@ -21586,16 +21685,17 @@
   "checker_sampled": 35,
   "checker_units": 35,
   "failed_units": 0,
-  "input_tokens": 51154387,
-  "irrelevant_accepted": 4585,
-  "output_tokens": 3105570,
-  "records": 6840,
+  "input_tokens": 51197356,
+  "irrelevant_accepted": 4594,
+  "output_tokens": 3106693,
+  "records": 6849,
   "relevant_accepted": 2246,
   "screen_pinned_units": 0,
   "spend_usd": 0,
-  "units": 386,
+  "units": 387,
+  "units_not_ok": 1,
   "units_retried_after_split": 3,
-  "unpriced_requests": 421,
-  "wall_seconds": 32807.1
+  "unpriced_requests": 422,
+  "wall_seconds": 32820.4
  }
 }
