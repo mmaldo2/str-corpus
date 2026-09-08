@@ -4,7 +4,7 @@
 Page: reports/review-queue-map-cycle-004-round-5.html (decisions are saved into the page itself).
 
 
-## G. Flagged needs-review: the reviewer's own final call (13)
+## E. Flagged needs-review: the reviewer's own final call (13) (13)
 
 - [ ] 190 Misc. 820 - Devonshire Associates v. Garrett [937195] - decide who_was_letting reader=householder also=flags: needs-review:who_was_letting,current values: relevant=True polarity=adverse who=householder characterization=lodging
 - [ ] 985 S.W.2d 667 - Gulf Shores Council of Co-Owners, Inc. v. Raul Cantu No. 3 Family Ltd. Partnership [11596913] - decide characterization reader=None also=flags: needs-review:characterization,current values: relevant=True polarity=mixed who=commercial_operator characterization=None

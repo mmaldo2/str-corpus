@@ -6,12 +6,11 @@
   "B": "Householder letting by the night",
   "C": "Reader / checker disagreement",
   "D": "Polarity mixed",
-  "E": "Judged fields erased by the quote gate",
-  "F": "Fuzzy quote match",
-  "G": "Flagged needs-review: the reviewer's own final call"
+  "E": "Flagged needs-review: the reviewer's own final call (13)",
+  "F": "Fuzzy quote match"
  },
  "sections": {
-  "G": [
+  "E": [
    {
     "case_id": 937195,
     "cite": "190 Misc. 820",
@@ -20,8 +19,8 @@
     "name": "Devonshire Associates v. Garrett",
     "year": 1947,
     "decide_field": "who_was_letting",
-    "reason": "needs_review_flag",
-    "section": "G",
+    "reason": "gate_erased",
+    "section": "E",
     "quotes": [
      {
       "text": "the evidence establishes that the prior owner permitted the occupancy of the apartments by roomers and thus expressly waived the covenant of the leases that the premises be occupied “ osa strictly private family dwelling apartment by said tenant, and the tenant’s immediate family only-”.",
@@ -82,8 +81,8 @@
     "name": "Gulf Shores Council of Co-Owners, Inc. v. Raul Cantu No. 3 Family Ltd. Partnership",
     "year": 1999,
     "decide_field": "characterization",
-    "reason": "needs_review_flag",
-    "section": "G",
+    "reason": "gate_erased",
+    "section": "E",
     "quotes": [
      {
       "text": "We conclude the prohibition and fees were necessary to achieve the purpose of creating a uniform plan for the development and operation of the condominium project.",
@@ -134,8 +133,8 @@
     "name": "Ymca of Pittsburgh Appeal",
     "year": 1954,
     "decide_field": "polarity",
-    "reason": "needs_review_flag",
-    "section": "G",
+    "reason": "gate_erased",
+    "section": "E",
     "quotes": [
      {
       "text": "In neither the Salvation Army case nor the instant case was there any testimony of that character; in fact, the evidence shows that there was no advertising of the dormitory facilities in any of the five buildings here involved, and no complaints were heard from hotels or boarding houses that the dormitories were in competition with them.",
@@ -196,8 +195,8 @@
     "name": "Scottish American Mortgage Co. v. Milner",
     "year": 1930,
     "decide_field": "characterization",
-    "reason": "needs_review_flag",
-    "section": "G",
+    "reason": "gate_erased",
+    "section": "E",
     "quotes": [
      {
       "text": "Any temporary renting would not defeat the homestead right.",
@@ -248,8 +247,8 @@
     "name": "Lafayette Parish Sch. Bd. v. Imagine Mgmt., LLC",
     "year": 2019,
     "decide_field": "holding_summary",
-    "reason": "needs_review_flag",
-    "section": "G",
+    "reason": "gate_erased",
+    "section": "E",
     "quotes": [
      {
       "text": "On or about March 4, 2016, IMAGINE MANAGEMENT, LLC, through its owner, TOBY DORE, registered with Petitioner as a dealer for sales, use and occupancy tax purposes, for its operation of a hostel/ guesthouse/ bed and breakfast business in Lafayette Parish, Louisiana, under the trade name \"CAJUN HOSTEL.\"",
@@ -310,8 +309,8 @@
     "name": "State v. Mack",
     "year": 1889,
     "decide_field": "holding_summary",
-    "reason": "needs_review_flag",
-    "section": "G",
+    "reason": "gate_erased",
+    "section": "E",
     "quotes": [
      {
       "text": "It is the clearest possibleuexample of a police regulation, the exercise of the police power of the State — that power reserved to every State, as essential to social order and comfort, which subjects the most absolute rights of properly to the condition that they shall be so used as not to infringe the rights of others.",
@@ -352,8 +351,8 @@
     "name": "Dallas Hotel Co. v. Davidson",
     "year": 1928,
     "decide_field": "holding_summary",
-    "reason": "needs_review_flag",
-    "section": "G",
+    "reason": "gate_erased",
+    "section": "E",
     "quotes": [
      {
       "text": "Any hotel, apartment hotel or boarding house keeper, who constantly has in his hotel, apartment hotel or boarding house a metal safe or vault in good order and fit for the custody of money, jewelry, articles of gold or silver manufacture, precious stones, personal ornaments, or documents of any kind, and who keeps on the doors of the sleeping rooms used by guests suitable locks or bolts and proper fastenings on the transom and window of said room, shall not be liable for the loss or injury suffered by any guest on account of the loss of said valuables in excess of the sum of Fifty Dollars",
@@ -404,8 +403,8 @@
     "name": "Langston v. Maxey",
     "year": 1889,
     "decide_field": "characterization",
-    "reason": "needs_review_flag",
-    "section": "G",
+    "reason": "gate_erased",
+    "section": "E",
     "quotes": [
      {
       "text": "In 1879 he built another residence on the east part of the property, which he testified he built for the purpose of leasing it to tenants for the income to be derived therefrom.",
@@ -446,8 +445,8 @@
     "name": "Yates v. Tessier",
     "year": 1926,
     "decide_field": "holding_summary",
-    "reason": "needs_review_flag",
-    "section": "G",
+    "reason": "gate_erased",
+    "section": "E",
     "quotes": [
      {
       "text": "Mrs. Sledge sublet a part of the leased premises, which included the room in which the window in question was located, to the plaintiffs",
@@ -498,8 +497,8 @@
     "name": "Peters v. Kelly",
     "year": 1908,
     "decide_field": "polarity",
-    "reason": "needs_review_flag",
-    "section": "G",
+    "reason": "gate_erased",
+    "section": "E",
     "quotes": [
      {
       "text": "This evidence did not show a hiring of the yard adjacent to the house, and the stairway and the landing, together with the rooms, but only a hiring of the rooms themselves.",
@@ -550,8 +549,8 @@
     "name": "Wasserstein v. Gabel",
     "year": 1966,
     "decide_field": "who_was_letting",
-    "reason": "needs_review_flag",
-    "section": "G",
+    "reason": "gate_erased",
+    "section": "E",
     "quotes": [],
     "holding_summary": null,
     "nulled_fields": [],
@@ -581,8 +580,8 @@
     "name": "Abright v. Shapiro",
     "year": 1983,
     "decide_field": "polarity",
-    "reason": "needs_review_flag",
-    "section": "G",
+    "reason": "gate_erased",
+    "section": "E",
     "quotes": [
      {
       "supports": [
@@ -652,8 +651,8 @@
     "name": "Salafian v. Gabriel",
     "year": 2014,
     "decide_field": "characterization",
-    "reason": "needs_review_flag",
-    "section": "G",
+    "reason": "gate_erased",
+    "section": "E",
     "quotes": [
      {
       "supports": [
