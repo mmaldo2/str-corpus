@@ -1,0 +1,272 @@
+# Cycle-004 map review - cycle-004-shard-01
+
+258 cards this round (cap 300); 0 carried to the next round.
+Page: reports/review-queue-map-cycle-004-round-4.html (decisions are saved into the page itself).
+
+
+## D. Polarity mixed (1)
+
+- [ ] 92 A.D.2d 452 -  [3313366] - decide polarity reader=mixed also=-
+
+## E. Judged fields erased by the quote gate (228)
+
+- [ ] 8 Ohio Cir. Dec. 572 -  [1628205] - decide under_thirty_days reader=None also=-
+- [ ] 92 Conn. 579 -  [1633743] - decide owner_freedom_characterization reader=None also=-
+- [ ] 8 Ohio Law Abs. 70 -  [1634723] - decide under_thirty_days reader=None also=-
+- [ ] 16 Ohio Law Abs. 289 -  [1655146] - decide under_thirty_days reader=None also=-
+- [ ] 35 Conn. Supp. 549 -  [1665841] - decide owner_freedom_characterization reader=None also=-
+- [ ] 34 Conn. Supp. 603 -  [1668211] - decide owner_freedom_characterization reader=None also=-
+- [ ] 28 Pa. D. & C.2d 329 -  [1668456] - decide restriction_nature reader=None also=-
+- [ ] 21 Ohio Law Abs. 66 -  [1670306] - decide under_thirty_days reader=None also=-
+- [ ] 36 Pa. D. & C.2d 323 -  [1687409] - decide owner_freedom_characterization reader=None also=-
+- [ ] 41 Pa. D. & C.2d 241 -  [1697805] - decide owner_freedom_characterization reader=None also=-
+- [ ] 33 Ohio Law Abs. 649 -  [1704071] - decide under_thirty_days reader=None also=-
+- [ ] 93 Ohio App. 3d 819 -  [1754467] - decide under_thirty_days reader=None also=-
+- [ ] 57 Ohio Law Abs. 54 -  [1755753] - decide under_thirty_days reader=None also=-
+- [ ] 29 Conn. Supp. 439 -  [1768432] - decide owner_freedom_characterization reader=None also=-
+- [ ] 68 Ohio Law Abs. 417 -  [1775874] - decide owner_freedom_characterization reader=None also=-
+- [ ] 44 App. D.C. 487 -  [1783537] - decide restriction_nature reader=None also=-
+- [ ] 10 Ohio St. 2d 48 -  [1788167] - decide under_thirty_days reader=None also=-
+- [ ] 2 Serg. & Rawle 298 -  [1798201] - decide under_thirty_days reader=None also=-
+- [ ] 83 Ohio Law Abs. 17 -  [1800561] - decide under_thirty_days reader=None also=-
+- [ ] 86 Ohio Law Abs. 333 -  [1804784] - decide under_thirty_days reader=None also=-
+- [ ] 11 Ohio C.C. (n.s.) 174 -  [1811188] - decide under_thirty_days reader=None also=-
+- [ ] 92 Ohio Law Abs. 506 -  [1815433] - decide under_thirty_days reader=None also=-
+- [ ] 94 Ohio Law Abs. 464 -  [1818570] - decide under_thirty_days reader=None also=-
+- [ ] 7 D.C. 1 -  [1819776] - decide under_thirty_days reader=None also=-
+- [ ] 95 Ohio Law Abs. 155 -  [1820176] - decide under_thirty_days reader=None also=-
+- [ ] 94 Cal. 291 -  [1920553] - decide under_thirty_days reader=None also=-
+- [ ] 164 Conn. 169 -  [1957308] - decide under_thirty_days reader=None also=-
+- [ ] 73 N.Y. St. Rep. 356 -  [1991031] - decide under_thirty_days reader=None also=-
+- [ ] 71 Mass. 58 -  [1993091] - decide under_thirty_days reader=None also=-
+- [ ] 121 Cal. 328 -  [2000047] - decide owner_freedom_characterization reader=None also=-
+- [ ] 15 Wend. 260 -  [2018827] - decide under_thirty_days reader=None also=-
+- [ ] 15 Wend. 397 -  [2018830] - decide under_thirty_days reader=None also=-
+- [ ] 33 Cal. App. 770 -  [2027311] - decide under_thirty_days reader=None also=-
+- [ ] 34 Cal. App. 314 -  [2029395] - decide under_thirty_days reader=None also=-
+- [ ] 163 Cal. 243 -  [2057395] - decide under_thirty_days reader=None also=-
+- [ ] 44 Cal. App. 394 -  [2057756] - decide under_thirty_days reader=None also=-
+- [ ] 70 Mass. 329 -  [2075497] - decide owner_freedom_characterization reader=None also=-
+- [ ] 74 Mass. 226 -  [2079292] - decide under_thirty_days reader=None also=-
+- [ ] 59 Cal. App. 533 -  [2085879] - decide under_thirty_days reader=None also=-
+- [ ] 78 Mass. 222 -  [2086076] - decide owner_freedom_characterization reader=None also=-
+- [ ] 167 Cal. 297 -  [2090471] - decide under_thirty_days reader=None also=-
+- [ ] 83 Mass. 258 -  [2095296] - decide under_thirty_days reader=None also=-
+- [ ] 84 Mass. 77 -  [2097158] - decide under_thirty_days reader=None also=-
+- [ ] 90 Cal. App. 535 -  [2105647] - decide under_thirty_days reader=None also=-
+- [ ] 142 Cal. 245 -  [2108427] - decide under_thirty_days reader=None also=-
+- [ ] 209 Cal. App. 2d 685 -  [2108554] - decide restriction_nature reader=None also=-
+- [ ] 92 Cal. App. 156 -  [2114215] - decide under_thirty_days reader=None also=-
+- [ ] 92 Mass. 360 -  [2116950] - decide under_thirty_days reader=None also=-
+- [ ] 214 Cal. App. 2d Supp. 881 -  [2117557] - decide under_thirty_days reader=None also=-
+- [ ] 177 Cal. App. 3d 119 -  [2140242] - decide owner_freedom_characterization reader=None also=-
+- [ ] 103 Mass. 372 -  [2146257] - decide under_thirty_days reader=None also=-
+- [ ] 104 Mass. 95 -  [2147645] - decide owner_freedom_characterization reader=None also=-
+- [ ] 195 Cal. 477 -  [2154931] - decide under_thirty_days reader=None also=-
+- [ ] 107 Cal. App. 15 -  [2158236] - decide characterization reader=None also=-
+- [ ] 237 Cal. App. 2d 128 -  [2166936] - decide under_thirty_days reader=None also=-
+- [ ] 26 Cal. 2d 261 -  [2168443] - decide owner_freedom_characterization reader=None also=-
+- [ ] 206 Cal. 494 -  [2170524] - decide under_thirty_days reader=None also=-
+- [ ] 56 Tex. 308 -  [2179525] - decide under_thirty_days reader=None also=-
+- [ ] 30 Cal. 318 -  [2205283] - decide under_thirty_days reader=None also=-
+- [ ] 36 Cal. 578 -  [2207089] - decide owner_freedom_characterization reader=None also=-
+- [ ] 82 Cal. App. 155 -  [2207545] - decide under_thirty_days reader=None also=-
+- [ ] 82 Tex. 361 -  [2213791] - decide under_thirty_days reader=None also=-
+- [ ] 124 Cal. App. 2d 451 -  [2214207] - decide under_thirty_days reader=None also=-
+- [ ] 125 Cal. App. 2d 788 -  [2222194] - decide owner_freedom_characterization reader=None also=-
+- [ ] 131 Cal. App. 217 -  [2230553] - decide under_thirty_days reader=None also=-
+- [ ] 138 Cal. App. 353 -  [2234146] - decide owner_freedom_characterization reader=None also=-
+- [ ] 7 Cal. 2d 358 -  [2245398] - decide under_thirty_days reader=None also=-
+- [ ] 9 N.Y.2d 27 -  [2258447] - decide under_thirty_days reader=None also=-
+- [ ] 105 Cal. App. 2d 566 -  [2265876] - decide under_thirty_days reader=None also=-
+- [ ] 86 Cal. App. 2d 840 -  [2268315] - decide owner_freedom_characterization reader=None also=-
+- [ ] 90 Cal. App. 2d 656 -  [2272617] - decide under_thirty_days reader=None also=-
+- [ ] 89 Cal. App. 2d 300 -  [2274481] - decide owner_freedom_characterization reader=None also=-
+- [ ] 63 Cal. 426 -  [2286623] - decide under_thirty_days reader=None also=-
+- [ ] 203 Cal. App. 2d 232 -  [2296126] - decide under_thirty_days reader=None also=-
+- [ ] 35 Cal. 25 -  [2305343] - decide owner_freedom_characterization reader=None also=-
+- [ ] 72 Cal. 283 -  [2314514] - decide under_thirty_days reader=None also=-
+- [ ] 194 Cal. App. 2d 12 -  [2324855] - decide owner_freedom_characterization reader=None also=-
+- [ ] 114 Cal. 91 -  [2330156] - decide under_thirty_days reader=None also=-
+- [ ] 332 U.S. App. D.C. 20 -  [2338945] - decide under_thirty_days reader=None also=-
+- [ ] 103 Cal. 264 -  [2341116] - decide under_thirty_days reader=None also=-
+- [ ] 46 Cal. 270 -  [2342614] - decide owner_freedom_characterization reader=None also=-
+- [ ] 152 Cal. App. 2d 319 -  [2350247] - decide under_thirty_days reader=None also=-
+- [ ] 82 Cal. App. 2d 876 -  [2355390] - decide under_thirty_days reader=None also=-
+- [ ] 63 Tex. Crim. 272 -  [2377307] - decide owner_freedom_characterization reader=None also=-
+- [ ] 72 Cal. App. 2d 308 -  [2378032] - decide under_thirty_days reader=None also=-
+- [ ] 55 Cal. App. 2d 437 -  [2383723] - decide under_thirty_days reader=None also=-
+- [ ] 9 Cal. App. 773 -  [2390420] - decide under_thirty_days reader=None also=-
+- [ ] 29 Barb. 100 -  [2428228] - decide owner_freedom_characterization reader=None also=-
+- [ ] 2 S.C.D.C. (N.S.) 10 -  [2461669] - decide owner_freedom_characterization reader=None also=-
+- [ ] 14 D.C. 281 -  [2620957] - decide under_thirty_days reader=None also=fuzzy_quote
+- [ ] 281 A.D. 715 -  [2864427] - decide under_thirty_days reader=None also=-
+- [ ] 27 Tex. Civ. App. 38 -  [2885401] - decide owner_freedom_characterization reader=None also=-
+- [ ] 5 A.D.2d 496 -  [2955726] - decide owner_freedom_characterization reader=None also=-
+- [ ] 223 La. 708 -  [3138456] - decide under_thirty_days reader=None also=-
+- [ ] 25 A.D.2d 797 -  [3150925] - decide under_thirty_days reader=None also=-
+- [ ] 72 A.D.2d 564 -  [3164141] - decide owner_freedom_characterization reader=None also=-
+- [ ] 44 A.D.3d 864 -  [3208517] - decide under_thirty_days reader=None also=-
+- [ ] 87 A.D.2d 575 -  [3277352] - decide under_thirty_days reader=None also=-
+- [ ] 12 La. App. 471 -  [3339387] - decide under_thirty_days reader=None also=-
+- [ ] 14 La. App. 437 -  [3349791] - decide owner_freedom_characterization reader=None also=-
+- [ ] 126 A.D.2d 650 -  [3498753] - decide under_thirty_days reader=None also=-
+- [ ] 198 Mass. 315 -  [3498941] - decide under_thirty_days reader=None also=-
+- [ ] 21 Mass. L. Rptr. 711 -  [3537206] - decide under_thirty_days reader=None also=-
+- [ ] 151 A.D.2d 400 -  [3587448] - decide under_thirty_days reader=None also=-
+- [ ] 47 A.D.3d 885 -  [3638432] - decide under_thirty_days reader=None also=-
+- [ ] 75 Mass. App. Ct. 210 -  [3834709] - decide owner_freedom_characterization reader=None also=-
+- [ ] 284 Mass. 1 -  [3834889] - decide under_thirty_days reader=None also=-
+- [ ] 339 Mass. 209 -  [3848872] - decide under_thirty_days reader=None also=-
+- [ ] 340 Mass. 380 -  [3851409] - decide under_thirty_days reader=None also=-
+- [ ] 407 N.J. Super. 432 -  [3894092] - decide under_thirty_days reader=None also=-
+- [ ] 62 Mass. 282 -  [3896073] - decide owner_freedom_characterization reader=None also=-
+- [ ] 424 N.J. Super. 48 -  [3927749] - decide under_thirty_days reader=None also=-
+- [ ] 67 A.D.3d 522 -  [3947490] - decide under_thirty_days reader=None also=-
+- [ ] 29 Mass. App. Ct. 11 -  [4003448] - decide under_thirty_days reader=None also=-
+- [ ] 271 Mass. 383 -  [4029681] - decide under_thirty_days reader=None also=-
+- [ ] 1 Mass. App. Dec. 26 -  [4033181] - decide restriction_nature reader=None also=-
+- [ ] 109 Conn. App. 731 -  [4057146] - decide owner_freedom_characterization reader=None also=fuzzy_quote
+- [ ] 296 Conn. 253 -  [4086663] - decide owner_freedom_characterization reader=None also=-
+- [ ] 126 A.D.3d 1010 -  [4115859] - decide under_thirty_days reader=None also=-
+- [ ] 53 A.D.3d 494 -  [4133833] - decide under_thirty_days reader=None also=-
+- [ ] 23 Conn. App. 528 -  [4218540] - decide under_thirty_days reader=None also=-
+- [ ] 44 Cal. 2d 416 -  [4373244] - decide owner_freedom_characterization reader=None also=-
+- [ ] 33 Tex. Civ. App. 387 -  [4373917] - decide owner_freedom_characterization reader=None also=-
+- [ ] 182 Cal. App. 2d 93 -  [4374255] - decide characterization reader=None also=-
+- [ ] 82 Cal. 226 -  [4374538] - decide under_thirty_days reader=None also=-
+- [ ] 57 Cal. 2d 463 -  [4374690] - decide under_thirty_days reader=None also=-
+- [ ] 184 Cal. App. 2d 154 -  [4376437] - decide under_thirty_days reader=None also=-
+- [ ] 95 Cal. 343 -  [4383155] - decide under_thirty_days reader=None also=-
+- [ ] 174 Cal. App. 2d 697 -  [4386550] - decide under_thirty_days reader=None also=-
+- [ ] 35 Cal. 2d 343 -  [4399560] - decide under_thirty_days reader=None also=-
+- [ ] 164 Cal. App. 2d 689 -  [4401757] - decide owner_freedom_characterization reader=None also=-
+- [ ] 70 N.Y.2d 451 -  [4407044] - decide under_thirty_days reader=None also=-
+- [ ] 36 Cal. 2d 95 -  [4408894] - decide under_thirty_days reader=None also=-
+- [ ] 75 N.Y.2d 590 -  [4416541] - decide under_thirty_days reader=None also=-
+- [ ] 16 Cal. App. 3d 146 -  [4431626] - decide under_thirty_days reader=None also=-
+- [ ] 41 Cal. App. 2d 234 -  [4462363] - decide under_thirty_days reader=None also=-
+- [ ] 45 Cal. App. 2d 680 -  [4481975] - decide under_thirty_days reader=None also=-
+- [ ] 21 Cal. App. 198 -  [4483456] - decide owner_freedom_characterization reader=None also=-
+- [ ] 21 Cal. App. 722 -  [4486849] - decide under_thirty_days reader=None also=-
+- [ ] 7 Cal. App. 287 -  [4519581] - decide under_thirty_days reader=None also=-
+- [ ] 47 Tex. Crim. 623 -  [4542115] - decide owner_freedom_characterization reader=None also=-
+- [ ] 64 Cal. App. 2d 332 -  [4584516] - decide under_thirty_days reader=None also=-
+- [ ] 74 Cal. App. 2d 785 -  [4625430] - decide under_thirty_days reader=None also=-
+- [ ] 48 Cal. App. 2d 62 -  [4630808] - decide under_thirty_days reader=None also=-
+- [ ] 19 Pa. D. & C.3d 606 -  [4640466] - decide owner_freedom_characterization reader=None also=-
+- [ ] 11 Cal. App. 724 -  [4651365] - decide under_thirty_days reader=None also=-
+- [ ] 10 Cal. App. 507 -  [4660434] - decide owner_freedom_characterization reader=None also=-
+- [ ] 77 Tex. Crim. 204 -  [4720125] - decide under_thirty_days reader=None also=-
+- [ ] 77 Tex. Crim. 483 -  [4721854] - decide under_thirty_days reader=None also=-
+- [ ] 80 Tex. Crim. 421 -  [4727205] - decide under_thirty_days reader=None also=-
+- [ ] 5 La. 94 -  [4880321] - decide owner_freedom_characterization reader=None also=-
+- [ ] 110 Tex. Crim. 288 -  [5156706] - decide under_thirty_days reader=None also=-
+- [ ] 257 A.D. 1012 -  [5219613] - decide under_thirty_days reader=None also=-
+- [ ] 111 A.D. 170 -  [5219808] - decide owner_freedom_characterization reader=None also=-
+- [ ] 27 La. 314 -  [5246153] - decide under_thirty_days reader=None also=-
+- [ ] 138 Tex. Crim. 394 -  [5276352] - decide owner_freedom_characterization reader=None also=-
+- [ ] 282 A.D. 566 -  [5400979] - decide under_thirty_days reader=None also=-
+- [ ] 11 A.D.2d 395 -  [5480477] - decide under_thirty_days reader=None also=-
+- [ ] 62 A.D.2d 171 -  [5490682] - decide under_thirty_days reader=None also=-
+- [ ] 97 N.Y.S. 592 -  [5523317] - decide owner_freedom_characterization reader=None also=-
+- [ ] 184 La. 755 -  [5530084] - decide owner_freedom_characterization reader=None also=-
+- [ ] 86 A.D.2d 612 -  [5601832] - decide under_thirty_days reader=None also=-
+- [ ] 90 A.D.2d 644 -  [5606912] - decide under_thirty_days reader=None also=-
+- [ ] 109 A.D.2d 193 -  [5654599] - decide under_thirty_days reader=None also=-
+- [ ] 204 Mass. 346 -  [5679361] - decide under_thirty_days reader=None also=-
+- [ ] 245 Mass. 342 -  [5753122] - decide under_thirty_days reader=None also=-
+- [ ] 33 Cal. App. 2d 725 -  [6040998] - decide owner_freedom_characterization reader=None also=-
+- [ ] 36 Cal. App. 2d Supp. 767 -  [6041005] - decide under_thirty_days reader=None also=-
+- [ ] 63 Cal. App. 2d 638 -  [6044520] - decide owner_freedom_characterization reader=None also=-
+- [ ] 43 Cal. App. 4th 677 -  [6045100] - decide characterization reader=None also=-
+- [ ] 2 Miles 323 -  [6678979] - decide under_thirty_days reader=None also=-
+- [ ] 4 Ohio App. 3d 302 -  [6712781] - decide owner_freedom_characterization reader=None also=-
+- [ ] 2 Mart. (o.s.) 313 -  [6755922] - decide owner_freedom_characterization reader=None also=-
+- [ ] 9 Tex. 430 -  [6769506] - decide under_thirty_days reader=None also=-
+- [ ] 1994 Mass. App. Div. 227 -  [6814362] - decide under_thirty_days reader=None also=-
+- [ ] 146 So. 3d 753 -  [6924541] - decide characterization reader=None also=-
+- [ ] 136 So. 3d 253 -  [6956933] - decide characterization reader=None also=-
+- [ ] 30 So. 3d 186 -  [7041953] - decide under_thirty_days reader=None also=-
+- [ ] 74 N.Y.S. 920 -  [7741141] - decide owner_freedom_characterization reader=None also=fuzzy_quote
+- [ ] 64 N.Y.S. 524 -  [7767851] - decide under_thirty_days reader=None also=-
+- [ ] 178 S.W. 365 -  [8247425] - decide under_thirty_days reader=None also=-
+- [ ] 218 S.W. 1093 -  [8271873] - decide under_thirty_days reader=None also=-
+- [ ] 12 D.C. 1 -  [8478699] - decide under_thirty_days reader=None also=-
+- [ ] 12 D.C. 478 -  [8481846] - decide owner_freedom_characterization reader=None also=-
+- [ ] 3 Pelt. 383 -  [8501342] - decide under_thirty_days reader=None also=-
+- [ ] 14 La. Ann. 564 -  [8507795] - decide owner_freedom_characterization reader=None also=-
+- [ ] 5 La. 480 -  [8751937] - decide owner_freedom_characterization reader=None also=-
+- [ ] 1 Hilt. 84 -  [8821838] - decide under_thirty_days reader=None also=-
+- [ ] 428 So. 2d 836 -  [9539450] - decide under_thirty_days reader=None also=-
+- [ ] 411 So. 2d 1113 -  [9571192] - decide under_thirty_days reader=None also=-
+- [ ] 369 So. 2d 185 -  [9582547] - decide under_thirty_days reader=None also=-
+- [ ] 136 So. 2d 325 -  [9869278] - decide under_thirty_days reader=None also=-
+- [ ] 115 So. 2d 656 -  [9899307] - decide under_thirty_days reader=None also=-
+- [ ] 84 So. 2d 873 -  [9910635] - decide owner_freedom_characterization reader=None also=-
+- [ ] 50 So. 2d 59 -  [9911433] - decide restriction_nature reader=None also=-
+- [ ] 882 S.W.2d 87 -  [9996867] - decide under_thirty_days reader=None also=-
+- [ ] 146 So. 65 -  [10023904] - decide restriction_nature reader=None also=-
+- [ ] 159 So. 429 -  [10043939] - decide under_thirty_days reader=None also=-
+- [ ] 147 So. 560 -  [10050671] - decide owner_freedom_characterization reader=None also=-
+- [ ] 147 So. 711 -  [10065184] - decide owner_freedom_characterization reader=None also=-
+- [ ] 39 So. 2d 458 -  [10066251] - decide under_thirty_days reader=None also=-
+- [ ] 144 So. 907 -  [10083949] - decide owner_freedom_characterization reader=None also=-
+- [ ] 409 S.W.2d 572 -  [10134801] - decide owner_freedom_characterization reader=None also=-
+- [ ] 367 S.W.2d 368 -  [10160183] - decide owner_freedom_characterization reader=None also=-
+- [ ] 271 S.W.2d 431 -  [10191550] - decide under_thirty_days reader=None also=-
+- [ ] 239 S.W.2d 141 -  [10193907] - decide owner_freedom_characterization reader=None also=-
+- [ ] 213 S.W.2d 574 -  [10196282] - decide under_thirty_days reader=None also=-
+- [ ] 254 S.W.2d 203 -  [10197840] - decide under_thirty_days reader=None also=-
+- [ ] 263 S.W.2d 820 -  [10204385] - decide under_thirty_days reader=None also=-
+- [ ] 227 S.W.2d 853 -  [10212255] - decide under_thirty_days reader=None also=-
+- [ ] 242 S.W.2d 830 -  [10215658] - decide owner_freedom_characterization reader=None also=-
+- [ ] 110 S.W.2d 929 -  [10269755] - decide under_thirty_days reader=None also=-
+- [ ] 19 S.W.2d 382 -  [10271388] - decide under_thirty_days reader=None also=-
+- [ ] 33 S.W.2d 510 -  [10271900] - decide owner_freedom_characterization reader=None also=-
+- [ ] 19 S.W.2d 784 -  [10277932] - decide under_thirty_days reader=None also=-
+- [ ] 9 S.W.2d 203 -  [10288933] - decide under_thirty_days reader=None also=-
+- [ ] 228 S.W. 258 -  [10308331] - decide characterization reader=None also=fuzzy_quote
+- [ ] 223 S.W. 1016 -  [10330580] - decide under_thirty_days reader=None also=-
+- [ ] 245 S.W. 755 -  [10333547] - decide under_thirty_days reader=None also=-
+- [ ] 248 S.W. 1101 -  [10341000] - decide under_thirty_days reader=None also=-
+- [ ] 772 A.2d 104 -  [11091267] - decide owner_freedom_characterization reader=None also=-
+- [ ] 2 Ohio Law Abs. 489 -  [11166168] - decide under_thirty_days reader=None also=-
+- [ ] 2 Ohio Law Abs. 584 -  [11171381] - decide under_thirty_days reader=None also=-
+- [ ] 705 So. 2d 782 -  [11860282] - decide under_thirty_days reader=None also=-
+- [ ] 64 Cal. 2d 93 -  [12122828] - decide under_thirty_days reader=None also=-
+- [ ] 145 A.D.3d 1264 -  [12180699] - decide under_thirty_days reader=None also=-
+- [ ] 299 Mass. 444 -  [12254846] - decide owner_freedom_characterization reader=None also=-
+- [ ] 555 S.W.3d 738 -  [12657492] - decide characterization reader=None also=-
+
+## F. Fuzzy quote match (29)
+
+- [ ] 7 N.J. Eq. 131 -  [494284] - decide quotes reader=None also=-
+- [ ] 56 N.Y. 398 -  [519287] - decide quotes reader=None also=-
+- [ ] 83 Cal. App. 4th 28 -  [525298] - decide quotes reader=None also=-
+- [ ] 385 Mass. 205 -  [900705] - decide quotes reader=None also=-
+- [ ] 412 Pa. Super. 544 -  [906669] - decide quotes reader=None also=-
+- [ ] 344 Pa. 317 -  [1211026] - decide quotes reader=None also=-
+- [ ] 66 Misc. 2d 342 -  [1230966] - decide quotes reader=None also=-
+- [ ] 250 Conn. 763 -  [1237146] - decide quotes reader=None also=-
+- [ ] 24 App. D.C. 532 -  [1341259] - decide quotes reader=None also=-
+- [ ] 161 Pa. Commw. 229 -  [1456456] - decide quotes reader=None also=-
+- [ ] 62 N.J. 399 -  [1948065] - decide quotes reader=None also=-
+- [ ] 17 Tex. 582 -  [2042390] - decide quotes reader=None also=-
+- [ ] 117 Cal. App. 2d 50 -  [2204711] - decide quotes reader=None also=-
+- [ ] 29 Cal. 2d 332 -  [2211135] - decide quotes reader=None also=-
+- [ ] 257 Cal. App. 2d 375 -  [2221418] - decide quotes reader=None also=-
+- [ ] 232 Cal. App. 3d 486 -  [2343998] - decide quotes reader=None also=-
+- [ ] 155 A.D. 363 -  [2695862] - decide quotes reader=None also=-
+- [ ] 140 N.Y.S. 321 -  [3382600] - decide quotes reader=None also=-
+- [ ] 352 U.S. App. D.C. 182 -  [3699552] - decide quotes reader=None also=-
+- [ ] 342 Mass. 178 -  [3854899] - decide quotes reader=None also=-
+- [ ] 199 A.D. 239 -  [4626171] - decide quotes reader=None also=-
+- [ ] 134 N.Y.S. 888 -  [5653129] - decide quotes reader=None also=-
+- [ ] 420 N.J. Super. 495 -  [5719085] - decide quotes reader=None also=-
+- [ ] 223 Cal. App. 4th 261 -  [6052626] - decide quotes reader=None also=-
+- [ ] 535 So. 2d 1046 -  [7556592] - decide quotes reader=None also=-
+- [ ] 4 Pelt. 554 -  [8502492] - decide quotes reader=None also=-
+- [ ] 247 So. 2d 244 -  [9718554] - decide quotes reader=None also=-
+- [ ] 240 S.W.2d 405 -  [10200903] - decide quotes reader=None also=-
+- [ ] 10 Cal. App. 5th 502 -  [12451336] - decide quotes reader=None also=-

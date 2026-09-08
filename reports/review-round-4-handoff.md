@@ -125,3 +125,10 @@ applied, including every `drop_quote` an F-card `set` writes and every `set`/`ke
 section-E card. Every decision is checked against this round's own queue manifest first, exactly
 as in every prior round. Once satisfied, the human re-runs the same command without `--dry-run`,
 then commits the applied decisions file alongside this handoff — the last round of cycle 004.
+
+## Checker coverage this round
+
+Codex answered 222 of the 258 cards; its usage limit stopped the pass after that, so 36 cards
+carry no checker values (their `checker` block shows status `failed` or empty values). Decide
+those from the opinion text alone, as in earlier rounds; `adopt` is not available on them.
+
