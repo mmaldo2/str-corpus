@@ -1,83 +1,83 @@
 {
  "494284": {
   "values": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "519287": {
   "values": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "525298": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "900705": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lodging"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "906669": {
   "values": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "1211026": {
   "values": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "1230966": {
   "values": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "adverse",
    "characterization": null
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "1237146": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "1341259": {
   "values": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "1456456": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "1628205": {
   "values": {
@@ -289,11 +289,11 @@
  },
  "1948065": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "1957308": {
   "values": {
@@ -361,11 +361,11 @@
  },
  "2042390": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "2057395": {
   "values": {
@@ -561,11 +561,11 @@
  },
  "2204711": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "2205283": {
   "values": {
@@ -593,11 +593,11 @@
  },
  "2211135": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "2213791": {
   "values": {
@@ -617,11 +617,11 @@
  },
  "2221418": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "2222194": {
   "values": {
@@ -769,11 +769,11 @@
  },
  "2343998": {
   "values": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "adverse",
    "characterization": null
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "2350247": {
   "values": {
@@ -849,11 +849,11 @@
  },
  "2695862": {
   "values": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "other"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "2864427": {
   "values": {
@@ -945,11 +945,11 @@
  },
  "3382600": {
   "values": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "3498753": {
   "values": {
@@ -993,11 +993,11 @@
  },
  "3699552": {
   "values": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "innkeeping"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "3834709": {
   "values": {
@@ -1033,11 +1033,11 @@
  },
  "3854899": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "3894092": {
   "values": {
@@ -1313,11 +1313,11 @@
  },
  "4626171": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "4630808": {
   "values": {
@@ -1481,11 +1481,11 @@
  },
  "5653129": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "5654599": {
   "values": {
@@ -1505,11 +1505,11 @@
  },
  "5719085": {
   "values": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "5753122": {
   "values": {
@@ -1553,11 +1553,11 @@
  },
  "6052626": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "6678979": {
   "values": {
@@ -1625,11 +1625,11 @@
  },
  "7556592": {
   "values": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "7741141": {
   "values": {
@@ -1689,11 +1689,11 @@
  },
  "8502492": {
   "values": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "8507795": {
   "values": {
@@ -1745,11 +1745,11 @@
  },
  "9718554": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "9869278": {
   "values": {
@@ -1889,11 +1889,11 @@
  },
  "10200903": {
   "values": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "10204385": {
   "values": {
@@ -2001,66 +2001,66 @@
  },
  "11166168": {
   "values": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
    "characterization": null
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "11171381": {
   "values": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lodging"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "11860282": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "12122828": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "12180699": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lodging"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "12254846": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "license"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "12451336": {
   "values": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  },
  "12657492": {
   "values": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
-  "status": "failed:codex exited 1: "
+  "status": "ok"
  }
 }

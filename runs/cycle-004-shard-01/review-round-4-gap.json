@@ -1,0 +1,3240 @@
+{
+ "run_id": "cycle-004-shard-01",
+ "cap": 36,
+ "titles": {
+  "A": "Favorable and under thirty days",
+  "B": "Householder letting by the night",
+  "C": "Reader / checker disagreement",
+  "D": "Polarity mixed",
+  "E": "Judged fields erased by the quote gate",
+  "F": "Fuzzy quote match"
+ },
+ "sections": {
+  "E": [
+   {
+    "case_id": 11166168,
+    "section": "E",
+    "reason": "gate_erased",
+    "other_reasons": [],
+    "decide_field": "under_thirty_days",
+    "cite": "2 Ohio Law Abs. 489",
+    "name": null,
+    "court": "Ohio Court of Appeals",
+    "jur": "Ohio",
+    "year": 1924,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "unclear",
+     "characterization": "lodging",
+     "under_thirty_days": null,
+     "owner_freedom_characterization": "commercial_use",
+     "restriction_nature": null
+    },
+    "holding_summary": "The seller of a rooming-house lease, furnishings and good will who drove the roomers away by spreading rumors about the buyer is liable for destroying the good will of the business, even though the petition was framed in slander.",
+    "quotes": [
+     {
+      "supports": [
+       "characterization",
+       "holding_summary"
+      ],
+      "text": "Fry purchased from Howie the lease of a rooming house, together with the furnishings and good will.",
+      "status": "verified",
+      "raw_span": [
+       604,
+       703
+      ],
+      "reporter_page": "489"
+     },
+     {
+      "supports": [
+       "polarity",
+       "owner_freedom_characterization",
+       "holding_summary"
+      ],
+      "text": "it does state facts which show that Howie\u2019s conduct destroyed the good will of the business, which was a thing of value, and that Fry was damaged thereby",
+      "status": "verified",
+      "raw_span": [
+       1433,
+       1586
+      ],
+      "reporter_page": "489"
+     }
+    ],
+    "nulled_fields": [
+     "under_thirty_days"
+    ],
+    "extraction_status": "partial",
+    "disagreements": [],
+    "fuzzy": []
+   },
+   {
+    "case_id": 11171381,
+    "section": "E",
+    "reason": "gate_erased",
+    "other_reasons": [],
+    "decide_field": "under_thirty_days",
+    "cite": "2 Ohio Law Abs. 584",
+    "name": null,
+    "court": "Ohio Court of Appeals",
+    "jur": "Ohio",
+    "year": 1924,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "unclear",
+     "characterization": "lodging",
+     "under_thirty_days": null,
+     "owner_freedom_characterization": "commercial_use",
+     "restriction_nature": "other"
+    },
+    "holding_summary": "A company that furnished the equipment and paid the expenses of a boarding house and deducted board from workers' wages was properly found to be the boarding house keeper, liable to an injured boarder, notwithstanding a landlord-tenant relation as to one suite.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "characterization",
+       "holding_summary",
+       "owner_freedom_characterization",
+       "restriction_nature"
+      ],
+      "text": "In view of the fact that all of the expenses ofj maintaining^ and operating this hoarding house were paid by the Chemical Co. and the board was taken from the men\u2019s wages, it cannot be said that the finding of the jury that the defendant was a boarding ihjouse keeper Jwas manifestly against the' weight of the evidence.",
+      "status": "verified",
+      "raw_span": [
+       1663,
+       1983
+      ],
+      "reporter_page": "584"
+     }
+    ],
+    "nulled_fields": [
+     "under_thirty_days"
+    ],
+    "extraction_status": "partial",
+    "disagreements": [],
+    "fuzzy": []
+   },
+   {
+    "case_id": 11860282,
+    "section": "E",
+    "reason": "gate_erased",
+    "other_reasons": [],
+    "decide_field": "under_thirty_days",
+    "cite": "705 So. 2d 782",
+    "name": null,
+    "court": "Louisiana Court of Appeal",
+    "jur": "La.",
+    "year": 1997,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": null,
+     "owner_freedom_characterization": "incident_of_ownership",
+     "restriction_nature": null
+    },
+    "holding_summary": "Apartment manager's refusal to renew a lease because a household member threatened other tenants was not handicap discrimination under state or federal fair housing law; involuntary dismissal affirmed.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "owner_freedom_characterization",
+       "characterization"
+      ],
+      "text": "the record amply supports the trial court\u2019s determination that plaintiff failed to establish by a preponderance of the evidence even a prima facie showing that defendants violated any state or federal law in refusing to renew the lease",
+      "status": "verified",
+      "raw_span": [
+       13662,
+       13897
+      ],
+      "reporter_page": "787"
+     }
+    ],
+    "nulled_fields": [
+     "under_thirty_days"
+    ],
+    "extraction_status": "partial",
+    "disagreements": [],
+    "fuzzy": []
+   },
+   {
+    "case_id": 12122828,
+    "section": "E",
+    "reason": "gate_erased",
+    "other_reasons": [],
+    "decide_field": "under_thirty_days",
+    "cite": "64 Cal. 2d 93",
+    "name": null,
+    "court": "Supreme Court of California",
+    "jur": "Cal.",
+    "year": 1966,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "nights",
+     "characterization": "innkeeping",
+     "under_thirty_days": null,
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "other"
+    },
+    "holding_summary": "A city may declare an existing hotel that violates its retroactively applied building code a public nuisance and order compliance or vacation of upper floors. Prior lawful construction gives no immunity, and the required expenditures were not unconstitutionally onerous.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "owner_freedom_characterization",
+       "holding_summary",
+       "restriction_nature"
+      ],
+      "text": "The fact that a building was constructed in accordance with all existing statutes does not immunize it from subsequent abatement as a public nuisance.",
+      "status": "verified",
+      "raw_span": [
+       13815,
+       13965
+      ],
+      "reporter_page": "101"
+     },
+     {
+      "supports": [
+       "holding_summary",
+       "polarity"
+      ],
+      "text": "the trial court did not err in ordering that the nuisance be abated",
+      "status": "verified",
+      "raw_span": [
+       19657,
+       19724
+      ],
+      "reporter_page": "104"
+     },
+     {
+      "supports": [
+       "characterization",
+       "relevant"
+      ],
+      "text": "the building code provisions involved here apply only to hotels and apartment houses containing more than two stories",
+      "status": "verified",
+      "raw_span": [
+       17814,
+       17931
+      ],
+      "reporter_page": "103"
+     }
+    ],
+    "nulled_fields": [
+     "under_thirty_days"
+    ],
+    "extraction_status": "partial",
+    "disagreements": [],
+    "fuzzy": []
+   },
+   {
+    "case_id": 12180699,
+    "section": "E",
+    "reason": "gate_erased",
+    "other_reasons": [],
+    "decide_field": "under_thirty_days",
+    "cite": "145 A.D.3d 1264",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 2016,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "months",
+     "characterization": "lodging",
+     "under_thirty_days": null,
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "zoning"
+    },
+    "holding_summary": "Zoning board rationally found that operating the property as a boarding house was not a lawful preexisting nonconforming use, since the property had been a nursing home when the zoning law was enacted; the denial of the permit was sustained.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "restriction_nature",
+       "owner_freedom_characterization"
+      ],
+      "text": "the property\u2019s proposed use as a boarding house was not a lawful preexisting nonconforming use because the property had operated as a nursing home when the City\u2019s zoning law was enacted in 1963",
+      "status": "verified",
+      "raw_span": [
+       1725,
+       1918
+      ],
+      "reporter_page": "1265"
+     },
+     {
+      "supports": [
+       "characterization"
+      ],
+      "text": "it is undisputed that the property currently operates as a boarding house, which provides its residents with, among other things, fully furnished rooms, daily meals, housekeeping services and sanitation and general maintenance of the premises",
+      "status": "verified",
+      "raw_span": [
+       5153,
+       5395
+      ],
+      "reporter_page": "1266"
+     }
+    ],
+    "nulled_fields": [
+     "under_thirty_days"
+    ],
+    "extraction_status": "partial",
+    "disagreements": [],
+    "fuzzy": []
+   },
+   {
+    "case_id": 12254846,
+    "section": "E",
+    "reason": "gate_erased",
+    "other_reasons": [],
+    "decide_field": "owner_freedom_characterization",
+    "cite": "299 Mass. 444",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 1938,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "unclear",
+     "characterization": "lodging",
+     "under_thirty_days": null,
+     "owner_freedom_characterization": null,
+     "restriction_nature": null
+    },
+    "holding_summary": "A paying guest at the defendant's inn or lodging house was only a licensee as to the service kitchen, so the lodging house keeper was not liable for her negligence there, and a gratuitous promise to repair imposed no liability.",
+    "quotes": [
+     {
+      "supports": [
+       "characterization",
+       "holding_summary"
+      ],
+      "text": "a defective condition of the linoleum covering on the floor of a service kitchen in the defendant\u2019s premises, which were used by her as an inn or lodging house",
+      "status": "verified",
+      "raw_span": [
+       1443,
+       1602
+      ],
+      "reporter_page": "444"
+     },
+     {
+      "supports": [
+       "polarity",
+       "characterization",
+       "holding_summary"
+      ],
+      "text": "The plaintiff having been found to be a licensee as to the place of the injury, the defendant was not liable for the result of her negligence.",
+      "status": "verified",
+      "raw_span": [
+       3156,
+       3298
+      ],
+      "reporter_page": "445"
+     }
+    ],
+    "nulled_fields": [
+     "owner_freedom_characterization",
+     "under_thirty_days"
+    ],
+    "extraction_status": "partial",
+    "disagreements": [],
+    "fuzzy": []
+   },
+   {
+    "case_id": 12657492,
+    "section": "E",
+    "reason": "gate_erased",
+    "other_reasons": [],
+    "decide_field": "characterization",
+    "cite": "555 S.W.3d 738",
+    "name": null,
+    "court": "Court of Appeals of Texas, Houston (14th Dist.)",
+    "jur": "Tex.",
+    "year": 2018,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "unclear",
+     "characterization": null,
+     "under_thirty_days": null,
+     "owner_freedom_characterization": "incident_of_ownership",
+     "restriction_nature": "zoning"
+    },
+    "holding_summary": "The court affirmed denial of the city's plea to the jurisdiction, allowing the landowner's vested-rights declaratory action and regulatory takings claim to proceed against a zoning ordinance that, among other things, prohibited rentals of less than thirty days and barred the planned marina development.",
+    "quotes": [
+     {
+      "supports": [
+       "restriction_nature",
+       "relevant"
+      ],
+      "text": "(3) prohibits rentals of less than thirty days; and",
+      "status": "verified",
+      "raw_span": [
+       2944,
+       2995
+      ],
+      "reporter_page": "741"
+     },
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "owner_freedom_characterization"
+      ],
+      "text": "Premier has adequately pleaded a viable takings claim",
+      "status": "verified",
+      "raw_span": [
+       43283,
+       43336
+      ],
+      "reporter_page": "753"
+     }
+    ],
+    "nulled_fields": [
+     "characterization"
+    ],
+    "extraction_status": "partial",
+    "disagreements": [],
+    "fuzzy": []
+   }
+  ],
+  "F": [
+   {
+    "case_id": 494284,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "7 N.J. Eq. 131",
+    "name": null,
+    "court": "New Jersey Court of Chancery",
+    "jur": "N.J.",
+    "year": 1848,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "householder",
+     "duration_of_occupancy": "months",
+     "characterization": "other",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "not_addressed",
+     "restriction_nature": "other"
+    },
+    "holding_summary": "A niece who took her aged aunt into her house claimed a bond as compensation under an alleged parol agreement to board and care for her for life; the court held the proof of the agreement insufficient and decreed for the executors.",
+    "quotes": [
+     {
+      "supports": [
+       "relevant",
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "she proposed to her that she should permit the said Betsey to live with her as one of her family, during her life, and that as a compensation therefor she said Kitty should have whatever the said Betsey might realize out of the said claim",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       5093,
+       5331
+      ],
+      "reporter_page": "133",
+      "fuzzy_score": 99.57983193277312
+     },
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "restriction_nature",
+       "owner_freedom_characterization"
+      ],
+      "text": "the proof of such agreement should be clear, and that I think the proof in this case insufficient",
+      "status": "verified",
+      "raw_span": [
+       19104,
+       19201
+      ],
+      "reporter_page": "139"
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "relevant",
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "she proposed to her that she should permit the said Betsey to live with her as one of her family, during her life, and that as a compensation therefor she said Kitty should have whatever the said Betsey might realize out of the said claim",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       5093,
+       5331
+      ],
+      "reporter_page": "133",
+      "fuzzy_score": 99.57983193277312,
+      "classification": "needs-human",
+      "quote_coverage": 0.86,
+      "miss_runs": [
+       4,
+       2,
+       27
+      ],
+      "case_id": 494284,
+      "source": "he had a claim against john s. hoagland, the son of her late husband, of about \u00a71700, which she believed and expected would some day he paid or secured to her. and that the said betsey proposed to her that she should permit the said betsey to live with her as one of her family, during her life, and that as a compensation therefor she said kitty should have whatever the said betsey might realize out of the said claim. that she the said kitty, in consequence of her connexion with the family had before heard of the said claim, and was satisfied it was just and might he enfo",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 519287,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "56 N.Y. 398",
+    "name": null,
+    "court": "New York Court of Appeals",
+    "jur": "N.Y.",
+    "year": 1874,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "incident_of_ownership",
+     "restriction_nature": null
+    },
+    "holding_summary": "A lessor of a dwelling, absent fraud or agreement, owes no duty to the lessee or sub-tenants that the premises are tenantable or safe; the complaint for injury from an exploding kitchen boiler was properly dismissed.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "owner_freedom_characterization"
+      ],
+      "text": "whether a lessor of buildings, in the absence of fraud, or any agreement to that effect, is liable to the tenant or others, lawfully npon the premises, by his authority, for their condition, or that they are tenantable and may be safely and conveniently used for the purposes for which they were intended. This question must be regarded as settled by authority.",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       6637,
+       6998
+      ],
+      "reporter_page": "401",
+      "fuzzy_score": 96.95290858725761
+     },
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "a part of which, including the kitchen, had been sub-let by the lessee to the plaintiff\u2019s husband, by whom it was, at the time, occupied as a residence for himself and family",
+      "status": "verified",
+      "raw_span": [
+       5222,
+       5396
+      ],
+      "reporter_page": "400"
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "owner_freedom_characterization"
+      ],
+      "text": "whether a lessor of buildings, in the absence of fraud, or any agreement to that effect, is liable to the tenant or others, lawfully npon the premises, by his authority, for their condition, or that they are tenantable and may be safely and conveniently used for the purposes for which they were intended. This question must be regarded as settled by authority.",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       6637,
+       6998
+      ],
+      "reporter_page": "401",
+      "fuzzy_score": 96.95290858725761,
+      "classification": "needs-human",
+      "quote_coverage": 0.392,
+      "miss_runs": [
+       66,
+       74,
+       74
+      ],
+      "case_id": 519287,
+      "source": "eviously owned by him imposes no greater obligation than would have existed had he acquired title by purchase, or in any other way, after the erection of the building. the question then is, whether a lessor of buildings, in the absence of fraud, or any agreement to that effect, is liable to the tenant or others, lawfully npon the premises, by his authority, for their condition, or that they are tenantable and may be safely and conveniently used for the purposes for which they were apparently intended. this question must be regarded as settled by authority. in the following cases it-was held that no such liability existed : cleves v. willoughby (7 hill, 83); o'brien v. capwell (59 barb., 497); hart v. windsor (12 m. &. w.,",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 525298,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "83 Cal. App. 4th 28",
+    "name": null,
+    "court": "Court of Appeal of the State of California",
+    "jur": "Cal.",
+    "year": 2000,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "tenant_protection"
+    },
+    "holding_summary": "A roommate whose occupancy the owners expressly authorized in the lease is a 'tenant' under the Berkeley eviction-control ordinance and cannot be evicted without good cause merely because the named lessee voluntarily vacated.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "characterization",
+       "holding_summary",
+       "owner_freedom_characterization",
+       "restriction_nature"
+      ],
+      "text": "characterization of the occupancy as a subtenancy does not prevent application of the Ordinance\u2019s requirement of cause for eviction",
+      "status": "verified",
+      "raw_span": [
+       29830,
+       29961
+      ],
+      "reporter_page": "42"
+     },
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "The premises are to be used only as a private residence by, and occupancy is limited to, the following named persons: Helen Yoon and Two roommates.",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       1990,
+       2137
+      ],
+      "reporter_page": "31",
+      "fuzzy_score": 97.95918367346938
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "The premises are to be used only as a private residence by, and occupancy is limited to, the following named persons: Helen Yoon and Two roommates.",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       1990,
+       2137
+      ],
+      "reporter_page": "31",
+      "fuzzy_score": 97.95918367346938,
+      "classification": "needs-human",
+      "quote_coverage": 0.902,
+      "miss_runs": [
+       14
+      ],
+      "case_id": 525298,
+      "source": "lease the premises to helen yoon, who was identified in the lease as \"tenants\" or \"tenant(s).\" the lease, which was largely typewritten or computer-generated, provided that the premises were \"to be used only as a private residence by, and occupancy is limited to, the following named persons: helen yoon and two roommates.\" it went on to provide that \"[a]ny unregistered occupant or occupancy by any person disallowed by owner shall void this agreement and posses",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 900705,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "385 Mass. 205",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 1982,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "nights",
+     "characterization": "innkeeping",
+     "under_thirty_days": "yes",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "zoning"
+    },
+    "holding_summary": "A resort hotel's transformation into an entertainment complex exceeded its protected nonconforming use, and converting the annex from employee dormitory to paying guest accommodations was an impermissible change of use requiring a special permit.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "restriction_nature",
+       "owner_freedom_characterization"
+      ],
+      "text": "the evidence warranted the judge\u2019s conclusion that a change in use occurred",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       34615,
+       34690
+      ],
+      "reporter_page": "222",
+      "fuzzy_score": 97.33333333333334
+     },
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "the annex was \u201cconverted\u201d into accommodations for paying guests of the hotel",
+      "status": "verified",
+      "raw_span": [
+       33102,
+       33178
+      ],
+      "reporter_page": "221"
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "restriction_nature",
+       "owner_freedom_characterization"
+      ],
+      "text": "the evidence warranted the judge\u2019s conclusion that a change in use occurred",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       34615,
+       34690
+      ],
+      "reporter_page": "222",
+      "fuzzy_score": 97.33333333333334,
+      "classification": "needs-human",
+      "quote_coverage": 0.787,
+      "miss_runs": [
+       9,
+       7
+      ],
+      "case_id": 900705,
+      "source": " the annex meets the tests set out in bridgewater v. chuckran, 351 mass. 20 (1966), and discussed above. although the question is a close one, the evidence warrants the judge's conclusion that a change in use occurred. several previous decisions of this court support this conclusion. in mcaleer v. board of appeals of barnstable, 361 mass. 317 (1972), a nonconforming inn ha",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 906669,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "412 Pa. Super. 544",
+    "name": null,
+    "court": "Superior Court of Pennsylvania",
+    "jur": "Pa.",
+    "year": 1992,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "tenant_protection"
+    },
+    "holding_summary": "Landlord who failed to return a security deposit and gave an untimely damages list forfeited his right to withhold it and was liable for double the deposit under the Landlord and Tenant Act.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "restriction_nature",
+       "owner_freedom_characterization",
+       "holding_summary"
+      ],
+      "text": "Any landlord who fails to provide a written list within thirty days as required in subsection (a), above, shall forfeit all rights to withhold any portion of sums held in escrow",
+      "status": "verified",
+      "raw_span": [
+       3318,
+       3495
+      ],
+      "reporter_page": "547"
+     },
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "appellees agreed to rent an apartment from appellant pursuant to an oral month-to-month lease",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       578,
+       671
+      ],
+      "reporter_page": "545",
+      "fuzzy_score": 92.47311827956989
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "appellees agreed to rent an apartment from appellant pursuant to an oral month-to-month lease",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       578,
+       671
+      ],
+      "reporter_page": "545",
+      "fuzzy_score": 92.47311827956989,
+      "classification": "needs-human",
+      "quote_coverage": 0.0,
+      "miss_runs": [
+       93
+      ],
+      "case_id": 906669,
+      "source": "may 2, 1991 judgment awarding appellees/tenants $780, an amount equal to double their security deposit. in june, 1988, appellees, frank and laura adamsky, agreed to rent an apartment from appellant pursuant to an oral month-to-month lease. in october, 1988, after failing in several attempts to get in touch with appellant to request repairs, appellees installed a dead bolt lock on the front doo",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 1211026,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "344 Pa. 317",
+    "name": null,
+    "court": "Supreme Court of Pennsylvania",
+    "jur": "Pa.",
+    "year": 1942,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "incident_of_ownership",
+     "restriction_nature": null
+    },
+    "holding_summary": "Where the owner leases the entire premises, the tenant and not the owner is liable to a pedestrian injured by a defective sidewalk; a reserved right to enter and repair does not shift liability back to the lessor.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "characterization",
+       "owner_freedom_characterization"
+      ],
+      "text": "it is well established in this state that if the owner is out of possession by reason of a lease of the entire property and during such tenancy the sidewalks become in disrepair, the tenant and not the owner is liable for injuries to a stranger using the sidewalk",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       2043,
+       2306
+      ],
+      "reporter_page": "319",
+      "fuzzy_score": 99.23954372623575
+     },
+     {
+      "supports": [
+       "under_thirty_days"
+      ],
+      "text": "the entire premises at No. 359 North Lincoln Avenue were leased to a tenant, Benjamin Weisenfluh, by a written lease dated October 11, 1933, that the premises had been occupied by the tenant under that lease continuously",
+      "status": "verified",
+      "raw_span": [
+       1437,
+       1657
+      ],
+      "reporter_page": "319"
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "characterization",
+       "owner_freedom_characterization"
+      ],
+      "text": "it is well established in this state that if the owner is out of possession by reason of a lease of the entire property and during such tenancy the sidewalks become in disrepair, the tenant and not the owner is liable for injuries to a stranger using the sidewalk",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       2043,
+       2306
+      ],
+      "reporter_page": "319",
+      "fuzzy_score": 99.23954372623575,
+      "classification": "needs-human",
+      "quote_coverage": 0.973,
+      "miss_runs": [
+       7
+      ],
+      "case_id": 1211026,
+      "source": " there was no evidence that would support a finding that the oavner had actual notice of the break in the sidewalk avhieh caused the in-j 113-t- it is avell established in this state that if the owner is out of possession by reason of a lease of the entire property and during such tenancy the sidewalks become in disrepair, the tenant and not the owner is liable for injuries to a stranger using the sidewalk: bruder v. phila. et al., 302 pa. 378, 153 a. 725; briggs v. phila., 316 pa. 48, 173 a. 316. appellant seeks to avoid the consequences of that rule by reason of a clause in the lease avhieh provides",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 1230966,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "66 Misc. 2d 342",
+    "name": null,
+    "court": "New York Supreme Court",
+    "jur": "N.Y.",
+    "year": 1971,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "tenant_protection"
+    },
+    "holding_summary": "The Senior Citizen Rent Increase Exemption Law is a valid exercise of the police power and constitutional; landlords must forgo authorized rent increases for qualifying elderly tenants.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "owner_freedom_characterization",
+       "restriction_nature"
+      ],
+      "text": "it becomes evident that the statute is a valid exercise of legislative police power and is thus constitutional",
+      "status": "verified",
+      "raw_span": [
+       3272,
+       3382
+      ],
+      "reporter_page": "344"
+     },
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "The statute exempts a certain limited class of low-income elderly persons from the rent increases permitted for rent-controlled apartments",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       846,
+       984
+      ],
+      "reporter_page": "343",
+      "fuzzy_score": 94.20289855072464
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "The statute exempts a certain limited class of low-income elderly persons from the rent increases permitted for rent-controlled apartments",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       846,
+       984
+      ],
+      "reporter_page": "343",
+      "fuzzy_score": 94.20289855072464,
+      "classification": "needs-human",
+      "quote_coverage": 0.92,
+      "miss_runs": [
+       11
+      ],
+      "case_id": 1230966,
+      "source": "r an order granting summary judgment dismissing the complaint as a matter of law, and further, as it fails to state a cause of action. the statute in question exempts a certain limited class of low-income elderly persons from the rent increases permitted for rent-controlled apartments by local law no. 31 (administrative code, \u00a7 y51-5.0). to be eligible for the exemption, the tenant must be at least 62 years of age, not a recipient of public assista",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 1237146,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "250 Conn. 763",
+    "name": null,
+    "court": "Connecticut Supreme Court",
+    "jur": "Conn.",
+    "year": 1999,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "other"
+    },
+    "holding_summary": "The court held \u00a7 46a-64c's ban on source-of-income discrimination requires landlords to accept prospective section 8 tenants and to use the mandatory section 8 lease form, rejecting the landlord's insistence on its own lease terms and narrowly construing the 'insufficient income' exception.",
+    "quotes": [
+     {
+      "supports": [
+       "relevant",
+       "holding_summary",
+       "polarity",
+       "owner_freedom_characterization",
+       "restriction_nature",
+       "characterization"
+      ],
+      "text": "the legislature, in requiring landlords to make rental housing available to potential tenants relying on section 8 housing assistance, intended thereby to require landlords to use section 8 leases",
+      "status": "verified",
+      "raw_span": [
+       30355,
+       30551
+      ],
+      "reporter_page": "783"
+     },
+     {
+      "supports": [
+       "polarity",
+       "holding_summary"
+      ],
+      "text": "a landlord may not refuse to rent to a prospective low income tenant because that tenant will pay the stipulated rent from a lawful source of income",
+      "status": "verified",
+      "raw_span": [
+       985,
+       1133
+      ],
+      "reporter_page": "764"
+     },
+     {
+      "supports": [
+       "under_thirty_days",
+       "owner_freedom_characterization"
+      ],
+      "text": "The defendant required prospective tenants to have a gross weekly income that was \u201cclose to or [exceeded] one month\u2019s rent.\u201d",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       47741,
+       47865
+      ],
+      "reporter_page": "765",
+      "fuzzy_score": 99.19354838709677
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "under_thirty_days",
+       "owner_freedom_characterization"
+      ],
+      "text": "The defendant required prospective tenants to have a gross weekly income that was \u201cclose to or [exceeded] one month\u2019s rent.\u201d",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       47741,
+       47865
+      ],
+      "reporter_page": "765",
+      "fuzzy_score": 99.19354838709677,
+      "classification": "needs-human",
+      "quote_coverage": 0.647,
+      "miss_runs": [
+       16,
+       11,
+       15
+      ],
+      "case_id": 1237146,
+      "source": "s as an alternative ground for affirmance. 6 all inquiries were answered by the defendant's managing partner, robert sullivan, or his secretary, jane swetclde. 7 the defendant required prospective tenants to have a gross weekly-income that was \"close to or [exceeded] one month's rent.\" if a person's income was close to the minimum required by the defendant, the defendant would permit that person to proceed with a lease guarantor wh",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 1341259,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "24 App. D.C. 532",
+    "name": null,
+    "court": "Court of Appeals of the District of Columbia",
+    "jur": "D.C.",
+    "year": 1905,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "incident_of_ownership",
+     "restriction_nature": null
+    },
+    "holding_summary": null,
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "owner_freedom_characterization",
+       "characterization"
+      ],
+      "text": "the law is well settled that there is no implied warranty in the letting of a house that it is safe and fit for occupation",
+      "status": "verified",
+      "raw_span": [
+       33531,
+       33653
+      ],
+      "reporter_page": "547"
+     },
+     {
+      "supports": [
+       "holding_summary",
+       "polarity"
+      ],
+      "text": "In the absence of an express warranty the rule of caveat emptor applies, and it is for the lessee to make the examination necessary to determine whether the premises are in safe condition and adapted to the purposes of his occupation.",
+      "status": "verified",
+      "raw_span": [
+       33742,
+       33976
+      ],
+      "reporter_page": "547"
+     },
+     {
+      "supports": [
+       "under_thirty_days"
+      ],
+      "text": "lease of the house from the defendants, Ferdinand T. and Jane Schneider, acting through their agents, Moore & Hill, for a term beginning July 1, 1900",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       3721,
+       3870
+      ],
+      "reporter_page": "533",
+      "fuzzy_score": 97.98657718120806
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "under_thirty_days"
+      ],
+      "text": "lease of the house from the defendants, Ferdinand T. and Jane Schneider, acting through their agents, Moore & Hill, for a term beginning July 1, 1900",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       3721,
+       3870
+      ],
+      "reporter_page": "533",
+      "fuzzy_score": 97.98657718120806,
+      "classification": "needs-human",
+      "quote_coverage": 0.894,
+      "miss_runs": [
+       14,
+       1
+      ],
+      "case_id": 1341259,
+      "source": "all of a water box or flush tank in the closet of a bouse occupied by tbe plaintiffs as lessees of tbe defendants. tbe declaration alleged tbe lease of tbe bouse from tbe defendants, ferdinand t. and jane schneider, acting through their agents, moore & hill, for a term beginning july 1, 1900; that defendants agreed with plaintiffs to have the house put in thorough repair and in safe and habitable condition before the latter should remove to it, and it thereby be",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 1456456,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "161 Pa. Commw. 229",
+    "name": null,
+    "court": "Commonwealth Court of Pennsylvania",
+    "jur": "Pa.",
+    "year": 1994,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "zoning"
+    },
+    "holding_summary": "An ordinance permitting 'student homes' only by special exception, limiting them to three students, imposing minimum floor area, spacing and parking requirements, was upheld as rationally related to preserving neighborhood character; landowners renting to students failed on equal protection, vagueness and exclusionary-zoning claims.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "restriction_nature",
+       "owner_freedom_characterization",
+       "characterization"
+      ],
+      "text": "Appellants own residential rental units located in Lower Merion Township (Township) and have been cited by the Township for renting to students in violation of the Ordinance.",
+      "status": "verified",
+      "raw_span": [
+       3584,
+       3758
+      ],
+      "reporter_page": "235"
+     },
+     {
+      "supports": [
+       "holding_summary",
+       "polarity"
+      ],
+      "text": "the provisions in the Ordinance limiting the number of students, providing for minimal square footage in a home, and requiring sufficient parking spaces and distance between homes are rationally related to the Township\u2019s legitimate purpose of preventing oversaturation of areas within the Township with student homes",
+      "status": "verified",
+      "raw_span": [
+       17531,
+       17847
+      ],
+      "reporter_page": "242"
+     },
+     {
+      "supports": [
+       "holding_summary",
+       "under_thirty_days"
+      ],
+      "text": "Further, students are also permitted to live in single-family houses, townhouses, boarding houses, apartments, fraternities or sororities.",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       23862,
+       24000
+      ],
+      "reporter_page": "245",
+      "fuzzy_score": 97.10144927536231
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "holding_summary",
+       "under_thirty_days"
+      ],
+      "text": "Further, students are also permitted to live in single-family houses, townhouses, boarding houses, apartments, fraternities or sororities.",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       23862,
+       24000
+      ],
+      "reporter_page": "245",
+      "fuzzy_score": 97.10144927536231,
+      "classification": "needs-human",
+      "quote_coverage": 0.803,
+      "miss_runs": [
+       26
+      ],
+      "case_id": 1456456,
+      "source": "ately 120 existing student homes and as the zoning officer testified, there are additional areas in the township where student homes could be located. furthermore, students are also permitted to live in single-family houses, townhouses, boarding houses, apartments, fraternities or sororities. based upon the foregoing discussion, the order of the trial court is affirmed. this decision was reached before the conclusion of judge palladino's service. o",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 1948065,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "62 N.J. 399",
+    "name": null,
+    "court": "Supreme Court of New Jersey",
+    "jur": "N.J.",
+    "year": 1973,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "other"
+    },
+    "holding_summary": "Refusing to show or rent apartments to a young unmarried woman who intended to share with a female friend violated the Law Against Discrimination, and the Division on Civil Rights could award both economic loss and incidental damages for humiliation.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "owner_freedom_characterization",
+       "restriction_nature"
+      ],
+      "text": "complainant was denied the opportunity to view and to rent these apartments by respondent Fanning because she is young, female and unmarried and wished to share the apartment with a friend simliarly situated",
+      "status": "verified",
+      "raw_span": [
+       4593,
+       4800
+      ],
+      "reporter_page": "403"
+     },
+     {
+      "supports": [
+       "characterization"
+      ],
+      "text": "two persons of the same sex who constituted themselves into a housekeeping unit",
+      "status": "verified",
+      "raw_span": [
+       8845,
+       8924
+      ],
+      "reporter_page": "405"
+     },
+     {
+      "supports": [
+       "under_thirty_days",
+       "characterization"
+      ],
+      "text": "the complainant was entitled to damages for 'loss of her bargain\u201d which amounted to $180 for the requested one-year lease of the Montclair apartment",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       10219,
+       10367
+      ],
+      "reporter_page": "406",
+      "fuzzy_score": 99.32432432432432
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "under_thirty_days",
+       "characterization"
+      ],
+      "text": "the complainant was entitled to damages for 'loss of her bargain\u201d which amounted to $180 for the requested one-year lease of the Montclair apartment",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       10219,
+       10367
+      ],
+      "reporter_page": "406",
+      "fuzzy_score": 99.32432432432432,
+      "classification": "needs-human",
+      "quote_coverage": 0.738,
+      "miss_runs": [
+       13,
+       25
+      ],
+      "case_id": 1948065,
+      "source": "arable in size, facilities and accommodations. she determined that the fair market value of the montclair apartment was $150 per month and that the complainant was entitled to damages for 'doss of her bargain\" which amounted to $180 for the requested one-year lease of the montclair apartment. though the complainant suggested that her damages in this connection should have been fixed in a greater sum, that point has not been pursued and is not now before us. the",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 2042390,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "17 Tex. 582",
+    "name": null,
+    "court": "Supreme Court of Texas",
+    "jur": "Tex.",
+    "year": 1856,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "householder",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "incident_of_ownership",
+     "restriction_nature": null
+    },
+    "holding_summary": "A householder who built a new house on his town lot and rented the old house on the same lot to a tenant for a year did not thereby lose the homestead exemption as to the rented portion; the letting was treated as a temporary arrangement consistent with continued homestead ownership.",
+    "quotes": [
+     {
+      "supports": [
+       "holding_summary",
+       "characterization"
+      ],
+      "text": "he rented the old house to Gray for two hundred dollars, and run a fence across the lot, separating the old house from the new",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       5043,
+       5169
+      ],
+      "reporter_page": "584",
+      "fuzzy_score": 99.20634920634922
+     },
+     {
+      "supports": [
+       "holding_summary",
+       "under_thirty_days"
+      ],
+      "text": "Did the separation of a part of the lot on which the old house stood, and renting it out, for one or two years, effect a separation of it from the homestead, and remove it from protection from a forced sale ?",
+      "status": "verified",
+      "raw_span": [
+       7985,
+       8193
+      ],
+      "reporter_page": "586"
+     },
+     {
+      "supports": [
+       "polarity",
+       "owner_freedom_characterization",
+       "holding_summary"
+      ],
+      "text": "it is not surprising or unreasonable that they should rent the old house for the time, without intending to relinquish it as a part and parcel of the homestead",
+      "status": "verified",
+      "raw_span": [
+       9450,
+       9609
+      ],
+      "reporter_page": "587"
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "holding_summary",
+       "characterization"
+      ],
+      "text": "he rented the old house to Gray for two hundred dollars, and run a fence across the lot, separating the old house from the new",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       5043,
+       5169
+      ],
+      "reporter_page": "584",
+      "fuzzy_score": 99.20634920634922,
+      "classification": "needs-human",
+      "quote_coverage": 0.782,
+      "miss_runs": [
+       27
+      ],
+      "case_id": 2042390,
+      "source": "til he built another house upon the same lot, and then moved into the new house. the whole lot was inclosed ; that after moving into the new house, ho rented the old house to gray for two hundred dollars, and run a fence across the lot, separating the old house from the new ; that the whole lot is forty-six feet front, by one hundred and twenty-eight feet deep ; that the well was nearer to the old house than to the new, and was used ",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 2204711,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "117 Cal. App. 2d 50",
+    "name": null,
+    "court": "District Court of Appeal of the State of California",
+    "jur": "Cal.",
+    "year": 1953,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "tenant_protection"
+    },
+    "holding_summary": "An owner who broke into her own dwelling to oust an occupant was liable for forcible eviction and conversion; whether the occupant was tenant or mere licensee was immaterial because an owner may not reenter by force but must use legal process.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "owner_freedom_characterization",
+       "restriction_nature"
+      ],
+      "text": "it is well settled in this state that an owner cannot forcibly reenter without having recourse to- legal processes",
+      "status": "verified",
+      "raw_span": [
+       6644,
+       6758
+      ],
+      "reporter_page": "54"
+     },
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "This evidence pro and con, left the question as one of fact for the jury to decide, and the verdict implies the finding that the payments were rental and hence that the Eichhorns were tenants, not licensees.",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       6401,
+       6608
+      ],
+      "reporter_page": "54",
+      "fuzzy_score": 99.51690821256038
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "This evidence pro and con, left the question as one of fact for the jury to decide, and the verdict implies the finding that the payments were rental and hence that the Eichhorns were tenants, not licensees.",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       6401,
+       6608
+      ],
+      "reporter_page": "54",
+      "fuzzy_score": 99.51690821256038,
+      "classification": "needs-human",
+      "quote_coverage": 0.079,
+      "miss_runs": [
+       125,
+       62
+      ],
+      "case_id": 2204711,
+      "source": "se payments were not \"rent,\" and gave the explanation that when, she used the term \"rent\" she did so only as a figure of speech. .... \u00bb. . , this .evidence pro and con, left the question as one of fact for the jury to decide, and the verdict implies the finding that the payments were rental and hence that the eichhorns were tenants, not licensees. but wholly aside from that, it is well settled in this state that an owner cannot forcibly reenter without having recourse tolegal processes. the reason for the rule is that such forcible ",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 2211135,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "29 Cal. 2d 332",
+    "name": null,
+    "court": "Supreme Court of California",
+    "jur": "Cal.",
+    "year": 1946,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "other",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "zoning"
+    },
+    "holding_summary": "Zoning ordinance limiting the westerly portion of plaintiff's lots to single-family dwellings was validly applied; owner who built multiple dwelling units in violation could not profit by his own wrong, and the injunction against enforcement was reversed.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "restriction_nature",
+       "owner_freedom_characterization",
+       "characterization"
+      ],
+      "text": "the establishment, as part of a comprehensive and systematic plan, of districts devoted to strictly private residences or single family dwellings, from which are excluded business or multiple dwelling structures, is a legitimate exercise of the police power",
+      "status": "verified",
+      "raw_span": [
+       7041,
+       7298
+      ],
+      "reporter_page": "337"
+     },
+     {
+      "supports": [
+       "holding_summary"
+      ],
+      "text": "we cannot say that there was any abuse of legislative discretion in denying plaintiff\u2019s requests for rezoning",
+      "status": "verified",
+      "raw_span": [
+       25377,
+       25486
+      ],
+      "reporter_page": "345"
+     },
+     {
+      "supports": [
+       "under_thirty_days"
+      ],
+      "text": "instead he erected two multiple family units, each with an apartment and garages .on the first floor and two apartments on the second floor",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       3408,
+       3547
+      ],
+      "reporter_page": "335",
+      "fuzzy_score": 96.40287769784173
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "under_thirty_days"
+      ],
+      "text": "instead he erected two multiple family units, each with an apartment and garages .on the first floor and two apartments on the second floor",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       3408,
+       3547
+      ],
+      "reporter_page": "335",
+      "fuzzy_score": 96.40287769784173,
+      "classification": "needs-human",
+      "quote_coverage": 0.088,
+      "miss_runs": [
+       24,
+       4,
+       97
+      ],
+      "case_id": 2211135,
+      "source": "y.dwellings and garages on the west 112 feet of these lots. the plans submitted with the applications showed single family dwellings, but instead of following the plans he erected two multiple family units, each with an apartment and garages .on the first floor and two apartments on the second floor. ' this action was admittedly in violation of the building permits and the zoning ordinance, and it clearly appears that the violations were deliberate ",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 2221418,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "257 Cal. App. 2d 375",
+    "name": null,
+    "court": "Court of Appeal of the State of California",
+    "jur": "Cal.",
+    "year": 1967,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "other"
+    },
+    "holding_summary": "A landlord who rented a house with a swimming pool not fenced as required by county ordinance, and who knew of the tenant's altered fencing, had a duty to compel compliance or terminate the tenancy; the jury should have been allowed to find negligence per se.",
+    "quotes": [
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "They rented the premises in question to Mr. and Mrs. Holland about two to two-and one-half years prior to the date of the accident",
+      "status": "verified",
+      "raw_span": [
+       1642,
+       1772
+      ],
+      "reporter_page": "378"
+     },
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "owner_freedom_characterization",
+       "restriction_nature"
+      ],
+      "text": "defendants were under a duty either to require compliance with the ordinance or to terminate the tenancy",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       10834,
+       10938
+      ],
+      "reporter_page": "382",
+      "fuzzy_score": 94.5273631840796
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "owner_freedom_characterization",
+       "restriction_nature"
+      ],
+      "text": "defendants were under a duty either to require compliance with the ordinance or to terminate the tenancy",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       10834,
+       10938
+      ],
+      "reporter_page": "382",
+      "fuzzy_score": 94.5273631840796,
+      "classification": "needs-human",
+      "quote_coverage": 0.183,
+      "miss_runs": [
+       27,
+       58
+      ],
+      "case_id": 2221418,
+      "source": "ty to comply with the ordinance rested initially with the tenant, defendants having not only knowledge of the alteration but having required it were under a duty either to require compliance with the ordinance or to terminate the tenancy. (see finnegan v. royal realty co., supra, 35 cal.2d 409, 422, 427; longway v. mccall, supra, 181 cal.app.2d 723, 729.) it may be reasonably inferred that the tenancy was o",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 2343998,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "232 Cal. App. 3d 486",
+    "name": null,
+    "court": "Court of Appeal of the State of California",
+    "jur": "Cal.",
+    "year": 1991,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "licensing"
+    },
+    "holding_summary": "A $48 per unit annual rent-control registration fee that landlords may not pass through to tenants does not on its face deprive them of a just and reasonable return; the preliminary injunction was properly denied.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "owner_freedom_characterization",
+       "restriction_nature"
+      ],
+      "text": "a $48-per-year registration fee imposed on rent controlled units does not necessarily deprive landlords of their constitutionally guaranteed \u201cjust and reasonable rate of return.\u201d",
+      "status": "verified",
+      "raw_span": [
+       480,
+       658
+      ],
+      "reporter_page": "489"
+     },
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "the landlord shall pay a registration fee to the City in an amount to be determined by resolution of. . . the City Council, for each rental unit under his or her ownership",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       6429,
+       6600
+      ],
+      "reporter_page": "491",
+      "fuzzy_score": 99.70674486803519
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "the landlord shall pay a registration fee to the City in an amount to be determined by resolution of. . . the City Council, for each rental unit under his or her ownership",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       6429,
+       6600
+      ],
+      "reporter_page": "491",
+      "fuzzy_score": 99.70674486803519,
+      "classification": "needs-human",
+      "quote_coverage": 0.842,
+      "miss_runs": [
+       26
+      ],
+      "case_id": 2343998,
+      "source": "t authorized the fee and permitted landlords to pass the fee along to their tenants. section 6407(c) originally read in pertinent part: \"[t]he landlord shall pay a registration fee to the city in an amount to be determined by resolution of. . . the city council, for each rental unit under his or her ownership to reimburse the city for administrative costs associated with administration of this chapter. the full amount of this registration fee may be charged to the tenant of each affected ",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 2695862,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "155 A.D. 363",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 1913,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "nights",
+     "characterization": "innkeeping",
+     "under_thirty_days": "yes",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "licensing"
+    },
+    "holding_summary": "Owners' liquor tax certificate application contained material false statements because the tenant's premises were not used as a statutory hotel, making his solo notice of abandonment effective; judgment awarded to the Excise Commissioner.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "restriction_nature",
+       "owner_freedom_characterization"
+      ],
+      "text": "the premises of the defendants Dittmann were not used as \u201ca hotel\u201d in the meaning of the statute",
+      "status": "verified",
+      "raw_span": [
+       12476,
+       12572
+      ],
+      "reporter_page": "368"
+     },
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "The term \u2018 hotel \u2019 as used in this chapter shall mean a building regularly used and kept open as such for the feeding and lodging of guests",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       11345,
+       11484
+      ],
+      "reporter_page": "367",
+      "fuzzy_score": 98.56115107913669
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "The term \u2018 hotel \u2019 as used in this chapter shall mean a building regularly used and kept open as such for the feeding and lodging of guests",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       11345,
+       11484
+      ],
+      "reporter_page": "367",
+      "fuzzy_score": 98.56115107913669,
+      "classification": "needs-human",
+      "quote_coverage": 0.504,
+      "miss_runs": [
+       51,
+       16
+      ],
+      "case_id": 2695862,
+      "source": " definition of the word \" hotel \" as used in it. such definition is to be found in section 30 (as amd. by laws of 1910, chap. 494), where it is declared as follows: \"the term 'hotel' as used in this chapter shall mean a building regularly used and kept open as such for the feeding and lodging of guests, where all who conduct themselves properly and who are able and ready to pay for their entertainment, are received if there be accommodations for the",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 3382600,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "140 N.Y.S. 321",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 1913,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "nights",
+     "characterization": "innkeeping",
+     "under_thirty_days": "yes",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "licensing"
+    },
+    "holding_summary": "Because the tenant used the premises only for ordinary liquor traffic and not as a statutory hotel, his notice of abandonment was effective without the owners' joinder, so the owners' liquor tax certificate application contained material false statements.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "restriction_nature",
+       "owner_freedom_characterization"
+      ],
+      "text": "the premises of the defendants Dittmann were not used as \u201ca hotel\u201d in the meaning of the statute",
+      "status": "verified",
+      "raw_span": [
+       11131,
+       11227
+      ],
+      "reporter_page": "324"
+     },
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "The term \u2018hotel\u2019 as used in this chapter shall mean a building regularly used and kept open as such for the feeding and lodging of guests",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       10007,
+       10144
+      ],
+      "reporter_page": "324",
+      "fuzzy_score": 99.27007299270073
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "The term \u2018hotel\u2019 as used in this chapter shall mean a building regularly used and kept open as such for the feeding and lodging of guests",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       10007,
+       10144
+      ],
+      "reporter_page": "324",
+      "fuzzy_score": 99.27007299270073,
+      "classification": "needs-human",
+      "quote_coverage": 0.622,
+      "miss_runs": [
+       51
+      ],
+      "case_id": 3382600,
+      "source": " question gives its own definition of the word \"hotel\" as used in it. such definition is to be found in section 30, where it is declared as follows: \"the term 'hotel' as used in this chapter shall mean a building regularly-used and kept open as such for the feeding and lodging of guests, where all who conduct themselves properly and who are able and ready to pay for their entertainment, are received if there be accommodations for them, and who, wi",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 3699552,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "352 U.S. App. D.C. 182",
+    "name": null,
+    "court": "United States Court of Appeals for the District of Columbia Circuit",
+    "jur": "D.C.",
+    "year": 2002,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "nights",
+     "characterization": "innkeeping",
+     "under_thirty_days": "yes",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "other"
+    },
+    "holding_summary": "The D.C. Innkeeper Statute limiting a hotel's common-law strict liability to transient guests derogates from the common law and must be strictly construed; because the Four Seasons failed to post the required notice in public rooms, it could not invoke the statutory liability cap.",
+    "quotes": [
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "If a hotel, motel or similar establishment in the District of Columbia which provides lodging to transient guests",
+      "status": "verified",
+      "raw_span": [
+       3463,
+       3576
+      ],
+      "reporter_page": "184"
+     },
+     {
+      "supports": [
+       "holding_summary",
+       "polarity",
+       "restriction_nature",
+       "owner_freedom_characterization"
+      ],
+      "text": "In limiting a hotel\u2019s liability, section 30-101 deviates from the general common law and must therefore be strictly construed.",
+      "status": "verified",
+      "raw_span": [
+       11328,
+       11454
+      ],
+      "reporter_page": "186"
+     },
+     {
+      "supports": [
+       "polarity",
+       "characterization"
+      ],
+      "text": "under the general common law doctrine of infra hospitium an innkeeper is strictly liable for loss or damage to a guest\u2019s property",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       9535,
+       9664
+      ],
+      "reporter_page": "185",
+      "fuzzy_score": 99.2248062015504
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "polarity",
+       "characterization"
+      ],
+      "text": "under the general common law doctrine of infra hospitium an innkeeper is strictly liable for loss or damage to a guest\u2019s property",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       9535,
+       9664
+      ],
+      "reporter_page": "185",
+      "fuzzy_score": 99.2248062015504,
+      "classification": "needs-human",
+      "quote_coverage": 0.798,
+      "miss_runs": [
+       26
+      ],
+      "case_id": 3699552,
+      "source": "u.s. at 248, 106 s.ct. 2505. we review the district court's summary judgment ruling de novo. gilvin v. fire, 259 f.3d 749, 756 (d.c.cir.2001). a. liability under the general common law doctrine of infra hospitium, an innkeeper is strictly liable for loss or damage to a guest's property \"unless the property is lost or destroyed by an act of god, the public enemy, or by fault of the guest.\" hallman v. federal parking services, inc., 134 a.",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 3854899,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "342 Mass. 178",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 1961,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "incident_of_ownership",
+     "restriction_nature": null
+    },
+    "holding_summary": "In a three-month letting of a furnished bungalow, the Ingalls v. Hobbs implied warranty of fitness for immediate occupancy is narrow, covers only the state of the premises at the start of the term, and was not breached by later ice formation; verdicts for the landlords stood.",
+    "quotes": [
+     {
+      "supports": [
+       "under_thirty_days",
+       "characterization"
+      ],
+      "text": "a furnished four room bungalow at Lakefront Whalom, in Lunenberg, which she had rented from the defendants for a period of three months commencing October 1, 1952",
+      "status": "verified",
+      "raw_span": [
+       1134,
+       1296
+      ],
+      "reporter_page": "178"
+     },
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "owner_freedom_characterization"
+      ],
+      "text": "\u201c[Ingalls v. Hobbs] is a departure from the general rule and should be confined within narrow limits.\u201d",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       2201,
+       2303
+      ],
+      "reporter_page": "179",
+      "fuzzy_score": 99.01960784313727
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "owner_freedom_characterization"
+      ],
+      "text": "\u201c[Ingalls v. Hobbs] is a departure from the general rule and should be confined within narrow limits.\u201d",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       2201,
+       2303
+      ],
+      "reporter_page": "179",
+      "fuzzy_score": 99.01960784313727,
+      "classification": "needs-human",
+      "quote_coverage": 0.646,
+      "miss_runs": [
+       4,
+       30
+      ],
+      "case_id": 3854899,
+      "source": "estate. bolieau v. traiser, 253 mass. 346, 348, citing stumpf v. leland, 242 mass. 168. in hacker v. nitschke, 310 mass. 754, at page 756, this court said \" [ingalls v. hobbs] is a departure from the general rule and should be confined within narrow limits.\" within those narrow limits, the implied condition is that the premises are fit for habitation. this implied condition is based upon the inference th",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 4626171,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "199 A.D. 239",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 1921,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "incident_of_ownership",
+     "restriction_nature": null
+    },
+    "holding_summary": "An intermediate lessee of a summer bungalow who did not live there but sublet it could not invoke the emergency Rent Laws, and the landlord obtained possession in summary proceedings. The claimed equitable renewal lease failed for nonperformance of its condition.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "owner_freedom_characterization",
+       "characterization"
+      ],
+      "text": "Conceding that the Laws of 1920, chapter 942, applied, who can avail of this protection? Certainly not an intermediate lessee who does not five on the property but whose interest is to rent out same to subtenants.",
+      "status": "verified",
+      "raw_span": [
+       5922,
+       6135
+      ],
+      "reporter_page": "241"
+     },
+     {
+      "supports": [
+       "under_thirty_days"
+      ],
+      "text": "the subtenant who claimed by a lease from May to October, 1921, with oral permission to occupy same for the rest of the year",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       3294,
+       3418
+      ],
+      "reporter_page": "240",
+      "fuzzy_score": 96.7741935483871
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "under_thirty_days"
+      ],
+      "text": "the subtenant who claimed by a lease from May to October, 1921, with oral permission to occupy same for the rest of the year",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       3294,
+       3418
+      ],
+      "reporter_page": "240",
+      "fuzzy_score": 96.7741935483871,
+      "classification": "needs-human",
+      "quote_coverage": 0.115,
+      "miss_runs": [
+       56,
+       9,
+       12,
+       31
+      ],
+      "case_id": 4626171,
+      "source": "s a dwelling within the housing laws (laws of 1920, chap. 942, adding subd. 1-a to code civ. proc. \u00a7 2231); (2) the bona fides of the occupancy by the undertenant who claimed by a lease from may to october, 1921, with oral permission to occupy same for the rest of the year. their verdict was in favor of the landlord. defendants moved to set aside the verdict, which was denied. almet f. jenks [gustavus a. rogers with him on the brie",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 5653129,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "134 N.Y.S. 888",
+    "name": null,
+    "court": "New York Appellate Term",
+    "jur": "N.Y.",
+    "year": 1912,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "tenant_protection"
+    },
+    "holding_summary": "A covenant to supply heat and hot water is read into an apartment lease where the landlord controls the plant, and constructive eviction was a jury question.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "characterization",
+       "owner_freedom_characterization",
+       "restriction_nature"
+      ],
+      "text": "the landlord is obligated to furnish sufficient heat and hot water, and a covenant to that effect must be read into the lease",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       3307,
+       3432
+      ],
+      "reporter_page": "889",
+      "fuzzy_score": 99.2
+     },
+     {
+      "supports": [
+       "under_thirty_days"
+      ],
+      "text": "under a written lease for one year from October 1, 1910",
+      "status": "verified",
+      "raw_span": [
+       2117,
+       2172
+      ],
+      "reporter_page": "889"
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "characterization",
+       "owner_freedom_characterization",
+       "restriction_nature"
+      ],
+      "text": "the landlord is obligated to furnish sufficient heat and hot water, and a covenant to that effect must be read into the lease",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       3307,
+       3432
+      ],
+      "reporter_page": "889",
+      "fuzzy_score": 99.2,
+      "classification": "needs-human",
+      "quote_coverage": 0.008,
+      "miss_runs": [
+       75,
+       48
+      ],
+      "case_id": 5653129,
+      "source": "ivate dwelling, and there is no way of heating the same, or of obtaining hot water, except by means of a plant under the exclusive control of the landlord, the landlord is obligated to furnish sufficient heat and hot water, and a covenant to that-effect must be read into the lease. berlinger v. mcdonald, 133 n. y. supp. 522. [2] there was testimony given upon the trial by the defendant and his witnesses to the effect that for some t",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 5719085,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "420 N.J. Super. 495",
+    "name": null,
+    "court": "New Jersey Superior Court, Appellate Division",
+    "jur": "N.J.",
+    "year": 2011,
+    "values": {
+     "relevant": true,
+     "polarity": null,
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "nights",
+     "characterization": "innkeeping",
+     "under_thirty_days": "yes",
+     "owner_freedom_characterization": "not_addressed",
+     "restriction_nature": null
+    },
+    "holding_summary": "A woman who paid for a hotel room for another was an 'occupant' under the Hotel and Multiple Dwelling Law regulations and thus responsible for regulatory violations caused by her guest, but the court remanded whether that status imposed civil liability for compensatory damages.",
+    "quotes": [
+     {
+      "supports": [
+       "characterization",
+       "holding_summary"
+      ],
+      "text": "For purposes of assigning specific duties or responsibilities, the term \u201coccupant,\u201d unless the text indicates otherwise, shall mean the tenant, lessee, head of the family or household, or other adult person or emancipated minor assuming basic responsibility for the continued renting or occupancy of the dwelling space.",
+      "status": "verified",
+      "raw_span": [
+       5070,
+       5389
+      ],
+      "reporter_page": "500"
+     },
+     {
+      "supports": [
+       "under_thirty_days"
+      ],
+      "text": "She agreed to rent him a room at the Days Inn in Freehold for a two-night stay.",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       3188,
+       3267
+      ],
+      "reporter_page": "499",
+      "fuzzy_score": 97.46835443037975
+     },
+     {
+      "supports": [
+       "owner_freedom_characterization"
+      ],
+      "text": "the Hotel and Multiple Dwelling Law was enacted \u201cfor the protection of the health and welfare of the residents of this State\u201d",
+      "status": "verified",
+      "raw_span": [
+       13827,
+       13952
+      ],
+      "reporter_page": "504"
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "under_thirty_days"
+      ],
+      "text": "She agreed to rent him a room at the Days Inn in Freehold for a two-night stay.",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       3188,
+       3267
+      ],
+      "reporter_page": "499",
+      "fuzzy_score": 97.46835443037975,
+      "classification": "needs-human",
+      "quote_coverage": 0.064,
+      "miss_runs": [
+       37,
+       36
+      ],
+      "case_id": 5719085,
+      "source": "up from the hospital. he told her he had no place to go but needed to remain in the area for a follow-up medical appointment on monday, may 14, 2007. gike agreed to rent him a room at the days inn in freehold for a two-night stay. gike and wood arrived at the hotel around 9:30 a.m., she paid for the room with her credit card, and she left wood there. gike signed a reservation ",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 6052626,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "223 Cal. App. 4th 261",
+    "name": null,
+    "court": "Court of Appeal of the State of California",
+    "jur": "Cal.",
+    "year": 2014,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "householder",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "tenant_protection"
+    },
+    "holding_summary": "Under the federal Protecting Tenants at Foreclosure Act, a bona fide lease survives foreclosure for the remainder of its term, so the successor in interest becomes the landlord and may be liable for breach of the covenant of quiet enjoyment and wrongful eviction; the illegality of the converted-garage rental unit does not defeat the Act's protection.",
+    "quotes": [
+     {
+      "supports": [
+       "holding_summary",
+       "polarity",
+       "owner_freedom_characterization",
+       "restriction_nature"
+      ],
+      "text": "we conclude, solely as a matter of statutory interpretation, that the PTFA causes a bona fide lease for a term to survive foreclosure through the end of the lease term",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       3958,
+       4125
+      ],
+      "reporter_page": "270",
+      "fuzzy_score": 98.80239520958084
+     },
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "Appellants Nativi and Perez rented a converted garage unit on the Stoneylake property from Cazzali, the former owner.",
+      "status": "verified",
+      "raw_span": [
+       71681,
+       71798
+      ],
+      "reporter_page": "294"
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "holding_summary",
+       "polarity",
+       "owner_freedom_characterization",
+       "restriction_nature"
+      ],
+      "text": "we conclude, solely as a matter of statutory interpretation, that the PTFA causes a bona fide lease for a term to survive foreclosure through the end of the lease term",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       3958,
+       4125
+      ],
+      "reporter_page": "270",
+      "fuzzy_score": 98.80239520958084,
+      "classification": "needs-human",
+      "quote_coverage": 0.939,
+      "miss_runs": [
+       10
+      ],
+      "case_id": 6052626,
+      "source": "t of appellants. the american legal and financial network filed an amicus curiae brief that supports respondents' position. after careful and extensive consideration, this court concludes, solely as a matter of statutory interpretation, that the ptfa causes a bona fide lease for a term to survive foreclosure through the end of the lease term subject to the limited authority of the immediate successor in interest to terminate the lease, with proper notice, upon sale to a purchaser who",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 7556592,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "535 So. 2d 1046",
+    "name": null,
+    "court": "Louisiana Court of Appeal",
+    "jur": "La.",
+    "year": 1988,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "incident_of_ownership",
+     "restriction_nature": null
+    },
+    "holding_summary": "Owners' lease of a dwelling to an operator of a community home for retarded adults, whose residents rotate as they gain independence, is a permitted residential use under both the zoning ordinance and the 'residential purposes' restrictive covenant; the preliminary injunction was properly denied (though the no-cause-of-action dismissal was reversed).",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "owner_freedom_characterization"
+      ],
+      "text": "The proposed use of the property as a community home for mentally retarded persons is a use of right under the zoning ordinance.",
+      "status": "verified",
+      "raw_span": [
+       6360,
+       6488
+      ],
+      "reporter_page": "1048"
+     },
+     {
+      "supports": [
+       "under_thirty_days",
+       "characterization"
+      ],
+      "text": "The residents will move out of the home and be replaced when they are ready to live independently.",
+      "status": "verified",
+      "raw_span": [
+       5019,
+       5117
+      ],
+      "reporter_page": "1048"
+     },
+     {
+      "supports": [
+       "characterization"
+      ],
+      "text": "they alleged the Lyons had granted an option to lease certain property to Evergreen to be used as a community home for mentally retarded persons",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       1368,
+       1512
+      ],
+      "reporter_page": "1047",
+      "fuzzy_score": 96.5034965034965
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "characterization"
+      ],
+      "text": "they alleged the Lyons had granted an option to lease certain property to Evergreen to be used as a community home for mentally retarded persons",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       1368,
+       1512
+      ],
+      "reporter_page": "1047",
+      "fuzzy_score": 96.5034965034965,
+      "classification": "needs-human",
+      "quote_coverage": 0.014,
+      "miss_runs": [
+       86,
+       56
+      ],
+      "case_id": 7556592,
+      "source": "everse the judgment insofar as it dismisses the main demand and we remand this matter for further proceedings. plaintiffs brought this action alleging the lyons had granted an option to lease certain property to evergreen to be used as a community home for mentally retarded persons. they further alleged that the proposed use as a community home violated zoning ordinances and protective covenants and that evergreen had not obtained local government approval",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 8502492,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "4 Pelt. 554",
+    "name": null,
+    "court": "Louisiana Court of Appeal",
+    "jur": "La.",
+    "year": 1920,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "incident_of_ownership",
+     "restriction_nature": null
+    },
+    "holding_summary": "In a lease-cancellation suit for subletting and cooking outside the kitchen, the court held parol evidence admissible to show the lessor's verbal consent, since restrictions on subletting exist for the lessor's benefit alone and may be waived orally. Case remanded.",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "owner_freedom_characterization",
+       "holding_summary"
+      ],
+      "text": "\" A stipulation against sub-leasing is for the exclusive benefit of the lessor and no one else oan enforce it.\"",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       3155,
+       3266
+      ],
+      "reporter_page": "556",
+      "fuzzy_score": 99.09909909909909
+     },
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "for a period of 34 months, at $55.00., per month",
+      "status": "verified",
+      "raw_span": [
+       293,
+       341
+      ],
+      "reporter_page": "555"
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "polarity",
+       "owner_freedom_characterization",
+       "holding_summary"
+      ],
+      "text": "\" A stipulation against sub-leasing is for the exclusive benefit of the lessor and no one else oan enforce it.\"",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       3155,
+       3266
+      ],
+      "reporter_page": "556",
+      "fuzzy_score": 99.09909909909909,
+      "classification": "needs-human",
+      "quote_coverage": 0.953,
+      "miss_runs": [
+       5
+      ],
+      "case_id": 8502492,
+      "source": "; he might gibe aoquiesoe the lessee verbal oonsent or merely aeqwiv in the sub-letting of the premises.\" trichell vs. donovan. 138. l. 988. * a stipulation against sub-leasing is for the exclusive benefit of the lessor and no one else oan enforce it.\" montecon vs. faures. 3. l. 43. \"it has uniformly been held that the mere aoquiescenae 'of the lessor will suffioe althouh the lease requires his written oonsent.\" ba",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 9718554,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "247 So. 2d 244",
+    "name": null,
+    "court": "Louisiana Court of Appeal",
+    "jur": "La.",
+    "year": 1971,
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "nights",
+     "characterization": "innkeeping",
+     "under_thirty_days": "yes",
+     "owner_freedom_characterization": "commercial_use",
+     "restriction_nature": "other"
+    },
+    "holding_summary": "A motel guest who died of carbon monoxide poisoning was an invitee, not a lessee; the motel keeper, as innkeeper, owed a duty of ordinary care to keep the premises reasonably safe and was liable for failing to maintain the room heater.",
+    "quotes": [
+     {
+      "supports": [
+       "characterization",
+       "relevant",
+       "owner_freedom_characterization"
+      ],
+      "text": "LSA-C.C. art. 3232 defines innkeepers as those \u201cwho keep a tavern or hotel, and make a business of lodging travelers.\u201d",
+      "status": "verified",
+      "raw_span": [
+       7772,
+       7890
+      ],
+      "reporter_page": "247"
+     },
+     {
+      "supports": [
+       "characterization",
+       "holding_summary"
+      ],
+      "text": "Article 2695 is equally inapplicable. It places the duty on the lessor of guaranteeing the lessee against all vices and defects in the thing leased, even if the lessor has no knowledge of the defect and even if it arose after the lease was made. This article places a severe duty on the lessor and is to be restricted to the lessor-lessee relationship.",
+      "status": "verified",
+      "raw_span": [
+       7414,
+       7766
+      ],
+      "reporter_page": "247"
+     },
+     {
+      "supports": [
+       "polarity",
+       "holding_summary",
+       "restriction_nature"
+      ],
+      "text": "a motel operator owes a duty to an invitee or a business guest to exercise reasonable care for his safety and to keep the hotel premises in a reasonably safe condition",
+      "status": "verified",
+      "raw_span": [
+       9570,
+       9737
+      ],
+      "reporter_page": "247"
+     },
+     {
+      "supports": [
+       "under_thirty_days"
+      ],
+      "text": "At the time of registry, Borikins paid one day\u2019s rent in advance and requested that he not be disturbed.",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       1689,
+       1793
+      ],
+      "reporter_page": "245",
+      "fuzzy_score": 99.03846153846155
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "under_thirty_days"
+      ],
+      "text": "At the time of registry, Borikins paid one day\u2019s rent in advance and requested that he not be disturbed.",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       1689,
+       1793
+      ],
+      "reporter_page": "245",
+      "fuzzy_score": 99.03846153846155,
+      "classification": "needs-human",
+      "quote_coverage": 0.804,
+      "miss_runs": [
+       13,
+       3,
+       4
+      ],
+      "case_id": 9718554,
+      "source": "r identified as the decedent, elizabeth jarvis, emerged from a taxicab and entered the room occupied by borikins. neither of these parties was ever again seen alive. at the time of registry, bori-kins paid one day's rent in advance and requested that he not be disturbed. at this point it should be noted that the motel owner contends the room was rented for single occupancy and the registration card lists bo",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 10200903,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "240 S.W.2d 405",
+    "name": null,
+    "court": "Texas Courts of Civil Appeals",
+    "jur": "Tex.",
+    "year": 1951,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "householder",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "incident_of_ownership",
+     "restriction_nature": null
+    },
+    "holding_summary": "Renting a portion of the business homestead under a three-year lease with renewal option was only a 'temporary renting' and did not abandon the homestead exemption; the judgment lien was cancelled.",
+    "quotes": [
+     {
+      "supports": [
+       "relevant",
+       "polarity",
+       "owner_freedom_characterization"
+      ],
+      "text": "Article 16, Section 51, Vernon\u2019s Annotated Texas Constitution provides as to renting as follows: \u201c * * * provided also, that any temporary renting of the homestead shall not change the character of the same, when no other homestead has been acquired.\u201d",
+      "status": "verified",
+      "raw_span": [
+       8677,
+       8928
+      ],
+      "reporter_page": "407"
+     },
+     {
+      "supports": [
+       "holding_summary",
+       "characterization"
+      ],
+      "text": "If it be his intent to again use the property as a homestead, the rental is temporary; but if it be his intent not to again so use it, then it is permanent; and this is so without reference to the length of time covered by the rental contract.",
+      "status": "verified",
+      "raw_span": [
+       9725,
+       9968
+      ],
+      "reporter_page": "408"
+     },
+     {
+      "supports": [
+       "under_thirty_days"
+      ],
+      "text": "leased a portion of the lots claimed as his business homestead to one Richard G. Coffey for a period of three years and with an option for another three years",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       9074,
+       9232
+      ],
+      "reporter_page": "407",
+      "fuzzy_score": 99.36708860759494
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "under_thirty_days"
+      ],
+      "text": "leased a portion of the lots claimed as his business homestead to one Richard G. Coffey for a period of three years and with an option for another three years",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       9074,
+       9232
+      ],
+      "reporter_page": "407",
+      "fuzzy_score": 99.36708860759494,
+      "classification": "needs-human",
+      "quote_coverage": 0.968,
+      "miss_runs": [
+       5
+      ],
+      "case_id": 10200903,
+      "source": "ll be conceded that the record does not show the acquisition of any other homestead by ap-pellee and also shows that he did by written contract lease a portion of the lots claimed as his business homestead to one richard g. coffey for a period of three years and with an option for another three years. the rent funds were used to -improve the homestead property as shown by the lease and by - testimony. under this issue the term \"temporary renting\" should be first defined. h",
+      "auto_accepted": false
+     }
+    ]
+   },
+   {
+    "case_id": 12451336,
+    "section": "F",
+    "reason": "fuzzy_quote",
+    "other_reasons": [],
+    "decide_field": "quotes",
+    "cite": "10 Cal. App. 5th 502",
+    "name": null,
+    "court": "Court of Appeal of the State of California",
+    "jur": "Cal.",
+    "year": 2017,
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "tenant_protection"
+    },
+    "holding_summary": "A minor occupant is not a 'tenant' entitled to a separate Ellis Act relocation payment; the owner withdrawing units from the rental market had complied with its payment obligations.",
+    "quotes": [
+     {
+      "supports": [
+       "holding_summary",
+       "polarity"
+      ],
+      "text": "we now hold that a minor is not a tenant under the Rent Ordinance provisions that pertain to Ellis Act evictions",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       1823,
+       1935
+      ],
+      "reporter_page": "506",
+      "fuzzy_score": 99.09909909909909
+     },
+     {
+      "supports": [
+       "polarity",
+       "owner_freedom_characterization",
+       "restriction_nature"
+      ],
+      "text": "the Act was intended to overrule the Nash decision so as to permit landlords the unfettered right to remove all residential rental units from the market",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       4034,
+       4186
+      ],
+      "reporter_page": "506",
+      "fuzzy_score": 99.3421052631579
+     },
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "A person entitled by written or oral agreement, sub-tenancy approved by the landlord, or by sufferance, to occupy a residential dwelling unit to the exclusion of others.",
+      "status": "verified",
+      "raw_span": [
+       19206,
+       19375
+      ],
+      "reporter_page": "513"
+     }
+    ],
+    "nulled_fields": [],
+    "extraction_status": "ok",
+    "disagreements": [],
+    "fuzzy": [
+     {
+      "supports": [
+       "holding_summary",
+       "polarity"
+      ],
+      "text": "we now hold that a minor is not a tenant under the Rent Ordinance provisions that pertain to Ellis Act evictions",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       1823,
+       1935
+      ],
+      "reporter_page": "506",
+      "fuzzy_score": 99.09909909909909,
+      "classification": "trivial-ocr",
+      "quote_coverage": 1.0,
+      "miss_runs": [],
+      "case_id": 12451336,
+      "source": "itled to a relocation payment pursuant to section 37.9a(e)(3)(a) of the san francisco rent ordinance.\" we accepted transfer of this case and now hold that a minor is not a tenant under the rent ordinance provisions that pertain to ellis act evictions. ii. statutory overview a. two statutory schemes in 1979, the san francisco board of supervisors enacted the rent ordinance \" 'because the lack of affordable rental hous",
+      "auto_accepted": true
+     },
+     {
+      "supports": [
+       "polarity",
+       "owner_freedom_characterization",
+       "restriction_nature"
+      ],
+      "text": "the Act was intended to overrule the Nash decision so as to permit landlords the unfettered right to remove all residential rental units from the market",
+      "status": "verified-fuzzy",
+      "raw_span": [
+       4034,
+       4186
+      ],
+      "reporter_page": "506",
+      "fuzzy_score": 99.3421052631579,
+      "classification": "needs-human",
+      "quote_coverage": 0.849,
+      "miss_runs": [
+       8,
+       15
+      ],
+      "case_id": 12451336,
+      "source": " a city ordinance that required owners of residential rental property to obtain a permit before they could remove property from the rental market. [citation.] '[t]he act was intended to overrule the nash decision so as to permit landlords the unfettered right to remove all residential rental units from the market, consistent, of course, with guidelines as set forth in the act and adopted by local governments in accordance thereto.' [citations.]\" (johnson v. city and",
+      "auto_accepted": false
+     }
+    ]
+   }
+  ]
+ },
+ "deferred": [],
+ "fuzzy_auto_accepted": [
+  {
+   "supports": [
+    "under_thirty_days",
+    "characterization"
+   ],
+   "text": "\u201cTransient\u201d means any person who exercises occupancy or is entitled to occupancy by reason of concession, permit, right of access, license or other agreement for a period of less than thirty consecutive calendar days",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    7917,
+    8133
+   ],
+   "reporter_page": "549",
+   "fuzzy_score": 99.07407407407408,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 6047737,
+   "source": " house, dormitory, public or private club, mobile-home or house trailer at a fixed location, or other similar structure or portion thereof.\" \" 'transient' means any person who exercises occupancy or is entitled to occupancy by reason of concession, permit, right of access, license or other agreement for a period of less than thirty consecutive calendar days, counting portions of calendar days as full days, any such person so occupying a space in a hotel shall be deemed a transient until the period has expired unless there is an agreement in wri",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "holding_summary",
+    "polarity"
+   ],
+   "text": "we now hold that a minor is not a tenant under the Rent Ordinance provisions that pertain to Ellis Act evictions",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    1823,
+    1935
+   ],
+   "reporter_page": "506",
+   "fuzzy_score": 99.09909909909909,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 12451336,
+   "source": "itled to a relocation payment pursuant to section 37.9a(e)(3)(a) of the san francisco rent ordinance.\" we accepted transfer of this case and now hold that a minor is not a tenant under the rent ordinance provisions that pertain to ellis act evictions. ii. statutory overview a. two statutory schemes in 1979, the san francisco board of supervisors enacted the rent ordinance \" 'because the lack of affordable rental hous",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "under_thirty_days"
+   ],
+   "text": "It wa,s leg,sed to the defendants by the former owner for a term commencing July 1, 1941, and expiring September 30, 1946, at an animal rental of $3,300 payable at the rate of $275 per month.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    590,
+    781
+   ],
+   "reporter_page": "100",
+   "fuzzy_score": 99.47643979057592,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.973,
+   "miss_runs": [
+    3,
+    2
+   ],
+   "case_id": 5347495,
+   "source": " premises under an expired lease from the plaintiffs' predecessor in title. the building in question is a converted private dwelling consisting of five apartments. it was leg,sed to the defendants by the former owner for a term commencing july 1, 1941, and expiring september 30, 1946, at an animal rental of $3,300 payable at the rate of $275 per month. the defendants occupy one apartment for their own dwelling purposes and sublet the other apartments apparently unfurnished at rentals aggregating more than $275 pe",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "under_thirty_days"
+   ],
+   "text": "The premises of which possession is sought were occupied by the defendant as a tenant of the plaintiffs",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    1614,
+    1717
+   ],
+   "reporter_page": "255",
+   "fuzzy_score": 99.02912621359224,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 510391,
+   "source": "t court the case was tried to a judge without a jury and there was a finding for the plaintiffs for possession. the facts, which are not in dispute, are these. the premises' of which possession is sought were occupied by the defendant as a tenant of the plaintiffs and are \"'controlled housing accommodations' with respect to which a maximum rent is in effect within a 'defense rental area,' all as defined i",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "polarity",
+    "holding_summary",
+    "owner_freedom_characterization"
+   ],
+   "text": "Nothing in N. J. S. A. 40 :55-30, which grants zoning powers to municipalities, authorizes a zoning regulation-limiting the age of those, whether it be individuals or families, who may reside in a structure, be it a house or mobile home, otherwise permitted in a particular zoning district.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    5154,
+    5444
+   ],
+   "reporter_page": "380",
+   "fuzzy_score": 99.6551724137931,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.996,
+   "miss_runs": [
+    1
+   ],
+   "case_id": 298727,
+   "source": ", and those under that age but over 18 years old who are members of a family \"the head of which, or his spouse, is 52 years of age or over.\" hothing in n. j. s. a. 40 :55-30, which grants zoning powers to municipalities, authorizes a zoning regulation-limiting the age of those, whether it be individuals or families, who may reside in a structure, be it a house or mobile home, otherwise permitted in a particular zoning district. all that a municipality may validly be concerned with in the exercise of its zoning power is the physical use of lands and structures thereon. bridge park co. v. highland park, 113 n. j. super. 219, 221-222 (ap",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "under_thirty_days",
+    "relevant"
+   ],
+   "text": "The protections afforded by N.J.S.A. 2A:18-61.1 expressly do not apply to a transient or seasonal tenants residing at a hotel, motel or other guest house.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    6794,
+    6948
+   ],
+   "reporter_page": "485",
+   "fuzzy_score": 99.35064935064936,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.993,
+   "miss_runs": [
+    1
+   ],
+   "case_id": 360279,
+   "source": "siding on a week-to-week basis at the passaic y.m.c.a., which plaintiff conceded to be a hotel for purposes of this case.\" id. at 142, 401 a.2d 1124. we also noted that \"[t]he protections afforded by n.j.s.a. 2a:18-61.1 expressly do not apply to a transient or seasonal tenants residing at a hotel, motel or other guest house.\" id. thus, we concurred in the ultimate conclusions of the trial judge \"that plaintiff failed to establish a claim for being locked out of his ro",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "owner_freedom_characterization"
+   ],
+   "text": "N. J. S. A. 40:55-30 does not empower a municipality through zoning to regulate the ownership of buildings or the types of tenancies permitted.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    43162,
+    43305
+   ],
+   "reporter_page": "417",
+   "fuzzy_score": 99.3006993006993,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 873743,
+   "source": "ng regulations. as a matter of fact, the building inspector, marrone, testified that he based his denial of the use on that very ground. the position is not tenable. n. j. s. a. 40:55-308 does not empower a municipality through zoning to regulate the ownership of buildings or the types of tenancies permitted. it is obvious that the statute aforesaid utilizes the word \"use\" solely as a reference to the actual or physical purposes to which land or building",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "owner_freedom_characterization",
+    "polarity"
+   ],
+   "text": "An ordinance is not invalid merely because it does not permit the most lucrative use of property.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    14393,
+    14490
+   ],
+   "reporter_page": "919",
+   "fuzzy_score": 98.96907216494846,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.99,
+   "miss_runs": [
+    1
+   ],
+   "case_id": 7312711,
+   "source": "operty as a single-family residence for many years. howell testified that renting the property as a duplex would not maximize its economic potential, but \"[a]n ordinance is not invalid merely because it does not permit the most lucrative use of property.\" keinath v. township of edgmont, 964 a.2d 458, 463 (pa.cmwlth.), appeal denied, 603 pa. 697, 983 a.2d 730 (2009). in sum, the trust's evidence did",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "characterization",
+    "polarity",
+    "owner_freedom_characterization"
+   ],
+   "text": "he came to lodge with the plaintiff, who kept a student rooming-house",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    5436,
+    5505
+   ],
+   "reporter_page": "602",
+   "fuzzy_score": 97.10144927536231,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.971,
+   "miss_runs": [
+    2
+   ],
+   "case_id": 792065,
+   "source": "the plaintiff was given the life use of one third of the remainder, with remainder over to her son. in september, 1904, charles sold his home, and came to lodge with the plaintiff, who kept a student rooming-house. he later began to take his meals at her table. in the course of time, she, at his request, gave up taking other roomers, and he arranged with her to furni",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "characterization",
+    "owner_freedom_characterization"
+   ],
+   "text": "his wife, by occupying said house as a boarding-house, liad supported and maintained herself and their said children",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    2113,
+    2229
+   ],
+   "reporter_page": "639",
+   "fuzzy_score": 98.68995633187772,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.974,
+   "miss_runs": [
+    3
+   ],
+   "case_id": 6755719,
+   "source": "d said mary remained so occupying, until the i 3th of january, 1814 ; and the defendant, in consideration of the premises, and that his said wife, by occupying said house as a boarding-house, liad supported and maintained herself and their said children, assumed, ac. the other counts were general. where a man, absent from his family, liad knowledge, that his wife was keeping a boarding, house, to support herself and child",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "characterization",
+    "under_thirty_days"
+   ],
+   "text": "Comunidad intended to use the property for low-income housing and sought and received a tax exemption for that purpose.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    11427,
+    11546
+   ],
+   "reporter_page": "485",
+   "fuzzy_score": 99.15966386554622,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.983,
+   "miss_runs": [
+    2
+   ],
+   "case_id": 7093127,
+   "source": " comu-nidad's distinct investment-backed expectations when comunidad purchased the complex, it was occupied and did not violate existing fire ordinances. comuni-dad intended to use the property for low-income housing and sought and received a tax exemption for that purpose. subsequently, the city amended the fire ordinances in such a way that makes it economically infeasible for comunidad to operate the complex. \"the existin",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "polarity",
+    "restriction_nature",
+    "owner_freedom_characterization",
+    "holding_summary"
+   ],
+   "text": "It shall be the duty of any owner or agerit for owner of any factory, workshop, tenement house, inn, or public house, if such factory, workshop, tenement house, inn, or public house be more than two stories high, to provide a convenient exit from the different upper stories \u25a0of said building",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    14531,
+    14822
+   ],
+   "reporter_page": "220",
+   "fuzzy_score": 99.65635738831615,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 8841077,
+   "source": "sary -to consider sections 2573 and 2574, revised statutes, relating to the providing of exits from buildings. as enacted april 19, 1883, these sections are as follows. \"section 2573. it shall be the duty of any owner or agerit for' owner of any factory, workshop, tenement house, inn, or public house, if such factory, workshop, tenement house, inn, or public house be more than two stories high, to provide a convenient exit from the different upper stories of said building, which shall be easily accessible in case of fire, and any owner or person having control of any such inn or public house where travelers or boarders are lodged in any ",
+   "auto_accepted": true
+  }
+ ],
+ "checker_path": {
+  "plan": "reread",
+  "worker": "checker",
+  "pin": "codex-cli@-:-",
+  "cases_per_unit": 1,
+  "unit_cap": 36,
+  "sample_pct": 100
+ },
+ "checker_results": "runs/cycle-004-shard-01/review-round-4-gap-checker.json"
+}
