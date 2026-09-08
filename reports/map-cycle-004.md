@@ -306,6 +306,19 @@ to erase them. Published after 3b: relevant 2,795 (634 human-reviewed, 2,161 mac
 1,267 (301 human-reviewed); mixed 170; favorable householder 317 (58 human-reviewed). Round 4 = the
 257 deferred (228 erased fields, 29 fuzzy quotes) and the round-3 unsure card.
 
+Round 4 (applied 2026-09-08, run id map-cycle-004-round-4, 1,212 patches, replay ok): the last 258
+cards (D 1, E 228, F 29), every one with the full opinion text; Codex answered 222 (its usage limit
+stopped the pass; 36 cards decided from the text alone); first pass GPT Astra, confirmed by the
+user — 79 relevance overturns, 133 erased fields left empty (opinion silent), 16 erased fields set
+to another value, 5 erased values restored, 22 fuzzy quotes kept, 1 dropped, 2 unsure. The
+cycle-004 review queue is exhausted. Published after round 4: relevant 2,716 (811 human-reviewed,
+1,905 machine-only); favorable 1,228 (376 human-reviewed); mixed 170; favorable householder 303
+(78 human-reviewed). Across rounds 1-4: 678 records entered the human-reviewed tier and 223
+left the corpus as non-letting cases, each on a full read; 13 relevant records still carry a
+needs-review flag (7 left unsure by the rounds, 6 older flags from Stage 1 and reference v2).
+Lesson recorded: the quote gate's erasures were almost always right (10 of 419 erased values were
+restored), and relevance and erased-field calls need the full opinion, not the quotes.
+
 ## Limitations
 
 - **D6 window**: three cases carry an excluded field from the pre-map reference adjudication

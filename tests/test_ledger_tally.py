@@ -20,14 +20,14 @@ def test_counts_and_matrix_on_the_real_ledger(repo_root):
     # whole drop lands on that tier and machine_only is unchanged. Favorable
     # holds at 367 -- 11 records gained the label and 12 lost it, one of the 12
     # being 1262336, which was outside the counted population either way.
-    assert c.total == TierCount(human_reviewed=634, machine_only=2161)   # 555/2308 after round 3a; round 3b decided 147 of 148 (68 left the population)
+    assert c.total == TierCount(human_reviewed=811, machine_only=1905)   # 634/2161 after round 3b; round 4 decided 256 of 258 (79 left the population)
     pol = v.counts(by=("polarity",))
-    assert pol[("favorable",)].human_reviewed + pol[("favorable",)].machine_only == 1267   # 1290 after round 3a; round 3b removed 23 favorable as irrelevant
+    assert pol[("favorable",)].human_reviewed + pol[("favorable",)].machine_only == 1228   # 1267 after round 3b; round 4 removed 39 favorable as irrelevant
     hh = v.counts(polarity="favorable", who_was_letting="householder")
-    assert hh.total.human_reviewed + hh.total.machine_only == 317    # 324 after round 3a; round 3b   # 138 before reference v2
+    assert hh.total.human_reviewed + hh.total.machine_only == 303    # 317 after round 3b; round 4   # 138 before reference v2
     m = v.matrix()
     pre = {k: t for k, t in m.cells.items() if k[0] == "pre-1860" and k[2] == "householder"}
-    assert sum(t.human_reviewed + t.machine_only for t in pre.values()) == 15   # 2 before the cycle-004 map admission
+    assert sum(t.human_reviewed + t.machine_only for t in pre.values()) == 14   # 15 after admission; round 4 removed one pre-1860 householder as irrelevant
     assert ("pre-1860", "south", "householder", "nights") in m.empty_cells(minimum=3, tier="either")
     assert "| era |" in m.render_markdown()
 

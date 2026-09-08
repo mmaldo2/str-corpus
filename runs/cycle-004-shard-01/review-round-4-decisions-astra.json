@@ -1,0 +1,1808 @@
+[
+  {
+    "case_id": 3313366,
+    "field": "polarity",
+    "decision": "unsure",
+    "value": null,
+    "note": "The merits are expressly deferred: \"defendants' right to an injunction against continued use and occupancy of the apartments for professional purposes, must await a trial of the facts.\" Requiring payments only \"to maintain the status quo until rendition of a final judgment\" is interim relief, not a contrary merits holding supporting mixed polarity."
+  },
+  {
+    "case_id": 1628205,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The boarding house supplies background to a fraud claim over a business and its furniture; the court decides \"the difference in the value of what she bought\" rather than compensated occupancy, its character, or its regulation."
+  },
+  {
+    "case_id": 1633743,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "This is an ordinary personal-injury appeal about a common stairway, and the court says the disputed rulings concerned \"the charge as given, and ... the admission of evidence\"; it does not bear on compensated occupancy or its legal character or regulation."
+  },
+  {
+    "case_id": 1634723,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The opinion addresses only whether a purchaser may subdivide a lot and whether a deed permits \"more than one residence\"; it supplies no evidence of compensated occupancy."
+  },
+  {
+    "case_id": 1655146,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion says Williams rented the upstairs \"upon a stipulated rental\" but gives no stay or agreed occupancy term, so the actual duration cannot be classified."
+  },
+  {
+    "case_id": 1665841,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion decides termination for nonpayment and statutory defenses, stating that \"the only issues that have their place are those bearing upon the issue of whether the lease has been terminated.\" It does not characterize the owner's liberty to let."
+  },
+  {
+    "case_id": 1668211,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court decides only whether the occupant was a transient guest for a theft-of-services charge, concluding he \"may have been a roomer rather than a 'transient guest'\"; it does not frame the motel operator's liberty to let."
+  },
+  {
+    "case_id": 1668456,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The holding adjudicates use tax on televisions and air conditioners purchased by the hotel. Although daily room charges explain why the chattels were not separately resold, the court's conclusion is that the hotel was the \"consumer or user of these articles\"; compensated occupancy is only a premise in an equipment-tax dispute."
+  },
+  {
+    "case_id": 1670306,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The guest was in arrears and turned an adding machine over to the hotel, but the opinion gives no dates or agreed stay; even \"proper charges due him for their accommodation, board and lodging\" supplies no actual occupancy term."
+  },
+  {
+    "case_id": 1687409,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court applies the tenant's implied covenant to accidental damage and says the decedent \"was a tenant from month to month under an oral lease\"; it does not characterize the rooming-house keeper's liberty to let."
+  },
+  {
+    "case_id": 1697805,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The case classifies the actual one-night occupants for service of process, holding that \"the transient wayfarer for an overnight lodging is not in residence at the hotel or inn\"; it does not characterize the hotel keeper's freedom to let."
+  },
+  {
+    "case_id": 1704071,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The tenement/apartment setting is incidental to statutory premises liability: the question is whether legal title makes a land-contract vendor an \"owner\" under the hand-rail statute, not the compensated occupancy or its character or regulation."
+  },
+  {
+    "case_id": 1754467,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The eviction alleged unauthorized occupants and lease clauses against boarders, lodgers, and subletting, but the opinion says only that the notice lacked dates of the incidents; no actual compensated occupant's stay or agreed term appears."
+  },
+  {
+    "case_id": 1755753,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The owner sought to repossess property \"occupied by the defendant as a rooming house\" to withdraw it from the rental market, but the litigation dates and the operator's possession do not establish any roomer's actual stay."
+  },
+  {
+    "case_id": 1768432,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The rooming houses are the target of the requested enforcement, but the court decides only that \"the extraordinary remedy of mandamus will not lie\" and leaves their legality and regulation undecided; this is generic procedure rather than a substantive occupancy ruling."
+  },
+  {
+    "case_id": 1775874,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court applies caveat emptor to tort liability because \"the tenant takes the premises in whatever condition they may be in\" absent fraud or concealment; it does not characterize the owners' freedom to let the rooming house."
+  },
+  {
+    "case_id": 1783537,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court decides whether furniture used \"to enable defendant to sublet the apartments at a profit\" qualifies as exempt household property. The subletting facts establish the chattels' commercial asset category, but the holding does not adjudicate the occupancy's legal character or regulation."
+  },
+  {
+    "case_id": 1788167,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The housing-code challenge concerns unrelated persons \"residing within a rooming house\" and costly required improvements, but the opinion gives no actual occupant's stay or agreed occupancy term."
+  },
+  {
+    "case_id": 1798201,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The indictment concerns people assembling to drink and misbehave in a disorderly house \"for his own lucre and gain\"; neither the facts nor holding identify compensated occupancy of a dwelling or rooms."
+  },
+  {
+    "case_id": 1800561,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The court directly regulates the proposed expansion of an operating trailer park, ordering a zoning certificate for ten additional sites, so the commercial park use is relevant; the opinion gives no occupant's actual stay or agreed occupancy term."
+  },
+  {
+    "case_id": 1804784,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The rooming house is only the decedent's business in an estate-accounting dispute; the court decides which operating expenses the executor could claim for the statutory one-month continuation, not any occupant's compensated use or its regulation."
+  },
+  {
+    "case_id": 1811188,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The actual guest \"was and had been a guest since the 1st of February, 1905\" and remained until a few days after the typewriter was delivered on April 21, so his stay exceeded thirty days."
+  },
+  {
+    "case_id": 1815433,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The challenged ordinance made certificates a condition precedent to \"offering any suites therein for rent,\" but the pleading-stage opinion identifies no actual occupant or agreed occupancy term."
+  },
+  {
+    "case_id": 1818570,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The court holds that leased or rented row houses need no certificate of occupancy because each is a dwelling house, but it states only that each \"was occupied as a residential unit\" and gives no occupant's stay or agreed term."
+  },
+  {
+    "case_id": 1819776,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The opinion concerns repairs and trespass on premises used for \"the tenant's business\" and never identifies a dwelling or rooms; a generic commercial landlord-tenant dispute does not meet the corpus's residential-occupancy scope."
+  },
+  {
+    "case_id": 1820176,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The zoning order allowed a two-family house \"with roomers\" rather than the represented three-family dwelling, but the opinion gives no actual roomer's stay or agreed occupancy term."
+  },
+  {
+    "case_id": 1920553,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The compensated occupancy at issue was the owner's lease of the greater part of his dwelling to Mrs. Kelly \"for a term of three years,\" an agreed term well over thirty days."
+  },
+  {
+    "case_id": 1957308,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The premises' use as a rooming house since about 1941 and the plaintiff's operation of it are building/operator history; the opinion gives no actual roomer's stay or agreed occupancy term."
+  },
+  {
+    "case_id": 1991031,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The requested \"hotel license\" is solely an excise license to sell liquor, and the court decides the board's discretion over that license; hotel and boarding-house occupancy are only comparisons in a liquor-licensing dispute."
+  },
+  {
+    "case_id": 1993091,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The agreement calls for a yearly sum for furniture and profit-based rent for the hotel, but an annual rent measure is not an agreed occupancy term, and the opinion states no duration for the lease or any guest's stay."
+  },
+  {
+    "case_id": 2000047,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court upholds a fraud statute because the petitioner obtained \"food and lodging at the boarding-house ... without paying for it\"; it protects payment for actual accommodation but does not characterize the proprietor's liberty to let."
+  },
+  {
+    "case_id": 2018827,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court identifies \"the only question\" as whether a tavern license permits selling liquor by the gallon for off-premises consumption; it does not decide compensated occupancy or its regulation."
+  },
+  {
+    "case_id": 2018830,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The nuisance ruling concerns a filthy building divided into apartments and inhabited by many families, but the full opinion contains no rent, lease, board, lodging charge, or other evidence of compensated occupancy."
+  },
+  {
+    "case_id": 2027311,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion says only that the lodging-house premises were used for prostitution 'for some time prior' to suit; the one-year building lease and one-year closure do not establish any actual lodger's stay."
+  },
+  {
+    "case_id": 2029395,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The plaintiff paid '$60 rental' for the lodging-house but was refused possession, and the opinion states neither the agreed rental term nor any guest's actual occupancy duration."
+  },
+  {
+    "case_id": 2057395,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The hotel took 'all the customers, boarders and lodgers that could be obtained,' but the opinion gives no term or length of any customer's compensated stay; the operators' years of residence do not answer this field."
+  },
+  {
+    "case_id": 2057756,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "This is solely a restrictive-covenant dispute about a duplex's construction: 'at no time prior to the trial ... had the building been used by two families,' and the opinion contains no compensated letting or proposed compensated use."
+  },
+  {
+    "case_id": 2075497,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court held that the law implies a use-and-occupation promise only against one with 'actual use and enjoyment of the estate'; it classified Greenough as a boarder but did not frame the owner's liberty to let."
+  },
+  {
+    "case_id": 2079292,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The action sought 'one quarter's rent' for the dwelling-house, and the defendant 'occupied this house during the time sued for,' establishing the compensated occupancy at issue as longer than thirty days."
+  },
+  {
+    "case_id": 2085879,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The plaintiff was 'an occupant of the room at the time of the fire,' but the opinion gives no start date or agreed term; the six-month stay appears only in a cited Tennessee precedent."
+  },
+  {
+    "case_id": 2086076,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The holding that the outgoing tenant's goods created 'no lien' but allowed storage compensation concerns post-tenancy bailment rights, with no judicial framing of the owner's liberty to let."
+  },
+  {
+    "case_id": 2090471,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The rooming house is only a source of funds in a divorce property accounting: 'the rooming house was the separate property of the plaintiff,' and the opinion adjudicates tracing and title rather than any occupancy arrangement."
+  },
+  {
+    "case_id": 2095296,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The evidence says the spouses had 'during most' of thirty-five years 'taken boarders,' but gives no agreed term or actual length of any boarder's stay."
+  },
+  {
+    "case_id": 2097158,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "Boarding appears only as a 'small sum earned by keeping boarders' used to buy land challenged by the husband's insolvency assignee; the court adjudicated title and remedy, not compensated occupancy."
+  },
+  {
+    "case_id": 2105647,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The record identifies years of rooming-house use and says some owners 'rented to occasional roomers,' but it never gives the agreed or actual duration of any roomer's occupancy."
+  },
+  {
+    "case_id": 2108427,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The owner had kept 'a few lodgers and boarders' during prior periods of hotel operation, but the opinion gives no agreed or actual duration for any compensated occupant."
+  },
+  {
+    "case_id": 2108554,
+    "field": "restriction_nature",
+    "decision": "set",
+    "value": "tenant_protection",
+    "note": "The Unruh Act protects prospective tenants from race discrimination by restricting the owner's formerly unrestricted 'power of selection of his tenant or tenants'; the opinion directly limits landlord selection for tenants' benefit."
+  },
+  {
+    "case_id": 2114215,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The findings say rooms were rented 'on some occasions, for short periods,' but do not quantify those periods or otherwise establish that any stay was under thirty days."
+  },
+  {
+    "case_id": 2116950,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The boarder 'continued to board with her' under the original contract until the property was taken, but the opinion states no dates or contractual duration for that stay."
+  },
+  {
+    "case_id": 2117557,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The invalidated zoning article expressly regulated 'rooming and boarding' and rooming houses, but the sign prosecution supplies no actual or agreed duration for any guest's occupancy."
+  },
+  {
+    "case_id": 2140242,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court broadened 'tenant' to include rent-paying lodgers for welfare eligibility, but did not characterize the proprietors' liberty to let; retained control appears only in the lodger-versus-tenant definition."
+  },
+  {
+    "case_id": 2146257,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The compensated occupancy arrangement adjudicated was a lease 'for the term of three years,' followed by a boarding-house sublease for its unexpired term, so it was longer than thirty days."
+  },
+  {
+    "case_id": 2147645,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court classified each separately occupied suite as a 'tenement' for individual water rates; it did not frame the lodging-house association's liberty to let."
+  },
+  {
+    "case_id": 2154931,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The applicants sought only 'a permit to erect a four-family flat dwelling'; no rent, lease, paying occupant, or proposed compensated use appears, and the discussion of hotels and transient occupancy supports generic multi-family zoning."
+  },
+  {
+    "case_id": 2158236,
+    "field": "characterization",
+    "decision": "set",
+    "value": "other",
+    "note": "The case concerns a 'permit to erect a ten-story hotel' and classifies the proposal as a regulated building use; it does not adjudicate a guest's status as lease, license, lodging, or innkeeping."
+  },
+  {
+    "case_id": 2166936,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "Relevant occupancy regulation: the case concerns a 'lessee of a ground floor rental unit' living there contrary to its commercial-use permit, but the opinion gives no length or agreed term for that occupancy."
+  },
+  {
+    "case_id": 2168443,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court classified the parties' actual occupancy—Mary 'was herself a mere lodger in the house' and Ruth occupied as the association's tenant—but is silent on how to frame any property owner's liberty to let."
+  },
+  {
+    "case_id": 2170524,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "Hotel occupancy is material because the State Housing Act imposed the lighting duty 'in every apartment house or hotel,' yet the opinion never states the guest's actual stay or agreed occupancy term."
+  },
+  {
+    "case_id": 2179525,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The holding concerns forced-sale exemption of business furniture—'household and kitchen furniture used in hotels and restaurants'—while compensated occupancy and its legal character or regulation play no part."
+  },
+  {
+    "case_id": 2205283,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "This is a chattel-mortgage pleading case; whether furniture was 'actually used in a hotel or public boarding house' is only an asset-category prerequisite, not adjudication of compensated occupancy or its regulation."
+  },
+  {
+    "case_id": 2207089,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "Boarding-house occupancy supplies the setting only; the sole holding is that evidence of another boarder's prior fall was 'res inter alios acta—a collateral issue.'"
+  },
+  {
+    "case_id": 2207545,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The innkeeper-liability ruling turns on property taken from the plaintiff's room 'while she was a guest at his hotel,' but the opinion provides no duration or agreed term for her stay."
+  },
+  {
+    "case_id": 2213791,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The widow's selected boarders 'occupied rooms in the house' under specific contracts, but neither those contracts nor the opinion state any boarder's actual stay; 'temporary use' describes use of exempt property, not occupancy duration."
+  },
+  {
+    "case_id": 2214207,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The only letting fact is a former 'old people's boarding house' operated before licensing; the dispute and injunction concern a restrictive covenant against an alcoholic sanitarium, not compensated occupancy."
+  },
+  {
+    "case_id": 2222194,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "Although actual room rentals and single-family zoning are central to the fraud claim, the court decides only that the seller had no duty to disclose a law she did not know and is silent on how to characterize an owner's liberty to let."
+  },
+  {
+    "case_id": 2230553,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "yes",
+    "note": "The opinion gives the actual compensated stays: the occupants 'had two boarders for a very short time—one was there less than a week, the other two weeks.'"
+  },
+  {
+    "case_id": 2234146,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court holds the Mayflower was operated as a hotel rather than an apartment house and notes 'the owner's lawful purpose,' but is silent on how to characterize the owner's liberty to let."
+  },
+  {
+    "case_id": 2245398,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The plaintiff rented a furnished hotel room after the manager's safety assurances, but the opinion gives no actual stay length or agreed rental term."
+  },
+  {
+    "case_id": 2258447,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The proposed Y.W.C.A. dormitory was 'restricted for use only by members and employees'; the opinion addresses nonprofit-club zoning and never identifies paid lodging or another compensated occupancy arrangement."
+  },
+  {
+    "case_id": 2265876,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The parties intended a rooming house 'run by Mr. Cook' through an employee, but the opinion never gives any roomer's actual stay or agreed occupancy term."
+  },
+  {
+    "case_id": 2268315,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court affirms because 'no agency existed' between the unauthorized room lessor and the building owner; it is silent on how to characterize the owner's own liberty to let."
+  },
+  {
+    "case_id": 2272617,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "No compensated occupancy is proposed or adjudicated: hotels and boarding houses appear only in the ordinance's list of uses, while the case decides whether a church may be excluded from a single-family zone."
+  },
+  {
+    "case_id": 2274481,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court rescinds the five-year rooming-house lease for mutual mistake about O.P.A. rent ceilings, but is silent on how to characterize a property owner's underlying liberty to let."
+  },
+  {
+    "case_id": 2286623,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The wife's 'business of letting furnished rooms' is only the use she made of disputed personal property; the holding concerns marital title, pleading, and seizure for the husband's debts."
+  },
+  {
+    "case_id": 2296126,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The restrictions were lifted so plaintiffs could pursue 'multiple-dwelling purposes,' but the opinion identifies no actual occupant and no proposed occupancy term; the apartment-motel label alone does not establish a stay under thirty days."
+  },
+  {
+    "case_id": 2305343,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "Whether the Willows was held out as a hotel mattered only to a chattel-mortgage/replevin dispute over furniture; the opinion does not adjudicate compensated occupancy, its terms, or its regulation."
+  },
+  {
+    "case_id": 2314514,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The boarding-house lease is only the object of a general fraud-rescission dispute; the holding that 'six months was a reasonable time' to rescind does not adjudicate compensated occupancy or its legal regulation."
+  },
+  {
+    "case_id": 2324855,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion enforces the rooming-house lease through ejectment for unpaid rent and explains that forfeiture is optional with the landlord, but it is silent on how to characterize the owner's liberty to let."
+  },
+  {
+    "case_id": 2330156,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The partnership collected rent from four tenants in furnished apartments, but the opinion gives no individual stay or agreed occupancy term; the partnership's multi-year dates do not establish tenant duration."
+  },
+  {
+    "case_id": 2338945,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The residence was used for family living and drug dealing, not compensated occupancy; the court holds only that a drug-related disorderly house cannot receive the prostitution-nuisance abatement remedy."
+  },
+  {
+    "case_id": 2341116,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "Hotel use is central to whether the property could be a homestead, but the opinion states no paying guest's stay or agreed term; the owner's one-year hotel lease and child's two-month residence are not guest occupancy durations."
+  },
+  {
+    "case_id": 2342614,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion decides the possessory effect of the hotel lease and says the room provision was a 'mere covenant upon the part of the lessee'; it does not characterize the owner's general liberty to let."
+  },
+  {
+    "case_id": 2350247,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The apartment-hotel label is background only ('It is now an apartment hotel'); the holding concerns evidentiary due process for an unsafe-building demolition order, not compensated occupancy or its regulation."
+  },
+  {
+    "case_id": 2355390,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The operator was herself the tenant in possession: she was recognized as such on February 11, 1946, remained after the February sale and demand, and still refused to vacate after the May 31 notice, establishing occupancy well over thirty days."
+  },
+  {
+    "case_id": 2377307,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "This is a burglary classification case about Silva's family sleeping room; the hotel-room language appears only in a cited precedent, while the actual premises were a rented storehouse containing a restaurant and kitchen."
+  },
+  {
+    "case_id": 2378032,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The actual hotel occupants included plaintiffs who 'had lived in the Court Hotel for as long as ten years,' so the occupancy litigated was not confined to stays under thirty days."
+  },
+  {
+    "case_id": 2383723,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The free rooms were managerial compensation under a percentage hotel lease: the court addressed the 'usual and reasonable expense of conducting such business,' not paid guest occupancy or its legal regulation."
+  },
+  {
+    "case_id": 2390420,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The actual tenant had occupied the premises 'for several months prior to the lease' and then received a written lease 'for five years,' conclusively exceeding thirty days."
+  },
+  {
+    "case_id": 2428228,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court classifies the transaction as 'a lease of apartments—of a portion of a building only' and decides when rent ends after destruction; it gives no general characterization of the owner's liberty to let."
+  },
+  {
+    "case_id": 2461669,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court holds that the agreement 'create[d] the relation of landlord and tenant' and discusses an equitable lien on roomer receipts, without framing the owner's freedom to let."
+  },
+  {
+    "case_id": 2620957,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The boarding house supplies only the purpose of a business loan; the court says the facts show 'simply a loan of the money intended for the carrying on of the business of a boarding house' and decides married-woman contract and lien rules."
+  },
+  {
+    "case_id": 2864427,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The sale was expressly subject to 'tenancies existing at the date of closing,' but the opinion gives neither those occupants' actual stays nor their agreed terms."
+  },
+  {
+    "case_id": 2885401,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court applies the tenant's infancy defense and finds that 'the infant was not benefitted' after abandoning the house; it does not frame letting as an ownership incident, regulable privilege, or commercial use."
+  },
+  {
+    "case_id": 2955726,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The holding concerns the hotel's control of fixtures and duty of care after accepting a guest ('the hotel retained such control of the equipment'); it does not characterize the owner's freedom to let."
+  },
+  {
+    "case_id": 3138456,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The rooming house is only the jointly owned business being partitioned and accounted for; the court says the 'evidence relating to the accounting is vague' and decides no issue about a roomer's compensated occupancy."
+  },
+  {
+    "case_id": 3150925,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The '4-room cottage, operated as a Summer tourist home' is merely part of the parcel description in a tax-valuation dispute; no letting arrangement or occupancy regulation is decided."
+  },
+  {
+    "case_id": 3164141,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The regulation requires the applicant's cohabitant to 'be treated as a lodger' for benefit-income calculations; the opinion does not characterize the applicant's liberty to let."
+  },
+  {
+    "case_id": 3208517,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The application proposed an accessory building and the only sustained condition barred 'habitable living space'; the record contains no actual or proposed compensated occupancy."
+  },
+  {
+    "case_id": 3277352,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The owner sought only to repair a seasonal accessory garage/apartment, and the opinion says he 'did not seek a change in the use'; it identifies no actual or proposed compensated occupant."
+  },
+  {
+    "case_id": 3339387,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The boarding house is background to a failed venture and transfer of its furnishings; the holding that the business 'cannot be considered as merchandising' decides bulk-sales and community-debt rules, not occupancy."
+  },
+  {
+    "case_id": 3349791,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court resolves the actual claimed occupancy interest, finding plaintiff 'was not a sub-tenant of Lepper' but a joint manager; it does not characterize the owner's broader freedom to let."
+  },
+  {
+    "case_id": 3498753,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The property was a valid nonconforming rooming house and the owner sought to continue that use, but the opinion gives no roomer's actual stay or agreed occupancy term."
+  },
+  {
+    "case_id": 3498941,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The former letting of rooms to lodgers explains why furniture later became hotel-business property; the holding concerns whether a chattel mortgage covered 'household furniture,' not an occupant's arrangement or its regulation."
+  },
+  {
+    "case_id": 3537206,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The opinion decides whether an existing accessory apartment was a lawful zoning use, but it identifies no actual or proposed compensated occupant; it says only that the apartment 'had been in existence for more than ten years.'"
+  },
+  {
+    "case_id": 3587448,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The occupants sought SRO-law protection and a prior case involved 'rent-controlled tenants,' but this opinion states no actual occupant stay or agreed occupancy term."
+  },
+  {
+    "case_id": 3638432,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The owner had rented accessory dwellings and rooms since 1981, but that date concerns her course of conduct; the opinion gives no individual resident's actual stay or agreed rental term."
+  },
+  {
+    "case_id": 3834709,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court decides jurisdiction over habitability and quiet-enjoyment counterclaims in 'litigation between a landlord and tenant over the substandard condition of the rental premises'; it does not characterize the owner's liberty to let."
+  },
+  {
+    "case_id": 3834889,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "Although room use was 'a privilege extended to members, revocable at any time,' the opinion reports neither any member's actual length of stay nor an agreed occupancy term."
+  },
+  {
+    "case_id": 3848872,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The statutory definition concerns a house where lodgings are let to five or more persons, but the fire-safety dispute identifies no lodger's actual stay or agreed term."
+  },
+  {
+    "case_id": 3851409,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The proposed motel was for paying guests, but the by-law definition expressly encompassed guests 'permanently or transiently' and the opinion supplies no actual or agreed stay length."
+  },
+  {
+    "case_id": 3894092,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The evidence proves only a historical 'multi-family residential use' and separate dwelling units; no lease, rent, or other actual or proposed compensated occupancy appears in the opinion."
+  },
+  {
+    "case_id": 3896073,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court limits the statutory summary-possession remedy because a notice to quit 'forthwith' was defective; it does not characterize the owner's underlying liberty to let the dwelling."
+  },
+  {
+    "case_id": 3927749,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion concerns a regulated rental building (\"there were tenants in the building\"), but it gives no tenant's agreed or actual stay; the inspection and prosecution dates do not establish occupancy duration."
+  },
+  {
+    "case_id": 3947490,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The case substantively concerns harassment of \"any single room occupancy tenant,\" but the brief opinion states no tenant's actual or agreed length of stay."
+  },
+  {
+    "case_id": 4003448,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The rooms were \"temporarily rented\" to recipients \"waiting for long-term housing,\" but the opinion supplies no actual stay or agreed term; temporary/rotating occupancy alone cannot establish a sub-thirty-day stay."
+  },
+  {
+    "case_id": 4029681,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The plaintiffs were \"lessees of a rooming house under a written lease,\" yet the opinion never gives that lease's term or any lodger's actual stay, so the erased duration value lacks support."
+  },
+  {
+    "case_id": 4033181,
+    "field": "restriction_nature",
+    "decision": "set",
+    "value": "tenant_protection",
+    "note": "The restriction is a substantive occupancy protection: the landlord was \"bound to give the tenant what he had covenanted to furnish\" and a failure to heat could support constructive eviction, making tenant_protection more precise than other."
+  },
+  {
+    "case_id": 4057146,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion decides occupant status and equitable subrogation—\"a landlord-tenant relationship did not exist\"—but contains no affirmative characterization of the homeowner's liberty to let, so the erased field remains null."
+  },
+  {
+    "case_id": 4086663,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court holds the cohabitants' relationship was \"neither a social houseguest nor a tenant in the strict legal sense\" and resolves equitable subrogation, without affirmatively characterizing owner liberty to let; the erased field remains null."
+  },
+  {
+    "case_id": 4115859,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The court treats the rooming-house room as the defendant's \"home for purposes of Fourth Amendment analysis,\" but states no actual stay or agreed occupancy term."
+  },
+  {
+    "case_id": 4133833,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The dispute concerns a site plan for proposed \"seasonal residences for club members and guests\" as a yacht-club accessory use; the opinion gives no rent, lodging charge, or other compensated-occupancy evidence."
+  },
+  {
+    "case_id": 4218540,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The owner operated \"three rooming houses\" regulated by the fire code, but the opinion gives no occupant's actual stay or agreed term; inspection and correction dates concern enforcement, not occupancy duration."
+  },
+  {
+    "case_id": 4373244,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion classifies the paying occupant—\"a person renting such a room is a lodger and not a tenant\"—and defines the proprietor's safety duty, but supplies no affirmative owner-liberty characterization; the erased field remains null."
+  },
+  {
+    "case_id": 4373917,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court decides which damages the hotel guest could recover after exclusion from a room rented \"at the rate of $1 per day,\" but gives no affirmative characterization of the proprietors' liberty to let; the erased field remains null."
+  },
+  {
+    "case_id": 4374255,
+    "field": "characterization",
+    "decision": "set",
+    "value": "other",
+    "note": "The proposed compensated occupancy use is consistently classified as a \"commercial trailer park,\" which fits other rather than lease, license, lodging, or innkeeping."
+  },
+  {
+    "case_id": 4374538,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The later-built rear dwelling \"was rented out,\" but the opinion gives no tenant's actual stay or agreed term, so neither the litigation chronology nor the revenue use establishes duration."
+  },
+  {
+    "case_id": 4374690,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion regulates discrimination in the \"rental or sale\" of housing but identifies no occupant or agreed occupancy term; the statutory reference to permanent-residence multiple dwellings does not establish an actual stay."
+  },
+  {
+    "case_id": 4376437,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion says the building was used as an apartment house 'for a number of years,' but that describes the building's use, not any occupant's stay or agreed term; no actual occupancy duration is given."
+  },
+  {
+    "case_id": 4383155,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The boarding houses supply background to a conversion dispute over furniture: the court says 'the only question here' is how property acquired after marriage became the wife's separate property, so it does not adjudicate compensated occupancy or its regulation."
+  },
+  {
+    "case_id": 4386550,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "Although the regulated building's 'second floor was designed and used as a hotel consisting of 21 rooms,' the opinion gives no actual guest stay or agreed occupancy term."
+  },
+  {
+    "case_id": 4399560,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The occupant is identified only as 'a resident member of defendant club'; the June deposit and September demand dates concern safekeeping of property and do not establish the length of his room occupancy."
+  },
+  {
+    "case_id": 4401757,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The rooming-house allegations appear only in the allegedly libelous protest; the court decided solely that the protest was 'an official proceeding authorized by law' and absolutely privileged, without deciding any letting or rooming-house regulation issue."
+  },
+  {
+    "case_id": 4407044,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The SRO-conversion tax rule regulates the housing stock, but these buildings 'had been continuously vacant for one year' and the opinion identifies no actual occupant stay or agreed occupancy term."
+  },
+  {
+    "case_id": 4408894,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The compensated lease term actually adjudicated was expressly long-term: through 'sale or 99-year lease arrangements' the owner conveyed eight residential bungalow parcels, far exceeding thirty days."
+  },
+  {
+    "case_id": 4416541,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The July 1983-to-October 1985 dates concern the operator's net lease and management of the building; although residential rents were collected, the opinion gives no actual SRO tenant's stay or agreed occupancy term."
+  },
+  {
+    "case_id": 4431626,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The facial challenge concerns any apartment, house, or room let to minors; the court's reference to minors who 'flock to resort areas at vacation time' does not identify an actual or agreed occupancy term."
+  },
+  {
+    "case_id": 4462363,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The injured plaintiff arrived at the lodging house 'on the night in question' after being summoned, but the opinion does not say he rented a room or give any paying guest's stay or agreed term."
+  },
+  {
+    "case_id": 4481975,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The Felicianos actually used the property for wine, beverage, and gasoline businesses; boarders and lodgers appear only in a quotation from McKay, while this holding decides whether mixed business use defeats a homestead."
+  },
+  {
+    "case_id": 4483456,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court held that losing the liquor license 'did not preclude the defendant from using the premises as a lodging house,' but it construed the lessee's rent obligation and did not characterize the property owner's liberty to let."
+  },
+  {
+    "case_id": 4486849,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The opinion reviews construction, sanitation, fire protection, and certificates for tenement houses, but identifies no rental, rent, landlord, tenant, or other compensated occupancy; its holding is generic building regulation for human habitation."
+  },
+  {
+    "case_id": 4519581,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The actual use litigated was the wife's prostitution business, and the court found no other resident; hotels and 'renting rooms' appear only in comparisons while the holding concerns homestead validity and title."
+  },
+  {
+    "case_id": 4542115,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court classified the actual occupants' interests by holding that a hotel inmate had 'no rights' in another occupant's private room, but it did not discuss or characterize the property owner's liberty to let."
+  },
+  {
+    "case_id": 4584516,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "Mrs. Loop 'as opportunity offered, rented apartments and rooms,' but the opinion gives no renter's stay or agreed term; continuous residence dates describe the owners' own occupancy."
+  },
+  {
+    "case_id": 4625430,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The wife had been 'renting rooms' since about September 1944, but that span describes her activity and aggregate receipts, not how long any paying roomer stayed or agreed to stay."
+  },
+  {
+    "case_id": 4630808,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The owner rented furnished apartments 'for housekeeping purposes to the public generally,' yet the opinion states no actual lodger's or tenant's stay and no agreed occupancy term."
+  },
+  {
+    "case_id": 4640466,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court limits the tenants' remedy and quotes that landlord and tenant no longer negotiate at arm's length, but it does not characterize the owner's underlying liberty to let; its analysis concerns habitability remedies and pleading."
+  },
+  {
+    "case_id": 4651365,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion says only that one witness \"boarded there at one time in July, 1890\"; it never gives that boarder's stay or any other actual occupancy term."
+  },
+  {
+    "case_id": 4660434,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court upholds a statute punishing fraud against a \"proprietor or manager\" of a boarding house, but does not characterize any property owner's liberty to let."
+  },
+  {
+    "case_id": 4720125,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The conviction concerns keeping a prostitution house; the opinion says only that appellant was the \"landlady\" and contains no evidence of compensated occupancy or a letting arrangement."
+  },
+  {
+    "case_id": 4721854,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The owner says appellant \"made the trade with him for rent of the premises\" and paid rent, but the opinion never states the agreed or actual occupancy term."
+  },
+  {
+    "case_id": 4727205,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The case decides evidentiary issues in a prosecution for knowingly permitting prostitution; that prostitutes \"resort and reside\" there does not show compensated occupancy or a letting."
+  },
+  {
+    "case_id": 4880321,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The suit concerns summary procedure to recover a leased \"lot of land\" and adjoining premises; no dwelling, rooms, or residential occupancy appears."
+  },
+  {
+    "case_id": 5156706,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The compensated occupancy term actually at issue is explicit: the owners \"leased the second story to Bonnie Pierson for a period of five years.\""
+  },
+  {
+    "case_id": 5219613,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The stipulated deed-encumbrance dispute asks only whether a covenant prohibited erecting an apartment or tenement house; it presents no actual or proposed compensated occupancy."
+  },
+  {
+    "case_id": 5219808,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The holding treats how the \"average number of boarders fell\" and receipts decreased as evidence supporting recoverable nuisance damages, but never characterizes owner freedom."
+  },
+  {
+    "case_id": 5246153,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The contract leased rooms for use as a club room allegedly converted to gambling; the opinion does not involve dwelling occupancy or lodging."
+  },
+  {
+    "case_id": 5276352,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court holds only that promises of future payment cannot support the fraud conviction; it does not characterize the boarding-house owner's freedom to offer room and board."
+  },
+  {
+    "case_id": 5400979,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "Apartment one was leased at a stated monthly rent, but the opinion gives no actual tenant stay or agreed occupancy term; conversion and rent-control dates do not establish duration."
+  },
+  {
+    "case_id": 5480477,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion classifies and regulates housing in a purported hotel that became a rooming house, but states no occupant's actual stay or agreed term."
+  },
+  {
+    "case_id": 5490682,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The case concerns revival of a proposed motel use after years of business nonuse; it provides no motel guest's actual or agreed occupancy term."
+  },
+  {
+    "case_id": 5523317,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The verdict is sustained because the \"number of boarders fell\" and receipts decreased, directly recognizing lodging income as damages evidence, but the opinion does not frame owner freedom."
+  },
+  {
+    "case_id": 5530084,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court resolves whether parol evidence can prove the deceased boarder's debt; it does not characterize the widow's liberty to furnish board and lodging."
+  },
+  {
+    "case_id": 5601832,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The owner proposed to \"lease the residential portion of the premises,\" but the opinion gives no proposed or actual occupancy term."
+  },
+  {
+    "case_id": 5606912,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "Although the opinion confirms the homeowner's \"rental to others of a part\" of the home, it states no occupant's stay or agreed term."
+  },
+  {
+    "case_id": 5654599,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The opinion states that \"between 1982 and 1984 the building had one elderly tenant, who died in January 1984,\" describing an occupancy well beyond thirty days."
+  },
+  {
+    "case_id": 5679361,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "This is a land-sale specific-performance dispute; the phrase excluding \"tenements, boarding houses, hotels, flats and the like\" merely defines a covenant and no compensated occupancy is proposed or litigated."
+  },
+  {
+    "case_id": 5753122,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The nurses' rooming quarters are incidental to a hospital-use covenant and nuisance case; the opinion shows no compensated occupancy of those rooms."
+  },
+  {
+    "case_id": 6040998,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The hotel received substantial bond benefits supporting the implied contract for lifetime accommodations; the court enforces that contract but does not characterize owner freedom to let."
+  },
+  {
+    "case_id": 6041005,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The defendants actually occupied apartment 311 \"from October 5, 1937, to June 30, 1938\" and then apartment 217 until January 1939, well over thirty days."
+  },
+  {
+    "case_id": 6044520,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court invalidates a discriminatory tax imposed on occupants; although it notes rents paid to camp operators and landlords, it never frames a property owner's freedom to let."
+  },
+  {
+    "case_id": 6045100,
+    "field": "characterization",
+    "decision": "set",
+    "value": "lease",
+    "note": "The court consistently classifies the regulated occupants as tenants, stating the ordinance \"applies to all renters, regardless of the length of their tenancy.\""
+  },
+  {
+    "case_id": 6678979,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion says only that the action sought 'the price of defendant's board at a tavern' and gives no actual or agreed length of the guest's stay."
+  },
+  {
+    "case_id": 6712781,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court protects 'the right of landlords to quickly regain possession' after rent default, but never characterizes the owner's liberty to let the premises."
+  },
+  {
+    "case_id": 6755922,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "Boarding is only a fact in a jury-qualification ruling: because the man 'boarded at another man's table,' he was not a house-keeper; no compensated occupancy arrangement is characterized or regulated."
+  },
+  {
+    "case_id": 6769506,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The defendant had rented the courthouse room and 'used it as a tailor's shop'; the court's private-dwelling classification makes the case relevant, but no term or actual occupancy duration appears."
+  },
+  {
+    "case_id": 6814362,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion says the owner 'installed a tenant in his unit' without approval, but the $30-per-day fine measures noncompliance and does not state the tenant's stay or agreed term."
+  },
+  {
+    "case_id": 6924541,
+    "field": "characterization",
+    "decision": "unsure",
+    "value": null,
+    "note": "The court says the relationship could be 'either that of a business and its customer or an innkeeper and its guest' and expressly treats the hotel-or-dormitory dispute as immaterial, so it reaches no lease, license, lodging, or innkeeping classification."
+  },
+  {
+    "case_id": 6956933,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The zoning opinion repeatedly calls the property a 'two-family dwelling' and discusses a grant conditioned on future rent ceilings, but it does not judicially classify any occupancy arrangement as a lease."
+  },
+  {
+    "case_id": 7041953,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The properties are expressly 'residential rental property' housing five and seven family units, but the opinion gives no actual occupants' rental terms or lengths of stay; the six-month period concerns vacancy and nonconforming-use status."
+  },
+  {
+    "case_id": 7741141,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court holds that while the janitress occupied the apartments 'the legal relations existing ... were those of landlord and tenant,' but says nothing about the owner's liberty to let."
+  },
+  {
+    "case_id": 7767851,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "This is solely a liquor-tax-certificate revocation; the statement that 'the place was merely a boarding house' only defeats the hotel's liquor-law exemption and does not regulate compensated occupancy."
+  },
+  {
+    "case_id": 8247425,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The conviction concerns keeping a house for prostitution; 'landlady' identifies the accused as its operator, but the opinion never addresses compensated occupancy or a letting arrangement."
+  },
+  {
+    "case_id": 8271873,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The lodging-house activity supplies revenue in a marital separate-property accounting dispute; the court's issue is whether the wife must devote 'the profits from the lodging house' to her husband's support, not the legal character or regulation of occupants."
+  },
+  {
+    "case_id": 8478699,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The court treats furnishing a house 'so that she may rent it' as an incident of the married owner's separate estate, but no tenant, agreed term, or actual length of occupancy appears."
+  },
+  {
+    "case_id": 8481846,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The receiver's unbonded status meant he 'had no legal right to the possession' and made the purported lease ineffective; the court does not characterize an owner's general liberty to let."
+  },
+  {
+    "case_id": 8501342,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "yes",
+    "note": "The witness who rented the room said he had never been in the house 'except on the night of august 7'; his actual occupancy at issue was therefore confined to that night."
+  },
+  {
+    "case_id": 8507795,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court enforces the lessor's duty 'to maintain the thing in a condition such as to serve the use for which it is hired,' but does not characterize the owner's liberty to let."
+  },
+  {
+    "case_id": 8751937,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The holding allows rescission because 'the lessor violates his contract' by failing to make promised repairs; it does not frame the owner's freedom to let as an ownership incident, privilege, or commercial use."
+  },
+  {
+    "case_id": 8821838,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The paying occupant was 'one of his boarders,' but no term or length of that boarder's stay is given; the friend's single overnight visit does not establish the boarder's occupancy duration."
+  },
+  {
+    "case_id": 9539450,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The only use litigated is a day-care center; the covenant's list excluding a 'public boarding house, lodging house' is background language, with no compensated residential occupancy in the facts or holding."
+  },
+  {
+    "case_id": 9571192,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The rooming-house use and occupants sleeping in its dormitory make the case relevant, but the three-year lease is the operator's lease from the building owner and the opinion gives no room occupant's actual or agreed stay."
+  },
+  {
+    "case_id": 9582547,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The litigated use is the homeowner's law office; the court asks only whether that 'home occupation' violates a residential-use covenant, with no compensated dwelling or room occupancy."
+  },
+  {
+    "case_id": 9869278,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The opinion concerns construction and intended use of a 'two-family double dwelling' under title restrictions, but gives no evidence of compensated occupancy; generic two-family residential use alone is insufficient."
+  },
+  {
+    "case_id": 9899307,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The plaintiff admits arrears for 'room rent' and had occupied lodgings from the defendant, but the opinion states neither her agreed term nor the length of her actual stay."
+  },
+  {
+    "case_id": 9910635,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The holding allocates liability for a month-to-month housing lease to the marital community because 'the husband as its head and master must be made the defendant'; it never frames the owner's liberty to let."
+  },
+  {
+    "case_id": 9911433,
+    "field": "restriction_nature",
+    "decision": "set",
+    "value": "tenant_protection",
+    "note": "The Emergency Price Control and Housing and Rent Acts capped the rent at $30 and made the owner liable for treble damages after he 'overcharged plaintiff $30 per month,' a direct rent-control protection for the tenant."
+  },
+  {
+    "case_id": 9996867,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The motel's operation is directly regulated by the zoning permit and termination order, but the opinion never states an actual guest's stay or an agreed occupancy term; room count and amortization periods do not establish either."
+  },
+  {
+    "case_id": 10023904,
+    "field": "restriction_nature",
+    "decision": "set",
+    "value": "other",
+    "note": "The restriction is premises-defect liability: the court holds that 'the owner of property is liable to any person (other than a tenant) rightfully upon the premises' for injury from a defect, rather than applying licensing, zoning, nuisance, tax, or tenant-protection regulation."
+  },
+  {
+    "case_id": 10043939,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The family entered the shack without authorization and the owner only 'out of mere charity, allowed them to stay'; with no compensation or proposed rental arrangement, the premises-liability ruling is outside scope."
+  },
+  {
+    "case_id": 10050671,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court classifies the sleeper who subleased part of a room as standing in 'the legal relationship of landlord and tenant' to the building owner, but never characterizes the owner's liberty to let."
+  },
+  {
+    "case_id": 10065184,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court resolves whether the widow had 'knowingly and understanding[ly] made herself plaintiff's tenant' and requires an accounting before ejectment, but does not characterize the owner's general liberty to let."
+  },
+  {
+    "case_id": 10066251,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The case concerns a commercial restaurant lease, and the only residential fact is that the lessor consented that 'someone might sleep in the storeroom'; the opinion identifies no compensated occupancy of that sleeping space."
+  },
+  {
+    "case_id": 10083949,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court says 'we do not believe that our law imposes any duty upon the landlord to illuminate hallways' at night; because it never characterizes the owner's liberty to let, the erased field should stay null."
+  },
+  {
+    "case_id": 10134801,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The dispute concerns a proposal to 'build apartments, condominiums, or multi family dwellings,' but the opinion contains no rental, rent, tenant, or other compensated-occupancy facts."
+  },
+  {
+    "case_id": 10160183,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The holding concerns a contractual repair duty after the tenants agreed to 'live in the building and sublet eleven other apartment units'; because the court never frames the owner's liberty to let, the erased field should stay null."
+  },
+  {
+    "case_id": 10191550,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The owners admitted they 'had rented the garage apartment' and intended to continue, but the opinion gives no term or actual length of any renter's occupancy, so the erased field should stay null."
+  },
+  {
+    "case_id": 10193907,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The owner rented the house to a processing-company partnership 'for business purposes'; the holding enforces residential-use covenants against that commercial use and does not address compensated dwelling occupancy."
+  },
+  {
+    "case_id": 10196282,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The order stops construction and use of a 'garage apartment designed as a separate family dwelling-unit,' but the opinion contains no letting, rent, tenant, or other compensated-occupancy evidence."
+  },
+  {
+    "case_id": 10197840,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The buyer purchased the property 'for the purpose of operating a trailer camp,' and the permit was meant to amortize that commercial investment; neither the five-year permit nor annual licenses states any occupant's stay, so duration stays null."
+  },
+  {
+    "case_id": 10204385,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The ordinance permits a broad menu of A-2 uses, including 'boarding and lodging houses' and unrelated institutions, but the owners sought business zoning and the opinion identifies no proposed compensated residential occupancy."
+  },
+  {
+    "case_id": 10212255,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The plaintiffs paid rent 'for the use and occupancy of her housing accommodations,' but the opinion states neither their agreed terms nor their actual lengths of stay, so the field should remain null."
+  },
+  {
+    "case_id": 10215658,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The owner was restrained from 'construction of a four unit apartment house'; the opinion supplies no letting proposal, rental arrangement, tenant, or other compensated-occupancy evidence."
+  },
+  {
+    "case_id": 10269755,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The owners rent two apartments 'when they can secure tenants,' but the short opinion says nothing about any tenant's agreed term or actual stay, so the erased field should remain null."
+  },
+  {
+    "case_id": 10271388,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "Although the property is a rooming house, the dispute is asset accounting: whether 'revenues, rents, and income derived from the homestead' belong separately to the surviving spouse, not the legal character or regulation of occupants' stays."
+  },
+  {
+    "case_id": 10271900,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court holds the owner responsible for his manager's 'willful and malicious' self-help ouster but never characterizes the owner's underlying liberty to let, so the erased field should remain null."
+  },
+  {
+    "case_id": 10277932,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The jury found the structure was 'a private dwelling house' and was not used as an apartment house; the opinion contains no rent, tenant, proposed letting, or other compensated-occupancy evidence."
+  },
+  {
+    "case_id": 10288933,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The parties operated a boarding house, but that use only supplies background to a title-and-furnishings partition; the court resolves ownership according to contributions and does not decide the legal character or regulation of boarders' occupancy."
+  },
+  {
+    "case_id": 10308331,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The challenged law fixes crop-share rent for 178 acres of agricultural land; although the farm had a residence, the opinion addresses the agricultural lease and the right to contract for farming, not compensated occupancy of a dwelling or rooms."
+  },
+  {
+    "case_id": 10330580,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion recognizes a plan to 'let them to orderly colored tenants,' but no occupant term or stay is stated; the five-year term is the builders' ground lease, so the erased field should stay null."
+  },
+  {
+    "case_id": 10333547,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The proposed structure was to house servants 'employed in waiting on his family'; the case concerns a neighbor's attempt to enjoin construction and supplies no paid letting or compensated residential-occupancy arrangement."
+  },
+  {
+    "case_id": 10341000,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The occupants 'had a room in the hotel,' but the opinion states no agreed term or total stay; their being absent for several days when the theft occurred does not establish a duration, so the field stays null."
+  },
+  {
+    "case_id": 11091267,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court requires the housing authority to prove an offending household member was 'under the tenant's control' before eviction but never characterizes the authority's liberty to let, so the erased field stays null."
+  },
+  {
+    "case_id": 11166168,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The only holding is that Howie's conduct 'destroyed the good will of the business'; the rooming-house sale and roomers merely supply facts for a slander/business-goodwill damages claim, without deciding compensated occupancy, its character, or its regulation."
+  },
+  {
+    "case_id": 11171381,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion says only that the company 'took the board from the wages of all the men who boarded there' and gives no boarder's actual stay or agreed occupancy term."
+  },
+  {
+    "case_id": 11860282,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The record says Hallford 'had lived at Jefferson Arms for several years' and that the occupants sought renewal 'for another year,' establishing an actual and proposed stay over thirty days."
+  },
+  {
+    "case_id": 12122828,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion regulates hotel fire safety and refers to 'sleeping rooms,' but identifies no guest's actual stay or agreed term; its six-month and twelve-year periods are code-compliance deadlines."
+  },
+  {
+    "case_id": 12180699,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The current boarding house provides 'fully furnished rooms, daily meals, housekeeping services,' but the opinion gives no resident's actual stay or agreed term; its dates concern building use and zoning history."
+  },
+  {
+    "case_id": 12254846,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court decides that the paying guest 'was only a licensee' in the service kitchen and that negligence liability did not follow; it never frames the owner's liberty to let."
+  },
+  {
+    "case_id": 12657492,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The short-term-rental clause appears only in the ordinance's background; Premier alleged a taking of its vested right 'to market, develop, and/or use the property as a marina with elevated dry boat storage,' and the court decided jurisdiction over that development dispute, not any proposed compensated occupancy."
+  },
+  {
+    "case_id": 494284,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The chancellor's merits holding is only that 'the proof of such agreement should be clear' and was insufficient to pass the bond; boarding and care are background consideration in a title dispute over a chose in action, not a holding on occupancy or its regulation."
+  },
+  {
+    "case_id": 519287,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "The full opinion contains the flagged lessor-liability passage; the quote omits only 'apparently' before 'intended,' which does not alter the settled no-duty question or its field implications."
+  },
+  {
+    "case_id": 525298,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "The lease states verbatim that the premises were 'to be used only as a private residence by' Helen Yoon and two roommates; capitalization and surrounding quotation marks are immaterial."
+  },
+  {
+    "case_id": 900705,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "In context, the source says 'the evidence warrants the judge's conclusion that a change in use occurred'; the flagged quote's 'warranted' changes only the verb tense and remains faithful in substance."
+  },
+  {
+    "case_id": 906669,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "The opening facts state verbatim that appellees 'agreed to rent an apartment from appellant pursuant to an oral month-to-month lease'; the gate's zero coverage is a mechanical mismatch, not a false quote."
+  },
+  {
+    "case_id": 1211026,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The premises are never identified as a dwelling or rooms, and the lease matters only to the sidewalk-tort rule that 'the tenant and not the owner is liable for injuries to a stranger'; this is ordinary property-liability litigation without compensated residential occupancy."
+  },
+  {
+    "case_id": 1230966,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion says 'the statute in question exempts a certain limited class of low-income elderly persons from the rent increases permitted for rent-controlled apartments'; omitting 'in question' is immaterial."
+  },
+  {
+    "case_id": 1237146,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "The full opinion contains the same gross-weekly-income benchmark of an amount 'close to or [exceeded] one month's rent'; only hyphenation and typography differ, so the quote itself is faithful."
+  },
+  {
+    "case_id": 1341259,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion states that the declaration alleged the lease was \"for a term beginning July 1, 1900\"; the quote faithfully reproduces the parties, agents, and start date, with only house/bouse and similar OCR noise in the source."
+  },
+  {
+    "case_id": 1456456,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion says \"students are also permitted to live in single-family houses, townhouses, boarding houses, apartments, fraternities or sororities\"; the quote is substantively exact apart from using Further for Furthermore."
+  },
+  {
+    "case_id": 1948065,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "The damages discussion gives $180 for \"the requested one-year lease of the Montclair apartment\"; the flagged quote is faithful, while the source's doss/loss and quotation-mark differences are OCR and punctuation noise."
+  },
+  {
+    "case_id": 2042390,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "The facts say Morgan \"rented the old house to Gray for two hundred dollars\" and fenced it from the new house; ho/he and punctuation differences are cosmetic OCR errors."
+  },
+  {
+    "case_id": 2204711,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion expressly says the verdict implied \"the payments were rental and hence that the Eichhorns were tenants, not licensees\"; the quote preserves that classification despite source punctuation and spacing noise."
+  },
+  {
+    "case_id": 2211135,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The dispute is whether single-family zoning may bar multiple-dwelling construction; although the buildings contain apartments, the opinion contains no rent, lease, tenant, guest, or other compensated-occupancy evidence, so it is a generic land-use case rather than a letting case."
+  },
+  {
+    "case_id": 2221418,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion states verbatim that defendants \"were under a duty either to require compliance with the ordinance or to terminate the tenancy\"; the fuzzy source merely begins and ends mid-sentence and does not alter the quoted holding."
+  },
+  {
+    "case_id": 2343998,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "Section 6407(c) says \"[t]he landlord shall pay a registration fee to the city\" for each rental unit under the landlord's ownership; capitalization, brackets, and ellipsis spacing are cosmetic, and the quote is substantively exact."
+  },
+  {
+    "case_id": 2695862,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court decides a liquor-tax certificate penalty and whether a tenant's notice abandoning liquor traffic required the owners' joinder; it finds that no hotel business was being conducted, so the statutory hotel definition supplies a liquor-law condition rather than a holding on compensated guest occupancy or its regulation."
+  },
+  {
+    "case_id": 3382600,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "This duplicate report decides whether abandonment of liquor traffic made the owners' liquor-certificate statements false; because the tenant had discontinued hotel business, the quoted hotel definition is only a liquor-law trigger and no actual compensated lodging arrangement is adjudicated."
+  },
+  {
+    "case_id": 3699552,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "Relevant hotel-guest regulation; the full opinion states that under infra hospitium \"an innkeeper is strictly liable for loss or damage to a guest's property.\" The source continues with conventional defenses, but they do not change the quoted strict-liability classification or its adverse-duty support; the fuzzy difference is only apostrophe typography."
+  },
+  {
+    "case_id": 3854899,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "Relevant three-month furnished-dwelling letting; the opinion says verbatim that \"[Ingalls v. Hobbs] is a departure from the general rule and should be confined within narrow limits,\" with only capitalization and reporter-spacing differences."
+  },
+  {
+    "case_id": 4626171,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "Relevant summer-bungalow subletting dispute; the source says the \"undertenant ... claimed by a lease from May to October, 1921, with oral permission to occupy same for the rest of the year.\" Replacing the synonymous OCR/source term \"undertenant\" with \"subtenant\" does not change the passage's substance."
+  },
+  {
+    "case_id": 5653129,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "Relevant apartment-rent and constructive-eviction dispute; the opinion states that \"the landlord is obligated to furnish sufficient heat and hot water, and a covenant to that-effect must be read into the lease.\" The flagged text differs only by the OCR hyphen in \"that-effect.\""
+  },
+  {
+    "case_id": 5719085,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "Relevant classification of responsibility for a paid hotel room; the opinion says \"Gike agreed to rent him a room at the Days Inn in Freehold for a two-night stay.\" Substituting the immediately identified woman's pronoun \"She\" for her name preserves the fact and duration exactly."
+  },
+  {
+    "case_id": 6052626,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "Relevant foreclosure-tenancy regulation; the opinion's core rule is that \"a subordinate bona fide lease survives foreclosure for the remainder of the term by operation of the act.\" Replacing \"this court concludes\" with \"we conclude\" is immaterial, and stopping before the limited purchaser-occupancy exception still faithfully excerpts the general rule supporting adverse polarity and tenant protection."
+  },
+  {
+    "case_id": 7556592,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "Relevant proposed lease and zoning dispute over a dwelling used as a community home; the opinion says \"Plaintiffs brought this action alleging the Lyons had granted an option to lease certain property to Evergreen to be used as a community home for mentally retarded persons.\" The quote's change from \"action alleging\" to \"they alleged\" preserves the allegation exactly."
+  },
+  {
+    "case_id": 8502492,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "Relevant residential lease-cancellation and subletting dispute; the flagged sentence appears in the severely OCR-corrupted opinion as \"a stipulation against sub-leasing is for the exclusive benefit of the lessor and no one else oan enforce it.\" The quote faithfully retains even the source's \"oan\" OCR error."
+  },
+  {
+    "case_id": 9718554,
+    "field": "quotes",
+    "decision": "keep",
+    "value": null,
+    "note": "Relevant motel-guest classification and innkeeper-duty case; the opinion states that \"bori-kins paid one day's rent in advance and requested that he not be disturbed.\" Removing the OCR line-break hyphen and normalizing the apostrophe leaves the passage faithful."
+  },
+  {
+    "case_id": 10200903,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The property was the owner's \"business homestead,\" and the case decides whether leasing part of those business lots abandoned a homestead exemption so a judgment lien could attach. It does not concern compensated occupancy of a dwelling or rooms; the flagged three-year-lease quote is faithful but belongs to ordinary commercial-property/title litigation."
+  },
+  {
+    "case_id": 12451336,
+    "field": "quotes",
+    "decision": "set",
+    "value": "the Act was intended to overrule the Nash decision so as to permit landlords the unfettered right to remove all residential rental units from the market",
+    "note": "DROP only the queued auto_accepted:false quote. In this relevant Ellis Act case, the cited Johnson passage immediately qualifies the asserted right: \"consistent, of course, with guidelines as set forth in the act and adopted by local governments in accordance thereto.\" Ending the quote before that material limit overstates the right while the quote supports polarity, owner-freedom characterization, and restriction nature; the separate auto-accepted minor/tenant quote is not part of this decision."
+  }
+]
