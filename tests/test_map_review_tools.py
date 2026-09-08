@@ -13,6 +13,7 @@ from pathlib import Path
 import pytest
 
 from corpus_engine.domain import load_domain
+from corpus_engine.ledger import fold as ledger_fold
 from corpus_engine.mapper.queue import SECTIONS, select_queue
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -441,6 +442,94 @@ def test_unsure_leaves_the_readers_value_standing_and_flags_the_field():
                for op, f, v in ops)
 
 
+# ------------------------------------------------- section F: `set` on `quotes` drops a quote
+
+def _fuzzy_rec(cid, **over):
+    """A record carrying one quote flagged `verified-fuzzy` (the reader's fuzzy match) plus a
+    clean `verified` quote that alone supports `polarity` - so a test can tell a dropped quote's
+    cascade from a quote that was never touched."""
+    r = _rec(cid, **over)
+    r["quotes"] = [
+        {"text": "she let the room by the week", "supports": ["characterization"],
+         "status": "verified-fuzzy"},
+        {"text": "the owner's liberty to let was unrestricted", "supports": ["polarity"],
+         "status": "verified"},
+    ]
+    return r
+
+
+def test_set_on_quotes_drops_the_named_fuzzy_quote_via_drop_quote_not_set():
+    """The F-card decision: `set` on `quotes` never writes a `set` patch on the whole `quotes`
+    field (that would replace the record's entire quote list with the raw value) - it writes a
+    `drop_quote` patch naming the exact quote text to remove, the same op the Stage 1 bootstrap
+    used for its own section B."""
+    rec = _fuzzy_rec(830)
+    ps = ap.patches_for(
+        [{"case_id": 830, "field": "quotes", "decision": "set",
+          "value": "she let the room by the week", "note": "OCR run of substitutions, not a "
+          "real mismatch"}],
+        {830: rec}, "mmaldo2")
+    ops = [(p.op, p.field, p.new) for p in ps]
+    assert ("drop_quote", "quotes", "she let the room by the week") in ops
+    assert not any(op == "set" and f == "quotes" for op, f, _v in ops)
+    assert any(op == "set" and f == "review.status" and v == "human-adjudicated"
+              for op, f, v in ops)
+
+
+def test_set_on_quotes_cascades_through_the_ledger_to_null_the_field_it_alone_supported():
+    """End to end: applying the `drop_quote` patch `patches_for` emits through the ledger's own
+    fold nulls `characterization` (supported only by the dropped quote) and leaves `polarity`
+    (supported by the surviving quote) untouched - the cascade `fold.apply_patch` performs, not
+    something this tool has to reimplement."""
+    rec = _fuzzy_rec(831, characterization="lodging")
+    ps = ap.patches_for(
+        [{"case_id": 831, "field": "quotes", "decision": "set",
+          "value": "she let the room by the week", "note": ""}],
+        {831: rec}, "mmaldo2")
+    state = ledger_fold.State(records={831: rec}, order=[831], cycles={831: "cycle-004"},
+                              in_file={831: True}, prompts={831: "mapper-v3"})
+    for p in ps:
+        if p.op in ("set", "append", "drop_quote"):
+            ledger_fold.apply_patch(state, p)
+    after = state.records[831]
+    assert after["characterization"] is None
+    assert "characterization" in after["nulled_fields"]
+    assert after["polarity"] == "adverse"                 # the surviving quote still supports it
+    assert [q["text"] for q in after["quotes"]] == ["the owner's liberty to let was unrestricted"]
+
+
+def test_set_on_quotes_accepts_a_list_of_texts_for_a_card_with_more_than_one_fuzzy_quote():
+    rec = _fuzzy_rec(832)
+    rec["quotes"].append({"text": "a third quote", "supports": ["under_thirty_days"],
+                          "status": "verified-fuzzy"})
+    ps = ap.patches_for(
+        [{"case_id": 832, "field": "quotes", "decision": "set",
+          "value": ["she let the room by the week", "a third quote"], "note": ""}],
+        {832: rec}, "mmaldo2")
+    dropped = [p.new for p in ps if p.op == "drop_quote"]
+    assert dropped == ["she let the room by the week", "a third quote"]
+
+
+def test_set_on_quotes_refuses_a_value_that_matches_no_quote_on_the_record():
+    rec = _fuzzy_rec(833)
+    with pytest.raises(ValueError, match="833.*does not match any quote text"):
+        ap.patches_for(
+            [{"case_id": 833, "field": "quotes", "decision": "set",
+              "value": "this text is not on the record", "note": ""}],
+            {833: rec}, "mmaldo2")
+
+
+def test_keep_on_quotes_still_takes_the_generic_path_and_writes_no_drop_quote():
+    """`keep` (the quote stands as verified) and `unsure` (send for a full read) are unaffected
+    by the `set`/drop special case - only `set` on `quotes` reaches it."""
+    rec = _fuzzy_rec(834)
+    ps = ap.patches_for(
+        [{"case_id": 834, "field": "quotes", "decision": "keep", "value": None, "note": ""}],
+        {834: rec}, "mmaldo2")
+    assert not any(p.op == "drop_quote" for p in ps)
+    assert not any(p.op == "set" and p.field == "quotes" for p in ps)
+
+
 def test_the_patch_order_is_deterministic():
     records = {1: _rec(1), 2: _rec(2)}
     d = [{"case_id": 2, "field": "polarity", "decision": "keep", "value": "adverse", "note": ""},
@@ -601,6 +690,43 @@ def test_cards_from_queue_carries_every_field_the_page_shows(tmp_path):
     assert c700["nulled_fields"] == []
     assert c700["other_reasons"] == []
     assert "courtlistener.com" in c700["courtlistener_url"] and "700" in c700["courtlistener_url"]
+
+
+def _fuzzy_queue_doc():
+    """A one-card section-F queue manifest, shaped exactly as `QueueCard.to_json()` writes
+    it (`corpus_engine/mapper/queue.py`), for testing `cards_from_queue`'s export of the
+    `fuzzy` block without going through `select_queue`'s own fuzzy classification."""
+    card = {"case_id": 900, "section": "F", "reason": "fuzzy_quote", "other_reasons": [],
+            "decide_field": "quotes", "cite": "900 N.Y. 1", "name": None, "court": "Ct. App.",
+            "jur": "N.Y.", "year": 1900,
+            "values": {f: None for f in ("relevant", "polarity", "who_was_letting",
+                                         "duration_of_occupancy", "characterization",
+                                         "under_thirty_days", "owner_freedom_characterization",
+                                         "restriction_nature")},
+            "holding_summary": None, "quotes": [], "nulled_fields": [],
+            "extraction_status": "ok", "disagreements": [],
+            "fuzzy": [{"text": "she let the room by the week", "supports": ["characterization"],
+                      "status": "verified-fuzzy", "classification": "needs-human",
+                      "quote_coverage": 0.8, "source": "she let ye roome by ye weeke",
+                      "auto_accepted": False}]}
+    return {"run_id": "test-run", "cap": 150, "titles": {}, "sections": {"F": [card]},
+           "deferred": [], "fuzzy_auto_accepted": []}
+
+
+def test_cards_from_queue_carries_the_fuzzy_block_for_a_section_f_card():
+    cards = ec.cards_from_queue(_fuzzy_queue_doc(), {})
+    assert cards[0]["fuzzy"] == [{"text": "she let the room by the week",
+                                  "source": "she let ye roome by ye weeke",
+                                  "classification": "needs-human", "quote_coverage": 0.8,
+                                  "auto_accepted": False}]
+
+
+def test_markdown_shows_the_fuzzy_quote_beside_the_opinion_passage():
+    cards = ec.cards_from_queue(_fuzzy_queue_doc(), {})
+    md = ec.markdown_for(cards, "test-run")
+    assert "she let the room by the week" in md
+    assert "she let ye roome by ye weeke" in md
+    assert "needs-human" in md
 
 
 def test_a_card_with_no_checker_answer_carries_none_not_a_dict_of_nulls():

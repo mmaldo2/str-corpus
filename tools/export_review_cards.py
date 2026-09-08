@@ -132,6 +132,11 @@ def cards_from_queue(queue_doc: Mapping, checker: Mapping) -> list[dict]:
                 "holding_summary": c.get("holding_summary"),
                 "quotes": [{"text": q.get("text"), "supports": list(q.get("supports") or ())}
                           for q in (c.get("quotes") or ())],
+                "fuzzy": [{"text": q.get("text"), "source": q.get("source"),
+                          "classification": q.get("classification"),
+                          "quote_coverage": q.get("quote_coverage"),
+                          "auto_accepted": q.get("auto_accepted")}
+                         for q in (c.get("fuzzy") or ())],
                 "nulled_fields": list(c.get("nulled_fields") or ()),
                 "other_reasons": list(c.get("other_reasons") or ()),
                 "courtlistener_url": courtlistener_url(c.get("cite")),
@@ -195,6 +200,15 @@ def markdown_for(cards: Sequence[dict], run_id: str, *, part: tuple[int, int] | 
                 supports = ", ".join(q["supports"]) or "-"
                 lines.append(f"  > {q['text']}")
                 lines.append(f"  > (supports: {supports})")
+        if c.get("fuzzy"):
+            lines.append("- Fuzzy quote match(es) - reader's quote vs. the closest passage "
+                         "found in the opinion:")
+            for q in c["fuzzy"]:
+                lines.append(f"  > quote: {q['text']}")
+                lines.append(f"  > opinion passage: {q.get('source') or ''}")
+                lines.append(f"  > classification: {q.get('classification')} - coverage: "
+                             f"{q.get('quote_coverage')} - auto-accepted: "
+                             f"{q.get('auto_accepted')}")
         if "opinion_text" in c:                 # --full-text only; absent otherwise
             lines.append("")
             lines.append("#### Opinion text")

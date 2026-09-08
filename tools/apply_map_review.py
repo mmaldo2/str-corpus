@@ -11,6 +11,19 @@ reviewer-basis patches - with the map round's own vocabulary and run id:
 `adopt` means the checker here, not a model majority: this round's second opinion is one
 reader from a different family, and a card that offered no checker value offers no adopt.
 
+SECTION F / `quotes`: `set` on `quotes` is the one decision whose value is not a vocabulary
+value but the exact text of the fuzzy quote to drop (a string, or a list of strings for a card
+with more than one fuzzy quote needing a decision) - copied straight off the card's `fuzzy`
+block. It writes a `drop_quote` patch per quote (the same op the Stage 1 bootstrap used for its
+own section B, `corpus_engine/ledger/bootstrap.py`), never a `set` on the whole `quotes` field,
+because `fold.apply_patch`'s `set` op replaces the record's entire quotes list rather than
+removing one quote from it. The ledger's own cascade (`fold.apply_patch`, `drop_quote`) then
+nulls any judged field that dropped quote alone supported - this tool only names the quote. A
+value that does not match any quote currently on the record is refused by name, not silently
+ignored. `keep` on `quotes` (the quote stands as verified) and `unsure` (send the record for a
+full read) need no such handling and take the same generic path every other field's `keep` and
+`unsure` take.
+
 A decision on a field also clears any `needs-review:<field>` flag it supersedes, through
 `apply_reference_review._clear_flag`, so the two tools can never disagree about that rule.
 
@@ -281,6 +294,33 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
         elif decision == "keep":
             out.append(Patch(cid, "append", "review.notes",
                              f"{tag}: {field} {old!r} confirmed by the reviewer", why, basis))
+            out += arr._clear_flag(live, records, cid, field, why, basis, tag)
+        elif field == "quotes" and decision == "set":
+            # Section F decides `quotes`: `set` drops a fuzzy quote the reviewer judged a real
+            # mismatch, not routine OCR noise - the same `drop_quote` op the Stage 1 bootstrap
+            # used for its own section B (corpus_engine/ledger/bootstrap.py). `value` is the
+            # quote's own exact text (as shown on the card's `fuzzy` block), or a list of texts
+            # when a card carries more than one fuzzy quote needing a decision - each is
+            # dropped by its own patch, never by a blanket "drop everything fuzzy on this
+            # record", because a record can carry an already-auto-accepted fuzzy quote (trivial
+            # OCR noise) alongside the one a human is actually deciding, and only the decided
+            # quote may go. `apply_patch`'s own cascade (fold.py) then nulls any judged field
+            # that quote alone supported - this tool only has to name the quote, not the
+            # fields it was propping up.
+            texts = value if isinstance(value, list) else [value]
+            if not texts or any(not isinstance(t, str) or not t for t in texts):
+                raise ValueError(f"case {cid}: quotes set value must be the exact text (or a "
+                                 f"list of texts) of the fuzzy quote(s) to drop")
+            current = {q.get("text") for q in (records.get(cid) or {}).get("quotes") or ()}
+            unknown = [t for t in texts if t not in current]
+            if unknown:
+                raise ValueError(f"case {cid}: quotes set value {unknown!r} does not match any "
+                                 f"quote text currently on the record")
+            for t in texts:
+                out.append(Patch(cid, "append", "review.notes",
+                                 f"{tag}: quotes fuzzy match dropped by the reviewer: {t!r}",
+                                 why, basis))
+                out.append(Patch(cid, "drop_quote", "quotes", t, why, basis))
             out += arr._clear_flag(live, records, cid, field, why, basis, tag)
         else:                                   # adopt | set
             out.append(Patch(cid, "append", "review.notes",
