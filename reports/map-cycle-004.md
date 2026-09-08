@@ -287,6 +287,16 @@ stayed mixed under the codebook definition and 91 resolved to a side (56 adverse
 favorable 1,267 (220 human-reviewed); mixed 213; favorable householder 321 (39 human-reviewed).
 Rounds 3-4 = the 503 deferred records (419 gate-erased fields, 29 fuzzy quotes, 55 mixed).
 
+Round 3 (selected 2026-09-08, cap 250: B 1, C 1, D 57, E 191 gate-erased fields; 257 deferred; Codex
+250/250): the first pass (GPT Astra, erased values and surviving quotes for E, full text for D)
+was applied in two parts. Round 3a (run id map-cycle-004-round-3, 497 patches, replay ok): 102
+confirmed — 52 erased values restored, 1 erased field set otherwise, 36 mixed cards resolved to a
+side, 13 kept mixed. The 55 relevance overturns Astra proposed (47 of them on erased-field cards,
+which carry no full text) were HELD OUT with the 93 unsure cards for round 3b, which re-reads all
+148 with the full opinion text (reports/review-round-3b-*), because round 1b showed relevance
+calls need the opinion, not the quotes. Published after 3a: relevant 2,863 (555 human-reviewed,
+2,308 machine-only); favorable 1,290 (265 human-reviewed); mixed 177; favorable householder 324.
+
 ## Limitations
 
 - **D6 window**: three cases carry an excluded field from the pre-map reference adjudication

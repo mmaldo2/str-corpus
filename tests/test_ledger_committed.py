@@ -25,6 +25,6 @@ def test_the_rename_leaves_the_committed_counts_and_the_replay_untouched(repo_ro
     v = open_ledger(domain=dom).view()
     assert v.counts().total.human_reviewed + v.counts().total.machine_only == 2863   # 2909 after round 1c; round 2 overturned relevance on 46
     fav = v.counts(polarity="favorable").total
-    assert fav.human_reviewed + fav.machine_only == 1267   # 1228 after round 1c; round 2 resolved 91 mixed (35 to favorable), 46 overturns
+    assert fav.human_reviewed + fav.machine_only == 1290   # 1267 after round 2; round 3a resolved 36 mixed
     hh = v.counts(polarity="favorable", who_was_letting="householder").total
-    assert hh.human_reviewed + hh.machine_only == 321    # 319 after round 1c; round 2
+    assert hh.human_reviewed + hh.machine_only == 324    # 321 after round 2; round 3a
