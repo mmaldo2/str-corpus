@@ -1,0 +1,704 @@
+{
+ "run_id": "cycle-004-shard-01",
+ "cap": 7,
+ "titles": {
+  "A": "Favorable and under thirty days",
+  "B": "Householder letting by the night",
+  "C": "Reader / checker disagreement",
+  "D": "Polarity mixed",
+  "E": "Flagged needs-review: the reviewer's own final call (13)",
+  "F": "Fuzzy quote match"
+ },
+ "sections": {
+  "E": [
+   {
+    "case_id": 937195,
+    "cite": "190 Misc. 820",
+    "court": "New York Supreme Court, Appellate Term",
+    "jur": "N.Y.",
+    "name": "Devonshire Associates v. Garrett",
+    "year": 1947,
+    "decide_field": "who_was_letting",
+    "reason": "gate_erased",
+    "section": "E",
+    "quotes": [
+     {
+      "text": "the evidence establishes that the prior owner permitted the occupancy of the apartments by roomers and thus expressly waived the covenant of the leases that the premises be occupied “ osa strictly private family dwelling apartment by said tenant, and the tenant’s immediate family only-”.",
+      "supports": [
+       "characterization"
+      ],
+      "status": "verified",
+      "raw_span": [
+       713,
+       1001
+      ],
+      "reporter_page": "821"
+     },
+     {
+      "text": "it is stated that her apartment is “ now occupied by four roomers ”, which is “ not now in violation of sections 82 and 248 of the Multiple Dwelling Law ”.",
+      "supports": [
+       "polarity"
+      ],
+      "status": "verified",
+      "raw_span": [
+       1230,
+       1385
+      ],
+      "reporter_page": "821"
+     },
+     {
+      "text": "The final orders should be reversed, with $30 costs, and petitions dismissed, with costs.",
+      "supports": [
+       "holding_summary"
+      ],
+      "status": "verified",
+      "raw_span": [
+       1532,
+       1621
+      ],
+      "reporter_page": "821"
+     }
+    ],
+    "holding_summary": "Reversing final orders for the landlord, the court held that roomer occupancy of the apartments, permitted by the prior owner, constituted an express waiver of the lease covenant restricting occupancy to the tenant's immediate family, and that occupancy by four roomers did not violate Multiple Dwelling Law §§82 and 248.",
+    "nulled_fields": [],
+    "other_reasons": [
+     "flags: needs-review:who_was_letting",
+     "current values: relevant=True polarity=adverse who=householder characterization=lodging",
+     "FIRST PASS (Claude, full opinion read): keep [medium confidence] — The letting at issue is the resident tenants' taking-in of roomers into the apartments they occupy, which is the householder tier; no enterprise and no absentee owner."
+    ],
+    "fuzzy": [],
+    "disagreements": [],
+    "values": {
+     "relevant": true,
+     "polarity": "adverse",
+     "who_was_letting": "householder",
+     "duration_of_occupancy": "unclear",
+     "characterization": "lodging",
+     "under_thirty_days": null,
+     "owner_freedom_characterization": null,
+     "restriction_nature": null,
+     "holding_summary": "Reversing final orders for the landlord, the court held that roomer occupancy of the apartments, permitted by the prior owner, constituted an express waiver of the lease covenant restricting occupancy to the tenant's immediate family, and that occupancy by four roomers did not violate Multiple Dwelling Law §§82 and 248."
+    },
+    "extraction_status": "ok"
+   },
+   {
+    "case_id": 11596913,
+    "cite": "985 S.W.2d 667",
+    "court": "Texas Courts of Appeals",
+    "jur": "Tex.",
+    "name": "Gulf Shores Council of Co-Owners, Inc. v. Raul Cantu No. 3 Family Ltd. Partnership",
+    "year": 1999,
+    "decide_field": "characterization",
+    "reason": "gate_erased",
+    "section": "E",
+    "quotes": [
+     {
+      "text": "We conclude the prohibition and fees were necessary to achieve the purpose of creating a uniform plan for the development and operation of the condominium project.",
+      "supports": [
+       "polarity"
+      ],
+      "status": "verified",
+      "raw_span": [
+       21022,
+       21185
+      ],
+      "reporter_page": "673"
+     },
+     {
+      "text": "We hold there is no evidence to support the jury’s conclusion that the assessment of the fee and later prohibition against the use of outside rental agents was arbitrary, capricious, and discriminatory.",
+      "supports": [
+       "holding_summary"
+      ],
+      "status": "verified",
+      "raw_span": [
+       21245,
+       21447
+      ],
+      "reporter_page": "673"
+     }
+    ],
+    "holding_summary": "The court held that condominium unit owners have an 'absolute right to lease' their units as guaranteed by the condominium declaration, but that right is 'subject to all provisions and restrictions applicable to the Project'; it reversed the trial court and upheld the condo association's fees on units rented outside its rental pool and its prohibition on outside leasing agents as reasonably necessary to the project's operation, not arbitrary, capricious, or discriminatory.",
+    "nulled_fields": [],
+    "other_reasons": [
+     "flags: needs-review:characterization",
+     "current values: relevant=True polarity=mixed who=commercial_operator characterization=None",
+     "FIRST PASS (Claude, full opinion read): set -> lease [medium confidence] — The court construed a declaration right 'to lease or rent', said the units could be occupied by tenants, and adjudicated interference with rental contracts; it never reached lodging or innkeeping."
+    ],
+    "fuzzy": [],
+    "disagreements": [],
+    "values": {
+     "relevant": true,
+     "polarity": "mixed",
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "unclear",
+     "characterization": null,
+     "under_thirty_days": null,
+     "owner_freedom_characterization": null,
+     "restriction_nature": null,
+     "holding_summary": "The court held that condominium unit owners have an 'absolute right to lease' their units as guaranteed by the condominium declaration, but that right is 'subject to all provisions and restrictions applicable to the Project'; it reversed the trial court and upheld the condo association's fees on units rented outside its rental pool and its prohibition on outside leasing agents as reasonably necessary to the project's operation, not arbitrary, capricious, or discriminatory."
+    },
+    "extraction_status": "ok"
+   },
+   {
+    "case_id": 1613746,
+    "cite": "4 Pa. D. & C.2d 186",
+    "court": "Allegheny County Court of Common Pleas",
+    "jur": "Pa.",
+    "name": "Ymca of Pittsburgh Appeal",
+    "year": 1954,
+    "decide_field": "polarity",
+    "reason": "gate_erased",
+    "section": "E",
+    "quotes": [
+     {
+      "text": "In neither the Salvation Army case nor the instant case was there any testimony of that character; in fact, the evidence shows that there was no advertising of the dormitory facilities in any of the five buildings here involved, and no complaints were heard from hotels or boarding houses that the dormitories were in competition with them.",
+      "supports": [
+       "characterization"
+      ],
+      "status": "verified",
+      "raw_span": [
+       8959,
+       9299
+      ],
+      "reporter_page": "192"
+     },
+     {
+      "text": "Having thus disposed of the problem of the dormitories and food service facilities, the incidental problem of bowling alleys, barber shops, and businessmen's health clubs is easily resolved.",
+      "supports": [
+       "holding_summary"
+      ],
+      "status": "verified",
+      "raw_span": [
+       32768,
+       32958
+      ],
+      "reporter_page": "205"
+     },
+     {
+      "text": "The permanent classification included all those who occupied the rooms for two weeks or more and paid rent-on a weekly basis; transients being those whose occupancy was less than two weeks and who paid on a daily basis.",
+      "supports": [
+       "duration_of_occupancy"
+      ],
+      "status": "verified",
+      "raw_span": [
+       13032,
+       13251
+      ],
+      "reporter_page": "194"
+     }
+    ],
+    "holding_summary": "The court held that YMCA dormitory and food-service facilities, though occupied by paying residents (some 'transient' for under two weeks, most 'permanent' for two weeks or more), were tax-exempt because their actual use was primarily charitable rather than commercial lodging. The court distinguished the case from an earlier ruling taxing a YMCA's dormitory that competed with avowedly commercial lodging houses, finding no comparable competition, advertising, or profit here.",
+    "nulled_fields": [],
+    "other_reasons": [
+     "flags: needs-review:polarity",
+     "current values: relevant=True polarity=None who=commercial_operator characterization=lodging",
+     "FIRST PASS (Claude, full opinion read): set -> favorable [medium confidence] — The owner won on the letting itself - renting rooms for pay was held not commercial and the tax was refused; the Germantown rule appears only as distinguished precedent, so not mixed."
+    ],
+    "fuzzy": [],
+    "disagreements": [],
+    "values": {
+     "relevant": true,
+     "polarity": null,
+     "who_was_letting": "commercial_operator",
+     "duration_of_occupancy": "weeks",
+     "characterization": "lodging",
+     "under_thirty_days": null,
+     "owner_freedom_characterization": null,
+     "restriction_nature": null,
+     "holding_summary": "The court held that YMCA dormitory and food-service facilities, though occupied by paying residents (some 'transient' for under two weeks, most 'permanent' for two weeks or more), were tax-exempt because their actual use was primarily charitable rather than commercial lodging. The court distinguished the case from an earlier ruling taxing a YMCA's dormitory that competed with avowedly commercial lodging houses, finding no comparable competition, advertising, or profit here."
+    },
+    "extraction_status": "ok"
+   },
+   {
+    "case_id": 10283820,
+    "cite": "30 S.W.2d 582",
+    "court": "Texas Courts of Civil Appeals",
+    "jur": "Tex.",
+    "name": "Scottish American Mortgage Co. v. Milner",
+    "year": 1930,
+    "decide_field": "characterization",
+    "reason": "gate_erased",
+    "section": "E",
+    "quotes": [
+     {
+      "text": "Any temporary renting would not defeat the homestead right.",
+      "supports": [
+       "polarity"
+      ],
+      "status": "verified",
+      "raw_span": [
+       6710,
+       6769
+      ],
+      "reporter_page": "585"
+     },
+     {
+      "text": "Any temporary renting would not defeat the homestead right.",
+      "supports": [
+       "holding_summary"
+      ],
+      "status": "verified",
+      "raw_span": [
+       6710,
+       6769
+      ],
+      "reporter_page": "585"
+     }
+    ],
+    "holding_summary": "The Court of Civil Appeals held that a homeowner's temporary rental of a second house on his homestead lot to a tenant did not, as a matter of law, defeat the homestead exemption as to that house. An owner is entitled to a reasonable time after purchase to occupy the whole of a homestead lot, and temporary renting of part of it pending consolidation of the buildings does not conclusively show abandonment. Whether the renting was temporary (and thus consistent with continued homestead use) or evidenced a permanent commercial diversion was a fact question for the jury.",
+    "nulled_fields": [],
+    "other_reasons": [
+     "flags: needs-review:characterization",
+     "current values: relevant=True polarity=favorable who=householder characterization=None",
+     "FIRST PASS (Claude, full opinion read): set -> lease [medium confidence] — The court treats the small house as rented to a tenant and analyses only the duration of that renting; the boarders and roomers were an unrealised plan, not the arrangement at issue."
+    ],
+    "fuzzy": [],
+    "disagreements": [],
+    "values": {
+     "relevant": true,
+     "polarity": "favorable",
+     "who_was_letting": "householder",
+     "duration_of_occupancy": "months",
+     "characterization": null,
+     "under_thirty_days": null,
+     "owner_freedom_characterization": null,
+     "restriction_nature": null,
+     "holding_summary": "The Court of Civil Appeals held that a homeowner's temporary rental of a second house on his homestead lot to a tenant did not, as a matter of law, defeat the homestead exemption as to that house. An owner is entitled to a reasonable time after purchase to occupy the whole of a homestead lot, and temporary renting of part of it pending consolidation of the buildings does not conclusively show abandonment. Whether the renting was temporary (and thus consistent with continued homestead use) or evidenced a permanent commercial diversion was a fact question for the jury."
+    },
+    "extraction_status": "ok"
+   },
+   {
+    "case_id": 7664513,
+    "cite": "113 N.Y.S. 357",
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "name": "Peters v. Kelly",
+    "year": 1908,
+    "decide_field": "polarity",
+    "reason": "gate_erased",
+    "section": "E",
+    "quotes": [
+     {
+      "text": "This evidence did not show a hiring of the yard adjacent to the house, and the stairway and the landing, together with the rooms, but only a hiring of the rooms themselves.",
+      "supports": [
+       "characterization"
+      ],
+      "status": "verified",
+      "raw_span": [
+       3177,
+       3349
+      ],
+      "reporter_page": "358"
+     },
+     {
+      "text": "Having retained such control, it became her duty to exercise reasonable care to keep .the stairway and landing in suitable repair for use.",
+      "supports": [
+       "holding_summary"
+      ],
+      "status": "verified",
+      "raw_span": [
+       3441,
+       3579
+      ],
+      "reporter_page": "358"
+     }
+    ],
+    "holding_summary": "A landlord let three rooms of a rear tenement house to a tenant, with access by an outside stairway and landing not included in the letting. Because only the rooms themselves were hired, the landlord retained control of the stairway and landing and owed a duty of reasonable care to keep them in repair. The dismissal of a visitor's negligence complaint, for supposed lack of proof of retained control, was reversed.",
+    "nulled_fields": [],
+    "other_reasons": [
+     "flags: needs-review:polarity",
+     "current values: relevant=True polarity=None who=unclear characterization=lease",
+     "FIRST PASS (Claude, full opinion read): set -> adverse [medium confidence] — A retained-control repair duty raised by law against the letting owner is the codebook's 'habitability duties' pattern; nothing in the opinion affirms her freedom to let as a holding."
+    ],
+    "fuzzy": [],
+    "disagreements": [],
+    "values": {
+     "relevant": true,
+     "polarity": null,
+     "who_was_letting": "unclear",
+     "duration_of_occupancy": "unclear",
+     "characterization": "lease",
+     "under_thirty_days": null,
+     "owner_freedom_characterization": null,
+     "restriction_nature": null,
+     "holding_summary": "A landlord let three rooms of a rear tenement house to a tenant, with access by an outside stairway and landing not included in the letting. Because only the rooms themselves were hired, the landlord retained control of the stairway and landing and owed a duty of reasonable care to keep them in repair. The dismissal of a visitor's negligence complaint, for supposed lack of proof of retained control, was reversed."
+    },
+    "extraction_status": "ok"
+   },
+   {
+    "case_id": 1177933,
+    "cite": "Wasserstein v. Gabel, 52 Misc.2d 199 (N.Y. 1966)",
+    "court": "Supreme Court, Special Term, Kings County",
+    "jur": "N.Y.",
+    "name": "Wasserstein v. Gabel",
+    "year": 1966,
+    "decide_field": "who_was_letting",
+    "reason": "gate_erased",
+    "section": "E",
+    "quotes": [],
+    "holding_summary": null,
+    "nulled_fields": [],
+    "other_reasons": [
+     "flags: needs-review:who_was_letting",
+     "current values: relevant=True polarity=mixed who=unclear characterization=None",
+     "FIRST PASS (Claude, full opinion read): set -> commercial_operator [low confidence] — Low confidence: a former rooming house converted to a five-unit multiple dwelling held wholly for rent income is a letting enterprise, and non_resident_owner is confined to a single dwelling."
+    ],
+    "fuzzy": [],
+    "disagreements": [],
+    "values": {
+     "relevant": true,
+     "polarity": "mixed",
+     "who_was_letting": "unclear",
+     "duration_of_occupancy": "unclear",
+     "characterization": null,
+     "under_thirty_days": null,
+     "owner_freedom_characterization": null,
+     "restriction_nature": null,
+     "holding_summary": null
+    },
+    "extraction_status": "ok"
+   },
+   {
+    "case_id": 3313366,
+    "cite": "92 A.D.2d 452",
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "name": "Abright v. Shapiro",
+    "year": 1983,
+    "decide_field": "polarity",
+    "reason": "gate_erased",
+    "section": "E",
+    "quotes": [
+     {
+      "supports": [
+       "polarity",
+       "restriction_nature",
+       "owner_freedom_characterization"
+      ],
+      "text": "use of these apartments for professional purposes is in violation of the certificate of occupancy and zoning resolution inasmuch as the building is zoned class A, residential apartments",
+      "status": "verified",
+      "raw_span": [
+       1375,
+       1560
+      ],
+      "reporter_page": "452"
+     },
+     {
+      "supports": [
+       "holding_summary"
+      ],
+      "text": "There is a question of fact as to whether the professional use of these apartments is merely peripheral to a primary residential use",
+      "status": "verified",
+      "raw_span": [
+       3870,
+       4002
+      ],
+      "reporter_page": "453"
+     },
+     {
+      "supports": [
+       "characterization",
+       "under_thirty_days"
+      ],
+      "text": "It is undisputed that each lease provides that occupancy is “for professional use only”",
+      "status": "verified",
+      "raw_span": [
+       2674,
+       2761
+      ],
+      "reporter_page": "453"
+     }
+    ],
+    "holding_summary": "Whether apartments let for professional use retain residential character under the zoning resolution and are rent stabilized presents a question of fact precluding summary judgment; denial of the landlord's injunction is conditioned on tenants paying current rent and arrears.",
+    "nulled_fields": [],
+    "other_reasons": [
+     "flags: needs-review:polarity",
+     "current values: relevant=True polarity=mixed who=non_resident_owner characterization=lease",
+     "FIRST PASS (Claude, full opinion read): set -> None [medium-high confidence] — Mixed requires two holdings; here summary judgment was denied on a fact question and the injunction merits expressly await trial, the payment condition being status-quo relief only."
+    ],
+    "fuzzy": [],
+    "disagreements": [],
+    "values": {
+     "relevant": true,
+     "polarity": "mixed",
+     "who_was_letting": "non_resident_owner",
+     "duration_of_occupancy": "months",
+     "characterization": "lease",
+     "under_thirty_days": "no",
+     "owner_freedom_characterization": "regulable_privilege",
+     "restriction_nature": "zoning",
+     "holding_summary": "Whether apartments let for professional use retain residential character under the zoning resolution and are rent stabilized presents a question of fact precluding summary judgment; denial of the landlord's injunction is conditioned on tenants paying current rent and arrears."
+    },
+    "extraction_status": "ok"
+   }
+  ]
+ },
+ "deferred": [],
+ "fuzzy_auto_accepted": [
+  {
+   "supports": [
+    "under_thirty_days",
+    "characterization"
+   ],
+   "text": "“Transient” means any person who exercises occupancy or is entitled to occupancy by reason of concession, permit, right of access, license or other agreement for a period of less than thirty consecutive calendar days",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    7917,
+    8133
+   ],
+   "reporter_page": "549",
+   "fuzzy_score": 99.07407407407408,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 6047737,
+   "source": " house, dormitory, public or private club, mobile-home or house trailer at a fixed location, or other similar structure or portion thereof.\" \" 'transient' means any person who exercises occupancy or is entitled to occupancy by reason of concession, permit, right of access, license or other agreement for a period of less than thirty consecutive calendar days, counting portions of calendar days as full days, any such person so occupying a space in a hotel shall be deemed a transient until the period has expired unless there is an agreement in wri",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "holding_summary",
+    "polarity"
+   ],
+   "text": "we now hold that a minor is not a tenant under the Rent Ordinance provisions that pertain to Ellis Act evictions",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    1823,
+    1935
+   ],
+   "reporter_page": "506",
+   "fuzzy_score": 99.09909909909909,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 12451336,
+   "source": "itled to a relocation payment pursuant to section 37.9a(e)(3)(a) of the san francisco rent ordinance.\" we accepted transfer of this case and now hold that a minor is not a tenant under the rent ordinance provisions that pertain to ellis act evictions. ii. statutory overview a. two statutory schemes in 1979, the san francisco board of supervisors enacted the rent ordinance \" 'because the lack of affordable rental hous",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "under_thirty_days"
+   ],
+   "text": "It wa,s leg,sed to the defendants by the former owner for a term commencing July 1, 1941, and expiring September 30, 1946, at an animal rental of $3,300 payable at the rate of $275 per month.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    590,
+    781
+   ],
+   "reporter_page": "100",
+   "fuzzy_score": 99.47643979057592,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.973,
+   "miss_runs": [
+    3,
+    2
+   ],
+   "case_id": 5347495,
+   "source": " premises under an expired lease from the plaintiffs' predecessor in title. the building in question is a converted private dwelling consisting of five apartments. it was leg,sed to the defendants by the former owner for a term commencing july 1, 1941, and expiring september 30, 1946, at an animal rental of $3,300 payable at the rate of $275 per month. the defendants occupy one apartment for their own dwelling purposes and sublet the other apartments apparently unfurnished at rentals aggregating more than $275 pe",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "under_thirty_days"
+   ],
+   "text": "The premises of which possession is sought were occupied by the defendant as a tenant of the plaintiffs",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    1614,
+    1717
+   ],
+   "reporter_page": "255",
+   "fuzzy_score": 99.02912621359224,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 510391,
+   "source": "t court the case was tried to a judge without a jury and there was a finding for the plaintiffs for possession. the facts, which are not in dispute, are these. the premises' of which possession is sought were occupied by the defendant as a tenant of the plaintiffs and are \"'controlled housing accommodations' with respect to which a maximum rent is in effect within a 'defense rental area,' all as defined i",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "polarity",
+    "holding_summary",
+    "owner_freedom_characterization"
+   ],
+   "text": "Nothing in N. J. S. A. 40 :55-30, which grants zoning powers to municipalities, authorizes a zoning regulation-limiting the age of those, whether it be individuals or families, who may reside in a structure, be it a house or mobile home, otherwise permitted in a particular zoning district.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    5154,
+    5444
+   ],
+   "reporter_page": "380",
+   "fuzzy_score": 99.6551724137931,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.996,
+   "miss_runs": [
+    1
+   ],
+   "case_id": 298727,
+   "source": ", and those under that age but over 18 years old who are members of a family \"the head of which, or his spouse, is 52 years of age or over.\" hothing in n. j. s. a. 40 :55-30, which grants zoning powers to municipalities, authorizes a zoning regulation-limiting the age of those, whether it be individuals or families, who may reside in a structure, be it a house or mobile home, otherwise permitted in a particular zoning district. all that a municipality may validly be concerned with in the exercise of its zoning power is the physical use of lands and structures thereon. bridge park co. v. highland park, 113 n. j. super. 219, 221-222 (ap",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "under_thirty_days",
+    "relevant"
+   ],
+   "text": "The protections afforded by N.J.S.A. 2A:18-61.1 expressly do not apply to a transient or seasonal tenants residing at a hotel, motel or other guest house.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    6794,
+    6948
+   ],
+   "reporter_page": "485",
+   "fuzzy_score": 99.35064935064936,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.993,
+   "miss_runs": [
+    1
+   ],
+   "case_id": 360279,
+   "source": "siding on a week-to-week basis at the passaic y.m.c.a., which plaintiff conceded to be a hotel for purposes of this case.\" id. at 142, 401 a.2d 1124. we also noted that \"[t]he protections afforded by n.j.s.a. 2a:18-61.1 expressly do not apply to a transient or seasonal tenants residing at a hotel, motel or other guest house.\" id. thus, we concurred in the ultimate conclusions of the trial judge \"that plaintiff failed to establish a claim for being locked out of his ro",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "owner_freedom_characterization"
+   ],
+   "text": "N. J. S. A. 40:55-30 does not empower a municipality through zoning to regulate the ownership of buildings or the types of tenancies permitted.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    43162,
+    43305
+   ],
+   "reporter_page": "417",
+   "fuzzy_score": 99.3006993006993,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 873743,
+   "source": "ng regulations. as a matter of fact, the building inspector, marrone, testified that he based his denial of the use on that very ground. the position is not tenable. n. j. s. a. 40:55-308 does not empower a municipality through zoning to regulate the ownership of buildings or the types of tenancies permitted. it is obvious that the statute aforesaid utilizes the word \"use\" solely as a reference to the actual or physical purposes to which land or building",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "owner_freedom_characterization",
+    "polarity"
+   ],
+   "text": "An ordinance is not invalid merely because it does not permit the most lucrative use of property.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    14393,
+    14490
+   ],
+   "reporter_page": "919",
+   "fuzzy_score": 98.96907216494846,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.99,
+   "miss_runs": [
+    1
+   ],
+   "case_id": 7312711,
+   "source": "operty as a single-family residence for many years. howell testified that renting the property as a duplex would not maximize its economic potential, but \"[a]n ordinance is not invalid merely because it does not permit the most lucrative use of property.\" keinath v. township of edgmont, 964 a.2d 458, 463 (pa.cmwlth.), appeal denied, 603 pa. 697, 983 a.2d 730 (2009). in sum, the trust's evidence did",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "characterization",
+    "polarity",
+    "owner_freedom_characterization"
+   ],
+   "text": "he came to lodge with the plaintiff, who kept a student rooming-house",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    5436,
+    5505
+   ],
+   "reporter_page": "602",
+   "fuzzy_score": 97.10144927536231,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.971,
+   "miss_runs": [
+    2
+   ],
+   "case_id": 792065,
+   "source": "the plaintiff was given the life use of one third of the remainder, with remainder over to her son. in september, 1904, charles sold his home, and came to lodge with the plaintiff, who kept a student rooming-house. he later began to take his meals at her table. in the course of time, she, at his request, gave up taking other roomers, and he arranged with her to furni",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "characterization",
+    "owner_freedom_characterization"
+   ],
+   "text": "his wife, by occupying said house as a boarding-house, liad supported and maintained herself and their said children",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    2113,
+    2229
+   ],
+   "reporter_page": "639",
+   "fuzzy_score": 98.68995633187772,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.974,
+   "miss_runs": [
+    3
+   ],
+   "case_id": 6755719,
+   "source": "d said mary remained so occupying, until the i 3th of january, 1814 ; and the defendant, in consideration of the premises, and that his said wife, by occupying said house as a boarding-house, liad supported and maintained herself and their said children, assumed, ac. the other counts were general. where a man, absent from his family, liad knowledge, that his wife was keeping a boarding, house, to support herself and child",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "characterization",
+    "under_thirty_days"
+   ],
+   "text": "Comunidad intended to use the property for low-income housing and sought and received a tax exemption for that purpose.",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    11427,
+    11546
+   ],
+   "reporter_page": "485",
+   "fuzzy_score": 99.15966386554622,
+   "classification": "trivial-ocr",
+   "quote_coverage": 0.983,
+   "miss_runs": [
+    2
+   ],
+   "case_id": 7093127,
+   "source": " comu-nidad's distinct investment-backed expectations when comunidad purchased the complex, it was occupied and did not violate existing fire ordinances. comuni-dad intended to use the property for low-income housing and sought and received a tax exemption for that purpose. subsequently, the city amended the fire ordinances in such a way that makes it economically infeasible for comunidad to operate the complex. \"the existin",
+   "auto_accepted": true
+  },
+  {
+   "supports": [
+    "polarity",
+    "restriction_nature",
+    "owner_freedom_characterization",
+    "holding_summary"
+   ],
+   "text": "It shall be the duty of any owner or agerit for owner of any factory, workshop, tenement house, inn, or public house, if such factory, workshop, tenement house, inn, or public house be more than two stories high, to provide a convenient exit from the different upper stories ■of said building",
+   "status": "verified-fuzzy",
+   "raw_span": [
+    14531,
+    14822
+   ],
+   "reporter_page": "220",
+   "fuzzy_score": 99.65635738831615,
+   "classification": "trivial-ocr",
+   "quote_coverage": 1.0,
+   "miss_runs": [],
+   "case_id": 8841077,
+   "source": "sary -to consider sections 2573 and 2574, revised statutes, relating to the providing of exits from buildings. as enacted april 19, 1883, these sections are as follows. \"section 2573. it shall be the duty of any owner or agerit for' owner of any factory, workshop, tenement house, inn, or public house, if such factory, workshop, tenement house, inn, or public house be more than two stories high, to provide a convenient exit from the different upper stories of said building, which shall be easily accessible in case of fire, and any owner or person having control of any such inn or public house where travelers or boarders are lodged in any ",
+   "auto_accepted": true
+  }
+ ],
+ "checker_path": {
+  "plan": "reread",
+  "worker": "checker",
+  "pin": "codex-cli@-:-",
+  "cases_per_unit": 1,
+  "unit_cap": 258,
+  "sample_pct": 100
+ },
+ "checker_results": "runs/cycle-004-shard-01/review-round-4-checker.json"
+}

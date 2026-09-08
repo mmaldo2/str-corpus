@@ -1,0 +1,51 @@
+[
+ {
+  "case_id": 937195,
+  "field": "who_was_letting",
+  "decision": "keep",
+  "value": null,
+  "note": "The letting at issue is the resident tenants' taking-in of roomers into the apartments they occupy, which is the householder tier; no enterprise and no absentee owner."
+ },
+ {
+  "case_id": 11596913,
+  "field": "characterization",
+  "decision": "set",
+  "value": "lease",
+  "note": "The court construed a declaration right 'to lease or rent', said the units could be occupied by tenants, and adjudicated interference with rental contracts; it never reached lodging or innkeeping."
+ },
+ {
+  "case_id": 1613746,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "The owner won on the letting itself - renting rooms for pay was held not commercial and the tax was refused; the Germantown rule appears only as distinguished precedent, so not mixed."
+ },
+ {
+  "case_id": 10283820,
+  "field": "characterization",
+  "decision": "set",
+  "value": "lease",
+  "note": "The court treats the small house as rented to a tenant and analyses only the duration of that renting; the boarders and roomers were an unrealised plan, not the arrangement at issue."
+ },
+ {
+  "case_id": 7664513,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "A retained-control repair duty raised by law against the letting owner is the codebook's 'habitability duties' pattern; nothing in the opinion affirms her freedom to let as a holding."
+ },
+ {
+  "case_id": 1177933,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "Low confidence: a former rooming house converted to a five-unit multiple dwelling held wholly for rent income is a letting enterprise, and non_resident_owner is confined to a single dwelling."
+ },
+ {
+  "case_id": 3313366,
+  "field": "polarity",
+  "decision": "set",
+  "value": null,
+  "note": "Mixed requires two holdings; here summary judgment was denied on a fact question and the injunction merits expressly await trial, the payment condition being status-quo relief only."
+ }
+]

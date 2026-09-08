@@ -1,0 +1,44 @@
+[
+ {
+  "case_id": 12692177,
+  "field": "holding_summary",
+  "decision": "set",
+  "value": "A parish tax collector sued the operator of the Cajun Hostel - a hostel/guesthouse/bed-and-breakfast furnishing sleeping rooms to transient guests for a fee - and its owner personally for unpaid sales and hotel-occupancy taxes for June 2016 through September 2017. The court of appeal held that the trial court erred in considering the pro se owner's unsworn testimony, because La. R.S. 47:337.61(2) requires all defenses to be filed before the hearing, and that the trial court had never actually ruled on the merits of the summary tax proceeding, leaving the court of appeal without jurisdiction to decide the appeal. The judgment was reversed and the matter remanded for a rehearing, so the tax liability was left undecided.",
+  "note": "Written from the court's disposition (no merits ruling below, hence no appellate jurisdiction) because every quote on the record is from the collector's petition, not the court."
+ },
+ {
+  "case_id": 5289134,
+  "field": "holding_summary",
+  "decision": "set",
+  "value": "Affirming the conviction of an owner-occupant who refused the mayor's order to remove from a house she kept as a house of assignation, the court held that the city's chartered power to regulate, exclude, and close such houses carried the power to require their occupants to leave, with fine and imprisonment as a competent sanction. That the keeper owned the house was no defense: the ordinance took no property but merely forbade a use of it inconsistent with public order and morals, an exercise of the police power to which even the most absolute rights of property are subject. Enforcement by a competent tribunal, after a contradictory hearing and on proof of the prohibited use, satisfied due process.",
+  "note": "Police-power closure of an owner-kept house of assignation sustained; ownership no defense, and due process satisfied by hearing and proof."
+ },
+ {
+  "case_id": 10296227,
+  "field": "holding_summary",
+  "decision": "set",
+  "value": "A guest at the Adolphus Hotel sued for $683 in cash and jewelry stolen from his room, and the hotel invoked article 4592's $50 cap for keepers who maintain a safe and \"suitable locks or bolts\" on guest-room doors. The court held that although the statute requires only one suitable lock or bolt, a keeper who chooses to install both must keep each of them suitable and safe; because the hotel's night bolt - the one the guest reasonably chose to use - was defective and could be opened from outside with a thumb, the hotel had not complied and could not limit its liability. Negligence followed as a matter of law and the guest's full judgment was affirmed.",
+  "note": "The holding is the construction of article 4592 against the keeper - install both a lock and a bolt and each must be suitable - not the statute the record's only quote reproduces."
+ },
+ {
+  "case_id": 2186819,
+  "field": "characterization",
+  "decision": "set",
+  "value": "lease",
+  "note": "Restores the human adjudication 'characterization -> lease' that the fuzzy-quote-removal cascade nulled; the court's language is leasehold throughout and a supporting quote is already on the record."
+ },
+ {
+  "case_id": 5607484,
+  "field": "holding_summary",
+  "decision": "set",
+  "value": "Parents of an injured child sued the non-resident owners of a Shreveport house in tort after the child rolled against an unfastened window screen and fell; the room was in a part of the premises that the owners' lessee had sublet to the plaintiffs. The court affirmed judgment for the owners, holding that under Civil Code article 2716 fastening the screen with a hook was a repair chargeable to the tenant rather than to the lessor, so the owners were not liable even assuming the unfastened screen was negligence and the proximate cause of the injury. It also held that the court had jurisdiction in rem despite an insufficient attachment bond, which Act 119 of 1916 allowed to be amended, and that attachment lies against non-residents on an unliquidated tort claim.",
+  "note": "Owners not liable because Civil Code article 2716 charges the tenant with fastening the screen; attachment jurisdiction upheld despite the defective bond."
+ },
+ {
+  "case_id": 6924541,
+  "field": "characterization",
+  "decision": "keep",
+  "value": null,
+  "note": "The court expressly treated the hotel-or-dormitory dispute as immaterial and reasoned in the alternative, assuming the innkeeper standard arguendo, so it made no classification."
+ }
+]
