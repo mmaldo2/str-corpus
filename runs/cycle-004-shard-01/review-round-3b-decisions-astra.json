@@ -1,0 +1,1038 @@
+[
+  {
+    "case_id": 12515449,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "unclear",
+    "note": "The opinion says only that the prior buyers \"used the property as a residence\" before they \"later sold the property to real parties in 2013\"; it never says whether the real parties who sought to resume the bed-and-breakfast operation lived there."
+  },
+  {
+    "case_id": 7291235,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court says \"the trial court dismissed the Westons' appeal without consideration of the merits\" and itself decided only notice and standing, so the room-rental issue is background to a procedural holding."
+  },
+  {
+    "case_id": 1451918,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court held only that \"a cause of action is properly pleaded\" in the taxpayer suit and said whether the properties are row houses \"is, of course, a question for determination in the trial court\"; it did not decide the legality or character of any compensated occupancy."
+  },
+  {
+    "case_id": 3313366,
+    "field": "polarity",
+    "decision": "unsure",
+    "value": null,
+    "note": "The landlords' \"right to an injunction ... must await a trial of the facts,\" and the required payments were expressly \"if only to maintain the status quo until rendition of a final judgment\"; the opinion makes no final merits holding that fixes owner-side polarity."
+  },
+  {
+    "case_id": 4650394,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The prosecution concerned premises \"knowingly permitted to be used as a place in which prostitutes resorted and resided for the purpose of plying their vocation\"; the opinion contains no compensated dwelling or room occupancy."
+  },
+  {
+    "case_id": 4651092,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The actual dispute was whether the resident accountant could maintain a sign and \"carrying on at said location the business so advertised\"; hotels and rooming houses appear only as comparator uses in the zoning analysis."
+  },
+  {
+    "case_id": 5673670,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The parties were association members who \"lease lots in the campground on a long-term basis,\" and the holding construes a campsite-use restriction; no compensated occupancy of another's dwelling or rooms is at issue."
+  },
+  {
+    "case_id": 6712248,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The opinion states that \"the crucial question is whether or not the terminals, if sold, would be subject to the sales tax\" and adjudicates use tax on reservation equipment; the statutory treatment of motel room rentals as retail sales is a premise for the equipment exemption, not an adjudication of tax or regulation on paid occupancy."
+  },
+  {
+    "case_id": 8274930,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The owners executed \"a lease for a period of 42 months\" of building floors to a business operator, and \"the property was used by the lessee as a hotel and rooming house\"; this is a commercial-property rent and lien dispute, not a guest-occupancy case."
+  },
+  {
+    "case_id": 8734265,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The opinion states that the owner rented \"a building in this city used as a garage\" and decides execution against a sublessee's goods, with no dwelling or room occupancy."
+  },
+  {
+    "case_id": 31885,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion says the householder \"from time to time ... almost continuously had visitors\" who contributed to costs, but gives no actual length of any paying guest's occupancy."
+  },
+  {
+    "case_id": 33806,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The defendants continued the business \"throughout the months of July, August and part of September, 1926,\" but that is the operation period and the opinion gives no actual guest's stay length."
+  },
+  {
+    "case_id": 36190,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The pleading says \"boarders and lodgers are accepted by them at stipulated prices,\" but the full opinion supplies no dates or duration for an actual occupancy."
+  },
+  {
+    "case_id": 65192,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The facts say only that \"upon the erection of her house, the plaintiff conducted therein the business of a boarding house\" and never state how long any boarder actually occupied a room."
+  },
+  {
+    "case_id": 73056,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The lodger contracted \"to pay a certain price per week for the room and its furnishings and the care of it,\" but weekly pricing does not establish the actual occupancy duration."
+  },
+  {
+    "case_id": 95902,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The evidence says the house \"had been kept as a boarding house\" for mechanics, but the full opinion gives no length of stay for any boarder."
+  },
+  {
+    "case_id": 99822,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court says \"the more serious question in the case is with reference to the use of the lot upon the seashore\" for bathing facilities; boarding houses are hypothetical comparators, and the actual club-house record describes members, meals, and friends without establishing compensated occupancy of rooms."
+  },
+  {
+    "case_id": 103250,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The relators intended to offer facilities \"to guests during the summer seasons,\" which describes the proposed operating season rather than the duration of any actual occupancy."
+  },
+  {
+    "case_id": 103315,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The owner sought a permit \"to construct partitions for living quarters\" in the unused half of a carriage house; the opinion describes no compensated occupant, rental, or letting arrangement."
+  },
+  {
+    "case_id": 112397,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion says only that the lease was discovered in 1997; it gives no actual occupancy dates or lease term."
+  },
+  {
+    "case_id": 139099,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The holding is limited to District Court jurisdiction over a possession action; the premises and paid occupancy arrangement are not described."
+  },
+  {
+    "case_id": 139129,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The owner had rented rooms since 1936, but that is the duration of the use; no lodger's actual stay or term is given."
+  },
+  {
+    "case_id": 141226,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "This was a prospective application to use the dwelling as a boarding house, with no occupant or proposed stay term identified."
+  },
+  {
+    "case_id": 158498,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The agent rented the house knowing its intended use, but the opinion gives no lease term or actual occupancy dates."
+  },
+  {
+    "case_id": 158704,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The dispute concerns enforcement of a deed covenant against using part of the owner's own dwelling as a meat market, not compensated occupancy."
+  },
+  {
+    "case_id": 162393,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The proof says the boarding-house use predated the ordinance, but supplies no actual boarder or roomer stay length."
+  },
+  {
+    "case_id": 163811,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The case decides sewer-connection rates and a year-to-year sewer license; hotel and boarding-house rooms appear only in the rate schedule."
+  },
+  {
+    "case_id": 189066,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court decided partnership and title claims between family members; operation and leasing of the boarding-house properties were evidentiary background."
+  },
+  {
+    "case_id": 192336,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The demised premises were a manufacturing plant with machinery and gas works, and the holding concerns a commercial holdover penalty."
+  },
+  {
+    "case_id": 223677,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The actual lease term is absent; the opinion's reference to a weekly tenancy is an illustration from another authority."
+  },
+  {
+    "case_id": 282811,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "Stewart only proposed to rent the second-floor residence after moving; no tenant, stay, or lease term is stated."
+  },
+  {
+    "case_id": 292873,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The holding concerns forfeiture pleading under a liquor-license screen clause; guest-room capacity merely defines a liquor-law exemption."
+  },
+  {
+    "case_id": 299096,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The permit directly authorizes a supplemental apartment with storage 'for storage use by tenants,' but no actual or proposed tenancy term appears."
+  },
+  {
+    "case_id": 300609,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The inn's seventy-five-year operation is business age, and the proposed motor inn supplies no actual guest stay or term."
+  },
+  {
+    "case_id": 302854,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court decided only a justice's summary-ejectment jurisdiction for covenant breach; boarding and lodging were incidental permitted uses in the lease."
+  },
+  {
+    "case_id": 304751,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The premises had been a small summer hotel, but that seasonal use does not establish any lodger's actual stay length."
+  },
+  {
+    "case_id": 310534,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The only transaction was sale of a vacant, boarded-up, uninhabitable structure; rental language appears solely in the ordinance's general scope."
+  },
+  {
+    "case_id": 325829,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion concerns the procedure for an inn-and-tavern license and contains no guest stay or occupancy term."
+  },
+  {
+    "case_id": 330031,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The proposed nursing home would provide lodging and meals for compensation, but no patient occupancy term or actual stay is stated."
+  },
+  {
+    "case_id": 333423,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The case decides damages for a landlord's wrongful distress against a commercial tenant; her boarding-house business is incidental to that remedy."
+  },
+  {
+    "case_id": 333498,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The same tenant had kept the house as a brothel for the two antecedent years, and the charged act was continuing that tenancy."
+  },
+  {
+    "case_id": 339102,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The wife boarded until she left, but the opinion provides no arrival date, departure date, or agreed term."
+  },
+  {
+    "case_id": 359533,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The convictions and holdings concern unlicensed beer sales; the inn-and-tavern license is only a rejected defense to the saloon offense."
+  },
+  {
+    "case_id": 363135,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion dates the rooming-house business and its four-year closure, but gives no actual roomer's or apartment tenant's stay."
+  },
+  {
+    "case_id": 365969,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The dwelling was occupied by others 'in the summer of 1948,' but no occupant's actual lease term or stay dates are given."
+  },
+  {
+    "case_id": 376206,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court decided that a liquor license was personal and could not pass with a house lease; traveler accommodations were only licensing background."
+  },
+  {
+    "case_id": 377852,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The actual tenants' terms are unstated; the opinion's one-year lease and renewal discussion is a hypothetical rule about landlord knowledge."
+  },
+  {
+    "case_id": 382970,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The premises were restricted to use as a drugstore, and the holding concerns assignment of a commercial lease rather than dwelling occupancy."
+  },
+  {
+    "case_id": 385390,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The evidence gives a weekly rental rate, which is a price interval; it gives no actual stay or agreed occupancy term."
+  },
+  {
+    "case_id": 394781,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The landlord-roomer relationship only supplies facts for a slander privilege holding; the court does not decide the letting's character or regulation."
+  },
+  {
+    "case_id": 396332,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The holding concerns confrontation evidence and scienter for keeping a house of ill fame; the leased rooming house is only the crime scene, not a paid-occupancy issue."
+  },
+  {
+    "case_id": 398494,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The occupied premises were a commercial store used for automobile storage and sales, not a dwelling or rooms."
+  },
+  {
+    "case_id": 426862,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion says the house accommodated 'six or seven boarders' but gives no boarder's actual stay or term; the 1929 dates concern the permit."
+  },
+  {
+    "case_id": 445696,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion describes 'various persons at various times' and a 27-year property use, but never states any individual family's or boarder's actual stay."
+  },
+  {
+    "case_id": 445765,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The tenant occupied for many years, but the occupancy at issue was her boarders and the opinion gives none of their actual terms."
+  },
+  {
+    "case_id": 448181,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The case concerns a proposed boarding-house license for a 28-room residence and supplies no actual boarder stay or term."
+  },
+  {
+    "case_id": 452443,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The owners had leased the tenement house to Kopel, but the opinion states no lease term or occupant's actual duration."
+  },
+  {
+    "case_id": 497043,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The case classifies lessee-built summer cottages as real estate for tax purposes; it concerns ground leases and fixtures, not paid occupancy of another's dwelling."
+  },
+  {
+    "case_id": 498275,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court reviewed discretion to license a maternity hospital or lying-in place, a regulated medical business, without addressing paid lodging."
+  },
+  {
+    "case_id": 510363,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion identifies an existing 33-room rooming house and a proposed apartment conversion but gives no occupant's actual stay or term."
+  },
+  {
+    "case_id": 573315,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The repair delay 'caused her to lose many boarders,' making paid room occupancy part of the damages holding, but the court never frames the owner's liberty to let."
+  },
+  {
+    "case_id": 658057,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The zoning opinion addresses whether two structures could be separate family residences, but never says any family paid for occupancy or characterizes a letting."
+  },
+  {
+    "case_id": 673356,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion concerns an SRO conversion moratorium and lost profits, but identifies no occupant and no actual stay or term."
+  },
+  {
+    "case_id": 674471,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The opinion concerns official discretion over a tavern license and retail liquor; it mentions no guest rooms or compensated occupancy."
+  },
+  {
+    "case_id": 745450,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The statute allowed sale after debt remained unpaid for sixty days, but that collection period does not establish the boarder's actual stay."
+  },
+  {
+    "case_id": 748799,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The holding decides a married woman's liability on a note for her husband's debts; her boarding income and business are incidental background."
+  },
+  {
+    "case_id": 759940,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The contract guaranteed 100 boarders daily at a weekly price, but neither the billing units nor the project's span states any worker's actual stay."
+  },
+  {
+    "case_id": 759990,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The case decides the proof required for keeping a house of ill fame and contains no evidence of renting rooms or other paid occupancy."
+  },
+  {
+    "case_id": 772062,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The four boarding suites were only proposed, and the opinion gives no actual or planned occupancy term for any boarder."
+  },
+  {
+    "case_id": 775033,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "All eighteen rooms were separately leased and occupied, but the 1966-1982 case chronology never supplies any tenant's actual term."
+  },
+  {
+    "case_id": 778541,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The lease allowed subletting rooms and the proof concerned winter vacancies, but no lodger's actual stay or agreed term appears."
+  },
+  {
+    "case_id": 782643,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court held a liquor and grocery shop could be a statutory 'house'; the rooms were commercial and no paid residential occupancy was involved."
+  },
+  {
+    "case_id": 785037,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The injunction enforced a land-map covenant against leasing camp blocks for lessee-built cottages; it did not concern paid occupancy of another's dwelling or rooms."
+  },
+  {
+    "case_id": 809816,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The lifetime board-and-maintenance bargain is consideration in a mortgage-assignment fraud case; the opinion decides the assignment and accounting, not paid occupancy's legal character or regulation."
+  },
+  {
+    "case_id": 812037,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The issue is a creditor's attack on a husband-to-wife conveyance; taking boarders is expressly treated as a 'mere incident of the housekeeping.'"
+  },
+  {
+    "case_id": 828836,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The case concerns a corporation's power to lease an entire hotel and enforce rent guaranties; guest occupancy is not examined."
+  },
+  {
+    "case_id": 831602,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The holding classifies family furniture under a small-loan chattel-mortgage statute; the boarding house is only the furniture's setting."
+  },
+  {
+    "case_id": 853105,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court decides spouses' shares in property bought from pooled business earnings; keeping lodgers and boarders merely identifies the income source."
+  },
+  {
+    "case_id": 861454,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The guests were described only as 'more or less regular' patrons; weekly income figures and the operator's two-year tenancy do not establish any guest's stay."
+  },
+  {
+    "case_id": 871661,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "the SRO opinion describes Room 512 and occupancy-space rules but gives no occupant's actual stay, term, or dates"
+  },
+  {
+    "case_id": 883311,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "the widow kept a grocery visited for drinking and assignation; the opinion contains no paid occupancy of rooms or dwelling"
+  },
+  {
+    "case_id": 903598,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "the holding turns on whether a restaurant is a prohibited store; the guest house and garage rental are incidental neighborhood examples"
+  },
+  {
+    "case_id": 910407,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "the proposed 59-family apartment house is treated as residential rental use, but no tenant's actual stay or lease term is stated"
+  },
+  {
+    "case_id": 911026,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "the challenged by-law limits how many condominium units one person may own; tenant transiency and leasing appear only as rationale and comparison"
+  },
+  {
+    "case_id": 914577,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "the opinion says the rooming house was occupied by about 500 people but supplies no actual stay, term, or occupancy dates"
+  },
+  {
+    "case_id": 918256,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "the holding concerns constructive possession of drugs; weekly bedroom subletting is only factual substrate for access and control"
+  },
+  {
+    "case_id": 923102,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "the rooming-house business operated during 1938 and 1939, but the opinion gives no individual boarder's actual stay or term"
+  },
+  {
+    "case_id": 923611,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "the statutory tenancy concerns commercial display windows, not occupancy of a dwelling or rooms"
+  },
+  {
+    "case_id": 923655,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "the entire furnished-room building was leased as housing accommodations, but the opinion states no actual occupancy duration or lease term"
+  },
+  {
+    "case_id": 937048,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "the required notice to cure directly conditions eviction over regulated single-room occupancy, but the opinion gives no occupant's actual stay or term"
+  },
+  {
+    "case_id": 964124,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "the owners rented single-family homes, but no actual rental term is given; the one-day-to-one-month terms belong to a cited precedent"
+  },
+  {
+    "case_id": 966298,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "the case decides whether a deed permits a duplex for two families; paid occupancy appears only in a cited room-rental precedent"
+  },
+  {
+    "case_id": 967596,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "the holding is solely the evidentiary effect of an earlier judgment; the weekly board-and-lodging claim supplies the factual setting"
+  },
+  {
+    "case_id": 976937,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "the tenant-protection case states an eviction date and prosecution dates but gives no duration of the evicted roomer's actual stay"
+  },
+  {
+    "case_id": 987090,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "the maximum-rent review identifies designated rooming-house accommodations but states no occupant's actual stay or term"
+  },
+  {
+    "case_id": 991275,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "the dispute concerns construction of a two-family house; renting rooms to lodgers is discussed only through a distinguishable precedent"
+  },
+  {
+    "case_id": 1001972,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "the permit dispute concerns conversion to a restaurant and beer garden; the ordinance's room-rental limit is incidental and no lodging occurred"
+  },
+  {
+    "case_id": 1005186,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "the zoning decision conditions two dwelling units and an antiques store on owner residence and contains no compensated occupancy"
+  },
+  {
+    "case_id": 1035894,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "the decision concerns a purchaser's rights in a tenancy-by-the-entirety estate; paying boarders appear only as a source of incidental rents"
+  },
+  {
+    "case_id": 1044524,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "the jury could find a sham sale concealed a lease for immoral use, but the opinion gives no occupant's actual stay or lease term"
+  },
+  {
+    "case_id": 1047308,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "the case classifies a licensed nursing home with twenty beds and staff as a zoning-prohibited business, without any paid dwelling or room arrangement"
+  },
+  {
+    "case_id": 1049565,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "the building's rooms were separately rented before conversion, but the 1943-1954 period describes the building configuration, not any occupant's stay"
+  },
+  {
+    "case_id": 1053881,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "the tenant sublet one room to each of two women, but the inspection date and statutory dates do not establish either woman's actual stay"
+  },
+  {
+    "case_id": 1057932,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "the opinion addresses the legality of overcrowded single-room occupancy but states no occupant's actual duration or term"
+  },
+  {
+    "case_id": 1058027,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "the constitutional zoning challenge concerns whether land may be developed with multiple dwellings and never presents compensated occupancy"
+  },
+  {
+    "case_id": 1062032,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion concerns prospective tenant selection and gives no actual tenant stay or term."
+  },
+  {
+    "case_id": 1070446,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The rooming-house code case describes hazards and operation for pecuniary gain but no occupant's stay or term."
+  },
+  {
+    "case_id": 1073934,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The holding only permits a plenary declaratory action instead of administrative and article 78 review; it does not decide the hotel's letting rights or regulation."
+  },
+  {
+    "case_id": 1073969,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion decides establishment-wide rent-control coverage and mentions a statutory continuous-occupancy category, but gives no actual stay or term for the occupancy at issue."
+  },
+  {
+    "case_id": 1097892,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The motels housed homeless people in 'temporary placement,' but the opinion supplies no actual duration for any placement."
+  },
+  {
+    "case_id": 1114470,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The action decides environmental, Fair Share, and land-use review procedure for a nonprofit homeless facility; no compensated room occupancy or letting rule is adjudicated."
+  },
+  {
+    "case_id": 1132401,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The dispute concerns generic construction of a proposed apartment building and garage; the opinion identifies no rental, tenant, or other compensated occupancy."
+  },
+  {
+    "case_id": 1181805,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The residential portion was 'occupied by a tenant,' but the opinion states no rental term or dates."
+  },
+  {
+    "case_id": 1194027,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The decision permits termination of SRO residential tenancies for demolition but gives no tenant's actual stay or lease term."
+  },
+  {
+    "case_id": 1196702,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The stipulated fact is only that the house was 'occupied by more than one family'; the opinion never establishes compensated occupancy or a letting."
+  },
+  {
+    "case_id": 1197282,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The deed-covenant case describes only a planned conversion into four or five apartments and never identifies rental, tenants, or compensation."
+  },
+  {
+    "case_id": 1213317,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The injunction construes 'one residence only' against a proposed two-family conversion; it does not involve an actual paid occupancy."
+  },
+  {
+    "case_id": 1228422,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The two-year agreement and post-1948 'continued' occupancy describe the permitted or unlawful multiple-dwelling use; they do not establish any individual paying occupant's stay."
+  },
+  {
+    "case_id": 1238475,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The plaintiff was a former hotel guest locked out for nonpayment, but the opinion gives no dates or length of her stay."
+  },
+  {
+    "case_id": 1242289,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The rooming house had about 25 current residents in separate rooms, but their actual stays are not dated or otherwise quantified."
+  },
+  {
+    "case_id": 1244251,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "This sequel decides insurers' duty to defend and whether permit-compliance costs are damages; it says the rental-restriction preemption issue was decided in Bullock I."
+  },
+  {
+    "case_id": 1260640,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The conviction turns on noisy dances, drinking, and fighting constituting a public nuisance; the boarding house is only the setting for disorderly-house law."
+  },
+  {
+    "case_id": 1280676,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The property had been used as a rooming house since before 1957, but that business-use history gives no actual roomer's stay or term."
+  },
+  {
+    "case_id": 1293519,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "Inspection and construction dates establish whether six statutory guest rooms existed, not the length of any guest's actual occupancy."
+  },
+  {
+    "case_id": 1294745,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The three-years-later motion is resolved solely by de facto-judge and collateral-review rules; the underlying room-rental conviction is procedural background."
+  },
+  {
+    "case_id": 1312685,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court decides who may enforce a deed restriction against apartment or boarding-house purposes; the actual challenged use was a convent, not paid occupancy."
+  },
+  {
+    "case_id": 1318294,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The demurrer assumes use as a rooming or boarding house but supplies no boarder's or roomer's stay, dates, or term."
+  },
+  {
+    "case_id": 1320095,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The two-year lease was the operator's lease of the premises; the opinion gives no actual lodging guest's duration."
+  },
+  {
+    "case_id": 1321710,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The holding defines beer furnished with meals as a liquor sale; the defendant's boarding-house operation is incidental to that licensing offense."
+  },
+  {
+    "case_id": 1325576,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The realty-company operators sought a trailer-camp license, but the opinion states no occupant's actual or proposed stay; the ordinance's licensing provisions supply no stay length."
+  },
+  {
+    "case_id": 1336718,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "Room rentals supply a damages theory, but the holding only bars the lower court from reviewing an approved telephone-utility rule."
+  },
+  {
+    "case_id": 1354346,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The will permits the widow and daughter to rent any part of the home, but the opinion identifies no actual renter or occupancy term."
+  },
+  {
+    "case_id": 1366483,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The proposed conversion to a 'personal care boarding home' makes occupancy regulation central, but the opinion gives no resident stay or term."
+  },
+  {
+    "case_id": 1377382,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The future leasing of low-rent units is only the project rationale in deciding whether condemning the plaintiff's land serves a public use; no occupancy arrangement or rental right is adjudicated."
+  },
+  {
+    "case_id": 1420582,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The dispute directly concerns the tenants' controlled apartment, but '$10 per week' is only the rent rate and the opinion gives no stay or lease term."
+  },
+  {
+    "case_id": 1457957,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The ordinance directly regulates rental of dwelling units, yet the facial challenge involves no actual renter, stay, or lease term."
+  },
+  {
+    "case_id": 1472274,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The eighty-four sleeping rooms were rented to members, but the cited ten months concerns cafeteria operations and supplies no individual room occupancy term."
+  },
+  {
+    "case_id": 1504200,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The case concerns duties arising from a leased dwelling, but the opinion never states the tenant's lease term or dates of occupancy."
+  },
+  {
+    "case_id": 1525792,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The court says the 'sole question' is whether a hotel liquor license violates a deed restriction; no compensated lodging occupancy is at issue."
+  },
+  {
+    "case_id": 1526224,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The owner rented the house to Maloney as a dwelling, but the stated dates concern liquor sales and the opinion gives no tenancy start, end, or term."
+  },
+  {
+    "case_id": 1529380,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "Signs 'offering board and lodging' appear only as neighborhood evidence in a restrictive-covenant suit over the defendant's retail store."
+  },
+  {
+    "case_id": 1549627,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The opinion fixes Mrs. Sherman's actual tenancy and occupancy from October 1906 to June 1907, well over thirty days."
+  },
+  {
+    "case_id": 1568961,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The plaintiff occupied the house when the defendant bought it on June 6, 1946 and did not vacate until May 7, 1947."
+  },
+  {
+    "case_id": 1581855,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The weekly amount is a municipal license fee and seventy days is only a regulatory ceiling; no occupant's actual arrival, departure, or rental term is given."
+  },
+  {
+    "case_id": 1582290,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The action directly concerns rent paid for controlled housing, but the opinion states neither the tenancy dates nor its term."
+  },
+  {
+    "case_id": 1585212,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The garage and tent were rented for living purposes, but 'in summer' describes seasonal use and does not establish any tenant's actual stay or term."
+  },
+  {
+    "case_id": 1604856,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The plaintiff was dining at a restaurant, and innkeeper status was inferred solely from the liquor license; no paid room occupancy was involved."
+  },
+  {
+    "case_id": 1618804,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The holdings determine resulting-trust shares, sale, and accounting from family ownership contributions; room rents are only accounting inputs, and the auditor's rent finding stands because its evidence is absent."
+  }
+]

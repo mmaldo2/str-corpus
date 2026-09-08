@@ -297,6 +297,15 @@ which carry no full text) were HELD OUT with the 93 unsure cards for round 3b, w
 calls need the opinion, not the quotes. Published after 3a: relevant 2,863 (555 human-reviewed,
 2,308 machine-only); favorable 1,290 (265 human-reviewed); mixed 177; favorable householder 324.
 
+Round 3b (applied 2026-09-08, run id map-cycle-004-round-3b, 734 patches, replay ok): the 148 held-out
+cards re-read by GPT Astra with the full opinion text and confirmed by the user — 68 relevance
+overturns (48 of the 55 round-3 candidates confirmed, 7 reinstated as relevant, 20 new among the
+formerly unsure), 69 erased fields left empty because the opinion is silent on them, 3 values set,
+1 still unsure. None of the erased values were restored on the full text: the gate had been right
+to erase them. Published after 3b: relevant 2,795 (634 human-reviewed, 2,161 machine-only); favorable
+1,267 (301 human-reviewed); mixed 170; favorable householder 317 (58 human-reviewed). Round 4 = the
+257 deferred (228 erased fields, 29 fuzzy quotes) and the round-3 unsure card.
+
 ## Limitations
 
 - **D6 window**: three cases carry an excluded field from the pre-map reference adjudication
