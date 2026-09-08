@@ -858,6 +858,35 @@ def test_set_on_holding_summary_accepts_free_text_with_no_vocabulary_check():
     assert ("set", "holding_summary", text) in [(p.op, p.field, p.new) for p in ps]
 
 
+# ----------------------------------------------------- round 3: section-E "unclear" and "keep"
+
+def test_set_under_thirty_days_unclear_is_a_valid_value():
+    """under_thirty_days's own vocabulary is yes|no|unclear|null - the parametrized vocabulary
+    test above only exercises `yes`; `unclear` is the value round 3's E cards write when the
+    surviving quotes and holding summary do not settle under-thirty-days either way."""
+    ps = ap.patches_for([_d(873, "under_thirty_days", "set", "unclear")],
+                        {873: _rec(873, under_thirty_days=None)}, "mmaldo2")
+    assert ("set", "under_thirty_days", "unclear") in [(p.op, p.field, p.new) for p in ps]
+
+
+def test_keep_on_a_section_e_card_leaves_the_null_field_null_and_still_adjudicates():
+    """A section-E card's field is null on the record (the quote gate erased it) - `keep`
+    writes no value patch at all (the field the reviewer is "keeping" is the record's current,
+    already-null value, not the card's `erased_value`), but the case still moves into the
+    human-reviewed tier: a `review.notes` patch records the (null) value as confirmed, any
+    `needs-review:<field>` flag it superseded is cleared, and `review.status` is set to
+    human-adjudicated, exactly as `keep` does for any other field. If leaving the field
+    genuinely empty is not the reviewer's intent, `set` (to the erased value or to something
+    else the quotes support) is the decision that writes a value - `keep` never does."""
+    rec = _rec(874, characterization=None)
+    ps = ap.patches_for([_d(874, "characterization", "keep")], {874: rec}, "mmaldo2")
+    ops = [(p.op, p.field, p.new) for p in ps]
+    assert not any(op == "set" and f == "characterization" for op, f, _v in ops)
+    assert ("set", "review.status", "human-adjudicated") in ops
+    notes = [v for op, f, v in ops if op == "append" and f == "review.notes"]
+    assert any("characterization None confirmed by the reviewer" in n for n in notes)
+
+
 def test_an_unsure_decision_does_not_set_human_adjudicated_status():
     """D3: unsure flags the field for a human and leaves the record machine-only; only keep,
     adopt and set carry the record into the human-reviewed tier."""
