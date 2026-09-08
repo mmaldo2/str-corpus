@@ -342,6 +342,10 @@ def main(argv=None) -> int:
             check_against_queue(decisions, queue_doc)
         except ValueError as exc:
             sys.exit(f"{a.decisions}: {exc}")
+    if not a.checker and a.queue:
+        cand = Path(a.queue).with_name(Path(a.queue).stem + "-checker.json")
+        if cand.exists():
+            a.checker = str(cand)           # the documented default: <queue>-checker.json
     checker = json.loads(Path(a.checker).read_text(encoding="utf-8")) if a.checker else {}
     led = open_ledger(domain=dom)
     head = led.view()

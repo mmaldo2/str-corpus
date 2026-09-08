@@ -1090,3 +1090,19 @@ def test_main_never_reads_map_manifest_or_batches_when_no_section_e_card(tmp_pat
                     "--reader-cache", str(tmp_path / "nope-cache")]) == 0
     cards = json.loads(Path(str(out_stem) + ".json").read_bytes().decode("utf-8"))
     assert "erased_value" not in cards[0]
+
+
+def test_an_adopt_with_a_null_value_passes_vocabulary_validation():
+    """adopt takes the checker's value at apply time, so a null value on the entry is fine;
+    a non-null value on an adopt or a set must still be in the field's vocabulary."""
+    import tools.apply_reference_review as arr
+    ok = arr._decisions_from_list([{"case_id": 1, "field": "relevant", "decision": "adopt",
+                                    "value": None, "note": ""}], fields=("relevant",),
+                                  values={"relevant": frozenset({False})})
+    assert ok and ok[0]["decision"] == "adopt"
+    import pytest
+    with pytest.raises(ValueError):
+        arr._decisions_from_list([{"case_id": 1, "field": "relevant", "decision": "set",
+                                   "value": None, "note": ""}], fields=("relevant",),
+                                 values={"relevant": frozenset({False})})
+

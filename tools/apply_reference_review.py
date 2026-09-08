@@ -121,7 +121,12 @@ def _decisions_from_list(raw, *, fields: Sequence[str],
         # to read such a page would be to skip validation for every field, including the
         # two the reference page does have a vocabulary for.
         allowed = values.get(field)
-        if decision in ("adopt", "set") and allowed is not None and value not in allowed:
+        # `adopt` carries no value of its own (the checker's is looked up at apply time), so a
+        # null value on an adopt is not a vocabulary violation; a non-null one must still fit.
+        if decision == "set" or (decision == "adopt" and value is not None):
+            if allowed is not None and value not in allowed:
+                raise ValueError(f"decision {i}: value {value!r} is not a {field} value")
+        if False:
             raise ValueError(f"decision {i}: value {value!r} is not a {field} value")
         try:
             case_id = int(d["case_id"])
