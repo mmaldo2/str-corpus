@@ -319,6 +319,21 @@ needs-review flag (7 left unsure by the rounds, 6 older flags from Stage 1 and r
 Lesson recorded: the quote gate's erasures were almost always right (10 of 419 erased values were
 restored), and relevance and erased-field calls need the full opinion, not the quotes.
 
+Round 5 (2026-09-08): the 13 records still carrying a needs-review flag — 7 left unsure by the rounds
+and 6 older flags from Stage 1 and reference v2 — were read in full by Claude with a written
+recommendation and confidence per card (runs/cycle-004-shard-01/review-round-5-first-pass.md). Round 5a
+(run id map-cycle-004-round-5, 41 patches): the six high-confidence calls applied on the user's
+confirmation — four holding summaries written from the opinions, Langston v. Maxey's human-set
+characterization restored after a cascade had erased it, Salafian's characterization affirmatively left
+empty. Round 5b (run id map-cycle-004-round-5b, 34 patches): the user decided the remaining seven on the
+page with the recommendations in view, overruling three of them (Peters v. Kelly and Abright v. Shapiro
+kept/set mixed rather than adverse/empty; Wasserstein v. Gabel set householder rather than commercial
+operator). No relevant record carries a needs-review flag any longer: THE CYCLE-004 REVIEW IS COMPLETE.
+
+**Final published counts, 2026-09-08:** relevant 2,716 (821 human-reviewed, 1,895 machine-only);
+favorable 1,229 (379 human-reviewed); mixed 171 (85 human-reviewed); favorable householder 303
+(80 human-reviewed). Before the cycle-004 map the ledger held 693 relevant (133 human-reviewed).
+
 ## Limitations
 
 - **D6 window**: three cases carry an excluded field from the pre-map reference adjudication
