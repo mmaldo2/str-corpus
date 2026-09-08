@@ -23,8 +23,8 @@ def test_the_rename_leaves_the_committed_counts_and_the_replay_untouched(repo_ro
     log = (repo_root / "data" / "ledger" / "patches.jsonl").read_text(encoding="utf-8")
     assert "under_30_days" not in log and "right_characterization" not in log
     v = open_ledger(domain=dom).view()
-    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 2909   # 2911 after round 1b; round 1c overturned 2 more
+    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 2863   # 2909 after round 1c; round 2 overturned relevance on 46
     fav = v.counts(polarity="favorable").total
-    assert fav.human_reviewed + fav.machine_only == 1228   # 1231 after round 1b; round 1c: 2 irrelevant + 1 -> mixed
+    assert fav.human_reviewed + fav.machine_only == 1267   # 1228 after round 1c; round 2 resolved 91 mixed (35 to favorable), 46 overturns
     hh = v.counts(polarity="favorable", who_was_letting="householder").total
-    assert hh.human_reviewed + hh.machine_only == 319    # 325 after round 1; round 1b
+    assert hh.human_reviewed + hh.machine_only == 321    # 319 after round 1c; round 2

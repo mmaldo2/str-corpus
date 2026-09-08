@@ -277,6 +277,16 @@ closed: all 150 cards decided. Published: relevant 2,909 (253 human-reviewed, 2,
 favorable 1,228 (152 human-reviewed); favorable householder 319 (28 human-reviewed). Round 2 =
 the 753 deferred records (sections C-F).
 
+Round 2 (applied 2026-09-07, run id map-cycle-004-round-2, cap 250, 1,207 patches, replay ok): 100
+reader/checker disagreements, 149 polarity-mixed cards and 1 householder card, first pass by GPT
+Astra with the full opinion text (reports/review-round-2-*), confirmed by the user: 46 relevance
+overturns (Codex sided with on 46 of 70 relevance disputes), 24 relevance disputes kept, 17
+checker values adopted, 31 reader values kept, 7 third values set; of the 149 mixed cards only 30
+stayed mixed under the codebook definition and 91 resolved to a side (56 adverse, 35 favorable);
+4 still unsure. Published after round 2: relevant 2,863 (453 human-reviewed, 2,410 machine-only);
+favorable 1,267 (220 human-reviewed); mixed 213; favorable householder 321 (39 human-reviewed).
+Rounds 3-4 = the 503 deferred records (419 gate-erased fields, 29 fuzzy quotes, 55 mixed).
+
 ## Limitations
 
 - **D6 window**: three cases carry an excluded field from the pre-map reference adjudication
