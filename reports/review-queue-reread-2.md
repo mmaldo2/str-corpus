@@ -1,0 +1,116 @@
+# Cycle-004 map review - cycles-001-003-reread
+
+105 cards this round (cap 250); 0 carried to the next round.
+Page: reports/review-queue-reread-2.html (decisions are saved into the page itself).
+
+
+## E. Judged fields erased by the quote gate (88)
+
+- [ ] 3 Liquor Tax Rep. 415 -  [1292156] - decide under_thirty_days reader=None also=-
+- [ ] 6 Daly (N.Y.) 39 -  [1306495] - decide owner_freedom_characterization reader=None also=-
+- [ ] 77 Pa. Commw. 21 -  [1313498] - decide owner_freedom_characterization reader=None also=-
+- [ ] 80 Pa. Commw. 496 -  [1318469] - decide under_thirty_days reader=None also=-
+- [ ] 85 Pa. Commw. 407 -  [1325362] - decide under_thirty_days reader=None also=-
+- [ ] 34 N.Y. Super. Ct. 145 -  [1417306] - decide under_thirty_days reader=None also=-
+- [ ] 167 Pa. Commw. 241 -  [1466737] - decide under_thirty_days reader=None also=-
+- [ ] 15 Daly (N.Y.) 170 -  [1608028] - decide owner_freedom_characterization reader=None also=-
+- [ ] 17 Pa. D. & C.2d 166 -  [1636517] - decide under_thirty_days reader=None also=-
+- [ ] 51 Pa. D. & C.2d 335 -  [1718705] - decide under_thirty_days reader=None also=-
+- [ ] 501 Pa. 224 -  [1782441] - decide under_thirty_days reader=None also=-
+- [ ] 35 Misc. 805 -  [1802225] - decide under_thirty_days reader=None also=-
+- [ ] 9 Abb. Pr. 199 -  [1965708] - decide owner_freedom_characterization reader=None also=fuzzy_quote
+- [ ] 241 N.Y. 288 -  [1973677] - decide under_thirty_days reader=None also=-
+- [ ] 244 N.Y. 42 -  [1977895] - decide under_thirty_days reader=None also=-
+- [ ] 3 N.Y. St. Rep. 588 -  [1978598] - decide owner_freedom_characterization reader=None also=fuzzy_quote
+- [ ] 7 Hill & Den. 428 -  [2046170] - decide owner_freedom_characterization reader=None also=-
+- [ ] 54 Tex. 388 -  [2182800] - decide under_thirty_days reader=None also=-
+- [ ] 118 Tex. 343 -  [2273189] - decide under_thirty_days reader=None also=-
+- [ ] 12 A.D. 258 -  [2293293] - decide under_thirty_days reader=None also=-
+- [ ] 14 A.D. 199 -  [2297464] - decide under_thirty_days reader=None also=fuzzy_quote
+- [ ] 71 Tex. Crim. 206 -  [2385137] - decide under_thirty_days reader=None also=-
+- [ ] 228 A.D. 270 -  [2416382] - decide under_thirty_days reader=None also=-
+- [ ] 129 A.D. 290 -  [2580389] - decide under_thirty_days reader=None also=-
+- [ ] 123 La. 294 -  [2613090] - decide under_thirty_days reader=None also=-
+- [ ] 278 A.D. 384 -  [2823516] - decide under_thirty_days reader=None also=-
+- [ ] 54 N.Y.S. 993 -  [3003000] - decide owner_freedom_characterization reader=None also=-
+- [ ] 89 N.Y.S. 1031 -  [3044113] - decide owner_freedom_characterization reader=None also=-
+- [ ] 159 N.Y.S. 666 -  [3175614] - decide under_thirty_days reader=None also=-
+- [ ] 159 N.Y.S. 947 -  [3187417] - decide owner_freedom_characterization reader=None also=-
+- [ ] 45 A.D.2d 735 -  [3299620] - decide under_thirty_days reader=None also=-
+- [ ] 9 La. App. 732 -  [3325622] - decide owner_freedom_characterization reader=None also=-
+- [ ] 10 La. App. 6 -  [3330724] - decide owner_freedom_characterization reader=None also=-
+- [ ] 114 N.Y.S. 713 -  [3343457] - decide under_thirty_days reader=None also=-
+- [ ] 138 N.Y.S. 53 -  [3407559] - decide under_thirty_days reader=None also=-
+- [ ] 45 N.Y.S. 951 -  [3466253] - decide under_thirty_days reader=None also=-
+- [ ] 43 N.Y.S. 541 -  [3498716] - decide under_thirty_days reader=None also=-
+- [ ] 142 A.D.2d 72 -  [3559534] - decide under_thirty_days reader=None also=-
+- [ ] 102 A.D.3d 637 -  [3710248] - decide under_thirty_days reader=None also=-
+- [ ] 7 Teiss. 415 -  [3754107] - decide owner_freedom_characterization reader=None also=fuzzy_quote
+- [ ] 5 Tex. Ct. App. 89 -  [4417931] - decide under_thirty_days reader=None also=-
+- [ ] 53 How. Pr. 311 -  [4484612] - decide under_thirty_days reader=None also=fuzzy_quote
+- [ ] 60 How. Pr. 339 -  [4530608] - decide under_thirty_days reader=None also=fuzzy_quote
+- [ ] 38 A.D. 515 -  [4652436] - decide under_thirty_days reader=None also=-
+- [ ] 79 N.Y. Sup. Ct. 474 -  [4686927] - decide owner_freedom_characterization reader=None also=-
+- [ ] 208 A.D. 147 -  [4740197] - decide under_thirty_days reader=None also=-
+- [ ] 217 A.D. 406 -  [4797215] - decide under_thirty_days reader=None also=-
+- [ ] 42 Barb. 310 -  [5114921] - decide under_thirty_days reader=None also=-
+- [ ] 9 N.Y.S. 40 -  [5424022] - decide under_thirty_days reader=None also=-
+- [ ] 24 N.Y.S. 821 -  [5438241] - decide owner_freedom_characterization reader=None also=-
+- [ ] 32 N.Y.S. 1088 -  [5442302] - decide owner_freedom_characterization reader=None also=-
+- [ ] 34 A.D.2d 821 -  [5561343] - decide owner_freedom_characterization reader=None also=-
+- [ ] 19 N.Y.S. 220 -  [5627116] - decide owner_freedom_characterization reader=None also=-
+- [ ] 19 N.Y.S. 817 -  [5637610] - decide owner_freedom_characterization reader=None also=-
+- [ ] 56 N.Y.S. 341 -  [5648059] - decide under_thirty_days reader=None also=-
+- [ ] 1 Teiss. 206 -  [6759651] - decide owner_freedom_characterization reader=None also=-
+- [ ] 10 Teiss. 284 -  [6759664] - decide under_thirty_days reader=None also=-
+- [ ] 5 Tex. 11 -  [6767902] - decide under_thirty_days reader=None also=-
+- [ ] 81 So. 3d 994 -  [7022713] - decide under_thirty_days reader=None also=-
+- [ ] 128 N.Y.S. 1077 -  [7672348] - decide under_thirty_days reader=None also=-
+- [ ] 107 N.Y.S. 715 -  [7681755] - decide under_thirty_days reader=None also=-
+- [ ] 70 N.Y.S. 426 -  [7701664] - decide under_thirty_days reader=None also=fuzzy_quote
+- [ ] 5 Pelt. 11 -  [8499979] - decide owner_freedom_characterization reader=None also=-
+- [ ] 3 Pelt. 371 -  [8501237] - decide restriction_nature reader=None also=-
+- [ ] 3 Pelt. 530 -  [8502118] - decide under_thirty_days reader=None also=fuzzy_quote
+- [ ] 36 La. Ann. 247 -  [8503456] - decide under_thirty_days reader=None also=-
+- [ ] 5 Pelt. 846 -  [8503606] - decide under_thirty_days reader=None also=-
+- [ ] 16 N.Y. Sup. Ct. 140 -  [8594047] - decide owner_freedom_characterization reader=None also=-
+- [ ] 2 Mills Surr. 202 -  [8823584] - decide under_thirty_days reader=None also=-
+- [ ] 91 So. 2d 609 -  [9905690] - decide under_thirty_days reader=None also=-
+- [ ] 592 S.W.2d 28 -  [9925389] - decide under_thirty_days reader=None also=-
+- [ ] 546 S.W.2d 384 -  [9937705] - decide under_thirty_days reader=None also=-
+- [ ] 694 S.W.2d 601 -  [9976447] - decide under_thirty_days reader=None also=-
+- [ ] 190 So. 157 -  [10029864] - decide owner_freedom_characterization reader=None also=fuzzy_quote
+- [ ] 32 So. 2d 629 -  [10096991] - decide owner_freedom_characterization reader=None also=-
+- [ ] 440 S.W.2d 354 -  [10136044] - decide under_thirty_days reader=None also=-
+- [ ] 443 S.W.2d 552 -  [10147739] - decide under_thirty_days reader=None also=-
+- [ ] 341 S.W.2d 212 -  [10153038] - decide under_thirty_days reader=None also=-
+- [ ] 339 S.W.2d 400 -  [10156136] - decide under_thirty_days reader=None also=-
+- [ ] 231 S.W.2d 471 -  [10197826] - decide under_thirty_days reader=None also=fuzzy_quote
+- [ ] 33 S.W.2d 578 -  [10273844] - decide under_thirty_days reader=None also=-
+- [ ] 42 S.W.2d 842 -  [10280512] - decide under_thirty_days reader=None also=-
+- [ ] 288 S.W. 180 -  [10295098] - decide under_thirty_days reader=None also=-
+- [ ] 290 S.W. 912 -  [10317170] - decide under_thirty_days reader=None also=-
+- [ ] 228 S.W. 989 -  [10335445] - decide under_thirty_days reader=None also=-
+- [ ] 217 S.W. 1112 -  [10343571] - decide owner_freedom_characterization reader=None also=-
+- [ ] 8 Mart. (o.s.) 11 -  [12121380] - decide under_thirty_days reader=None also=-
+- [ ] 164 A.3d 633 -  [12321139] - decide under_thirty_days reader=None also=fuzzy_quote
+
+## F. Fuzzy quote match (17)
+
+- [ ] 43 Pa. D. & C.2d 341 -  [351173] - decide quotes reader=None also=-
+- [ ] 50 Pa. Super. 222 -  [428427] - decide quotes reader=None also=-
+- [ ] 372 Pa. 318 -  [1238067] - decide quotes reader=None also=-
+- [ ] 26 N.Y. Super. Ct. 327 -  [1423661] - decide quotes reader=None also=-
+- [ ] 64 Pa. Commw. 258 -  [1928403] - decide quotes reader=None also=-
+- [ ] 27 N.Y. St. Rep. 955 -  [2030674] - decide quotes reader=None also=-
+- [ ] 32 N.Y. St. Rep. 340 -  [2039624] - decide quotes reader=None also=-
+- [ ] 46 N.Y. St. Rep. 668 -  [2084208] - decide quotes reader=None also=-
+- [ ] 24 How. Pr. 347 -  [2216203] - decide quotes reader=None also=-
+- [ ] 97 A.D. 442 -  [2439741] - decide quotes reader=None also=-
+- [ ] 3 La. App. 228 -  [3299925] - decide quotes reader=None also=-
+- [ ] 46 Misc. 3d 325 -  [3957403] - decide quotes reader=None also=-
+- [ ] 50 Tex. Civ. App. 630 -  [4396009] - decide quotes reader=None also=-
+- [ ] 26 Tex. Ct. App. 509 -  [4464507] - decide quotes reader=None also=-
+- [ ] 54 How. Pr. 338 -  [4488853] - decide quotes reader=None also=-
+- [ ] 117 A.D. 5 -  [5264343] - decide quotes reader=None also=-
+- [ ] 168 A.D. 253 -  [5364138] - decide quotes reader=None also=-

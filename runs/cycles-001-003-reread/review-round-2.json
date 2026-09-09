@@ -1,5 +1,13 @@
 {
  "cap": 250,
+ "checker_path": {
+  "cases_per_unit": 1,
+  "pin": "codex-cli@-:-",
+  "plan": "reread",
+  "sample_pct": 100,
+  "unit_cap": 109,
+  "worker": "checker"
+ },
  "deferred": [],
  "fuzzy_auto_accepted": [
   {
