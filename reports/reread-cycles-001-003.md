@@ -53,19 +53,46 @@ Fold-level rejections after admission: **0**. That is the expected number, not a
 
 Re-read round 1 (250 cards, cap 250): G 69 conflict cards first (polarity 24, characterization 21, who_was_letting 11, relevant 10, holding_summary 3), then A 52, B 16, C 24, D 55, E 34; 105 deferred to a later round. Decisions per round are appended below as the rounds are applied.
 
-_(round outcomes to be appended)_
+Three rounds closed the re-read's queue (354 card decisions over 355 cards; one round-1 unsure
+was re-asked and decided in round 1b):
+
+- **Round 1 (250 cards, cap 250)** ran two independent first passes over the full opinions,
+  Claude (eight opus agents, one per card chunk) and GPT Astra, with the Codex checker's reading
+  on every card. The two readers agreed on 188 cards, which the user confirmed and applied as
+  one set (assisted-by note naming both readers). Their 62 disagreements went to the user as
+  round 1b with both readers' notes on each card, and the user decided every one on the page
+  (37 set, 18 keep, 7 withdrawn as not letting cases).
+- **Section G, the 69 conflicts with a human decision**: 39 keep (the human value stood), 25
+  set (the reviewer revised the earlier decision; 15 by both readers' agreement, 10 by the
+  user in round 1b), 5 withdrawn as not letting cases. Of the revisions, thirteen moved an
+  early-round favorable or mixed polarity to adverse on the same reasoning: the record's only
+  letting holding was an owner-side loss, scored before the polarity rule was fixed on
+  2026-09-01. Two re-read values the user adopted reversed the user's own round-5b decisions
+  (1177933 who_was_letting; 5289134's holding summary was withdrawn with the record). Every
+  G card retired once decided: round 2 held none.
+- **Rounds 1 and 1b, sections A-E** (181 cards): A 49 keep / 2 set / 1 withdrawn; B 6 keep /
+  6 set / 4 withdrawn; C 12 keep / 11 set / 1 withdrawn; D 16 keep / 38 set / 1 withdrawn;
+  E 29 keep / 3 set / 2 withdrawn.
+- **Round 2 (105 cards, the deferred E and F)**: Claude's first pass, applied on the user's
+  confirmation: E 75 keep / 13 set, F 16 keep / 1 dropped quote, no withdrawals. The silence
+  rule held: an erased field stays empty unless the court states a term or a length of stay.
+
+Four records withdrawn in round 1b kept the re-read's conflict flags on their other fields and
+came back as G cards in round 2; the flags were cleared (rule basis `withdrawn-record`), the
+queue now skips conflicts on a withdrawn record, and a relevance overturn clears every open
+flag on the record it withdraws.
 
 ## 5. Published counts
 
 Via `open_ledger().view().counts()`, two-tier:
 
-| claim | before the re-read | after admission |
-|---|---|---|
-| relevant records | 3,466 (821 human-reviewed, 2,645 machine-only; lower bound) | 3,419 (821 / 2,598) |
-| favorable | 1,501 (379 / 1,122) | 1,450 (377 / 1,073) |
-| favorable householder | 341 (80 / 261) | 318 (76 / 242) |
+| claim | before the re-read | after admission | after the three review rounds |
+|---|---|---|---|
+| relevant records | 3,466 (821 human-reviewed, 2,645 machine-only; lower bound) | 3,419 (821 / 2,598) | 3,405 (1,093 / 2,312) |
+| favorable | 1,501 (379 / 1,122) | 1,450 (377 / 1,073) | 1,465 (535 / 930) |
+| favorable householder | 341 (80 / 261) | 318 (76 / 242) | 326 (131 / 195) |
 
-The human-reviewed tier did not lose a record (821 before and after): the two-tier movement inside it (favorable 379 to 377, favorable householder 80 to 76) is reader-held polarity or who values replaced on records whose human decision was on another field, which D7 permits and the conflict rule does not reach.
+After admission the human-reviewed tier had not lost a record (821 before and after): the two-tier movement inside it (favorable 379 to 377, favorable householder 80 to 76) is reader-held polarity or who values replaced on records whose human decision was on another field, which D7 permits and the conflict rule does not reach.
 
 ## 6. Reproduction
 

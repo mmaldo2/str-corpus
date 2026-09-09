@@ -20,7 +20,7 @@ def test_counts_and_matrix_on_the_real_ledger(repo_root):
     # whole drop lands on that tier and machine_only is unchanged. Favorable
     # holds at 367 -- 11 records gained the label and 12 lost it, one of the 12
     # being 1262336, which was outside the counted population either way.
-    assert c.total == TierCount(human_reviewed=988, machine_only=2417)   # 947/2465 after re-read round 1; round 1b (2026-09-09)
+    assert c.total == TierCount(human_reviewed=1093, machine_only=2312)   # 988/2417 after round 1b; re-read round 2 moved 105 (2026-09-09)
     pol = v.counts(by=("polarity",))
     assert pol[("favorable",)].human_reviewed + pol[("favorable",)].machine_only == 1465   # 1458 after re-read round 1; round 1b (2026-09-09)
     hh = v.counts(polarity="favorable", who_was_letting="householder")
