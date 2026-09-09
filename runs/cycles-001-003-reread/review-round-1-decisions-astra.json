@@ -1,0 +1,1752 @@
+[
+  {
+    "case_id": 277215,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court described two distinct arrangements rather than classifying one as lodging: \"some of the rooms of the house on the other lot were rented, while others were occupied by persons who boarded with appellee\"."
+  },
+  {
+    "case_id": 608729,
+    "field": "relevant",
+    "decision": "keep",
+    "value": null,
+    "note": "The dispute directly applies a landlord's rent remedy to an actual subtenant: \"she was a subtenant of desvignes, occupied the upper portion of defendant's house, and had paid her rent to desvignes in full\"."
+  },
+  {
+    "case_id": 625003,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "This revises the old favorable value from human decision seq 821: the holding limits the keeper's enforcement rights because \"the latter had no right to detain her goods for the debt of her husband.\""
+  },
+  {
+    "case_id": 630154,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "This revises the old mixed value from human decision seq 4025: the fraud exception drives the remand, and the court held that a tenant deceived about the house's condition \"was justified in quitting the premises\"; the background no-implied-warranty rule does not create a second letting holding on these facts."
+  },
+  {
+    "case_id": 640267,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "This revises the old favorable value from human decision seq 824: the court denied the boarding-house keeper's lien because \"as nothing is due from the wife, it fohows that her goods can not be detained.\""
+  },
+  {
+    "case_id": 694753,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "This revises the old favorable value from human decision seq 7097: the operative holding reversed the owner's rent judgment because \"it was, in our opinion, evidence to which the defendant was entitled\"; the rebuttable presumption was only the claim being defeated."
+  },
+  {
+    "case_id": 743824,
+    "field": "who_was_letting",
+    "decision": "keep",
+    "value": null,
+    "note": "The fee owners' residence and portfolio are not stated, while the tenant's alleged business of subletting is a separate fact that cannot establish the owners' category; the court describes them only as \"the landlords.\""
+  },
+  {
+    "case_id": 743968,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The operative holding is adverse because the statute protected this room-letter and required dismissal; the suggested exclusion for premises hired purely for profit was only assumed \"for the purposes of this appeal\" and was not a second holding."
+  },
+  {
+    "case_id": 749404,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "non_resident_owner",
+    "note": "This revises the old unclear value from human decision seq 7792: the landlord had rented the entire premises to a monthly tenant who \"occupied with his family\" the dwelling rooms, establishing a single let property occupied by the tenant rather than the owner."
+  },
+  {
+    "case_id": 782936,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "non_resident_owner",
+    "note": "This revises the old commercial_operator value from human decision seq 7795: the facts show one residence \"rented to five unrelated individuals\" and no hotel enterprise or multiple properties; the ordinance's dormitory label does not establish commercial-operator identity."
+  },
+  {
+    "case_id": 828076,
+    "field": "characterization",
+    "decision": "set",
+    "value": "lease",
+    "note": "This revises the old innkeeping value from human decision seq 797: after four months the court classified the actual occupant as a tenant, stating that alleged financial misrepresentations were \"irrelevant to the determination of her status as a tenant.\""
+  },
+  {
+    "case_id": 860155,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "unclear",
+    "note": "This revises the old commercial_operator value from human decision seq 7544: the employer-owner allowed one employee to occupy \"a room or rooms on the second floor of the livery building\" as wages, but the opinion does not establish the owner's residence or a lodging enterprise."
+  },
+  {
+    "case_id": 912009,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "This revises the old mixed value from human decision seq 830: the only letting-side holding imposed strict innkeeper liability because \"the liability necessarily attaches in respect to all who come to his inn for the purpose of entertainment\"."
+  },
+  {
+    "case_id": 1054003,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court expressly classified the motel outside both lodging-house and hotel categories, holding the distinctions \"are firmly established in the mind of any reasonable person\"."
+  },
+  {
+    "case_id": 1105708,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "Although a separately demised room also appears, the court expressly treated the occupant whose goods were seized as a boarder and applied the rule for \"property belonging to the boarder qud, boarder\"; lodging therefore remains supported."
+  },
+  {
+    "case_id": 1112849,
+    "field": "characterization",
+    "decision": "set",
+    "value": "lease",
+    "note": "This revises the old other value from human decision seq 3689: the court repeatedly identifies the parties as landlord and tenant and describes the actual arrangement as the landlord having \"rented part of the dwelling unit for housekeeping purposes\"."
+  },
+  {
+    "case_id": 1126530,
+    "field": "characterization",
+    "decision": "set",
+    "value": "lodging",
+    "note": "This revises the old null value from human decision seq 3692: the upheld rule classifies establishments not qualifying as hotels as rooming houses, including premises determined to be \"a well-run rooming house rather than a hotel within the statutory definitions.\""
+  },
+  {
+    "case_id": 1177933,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "unclear",
+    "note": "This revises the old householder value from human decision seq 42956: the only identity facts are plural petitioning landlords and that \"the premises consisted of five independent units as claimed\"; the opinion does not establish their residence or whether this was a broader enterprise."
+  },
+  {
+    "case_id": 1277008,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court rejected the charged boarding-house classification and treated the actual occupancy as two single housekeeping units, finding the evidence insufficient to show \"the dwelling units in defendant's premises were being used other than as single housekeeping units.\""
+  },
+  {
+    "case_id": 1306520,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "This revises the old favorable value from human decision seq 839: the operative holding imposes liability on the keeper, who \"should be held to the exercise of ordinary and reasonable care in respect of his boarders' goods\" and answers for servant negligence."
+  },
+  {
+    "case_id": 1613746,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The actual holding exempts the YMCA's compensated dormitories because they \"were not in 1942 operated on a commercial basis for profit, but were directly connected with and reasonably necessary to the charitable purposes\"; the contrary commercial-dormitory rule comes from a distinguished precedent."
+  },
+  {
+    "case_id": 1826673,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court consistently accepts the licensed enterprise as a hotel with a restaurant, bar, and \"thirty-two furnished-rooms for lodgers\"; that building-wide hotel classification supports innkeeping."
+  },
+  {
+    "case_id": 1832770,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The only holding about letting is favorable: the private hotel or boarding house \"was not a violation of the covenants in question\"; the injunction concerned an annex that offered no lodging and operated solely as a restaurant and saloon."
+  },
+  {
+    "case_id": 1913982,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The adopted lower opinion classified the combined building use as a family hotel, saying \"the defendant's houses best answer to the designation\" of a family hotel rather than technically classifying each guest's interest as lodging."
+  },
+  {
+    "case_id": 1913982,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "Both sides are holdings: the adopted lower opinion held the family hotel did not violate the tenement-house or noxious-use covenant, while the appellate court restrained further hotel expansion yet held the completed conversions \"must be regarded as having been assented to or acquiesced in by the plaintiff\"."
+  },
+  {
+    "case_id": 2046153,
+    "field": "relevant",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion directly decides substantive rights under a compensated dwelling lease, including that \"there is no such implied warranty on the part of the lessor of a dwelling house\" and that the landlord's own removal of a fixture could excuse possession and rent."
+  },
+  {
+    "case_id": 2137661,
+    "field": "relevant",
+    "decision": "keep",
+    "value": null,
+    "note": "The holding directly determines entitlement to rent under an occupied house letting: competing claimants \"agreed to refer the question to the arbitrators\" which of them the tenant should pay, and the tenant was bound by the award."
+  },
+  {
+    "case_id": 2172545,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "Withdraws the record underlying the mixed polarity decision at human seq 3824: the actual transaction was keeping a neighbor's horses, and Tyler was neither a traveler nor a guest. The court held that the plaintiff could stand on no better footing than a livery stable keeper; the discussion of guests and innkeepers supplies the contrast, not a holding on actual or proposed compensated dwelling occupancy."
+  },
+  {
+    "case_id": 2189028,
+    "field": "relevant",
+    "decision": "keep",
+    "value": null,
+    "note": "The court directly classifies and protects another's compensated residential occupancy, holding it was not a tenancy but \"a joint-occupancy of the house\" tied to the partners' business and affirming damages for exclusion."
+  },
+  {
+    "case_id": 2307032,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The nuisance holding turns on the plaintiff's own headlease and possessory rights; it only reports that she \"occupied the same as tenant keeping a boarding house\" and never judicially classifies her guests' room-rental arrangement."
+  },
+  {
+    "case_id": 2618120,
+    "field": "who_was_letting",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 7585 remains supported: Von Behren employed a caretaker to \"rent out the same, and collect the revenues therefrom for him\" and held the resort camp out for recurring day rentals, which is a commercial rental operation rather than a single non-resident dwelling letting."
+  },
+  {
+    "case_id": 2721901,
+    "field": "characterization",
+    "decision": "set",
+    "value": "lodging",
+    "note": "This revises the old value None from the human decision at seq 7178 because the court expressly says the wife \"took a boarder and let out a furnished room\" and repeatedly analyzes whether the household must continue taking boarders, judicially treating the arrangement as boarding/lodging."
+  },
+  {
+    "case_id": 2721901,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "This revises the old value favorable from the human decision at seq 7486: the only letting-related holding is that the husband \"may refuse to have boarders\" even though the house is jointly owned, which restricts the wife's ability to let and supplies no independent favorable holding supporting mixed polarity."
+  },
+  {
+    "case_id": 2923357,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The full opinion concerns a bank leasing surplus commercial space to \"various persons for offices\" and adjudicates an office-building license tax, with no compensated occupancy of a dwelling or residential room; relevance is withdrawn instead of revising the old commercial_operator value from the human decision at seq 7588."
+  },
+  {
+    "case_id": 3288237,
+    "field": "characterization",
+    "decision": "set",
+    "value": "lodging",
+    "note": "This revises the old value None from the human decision at seq 7187 because the court expressly says the wife \"took a boarder, and let out a furnished room\" and adjudicates the family's continuation of that boarding arrangement, which is lodging."
+  },
+  {
+    "case_id": 3288237,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 7184 remains supported: the court held that the husband \"may refuse to have boarders\" in the jointly owned home, restricting the wife's letting, and there is no separate favorable holding merely because the facts state that she had taken a boarder."
+  },
+  {
+    "case_id": 3344688,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "This revises the old value mixed from the human decision at seq 6899 because the letting-related holding annulled a rooming-house-license denial resting on \"speculative inferences unsupported by the record\"; the ordinance's background license requirement was not a contrary holding, so mixed is unsupported."
+  },
+  {
+    "case_id": 3725970,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 6911 remains supported because the court created the statutory status of \"permanent tenant\" while saying Pitt was not necessarily party to a landlord-tenant relationship and was not a licensee; that sui generis classification fits other, while the hotel setting alone does not establish common-law innkeeping."
+  },
+  {
+    "case_id": 3761627,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 6917 remains supported because the court held Williams was a statutory permanent tenant and was \"entitled to have a lease issued in his name\"; its rejection of the owner's claim that no formal agreement existed does not reclassify the adjudicated tenancy as mere lodging."
+  },
+  {
+    "case_id": 3786837,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 3986 remains supported: the court found the advertised short stays were \"more like hotel rooms than private apartments\" and repeatedly treated defendants as providers of transient accommodations subject to hotel fire-safety duties, fitting innkeeping rather than an unclassified use."
+  },
+  {
+    "case_id": 3971519,
+    "field": "who_was_letting",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 7798 remains supported because Pillsbury \"resides solely in the second-floor unit and has never occupied the third-floor loft\" that she sublet as a self-contained unit, so the letting was not part of her occupied household."
+  },
+  {
+    "case_id": 4268287,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 3773 remains supported: the court rejected BOT's asserted license label and applied the rule covering an \"occupant of one or more rooms in a rooming house\" after more than 30 days; it did not find an agreed lease, so the compensated bunk/room occupancy is lodging."
+  },
+  {
+    "case_id": 4369074,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 791 remains supported because the court rejected both hotel and bed-and-breakfast classifications and held the short rentals did not take the property outside the Town's \"residential one-family dwelling\" definition, a zoning-use classification captured by other rather than a judicial lease classification."
+  },
+  {
+    "case_id": 4413960,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 7082 remains supported because the court says \"Local Law No. 9 compels owners to be residential landlords\" and requires them to offer SRO units for rent; it repeatedly classifies the mandated relationship as a lease/tenancy."
+  },
+  {
+    "case_id": 4448542,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 7508 remains supported: the court preserved the lodging keeper's contract recovery while correcting only the measure of damages, explaining that the breaching guest owed damages that \"directly and necessarily resulted from the breach of the contract\"; ordinary mitigation is not a contrary restriction on letting."
+  },
+  {
+    "case_id": 4482382,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "This revises the old value mixed from the human decision at seq 818 because the letting-related holding imposes liability: \"A boarding-house keeper is liable for the loss of his guest's goods\" caused by a servant's negligence. The discussion that a keeper may refuse applicants is comparative reasoning, not an independent favorable holding."
+  },
+  {
+    "case_id": 4770066,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "This revises the old value favorable from the human decision at seq 3872 because the sole letting-related holding extended the innkeeper's strict baggage liability beyond checkout \"until he should have delivered the baggage to the expressman\"; the opinion recognizes no countervailing freedom to let on the owner's terms."
+  },
+  {
+    "case_id": 4809245,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "This revises the old value mixed from the human decision at seq 3893 because the court held an innkeeper's liability \"embraces all the personal property of the guest brought to the inn\" and denied the statutory limitation for lack of notice, with no independent favorable letting holding."
+  },
+  {
+    "case_id": 4907537,
+    "field": "who_was_letting",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 7804 remains supported because Hamilton ran a longstanding boarding-house business with 20 to 25 boarders, \"continued to take boarders\" after buying the house, and handled its revenue and supplies on her separate account, making her a commercial operator despite living there."
+  },
+  {
+    "case_id": 5206672,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "This revises the old value mixed from the human decision at seq 4013 because the sole holding imposed depositary liability on innkeepers even for theft unless extraordinary violence was shown; the statutory notice escape was merely an unfulfilled defense, not an independent favorable holding."
+  },
+  {
+    "case_id": 5289134,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The full opinion regulates an owner-occupant's use of her property as a house of assignation and says only that \"Defendant's ownership of the property cannnot avail to protect her\"; it contains no compensated dwelling or room occupancy, so relevance is withdrawn instead of revising the old holding summary from the human decision at seq 42918."
+  },
+  {
+    "case_id": 5303699,
+    "field": "who_was_letting",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 7807 remains supported because the opinion establishes only that \"the defendant leased to the plaintiff a dwelling-house\"; it never establishes whether the lessor owned or occupied the property, so non_resident_owner cannot be inferred from the lessor label alone."
+  },
+  {
+    "case_id": 5311532,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 3776 remains supported because the opinion merely quotes a policy exclusion for an occupying family that may \"lodge more than two roomers or boarders\" and says the exclusion does not apply; it gives no facts or judicial classification of Beresford's actual occupancy."
+  },
+  {
+    "case_id": 5487598,
+    "field": "characterization",
+    "decision": "set",
+    "value": "lodging",
+    "note": "This revises the old value other from the human decision at seq 3779 because the court expressly classifies the regulated business as providing, for compensation, \"lodging and board\" alongside attendant services and later calls it a business \"engaged in providing lodging, food, recreation and personal aid to the aged\"."
+  },
+  {
+    "case_id": 5607484,
+    "field": "relevant",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 42925 remains supported because the merits allocate a repair duty arising from compensated dwelling occupancy: \"Mrs. Sledge sublet a part of the leased premises\" to plaintiffs, and the court held the screen hook was the tenant's rather than owners' responsibility."
+  },
+  {
+    "case_id": 5637879,
+    "field": "relevant",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 6803 remains supported because the opinion adjudicates a residential lease at $420 yearly, holding that the owner in possession had \"full right to lease\" and could collect rent until the condemning city took actual possession; compensated occupancy is central, not incidental."
+  },
+  {
+    "case_id": 5676181,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 3998 remains supported because the court held that weekly vacation rentals did not transform the property from a \"single-family residence into a tourist accommodation\"; that operative zoning-use classification is other rather than a judicial classification of the parties' agreement as a lease."
+  },
+  {
+    "case_id": 5735453,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "This revises the old value mixed from the human decision at seq 4001 because the court held that using a minority of units for transient occupancy violates neither zoning nor the certificates and denied the injunction; leaving the City's pleaded claims for later proof is procedural, not an independent adverse holding."
+  },
+  {
+    "case_id": 5795630,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "This revises the old value favorable from the human decision at seq 7088 because the only letting-related holding bound the owner to the first lessee and awarded damages after he relet early: \"defendant, having made such a bargain, should not have become alarmed so soon.\""
+  },
+  {
+    "case_id": 7664513,
+    "field": "relevant",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 42971 remains supported because the scope of the compensated room letting controlled the duty: there was \"only a hiring of the rooms themselves.\" The landlord therefore retained the common stairway and owed the visiting plaintiff reasonable care."
+  },
+  {
+    "case_id": 8256748,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "This revises the old value mixed from the human decision at seq 7233 because the boarding-house operator was the property owner's tenant, and the court preserved her holdover protection and actual lost-business recovery against the owner. Disallowing punitive and emotional-distress items limits the remedy but does not create a separate owner-favorable holding about the freedom to let."
+  },
+  {
+    "case_id": 8501453,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The human decision at seq 3947 remains supported because the court enforced $60 for one boarding claim while holding the four-month family board claim barred by the one-year prescription; these are distinct favorable and adverse holdings on the keeper's recoverability for lodging."
+  },
+  {
+    "case_id": 8503953,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The adverse human value at seq 7263 stands: the court held that if the lessor's warranty allegations were proved, the boarding-house operator was entitled to judgment, including potentially for lost profits (\"plaintiff, on proving them to the court, was entitled to a judgment\")."
+  },
+  {
+    "case_id": 8744140,
+    "field": "who_was_letting",
+    "decision": "keep",
+    "value": null,
+    "note": "The commercial_operator human value at seq 7810 stands: the six-room rooming house was managed for the landlord, with an agent who \"collects rent from the tenants and residents,\" supporting an organized room-rental enterprise rather than a single dwelling let as a unit."
+  },
+  {
+    "case_id": 10055905,
+    "field": "relevant",
+    "decision": "keep",
+    "value": null,
+    "note": "The true human value at seq 3605 stands because the court directly classified the paid garage-apartment occupant's legal interest, holding that \"plaintiff was not defendant's tenant or sub-tenant at any time\" and instead treating the driveway users as licensees."
+  },
+  {
+    "case_id": 10072991,
+    "field": "relevant",
+    "decision": "keep",
+    "value": null,
+    "note": "The true human value at seq 7519 stands: the injured plaintiff had \"verbally contracted with gilbert, the tenant, for the use of one of those second floor rooms,\" and the court addressed an owner's liability to a tenant's sublessee."
+  },
+  {
+    "case_id": 10225079,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "This revises the true human value at seq 3716: although the plaintiff operated a tourist camp and sued for past-due rent, the only appellate holding was that missing appeal papers and a lost sequestration writ did not justify dismissal; the opinion did not decide compensated occupancy, its character, or its regulation."
+  },
+  {
+    "case_id": 10296227,
+    "field": "holding_summary",
+    "decision": "keep",
+    "value": null,
+    "note": "The human summary at seq 42938 accurately captures the holding that a hotel choosing both a lock and bolt \"must see that each and every lock and bolt so placed is suitable and, safe,\" so the defective night bolt defeated the statutory liability limit and supported the full judgment."
+  },
+  {
+    "case_id": 12692177,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "Withdraws the record underlying the human holding_summary at seq 42945. That summary accurately describes the procedural result, but the court decided only the filing of tax defenses and appellate jurisdiction, expressly leaving the merits of the hostel's tax liability undecided; it neither construed the lodging tax nor decided a substantive rule governing compensated occupancy."
+  },
+  {
+    "case_id": 452503,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The owner-occupant who rented her other furnished rooms by the week defeated the roomer's claim because \"a lodging-house keeper is only liable for negligence\" and the evidence did not establish negligence, supporting favorable polarity."
+  },
+  {
+    "case_id": 603055,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The landlord defeated the weekly roomer's injury claim because \"such repairs are by law imposed upon the tenant and not upon the landlord,\" a favorable holding from the property owner's perspective."
+  },
+  {
+    "case_id": 862373,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court strictly construed the rate-posting law in favor of the hotel because it was \"in derogation of the common-law right of a hotel or inn to contract for its service to its guests,\" and rejected the occupant's overcharge claim."
+  },
+  {
+    "case_id": 923835,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "Dismissal favorably limited application of the fire-safety rule: the prosecution had to plead that the building was actually \"used or arranged to be used for lodging of the same persons for 90 days or less\" and could not infer that use from its certificate."
+  },
+  {
+    "case_id": 977113,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The proposed compensated transient rooms met the ordinance definition of a permitted hotel, so \"the building for which a permit is here sought is clearly within the permitted uses\" and the permit was ordered issued."
+  },
+  {
+    "case_id": 1092001,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The hotel proprietor received judgment because it was not liable for a guest's acts absent notice; the court held that a guest's occupancy rests on contract and that the proprietor \"is under no duty to inspect\" for objects placed on window sills."
+  },
+  {
+    "case_id": 1126775,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court classified the 52-room premises as a hotel and held that \"a permit for a rooming house should not be required of plaintiffs,\" directly freeing the operator from that licensing condition."
+  },
+  {
+    "case_id": 1211580,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The hotel proprietor's conviction was reversed because the evidence showed bona fide operation for permanent and transient guests and \"a total failure\" to prove guilty knowledge; the court rejected strict liability as merely \"one of the risks of the hotel business.\""
+  },
+  {
+    "case_id": 1224744,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The landlady's conviction was reversed because rooms occupied for days or weeks with a common kitchen did not convert her boarding house into a tenement; \"it does not change into a tenement house a building conducted as a boarding house.\""
+  },
+  {
+    "case_id": 1228387,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court protected the proposed nightly motel use, holding that \"an automobile tourist court or inn is not a nuisance per se\" even in an unzoned residential area and reversing the injunction."
+  },
+  {
+    "case_id": 1237075,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The variance allowing a hotel or guest house was affirmed because the use would not change the commercial neighborhood and preventing it would create unnecessary hardship; the court found \"no mistake of law\" in granting the hotel use."
+  },
+  {
+    "case_id": 1293532,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court protected incidental weekly room letting as ordinary dwelling use: \"one or more of his rooms were let\" did not deprive the owner's house of its private dwelling-house character."
+  },
+  {
+    "case_id": 1295869,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The innkeeper's reasonable baggage rule was enforced and the guest's recovery rejected because the guest disregarded it and \"was himself the cause of its being lost.\""
+  },
+  {
+    "case_id": 1299949,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court enjoined the extra hotel water charge against the owner of nightly lodging rooms, concluding that his building \"is not strictly within the words of the ordinance\" and could not be taxed for rooms the city water did not supply."
+  },
+  {
+    "case_id": 1353539,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion limited an innkeeper's extraordinary liability, holding that when a guest pays and leaves intending not to return, \"his common law liability is at an end\" unless property is specifically entrusted as an ordinary bailment."
+  },
+  {
+    "case_id": 1407541,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "Knox was the property owner and lessor, and the court affirmed liability to his hotel-operator tenant for delayed possession and repair breaches, including the tenant's option to leave repairs undone and sue; the tenant \"should be compensated by being allowed the proved value\" of lost room use."
+  },
+  {
+    "case_id": 1547846,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The ordinance expressly preserved room and meal letting in residential districts, and the court held that tourist homes \"fall under the head of 'use district exceptions'\" before dismissing the requested enforcement writ."
+  },
+  {
+    "case_id": 1572284,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The landlord obtained possession from the week-to-week roomer after valid termination; OPA stated it was \"unable to interfere with the landlord's right to proceed with eviction,\" and the court entered judgment for the landlords."
+  },
+  {
+    "case_id": 1618544,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court preserved the owner's private-house status despite weekly room letting, holding that paid occupancy by nonfamily roomers \"would not deprive his house of its character as a dwelling-house.\""
+  },
+  {
+    "case_id": 1643198,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "The property owners' confessed ejectment judgment was opened and their motel-only covenant was construed against their claimed restriction on the operator's longer-term rentals; the court would not hold those stays a breach \"as a matter of law.\""
+  },
+  {
+    "case_id": 1832719,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The hotel proprietor was free to rent rooms by the day absent an express restriction; transient rentals did not establish constructive eviction and could not defeat \"a recovery for rent for the unexpired term.\""
+  },
+  {
+    "case_id": 1933855,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court rejected municipal nuisance authority over compensated hotel lodging, holding that a sick person \"in suitable apartments at a public hotel or boarding house, is not a nuisance\" and that forcible removal was unauthorized."
+  },
+  {
+    "case_id": 1955857,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The nightly lodging-house owner obtained an injunction against the extra hotel water rate because the building was \"not strictly within the words of the ordinance\" and the city could not tax rooms it failed to supply."
+  },
+  {
+    "case_id": 1981353,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The lodging-house owner defeated the occupant's statutory fire-escape claim because a building offering rooms by day, week, or night without meals or hotel services was not a statutory hotel and \"the complaint [was] dismissed.\""
+  },
+  {
+    "case_id": 2172577,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court expressly recognized the owner's liberty: \"No license is necessary to authorize the business of keeping a tavern—the right to do so being common to all citizens\"; only liquor sales required a license."
+  },
+  {
+    "case_id": 2225088,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court enforced the keeper's reasonable house rule and held that \"the defendant is not answerable\" for baggage lost after the guest ignored it, favoring the operator's terms."
+  },
+  {
+    "case_id": 2301654,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court reversed the instruction imposing automatic keeper liability for excessive force during ejection and required proof that the porter acted within his employment: \"if the act committed by the servant is a willful, wanton wrong, done not in the performance of his duty to his master, but outside of his master's business, the master is not liable.\" That substantive limit favors the proprietor; the ordinary in-scope duty is its baseline, not a separate contrary holding."
+  },
+  {
+    "case_id": 3139389,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court held that renting rooms to transient guests neither breached the year lease nor constructively evicted the tenant, because the lease contained no restriction and \"no defense valid in law was established\"."
+  },
+  {
+    "case_id": 3392598,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The resident rooming-house owner prevailed because \"the relation that existed was not that of innkeeper and guest\" and a lodging-house keeper was liable only for negligence, which was not proved."
+  },
+  {
+    "case_id": 4134815,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court expressly held that \"the right to lease real estate is an inherent right of ownership\" and that the owners were not barred from short-term residential rentals."
+  },
+  {
+    "case_id": 4646407,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court reversed the owner's conviction because shared-kitchen room rentals did not convert her boarding house into a statutory tenement house: \"It does not change into a tenement house\" when three families in rented rooms use one common kitchen."
+  },
+  {
+    "case_id": 4918420,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The ordinance and injunction concerned only Sunday liquor sales; the reference to innkeepers selling to \"lodgers and lawful travelers\" does not decide compensated occupancy, its character, or regulation of letting."
+  },
+  {
+    "case_id": 6864483,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court affirmed an injunction preserving Hill's existing short-term rentals after holding that the ban threatened a vested investment use and that she had \"identified a vested right\" supporting equitable jurisdiction."
+  },
+  {
+    "case_id": 7272028,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court affirmed the proposed twenty-room hotel as a permitted use and held both that the zoning officer wrongly denied the permit and that the board \"did not have the authority to impose conditions\"."
+  },
+  {
+    "case_id": 7457137,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "Although prescription supplied the rule of decision, it directly barred enforcement of the transient-occupancy zoning restriction and left the guest-house units to \"enjoy legal non-conforming status.\""
+  },
+  {
+    "case_id": 7660450,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court upheld the lodging-house proprietor's posted limitation of liability as \"a reasonable regulation\" binding on the lodger and reversed the award against her."
+  },
+  {
+    "case_id": 7701179,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The hotel manager's disorderly-house conviction was reversed because accepting two purported couples did not prove unlawful operation; the court emphasized that a hotel keeper is \"bound to receive and accommodate\" guests absent just cause."
+  },
+  {
+    "case_id": 7757016,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court protected a resident owner's weekly room-letting as compatible with private residential use, holding that letting rooms \"would not deprive his house of its character as a dwelling house.\""
+  },
+  {
+    "case_id": 8421307,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court affirmed denial of the requested injunction and preserved the property's transient-rental nonconforming use because the evidence did not prove six months' vacancy or structural change."
+  },
+  {
+    "case_id": 8840068,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The board's stated reasons did not support denying the proposed twelve-unit motel, so the court ordered issuance of the requested building permit."
+  },
+  {
+    "case_id": 9943901,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court directly preserved the actual sixteen-room lodging operation from closure, holding that \"the hotel is not enjoinable\" under the Alcoholic Beverage Code absent violations in that separately entered hotel."
+  },
+  {
+    "case_id": 10037813,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court enforced the lodging-house keeper's statutory pledge over a roomer's belongings for seventeen weeks of unpaid rent, finding \"no doubt of the authority of the defendant to retain\" them."
+  },
+  {
+    "case_id": 10047748,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court refused to enjoin construction of the tourist court because the commercial-use restriction was merely personal to the original vendor and \"did not run with the land\"."
+  },
+  {
+    "case_id": 10054172,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court upheld the resident owners' tourist-home use as the same lawful nonconforming room-rental business they had conducted before zoning, finding the difference between tourist and roomer \"one without a difference\"."
+  },
+  {
+    "case_id": 10055384,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The proprietor defeated the occupants' property-loss claim after the court held they were tenants rather than hotel guests and recognized his \"right to take plaintiffs as guests or to rent them the rooms\" as tenants."
+  },
+  {
+    "case_id": 10191402,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court protected the widow's whole day-or-week tourist-cabin operation from partition as a residence and business homestead and confirmed her right to \"receive and enjoy the rents and revenues therefrom.\""
+  },
+  {
+    "case_id": 10193061,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The hotel proprietor prevailed because a day-rate guest was not a tenant and, on reasonable notice, \"may be ejected without any other reason\" and without forcible-detainer process."
+  },
+  {
+    "case_id": 10211591,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The owner recovered the tourist court from holdover lessees because the rent regulations protected individual room occupants, not a lessee's continued right to rent an entire hotel or rooming-house after its lease expired."
+  },
+  {
+    "case_id": 10237077,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court held that the owners' hotel and room-rental business remained exempt as their residence and business homestead, concluding the property was protected in either capacity."
+  },
+  {
+    "case_id": 10256335,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court held that operating the family tourist camp was a protected business and that \"the entire premises\" was exempt as the place where its owner carried on that business."
+  },
+  {
+    "case_id": 10303145,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court treated operation of the automobile tourist camp as a lawful use and refused an anticipatory nuisance injunction unsupported by facts showing that a nuisance must result."
+  },
+  {
+    "case_id": 12294668,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court invalidated the short-term rental restrictions because the bylaws granted owners the right to lease \"free of any restrictions,\" directly protecting owner freedom to let."
+  },
+  {
+    "case_id": 1097743,
+    "field": "who_was_letting",
+    "decision": "keep",
+    "value": null,
+    "note": "Hoffman personally used \"his cooperative apartment\" for bed-and-breakfast guests, and the lease required a permitted adult resident to remain in occupancy, supporting householder."
+  },
+  {
+    "case_id": 1187382,
+    "field": "who_was_letting",
+    "decision": "keep",
+    "value": null,
+    "note": "Sultan was the tenant of the apartment and took roommates and alleged bed-and-breakfast guests into that same occupied home; the opinion identifies no separate lodging enterprise or additional property."
+  },
+  {
+    "case_id": 1404978,
+    "field": "who_was_letting",
+    "decision": "keep",
+    "value": null,
+    "note": "The spouses applied \"to use their home as a 'bed and breakfast'\" and proposed using four bedrooms within it, expressly establishing resident householders."
+  },
+  {
+    "case_id": 1412300,
+    "field": "who_was_letting",
+    "decision": "keep",
+    "value": null,
+    "note": "The Orths owned the building, which \"has been their home since 1983,\" and rented five rooms there to overnight guests, squarely fitting householder."
+  },
+  {
+    "case_id": 1549796,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "unclear",
+    "note": "The Cragers owned 5934 Roosevelt Boulevard and conducted a tourist house there, but the opinion never says they resided on the premises; ownership alone cannot establish householder status."
+  },
+  {
+    "case_id": 4155206,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "commercial_operator",
+    "note": "Although Penraat resided in the apartment, she ran 135 rentals across three bedrooms with reservations, check-in rules, deposits, and nightly rates; the court called it her \"highly organized and apparently successful hotel business.\""
+  },
+  {
+    "case_id": 4632742,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "commercial_operator",
+    "note": "Cabiness lived in the fourteen-room house but \"run and operated this house,\" solicited patrons at the train depot, and rented to regular and transient roomers, establishing a rooming-house enterprise."
+  },
+  {
+    "case_id": 4763777,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The appeal decided accomplice-testimony and evidentiary-sufficiency issues in a prostitution prosecution; the passing fact that O'Brien \"kept a boarding house and had boarders\" did not make compensated dwelling occupancy a subject of the holding."
+  },
+  {
+    "case_id": 5035124,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "commercial_operator",
+    "note": "Cummings kept a boarding establishment open to weekly, monthly, and transient paying guests and was assessed under the statutory hotel definition, making him a commercial operator despite his family's residence there."
+  },
+  {
+    "case_id": 5291303,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "commercial_operator",
+    "note": "The opinion expressly identifies Stringer as \"a lodging housekeeper in this city\"; the disputed weekend room was retained within that lodging-house business."
+  },
+  {
+    "case_id": 6859144,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The proposed rental was a catered-event venue for gatherings lasting about five hours, and the court stressed that appellants did not propose \"overnight accommodation of guests\"; no compensated dwelling occupancy was at issue."
+  },
+  {
+    "case_id": 6879598,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "commercial_operator",
+    "note": "The spouses rarely stayed at this property, already operated another B&B, planned a year-round seven-bedroom operation with staff, and expected to recoup business costs, establishing a commercial operator."
+  },
+  {
+    "case_id": 8251638,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "This parallel report of O'Brien decides corroboration and proof of the accused's relation to a disorderly prostitution house; its statement that she had boarders is incidental to those criminal-procedure holdings."
+  },
+  {
+    "case_id": 11517809,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The Weislers charged for tours and parties at their residence, but the case contains no paid sleeping occupancy; it concerns intermittent commercial reception use rather than compensated dwelling occupancy."
+  },
+  {
+    "case_id": 11766370,
+    "field": "who_was_letting",
+    "decision": "keep",
+    "value": null,
+    "note": "Koerner owned and resided at 1204 Jackson Avenue and personally sought a permit to operate a B&B at \"his residence,\" with no evidence of a separate lodging enterprise."
+  },
+  {
+    "case_id": 12434579,
+    "field": "who_was_letting",
+    "decision": "set",
+    "value": "commercial_operator",
+    "note": "Despite living with guests, Lipetz recruited 93 customers, used reservation and check-in systems, and sublet for 338 days; the court called it a \"single-unit tourist hotel\" and \"systematic commercial exploitation.\""
+  },
+  {
+    "case_id": 804055,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The adjudicated arrangement was the landlord's ten-year written lease of the entire building to the operator for a yearly rent; the court ended that lease because its specified furnished-room use became illegal."
+  },
+  {
+    "case_id": 804136,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "adverse",
+    "note": "The only letting-related holding charged the cotenant with the rentals she received because the other owners were entitled to their share; there is no contrary holding protecting her freedom to retain the letting proceeds."
+  },
+  {
+    "case_id": 810451,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "This terse contempt ruling concerns disposal of post-order income and the absence of a pre-existing enforceable receivable; furnished-room income is only the procedural asset category, not an adjudication of compensated occupancy or its regulation."
+  },
+  {
+    "case_id": 822246,
+    "field": "characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The arrangement adjudicated was the nine-year building lease and its security deposit, repair covenants, and surviving rent liability; the tenant's intended rooming-house operation did not change that headlease into another interest."
+  },
+  {
+    "case_id": 827706,
+    "field": "relevant",
+    "decision": "keep",
+    "value": null,
+    "note": "The court classified two buildings with fixed-term furnished and unfurnished apartment rentals plus hotel services as apartment hotels and enforced the keeper's statutory lien against occupants' property, directly adjudicating paid residential occupancy."
+  },
+  {
+    "case_id": 858848,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "The property-owning landlord obtained a final order ousting the furnished-room operator because illegal use by subtenants can forfeit the operator's estate; this enforces the owner's control over the letting rather than restricting it."
+  },
+  {
+    "case_id": 870963,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court held that three paying roomers or lodgers did not make the parsonage a multiple dwelling and set aside the verdict, removing the asserted statutory lighting duty from this letting arrangement."
+  },
+  {
+    "case_id": 873400,
+    "field": "relevant",
+    "decision": "keep",
+    "value": null,
+    "note": "The prosecution directly challenged the existing use as a rooming and apartment house, and the court held that use lawfully predated the zoning ordinance; the compensated residential use itself was the regulated land use."
+  },
+  {
+    "case_id": 936937,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "favorable",
+    "note": "The court held that renting the subdivided dwelling's apartments \"does no violence to the restrictive covenant\"; the separate real-estate-office violation is unrelated to letting and cannot make polarity mixed."
+  },
+  {
+    "case_id": 2081402,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "The tenant's unauthorized boarding-house sublet violated the owner's lease, and the court enforced the owner's option to treat the holdover as a new yearly tenancy plus the contractual right to re-enter and relet."
+  },
+  {
+    "case_id": 2211876,
+    "field": "characterization",
+    "decision": "set",
+    "value": "lodging",
+    "note": "The \"license\" discussed was the lessor's assent to the building's use, not the occupants' interest; the court described occupants as lodgers with \"simply the right to occupy designated rooms\" and held that letting rooms to lodgers was not an underletting."
+  },
+  {
+    "case_id": 2216222,
+    "field": "relevant",
+    "decision": "keep",
+    "value": null,
+    "note": "The dispute itself was an action for rent under the defendant's lease, and the affidavits showed that she had 'occupied the plaintiff's said premises' as a boarding-house; this bears directly on compensated occupancy of another's premises rather than mentioning boarding only incidentally."
+  },
+  {
+    "case_id": 2218095,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "The operative holding protected the hotel owner's proposed use: 'we think it does not' apply to hotels, and the court ordered approval; the general statement that the legislature could pass a height act imposed no restriction on this hotel and is not a contrary letting holding."
+  },
+  {
+    "case_id": 2251466,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court enforced the lessor's terms after the tenant 'rented the premises to Mrs. Coventry' in violation of the private-dwelling and no-sublet covenants, holding that the lessor could treat the holdover as another year's tenancy; that is favorable to the owner's control over letting terms."
+  },
+  {
+    "case_id": 2266583,
+    "field": "characterization",
+    "decision": "adopt",
+    "value": "other",
+    "note": "The court classified the buildings under the regulatory definition of tenement houses because one 'was occupied by three families, the other, by six'; it did not adjudicate whether any occupant held a technical lease, so the court's classification is other."
+  },
+  {
+    "case_id": 2282289,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "favorable",
+    "note": "The letting holding was solely favorable: 'the orders, so far as they enjoin the defendant from the keeping of a boarding house or hotel, must be reversed'; the separately affirmed bar-room and liquor-sale restraint was liquor regulation, not a contrary holding about letting occupancy."
+  },
+  {
+    "case_id": 8877300,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "The holding protected the occupant against the property owner's rent remedy: 'the goods of a boarder are not liable to be distrained for rent due by the keeper of the boarding-house'; recognizing lodging as a public profession supplies relevance but does not affirm the owner's freedom to let on the owner's terms."
+  },
+  {
+    "case_id": 9522208,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court treated letting as a business use that stripped the owners of homeowners coverage, holding that they 'either rented or held for rental the residence premises continuously, and not occasionally'; this burden on rental use is adverse from the owners' side."
+  },
+  {
+    "case_id": 9606185,
+    "field": "relevant",
+    "decision": "keep",
+    "value": null,
+    "note": "The guests were expressly 'paying guests at the Royal Sonesta Hotel,' and the court determined the innkeeper's contractual and tort duties arising from that occupancy, so the compensated lodging relationship and its legal incidents are central."
+  },
+  {
+    "case_id": 9659934,
+    "field": "characterization",
+    "decision": "adopt",
+    "value": "other",
+    "note": "The court assessed rental rooms and garage apartments as multifamily uses under a single-family covenant—e.g., 'if the renting of rooms be a violation, it is technical'—but never classified the occupants' possessory interests as leases, licenses, lodging, or innkeeping."
+  },
+  {
+    "case_id": 9681317,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The motel prevailed on its authority to enforce who could access a rented room: it had 'no duty to give Mrs. Campbell, a third party, the key' and instead owed the registered guest privacy and peaceful possession, affirming control over its lodging terms."
+  },
+  {
+    "case_id": 11882976,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court upheld the permit revocation and the restrictive zoning classification, concluding that 'rooming house, and not hotel, was the most reasonable category' and resolving doubts against expansion of the nonconforming use; that is adverse to the owner's proposed use."
+  },
+  {
+    "case_id": 12120860,
+    "field": "relevant",
+    "decision": "keep",
+    "value": null,
+    "note": "The operator contracted with the state to provide residential living, and the court found the home closest to a boarding house providing 'for compensation and by prearrangement for a definite period, meals or lodging and meals'; compensated occupancy and its zoning are central."
+  },
+  {
+    "case_id": 12364802,
+    "field": "characterization",
+    "decision": "set",
+    "value": "lease",
+    "note": "The court described the actual transactions as leasing—'Paj and Vanderbilt began leasing the Queen Suite and Unit B on a short-term rental basis'—and repeatedly called the occupants short-term tenants, supporting lease rather than an unclassified use."
+  },
+  {
+    "case_id": 229840,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The remand instruction states two contrary substantive rules: property 'held and used for purpose of business and profit' is not exempt, while a family's exemption 'ought not to be denied because incidentally support for the family may be secured by the temporary use' of home furnishings; both branches govern lodging-house use."
+  },
+  {
+    "case_id": 484038,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "Every operative holding cut against the keeper's asserted terms: 'the plaintiff was not entitled to recover any thing,' the board-and-lodging contract was entire, and the one-year parol agreement was void; the court's lodging classification supplies no independent favorable letting holding."
+  },
+  {
+    "case_id": 657408,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "The court recognized that household board and lodging could support 'an implied contract to pay' and held only that this claim lacked proof of duration and 'the deceased had paid for his boarding'; satisfaction and proof failure are not an adverse restriction on letting."
+  },
+  {
+    "case_id": 661177,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "favorable",
+    "note": "The substantive rule protects keepers' payment remedy: the statute validly lets 'proprietors of hotels, inns and boarding houses' attach wages for up to four weeks' board; this plaintiff's failure to show she belonged to that class or claimed only the laborer's board is an element-of-proof failure, not a contrary letting holding."
+  },
+  {
+    "case_id": 674172,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "Two guest-rights holdings point opposite ways: the hotel was 'justified in opening the door' and demanding registration from the unregistered husband, but for the registered wife 'there is sufficient to justify a finding that he called mrs. warren opprobrious names,' so a new trial was ordered."
+  },
+  {
+    "case_id": 695162,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court recognized an enforceable lodging claim against the committee—'the claim seems to be a meritorious one' and the keeper was entitled to redress—but also held that recovery is 'not what the parties agreed to pay' and is limited to actual loss; both are substantive contract holdings."
+  },
+  {
+    "case_id": 697777,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The parallel report recognizes the lodging claim as enforceable—'the claim seems to be a meritorious one' and the keeper was entitled to redress—yet also holds recovery is 'not what the parties agreed to pay' but only actual loss; those are contrary substantive holdings on the lodging contract."
+  },
+  {
+    "case_id": 777057,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "The letting-specific holding compensates the owners because the nuisance prevented seasonal rentals: 'plaintiffs are awarded the sum of $18,000 representing loss of income for the summer of 1979' and $20,000 for 1980; removal of the neighbor's unlawful second cottage is not a contrary restriction on these owners' letting."
+  },
+  {
+    "case_id": 801492,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "Both sides are holdings: 'to maintain a boarding house or a hospital or a restaurant or any other legitimate business does not, in and of itself, constitute a nuisance,' protecting the lawful boarding use, while the court also enjoined this operator from receiving alcoholic or drug addicts and uncontrolled patients because her manner of operation created a nuisance."
+  },
+  {
+    "case_id": 814951,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "The operative holding enforced the landlord's rent remedy against furniture supplied to the boarding-house tenant: 'as between mrs. parker and her landlord, the furniture belonged to her, and was liable to distress'; the exemption for a boarder's own goods was a contrast to property not involved here."
+  },
+  {
+    "case_id": 888986,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "adverse",
+    "note": "The statute displaced the owner's consent term and barred eviction: the paying roommate and children 'were occupants that are permitted without the consent of the landlord'; the separate registration failure also defeats the landlord and supplies no favorable letting holding."
+  },
+  {
+    "case_id": 963049,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "The court extends the periodic-payment presumption to boarding and nursing and defeats the householder's claim: 'until satisfactory evidence is produced the presumption prevails and the claim must be disallowed.' Ordinary compensability is background to this adverse boarding-payment rule, not an independent holding protecting the keeper's recovery."
+  },
+  {
+    "case_id": 983888,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court adopted two contrary zoning holdings: the ordinance 'does not apply to the keeping of a boarder by a family upon residence premises' when incidental to family life, but its application to bar a business boardinghouse for twelve institutional patients in a residence district was 'reasonable and proper.'"
+  },
+  {
+    "case_id": 1001214,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "The substantive results all protect occupants against the property owner: the statute 'permits the letting by a family' of rooms to up to four boarders, the landlord failed to prove illegal occupancy, and the dispossess petitions were dismissed; the one default order supplies no contrary owner-freedom holding."
+  },
+  {
+    "case_id": 1025148,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "adverse",
+    "note": "Only the restriction is a holding: \"this defendant has been, and still is, operating a rooming house. under such circumstances, he was in violation of the covenant.\" The tentative statement that a roomer or two may be permissible is dicta, so mixed is unsupported."
+  },
+  {
+    "case_id": 1028885,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "The rooming use is the lawful baseline for the zoning comparison: \"use of premises primarily for profit for the accommodation of roomers, bears little, if any, relationship to use of all of the same land for a commercial parking business.\" The adverse ruling concerns the distinct parking-lot expansion, not letting."
+  },
+  {
+    "case_id": 1063186,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "Both sides are operative holdings: the court affirmed the order to \"open communication between the rooms on each floor, and keep them open, so as to destroy the separate character of the houses,\" yet reversed the lease restriction because \"the rightof the owner to let it to one or to several tenants must remain unimpaired.\""
+  },
+  {
+    "case_id": 1171347,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "The court limited the owner's no-subletting term and preserved the occupant's claim: \"we think the provision in the lease was intended to prohibit a more substantial change in possession than resulted from plaintiff's presence in the household.\" No independent owner-favorable letting holding supports mixed."
+  },
+  {
+    "case_id": 1238695,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "adverse",
+    "note": "The operative rule restricts the motel's ability to remove its day-to-day occupants: \"the petitions are dismissed without prejudice.\" The dismissal followed the court's conclusion that the summary proceeding was unavailable without the required notice."
+  },
+  {
+    "case_id": 1280223,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "The only letting-specific holding preserves the zoning exception: \"the exception made in favor of the proprietors of drug stores, boarding houses, apartment houses, hotels, and banks is an arbitrary discrimination in their favor and against the proprietors of other business establishments is not well founded.\" The restriction applied to a fruit and oyster shop, not the favored lodging uses."
+  },
+  {
+    "case_id": 1282408,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "The hotel was held liable because its employees \"exercised such powers against plaintiff in a grossly insolent manner, and without the slightest re'gard to her rights .as a guest of the hotel to protection against insult and against the invasion of the privacy of her room by force, and without just cause or excuse.\" Recognition of a legitimate power to police is the baseline for that one liability holding, not an independent contrary holding."
+  },
+  {
+    "case_id": 1292267,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The injunction actually split the result in opposite directions: \"the motion will be denied so far as it seeks to obtain an injunction preventing the posting of officers and inspection of the premises, and granted so far as it relates to the interference with proposed customers by volunteered .statements and threats.\" Both police regulation and protection of the owner's lodging trade are holdings."
+  },
+  {
+    "case_id": 1393244,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "The only operative letting holding enforces the owner's restriction: \"a lessor is entitled to an injunction to restrain the use of premises by the lessees in violation of a restriction in the lease.\" The assumed right to take boarders was expressly \"without deciding\" and cannot support mixed."
+  },
+  {
+    "case_id": 1425651,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "favorable",
+    "note": "The landlord recovered the rent after the court rejected the tenant's broader suitability defense: \"conceding that there is an implied covenant in the lease that the premises when let, were fit and suitable for occupation as boarding houses, such covenant cannot be so extended by implication as to cover first class, or any particular description of boarding houses not expressly designated in the lease.\" The possible baseline covenant is not a contrary holding."
+  },
+  {
+    "case_id": 1583773,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "adverse",
+    "note": "As to compensated occupancy, the court held: \"we see no constitutional objection to enforcement of this ordinance as a police measure against those who operate trailer camps for profit.\" The invalid application concerned an owner living in his own trailer on his own land, not letting, so it supplies no contrary letting holding."
+  },
+  {
+    "case_id": 1848874,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "The letting-specific rule recognizes the boarding-house keeper's contractual recovery: \"the plaintiff is only entitled to the loss of profits which resulted from the failure of defendants to complete their contract.\" The ordinary lost-profit measure limits quantum but does not create a contrary tenant-protection holding."
+  },
+  {
+    "case_id": 1858054,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "favorable",
+    "note": "The court preserved the hotel keeper's contract remedy: \"that the plaintiff should be awarded only such damages as she is shown to have sustained by reason of defendant's breach\". Reversal followed only because the wrong measure was used; that remedial calculation is not a contrary restriction on letting."
+  },
+  {
+    "case_id": 1992851,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "Two contrary holdings govern the actual room letting: \"there is nothing in the habendum clause which should be held to restrain the defendant from doing what he is shown to have done, by way of keeping boarders and lodgers for hire, at his residence.\" But the association bylaw was binding and \"the plaintiff has the right to enforce against him.\""
+  },
+  {
+    "case_id": 2034060,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court simultaneously upheld the business restriction—\"it is not unreasonable to prohibit its use as a boarding or rooming house as a business\"—and preserved incidental home letting: \"the fact that the property may not be used for the business of keeping roomers and boarders does not bar the occupant from occasionally taking roomers or boarders\". Both are holdings defining the ordinance's reach."
+  },
+  {
+    "case_id": 2198147,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The declarations run both ways: \"plaintiff is entitled to a declaration that rental of his one-family dwelling for any time period was permitted under the original ordinance.\" The court also held that \"defendant was entitled to a declaration that the amendment was valid\" and the house was not owner occupied. These are independent holdings on permission and later restriction."
+  },
+  {
+    "case_id": 2257077,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The rehearing adopted both sides as the governing rule: if the house is primarily the owner's residence, \"no injunction should issue against the incidental renting by the defendant of a room or rooms to others\"; if it is a boarding business or primarily a source of financial gain, \"that activity should be enjoined.\" These are two operative applications, not dicta."
+  },
+  {
+    "case_id": 2391002,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "The actual property owner prevailed against the subletting tenant: \"the determination of the municipal court awarded possession to the landlord of that part of the premises that was thus leased to roomers,\" and the appellate court affirmed it. Rejection of the occupant's rent-law protection is owner-favorable."
+  },
+  {
+    "case_id": 2618266,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "The owner defeated liability because \"the use to which the railing of the gallery was subjected was not the ordinary use for which the lessor is presumed to have warranted it\" and the movers acted at their own risk. The baseline warranty plus its satisfied limitation yields one favorable disposition, not mixed."
+  },
+  {
+    "case_id": 2847206,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "favorable",
+    "note": "The letting holding is wholly favorable: \"the decision herein, that the keeping of boarders in a dwelling house upon one of these lots is a violation of the restrictions, appears to me to be unwarranted.\" The separate adverse ruling concerned stores, not compensated dwelling occupancy."
+  },
+  {
+    "case_id": 2944818,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "adverse",
+    "note": "The only holding on the actual arrangement is restrictive: \"we think the erection of the building by defendants for conceded use for the regular business of a boarding house is a violation of the restrictive covenant.\" The observation that a private family may receive boarders addressed a different hypothetical and does not create a second holding."
+  },
+  {
+    "case_id": 3051410,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The decree contains two contrary holdings: \"the motion will be denied so far as it seeks to obtain an injunction preventing the posting of officers and inspection of the premises, and granted so far as it relates to the interference with proposed customers by volunteered statements and threats.\" Regulation was allowed, but police intimidation of the lodging trade was barred."
+  },
+  {
+    "case_id": 3118329,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "adverse",
+    "note": "The letting-specific result left the hotel's license revocation undisturbed: \"he had, in pursuance to the command of the legislature, revoked the license, and he did not threaten to do nor was he directed to do anything further.\" The injunction against physically destroying partitions protected property from summary destruction, not the right to continue letting rooms."
+  },
+  {
+    "case_id": 3149139,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "favorable",
+    "note": "The decree expressly preserved lodging operations while enjoining a different business: the defendant could not sell indiscriminately, but could furnish food and liquor \"except to persons who are regular guests of a private hotel or boarding house carried on upon said premises, or their invited friends\". The adverse holding concerns the public restaurant and saloon, not letting."
+  },
+  {
+    "case_id": 3171149,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "favorable",
+    "note": "The actual letting holding rejects the covenant restriction: \"the decision herein that the keeping of boarders in a dwelling house upon one of these lots is a violation of the restrictions appears to me to be unwarranted.\" The separate store restriction does not supply an adverse holding about compensated occupancy."
+  },
+  {
+    "case_id": 3413161,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "favorable",
+    "note": "The court held that \"the victoria is a private hotel or boarding house of the same general character as the other hotels or boarding houses named, and therefore not within the prohibition of the covenant.\" Its separate injunction against an indiscriminate barroom does not restrict the letting of guest rooms."
+  },
+  {
+    "case_id": 3486805,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "favorable",
+    "note": "The letting-specific order was entirely favorable: \"the orders, so far as they enjoin the defendant from the keeping of a boarding house or hotel, must be reversed\". Affirmance of the barroom and liquor-sales injunction concerned a distinct use and does not make the letting polarity mixed."
+  },
+  {
+    "case_id": 3524120,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "The court independently held that \"the claim seems to be a meritorious one, and ought to be discharged in a practical manner, by its payment.\" It also restricted the keeper to \"the actual loss resulting from the breach, and nothing more.\" This is the same Strakosch v. Wray dispute reported in cases 695162 and 697777, and both liability and the recovery limit are holdings."
+  },
+  {
+    "case_id": 4295702,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "The prior and present rulings recognize the keeper's contract recovery while requiring proof of the saved boarding costs: \"the defendants were entitled to a deduction for what it would have cost the plaintiff to have boarded miss gross and her maid to the end of the term.\" The evidentiary reversal affects amount, not the owner's right to enforce the letting agreement."
+  },
+  {
+    "case_id": 4539763,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "Two contrary holdings apply to the same boarders: \"there is nothing in the habendum clause which should be held to restrain the defendant\" from keeping them, but the existing bylaw bound the lessee and \"the plaintiff has the right to enforce against him.\" The injunction was affirmed while the broader forfeiture was reversed."
+  },
+  {
+    "case_id": 4649203,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "The property owners lost because \"by declining to permit the.defendant any longer to collect' the rents from her sub-tenants the plaintiffs had wrongfully deprived her of her enjoyment of the demised premises\". The judgment protects the lessee/sublessor against the owners and relieves her of later rent, with no contrary owner-favorable letting holding."
+  },
+  {
+    "case_id": 4795972,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "favorable",
+    "note": "The superior lessor recovered after the court rejected the subletting occupant's statutory protection: \"defendant was not a statutory tenant, but a landlord who leased the apartment to a third party for profit.\" Judgment for two months' rent was directed for the plaintiff, so the letting-related disposition is favorable."
+  },
+  {
+    "case_id": 4809400,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "The only operative remedy holding denies the housekeeper the statutory security for unpaid board: \"consequently he had no right to detain the goods, and the action was well brought, and should have been sustained.\" Classifying him as a private housekeeper rather than a boarding-house keeper does not create a contrary holding on freedom to let."
+  },
+  {
+    "case_id": 8293106,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "The operative holding imposes liability on the boarding-house keeper: \"the offense constituted embezzlement, and the court did not err in so holding.\" The statutory lien mentioned as a reason contractual relations existed was not itself adjudicated and therefore cannot supply the second contrary holding needed for mixed."
+  },
+  {
+    "case_id": 8505040,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "adverse",
+    "note": "The letting restriction is the substantive holding—\"there was evidently a breach of this covenant by the deceased\"—while the nonsuit rests only on uncertainty of damages, not a contrary protection of the owner's letting freedom."
+  },
+  {
+    "case_id": 10141122,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The proposed YMCA development has no established paid residential use: 'there is no summary judgment proof as to who is to occupy the building or buildings or under what conditions.' The court remands for insufficient proof of compliance with the subdivision restrictions; the rooming-house prohibition and one-room exception occur in the covenant text, without an adjudicated or proposed compensated dwelling arrangement."
+  },
+  {
+    "case_id": 10170569,
+    "field": "polarity",
+    "decision": "adopt",
+    "value": "favorable",
+    "note": "The letting-specific rule is favorable—\"the incidental renting of rooms in a dwelling house, not constituting the operation of a business, is a residential use of the premises\"—and the injunction concerns a beauty parlor, not a contrary restriction on letting."
+  },
+  {
+    "case_id": 10195093,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "The only letting disposition rejects the proprietor's payment claim: \"plaintiff was not entitled to recover as rent\" and the contract was mutually abrogated; classifying the occupants as lodgers is not a contrary holding protecting owner liberty."
+  },
+  {
+    "case_id": 10205217,
+    "field": "polarity",
+    "decision": "set",
+    "value": "adverse",
+    "note": "The jury's adverse lodging finding controlled the letting remedy—\"whether the room occupied by appellee and his wife was a part of a hotel or boarding house was an issue for the determination of the jury\"—and the owners therefore lacked the asserted innkeeper lien; reversal of exemplary damages was a generic damages ruling."
+  },
+  {
+    "case_id": 10264860,
+    "field": "polarity",
+    "decision": "set",
+    "value": "favorable",
+    "note": "Although the court treated the resident as a guest, the final letting-related disposition enforced the operator's defense: \"the trial court's judgment is reversed, and judgment is here rendered for appellant\" on the guest's contributory negligence."
+  },
+  {
+    "case_id": 12298658,
+    "field": "polarity",
+    "decision": "keep",
+    "value": null,
+    "note": "Both sides are actual zoning holdings: the court sustained that the residence was \"not a one-family dwelling\" but also held that classifying it as a prohibited convalescent home was \"arbitrary and capricious.\""
+  },
+  {
+    "case_id": 222994,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court classifies Woods's status—\"he entered as a boarder by their permission and in subordination to their rights\"—and decides eviction and distress, but does not characterize an owner's liberty to let."
+  },
+  {
+    "case_id": 254712,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "no",
+    "note": "The actual boarding business included 25 to 50 summer boarders, \"and some of them through the whole year\"; the only specific duration evidence is affirmatively longer than thirty days."
+  },
+  {
+    "case_id": 285478,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion holds that the paid occupant \"is not a tenant but a boarder\" for poor-law settlement, but gives no judicial framing of the homeowner's freedom to offer that lodging."
+  },
+  {
+    "case_id": 345175,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court allocates the board money between spouses—\"the husband is entitled to the money paid for board\" absent a separate-property agreement—but never characterizes the freedom to let rooms."
+  },
+  {
+    "case_id": 378845,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The four-year-eight-month term is the operator's headlease; the opinion says only that roomers \"refused to stay\" and vacated, so the actual roomers' durations are not established."
+  },
+  {
+    "case_id": 444663,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion limits distress against a third-party boarder's goods and construes the tenant's removal covenant; it does not judicially characterize the owner's liberty to let."
+  },
+  {
+    "case_id": 674442,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The holding concerns when \"the property of boarders at taverns and boarding-houses\" is exempt from distress, with no framing of letting as an ownership incident, regulable privilege, or commercial use."
+  },
+  {
+    "case_id": 689078,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion describes the men only as \"patrons of defendant's boarding house\" and says the theft occurred during a temporary absence; it gives no stay or agreed term for their occupancy."
+  },
+  {
+    "case_id": 689897,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "This parallel report likewise calls the men patrons and mentions only a temporary absence from the room; no actual occupancy duration or agreed term appears."
+  },
+  {
+    "case_id": 747802,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion says the landlord rented apartments and furnished rooms to tenants and lodgers, but supplies no occupant's stay or agreed term from which a thirty-day classification can be made."
+  },
+  {
+    "case_id": 747819,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The expired headlease concerns the nonresident operator; the opinion expressly leaves the subtenants' or roomers' rights undetermined and gives no duration for their occupancy."
+  },
+  {
+    "case_id": 766505,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The record identifies table boarders and roomers but gives no stay or agreed term for any of them; the lease's term cannot be transferred to the roomers."
+  },
+  {
+    "case_id": 766566,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The court awards possession of ten rooms \"occupied by the tenant's roomers\" but never states how long any roomer stayed or agreed to stay."
+  },
+  {
+    "case_id": 769025,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The proposed hotel mentions only unquantified \"somewhat lengthy periods\" and \"possible transient accommodations\"; neither phrase establishes an actual or agreed stay relative to thirty days."
+  },
+  {
+    "case_id": 792662,
+    "field": "restriction_nature",
+    "decision": "set",
+    "value": "other",
+    "note": "The restriction is the innkeeper's strict common-law responsibility as an insurer of guest property, and the motor lodge remained liable because it did not satisfy the 1913 statute's notice conditions; this is neither licensing, zoning, nuisance, tax, nor rent/eviction/habitability protection."
+  },
+  {
+    "case_id": 806684,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion calls Gavins a permanent tenant and discusses statutory coverage, but gives no actual stay or agreed occupancy term that fixes the thirty-day question."
+  },
+  {
+    "case_id": 852142,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The six or seven years describe the wife's boarding-house business, not any boarder's occupancy; no guest's stay or agreed term appears."
+  },
+  {
+    "case_id": 853873,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court holds that \"the goods of a boarder are not liable to be distrained\" for the operator's rent and decides the constable's trespass; it does not characterize an owner's freedom to let."
+  },
+  {
+    "case_id": 854032,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion establishes 16 to 18 single-room tenants in illegally converted houses but states no tenant's stay or agreed term."
+  },
+  {
+    "case_id": 880785,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The years 1920–1935 concern the building's use and the former owner's tenure; the opinion gives no roomer or boarder's actual stay or agreed term."
+  },
+  {
+    "case_id": 931328,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The court addresses an expired lease, notices, and illegal rooming-house occupancy, but never states the under-tenants' actual stays or agreed terms."
+  },
+  {
+    "case_id": 947490,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The short report resolves only whether boarders' property is exempt from a landlord's distress for rent; it contains no judicial characterization of the freedom to let."
+  },
+  {
+    "case_id": 947947,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion establishes continuous rooming-house use and later wartime interruption, but those periods concern land use; no occupant's stay or agreed term is stated."
+  },
+  {
+    "case_id": 1022075,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The proposed compensated occupancy of the carriage-house dwelling is squarely at issue, but the opinion gives no actual or agreed duration for any tenant."
+  },
+  {
+    "case_id": 1066514,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The court identifies three rent-paying roomers and an illegal single-room occupancy but supplies no stay or agreed term for any of them."
+  },
+  {
+    "case_id": 1073529,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion tests whether the keeper proved \"proper charges ... on account of his accommodation, board and lodging\" for a statutory lien; it does not characterize the owner's liberty to let."
+  },
+  {
+    "case_id": 1095904,
+    "field": "owner_freedom_characterization",
+    "decision": "keep",
+    "value": null,
+    "note": "The court rejects an unsupported post-mortem claim and notes that the boarder paid the agreed weekly board through death, but it gives no framing of the landlady's freedom to let."
+  },
+  {
+    "case_id": 1167291,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The prosecution failed because the People proved only ownership and offered \"neither ... satisfactory legal evidence of letting or renting\"; the opinion contains no actual compensated occupancy and decides only a generic proof defect."
+  },
+  {
+    "case_id": 1199898,
+    "field": "relevant",
+    "decision": "set",
+    "value": false,
+    "note": "The case concerns physical alteration of a house to accommodate two families under a private-dwelling covenant; it never establishes compensated use, a letting arrangement, or an occupant's legal status."
+  },
+  {
+    "case_id": 1199919,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The owner leased the building to an operator at $20 per month for a rooming house, but the injured woman's relative's room occupancy has no stated stay or agreed term."
+  },
+  {
+    "case_id": 1206972,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The opinion regulates existing rooming houses and discusses compliance deadlines and years of prior use, but none of those periods is an occupant's stay or agreed term."
+  },
+  {
+    "case_id": 1228059,
+    "field": "under_thirty_days",
+    "decision": "set",
+    "value": "unclear",
+    "note": "The agreed occupancy was expressly indefinite: referred families would remain until another placement or permanent housing was found, and the court notes they could stay for \"some indefinite time.\""
+  },
+  {
+    "case_id": 1250504,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "Mail was delivered to 17 names for six to eight months but some names changed; that describes a changing building roster, not any occupant's actual stay or agreed term."
+  },
+  {
+    "case_id": 1260581,
+    "field": "under_thirty_days",
+    "decision": "keep",
+    "value": null,
+    "note": "The plaintiff rented a room from the lessee and was classified as a roomer or lodger, but the opinion states no actual stay or agreed term for her occupancy."
+  }
+]
