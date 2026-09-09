@@ -1,0 +1,273 @@
+# Cycle-004 map review - cycles-001-003-reread
+
+250 cards this round (cap 250); 105 carried to the next round.
+Page: reports/review-queue-reread-1.html (decisions are saved into the page itself).
+
+
+## A. Favorable and under thirty days (52)
+
+- [ ] 76 Misc. 539 -  [452503] - decide polarity reader=favorable also=-
+- [ ] 142 La. 1042 -  [603055] - decide polarity reader=favorable also=-
+- [ ] 136 Misc. 2d 950 -  [862373] - decide polarity reader=favorable also=-
+- [ ] 161 Misc. 2d 25 -  [923835] - decide polarity reader=favorable also=-
+- [ ] 204 Misc. 1011 -  [977113] - decide polarity reader=favorable also=-
+- [ ] 284 Pa. 545 -  [1092001] - decide polarity reader=favorable also=-
+- [ ] 39 Misc. 2d 562 -  [1126775] - decide polarity reader=favorable also=-
+- [ ] 33 N.Y. Crim. 536 -  [1211580] - decide polarity reader=favorable also=-
+- [ ] 39 N.Y. Crim. 480 -  [1224744] - decide polarity reader=favorable also=householder_nights
+- [ ] 367 Pa. 432 -  [1228387] - decide polarity reader=favorable also=fuzzy_quote
+- [ ] 371 Pa. 290 -  [1237075] - decide polarity reader=favorable also=-
+- [ ] 2 Liquor Tax Rep. 320 -  [1293532] - decide polarity reader=favorable also=-
+- [ ] 1 Daly (N.Y.) 496 -  [1295869] - decide polarity reader=favorable also=-
+- [ ] 2 Daly (N.Y.) 15 -  [1299949] - decide polarity reader=favorable also=-
+- [ ] 7 N.Y. Super. Ct. 242 -  [1353539] - decide polarity reader=favorable also=fuzzy_quote
+- [ ] 39 N.Y. Super. Ct. 109 -  [1407541] - decide polarity reader=favorable also=fuzzy_quote
+- [ ] 42 Pa. D. & C. 586 -  [1547846] - decide polarity reader=favorable also=householder_nights
+- [ ] 61 Pa. D. & C. 117 -  [1572284] - decide polarity reader=favorable also=-
+- [ ] 31 Misc. 569 -  [1618544] - decide polarity reader=favorable also=-
+- [ ] 19 Pa. D. & C.2d 31 -  [1643198] - decide polarity reader=favorable also=-
+- [ ] 49 Misc. 535 -  [1832719] - decide polarity reader=favorable also=-
+- [ ] 2 Barb. 104 -  [1933855] - decide polarity reader=favorable also=-
+- [ ] 3 Abb. Pr. 26 -  [1955857] - decide polarity reader=favorable also=-
+- [ ] 246 N.Y. 169 -  [1981353] - decide polarity reader=favorable also=-
+- [ ] 3 Hill & Den. 150 -  [2172577] - decide polarity reader=favorable also=householder_nights
+- [ ] 30 How. Pr. 124 -  [2225088] - decide polarity reader=favorable also=-
+- [ ] 16 A.D. 95 -  [2301654] - decide polarity reader=favorable also=-
+- [ ] 98 N.Y.S. 512 -  [3139389] - decide polarity reader=favorable also=-
+- [ ] 135 N.Y.S. 565 -  [3392598] - decide polarity reader=favorable also=-
+- [ ] 36 Pa. D. & C.5th 449 -  [4134815] - decide polarity reader=favorable also=-
+- [ ] 201 A.D. 55 -  [4646407] - decide polarity reader=favorable also=householder_nights
+- [ ] 14 Barb. 425 -  [4918420] - decide polarity reader=favorable also=-
+- [ ] 463 S.W.3d 562 -  [6864483] - decide polarity reader=favorable also=-
+- [ ] 28 A.3d 228 -  [7272028] - decide polarity reader=favorable also=-
+- [ ] 646 So. 2d 475 -  [7457137] - decide polarity reader=favorable also=-
+- [ ] 129 N.Y.S. 505 -  [7660450] - decide polarity reader=favorable also=-
+- [ ] 110 N.Y.S. 1096 -  [7701179] - decide polarity reader=favorable also=-
+- [ ] 65 N.Y.S. 517 -  [7757016] - decide polarity reader=favorable also=-
+- [ ] 930 So. 2d 107 -  [8421307] - decide polarity reader=favorable also=checker_disagreement
+- [ ] 8 Misc. 2d 994 -  [8840068] - decide polarity reader=favorable also=-
+- [ ] 637 S.W.2d 511 -  [9943901] - decide polarity reader=favorable also=-
+- [ ] 153 So. 340 -  [10037813] - decide polarity reader=favorable also=-
+- [ ] 43 So. 2d 263 -  [10047748] - decide polarity reader=favorable also=-
+- [ ] 196 So. 571 -  [10054172] - decide polarity reader=favorable also=householder_nights
+- [ ] 143 So. 505 -  [10055384] - decide polarity reader=favorable also=-
+- [ ] 226 S.W.2d 172 -  [10191402] - decide polarity reader=favorable also=fuzzy_quote
+- [ ] 197 S.W.2d 372 -  [10193061] - decide polarity reader=favorable also=fuzzy_quote
+- [ ] 180 S.W.2d 478 -  [10211591] - decide polarity reader=favorable also=-
+- [ ] 47 S.W.2d 343 -  [10237077] - decide polarity reader=favorable also=householder_nights
+- [ ] 106 S.W.2d 351 -  [10256335] - decide polarity reader=favorable also=householder_nights
+- [ ] 1 S.W.2d 751 -  [10303145] - decide polarity reader=favorable also=-
+- [ ] 148 A.D.3d 1306 -  [12294668] - decide polarity reader=favorable also=-
+
+## B. Householder letting by the night (16)
+
+- [ ] 186 A.D.2d 507 -  [1097743] - decide who_was_letting reader=householder also=-
+- [ ] 7 Misc. 3d 238 -  [1187382] - decide who_was_letting reader=householder also=polarity_mixed
+- [ ] 134 Pa. Commw. 382 -  [1404978] - decide who_was_letting reader=householder also=-
+- [ ] 138 Pa. Commw. 443 -  [1412300] - decide who_was_letting reader=householder also=-
+- [ ] 43 Pa. D. & C. 301 -  [1549796] - decide who_was_letting reader=householder also=-
+- [ ] 47 Misc.3d 723 -  [4155206] - decide who_was_letting reader=householder also=-
+- [ ] 66 Tex. Crim. 409 -  [4632742] - decide who_was_letting reader=householder also=-
+- [ ] 83 Tex. Crim. 39 -  [4763777] - decide who_was_letting reader=householder also=-
+- [ ] 85 A.D. 235 -  [5035124] - decide who_was_letting reader=householder also=-
+- [ ] 41 La. Ann. 985 -  [5291303] - decide who_was_letting reader=householder also=gate_erased
+- [ ] 118 A.3d 17 -  [6859144] - decide who_was_letting reader=householder also=-
+- [ ] 113 A.3d 879 -  [6879598] - decide who_was_letting reader=householder also=-
+- [ ] 201 S.W. 179 -  [8251638] - decide who_was_letting reader=householder also=-
+- [ ] 745 So. 2d 1259 -  [11517809] - decide who_was_letting reader=householder also=checker_disagreement,fuzzy_quote
+- [ ] 726 So. 2d 435 -  [11766370] - decide who_was_letting reader=householder also=fuzzy_quote
+- [ ] 150 A.D.3d 562 -  [12434579] - decide who_was_letting reader=householder also=-
+
+## C. Reader / checker disagreement (24)
+
+- [ ] 138 Misc. 488 -  [804055] - decide characterization reader=lease also=gate_erased
+- [ ] 138 Misc. 338 -  [804136] - decide polarity reader=mixed also=polarity_mixed
+- [ ] 140 Misc. 294 -  [810451] - decide polarity reader=favorable also=gate_erased
+- [ ] 144 Misc. 197 -  [822246] - decide characterization reader=lease also=gate_erased
+- [ ] 146 Misc. 833 -  [827706] - decide relevant reader=True also=-
+- [ ] 160 Misc. 758 -  [858848] - decide polarity reader=adverse also=gate_erased
+- [ ] 165 Misc. 834 -  [870963] - decide polarity reader=favorable also=gate_erased
+- [ ] 166 Misc. 135 -  [873400] - decide relevant reader=True also=gate_erased
+- [ ] 190 Misc. 1 -  [936937] - decide polarity reader=mixed also=polarity_mixed
+- [ ] 45 N.Y. St. Rep. 243 -  [2081402] - decide polarity reader=mixed also=polarity_mixed
+- [ ] 107 N.Y. 610 -  [2211876] - decide characterization reader=license also=-
+- [ ] 24 How. Pr. 132 -  [2216222] - decide relevant reader=True also=gate_erased,fuzzy_quote
+- [ ] 111 N.Y. 359 -  [2218095] - decide polarity reader=mixed also=polarity_mixed
+- [ ] 133 N.Y. 287 -  [2251466] - decide polarity reader=favorable also=-
+- [ ] 145 N.Y. 32 -  [2266583] - decide characterization reader=lease also=gate_erased
+- [ ] 6 A.D. 121 -  [2282289] - decide polarity reader=mixed also=polarity_mixed,gate_erased
+- [ ] 5 Whart. 9 -  [8877300] - decide polarity reader=favorable also=gate_erased
+- [ ] 423 So. 2d 1 -  [9522208] - decide polarity reader=adverse also=-
+- [ ] 398 So. 2d 1374 -  [9606185] - decide relevant reader=True also=-
+- [ ] 335 So. 2d 466 -  [9659934] - decide characterization reader=lease also=gate_erased
+- [ ] 345 So. 2d 96 -  [9681317] - decide polarity reader=favorable also=gate_erased
+- [ ] 704 So. 2d 909 -  [11882976] - decide polarity reader=adverse also=-
+- [ ] 483 So. 2d 1123 -  [12120860] - decide relevant reader=True also=-
+- [ ] 219 So. 3d 471 -  [12364802] - decide characterization reader=other also=-
+
+## D. Polarity mixed (55)
+
+- [ ] 6 Tex. Civ. App. 179 -  [229840] - decide polarity reader=mixed also=gate_erased
+- [ ] 1 Denio 602 -  [484038] - decide polarity reader=mixed also=-
+- [ ] 82 Pa. Super. 5 -  [657408] - decide polarity reader=mixed also=-
+- [ ] 83 Pa. Super. 125 -  [661177] - decide polarity reader=mixed also=-
+- [ ] 91 Pa. Super. 195 -  [674172] - decide polarity reader=mixed also=-
+- [ ] 6 Misc. 207 -  [695162] - decide polarity reader=mixed also=-
+- [ ] 56 N.Y. St. Rep. 697 -  [697777] - decide polarity reader=mixed also=-
+- [ ] 108 Misc. 2d 785 -  [777057] - decide polarity reader=mixed also=-
+- [ ] 137 Misc. 524 -  [801492] - decide polarity reader=mixed also=-
+- [ ] 134 Pa. 177 -  [814951] - decide polarity reader=mixed also=gate_erased
+- [ ] 147 Misc. 2d 488 -  [888986] - decide polarity reader=mixed also=-
+- [ ] 224 Pa. 509 -  [963049] - decide polarity reader=mixed also=-
+- [ ] 206 Misc. 826 -  [983888] - decide polarity reader=mixed also=-
+- [ ] 3 Misc. 2d 460 -  [1001214] - decide polarity reader=mixed also=-
+- [ ] 11 Misc. 2d 287 -  [1025148] - decide polarity reader=mixed also=gate_erased
+- [ ] 142 Pa. Super. 165 -  [1028885] - decide polarity reader=mixed also=-
+- [ ] 89 Pa. 85 -  [1063186] - decide polarity reader=mixed also=gate_erased
+- [ ] 324 Pa. 399 -  [1171347] - decide polarity reader=mixed also=gate_erased,fuzzy_quote
+- [ ] 68 Misc. 2d 87 -  [1238695] - decide polarity reader=mixed also=-
+- [ ] 154 La. 469 -  [1280223] - decide polarity reader=mixed also=gate_erased
+- [ ] 153 La. 1007 -  [1282408] - decide polarity reader=mixed also=-
+- [ ] 3 Liquor Tax Rep. 433 -  [1292267] - decide polarity reader=mixed also=-
+- [ ] 30 N.Y. Super. Ct. 561 -  [1393244] - decide polarity reader=mixed also=-
+- [ ] 25 N.Y. Super. Ct. 156 -  [1425651] - decide polarity reader=mixed also=-
+- [ ] 68 Pa. D. & C. 215 -  [1583773] - decide polarity reader=mixed also=-
+- [ ] 59 Misc. 171 -  [1848874] - decide polarity reader=mixed also=-
+- [ ] 72 Misc. 70 -  [1858054] - decide polarity reader=mixed also=-
+- [ ] 12 N.Y. St. Rep. 767 -  [1992851] - decide polarity reader=mixed also=-
+- [ ] 279 N.Y. 167 -  [2034060] - decide polarity reader=mixed also=gate_erased
+- [ ] 8 A.D.3d 812 -  [2198147] - decide polarity reader=mixed also=-
+- [ ] 159 Tex. 464 -  [2257077] - decide polarity reader=mixed also=-
+- [ ] 210 A.D. 217 -  [2391002] - decide polarity reader=mixed also=-
+- [ ] 119 La. 339 -  [2618266] - decide polarity reader=mixed also=gate_erased
+- [ ] 172 A.D. 393 -  [2847206] - decide polarity reader=mixed also=gate_erased
+- [ ] 182 A.D. 703 -  [2944818] - decide polarity reader=mixed also=gate_erased
+- [ ] 91 N.Y.S. 672 -  [3051410] - decide polarity reader=mixed also=-
+- [ ] 96 N.Y.S. 671 -  [3118329] - decide polarity reader=mixed also=-
+- [ ] 98 N.Y.S. 811 -  [3149139] - decide polarity reader=mixed also=gate_erased
+- [ ] 158 N.Y.S. 895 -  [3171149] - decide polarity reader=mixed also=gate_erased
+- [ ] 51 N.Y.S. 1006 -  [3413161] - decide polarity reader=mixed also=-
+- [ ] 39 N.Y.S. 892 -  [3486805] - decide polarity reader=mixed also=-
+- [ ] 26 N.Y.S. 537 -  [3524120] - decide polarity reader=mixed also=-
+- [ ] 12 N.Y.S. 343 -  [4295702] - decide polarity reader=mixed also=-
+- [ ] 53 N.Y. Sup. Ct. 582 -  [4539763] - decide polarity reader=mixed also=gate_erased
+- [ ] 38 A.D. 466 -  [4649203] - decide polarity reader=mixed also=gate_erased
+- [ ] 216 A.D. 295 -  [4795972] - decide polarity reader=mixed also=-
+- [ ] 1 Lans. 484 -  [4809400] - decide polarity reader=mixed also=-
+- [ ] 159 S.W. 849 -  [8293106] - decide polarity reader=mixed also=gate_erased
+- [ ] 17 La. Ann. 239 -  [8505040] - decide polarity reader=mixed also=-
+- [ ] 452 S.W.2d 423 -  [10141122] - decide polarity reader=mixed also=gate_erased
+- [ ] 397 S.W.2d 501 -  [10170569] - decide polarity reader=mixed also=gate_erased
+- [ ] 227 S.W.2d 344 -  [10195093] - decide polarity reader=mixed also=-
+- [ ] 238 S.W.2d 614 -  [10205217] - decide polarity reader=mixed also=-
+- [ ] 19 S.W.2d 216 -  [10264860] - decide polarity reader=mixed also=gate_erased
+- [ ] 55 Misc. 3d 382 -  [12298658] - decide polarity reader=mixed also=-
+
+## E. Judged fields erased by the quote gate (34)
+
+- [ ] 4 Pennyp. 57 -  [222994] - decide owner_freedom_characterization reader=None also=fuzzy_quote
+- [ ] 1 Monag. 305 -  [254712] - decide under_thirty_days reader=None also=-
+- [ ] 7 Pa. Super. 303 -  [285478] - decide owner_freedom_characterization reader=None also=-
+- [ ] 14 Misc. 462 -  [345175] - decide owner_freedom_characterization reader=None also=fuzzy_quote
+- [ ] 60 Misc. 58 -  [378845] - decide under_thirty_days reader=None also=-
+- [ ] 57 Pa. Super. 585 -  [444663] - decide owner_freedom_characterization reader=None also=-
+- [ ] 1 Hill & Den. 565 -  [674442] - decide owner_freedom_characterization reader=None also=-
+- [ ] 4 Misc. 528 -  [689078] - decide under_thirty_days reader=None also=-
+- [ ] 54 N.Y. St. Rep. 125 -  [689897] - decide under_thirty_days reader=None also=-
+- [ ] 116 Misc. 338 -  [747802] - decide under_thirty_days reader=None also=-
+- [ ] 116 Misc. 117 -  [747819] - decide under_thirty_days reader=None also=fuzzy_quote
+- [ ] 123 Misc. 950 -  [766505] - decide under_thirty_days reader=None also=-
+- [ ] 123 Misc. 932 -  [766566] - decide under_thirty_days reader=None also=-
+- [ ] 125 Misc. 30 -  [769025] - decide under_thirty_days reader=None also=-
+- [ ] 217 Pa. Super. 262 -  [792662] - decide restriction_nature reader=None also=fuzzy_quote
+- [ ] 117 Misc. 2d 952 -  [806684] - decide under_thirty_days reader=None also=-
+- [ ] 160 Pa. 60 -  [852142] - decide under_thirty_days reader=None also=-
+- [ ] 26 Pa. Super. 5 -  [853873] - decide owner_freedom_characterization reader=None also=-
+- [ ] 133 Misc. 2d 626 -  [854032] - decide under_thirty_days reader=None also=-
+- [ ] 169 Misc. 995 -  [880785] - decide under_thirty_days reader=None also=-
+- [ ] 188 Misc. 885 -  [931328] - decide under_thirty_days reader=None also=-
+- [ ] 1 Lock. Rev. Cas. 307 -  [947490] - decide owner_freedom_characterization reader=None also=-
+- [ ] 195 Misc. 125 -  [947947] - decide under_thirty_days reader=None also=-
+- [ ] 10 Misc. 2d 858 -  [1022075] - decide under_thirty_days reader=None also=-
+- [ ] 23 Misc. 2d 955 -  [1066514] - decide under_thirty_days reader=None also=-
+- [ ] 6 Mills Surr. 577 -  [1073529] - decide owner_freedom_characterization reader=None also=-
+- [ ] 17 Mills Surr. 458 -  [1095904] - decide owner_freedom_characterization reader=None also=fuzzy_quote
+- [ ] 49 Misc. 2d 331 -  [1167291] - decide under_thirty_days reader=None also=-
+- [ ] 338 Pa. 545 -  [1199898] - decide under_thirty_days reader=None also=-
+- [ ] 338 Pa. 5 -  [1199919] - decide under_thirty_days reader=None also=-
+- [ ] 60 Misc. 2d 873 -  [1206972] - decide under_thirty_days reader=None also=-
+- [ ] 218 A.D.2d 89 -  [1228059] - decide under_thirty_days reader=None also=-
+- [ ] 71 Misc. 2d 864 -  [1250504] - decide under_thirty_days reader=None also=-
+- [ ] 163 La. 59 -  [1260581] - decide under_thirty_days reader=None also=-
+
+## G. Re-read conflicts with a human decision (69)
+
+- [ ] 21 Tex. Civ. App. 428 -  [277215] - decide characterization reader=other also=-
+- [ ] 144 La. 95 -  [608729] - decide relevant reader=True also=-
+- [ ] 14 N.Y. Sup. Ct. 594 -  [625003] - decide polarity reader=favorable also=-
+- [ ] 14 Abb. N. Cas. 42 -  [630154] - decide polarity reader=mixed also=-
+- [ ] 8 N.Y. St. Rep. 347 -  [640267] - decide polarity reader=favorable also=-
+- [ ] 55 N.Y. St. Rep. 145 -  [694753] - decide polarity reader=favorable also=-
+- [ ] 114 Misc. 92 -  [743824] - decide who_was_letting reader=unclear also=-
+- [ ] 114 Misc. 106 -  [743968] - decide polarity reader=adverse also=-
+- [ ] 117 Misc. 570 -  [749404] - decide who_was_letting reader=unclear also=-
+- [ ] 110 Misc. 2d 392 -  [782936] - decide who_was_letting reader=commercial_operator also=-
+- [ ] 124 Misc. 2d 115 -  [828076] - decide characterization reader=innkeeping also=-
+- [ ] 29 Pa. Super. 82 -  [860155] - decide who_was_letting reader=commercial_operator also=-
+- [ ] 9 Daly (N.Y.) 460 -  [912009] - decide polarity reader=mixed also=-
+- [ ] 20 Misc. 2d 139 -  [1054003] - decide characterization reader=other also=-
+- [ ] 1 Ant. N.P. Cas. 339 -  [1105708] - decide characterization reader=lodging also=-
+- [ ] 35 Misc.2d 184 -  [1112849] - decide characterization reader=other also=-
+- [ ] 39 Misc. 2d 30 -  [1126530] - decide characterization reader=None also=-
+- [ ] 52 Misc.2d 199 -  [1177933] - decide who_was_letting reader=householder also=-
+- [ ] 78 Misc. 2d 607 -  [1277008] - decide characterization reader=other also=-
+- [ ] 6 Daly (N.Y.) 33 -  [1306520] - decide polarity reader=favorable also=-
+- [ ] 4 Pa. D. & C.2d 186 -  [1613746] - decide polarity reader=favorable also=-
+- [ ] 45 Misc. 97 -  [1826673] - decide characterization reader=innkeeping also=-
+- [ ] 49 Misc. 171 -  [1832770] - decide polarity reader=favorable also=-
+- [ ] 30 N.Y. Sup. Ct. 669 -  [1913982] - decide characterization reader=other also=-
+- [ ] 30 N.Y. Sup. Ct. 669 -  [1913982] - decide polarity reader=mixed also=-
+- [ ] 7 Hill & Den. 83 -  [2046153] - decide relevant reader=True also=-
+- [ ] 11 Johns. 61 -  [2137661] - decide relevant reader=True also=-
+- [ ] 3 Hill & Den. 485 -  [2172545] - decide polarity reader=mixed also=-
+- [ ] 73 Tex. 515 -  [2189028] - decide relevant reader=True also=-
+- [ ] 172 N.Y. 1 -  [2307032] - decide characterization reader=None also=-
+- [ ] 119 La. 1025 -  [2618120] - decide who_was_letting reader=commercial_operator also=-
+- [ ] 160 A.D. 781 -  [2721901] - decide characterization reader=None also=-
+- [ ] 160 A.D. 781 -  [2721901] - decide polarity reader=favorable also=-
+- [ ] 170 La. 426 -  [2923357] - decide who_was_letting reader=commercial_operator also=-
+- [ ] 145 N.Y.S. 976 -  [3288237] - decide characterization reader=None also=-
+- [ ] 145 N.Y.S. 976 -  [3288237] - decide polarity reader=adverse also=-
+- [ ] 96 A.D.2d 17 -  [3344688] - decide polarity reader=mixed also=-
+- [ ] 106 A.D.3d 178 -  [3725970] - decide characterization reader=other also=-
+- [ ] 26 Misc.3d 170 -  [3761627] - decide characterization reader=lease also=-
+- [ ] 39 Misc. 3d 221 -  [3786837] - decide characterization reader=innkeeping also=-
+- [ ] 70 A.D.3d 427 -  [3971519] - decide who_was_letting reader=non_resident_owner also=-
+- [ ] 45 Misc.3d 623 -  [4268287] - decide characterization reader=lodging also=-
+- [ ] 133 A.D.3d 1174 -  [4369074] - decide characterization reader=other also=-
+- [ ] 74 N.Y.2d 92 -  [4413960] - decide characterization reader=lease also=-
+- [ ] 18 N.Y. Sup. Ct. 432 -  [4448542] - decide polarity reader=favorable also=-
+- [ ] 52 How. Pr. 14 -  [4482382] - decide polarity reader=mixed also=-
+- [ ] 91 N.Y. Sup. Ct. 537 -  [4770066] - decide polarity reader=favorable also=-
+- [ ] 1 Lans. 397 -  [4809245] - decide polarity reader=mixed also=-
+- [ ] 70 A.D. 73 -  [4907537] - decide who_was_letting reader=commercial_operator also=-
+- [ ] 18 La. Ann. 156 -  [5206672] - decide polarity reader=mixed also=-
+- [ ] 41 La. Ann. 1079 -  [5289134] - decide holding_summary reader=None also=-
+- [ ] 39 La. Ann. 14 -  [5303699] - decide who_was_letting reader=unclear also=-
+- [ ] 34 A.D.3d 792 -  [5311532] - decide characterization reader=None also=-
+- [ ] 62 A.D.2d 231 -  [5487598] - decide characterization reader=other also=-
+- [ ] 5 La. App. 214 -  [5607484] - decide relevant reader=True also=-
+- [ ] 123 N.Y.S. 803 -  [5637879] - decide relevant reader=True also=-
+- [ ] 94 A.D.3d 1218 -  [5676181] - decide characterization reader=other also=-
+- [ ] 60 A.D.3d 226 -  [5735453] - decide polarity reader=mixed also=-
+- [ ] 20 La. 73 -  [5795630] - decide polarity reader=favorable also=-
+- [ ] 113 N.Y.S. 357 -  [7664513] - decide relevant reader=True also=-
+- [ ] 182 S.W. 1144 -  [8256748] - decide polarity reader=mixed also=-
+- [ ] 4 Rob. 102 -  [8501453] - decide polarity reader=mixed also=-
+- [ ] 122 La. 831 -  [8503953] - decide polarity reader=adverse also=-
+- [ ] 28 Pa. D. & C.4th 168 -  [8744140] - decide who_was_letting reader=commercial_operator also=-
+- [ ] 37 So. 2d 464 -  [10055905] - decide relevant reader=True also=-
+- [ ] Cheatham v. Bohrer, 17 So. 2d 492 -  [10072991] - decide relevant reader=True also=-
+- [ ] 167 S.W.2d 1054 -  [10225079] - decide relevant reader=True also=-
+- [ ] 12 S.W.2d 633 -  [10296227] - decide holding_summary reader=None also=-
+- [ ] 270 So. 3d 694 -  [12692177] - decide holding_summary reader=None also=-
