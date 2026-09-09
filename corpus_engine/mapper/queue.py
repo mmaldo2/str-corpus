@@ -1,10 +1,15 @@
 """The review round (spec section 9, D4/D5).
 
-Six sections in a fixed priority order. A record appears ONCE, in its highest section, with
+Seven sections in a fixed priority order. A record appears ONCE, in its highest section, with
 its other reasons listed on the card - a queue that showed the same case four times would
 spend the round's 150 cards on twenty cases. What does not fit waits for the next round in
 the same order; nothing is dropped, and the deferred ids are written into the queue manifest
 so the next round starts exactly where this one stopped.
+
+Section G (spec section 7) is the one exception: it is built from re-read conflicts on
+records a human ALREADY reviewed, so it is exempt from both the one-appearance rule (one G
+card per conflicting field, not per record) and the reviewed-record filter (a G card exists
+BECAUSE the record is reviewed).
 
 The checker runs on every queued record before the page is built (D5), so the card can show
 what a second family said about the case the user is about to decide. `check_queue` is that
@@ -33,13 +38,20 @@ from rapidfuzz import fuzz
 from corpus_engine.reader.driver import COMPARE_FIELDS, plan_reread
 
 QUEUE_CAP = 150
-SECTIONS = (("A", "favorable_under_thirty", "Favorable and under thirty days"),
+SECTIONS = (("G", "reread_conflict", "Re-read conflicts with a human decision"),
+            ("A", "favorable_under_thirty", "Favorable and under thirty days"),
             ("B", "householder_nights", "Householder letting by the night"),
             ("C", "checker_disagreement", "Reader / checker disagreement"),
             ("D", "polarity_mixed", "Polarity mixed"),
             ("E", "gate_erased", "Judged fields erased by the quote gate"),
             ("F", "fuzzy_quote", "Fuzzy quote match"))
 SECTION_OF = {key: sec for sec, key, _t in SECTIONS}
+# The dict a section-G card is built from. ONE shape, two producers: what
+# `tools/admit_map.py --reread` writes to runs/<run-id>/reread-conflicts.json, and what
+# `conflicts_from_view` renders the fold's own rejected attempts into.
+CONFLICT_KEYS = ("case_id", "field", "human_value", "human_basis", "human_at",
+                 "reread_value", "reread_basis", "kind", "cell_key", "batch_id")
+CONFLICT_KINDS = ("value", "relevant_false")
 # The four statuses `check_queue` reports (module docstring). `failed:` is a prefix; the
 # driver's error text follows it.
 CHECK_STATUSES = ("ok", "unparsed", "failed:", "missing")
@@ -163,6 +175,11 @@ class QueueCard:
     record: dict
     disagreements: tuple[dict, ...] = ()
     fuzzy: tuple[dict, ...] = ()
+    # The re-read disagreement this card exists for (section G only), in `CONFLICT_KEYS`
+    # shape. A plain dict, not a dataclass: it is read from a JSON file, rendered into a page
+    # and read back out of the queue manifest, and one shape through all three is worth more
+    # than a type.
+    conflict: dict | None = None
 
     @property
     def decide_field(self) -> str:
@@ -170,6 +187,8 @@ class QueueCard:
         ONE thing; without this the page would have to guess from the section, and section C
         (whatever field the checker contradicted) and E (whatever field the gate erased)
         cannot be guessed at all."""
+        if self.reason == "reread_conflict":
+            return str((self.conflict or {}).get("field") or "polarity")
         if self.reason in ("favorable_under_thirty", "polarity_mixed"):
             return "polarity"
         if self.reason == "householder_nights":
@@ -197,7 +216,8 @@ class QueueCard:
                 "nulled_fields": list(r.get("nulled_fields") or ()),
                 "extraction_status": r.get("extraction_status"),
                 "disagreements": [dict(d) for d in self.disagreements],
-                "fuzzy": [dict(f) for f in self.fuzzy]}
+                "fuzzy": [dict(f) for f in self.fuzzy],
+                "conflict": dict(self.conflict) if self.conflict else None}
 
 
 @dataclass
@@ -247,14 +267,52 @@ def admitted_case_ids(view, run_id: str) -> list[int]:
     return out
 
 
+def conflicts_from_view(view) -> list[dict]:
+    """The fold's own rejected writes, as section-G cards (D2, spec section 3).
+
+    Belt to `reread-conflicts.json`'s braces. The re-read tool declines to EMIT a patch the
+    fold would reject, so in the ordinary case this returns nothing; anything it does return is
+    a write some other path attempted and the ledger refused, and that is exactly the thing
+    that must not disappear silently."""
+    out = []
+    for case_id, rows in sorted(view.conflicts().items()):
+        for row in rows:
+            field = row["field"]
+            human_basis, human_at = {}, 0
+            for p in view.history(case_id):
+                if p.basis.reviewer and p.op == "set" and p.field == field:
+                    human_basis, human_at = p.basis.to_json(), int(p.seq)
+            out.append({"case_id": int(case_id), "field": field,
+                        "human_value": row.get("standing"), "human_basis": human_basis,
+                        "human_at": human_at, "reread_value": row.get("attempted"),
+                        "reread_basis": row.get("by") or {},
+                        "kind": "relevant_false" if field == "relevant" else "value",
+                        "cell_key": "", "batch_id": ""})
+    return out
+
+
 def select_queue(view, run_id: str, *, manifest: Mapping, cases, cap: int = QUEUE_CAP,
-                 sections=SECTIONS) -> Queue:
+                 sections=SECTIONS, conflicts: Sequence[Mapping] = ()) -> Queue:
     """Priority order, one appearance per record, then the cap. Deferred cards keep their
     order so the next round starts exactly where this one stopped.
 
     A record the ledger already carries a human decision for is not queued again: the round
     exists to move machine-only records to human-reviewed (D3), and re-asking a case the user
-    has already adjudicated spends a card on a decision that is made."""
+    has already adjudicated spends a card on a decision that is made.
+
+    Section G is the one exception to both rules (spec section 7): it is built FIRST, from
+    `conflicts` rather than from `view`'s admitted records, and BEFORE the reviewed-record
+    filter below - a G card exists precisely because a human already decided the field, so the
+    A-F rule that skips a reviewed record would throw away every card the re-read exists to
+    raise. One card per conflicting FIELD, so a case with two disagreements gets two cards -
+    the only place the "one appearance per record" rule does not hold."""
+    g_cards: list[QueueCard] = []
+    for c in sorted(conflicts, key=lambda c: (int(c["case_id"]), str(c["field"]))):
+        rec = view.state.records.get(int(c["case_id"]))
+        if rec is None:
+            continue
+        g_cards.append(QueueCard(int(c["case_id"]), "G", "reread_conflict", (), rec, (), (),
+                                 conflict=dict(c)))
     dis = _disagreements_by_case(manifest)
     ids = admitted_case_ids(view, run_id) or list(view.state.order)
     pairs = []
@@ -268,7 +326,7 @@ def select_queue(view, run_id: str, *, manifest: Mapping, cases, cap: int = QUEU
     fuzzy_ids = [cid for cid, rec in pairs
                  if any(q.get("status") == "verified-fuzzy" for q in rec.get("quotes") or ())]
     texts = {int(t.case_id): t.norm_text for t in cases.fetch(fuzzy_ids)} if fuzzy_ids else {}
-    cards: list[QueueCard] = []
+    cards: list[QueueCard] = list(g_cards)
     accepted: list[dict] = []
     for cid, rec in pairs:
         fuzzy = fuzzy_quotes(rec, texts.get(cid, "")) if cid in texts else ()
@@ -280,7 +338,7 @@ def select_queue(view, run_id: str, *, manifest: Mapping, cases, cap: int = QUEU
         cards.append(QueueCard(cid, SECTION_OF[reasons[0]], reasons[0], tuple(reasons[1:]),
                                rec, tuple(dis.get(cid, ())), fuzzy))
     order = {key: i for i, (_s, key, _t) in enumerate(sections)}
-    cards.sort(key=lambda c: (order[c.reason], c.case_id))
+    cards.sort(key=lambda c: (order[c.reason], c.case_id, c.decide_field))
     return Queue(run_id, tuple(cards[:cap]), tuple(c.case_id for c in cards[cap:]), cap,
                  tuple(accepted))
 

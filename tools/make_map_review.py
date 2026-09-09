@@ -83,12 +83,39 @@ def write_text(path: Path, text: str) -> None:
     path.write_bytes(text.encode("utf-8"))
 
 
+def _conflict_view(cf: dict) -> dict:
+    """A section-G card's `conflict` (CONFLICT_KEYS shape), trimmed to what the page's client
+    JS needs to render the warning box - deliberately not the export shape's own key spelling,
+    so the page's embedded JSON never carries a second copy of it."""
+    hb = cf.get("human_basis") or {}
+    return {"field": cf.get("field"), "human_value": cf.get("human_value"),
+            "human_who": hb.get("reviewer") or "reviewer", "human_run": hb.get("run_id") or "?",
+            "them_value": cf.get("reread_value"), "kind": cf.get("kind")}
+
+
+def _for_page(sections: dict) -> dict:
+    """A shallow copy of the queue's per-section card lists, safe to embed in the page's own
+    JSON blob: every card's `conflict` (section G only) is narrowed through `_conflict_view`
+    first. `sections` itself (the queue's own object) is left untouched, since the markdown
+    summary below still walks it directly."""
+    out = {}
+    for sec, cards in sections.items():
+        new_cards = []
+        for c in cards or ():
+            c2 = dict(c)
+            if c2.get("conflict"):
+                c2["conflict"] = _conflict_view(c2["conflict"])
+            new_cards.append(c2)
+        out[sec] = new_cards
+    return out
+
+
 def build_pages(queue: dict, out_stem: Path, *, checker: dict | None = None) -> tuple:
     """queue: `Queue.to_json()`. checker: `{case_id: {"values": {...}, "status": ...}}`."""
     checker = {str(k): v for k, v in (checker or {}).items()}
     sections = queue["sections"]
     n_cards = sum(len(v) for v in sections.values())
-    data = {"sections": sections, "titles": queue["titles"], "checker": checker,
+    data = {"sections": _for_page(sections), "titles": queue["titles"], "checker": checker,
             "run_id": queue["run_id"], "cap": queue["cap"], "deferred": queue["deferred"]}
     data_json = json.dumps(data).replace("</", "<\\/")
     content = (CONTENT_TMPL.replace("{{DATA}}", data_json)
@@ -144,7 +171,8 @@ def cards_from_doc(doc: dict) -> Queue:
             cards.append(QueueCard(int(c["case_id"]), sec, c["reason"],
                                    tuple(c.get("other_reasons") or ()), record,
                                    tuple(c.get("disagreements") or ()),
-                                   tuple(c.get("fuzzy") or ())))
+                                   tuple(c.get("fuzzy") or ()),
+                                   conflict=c.get("conflict")))
     return Queue(doc.get("run_id", ""), tuple(cards), tuple(doc.get("deferred") or ()),
                  int(doc.get("cap") or len(cards)))
 
@@ -342,6 +370,11 @@ and paste it back. Citations link to CourtListener.</p>
   <button id="copy-top" class="alt">Copy JSON</button>
   <span class="status" id="status-top"></span>
 </div>
+<section id="sec-G"><h2><span class="k">G</span> Re-read conflicts with a human decision
+  <span class="count" id="cnt-G"></span></h2>
+  <p class="blurb">A mapper-v3 re-read disagrees with a value you already decided by hand.
+  Your value stands unless you change it - there is no "adopt" here, since the re-read's
+  answer is already shown on the card.</p><div id="cards-G"></div></section>
 <section id="sec-A"><h2><span class="k">A</span> Favorable and under thirty days
   <span class="count" id="cnt-A"></span></h2>
   <p class="blurb">The claim the corpus exists to support: the owner's liberty to let, in a
@@ -380,9 +413,9 @@ const DATA = DOC.sections;
 const CHECKER = DOC.checker || {};
 const VOCAB = {{VOCAB}};
 const TB64 = "__TEMPLATE_B64__";
-const SECTIONS = [['A','favorable_under_thirty'],['B','householder_nights'],
-                  ['C','checker_disagreement'],['D','polarity_mixed'],
-                  ['E','gate_erased'],['F','fuzzy_quote']];
+const SECTIONS = [['G','reread_conflict'],['A','favorable_under_thirty'],
+                  ['B','householder_nights'],['C','checker_disagreement'],
+                  ['D','polarity_mixed'],['E','gate_erased'],['F','fuzzy_quote']];
 const SEC_OF_REASON = {};
 for (const [s, r] of SECTIONS) SEC_OF_REASON[r] = s;
 
@@ -442,6 +475,13 @@ function card(it){
        on this record (extraction status <code>${esc(show(it.extraction_status))}</code>): the
        reader answered and no verbatim quote supported it.</div>` : '';
 
+  const cf = it.conflict;
+  const conflict = cf ? `<div class="warn">A mapper-v3 re-read disagrees with a decision you
+       already made. Your <b>${esc(cf.field)}</b> is <code>${esc(show(cf.human_value))}</code>
+       (${esc(cf.human_who)}, run ${esc(cf.human_run)}); the re-read reads
+       <code>${esc(show(cf.them_value))}</code>. Your value stands unless you change it
+       here.</div>` : '';
+
   const readerVal = field === 'quotes' ? `${(it.quotes || []).length} quotes`
                                        : show((it.values || {})[field]);
   const cv = checkerValue(it, field);
@@ -450,7 +490,7 @@ function card(it){
 
   const vocab = VOCAB[field];
   const opts = (vocab || []).map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join('');
-  const adoptRow = cv === undefined ? ''
+  const adoptRow = (sec === 'G' || cv === undefined) ? ''
     : `<label><input type="radio" name="d-${k}" value="adopt"> Adopt checker value <code>${esc(show(cv))}</code></label>`;
   const setRow = vocab
     ? `<label><input type="radio" name="d-${k}" value="set"> Set to: <select>${opts}</select></label>` : '';
@@ -465,6 +505,7 @@ function card(it){
     </div>
     ${dis}
     ${nulled}
+    ${conflict}
     ${it.holding_summary ? `<p class="hold">Holding: ${esc(it.holding_summary)}</p>` : ''}
     ${quotes(it.quotes)}
     ${fuzzyBlock(it.fuzzy)}

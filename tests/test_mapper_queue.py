@@ -6,8 +6,9 @@ user saves into the page become HUMAN-basis patches - that is the only route fro
 to human-reviewed (D3)."""
 import pytest
 
-from corpus_engine.mapper.queue import (QUEUE_CAP, SECTIONS, Queue, QueueCard, check_queue,
-                                        checker_path, classify_fuzzy, fuzzy_quotes, reasons_for,
+from corpus_engine.mapper.queue import (CONFLICT_KEYS, QUEUE_CAP, SECTIONS, Queue, QueueCard,
+                                        check_queue, checker_path, classify_fuzzy,
+                                        conflicts_from_view, fuzzy_quotes, reasons_for,
                                         select_queue)
 
 
@@ -61,11 +62,14 @@ def _manifest(cases, disagreements=()):
 
 
 def test_the_sections_are_the_D4_order_and_the_cap_is_one_fifty():
+    """Section G (spec section 7) is prepended ahead of the D4 order proper: it is built from
+    re-read conflicts on already-reviewed records, not from D4's own criteria, so it sits
+    outside - and first in - the priority order those six letters still keep among themselves."""
     assert QUEUE_CAP == 150
-    assert [k for _s, k, _t in SECTIONS] == ["favorable_under_thirty", "householder_nights",
-                                             "checker_disagreement", "polarity_mixed",
-                                             "gate_erased", "fuzzy_quote"]
-    assert [s for s, _k, _t in SECTIONS] == ["A", "B", "C", "D", "E", "F"]
+    assert [k for _s, k, _t in SECTIONS] == ["reread_conflict", "favorable_under_thirty",
+                                             "householder_nights", "checker_disagreement",
+                                             "polarity_mixed", "gate_erased", "fuzzy_quote"]
+    assert [s for s, _k, _t in SECTIONS] == ["G", "A", "B", "C", "D", "E", "F"]
 
 
 def test_each_criterion_fires_on_exactly_what_D4_says():
@@ -326,3 +330,84 @@ def test_nothing_is_dropped_at_any_cap(cap):
                      cases=_Cases(), cap=cap)
     assert len(q.cards) == cap
     assert [c.case_id for c in q.cards] + list(q.deferred) == [900, 901, 902]
+
+
+# --------------------------------------------------------------- section G: re-read conflicts
+
+CONFLICT = {"case_id": 70, "field": "polarity", "human_value": "favorable",
+            "human_basis": {"reviewer": "mmaldo2", "run_id": "map-cycle-004-round-1"},
+            "human_at": 900, "reread_value": "adverse",
+            "reread_basis": {"model": "claude-opus-5@claude-cli",
+                             "prompt_version": "mapper-v3:f92016681314",
+                             "run_id": "cycles-001-003-reread"},
+            "kind": "value", "cell_key": "pre-1860|N.Y.", "batch_id": "b1"}
+
+
+def test_section_g_is_first_and_its_card_decides_the_conflicting_field():
+    rec = _rec(70, polarity="favorable")
+    q = select_queue(_View([rec], "r", reviewed=[70]), "r", manifest=_manifest([70]),
+                     cases=_Cases(), conflicts=[CONFLICT])
+    assert [s for s, _k, _t in SECTIONS][0] == "G"
+    assert [c.section for c in q.cards] == ["G"]
+    card = q.cards[0]
+    assert card.decide_field == "polarity" and card.reason == "reread_conflict"
+    assert card.to_json()["conflict"] == CONFLICT
+    assert set(CONFLICT) == set(CONFLICT_KEYS)
+    assert list(q.to_json()["sections"]) [0] == "G"
+    assert q.to_json()["titles"]["G"] == "Re-read conflicts with a human decision"
+
+
+def test_a_reviewed_record_is_queued_for_g_though_it_is_skipped_for_a_to_f():
+    """A G card exists BECAUSE a human decided the field; the A-F rule that skips a reviewed
+    record would throw away every card the re-read exists to raise."""
+    rec = _rec(70, polarity="favorable", under_thirty_days="yes")
+    q = select_queue(_View([rec], "r", reviewed=[70]), "r", manifest=_manifest([70]),
+                     cases=_Cases(), conflicts=[CONFLICT])
+    assert [(c.section, c.case_id) for c in q.cards] == [("G", 70)]     # not also section A
+
+
+def test_one_card_per_conflicting_field_on_the_same_case():
+    second = {**CONFLICT, "field": "who_was_letting", "human_value": "householder",
+              "reread_value": "commercial_operator"}
+    q = select_queue(_View([_rec(70)], "r", reviewed=[70]), "r", manifest=_manifest([70]),
+                     cases=_Cases(), conflicts=[second, CONFLICT])
+    assert [(c.case_id, c.decide_field) for c in q.cards] == [(70, "polarity"),
+                                                              (70, "who_was_letting")]
+
+
+def test_g_cards_come_before_every_other_section_under_the_cap():
+    """A conflict's case_id (82) has no A-F reason of its own (its default record fires none
+    of D4's criteria), so it never competes with 80/81 for an A-F slot - it exists in the view
+    only so the G loop has a record to build the card from (deviation from the brief: 82 is
+    added to `recs` so this does not collide with the "ledger does not hold it" drop rule
+    below, which requires the SAME lookup to come back empty)."""
+    recs = [_rec(80, polarity="mixed"), _rec(81, polarity="mixed"), _rec(82)]
+    q = select_queue(_View(recs, "r"), "r", manifest=_manifest([80, 81, 82]), cases=_Cases(),
+                     conflicts=[{**CONFLICT, "case_id": 82}], cap=1)
+    assert [c.section for c in q.cards] == ["G"] and q.deferred == (80, 81)
+
+
+def test_a_conflict_for_a_case_the_ledger_does_not_hold_is_dropped():
+    q = select_queue(_View([], "r"), "r", manifest=_manifest([]), cases=_Cases(),
+                     conflicts=[CONFLICT])
+    assert q.cards == ()
+
+
+def test_conflicts_from_view_renders_the_folds_rejections_in_the_same_shape():
+    """The fold records what it REFUSED; the re-read tool records what it declined to attempt.
+    Both are section-G cards, so both arrive in one shape."""
+    from corpus_engine.ledger.types import Basis, Patch
+
+    class _V:
+        def conflicts(self):
+            return {70: [{"field": "polarity", "attempted": "adverse", "standing": "favorable",
+                          "by": CONFLICT["reread_basis"], "at": 901, "op": "set"}]}
+
+        def history(self, cid):
+            return [Patch(70, "set", "polarity", "favorable", "round 1",
+                          Basis(reviewer="mmaldo2", run_id="map-cycle-004-round-1"), seq=900)]
+
+    rows = conflicts_from_view(_V())
+    assert set(rows[0]) == set(CONFLICT_KEYS)
+    assert rows[0]["human_value"] == "favorable" and rows[0]["reread_value"] == "adverse"
+    assert rows[0]["human_at"] == 900 and rows[0]["kind"] == "value"

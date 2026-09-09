@@ -180,13 +180,30 @@ def read_decisions(raw, fields: Sequence[str]) -> list[dict]:
         raise
 
 
+def card_index(queue_doc: Mapping) -> dict[tuple[int, str], dict]:
+    """(case_id, decide_field) -> the card the round queued.
+
+    Keyed on the FIELD as well as the case because section G queues one card per conflicting
+    field, so a case can carry two cards and a case-only key would silently drop one."""
+    out: dict[tuple[int, str], dict] = {}
+    for cards in (queue_doc.get("sections") or {}).values():
+        for c in cards or ():
+            out[(int(c["case_id"]), str(c["decide_field"]))] = dict(c)
+    return out
+
+
 def check_against_queue(decisions: Sequence[dict], queue_doc: Mapping) -> None:
     """A `--decisions` file may only answer the questions this round actually asked: every
-    case_id has to be a card in `queue_doc` (`Queue.to_json()`), deciding exactly that card's
-    `decide_field` - a model cannot answer a different field than the one the round queued a
-    case on, or answer for a case the round never queued at all. Every bad entry is named,
-    case id and reason, and collected rather than raised on the first one, so fixing the file
-    takes one pass instead of one exit per re-run - and nothing is written until this passes.
+    case_id has to be a card in `queue_doc` (`Queue.to_json()`), deciding exactly one of that
+    case's queued `decide_field`s - a model cannot answer a different field than the one the
+    round queued a case on, or answer for a case the round never queued at all. Every bad
+    entry is named, case id and reason, and collected rather than raised on the first one, so
+    fixing the file takes one pass instead of one exit per re-run - and nothing is written
+    until this passes.
+
+    A case usually decides exactly one field, but section G can queue two cards for the same
+    case (one per conflicting field, spec section 7), so this collects every `decide_field` a
+    case's cards carry rather than assuming there is only one.
 
     `field == "relevant"` is the one exception, on ANY queued card, whatever that card's own
     `decide_field` is: a card that queues polarity or who_was_letting can still turn out, once
@@ -195,16 +212,23 @@ def check_against_queue(decisions: Sequence[dict], queue_doc: Mapping) -> None:
     there decides polarity or who it was let by, never whether the case belongs in the corpus.
     `patches_for` is stricter still about what a `relevant` decision may say (`set` to `False`
     only); this function only clears the way for the field to reach it."""
-    decide_field = {int(c["case_id"]): c["decide_field"]
-                    for cards in (queue_doc.get("sections") or {}).values() for c in cards}
+    decide_fields: dict[int, set] = {}
+    for cards in (queue_doc.get("sections") or {}).values():
+        for c in cards or ():
+            decide_fields.setdefault(int(c["case_id"]), set()).add(str(c["decide_field"]))
     errors = []
     for d in decisions:
         cid, field = d["case_id"], d["field"]
-        want = decide_field.get(cid)
+        want = decide_fields.get(cid)
         if want is None:
             errors.append(f"case {cid}: not a card in the round's queue manifest")
-        elif field != want and field != "relevant":
-            errors.append(f"case {cid}: this round's card decides {want!r}, not {field!r}")
+        elif field not in want and field != "relevant":
+            if len(want) == 1:
+                errors.append(f"case {cid}: this round's card decides {next(iter(want))!r}, "
+                              f"not {field!r}")
+            else:
+                errors.append(f"case {cid}: this round's cards decide "
+                              f"{', '.join(sorted(repr(w) for w in want))}, not {field!r}")
     if errors:
         raise ValueError("; ".join(errors))
 
@@ -221,7 +245,7 @@ def _checked(case_id: int, field: str, value):
 
 def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer: str, *,
                 run_id: str = RUN_ID, checker: Mapping | None = None,
-                assisted_by: str | None = None) -> list[Patch]:
+                assisted_by: str | None = None, cards: Mapping | None = None) -> list[Patch]:
     """One saved page (or decisions file) -> reviewer-basis patches. Deterministic: case id,
     then field.
 
@@ -229,7 +253,10 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
     drafted: the tag carried in every `why` string records the name, and every decided case
     also gets an extra `review.notes` patch saying so in plain words - the human-reviewed
     tier must stay honest about model assistance, not read identically to a page the
-    reviewer decided unaided."""
+    reviewer decided unaided.
+
+    `cards` (`card_index(queue_doc)`, keyed `(case_id, field)`), when given, is how a
+    section-G decision is told apart from an ordinary one - see the branch below."""
     basis = Basis(reviewer=reviewer, run_id=run_id)
     tag = arr._label(run_id)
     if assisted_by:
@@ -277,6 +304,59 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
                                  f"{tag}: first pass drafted by {assisted_by}; confirmed by "
                                  f"the reviewer", why, basis))
             out.append(Patch(cid, "set", "review.status", "human-adjudicated", why, basis))
+            continue
+        card = (cards or {}).get((cid, field)) or {}
+        if card.get("section") == "G":
+            # Spec section 7. The re-read disagreed with a decision this reviewer already made.
+            # `keep` is the default expectation and writes no value; `set` is the reviewer
+            # revising their OWN earlier decision, and the note names the decision it
+            # supersedes so the ledger records a revision rather than a fresh opinion; `unsure`
+            # takes the ordinary flag path. There is no `adopt`: this card's second opinion is
+            # the re-read, and it is on the card.
+            conflict = card.get("conflict") or {}
+            was = conflict.get("human_basis") or {}
+            old = (records.get(cid) or {}).get(field)
+            if decision == "adopt":
+                raise ValueError(f"case {cid}: a section-G card has no checker value to adopt "
+                                 f"- its second opinion is the re-read's "
+                                 f"{conflict.get('reread_value')!r}, already on the card. "
+                                 f"Decide keep, set or unsure.")
+            if decision == "keep":
+                out.append(Patch(cid, "append", "review.notes",
+                                 f"{tag}: {field} {old!r} confirmed by the reviewer against "
+                                 f"the mapper-v3 re-read's {conflict.get('reread_value')!r}",
+                                 why, basis))
+                out += arr._clear_flag(live, records, cid, field, why, basis, tag)
+            elif decision == "set":
+                value = _checked(cid, field, _value(field, d.get("value")))
+                out.append(Patch(cid, "append", "review.notes",
+                                 f"{tag}: {field} {old!r} -> {value!r}; the reviewer revises "
+                                 f"their own earlier decision "
+                                 f"({was.get('reviewer') or 'reviewer'}, run "
+                                 f"{was.get('run_id') or '?'}, seq {conflict.get('human_at')}) "
+                                 f"after the mapper-v3 re-read read it as "
+                                 f"{conflict.get('reread_value')!r}", why, basis))
+                out.append(Patch(cid, "set", field, value, why, basis))
+                out += arr._clear_flag(live, records, cid, field, why, basis, tag)
+            else:                                                   # unsure
+                out.append(Patch(cid, "append", "review.flags", f"{FLAG_PREFIX}{field}", why,
+                                 basis))
+                out.append(Patch(cid, "append", "review.notes",
+                                 f"{tag}: {field} left unsure by the reviewer; the human value "
+                                 f"stands and the re-read's "
+                                 f"{conflict.get('reread_value')!r} waits for a full read",
+                                 why, basis))
+                live.setdefault(cid, arr._live_flags(records, cid)).append(f"{FLAG_PREFIX}{field}")
+            if assisted_by:
+                out.append(Patch(cid, "append", "review.notes",
+                                 f"{tag}: first pass drafted by {assisted_by}; "
+                                 + ("left unsure, not confirmed" if decision == "unsure"
+                                    else "confirmed by the reviewer"), why, basis))
+            if d.get("note"):
+                out.append(Patch(cid, "append", "review.notes", f"user note: {d['note']}", why,
+                                 basis))
+            if decision != "unsure":
+                out.append(Patch(cid, "set", "review.status", "human-adjudicated", why, basis))
             continue
         old = (records.get(cid) or {}).get(field)
         if decision == "adopt":
@@ -369,6 +449,11 @@ def main(argv=None) -> int:
     dom = load_domain()
     fields = (tuple(f.strip() for f in a.fields.split(",") if f.strip()) if a.fields
               else tuple(dom.judged_fields) + EXTRA_FIELDS)
+    # Hoisted so both --saved and --decisions runs can index the round's own cards
+    # (card_index, below) - a section-G decision needs its card to be told apart from an
+    # ordinary one, and --saved has no other reason to read the queue manifest at all.
+    queue_doc = (json.loads(Path(a.queue).read_text(encoding="utf-8"))
+                if a.queue and Path(a.queue).exists() else {})
     if a.saved:
         try:
             decisions = read_page(Path(a.saved).read_text(encoding="utf-8"), fields)
@@ -378,7 +463,6 @@ def main(argv=None) -> int:
         try:
             raw = json.loads(Path(a.decisions).read_text(encoding="utf-8"))
             decisions = read_decisions(raw, fields)
-            queue_doc = json.loads(Path(a.queue).read_text(encoding="utf-8"))
             check_against_queue(decisions, queue_doc)
         except ValueError as exc:
             sys.exit(f"{a.decisions}: {exc}")
@@ -394,7 +478,8 @@ def main(argv=None) -> int:
                  f"re-emit a fresh review.notes patch for every decision. Pass --force only if "
                  f"that is really what you want.")
     patches = patches_for(decisions, head.state.records, dom.reviewer_default,
-                          run_id=a.run_id, checker=checker, assisted_by=a.assisted_by)
+                          run_id=a.run_id, checker=checker, assisted_by=a.assisted_by,
+                          cards=card_index(queue_doc))
     counts = {d: sum(1 for x in decisions if x["decision"] == d) for d in DECISIONS}
     print(f"{len(decisions)} decisions {counts} over "
           f"{len({d['case_id'] for d in decisions})} cases -> {len(patches)} patches", flush=True)

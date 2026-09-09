@@ -80,6 +80,14 @@ def _queue_doc(records=None, disagreements=()):
 
 CHECKER = {700: {"values": {"polarity": "adverse"}, "status": "ok"}}
 
+CONFLICT = {"case_id": 70, "field": "polarity", "human_value": "favorable",
+            "human_basis": {"reviewer": "mmaldo2", "run_id": "map-cycle-004-round-1"},
+            "human_at": 900, "reread_value": "adverse",
+            "reread_basis": {"model": "claude-opus-5@claude-cli",
+                             "prompt_version": "mapper-v3:f92016681314",
+                             "run_id": "cycles-001-003-reread"},
+            "kind": "value", "cell_key": "pre-1860|N.Y.", "batch_id": "b1"}
+
 
 def _page_data(html: str) -> dict:
     """The DOC literal the page carries, which is what every card is rendered from."""
@@ -1260,4 +1268,82 @@ def test_an_adopt_with_a_null_value_passes_vocabulary_validation():
         arr._decisions_from_list([{"case_id": 1, "field": "relevant", "decision": "set",
                                    "value": None, "note": ""}], fields=("relevant",),
                                  values={"relevant": frozenset({False})})
+
+
+# --------------------------------------------------------------- section G: re-read conflicts
+
+def test_a_section_g_keep_confirms_the_human_value_against_the_reread():
+    cards = {(70, "polarity"): {"case_id": 70, "section": "G", "decide_field": "polarity",
+                                "conflict": CONFLICT}}
+    patches = ap.patches_for([{"case_id": 70, "field": "polarity", "decision": "keep",
+                               "value": None, "note": ""}],
+                             {70: {"polarity": "favorable"}}, "mmaldo2",
+                             run_id="reread-round-1", cards=cards)
+    notes = [p.new for p in patches if p.field == "review.notes"]
+    assert any("confirmed by the reviewer" in n and "adverse" in n for n in notes)
+    assert not [p for p in patches if p.op == "set" and p.field == "polarity"]
+    assert any(p.field == "review.status" and p.new == "human-adjudicated" for p in patches)
+
+
+def test_a_section_g_set_records_that_the_reviewer_revised_their_own_decision():
+    cards = {(70, "polarity"): {"case_id": 70, "section": "G", "decide_field": "polarity",
+                                "conflict": CONFLICT}}
+    patches = ap.patches_for([{"case_id": 70, "field": "polarity", "decision": "set",
+                               "value": "adverse", "note": ""}],
+                             {70: {"polarity": "favorable"}}, "mmaldo2",
+                             run_id="reread-round-1", cards=cards)
+    note = next(p.new for p in patches if p.field == "review.notes")
+    assert "revises their own earlier decision" in note
+    assert "map-cycle-004-round-1" in note and "seq 900" in note and "adverse" in note
+    value = next(p for p in patches if p.op == "set" and p.field == "polarity")
+    assert value.new == "adverse" and value.basis.reviewer == "mmaldo2"
+
+
+def test_a_section_g_card_refuses_adopt():
+    cards = {(70, "polarity"): {"case_id": 70, "section": "G", "decide_field": "polarity",
+                                "conflict": CONFLICT}}
+    with pytest.raises(ValueError, match="no checker value to adopt"):
+        ap.patches_for([{"case_id": 70, "field": "polarity", "decision": "adopt",
+                         "value": None, "note": ""}],
+                       {70: {"polarity": "favorable"}}, "mmaldo2", cards=cards)
+
+
+def test_a_section_g_unsure_leaves_the_record_machine_free_of_a_status_change():
+    cards = {(70, "polarity"): {"case_id": 70, "section": "G", "decide_field": "polarity",
+                                "conflict": CONFLICT}}
+    patches = ap.patches_for([{"case_id": 70, "field": "polarity", "decision": "unsure",
+                               "value": None, "note": ""}],
+                             {70: {"polarity": "favorable"}}, "mmaldo2", cards=cards)
+    assert any(p.field == "review.flags" and p.new == "needs-review:polarity" for p in patches)
+    assert not [p for p in patches if p.field == "review.status"]
+
+
+def test_card_index_keys_on_case_and_field_so_two_g_cards_do_not_collide():
+    doc = {"sections": {"G": [{"case_id": 70, "decide_field": "polarity", "section": "G"},
+                              {"case_id": 70, "decide_field": "who_was_letting",
+                               "section": "G"}]}}
+    idx = ap.card_index(doc)
+    assert set(idx) == {(70, "polarity"), (70, "who_was_letting")}
+
+
+def test_the_page_and_the_export_show_the_conflict(tmp_path):
+    queue = {"run_id": "cycles-001-003-reread", "cap": 250,
+             "titles": {s: t for s, _k, t in SECTIONS},
+             "sections": {s: [] for s, _k, _t in SECTIONS},
+             "deferred": [], "fuzzy_auto_accepted": []}
+    queue["sections"]["G"] = [{"case_id": 70, "section": "G", "reason": "reread_conflict",
+                               "other_reasons": [], "decide_field": "polarity",
+                               "cite": "1 X 1", "name": "A v B", "court": "c", "jur": "N.Y.",
+                               "year": 1880, "values": {"polarity": "favorable"},
+                               "holding_summary": "h", "quotes": [], "nulled_fields": [],
+                               "extraction_status": "ok", "disagreements": [], "fuzzy": [],
+                               "conflict": CONFLICT}]
+    html, md, _n = mk.build_pages(queue, tmp_path / "page")
+    text = html.read_text(encoding="utf-8")
+    assert "Re-read conflicts with a human decision" in text and "reread_value" not in text
+    cards = ec.cards_from_queue(queue, {})
+    assert cards[0]["conflict"] == CONFLICT
+    body = ec.markdown_for(cards, "cycles-001-003-reread")
+    assert "Your earlier decision: polarity = favorable" in body
+    assert "The mapper-v3 re-read reads it as: adverse" in body
 

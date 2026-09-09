@@ -5,7 +5,7 @@ information as plain files instead, for a first pass done by another model worki
 files rather than the page: `reports/review-round-1-cards.json` (one object per card,
 machine-readable) and its readable twin `reports/review-round-1-cards.md` (one card per
 record, headed by section). Everything a card on the page shows, nothing more. Ordering is
-deterministic - section in the round's own priority order (A-F), then queue order within a
+deterministic - section in the round's own priority order (G, A-F), then queue order within a
 section - so a diff between two exports of the same round is a diff of content, never order.
 
 Input : runs/<run-id>/review-round-<n>.json          (Queue.to_json(), the round's manifest)
@@ -140,6 +140,7 @@ def cards_from_queue(queue_doc: Mapping, checker: Mapping) -> list[dict]:
                 "nulled_fields": list(c.get("nulled_fields") or ()),
                 "other_reasons": list(c.get("other_reasons") or ()),
                 "courtlistener_url": courtlistener_url(c.get("cite")),
+                "conflict": c.get("conflict"),
             })
     return out
 
@@ -188,6 +189,17 @@ def markdown_for(cards: Sequence[dict], run_id: str, *, part: tuple[int, int] | 
             lines.append(f"- **Reader says {_fmt(rv)}; checker says {_fmt(cv)}**")
         if c["nulled_fields"]:
             lines.append(f"- Nulled by the quote gate: {', '.join(c['nulled_fields'])}")
+        if c.get("conflict"):
+            cf = c["conflict"]
+            lines.append(f"- **Your earlier decision: {cf['field']} = {_fmt(cf['human_value'])}**"
+                         f" ({(cf.get('human_basis') or {}).get('reviewer') or 'reviewer'}, run "
+                         f"{(cf.get('human_basis') or {}).get('run_id') or '?'}, seq "
+                         f"{cf.get('human_at')})")
+            lines.append(f"- **The mapper-v3 re-read reads it as: {_fmt(cf['reread_value'])}**"
+                         + (" (and reads the case as NOT a letting case at all)"
+                            if cf.get("kind") == "relevant_false" else ""))
+            lines.append("- Decide: keep (your value stands - the default), set (you revise "
+                         "your own earlier decision), or unsure.")
         if "erased_value" in c:                 # section E only, see attach_erased_values
             lines.append(f"- Erased value for {c['decide_field']} (the reader's answer before "
                          f"the quote gate nulled it): {_fmt(c['erased_value'])}")

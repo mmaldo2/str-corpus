@@ -4,9 +4,10 @@ from corpus_engine.mapper.admit import (IDENTITY_FIELDS, MAPPER_FIELDS, Admitted
                                         checker_notes, counts_by_cell, patches_for, prompt_version,
                                         records_from_manifest)
 from corpus_engine.mapper.cells import BatchSource, Cell, build_cells, load_batches, select_cells
-from corpus_engine.mapper.queue import (QUEUE_CAP, SECTIONS, Queue, QueueCard, check_queue,
-                                        checker_path, classify_fuzzy, fuzzy_quotes, reasons_for,
-                                        select_queue)
+from corpus_engine.mapper.queue import (CONFLICT_KEYS, CONFLICT_KINDS, QUEUE_CAP, SECTIONS,
+                                        Queue, QueueCard, check_queue, checker_path,
+                                        classify_fuzzy, conflicts_from_view, fuzzy_quotes,
+                                        reasons_for, select_queue)
 from corpus_engine.mapper.runner import (MapOutcome, MapRunner, RunnerCaps, default_max_units,
                                           merge_manifest)
 from corpus_engine.mapper.screen import Screen
@@ -18,5 +19,6 @@ __all__ = ["BatchSource", "Cell", "build_cells", "load_batches", "select_cells",
            "merge_manifest",
            "IDENTITY_FIELDS", "MAPPER_FIELDS", "AdmittedRecord", "basis_for", "checker_notes",
            "counts_by_cell", "patches_for", "prompt_version", "records_from_manifest",
-           "QUEUE_CAP", "SECTIONS", "Queue", "QueueCard", "check_queue", "checker_path",
-           "classify_fuzzy", "fuzzy_quotes", "reasons_for", "select_queue"]
+           "CONFLICT_KEYS", "CONFLICT_KINDS", "QUEUE_CAP", "SECTIONS", "Queue", "QueueCard",
+           "check_queue", "checker_path", "classify_fuzzy", "conflicts_from_view",
+           "fuzzy_quotes", "reasons_for", "select_queue"]
