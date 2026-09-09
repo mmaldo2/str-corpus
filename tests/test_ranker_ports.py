@@ -54,10 +54,11 @@ def test_load_ranker_unknown_id_raises_value_error_without_db_access(monkeypatch
 
 
 def test_load_classifier_refuses_layout_drift(tmp_path, monkeypatch, repo_root):
-    src = repo_root / "data" / "ranker" / "v1"
+    ver = load_domain().ranking.classifier_version          # the shipped pin (v2 since 2026-09-09)
+    src = repo_root / "data" / "ranker" / ver
     if not (src / "model.npz").exists():
-        pytest.skip("data/ranker/v1 not trained")
-    dst = tmp_path / "data" / "ranker" / "v1"
+        pytest.skip(f"data/ranker/{ver} not trained")
+    dst = tmp_path / "data" / "ranker" / ver
     shutil.copytree(src, dst)
     manifest_path = dst / "manifest.json"
     m = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -69,14 +70,15 @@ def test_load_classifier_refuses_layout_drift(tmp_path, monkeypatch, repo_root):
     with pytest.raises(ValueError, match="ghost-1@v1"):
         _load_classifier(dom, layout)
 
-def test_load_classifier_loads_real_v1_cleanly(repo_root):
-    if not (repo_root / "data" / "ranker" / "v1" / "model.npz").exists():
-        pytest.skip("data/ranker/v1 not trained")
+def test_load_classifier_loads_the_shipped_model_cleanly(repo_root):
     dom = load_domain()
+    ver = dom.ranking.classifier_version
+    if not (repo_root / "data" / "ranker" / ver / "model.npz").exists():
+        pytest.skip(f"data/ranker/{ver} not trained")
     layout = feature_layout(dom, load_selectors(dom), 1024)          # v1's real training dim; the fixture DB's
                                                                        # embed_meta dim is 512 and would legitimately fail
     r = _load_classifier(dom, layout)
-    assert r.ranker_id == "classifier:v1"
+    assert r.ranker_id == f"classifier:{ver}"
 
 
 def test_a_classifier_version_suffix_selects_the_model_and_a_mismatch_is_refused():
@@ -91,8 +93,8 @@ def test_a_classifier_version_suffix_selects_the_model_and_a_mismatch_is_refused
     from corpus_engine.ranker.classifier import ClassifierRanker
 
     dom = load_domain()
-    assert dom.ranking.classifier_version == "v1"        # the pin this test is written against
-    assert ClassifierRanker.from_domain(dom).ranker_id == "classifier:v1"
-    assert ClassifierRanker.from_domain(dom, version="v2").ranker_id == "classifier:v2"
+    assert dom.ranking.classifier_version == "v2"        # the pin this test is written against (shipped 2026-09-09)
+    assert ClassifierRanker.from_domain(dom).ranker_id == "classifier:v2"
+    assert ClassifierRanker.from_domain(dom, version="v1").ranker_id == "classifier:v1"
     with pytest.raises(ValueError, match="ranking.classifier_version"):
-        ports._load_classifier(dom, None, "v2")          # the suffix the spec's prose spells
+        ports._load_classifier(dom, None, "v1")          # a suffix that disagrees with the pin

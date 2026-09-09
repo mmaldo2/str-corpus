@@ -11,7 +11,7 @@ def test_rankings_table_and_ranking_spec(tmp_path, fixture_db):
     assert store.migrate(conn) == []
     dom = load_domain()
     assert dom.ranking.default in {"null", "fusion", "classifier", "reranker"}
-    assert dom.ranking.classifier_version == "v1" and dom.ranking.bar_ap_delta == 0.05
+    assert dom.ranking.classifier_version == "v2" and dom.ranking.bar_ap_delta == 0.05   # v2 shipped 2026-09-09 (user decision)
     assert dom.ranking.fusion == {"lexical_weight": 0.5, "cosine_weight": 0.5}
     assert dom.ranking.reranker["model"] == "Qwen/Qwen3-Reranker-4B" and dom.ranking.reranker["query"]
     assert dom.ranking.heldout == "data/eval/ranker-heldout-v1.jsonl"
