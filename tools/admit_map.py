@@ -6,6 +6,7 @@ map runner never does, so a map can be re-read and re-admitted independently.
 
   .venv\Scripts\python tools\admit_map.py --dry-run
   .venv\Scripts\python tools\admit_map.py --apply
+  .venv\Scripts\python tools\admit_map.py --run-id cycles-001-003-reread --reread --apply
 
 `--dry-run` folds the whole patch set onto a deep copy of the ledger's head state, prints the
 per-cell admit counts and the published counts before and after, and writes nothing at all. It
@@ -37,8 +38,8 @@ from corpus_engine.domain import load_domain                                    
 from corpus_engine.ledger import LedgerView, open_ledger                         # noqa: E402
 from corpus_engine.ledger.fold import apply_patch                                # noqa: E402
 from corpus_engine.ledger.log import provisional_seqs                            # noqa: E402
-from corpus_engine.mapper.admit import (basis_for, counts_by_cell, patches_for,  # noqa: E402
-                                        records_from_manifest)
+from corpus_engine.mapper.admit import (REREAD_WHY, basis_for, counts_by_cell,   # noqa: E402
+                                        patches_for, records_from_manifest, reread_patches)
 from corpus_engine.mapper.cells import BatchSource                               # noqa: E402
 from corpus_engine.reader.cache import ResponseCache                             # noqa: E402
 from corpus_engine.reader.codebook import load_codebook                          # noqa: E402
@@ -89,6 +90,12 @@ def _report_rejected(res, *, applied: bool) -> int:
     return 3
 
 
+def _write_json(path: Path, doc) -> None:
+    """LF, UTF-8, one trailing newline - explicit bytes, like every other artefact."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes((json.dumps(doc, indent=1, sort_keys=True) + "\n").encode("utf-8"))
+
+
 def _summary(view: LedgerView) -> str:
     """The published counts, and only through `view.counts()` - two-tier, never blended by
     this tool (ADR-0002)."""
@@ -116,6 +123,12 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--apply", action="store_true", help="write the patches to the ledger")
     ap.add_argument("--force", action="store_true",
                     help="admit even though this run id already has patches in the ledger")
+    ap.add_argument("--reread", action="store_true",
+                    help="admit a RE-READ of records the ledger already holds (spec section 6): "
+                         "one re-admit under mapper-v3 per record, then per field fill when the "
+                         "value is empty, replace when it is a reader's or a rule's, and a "
+                         "CONFLICT CARD when it is a reviewer's. Never overwrites a human "
+                         "decision and never overturns relevance.")
     return ap
 
 
@@ -142,10 +155,27 @@ def main(argv=None) -> int:
     admitted = records_from_manifest(manifest, batch_source=BatchSource(batches), cache=cache,
                                      codebook=cb, cases=StoreCaseSource(conn), pin=pin,
                                      families=dom.reader.families)
-    patches = patches_for(admitted, manifest=manifest)
     basis = basis_for(manifest)
     led = open_ledger(root=Path(a.ledger) if a.ledger else None, domain=dom)
+    # Before the patches, not after: a re-read is computed AGAINST the ledger's head - which
+    # field is empty, which is a reader's, which is a reviewer's - so `head` has to exist
+    # before there is anything to compute (R6).
     head = led.view()
+    conflicts: list[dict] = []
+    counts: dict = {}
+    if a.reread:
+        outcome = reread_patches(admitted, manifest=manifest, view=head)
+        patches, conflicts, counts = outcome.patches, outcome.conflicts, outcome.counts
+        print(f"{counts['records']} records re-read, {len(patches)} patches, "
+              f"{counts['conflicts']} conflicts "
+              f"({len(counts['relevant_false_conflicts'])} of them relevance)", flush=True)
+        for field in sorted(counts["by_field"]):
+            row = counts["by_field"][field]
+            print(f"  {field}: fill {row['fill']}, replace {row['replace']}, "
+                  f"agree {row['agree']}, conflict {row['conflict']}, "
+                  f"skipped {row['skipped']}", flush=True)
+    else:
+        patches = patches_for(admitted, manifest=manifest)
     # The run id the GUARD asks about is the one the patches carry, not `--run-id` (which only
     # picks the default paths): with `--manifest` pointing at another run, those differ, and
     # asking the ledger about the wrong one would silently disarm the refusal.
@@ -164,17 +194,26 @@ def main(argv=None) -> int:
         print(f"  {cell_key}: {row['records']} records "
               f"({row['relevant']} relevant, {row['irrelevant']} irrelevant)", flush=True)
     print(f"before: {_summary(head)}", flush=True)
+    note = f"{run_id} {REREAD_WHY}" if a.reread else f"{run_id} map admission"
     if a.dry_run:
         print(f"after:  {_summary(_view_with(head, patches, dom.judged_fields))}", flush=True)
-        res = led.apply(patches, note=f"{run_id} map admission", dry_run=True)
+        res = led.apply(patches, note=note, dry_run=True)
         print(f"{len(res.applied)} would apply, {len(res.skipped)} already present (dry run)",
               flush=True)
         return _report_rejected(res, applied=False)
-    res = led.apply(patches, note=f"{run_id} map admission")
+    res = led.apply(patches, note=note)
     print(f"{len(res.applied)} applied, {len(res.skipped)} already present; "
           f"replay_ok={res.replay_ok}", flush=True)
     print(f"after:  {_summary(led.view())}", flush=True)
     rc = _report_rejected(res, applied=True)
+    if a.reread:
+        # The queue's input (spec section 7). Written after the apply, not before: a conflict
+        # file naming decisions that were never written would put cards in front of the user
+        # for a round that does not exist.
+        _write_json(run_dir / "reread-conflicts.json", conflicts)
+        _write_json(run_dir / "reread-admission.json", {"run_id": run_id, **counts})
+        print(f"conflicts -> {run_dir / 'reread-conflicts.json'} "
+              f"({len(conflicts)} cards for section G)", flush=True)
     return rc or (0 if res.replay_ok else 1)
 
 

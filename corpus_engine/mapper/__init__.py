@@ -1,8 +1,9 @@
 """The map: one pass of the pinned reader over a cycle's ranked candidate pool under a
 per-cell budget (CONTEXT.md glossary; spec sections 4-9)."""
-from corpus_engine.mapper.admit import (IDENTITY_FIELDS, MAPPER_FIELDS, AdmittedRecord, basis_for,
-                                        checker_notes, counts_by_cell, patches_for, prompt_version,
-                                        records_from_manifest)
+from corpus_engine.mapper.admit import (IDENTITY_FIELDS, MAPPER_FIELDS, REREAD_WHY,
+                                        AdmittedRecord, RereadOutcome, basis_for, checker_notes,
+                                        counts_by_cell, patches_for, prompt_version,
+                                        records_from_manifest, reread_patches)
 from corpus_engine.mapper.cells import (BatchSource, Cell, build_budget_cells, build_cells,
                                         global_batch_order, load_batches, select_cells)
 from corpus_engine.mapper.queue import (CONFLICT_KEYS, CONFLICT_KINDS, QUEUE_CAP, SECTIONS,
@@ -19,8 +20,9 @@ __all__ = ["BatchSource", "Cell", "build_cells", "build_budget_cells", "global_b
            "CellProgress", "CellStop",
            "MapOutcome", "MapRunner", "RunnerCaps", "Screen", "default_max_units",
            "default_max_units_for_budget", "merge_manifest",
-           "IDENTITY_FIELDS", "MAPPER_FIELDS", "AdmittedRecord", "basis_for", "checker_notes",
-           "counts_by_cell", "patches_for", "prompt_version", "records_from_manifest",
+           "IDENTITY_FIELDS", "MAPPER_FIELDS", "REREAD_WHY", "AdmittedRecord", "RereadOutcome",
+           "basis_for", "checker_notes", "counts_by_cell", "patches_for", "prompt_version",
+           "records_from_manifest", "reread_patches",
            "CONFLICT_KEYS", "CONFLICT_KINDS", "QUEUE_CAP", "SECTIONS", "Queue", "QueueCard",
            "check_queue", "checker_path", "classify_fuzzy", "conflicts_from_view",
            "fuzzy_quotes", "reasons_for", "select_queue"]

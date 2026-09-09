@@ -23,10 +23,12 @@ import pytest
 from corpus_engine.domain import load_domain
 from corpus_engine.ledger.fold import State, apply_patch, supported_fields
 from corpus_engine.ledger.types import Basis, Patch
-from corpus_engine.mapper.admit import (CODEBOOK_ID, IDENTITY_FIELDS, MAPPER_FIELDS,
+from corpus_engine.mapper.admit import (CODEBOOK_ID, IDENTITY_FIELDS, MAPPER_FIELDS, REREAD_WHY,
                                         AdmittedRecord, basis_for, checker_notes, counts_by_cell,
-                                        patches_for, prompt_version, records_from_manifest)
+                                        patches_for, prompt_version, records_from_manifest,
+                                        reread_patches)
 from corpus_engine.mapper.cells import BatchSource
+from corpus_engine.mapper.queue import CONFLICT_KEYS
 from corpus_engine.reader.cache import ResponseCache
 from corpus_engine.reader.codebook import load_codebook
 from corpus_engine.reader.model import CaseText, ModelPin, Response
@@ -42,6 +44,11 @@ CELL_NY = "1860-1900|N.Y."
 CELL_OHIO = "1930-1970|Ohio"
 UNIT_NY = "cycle-004-shard-01-batch-001"
 UNIT_OHIO = "cycle-004-shard-01-batch-002"
+# The same mapper-v3 manifest the `manifest` fixture serves, read at module level for the
+# re-read tests: `reread_patches` takes a manifest for its D8 basis and its cell order alone,
+# and a second stub spelled by hand would be a second thing to keep in step with D8.
+MANIFEST = json.loads((Path(__file__).resolve().parent / "fixtures" / "mapper-admit" /
+                       "manifest.json").read_text(encoding="utf-8"))
 
 
 # ---------------------------------------------------------------- the synthetic fixture ----
@@ -569,3 +576,232 @@ def test_the_tool_fails_loudly_when_a_re_admit_would_overwrite_a_human_decision(
     assert after.record(cid)["polarity"] == overturned        # the reader's value never lands
     assert after.provenance(cid)["polarity"] == "human"
     assert len(after.conflicts(cid)[cid]) == 1
+
+
+# ------------------------------------------------- the cycles 1-3 re-read (spec section 6) ---
+class _RereadView:
+    """The slice of LedgerView `reread_patches` uses: the records, their cycles and their
+    provenance. `state.cycles` is here because the re-admit patch has to carry the cycle the
+    record was admitted in (R6) - `fold.apply_patch` raises `DuplicateRecord` on any other."""
+
+    def __init__(self, records, provenance, history=(), cycle="cycle-001"):
+        class S:
+            pass
+        self.state = S(); self.state.records = dict(records)
+        self.state.cycles = {cid: cycle for cid in records}
+        self._prov = dict(provenance); self.patches = list(history)
+
+    def provenance(self, cid):
+        return dict(self._prov.get(cid, {}))
+
+    def history(self, cid):
+        return [p for p in self.patches if p.case_id == cid]
+
+
+def _reread(record):
+    return AdmittedRecord(record["case_id"], "pre-1860|N.Y.", "b1", "key", record, "")
+
+
+def test_a_reread_fills_an_empty_field_and_replaces_a_reader_value():
+    view = _RereadView({7: {"case_id": 7, "relevant": True, "polarity": "favorable",
+                            "under_thirty_days": None}},
+                       {7: {"polarity": "reader"}})
+    out = reread_patches([_reread({"case_id": 7, "relevant": True, "polarity": "adverse",
+                                   "under_thirty_days": "yes", "quotes": []})],
+                         manifest=MANIFEST, view=view)
+    sets = {(p.field, p.new) for p in out.patches if p.op == "set"}
+    assert ("polarity", "adverse") in sets and ("under_thirty_days", "yes") in sets
+    assert out.counts["by_field"]["polarity"]["replace"] == 1
+    assert out.counts["by_field"]["under_thirty_days"]["fill"] == 1
+    assert out.conflicts == []
+
+
+def test_a_reread_never_touches_a_reviewer_value_and_cards_the_disagreement():
+    view = _RereadView({7: {"case_id": 7, "relevant": True, "polarity": "favorable"}},
+                       {7: {"polarity": "human"}},
+                       history=[Patch(7, "set", "polarity", "favorable", "round 1",
+                                      Basis(reviewer="mmaldo2", run_id="map-cycle-004-round-1"),
+                                      seq=900)])
+    out = reread_patches([_reread({"case_id": 7, "relevant": True, "polarity": "adverse",
+                                   "quotes": []})], manifest=MANIFEST, view=view)
+    assert not [p for p in out.patches if p.op == "set" and p.field == "polarity"]
+    assert out.conflicts == [{"case_id": 7, "field": "polarity", "human_value": "favorable",
+                              "human_basis": {"reviewer": "mmaldo2",
+                                              "run_id": "map-cycle-004-round-1"},
+                              "human_at": 900, "reread_value": "adverse",
+                              "reread_basis": basis_for(MANIFEST).to_json(), "kind": "value",
+                              "cell_key": "pre-1860|N.Y.", "batch_id": "b1"}]
+    assert set(out.conflicts[0]) == set(CONFLICT_KEYS)      # T7's section-G card reads these
+    assert out.counts["by_field"]["polarity"]["conflict"] == 1
+    flags = [p for p in out.patches if p.op == "append" and p.field == "review.flags"]
+    assert [p.new for p in flags] == ["needs-review:polarity"]
+    assert any(p.op == "append" and p.field == "review.notes" and "stands" in p.new
+               for p in out.patches)
+
+
+def test_a_reread_agreeing_with_a_reviewer_writes_nothing_and_is_counted_as_agreement():
+    view = _RereadView({7: {"case_id": 7, "relevant": True, "polarity": "favorable"}},
+                       {7: {"polarity": "human"}})
+    out = reread_patches([_reread({"case_id": 7, "relevant": True, "polarity": "favorable",
+                                   "quotes": []})], manifest=MANIFEST, view=view)
+    assert out.conflicts == [] and out.counts["by_field"]["polarity"]["agree"] == 1
+
+
+def test_a_reread_relevant_false_on_a_human_judged_record_is_a_conflict_never_an_overturn():
+    view = _RereadView({7: {"case_id": 7, "relevant": True}}, {7: {"relevant": "human"}})
+    out = reread_patches([_reread({"case_id": 7, "relevant": False, "quotes": []})],
+                         manifest=MANIFEST, view=view)
+    assert not [p for p in out.patches if p.op == "set" and p.field == "relevant"]
+    assert out.conflicts[0]["kind"] == "relevant_false"
+    assert out.counts["relevant_false_conflicts"] == [7]
+    admit = next(p for p in out.patches if p.op == "admit")
+    assert admit.new["relevant"] is True             # the ledger's relevance, not the re-read's
+
+
+def test_a_reread_relevant_false_on_a_machine_judged_record_is_applied_with_its_cascade():
+    """D7's other half. A reader's relevance is a reader's, and a re-read under the newer
+    codebook replaces it - with the codebook's own irrelevance cascade (`relevant: false`,
+    `polarity: null`, `who_was_letting: null`), or the record would sit in the ledger
+    irrelevant and still carrying the doctrine of the read that is being withdrawn."""
+    view = _RereadView({7: {"case_id": 7, "relevant": True, "polarity": "favorable",
+                            "who_was_letting": "householder"}},
+                       {7: {"relevant": "reader", "polarity": "reader",
+                            "who_was_letting": "reader"}})
+    out = reread_patches([_reread({"case_id": 7, "relevant": False, "quotes": []})],
+                         manifest=MANIFEST, view=view)
+    sets = {(p.field, p.new) for p in out.patches if p.op == "set"}
+    assert sets == {("relevant", False), ("polarity", None), ("who_was_letting", None)}
+    assert out.conflicts == [] and out.counts["relevant_false_conflicts"] == []
+    assert next(p for p in out.patches if p.op == "admit").new["relevant"] is False
+
+
+def test_a_relevant_false_over_any_human_judgment_is_a_card_not_a_withdrawal():
+    """Applying it would set `in_file` false and drop the record out of the cycle file
+    altogether, taking a human's decision with it. That is a review card, not a re-read's."""
+    view = _RereadView({7: {"case_id": 7, "relevant": True, "polarity": "favorable"}},
+                       {7: {"relevant": "reader", "polarity": "human"}})
+    out = reread_patches([_reread({"case_id": 7, "relevant": False, "quotes": []})],
+                         manifest=MANIFEST, view=view)
+    assert not [p for p in out.patches if p.op == "set"]
+    assert out.conflicts[0]["kind"] == "relevant_false"
+    assert out.counts["relevant_false_conflicts"] == [7]
+    assert next(p for p in out.patches if p.op == "admit").new["relevant"] is True
+
+
+def test_the_re_admit_body_carries_every_judged_value_forward():
+    """`apply_patch`'s admit REPLACES the record. A body that named only the re-read's own
+    fields would wipe the values the record already carries, human decisions included."""
+    view = _RereadView({7: {"case_id": 7, "relevant": True, "polarity": "favorable",
+                            "who_was_letting": "householder", "holding_summary": "h"}},
+                       {7: {"polarity": "human", "who_was_letting": "reader"}})
+    out = reread_patches([_reread({"case_id": 7, "relevant": True, "polarity": "adverse",
+                                   "cite": "9 X 9", "quotes": [{"text": "q"}]})],
+                         manifest=MANIFEST, view=view)
+    admit = next(p for p in out.patches if p.op == "admit")
+    assert admit.new["polarity"] == "favorable"      # the reviewer's value, carried through
+    assert admit.new["who_was_letting"] == "householder"
+    assert admit.new["holding_summary"] == "h"
+    assert admit.new["cite"] == "9 X 9" and admit.new["quotes"] == [{"text": "q"}]
+    assert admit.basis.prompt_version.startswith("mapper-v3:")
+
+
+def test_the_re_admit_carries_the_records_own_cycle_and_its_review_block():
+    """R6. The record stays in the cycle file it was admitted in - `apply_patch` raises
+    `DuplicateRecord` on a re-admit under any other cycle - and the whole-record body means
+    the flags and notes of every round so far survive the replacement."""
+    view = _RereadView({7: {"case_id": 7, "relevant": True, "doctrinal_concepts": ["lodger"],
+                            "review": {"status": "human-reviewed", "flags": ["needs-review:x"],
+                                       "notes": ["round 1"]}}},
+                       {7: {}}, cycle="cycle-002")
+    out = reread_patches([_reread({"case_id": 7, "relevant": True, "quotes": []})],
+                         manifest=MANIFEST, view=view)
+    admit = next(p for p in out.patches if p.op == "admit")
+    assert admit.cycle == "cycle-002"
+    assert admit.new["review"] == {"status": "human-reviewed", "flags": ["needs-review:x"],
+                                   "notes": ["round 1"]}
+    assert admit.new["doctrinal_concepts"] == ["lodger"]
+    assert REREAD_WHY in admit.why
+
+
+def test_a_reread_of_a_case_the_ledger_does_not_hold_is_skipped():
+    out = reread_patches([_reread({"case_id": 99, "relevant": True, "quotes": []})],
+                         manifest=MANIFEST, view=_RereadView({}, {}))
+    assert out.patches == [] and out.counts["skipped"] == [99]
+
+
+def test_the_reread_never_emits_a_patch_the_fold_would_refuse():
+    """Spec section 6, end to end against the real fold: the whole patch set folds onto a
+    state that already carries a human decision, and NOTHING is refused. A rejected patch is
+    still a line in an append-only log that every later replay has to re-reject."""
+    from corpus_engine.ledger.log import provisional_seqs
+    state = State()
+    apply_patch(state, Patch(7, "admit", "", {"case_id": 7, "relevant": True,
+                                              "polarity": "adverse", "characterization": None},
+                             "map", basis_for(MANIFEST), cycle="cycle-001"))
+    apply_patch(state, Patch(7, "set", "polarity", "favorable", "round 1",
+                             Basis(reviewer="mmaldo2"), cycle="cycle-001", seq=900))
+    view = _RereadView(state.records, {7: dict(state.provenance[7])})
+    out = reread_patches([_reread({"case_id": 7, "relevant": True, "polarity": "adverse",
+                                   "characterization": "lodging", "quotes": []})],
+                         manifest=MANIFEST, view=view)
+    before = len(state.conflicts.get(7, ()))
+    for p in provisional_seqs(out.patches, 0):
+        apply_patch(state, p)
+    assert len(state.conflicts.get(7, ())) == before == 0
+    assert state.records[7]["polarity"] == "favorable"          # the reviewer's value stands
+    assert state.records[7]["characterization"] == "lodging"    # the empty field is filled
+    assert state.provenance[7]["polarity"] == "human"
+
+
+def test_the_tool_re_admits_a_map_as_a_reread_and_writes_the_section_G_cards(admit_map, tmp_path,
+                                                                            fixture_dir, capsys,
+                                                                            monkeypatch):
+    """`--reread` end to end, offline, over the same fixture map (spec section 6).
+
+    The map is admitted once, a reviewer decides one polarity, and then the SAME map is
+    re-admitted as a re-read. The reviewer's value stands, the fold refuses nothing (the tool
+    declines to emit the write rather than handing the log a patch to reject), the record is
+    flagged and noted, and the card is on disk for the queue's section G."""
+    from corpus_engine.ledger import open_ledger
+    monkeypatch.setattr("corpus_engine.ledger.fold.PROTECTION_FROM_SEQ", 0)
+    monkeypatch.setattr(admit_map, "ROOT", tmp_path)             # runs/ under tmp_path, not ours
+    assert admit_map.main(_rehearsal_argv(tmp_path, fixture_dir, "--apply")) == 0
+
+    led = open_ledger(root=tmp_path / "ledger", domain=load_domain())
+    cid = next(c for c in led.view().state.order if led.view().record(c).get("polarity"))
+    standing = led.view().record(cid)["polarity"]
+    overturned = "adverse" if standing != "adverse" else "favorable"
+    led.apply([Patch(cid, "set", "polarity", overturned, "round 1", Basis(reviewer="mmaldo2"))],
+              note="review")
+
+    manifest = json.loads((fixture_dir / "manifest.json").read_text(encoding="utf-8"))
+    manifest["run_id"] = "cycles-001-003-reread"
+    path = tmp_path / "reread-manifest.json"
+    path.write_text(json.dumps(manifest), encoding="utf-8")
+    capsys.readouterr()
+    rc = admit_map.main(["--run-id", "cycles-001-003-reread", "--manifest", str(path),
+                         "--batches", str(fixture_dir / "batches"),
+                         "--cache", str(fixture_dir / "cache"),
+                         "--db", str(_scratch_db(tmp_path, fixture_dir)),
+                         "--ledger", str(tmp_path / "ledger"), "--reread", "--apply"])
+    out = capsys.readouterr().out
+    assert rc == 0 and "REFUSED" not in out                 # nothing for the fold to reject
+    assert "1 conflicts (0 of them relevance)" in out
+    assert "polarity: fill 0, replace" in out
+
+    after = open_ledger(root=tmp_path / "ledger", domain=load_domain()).view()
+    assert after.record(cid)["polarity"] == overturned      # the reviewer's value stands
+    assert after.provenance(cid)["polarity"] == "human"
+    assert after.conflicts() == {}                          # the ledger refused nothing
+    assert "needs-review:polarity" in after.record(cid)["review"]["flags"]
+    assert any("stands" in n for n in after.record(cid)["review"]["notes"])
+
+    run_dir = tmp_path / "runs" / "cycles-001-003-reread"
+    cards = json.loads((run_dir / "reread-conflicts.json").read_text(encoding="utf-8"))
+    assert [c["case_id"] for c in cards] == [cid]
+    assert set(cards[0]) == set(CONFLICT_KEYS) and cards[0]["kind"] == "value"
+    assert cards[0]["human_value"] == overturned
+    assert cards[0]["human_basis"]["reviewer"] == "mmaldo2"
+    counts = json.loads((run_dir / "reread-admission.json").read_text(encoding="utf-8"))
+    assert counts["run_id"] == "cycles-001-003-reread" and counts["conflicts"] == 1
+    assert counts["records"] == 4 and counts["skipped"] == []

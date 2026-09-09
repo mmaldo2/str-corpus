@@ -404,7 +404,8 @@ class MapRunner:
                  screen=None, families=None, flags: dict | None = None, worker: str = "reader",
                  read_timeout_seconds: int | None = None,
                  resume_args: Sequence[str] | None = None, merge: bool = True,
-                 global_order: Sequence[tuple[str, str]] | None = None):
+                 global_order: Sequence[tuple[str, str]] | None = None,
+                 resume_tool: str = MAP_RESUME_TOOL):
         self.reader_factory, self.cells = reader_factory, list(cells)
         self.batch_source, self.cache = batch_source, cache
         self.manifest_path = Path(manifest_path)
@@ -425,6 +426,10 @@ class MapRunner:
         self.worker = worker
         self.read_timeout_seconds = read_timeout_seconds
         self.resume_args = list(resume_args or ())
+        # The script whose command line resumes this run. `tools/reread_records.py` walks its
+        # own pool through this same runner (T6), and a manifest that told its operator to
+        # re-run the MAP would point them at the wrong pool.
+        self.resume_tool = str(resume_tool)
         self.merge = bool(merge)
         self.schema = record_schema(codebook) if codebook is not None else None
         self._reader = None                 # the last Reader built, for its domain / norm version
@@ -557,7 +562,7 @@ class MapRunner:
         plan = plan_batch_extraction(
             [batch], self.codebook.id, self.pin, self._budget(counts["reader"], t0),
             worker=self.worker, checker_pin=self.checker_pin, sample_pct=self.sample_pct,
-            json_schema=self.schema, resume_tool=MAP_RESUME_TOOL)
+            json_schema=self.schema, resume_tool=self.resume_tool)
         out = reader.read(plan)
         if out.stop.kind.startswith("preflight:"):
             raise RuntimeError(f"preflight refused the map: {out.stop.kind} {out.stop.detail}")
@@ -770,7 +775,7 @@ class MapRunner:
         """The SAME invocation, verbatim. Resuming a map is re-running the command that
         started it: every unit already in the response cache is replayed for free, so the
         only thing a resume buys is what the last process did not reach."""
-        base = f".venv\\Scripts\\python {MAP_RESUME_TOOL}"
+        base = f".venv\\Scripts\\python {self.resume_tool}"
         return f"{base} {' '.join(_quote(a) for a in self.resume_args)}" if self.resume_args else base
 
     def _cell_doc(self, acc: dict, prog: CellProgress) -> dict:
@@ -857,7 +862,7 @@ class MapRunner:
             "schema": MANIFEST_SCHEMA,
             "run_id": self.run_id,
             "cycle": self.run_id.split("-shard")[0],
-            "tool": MAP_RESUME_TOOL.replace("\\", "/"),
+            "tool": self.resume_tool.replace("\\", "/"),
             "resume_command": self.resume_command(),
             "started_at": started,
             "ended_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
