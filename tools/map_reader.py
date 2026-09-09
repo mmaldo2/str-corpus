@@ -36,10 +36,12 @@ sys.path.insert(0, str(ROOT))
 from corpus_engine import store                                                     # noqa: E402
 from corpus_engine.domain import load_domain                                        # noqa: E402
 from corpus_engine.mapper.admit import unanswered_cases                              # noqa: E402
-from corpus_engine.mapper.cells import (DEPTH_COLUMNS, BatchSource, build_cells,    # noqa: E402
-                                        load_batches, select_cells)
+from corpus_engine.mapper.cells import (DEPTH_COLUMNS, BatchSource,                 # noqa: E402
+                                        build_budget_cells, build_cells,
+                                        global_batch_order, load_batches, select_cells)
 from corpus_engine.mapper.runner import (DEFAULT_MAX_WALL_SECONDS, MapRunner,       # noqa: E402
-                                         RunnerCaps, default_max_units, lost_cases,
+                                         RunnerCaps, default_max_units,
+                                         default_max_units_for_budget, lost_cases,
                                          plan_retry_units, retry_file_name)
 from corpus_engine.mapper.yield_stop import THRESHOLD, WINDOW                       # noqa: E402
 from corpus_engine.reader.cache import ResponseCache                                # noqa: E402
@@ -87,6 +89,12 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--window", type=int, default=WINDOW)
     ap.add_argument("--threshold", type=int, default=THRESHOLD)
     ap.add_argument("--depth-column", default="0.25", choices=sorted(DEPTH_COLUMNS))
+    ap.add_argument("--case-budget", type=int, default=None,
+                    help="D4: read at most N cases, spent top-down on the GLOBAL rank order "
+                         "across every cell rather than cell by cell. Per-cell caps are not "
+                         "used (the manifest records cap: none); the yield floor still stops "
+                         "a cell that has stopped paying. The ceiling is checked between "
+                         "batches, so a run overshoots by at most one batch.")
     ap.add_argument("--sample-pct", type=int, default=None,
                     help="checker sample percentage (default: domain.yaml's checker_sample_pct)")
     ap.add_argument("--retry-lost", action="store_true",
@@ -112,6 +120,11 @@ def main(argv=None) -> int:
     if a.retry_lost and a.dry_run_batches is not None:
         sys.exit("--retry-lost reads the cases the map lost, not the head of a cell; it cannot "
                  "be combined with --dry-run-batches")
+    if a.case_budget is not None and a.case_budget < 1:
+        sys.exit(f"--case-budget {a.case_budget} reads nothing; pass 1 or more, or omit it")
+    if a.retry_lost and a.case_budget is not None:
+        sys.exit("--retry-lost re-reads the cases the map lost, which the budget does not "
+                 "govern; run it without --case-budget")
 
     def log(msg):
         print(msg, flush=True)
@@ -122,7 +135,13 @@ def main(argv=None) -> int:
     batches_dir = run_dir / "batches"
     if not batches_dir.is_dir():
         sys.exit(f"no batches to map: {batches_dir} does not exist")
-    cells = build_cells(load_batches(batches_dir), era_depth=DEPTH_COLUMNS[a.depth_column])
+    batches = load_batches(batches_dir)
+    if a.case_budget is not None:
+        cells = build_budget_cells(batches)
+        order = global_batch_order(batches)
+    else:
+        cells = build_cells(batches, era_depth=DEPTH_COLUMNS[a.depth_column])
+        order = None
     try:
         cells = select_cells(cells, a.cells)
     except ValueError as exc:
@@ -193,12 +212,19 @@ def main(argv=None) -> int:
     cache = ResponseCache(ROOT / "data" / "reader" / "cache")   # re-read: --retry-lost above
     source = StoreCaseSource(conn)
     # A retry's own ceiling is the units it planned: it reads exactly the batches it wrote,
-    # and the cells' caps are about the pool, which a retry does not touch.
-    default_units = (sum(len(v) for v in retry_ids.values()) if retry_ids is not None
-                     else default_max_units(cells))
+    # and the cells' caps are about the pool, which a retry does not touch. A budgeted run's
+    # ceiling is the budget itself, converted to units - it does not care what the (uncapped)
+    # cells' own sizes add up to.
+    if a.case_budget is not None:
+        default_units = default_max_units_for_budget(a.case_budget, dom.sharding.batch_size)
+    elif retry_ids is not None:
+        default_units = sum(len(v) for v in retry_ids.values())
+    else:
+        default_units = default_max_units(cells)
     caps = RunnerCaps(max_units=a.max_units if a.max_units is not None else default_units,
-                      max_wall_seconds=a.max_wall_seconds)
-    log(f"{len(cells)} cells, {sum(c.cap_batches for c in cells)} capped batches, "
+                      max_wall_seconds=a.max_wall_seconds, case_budget=a.case_budget)
+    budget_note = f", case budget {a.case_budget} in global rank order" if a.case_budget else ""
+    log(f"{len(cells)} cells, {sum(c.cap_batches for c in cells)} walkable batches{budget_note}, "
         f"caps: {caps.max_units} reader units (+2 worst case, see --help) / "
         f"{caps.max_wall_seconds:.0f} s")
 
@@ -212,6 +238,7 @@ def main(argv=None) -> int:
                        checker_pin=checker_pin(dom) if checker is not None else None,
                        sample_pct=(a.sample_pct if a.sample_pct is not None
                                    else dom.reader.checker_sample_pct),
+                       global_order=order,
                        run_id=a.run_id, extractions_dir=run_dir / "extractions",
                        window=a.window, threshold=a.threshold, depth_column=a.depth_column,
                        era_depth=DEPTH_COLUMNS[a.depth_column],

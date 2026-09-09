@@ -38,6 +38,11 @@ class Cell:
     batch_ids: tuple[str, ...]          # every batch in the cell, best rank_score first
     cap_batches: int
     mean_rank_score: float              # over `capped_ids`, which is what decides the order
+    # D4: a budgeted run's cell. `cap_batches` is still the cell's own size (so `capped_ids` is
+    # every batch it holds), but the cap governs nothing - the case budget stops the run and
+    # the yield floor stops a cell - and `to_json` says so with `cap: "none"`. Last field,
+    # defaulted, so every existing construction of `Cell` still works.
+    uncapped: bool = False
 
     @property
     def key(self) -> str:
@@ -50,7 +55,11 @@ class Cell:
     def to_json(self) -> dict:
         return {"era": self.era, "jurisdiction": self.jurisdiction,
                 "n_batches": len(self.batch_ids), "cap_batches": self.cap_batches,
-                "mean_rank_score": round(self.mean_rank_score, 6)}
+                "mean_rank_score": round(self.mean_rank_score, 6),
+                # D4: a budgeted run has no per-cell cap - the budget stops the run and the
+                # yield floor stops a cell - so the manifest says `none` rather than repeating
+                # a `cap_batches` that is only the cell's own size and governs nothing.
+                "cap": "none" if self.uncapped else "batches"}
 
 
 def batch_mean_rank_score(batch: Mapping) -> float:
@@ -95,6 +104,44 @@ def build_cells(batches: Sequence[Mapping], *, era_depth: Mapping[str, int] = ER
         cells.append(Cell(era, jur, ids, cap, sum(head) / len(head) if head else 0.0))
     cells.sort(key=lambda c: (-c.mean_rank_score, c.era, c.jurisdiction))
     return cells
+
+
+def build_budget_cells(batches: Sequence[Mapping]) -> list[Cell]:
+    """The cells of a budgeted run (D4): every batch is walkable, so the cap is the cell's own
+    size and `uncapped` says the number means nothing. The order is still by mean rank score -
+    pooled over every CASE in the cell rather than averaged batch by batch, because an uncapped
+    cell has no "head" the way `build_cells`' capped one does, and a batch-by-batch average
+    would let a cell of many small batches outrank one whose cases actually score higher on
+    average. This matters only for the manifest's `cell_order`: a budgeted run walks
+    `global_batch_order`, not the cells."""
+    by_cell: dict[tuple[str, str], list[tuple[float, str]]] = {}
+    case_scores: dict[tuple[str, str], list[float]] = {}
+    for b in batches:
+        key = (b["era_partition"], b["jurisdiction"])
+        by_cell.setdefault(key, []).append((batch_mean_rank_score(b), b["batch_id"]))
+        case_scores.setdefault(key, []).extend(
+            float(c.get("rank_score") or 0.0) for c in (b.get("cases") or []))
+    cells = []
+    for key, rows in by_cell.items():
+        era, jur = key
+        rows.sort(key=lambda r: (-r[0], r[1]))
+        scores = case_scores[key]
+        mean = sum(scores) / len(scores) if scores else 0.0
+        cells.append(Cell(era, jur, tuple(bid for _s, bid in rows), len(rows), mean,
+                          uncapped=True))
+    cells.sort(key=lambda c: (-c.mean_rank_score, c.era, c.jurisdiction))
+    return cells
+
+
+def global_batch_order(batches: Sequence[Mapping]) -> tuple[tuple[str, str], ...]:
+    """`(cell_key, batch_id)` for every batch in the pool, best mean rank score first, batch id
+    breaking ties (D4). This is the order a budgeted run spends its cases in: top down across
+    ALL cells, so the last batch bought is the worst one the budget could reach - which is the
+    number the D5 test in the report is about."""
+    rows = [(batch_mean_rank_score(b), b["batch_id"],
+             f"{b['era_partition']}|{b['jurisdiction']}") for b in batches]
+    rows.sort(key=lambda r: (-r[0], r[1]))
+    return tuple((cell_key, bid) for _s, bid, cell_key in rows)
 
 
 def select_cells(cells: Sequence[Cell], spec: str | None) -> list[Cell]:

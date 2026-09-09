@@ -352,3 +352,24 @@ def test_retry_lost_refuses_a_manifest_that_is_not_this_runs(wired):
     with pytest.raises(SystemExit) as exc:
         mr.main(["--retry-lost"])
     assert "cycle-005-shard-01" in str(exc.value)
+
+
+def test_the_case_budget_flag_switches_the_run_to_a_global_uncapped_walk(wired, capsys):
+    assert mr.main(["--run-id", RUN_ID, "--case-budget", "2", "--sample-pct", "0"]) == 0
+    doc = _manifest(wired)
+    assert doc["flags"]["case_budget"] == 2 and doc["flags"]["order"] == "global"
+    assert all(c["cap"] == "none" for c in doc["cells"].values())
+    assert doc["totals"]["cases_read"] == 2 and doc["stop"] == "budget:cases"
+    assert "case budget 2" in capsys.readouterr().out
+
+
+def test_a_case_budget_of_zero_is_refused(wired):
+    with pytest.raises(SystemExit) as exc:
+        mr.main(["--case-budget", "0"])
+    assert "reads nothing" in str(exc.value)
+
+
+def test_the_parser_carries_the_budget_flag():
+    ap = mr.build_parser()
+    assert "--case-budget" in {a for action in ap._actions for a in action.option_strings}
+    assert ap.parse_args([]).case_budget is None

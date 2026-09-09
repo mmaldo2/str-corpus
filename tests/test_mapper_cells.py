@@ -170,3 +170,36 @@ def test_select_cells_filters_by_key_and_refuses_an_unknown_one(tmp_path):
         "pre-1860|Pa.", "pre-1860|N.Y."]        # the run order stays the cells' own order
     with pytest.raises(ValueError, match="1930-1970"):
         select_cells(cells, "1930-1970|N.Y.")
+
+
+from corpus_engine.mapper.cells import build_budget_cells, global_batch_order
+
+
+def _b(bid, era, jur, *scores):
+    return {"batch_id": bid, "era_partition": era, "jurisdiction": jur,
+            "cases": [{"case_id": i, "rank_score": s} for i, s in enumerate(scores, 1)]}
+
+
+def test_budget_cells_are_uncapped_and_say_so():
+    """D4: the budget stops the run, not the cap, so every batch in a cell is walkable and the
+    manifest records `cap: none` rather than a number that governs nothing."""
+    cells = build_budget_cells([_b("b1", "1930-1970", "N.Y.", 0.9, 0.7),
+                                _b("b2", "1930-1970", "N.Y.", 0.1),
+                                _b("b3", "pre-1860", "Pa.", 0.5)])
+    by_key = {c.key: c for c in cells}
+    ny = by_key["1930-1970|N.Y."]
+    assert ny.cap_batches == 2 and ny.capped_ids == ("b1", "b2") and ny.uncapped is True
+    assert ny.to_json()["cap"] == "none" and ny.to_json()["n_batches"] == 2
+    assert [c.key for c in cells] == ["1930-1970|N.Y.", "pre-1860|Pa."]   # by mean, desc
+
+
+def test_the_global_order_is_every_batch_best_first_regardless_of_cell():
+    order = global_batch_order([_b("a", "1930-1970", "N.Y.", 0.2),
+                                _b("b", "pre-1860", "Pa.", 0.9),
+                                _b("c", "1930-1970", "N.Y.", 0.5)])
+    assert order == (("pre-1860|Pa.", "b"), ("1930-1970|N.Y.", "c"), ("1930-1970|N.Y.", "a"))
+
+
+def test_the_global_order_breaks_ties_on_batch_id():
+    order = global_batch_order([_b("z", "pre-1860", "Pa.", 0.5), _b("a", "pre-1860", "Pa.", 0.5)])
+    assert [bid for _k, bid in order] == ["a", "z"]

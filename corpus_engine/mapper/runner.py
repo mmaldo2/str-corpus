@@ -69,7 +69,7 @@ MANIFEST_SCHEMA = "map-manifest-v1"
 DEFAULT_MAX_WALL_SECONDS = 21600            # 6 h, the same window the measurement used
 UNIT_MARGIN_PCT = 10                        # headroom for split halves and checker units
 # The driver's stop kinds that mean "this process is done", as opposed to "this unit failed".
-PROCESS_STOPS = ("budget:units", "budget:wall", "budget:usd")
+PROCESS_STOPS = ("budget:units", "budget:wall", "budget:usd", "budget:cases")
 # Headroom handed to the driver's own unit budget on top of the reader units still allowed.
 # The runner's cap is enforced BETWEEN batches (one batch per read), so the driver's budget is
 # only a runaway guard; it has to be loose enough that a unit's split halves and its checker
@@ -106,6 +106,10 @@ CUMULATIVE_TOTALS = ("units", "checker_units", "input_tokens", "output_tokens", 
 class RunnerCaps:
     max_units: int
     max_wall_seconds: float
+    # D4. Cases READ by this process, checked between batches like every other ceiling. A
+    # resume re-counts the cases it replays from cache, and that is right: the budget is a
+    # statement about how much of the tail is mapped, not about what a process spent.
+    case_budget: int | None = None
 
 
 @dataclass
@@ -143,6 +147,12 @@ def default_max_units(cells: Sequence[Cell]) -> int:
     """Every batch the caps allow, plus a tenth. The margin is not generosity: a unit whose
     response will not parse buys two split halves, and a sampled unit buys a checker call."""
     return math.ceil(sum(c.cap_batches for c in cells) * (1 + UNIT_MARGIN_PCT / 100))
+
+
+def default_max_units_for_budget(case_budget: int, batch_size: int = 18) -> int:
+    """Every batch the budget can pay for, plus the same tenth `default_max_units` adds for
+    split halves."""
+    return math.ceil(math.ceil(case_budget / batch_size) * (1 + UNIT_MARGIN_PCT / 100))
 
 
 def relevant_accepted(unit) -> int:
@@ -393,11 +403,17 @@ class MapRunner:
                  threshold: int = THRESHOLD, depth_column: str = "0.25", era_depth=None,
                  screen=None, families=None, flags: dict | None = None, worker: str = "reader",
                  read_timeout_seconds: int | None = None,
-                 resume_args: Sequence[str] | None = None, merge: bool = True):
+                 resume_args: Sequence[str] | None = None, merge: bool = True,
+                 global_order: Sequence[tuple[str, str]] | None = None):
         self.reader_factory, self.cells = reader_factory, list(cells)
         self.batch_source, self.cache = batch_source, cache
         self.manifest_path = Path(manifest_path)
         self.caps, self.log, self.clock = caps, log, clock
+        # D4: `(cell_key, batch_id)`, best rank score first across every cell. Its presence -
+        # not `caps.case_budget` - is what routes `run()` to `_run_budget`: the two travel
+        # together (`tools/map_reader.py` sets both from `--case-budget`), but the order is the
+        # thing the walk actually needs.
+        self.global_order = tuple(global_order) if global_order is not None else None
         self.codebook, self.pin, self.checker_pin = codebook, pin, checker_pin
         self.sample_pct, self.run_id = int(sample_pct), run_id
         self.extractions_dir = Path(extractions_dir) if extractions_dir else None
@@ -519,6 +535,8 @@ class MapRunner:
 
     def _gate(self, counts: dict, t0: float) -> str | None:
         """The per-PROCESS ceilings, checked before a batch is begun."""
+        if self.caps.case_budget is not None and counts["cases"] >= self.caps.case_budget:
+            return "budget:cases"
         if counts["reader"] >= self.caps.max_units:
             return "budget:units"
         if self.clock() - t0 >= self.caps.max_wall_seconds:
@@ -558,7 +576,9 @@ class MapRunner:
                 keys = self._cache_keys(reader, planned, u)
             except Exception as exc:                       # noqa: BLE001
                 self.log(f"{u.unit_id}: cache keys not recorded ({exc})")
-            acc["units"].append(self._unit_doc(u, keys, out.disagreements, retry=retry))
+            row = self._unit_doc(u, keys, out.disagreements, retry=retry)
+            acc["units"].append(row)
+            counts["cases"] = counts.get("cases", 0) + (row["cases_read"] or 0)
             self._write_extraction(u.unit_id, u)
             if not retry:
                 prog.add(u.unit_id, relevant_accepted(u), unit_completed(u))
@@ -574,11 +594,17 @@ class MapRunner:
         cell's capped head. Everything else is the same run: the same ceilings between batches,
         the same manifest written from the same `finally`, the same merge onto what is on disk.
         The cell's own walk is untouched - no yield window, no cap, no screen - so the merged
-        cell keeps the traversal the map made and gains the repair."""
+        cell keeps the traversal the map made and gains the repair.
+
+        `global_order` (D4) routes to `_run_budget` instead: a retry, which always sets
+        `retry_ids`, is never budgeted - it repairs a specific set of cases the map already
+        priced, not a fresh spend of the tail."""
         cells = list(self.cells if cells is None else cells)
+        if self.global_order is not None and retry_ids is None:
+            return self._run_budget(cells)
         t0 = self.clock()
         started = time.strftime("%Y-%m-%dT%H:%M:%S")
-        counts = {"reader": 0, "checker": 0, "screen_pinned": 0}
+        counts = {"reader": 0, "checker": 0, "screen_pinned": 0, "cases": 0}
         totals = {"input_tokens": 0, "output_tokens": 0, "spend_usd": 0.0, "unpriced_requests": 0}
         seen = {"provider": None, "provider_reported": set(), "tool_version": None}
         progress: dict[str, CellProgress] = {}
@@ -632,15 +658,76 @@ class MapRunner:
                 if stop in PROCESS_STOPS:
                     break
         finally:
-            fresh = self._manifest(cells, progress, records, counts, totals, seen, t0,
-                                   started, stop)
-            manifest, written = self._merge_onto_prior(fresh, counts, totals, t0)
-            self._write(written, manifest)
-            self.log(f"manifest -> {written}")
-            self.log(f"resume: {manifest['resume_command']}")
+            manifest, written = self._finish(cells, progress, records, counts, totals, seen, t0,
+                                             started, stop)
         return MapOutcome([manifest["cells"][k] for k in manifest["cell_order"]], counts["reader"],
                           round(self.clock() - t0, 1), stop, manifest, written,
                           manifest["resume_command"])
+
+    def _finish(self, cells, progress, records, counts, totals, seen, t0, started, stop):
+        """The manifest, merged onto whatever is on disk and written whole. Called from both
+        walks' `finally`, possibly with an exception already in flight - see
+        `_merge_onto_prior`."""
+        fresh = self._manifest(cells, progress, records, counts, totals, seen, t0, started, stop)
+        manifest, written = self._merge_onto_prior(fresh, counts, totals, t0)
+        self._write(written, manifest)
+        self.log(f"manifest -> {written}")
+        self.log(f"resume: {manifest['resume_command']}")
+        return manifest, written
+
+    def _run_budget(self, cells: Sequence[Cell]) -> MapOutcome:
+        """D4's walk: every cell's batches interleaved by rank score, top down, until the case
+        budget is spent.
+
+        Deliberately a second method rather than a generalisation of `run()`. The cell-major
+        walk is what read the whole cycle-004 map, and it is what `--retry-lost` and the screen
+        are written against; interleaving cells there would move the screen's trigger point and
+        turn each cell's `wall_seconds` from a duration into a span. This walk runs no screen
+        (D5: there is none this slice), plans no retries, and finalises every cell's stop after
+        the walk instead of at the end of the cell - because in this order a cell does not end
+        until the pool does."""
+        t0 = self.clock()
+        started = time.strftime("%Y-%m-%dT%H:%M:%S")
+        counts = {"reader": 0, "checker": 0, "screen_pinned": 0, "cases": 0}
+        totals = {"input_tokens": 0, "output_tokens": 0, "spend_usd": 0.0, "unpriced_requests": 0}
+        seen = {"provider": None, "provider_reported": set(), "tool_version": None}
+        by_key = {c.key: c for c in cells}
+        progress: dict[str, CellProgress] = {}
+        records: dict[str, dict] = {}
+        cell_t0: dict[str, float] = {}
+        stop = "done"
+        try:
+            for cell_key, batch_id in self.global_order:
+                cell = by_key.get(cell_key)
+                if cell is None:
+                    continue                   # a `--cells` subset: not this run's business
+                if cell_key not in progress:
+                    progress[cell_key] = CellProgress(cell_key, cell.cap_batches)
+                    records[cell_key] = {**cell.to_json(), "units": [],
+                                         "screen": dict(CELL_SCREEN_OFF), "screen_pinned": [],
+                                         "wall_seconds": 0.0}
+                    cell_t0[cell_key] = self.clock()
+                prog = progress[cell_key]
+                if prog.should_stop(window=self.window, threshold=self.threshold) is not None:
+                    continue                   # this cell has stopped paying; the walk goes on
+                stop = self._gate(counts, t0) or stop
+                if stop in PROCESS_STOPS:
+                    break
+                stop = self._read_batch(cell, self.batch_source.get(batch_id), records[cell_key],
+                                        prog, counts, totals, seen, t0) or stop
+                records[cell_key]["wall_seconds"] = round(self.clock() - cell_t0[cell_key], 1)
+                if stop in PROCESS_STOPS:
+                    break
+            for key, prog in progress.items():
+                cell_stop = prog.should_stop(window=self.window, threshold=self.threshold)
+                records[key]["cell_stop"] = cell_stop.to_json() if cell_stop else None
+        finally:
+            walked = [c for c in cells if c.key in records]
+            manifest, written = self._finish(walked, progress, records, counts, totals, seen,
+                                             t0, started, stop)
+        return MapOutcome([manifest["cells"][k] for k in manifest["cell_order"]],
+                          counts["reader"], round(self.clock() - t0, 1), stop, manifest,
+                          written, manifest["resume_command"])
 
     def _write(self, path: Path, doc: dict) -> None:
         """Whole file or nothing (re-review C). A torn manifest reads as unmergeable, and an
@@ -804,7 +891,12 @@ class MapRunner:
             "flags": {"window": self.window, "threshold": self.threshold,
                       "depth_column": self.depth_column,
                       "max_units": self.caps.max_units,
-                      "max_wall_seconds": self.caps.max_wall_seconds, **self.flags},
+                      "max_wall_seconds": self.caps.max_wall_seconds,
+                      # D4, recorded by the runner rather than by the CLI so it cannot be
+                      # forgotten by a caller that builds a MapRunner directly.
+                      "case_budget": self.caps.case_budget,
+                      "order": "global" if self.global_order is not None else "cell",
+                      **self.flags},
             "cell_order": list(cell_docs),
             "cells": cell_docs,
             "totals": self._totals(cell_docs, counts, running, t0),

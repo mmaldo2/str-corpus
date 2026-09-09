@@ -14,7 +14,8 @@ import pytest
 from corpus_engine import store
 from corpus_engine.domain import load_domain
 from corpus_engine.mapper.admit import unanswered_cases
-from corpus_engine.mapper.cells import BatchSource, build_cells, load_batches, select_cells
+from corpus_engine.mapper.cells import (BatchSource, build_budget_cells, build_cells,
+                                        global_batch_order, load_batches, select_cells)
 from corpus_engine.mapper.runner import (MANIFEST_SCHEMA, MAP_RESUME_TOOL, RETRY_UNIT_SIZE,
                                          SCREEN_OFF, MapRunner, RunnerCaps, default_max_units,
                                          lost_cases, merge_manifest, plan_retry_units,
@@ -864,3 +865,102 @@ def test_the_lost_ids_are_recovered_from_the_cache_when_the_rows_never_recorded_
                                                      cache=cache))
     assert [[c["case_id"] for c in b["cases"]] for b in planned] == [[lost]]
     assert planned[0]["retry_of"] == [bad]
+
+
+# ---------------------------------------------------------------- --case-budget (D4) --------
+# The brief's own fake `_runner(tmp_path, batches=[...], caps=...)` does not match this file's
+# real fixture, which builds a pool of real batch files over the tiny fixture store and reads
+# it through `_runner(tmp_path, fixture_db, pool, ...)` (controller ruling R5). These tests are
+# rewritten against that real harness rather than transcribed, and use a real-shaped pool built
+# through `_ordered_pool` below rather than the brief's opaque single-letter "cells".
+def _ordered_pool(tmp_path, repo_root, specs):
+    """Real batches whose GLOBAL rank order is exactly the order of `specs`, best first:
+    [(era, jur, batch_id, n_cases), ...]. `_pool` assigns scores in creation order PER CELL (all
+    of one cell's batches before the next cell's), so it cannot express two cells whose batches
+    interleave in the global order - which is exactly what D4's walk has to prove."""
+    src = sorted((repo_root / "tests/fixtures/batches/cycle-003-shard-01").glob("batch-*.json"))
+    pool = tmp_path / "batches"
+    pool.mkdir()
+    for i, (era, jur, bid, n_cases) in enumerate(specs):
+        base = json.loads(src[i % len(src)].read_text(encoding="utf-8"))
+        score = round(1.0 - 0.01 * i, 4)                 # first spec entry scores highest
+        cases = [{**c, "era_partition": era, "jurisdiction": jur, "rank_score": score}
+                 for c in base["cases"][:n_cases]]
+        b = {"batch_id": bid, "ranker_id": "classifier:v1", "era_partition": era,
+             "jurisdiction": jur, "cases": cases}
+        (pool / f"batch-{i + 1:03d}.json").write_bytes(json.dumps(b, indent=1).encode("utf-8"))
+    return pool
+
+
+def test_a_budgeted_run_stops_when_the_budget_is_spent(tmp_path, fixture_db, repo_root):
+    """Three batches of two cases, budget 4: two batches are read, the third is not begun, and
+    the process stop is the budget's own kind."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 3})
+    batches = load_batches(pool)
+    cells = build_budget_cells(batches)
+    order = global_batch_order(batches)
+    r = _runner(tmp_path, fixture_db, pool, answer=_answer(lambda bid: 1), cells=cells,
+                caps=RunnerCaps(max_units=99, max_wall_seconds=999, case_budget=4),
+                global_order=order)
+    out = r.run()
+    assert out.stop == "budget:cases"
+    assert out.manifest["totals"]["cases_read"] == 4
+    assert out.manifest["totals"]["batches_completed"] == 2
+    assert out.manifest["flags"]["case_budget"] == 4
+    assert out.manifest["flags"]["order"] == "global"
+
+
+def test_a_budgeted_run_walks_the_global_order_not_the_cells(tmp_path, fixture_db, repo_root):
+    """Cell A's second-best batch must wait behind cell B's best one: the budget is spent on
+    the best batches in the POOL, which is the whole point of D4."""
+    pool = _ordered_pool(tmp_path, repo_root, [("1930-1970", "N.Y.", "a1", 2),
+                                               ("pre-1860", "Pa.", "b1", 2),
+                                               ("1930-1970", "N.Y.", "a2", 2)])
+    batches = load_batches(pool)
+    cells = build_budget_cells(batches)
+    order = global_batch_order(batches)
+    assert [bid for _k, bid in order] == ["a1", "b1", "a2"]      # the fixture built what it says
+
+    call_order = []
+
+    def answer(req):
+        bid = next(line.split()[2] for line in req.user.splitlines() if line.startswith("# Batch "))
+        call_order.append(bid)
+        return _answer(lambda _bid: 1)(req)
+
+    r = _runner(tmp_path, fixture_db, pool, answer=answer, cells=cells,
+                caps=RunnerCaps(max_units=99, max_wall_seconds=999, case_budget=6),
+                global_order=order)
+    out = r.run()
+    read = [u["unit_id"] for key in out.manifest["cell_order"]
+           for u in out.manifest["cells"][key]["units"]]
+    assert sorted(read) == ["a1", "a2", "b1"]
+    assert call_order == ["a1", "b1", "a2"]           # cell A's worst batch waited behind cell B's best
+
+
+def test_the_yield_floor_still_stops_a_quiet_cell_in_a_budgeted_run(tmp_path, fixture_db,
+                                                                     repo_root):
+    """Window 3, threshold 2 applies per cell exactly as in a capped run: once cell A has
+    stopped paying, the walk skips A's remaining batches and spends the budget elsewhere."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 5, ("pre-1860", "Pa."): 1})
+    batches = load_batches(pool)
+    cells = build_budget_cells(batches)
+    order = global_batch_order(batches)
+    r = _runner(tmp_path, fixture_db, pool, answer=_answer(lambda bid: 0), cells=cells,
+                caps=RunnerCaps(max_units=99, max_wall_seconds=999, case_budget=99),
+                global_order=order)
+    out = r.run()
+    a = out.manifest["cells"]["1930-1970|N.Y."]
+    assert a["batches_completed"] == 3 and a["stop"]["kind"] == "yield_floor"
+    assert out.manifest["cells"]["pre-1860|Pa."]["batches_completed"] == 1
+    assert out.stop == "done"
+
+
+def test_a_capped_run_still_records_the_cell_order_and_no_budget(tmp_path, fixture_db, repo_root):
+    """The existing walk is untouched: no global order, no budget, `order: cell`."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 1})
+    r = _runner(tmp_path, fixture_db, pool, answer=_answer(lambda bid: 1),
+                caps=RunnerCaps(max_units=50, max_wall_seconds=1e6))
+    out = r.run()
+    assert out.manifest["flags"]["order"] == "cell"
+    assert out.manifest["flags"]["case_budget"] is None
