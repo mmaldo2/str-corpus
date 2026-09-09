@@ -523,3 +523,49 @@ def test_the_guard_asks_about_the_manifests_run_id_not_the_flags(admit_map, tmp_
         admit_map.main(argv)
     assert "cycle-004-shard-01" in str(exc.value) and "cycle-009" not in str(exc.value)
     assert "the manifest's run id is 'cycle-004-shard-01'" in capsys.readouterr().out
+
+
+def test_the_tool_fails_loudly_when_a_re_admit_would_overwrite_a_human_decision(
+        admit_map, tmp_path, fixture_dir, capsys, monkeypatch):
+    """D2 through the tool (review finding 2). A second admission of the same records under a
+    new run id re-states the reader's judged values, and a reviewer has since overturned one
+    of them: the write is refused, so the tool must name it and exit non-zero rather than
+    print "N applied" and return 0. A scratch ledger numbers its patches from 1, so the real
+    grandfather baseline is moved out of the way for the rehearsal.
+
+    The refused write is the re-admission's `set` on the judged field (every judged value
+    reaches the ledger as a `set` under the D8 basis - see this module's docstring), and the
+    value it reports as standing is `None`, because the `admit` that precedes it replaced the
+    record with a body that carries no judged field at all. That erasure-by-omission is the
+    hazard controller ruling R6 closes for the re-read by carrying every current key forward;
+    it is pinned at the fold in test_ledger_fold.py."""
+    from corpus_engine.ledger import open_ledger
+    monkeypatch.setattr("corpus_engine.ledger.fold.PROTECTION_FROM_SEQ", 0)
+    assert admit_map.main(_rehearsal_argv(tmp_path, fixture_dir, "--apply")) == 0
+
+    led = open_ledger(root=tmp_path / "ledger", domain=load_domain())
+    cid = next(c for c in led.view().state.order if led.view().record(c).get("polarity"))
+    standing = led.view().record(cid)["polarity"]
+    overturned = "adverse" if standing != "adverse" else "favorable"
+    led.apply([Patch(cid, "set", "polarity", overturned, "round 1", Basis(reviewer="mmaldo2"))],
+              note="review")
+
+    manifest = json.loads((fixture_dir / "manifest.json").read_text(encoding="utf-8"))
+    manifest["run_id"] = "cycle-004-shard-01-rerun"          # a new run id: fresh patch ids
+    path = tmp_path / "manifest-rerun.json"
+    path.write_text(json.dumps(manifest), encoding="utf-8")
+    capsys.readouterr()
+    rc = admit_map.main(["--manifest", str(path), "--batches", str(fixture_dir / "batches"),
+                         "--cache", str(fixture_dir / "cache"),
+                         "--db", str(_scratch_db(tmp_path, fixture_dir)),
+                         "--ledger", str(tmp_path / "ledger"), "--apply"])
+    out = capsys.readouterr().out
+    assert rc == 3                                            # not 0, and not "replay_ok" 1
+    assert "REFUSED: 1 write(s) over a human decision were refused (D2)" in out
+    assert "are NOT part of the 28 above" in out              # 29 patches, one of them refused
+    assert f"case {cid} polarity:" in out and "refused by reviewer-protection" in out
+    assert "28 applied" in out
+    after = open_ledger(root=tmp_path / "ledger", domain=load_domain()).view()
+    assert after.record(cid).get("polarity") != standing      # the reader's value never lands
+    assert after.provenance(cid)["polarity"] == "human"
+    assert len(after.conflicts(cid)[cid]) == 1

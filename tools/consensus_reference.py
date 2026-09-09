@@ -40,6 +40,7 @@ sys.path.insert(0, str(ROOT))
 from corpus_engine.domain import load_domain                          # noqa: E402
 from corpus_engine.ledger import LedgerView, open_ledger              # noqa: E402
 from corpus_engine.ledger.fold import apply_patch                     # noqa: E402
+from corpus_engine.ledger.log import provisional_seqs                 # noqa: E402
 from corpus_engine.ledger.types import Basis, Patch                   # noqa: E402
 from corpus_engine.reader.cache import ResponseCache                  # noqa: E402
 from corpus_engine.reader.codebook import load_codebook               # noqa: E402
@@ -233,7 +234,9 @@ def _published(view) -> dict:
 
 def _projected(view, patches) -> LedgerView:
     """The view these patches would produce, without writing anything - so a dry run can
-    show the count deltas it is proposing rather than three identical rows."""
+    show the count deltas it is proposing rather than three identical rows. Stamped with the
+    seqs the append would assign, without which D2 reads a new patch as history (finding 1)."""
+    patches = provisional_seqs(patches, view.as_of)
     state = copy.deepcopy(view.state)
     for p in patches:
         apply_patch(state, p, judged=tuple(view.domain.judged_fields), cascade=p.cascade)

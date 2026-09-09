@@ -1,3 +1,9 @@
+import copy
+import hashlib
+import subprocess
+
+import pytest
+
 from corpus_engine.ledger import open_ledger
 from corpus_engine.domain import load_domain
 from corpus_engine.ledger.fold import (JUDGED_DEFAULT, PROTECTION_FROM_SEQ, apply_patch)
@@ -75,23 +81,61 @@ def test_the_six_historical_overwrites_are_recorded_and_only_recorded(repo_root)
     assert v.conflicts(11596913, historical=True) == {}        # a case with no conflict at all
 
 
-def test_the_committed_log_replays_to_the_same_bytes_under_the_rule(repo_root):
-    """The other half of R1: a fresh in-memory replay of data/ledger/patches.jsonl still
-    hashes to the committed cycle files, sha256 for sha256. If protection had been enforced
-    over history, five records would have moved."""
-    import hashlib
+def test_the_committed_log_replays_to_the_committed_blobs(repo_root):
+    """The other half of R1, and the one claim a dirty working tree cannot launder (review
+    finding 6): a fresh in-memory replay of data/ledger/patches.jsonl hashes to the cycle
+    files AS COMMITTED AT HEAD, sha256 for sha256. The byte test above compares the same
+    render to the files on disk, which is the weaker statement - it stays green if a stale
+    snapshot was materialised into the tree by hand. If protection had been enforced over
+    history, five records would have moved."""
     v = open_ledger(domain=load_domain()).view()
     rendered = v.render()
     assert len(rendered) == 4
-    for name, data in rendered.items():
-        on_disk = (repo_root / "data" / "ledger" / name).read_bytes().replace(b"\r\n", b"\n")
-        assert hashlib.sha256(data).hexdigest() == hashlib.sha256(on_disk).hexdigest(), name
+    for name, data in sorted(rendered.items()):
+        blob = subprocess.run(["git", "show", f"HEAD:data/ledger/{name}"], cwd=repo_root,
+                              capture_output=True)
+        if blob.returncode != 0:
+            pytest.skip(f"git show failed for {name}: {blob.stderr.decode(errors='replace')}")
+        committed = blob.stdout.replace(b"\r\n", b"\n")
+        assert hashlib.sha256(data).hexdigest() == hashlib.sha256(committed).hexdigest(), name
+
+
+def test_a_real_dry_run_refuses_a_re_read_of_a_human_decided_field(repo_root):
+    """The reviewer's live check, as a test (finding 1), over the real state and the real
+    baseline: a slice-3 re-read patch of case 4268287's human-decided polarity is refused by
+    `apply(dry_run=True)`, which writes nothing - no log line, no snapshot, no lock. Before
+    the trial fold stamped the seqs the append would assign, this patch passed the dry run
+    clean and overwrote the human value in the trial state."""
+    led = open_ledger(domain=load_domain())
+    standing = led.view().record(4268287)["polarity"]
+    assert led.view().provenance(4268287)["polarity"] == "human"
+    p = Patch(4268287, "set", "polarity", "favorable", "slice-3 re-read",
+              Basis(model="claude-opus-5@claude-cli", prompt_version="mapper-v3:f92016681314",
+                    run_id="cycles-001-003-reread"))
+    res = led.apply([p], note="dry run only", dry_run=True)
+    assert res.applied == [] and res.files_written == []
+    assert len(res.rejected) == 1
+    assert res.rejected[0]["at"] == PROTECTION_FROM_SEQ + 1   # the seq the append would give
+    assert res.rejected[0]["historical"] is False
+    assert res.rejected[0]["by_rule"] == "reviewer-protection"
+    assert res.rejected[0]["standing"] == standing
+    assert led.view().record(4268287)["polarity"] == standing
+    assert led.view().record(4268287)["review"]["flags"] == []
+
+
+def test_conflicts_hands_out_copies_the_caller_cannot_write_back(repo_root):
+    """Review finding 5: a queue that edits what it read must not edit the fold's state."""
+    v = open_ledger(domain=load_domain()).view()
+    rows = v.conflicts(historical=True)
+    rows[4268287][0]["by"]["reviewer"] = "not-a-reviewer"
+    rows[4268287][0]["field"] = "not-a-field"
+    assert v.conflicts(historical=True)[4268287][0]["by"] == {"rule_id": "retraction-cascade-v1"}
+    assert v.conflicts(historical=True)[4268287][0]["field"] == "polarity"
 
 
 def test_a_patch_above_the_baseline_is_rejected_over_the_real_state(repo_root):
     """The rule is live for everything the slice is about to write. Replayed in memory
     against a deep copy of the committed state: nothing is written, nothing is applied."""
-    import copy
     v = open_ledger(domain=load_domain()).view()
     cid, field, _, _ = HISTORICAL[0]
     trial = copy.deepcopy(v.state)

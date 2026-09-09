@@ -3,7 +3,8 @@ from __future__ import annotations
 import copy
 from dataclasses import dataclass, field
 from typing import Any
-from corpus_engine.ledger.types import Patch, UNSET, UnknownCase, DuplicateRecord, MissingBasis, UnknownField
+from corpus_engine.ledger.types import (Patch, Basis, UNSET, UnknownCase, DuplicateRecord,
+                                        MissingBasis, UnknownField)
 # M4: the definition lives in corpus_engine.quotes, upstream of both the reader and the
 # ledger; re-exported here because the gate, the fold and verification.py all learned it
 # from this module and must go on sharing exactly one implementation.
@@ -54,10 +55,20 @@ PROTECTION_RULE_ID = "reviewer-protection"
 # with `historical: True`, apply exactly as they always have, and add no flag - which is why
 # a fresh replay of the committed log still renders the cycle files byte for byte. Every
 # patch after the baseline is judged by the rule.
+#
+# NEVER refresh this to a later head. Raising it re-grandfathers every disagreement recorded
+# since, silently un-protecting decisions the rule has already defended; the number is a fact
+# about 2026-09-08 and stays one. Two consequences worth knowing: a patch is judged by its
+# seq, so a fold of patches that are NOT YET in the log must stamp the seqs the append will
+# assign (`corpus_engine.ledger.log.provisional_seqs`, review finding 1) or the rule reads
+# them as history; and a ledger built from scratch (a scratch dir in a test or a rehearsal)
+# numbers its patches from 1, so the rule is inert there until it passes this seq - which is
+# right for a throwaway ledger and irrelevant to a scratch COPY of the real one, which keeps
+# the real seqs.
 PROTECTION_FROM_SEQ = 42984
 
 
-def provenance_kind(basis) -> str:
+def provenance_kind(basis: Basis) -> str:
     """The provenance a patch writes: human | reader | rule.
 
     `Basis.kind()` has a fourth answer, "none", for a bare basis. A judged value can only
@@ -68,7 +79,7 @@ def provenance_kind(basis) -> str:
     return kind if kind in PROVENANCE_KINDS else "reader"
 
 
-def is_reader_write(basis) -> bool:
+def is_reader_write(basis: Basis) -> bool:
     """Whether this patch is a machine read speaking on its own authority.
 
     NOT the protection gate - see `is_protected_write`, which D2 widened to every
@@ -77,7 +88,7 @@ def is_reader_write(basis) -> bool:
     return bool(basis.model) and not basis.reviewer
 
 
-def is_protected_write(basis) -> bool:
+def is_protected_write(basis: Basis) -> bool:
     """Whether D2's protection applies to this patch: every basis that is not a reviewer.
 
     A reader re-read is the obvious case, but a rule is protected against too (controller
@@ -155,14 +166,15 @@ class State:
     # re-fillable by the next machine read. A side map for the same reason as `cycles`.
     provenance: dict[int, dict[str, str]] = field(default_factory=dict)
     # Writes over a human decision, `{case_id: [entry, ...]}`. An entry is
-    # {"field", "attempted", "standing", "by", "at", "op", "historical"}. `historical` is True
+    # {"field", "attempted", "standing", "by", "at", "op", "historical", "by_rule"}, where
+    # `by` is the attempting basis and `by_rule` the rule that refused it. `historical` is True
     # for the six writes below `PROTECTION_FROM_SEQ`, which are recorded but still applied;
     # every other entry is a write the fold REFUSED. A rejection never raises: `view()`
     # replays the whole log on every call and a raise would take the corpus down (spec §9).
     conflicts: dict[int, list[dict]] = field(default_factory=dict)
 
 
-def _record_provenance(state: "State", case_id: int, field_name: str, basis) -> None:
+def _record_provenance(state: "State", case_id: int, field_name: str, basis: Basis) -> None:
     """See `State.provenance` for the stickiness rule."""
     fields = state.provenance.setdefault(case_id, {})
     if fields.get(field_name) == "human":
@@ -170,8 +182,8 @@ def _record_provenance(state: "State", case_id: int, field_name: str, basis) -> 
     fields[field_name] = provenance_kind(basis)
 
 
-def _may_write(state: "State", case_id: int, field_name: str, value, basis, *, seq: int,
-               op: str, standing, target: dict) -> bool:
+def _may_write(state: "State", case_id: int, field_name: str, value, basis: Basis, *,
+               seq: int, op: str, standing, target: dict) -> bool:
     """Whether `field_name` may take `value` (D2), recording the attempt when it may not.
 
     A write of the SAME value is not an overwrite: it changes nothing, so it is neither
@@ -179,7 +191,12 @@ def _may_write(state: "State", case_id: int, field_name: str, value, basis, *, s
     committed log silent, and it is half of what makes a fresh replay reproduce the four
     cycle files byte for byte; the `PROTECTION_FROM_SEQ` baseline is the other half.
     `target` is the record the flag goes on - on a re-admit that is the NEW record, not the
-    one being replaced."""
+    one being replaced.
+
+    `seq` decides history from future, so it must be the seq the patch HAS IN THE LOG. A
+    `Patch` carries 0 until `PatchLog.append` numbers it, and 0 reads as pre-baseline: every
+    fold of not-yet-appended patches stamps them first with
+    `corpus_engine.ledger.log.provisional_seqs` (review finding 1)."""
     if state.provenance.get(case_id, {}).get(field_name) != "human":
         return True
     if not is_protected_write(basis):
@@ -189,7 +206,8 @@ def _may_write(state: "State", case_id: int, field_name: str, value, basis, *, s
     historical = int(seq) <= PROTECTION_FROM_SEQ
     state.conflicts.setdefault(case_id, []).append(
         {"field": field_name, "attempted": value, "standing": standing,
-         "by": basis.to_json(), "at": int(seq), "op": op, "historical": historical})
+         "by": basis.to_json(), "at": int(seq), "op": op, "historical": historical,
+         "by_rule": PROTECTION_RULE_ID})      # R2: the rule that recorded, and refused, this
     if historical:
         return True                        # grandfathered: recorded, but it still applies
     review = target.setdefault("review", copy.deepcopy(REVIEW_DEFAULT))
@@ -199,7 +217,7 @@ def _may_write(state: "State", case_id: int, field_name: str, value, basis, *, s
     return False
 
 
-def _record_admitting_prompt(state: "State", case_id: int, basis, *,
+def _record_admitting_prompt(state: "State", case_id: int, basis: Basis, *,
                              admit: bool = False) -> None:
     """Record which prompt the record now stands on - see `State.prompts` for the rule.
 
@@ -275,10 +293,15 @@ def apply_patch(state: State, p: Patch, *, judged: tuple[str, ...] = JUDGED_DEFA
         # source of the admitting prompt. `_record_admitting_prompt` is idempotent past the
         # first non-empty value, so this only ever fires once per record.
         if p.field in judged:
+            # Before the gate (review finding 7): recording WHICH READ SPOKE is not a
+            # judgment about the case, and D2 must change nothing but the judged value. A
+            # value-identical write is a silent no-op, and a record whose only prompt source
+            # was one of the 161 of those would otherwise fall back to the mapper-v1 support
+            # rule and cascade differently on a later `drop_quote`.
+            _record_admitting_prompt(state, p.case_id, p.basis)
             if not _may_write(state, p.case_id, p.field, p.new, p.basis, seq=p.seq, op="set",
                               standing=rec.get(p.field), target=rec):
                 return UNSET               # the value stands; the attempt is on the record
-            _record_admitting_prompt(state, p.case_id, p.basis)
             _record_provenance(state, p.case_id, p.field, p.basis)
         target, key = _resolve(rec, p.field, create=True)
         old = target.get(key, UNSET)

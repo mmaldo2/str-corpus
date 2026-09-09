@@ -4,7 +4,7 @@ from dataclasses import dataclass, field, replace
 from pathlib import Path
 from corpus_engine.domain import Domain, load_domain
 from corpus_engine.ledger.fold import State, apply_patch
-from corpus_engine.ledger.log import PatchLog, patch_id
+from corpus_engine.ledger.log import PatchLog, patch_id, provisional_seqs
 from corpus_engine.ledger.render import render_cycle
 from corpus_engine.ledger.types import Patch, SeedSet, StaleSnapshot, NotTraditionEvidence, LedgerError
 from corpus_engine.store import paths
@@ -16,6 +16,25 @@ class ApplyResult:
     skipped: list[Patch]
     files_written: list[Path]
     replay_ok: bool
+    # The writes D2 refused, as conflict entries (review finding 2). A refused patch is still
+    # APPENDED - the log is append-only and the replay is the truth, so the disagreement is
+    # recorded rather than swallowed - but it changed nothing, so it is NOT in `applied`, and
+    # a tool that finds this non-empty must say so and fail rather than report success.
+    rejected: list[dict] = field(default_factory=list)
+
+
+def _refused(before: State, after: State) -> list[dict]:
+    """The conflicts the trial fold added and REFUSED (a historical one still applied).
+
+    Entries are appended per case, so what is new is what is past the count head already had.
+    Deep copies, each with the `case_id` the fold keys them by, because this list is flat and
+    a caller reporting a refusal needs to name the record."""
+    out = []
+    for cid, entries in after.conflicts.items():
+        seen = len(before.conflicts.get(cid, ()))
+        out += [dict(copy.deepcopy(c), case_id=cid) for c in entries[seen:]
+                if not c.get("historical")]
+    return out
 
 
 @dataclass
@@ -53,14 +72,14 @@ class LedgerView:
         By default only the writes the fold REFUSED. `historical=True` adds the six
         grandfathered writes from below `PROTECTION_FROM_SEQ`, which were applied and are
         listed for the record only - they carry no flag and changed no committed byte.
-        Copies, not the fold's own lists: the queue reads this and must not be able to edit
-        the state."""
+        Deep copies, not the fold's own entries: the queue reads this and must not be able
+        to edit the state through a nested `by` dict."""
         rows = self.state.conflicts
         if case_id is not None:
             rows = {case_id: rows[case_id]} if case_id in rows else {}
         out = {}
         for cid, entries in rows.items():
-            kept = [dict(c) for c in entries if historical or not c.get("historical")]
+            kept = [copy.deepcopy(c) for c in entries if historical or not c.get("historical")]
             if kept:
                 out[cid] = kept
         return out
@@ -146,13 +165,20 @@ class Ledger:
         fresh = [p for p in patches if patch_id(p) not in existing]  # may have mutated via a
         skipped = [p for p in patches if patch_id(p) in existing]    # shallow-copied trial state
         head = self.view()
+        # Stamp the seqs the append is about to assign BEFORE the trial fold: a patch carries
+        # seq 0 until then, and D2's baseline would read 0 as history and let the trial state
+        # accept a write the real log refuses (review finding 1).
+        fresh = provisional_seqs(fresh, head.as_of)
         trial = copy.deepcopy(head.state)
         stamped_old = []
         for p in fresh:                                    # validate everything before writing
             old = apply_patch(trial, p, judged=tuple(self.domain.judged_fields), cascade=p.cascade)
             stamped_old.append(old)
+        rejected = _refused(head.state, trial)
+        refused_at = {c["at"] for c in rejected}
         if dry_run:
-            return ApplyResult(fresh, skipped, [], True)
+            return ApplyResult([p for p in fresh if p.seq not in refused_at], skipped, [],
+                               True, rejected)
         self.dir.mkdir(parents=True, exist_ok=True)
         lock = self.dir / ".lock"
         try:
@@ -161,14 +187,17 @@ class Ledger:
             raise LedgerError(f"stale lock {lock}: a previous apply() did not finish; "
                               "remove it after confirming no other process is writing")
         try:
-            applied = self.log.append([replace(p, old=o) for p, o in zip(fresh, stamped_old)], at=at)
+            stamped = self.log.append([replace(p, old=o) for p, o in zip(fresh, stamped_old)], at=at)
             self._views.clear()
             written = self._write_snapshot(self.view())
             replay_ok = all(path.read_bytes() == data for path, data in written)
         finally:
             os.close(fd)
             lock.unlink()
-        return ApplyResult(applied, skipped, [p for p, _ in written], replay_ok)
+        # `append` re-stamps the same seqs `provisional_seqs` used (same head, under the
+        # write lock), so a refused patch is identified by the seq the trial fold recorded.
+        return ApplyResult([p for p in stamped if p.seq not in refused_at], skipped,
+                           [p for p, _ in written], replay_ok, rejected)
 
     def _write_snapshot(self, v: LedgerView) -> list[tuple[Path, bytes]]:
         out = []

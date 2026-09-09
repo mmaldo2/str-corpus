@@ -50,6 +50,16 @@ recorded in `State.conflicts`, and the record is flagged `needs-review:<field>`
 write of the same value is not an overwrite and is silent: 161 writes in the log
 re-state a reviewer's own value from a later `admit` body.
 
+A refused patch is still appended. The log is append-only and the replay is the
+truth, so the disagreement is recorded rather than swallowed — but it changed
+nothing, so `ApplyResult` reports it under `rejected` and not under `applied`,
+and a tool that finds `rejected` non-empty says so and exits non-zero instead of
+claiming an admission it did not make. Because a patch carries no `seq` until it
+is appended, and the baseline below reads the `seq`, every fold of
+not-yet-appended patches stamps the seqs the append will assign
+(`ledger.log.provisional_seqs`) — without that, a trial fold or a `--dry-run`
+would accept a write the real log refuses.
+
 **The rule is enforced from seq 42984**, the log head on 2026-09-08
 (`fold.PROTECTION_FROM_SEQ`). Six writes below that baseline already changed a
 reviewer-decided field: seq 7368 (4268287 `polarity`), 7372 (1932707

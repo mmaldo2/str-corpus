@@ -23,6 +23,20 @@ def patch_id(p: Patch) -> str:
     return hashlib.sha256(canon.encode("utf-8")).hexdigest()[:16]
 
 
+def provisional_seqs(patches, head_seq: int) -> list[Patch]:
+    """`patches` stamped with the seqs `PatchLog.append` is about to assign them.
+
+    A `Patch` carries `seq = 0` until it is appended, and D2's grandfather baseline
+    (`fold.PROTECTION_FROM_SEQ`) reads the seq to tell a patch that is already in the log
+    from one that is not - so an unstamped patch reads as history and a trial fold would let
+    a machine read overwrite a human decision that the real append then refuses (review
+    finding 1). Every fold of not-yet-appended patches - `Ledger.apply`'s validation, its
+    `--dry-run`, a tool's projected view - stamps first, so the trial state is exactly the
+    state the log will replay to. `patch_id` does not hash `seq`, so stamping changes no id
+    and `append` re-stamps the same numbers under the write lock."""
+    return [replace(p, seq=head_seq + i + 1) for i, p in enumerate(patches)]
+
+
 class PatchLog:
     def __init__(self, path: Path):
         self.path = path

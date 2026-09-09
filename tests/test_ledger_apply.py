@@ -94,3 +94,58 @@ def test_apply_honors_patch_cascade_flag_through_the_log(tmp_path):
     rec2 = led.view().record(2)
     assert rec2["polarity"] is None and rec2["characterization"] is None and rec2["holding_summary"] is None
     assert set(rec2["nulled_fields"]) == {"polarity", "characterization", "holding_summary"}
+
+
+def test_a_reader_patch_over_a_human_decision_is_rejected_through_apply(tmp_path, monkeypatch):
+    """D2 end to end through `apply`, which is where the slice will meet it (review finding
+    1 and 2): the seqs the append will assign are stamped before the trial fold, so the rule
+    is live in the validation and in `--dry-run`; the refusal reaches the caller as
+    `rejected`; the patch is not in `applied`; and the human value stands.
+
+    A scratch ledger numbers its patches from 1, so the real baseline (42984) would
+    grandfather everything here - the constant is moved to 0 so these patches are above it,
+    exactly as slice 3's will be against the real log."""
+    monkeypatch.setattr("corpus_engine.ledger.fold.PROTECTION_FROM_SEQ", 0)
+    led = open_ledger(tmp_path, domain=load_domain())
+    led.apply([Patch(1, "admit", "", _rec(1, 1850), "v",
+                     Basis(model="m", prompt_version="mapper-v1", run_id="r"),
+                     cycle="cycle-001")], note="seed")
+    led.apply([Patch(1, "set", "polarity", "adverse", "round 1", Basis(reviewer="mmaldo2"))],
+              note="review")
+    reader = Basis(model="claude-opus-5@claude-cli", prompt_version="mapper-v3:f92016681314",
+                   run_id="cycles-001-003-reread")
+    p = Patch(1, "set", "polarity", "favorable", "re-read", reader)
+
+    dry = led.apply([p], note="re-read", dry_run=True)       # the only pre-flight a tool has
+    assert dry.applied == [] and len(dry.rejected) == 1
+    assert led.view().record(1)["polarity"] == "adverse"     # and nothing was written
+
+    res = led.apply([p], note="re-read")
+    assert res.applied == [] and res.replay_ok               # not reported as applied
+    assert len(res.rejected) == 1 and res.skipped == []
+    assert res.rejected[0]["field"] == "polarity" and res.rejected[0]["attempted"] == "favorable"
+    assert res.rejected[0]["standing"] == "adverse" and res.rejected[0]["historical"] is False
+    assert res.rejected[0]["by_rule"] == "reviewer-protection"
+    v = led.view()
+    assert v.record(1)["polarity"] == "adverse"              # the human's value stands
+    assert v.record(1)["review"]["flags"] == ["needs-review:polarity"]
+    assert v.conflicts(1)[1][0]["at"] == v.as_of
+    # The patch IS in the log: append-only, and the replay refuses it the same way every time.
+    assert [q.op for q in v.history(1)] == ["admit", "set", "set"]
+    assert (tmp_path / "cycle-001.jsonl").read_bytes() == v.render()["cycle-001.jsonl"]
+
+
+def test_provisional_seqs_are_the_seqs_the_append_assigns(tmp_path, monkeypatch):
+    """The mechanism behind the test above: without the stamping, `seq` is 0 for every
+    not-yet-appended patch and D2 reads it as pre-baseline history."""
+    from corpus_engine.ledger.log import provisional_seqs
+    monkeypatch.setattr("corpus_engine.ledger.fold.PROTECTION_FROM_SEQ", 0)
+    led = open_ledger(tmp_path, domain=load_domain())
+    ps = [Patch(1, "admit", "", _rec(1, 1850), "v",
+                Basis(model="m", prompt_version="mapper-v1", run_id="r"), cycle="cycle-001"),
+          Patch(1, "set", "polarity", "adverse", "round 1", Basis(reviewer="m"))]
+    assert [p.seq for p in ps] == [0, 0]
+    assert [p.seq for p in provisional_seqs(ps, led.log.head())] == [1, 2]
+    res = led.apply(ps, note="seed")
+    assert [p.seq for p in res.applied] == [1, 2]
+    assert [p.seq for p in provisional_seqs(ps, led.log.head())] == [3, 4]

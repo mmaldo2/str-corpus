@@ -36,6 +36,7 @@ from corpus_engine import store                                                 
 from corpus_engine.domain import load_domain                                     # noqa: E402
 from corpus_engine.ledger import LedgerView, open_ledger                         # noqa: E402
 from corpus_engine.ledger.fold import apply_patch                                # noqa: E402
+from corpus_engine.ledger.log import provisional_seqs                            # noqa: E402
 from corpus_engine.mapper.admit import (basis_for, counts_by_cell, patches_for,  # noqa: E402
                                         records_from_manifest)
 from corpus_engine.mapper.cells import BatchSource                               # noqa: E402
@@ -57,12 +58,35 @@ def run_id_already_applied(view, run_id: str) -> bool:
 
 def _view_with(view: LedgerView, patches, judged) -> LedgerView:
     """The view this patch set WOULD produce, folded onto a deep copy of head. Never handed
-    back to a caller that writes: it exists so `--dry-run` can print an after-count."""
+    back to a caller that writes: it exists so `--dry-run` can print an after-count.
+
+    The patches are stamped with the seqs the append would assign first (review finding 1):
+    unstamped, they carry seq 0, which D2's grandfather baseline reads as history - so the
+    after-count would be computed from a state in which human decisions were overwritten,
+    i.e. a published-shaped number the ledger will never produce."""
+    patches = provisional_seqs(patches, view.as_of)
     trial = copy.deepcopy(view.state)
     for p in patches:
         apply_patch(trial, p, judged=tuple(judged), cascade=p.cascade)
     return LedgerView(view.name, view.as_of, trial, list(view.patches) + list(patches),
                       view.domain)
+
+
+def _report_rejected(res, *, applied: bool) -> int:
+    """Print every write D2 refused and fail. A refused patch is written to the log (the log
+    is append-only and the replay is the truth) but it changed nothing, so the admission did
+    NOT do what it was asked to do: a machine read disagreed with a human decision, and that
+    is a review card, not a silent skip."""
+    if not res.rejected:
+        return 0
+    verb = "were refused" if applied else "would be refused"
+    print(f"REFUSED: {len(res.rejected)} write(s) over a human decision {verb} (D2); "
+          f"they are recorded as conflicts and flagged needs-review, and they are NOT part "
+          f"of the {len(res.applied)} above", flush=True)
+    for c in res.rejected:
+        print(f"  case {c['case_id']} {c['field']}: {c['standing']!r} stands, "
+              f"{c['attempted']!r} refused by {c['by_rule']} (seq {c['at']})", flush=True)
+    return 3
 
 
 def _summary(view: LedgerView) -> str:
@@ -145,12 +169,13 @@ def main(argv=None) -> int:
         res = led.apply(patches, note=f"{run_id} map admission", dry_run=True)
         print(f"{len(res.applied)} would apply, {len(res.skipped)} already present (dry run)",
               flush=True)
-        return 0
+        return _report_rejected(res, applied=False)
     res = led.apply(patches, note=f"{run_id} map admission")
     print(f"{len(res.applied)} applied, {len(res.skipped)} already present; "
           f"replay_ok={res.replay_ok}", flush=True)
     print(f"after:  {_summary(led.view())}", flush=True)
-    return 0 if res.replay_ok else 1
+    rc = _report_rejected(res, applied=True)
+    return rc or (0 if res.replay_ok else 1)
 
 
 if __name__ == "__main__":

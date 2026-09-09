@@ -62,6 +62,7 @@ sys.path.insert(0, str(ROOT))
 from corpus_engine.domain import Domain, load_domain                # noqa: E402
 from corpus_engine.ledger import LedgerView, open_ledger            # noqa: E402
 from corpus_engine.ledger.fold import apply_patch                   # noqa: E402
+from corpus_engine.ledger.log import provisional_seqs               # noqa: E402
 from corpus_engine.ledger.types import Basis, Patch                 # noqa: E402
 from corpus_engine.reader.schema import FLAG_PREFIX, POLARITY_VALUES, WHO_VALUES  # noqa: E402
 
@@ -237,7 +238,9 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
 
 def _view_with(view: LedgerView, patches: Sequence[Patch], judged: Sequence[str]) -> LedgerView:
     """The view as it would stand with `patches` in the log, without writing anything:
-    the same fold the ledger runs, over a deep copy of the head state."""
+    the same fold the ledger runs, over a deep copy of the head state - including the seqs
+    the append would assign, without which D2 reads a new patch as history (finding 1)."""
+    patches = provisional_seqs(patches, view.as_of)
     trial = copy.deepcopy(view.state)
     for p in patches:
         apply_patch(trial, p, judged=tuple(judged), cascade=p.cascade)

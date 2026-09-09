@@ -1,8 +1,11 @@
 import json
 import pytest
-from corpus_engine.ledger.types import Basis, Patch, UnknownCase, DuplicateRecord, MissingBasis
-from corpus_engine.ledger.fold import (JUDGED_DEFAULT, SUPPORTED, SUPPORTED_BY_PROMPT,
-                                       State, apply_patch, quote_supports,
+from corpus_engine.ledger.types import (Basis, Patch, UNSET, UnknownCase, DuplicateRecord,
+                                        MissingBasis)
+from corpus_engine.ledger.fold import (FLAG_PREFIX, JUDGED_DEFAULT, PROTECTION_FROM_SEQ,
+                                       PROTECTION_RULE_ID, SUPPORTED, SUPPORTED_BY_PROMPT,
+                                       State, apply_patch, is_protected_write,
+                                       is_reader_write, provenance_kind, quote_supports,
                                        supported_fields)
 from corpus_engine.ledger.log import PatchLog, patch_id
 
@@ -310,10 +313,6 @@ def test_cascade_false_still_skips_the_cascade_under_the_v3_rule():
 
 # ---------------------------------------------------------------- D2: reviewer protection
 
-from corpus_engine.ledger.fold import (FLAG_PREFIX, PROTECTION_FROM_SEQ, PROTECTION_RULE_ID,
-                                       UNSET, is_protected_write, is_reader_write,
-                                       provenance_kind)
-
 READER = Basis(model="claude-opus-5@claude-cli", prompt_version="mapper-v3:f92016681314",
                run_id="cycles-001-003-reread")
 HUMAN = Basis(reviewer="mmaldo2", run_id="map-cycle-004-round-1")
@@ -336,9 +335,13 @@ def test_the_fold_flag_prefix_is_the_readers_flag_prefix():
     assert FLAG_PREFIX == READER_PREFIX == "needs-review:"
 
 
-def test_the_rejecting_rule_has_a_name():
-    """R2: a tool that records a rejection as a patch spells the basis this way."""
-    assert PROTECTION_RULE_ID == "reviewer-protection"
+def test_the_refusing_rule_names_itself_on_the_entry():
+    """R2. `by` is the basis that attempted the write; `by_rule` is what refused it, so the
+    section-G card can cite the rule rather than infer it."""
+    s = _admitted()
+    apply_patch(s, Patch(5, "set", "polarity", "adverse", "round 1", HUMAN))
+    apply_patch(s, Patch(5, "set", "polarity", "favorable", "re-read", READER, seq=AFTER))
+    assert s.conflicts[5][0]["by_rule"] == PROTECTION_RULE_ID == "reviewer-protection"
 
 
 def test_a_reader_set_never_overwrites_a_reviewer_value():
@@ -351,7 +354,8 @@ def test_a_reader_set_never_overwrites_a_reviewer_value():
     assert s.provenance[5]["polarity"] == "human"
     assert s.conflicts[5] == [{"field": "polarity", "attempted": "favorable",
                                "standing": "adverse", "by": READER.to_json(), "at": AFTER,
-                               "op": "set", "historical": False}]
+                               "op": "set", "historical": False,
+                               "by_rule": PROTECTION_RULE_ID}]
     assert s.records[5]["review"]["flags"] == ["needs-review:polarity"]
 
 
@@ -364,6 +368,20 @@ def test_a_reader_set_of_the_same_value_is_silent():
     assert s.records[5]["polarity"] == "adverse"
     assert 5 not in s.conflicts
     assert s.records[5]["review"]["flags"] == []
+
+
+def test_a_value_identical_no_op_still_records_the_admitting_prompt():
+    """Review finding 7: D2 must change nothing but the judged value. The silent no-op sits
+    AFTER the prompt record, so a record whose only prompt source is one of the 161
+    value-identical writes still folds under its own codebook's support rule rather than
+    falling back to mapper-v1's three fields on a later `drop_quote`."""
+    s = State()
+    apply_patch(s, Patch(5, "admit", "", REC, "v", Basis(rule_id="cycle-004-admit"), cycle="c"))
+    apply_patch(s, Patch(5, "set", "polarity", "adverse", "round 1", HUMAN))
+    assert s.prompts[5] == ""                                # nothing has named a codebook yet
+    apply_patch(s, Patch(5, "set", "polarity", "adverse", "re-read", READER, seq=AFTER))
+    assert s.prompts[5] == "mapper-v3:f92016681314"
+    assert 5 not in s.conflicts                              # and it is still a silent no-op
 
 
 def test_a_reader_retraction_to_none_is_rejected_on_a_reviewer_field():
@@ -411,7 +429,8 @@ def test_a_write_at_or_below_the_baseline_is_grandfathered_and_only_recorded():
     assert s.records[5]["review"]["flags"] == []             # no flag, so no rendered byte moves
     assert s.conflicts[5] == [{"field": "polarity", "attempted": None, "standing": "adverse",
                                "by": {"rule_id": "retraction-cascade-v1"},
-                               "at": PROTECTION_FROM_SEQ, "op": "set", "historical": True}]
+                               "at": PROTECTION_FROM_SEQ, "op": "set", "historical": True,
+                               "by_rule": PROTECTION_RULE_ID}]
     # and the field is still human, so a later re-read is carded rather than silently applied
     apply_patch(s, Patch(5, "set", "polarity", "favorable", "re-read", READER, seq=AFTER))
     assert s.records[5]["polarity"] is None and s.conflicts[5][1]["standing"] is None
@@ -434,8 +453,28 @@ def test_a_re_admit_body_may_not_change_a_reviewer_decided_field():
     assert s.records[5]["characterization"] == "tenancy"    # a reader field does not
     assert s.conflicts[5] == [{"field": "polarity", "attempted": "favorable",
                                "standing": "adverse", "by": READER.to_json(), "at": AFTER,
-                               "op": "admit", "historical": False}]
+                               "op": "admit", "historical": False,
+                               "by_rule": PROTECTION_RULE_ID}]
     assert s.records[5]["review"]["flags"] == ["needs-review:polarity"]
+
+
+def test_a_re_admit_body_that_omits_a_human_field_drops_it_but_keeps_the_provenance():
+    """A re-admit REPLACES the record (pre-existing behaviour), so D2 gates the writes a body
+    MAKES, not the keys it omits: a body with no `polarity` leaves the record with none, even
+    where a human had decided it. The provenance stays `human`, so the next machine read that
+    tries to fill the field is carded rather than applied - but the human's value is gone
+    from the record. This is why controller ruling R6 has the re-read carry every current key
+    forward; pinned here so the gap is known rather than discovered."""
+    s = _admitted()
+    apply_patch(s, Patch(5, "set", "polarity", "adverse", "round 1", HUMAN))
+    body = {k: v for k, v in REC.items() if k != "polarity"}
+    apply_patch(s, Patch(5, "admit", "", body, "re-read", READER, cycle="cycle-001", seq=AFTER))
+    assert "polarity" not in s.records[5]                    # dropped, with no conflict recorded
+    assert 5 not in s.conflicts
+    assert s.provenance[5]["polarity"] == "human"            # but the judgment is remembered
+    apply_patch(s, Patch(5, "set", "polarity", "favorable", "re-read", READER, seq=AFTER + 1))
+    assert s.records[5].get("polarity") is None
+    assert s.conflicts[5][0]["standing"] is None
 
 
 def test_a_migrate_never_touches_a_decided_field_and_records_no_conflict():
