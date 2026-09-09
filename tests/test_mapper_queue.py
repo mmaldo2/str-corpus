@@ -428,6 +428,16 @@ def test_a_conflict_for_a_case_the_ledger_does_not_hold_is_dropped():
     assert q.cards == ()
 
 
+def test_a_conflict_on_a_withdrawn_record_is_not_asked():
+    """A reviewer withdrew the record as not a letting case (round 1b, 2026-09-09); the field
+    flag the re-read raised is moot and the G card must not come back in a later round."""
+    rec = _rec(70, relevant=False, polarity=None)
+    rec["review"] = {"status": "human-adjudicated", "flags": ["needs-review:polarity"], "notes": []}
+    q = select_queue(_View([rec], "r"), "r", manifest=_manifest([]), cases=_Cases(),
+                     conflicts=[CONFLICT])
+    assert q.cards == ()
+
+
 def test_conflicts_from_view_renders_the_folds_rejections_in_the_same_shape():
     """The fold records what it REFUSED; the re-read tool records what it declined to attempt.
     Both are section-G cards, so both arrive in one shape."""

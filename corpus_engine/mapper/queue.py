@@ -400,6 +400,8 @@ def select_queue(view, run_id: str, *, manifest: Mapping, cases, cap: int = QUEU
             continue        # the two producers are not guaranteed disjoint; one question, one card
         if f"{FLAG_PREFIX}{field}" not in _record_flags(rec):
             continue        # a reviewer has decided this card; it is not asked again
+        if rec.get("relevant") is False:
+            continue        # a withdrawn record asks nothing: its field flags are moot
         seen_g.add((cid, field))
         g_cards.append(QueueCard(cid, "G", "reread_conflict", (), rec, (), (),
                                  conflict=dict(c)))

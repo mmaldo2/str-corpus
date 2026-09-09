@@ -164,4 +164,4 @@ def test_the_protection_rule_leaves_the_published_counts_untouched(repo_root):
     flagged = sum(1 for cid in v.state.order
                   for f in (v.state.records[cid].get("review") or {}).get("flags") or ()
                   if f.startswith("needs-review:"))
-    assert flagged == 38    # 49 after re-read round 1; round 1b cleared 11 more (2026-09-09)
+    assert flagged == 34    # 38 after round 1b; the four withdrawn records' moot flags cleared (2026-09-09)

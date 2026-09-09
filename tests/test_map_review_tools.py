@@ -332,6 +332,18 @@ def test_a_relevance_decision_writes_a_boolean_and_not_the_pages_string():
     assert [p.new for p in ps if p.op == "set" and p.field == "relevant"] == [False]
 
 
+def test_a_withdrawn_record_loses_every_open_flag():
+    """Round 1b (2026-09-09): four records withdrawn as not letting cases kept the re-read
+    conflict flags on their other fields and came back as section-G cards. A withdrawn record
+    carries no open field question, so the overturn clears every flag standing on it."""
+    rec = _rec(832)
+    rec["review"] = {"status": "machine", "flags": ["needs-review:polarity", "needs-review:who_was_letting"], "notes": []}
+    ps = ap.patches_for([_d(832, "relevant", "set", "false")], {832: rec}, "mmaldo2")
+    flag_sets = [p for p in ps if p.op == "set" and p.field == "review.flags"]
+    assert flag_sets and flag_sets[-1].new == []
+    assert any("moot" in (p.new or "") for p in ps if p.op == "append" and p.field == "review.notes")
+
+
 # --------------------------------------------------- round-1b: relevance-overturn decisions
 
 def test_a_relevance_overturn_is_accepted_on_a_card_whose_decide_field_is_polarity():

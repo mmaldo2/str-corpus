@@ -484,6 +484,22 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
         # must not count it in the human-reviewed tier (two-tier claim, D3).
         if decision != "unsure":
             out.append(Patch(cid, "set", "review.status", "human-adjudicated", why, basis))
+    # A record withdrawn as not a letting case carries no open field question: every
+    # `needs-review:*` flag still standing on it is moot and is cleared here, whichever path
+    # withdrew it (round 1b, 2026-09-09: four withdrawn records kept their re-read conflict
+    # flags and came back as section-G cards in the next round).
+    withdrawn = sorted({p.case_id for p in out
+                        if p.op == "set" and p.field == "relevant" and p.new is False})
+    for cid in withdrawn:
+        standing = live.setdefault(cid, arr._live_flags(records, cid))
+        if not standing:
+            continue
+        why = "withdrawn record: field flags moot"
+        out.append(Patch(cid, "append", "review.notes",
+                         f"{tag}: the reviewer withdrew this record as not a letting case; its "
+                         f"open flags ({', '.join(standing)}) are moot and are cleared", why, basis))
+        out.append(Patch(cid, "set", "review.flags", [], why, basis))
+        live[cid] = []
     return out
 
 
