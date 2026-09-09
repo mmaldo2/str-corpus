@@ -245,12 +245,14 @@ review page publishable as an artifact; reviewer identity recorded.
     resumes from the cache and buys the next 3,000 in the same order. (3) D5:
     the yield at the budget boundary puts the Gemini screen back on the table on
     the evidence; the case for it is wall clock, not money, while the reader is
-    inside the Max plan. (4) Parked from the reviews: normalise the mapper-v1
-    string `supports` on cycles 1-3 quotes (1,972 quotes, 664 records) with a
-    migrate patch; give the review page a relevance-overturn control (the
-    reviewer used an `unsure` + "Irrelevant" note convention in round 1b);
-    `already_read_ids` should accept the `{"records": [...]}` extraction shape;
-    `make_map_review` checker `unit_cap` counts cards not cases.
+    inside the Max plan. (4) The four tooling debts parked from the reviews
+    were cleared on 2026-09-09 (branch refactor/slice-3-tooling-debts): the
+    review page has a "Not a letting case" control that writes the relevance
+    withdrawal on any card and the page reader accepts it in any round; every
+    reader of a quote's `supports` goes through `quote_supports`, so the
+    mapper-v1 bare-string shape on cycles 1-3 quotes needs no data migration;
+    `already_read_ids` reads the `{"records": [...]}` extraction shape; the
+    checker `unit_cap` already counted distinct cases since the slice-3 fix wave.
 
     **Measured cost of a corpus-wide vector selector (2026-09-04, live index,
     read-only `probe()`).** One `probe()` of `embed-householder-letting-21@v2`
