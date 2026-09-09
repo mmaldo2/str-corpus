@@ -14,7 +14,8 @@ Controller ruling R2: the screen never re-derives whether a cell has stopped. `M
 computes the `CellStop` from its own `CellProgress` and hands it in (`maybe_run(cell, stop, *,
 batch_source, progress)`); the screen triggers only when that stop is `yield_floor` with
 batches still under the cap - a cell that reached its cap has no remainder to screen, so
-`cap_reached` never triggers this at all.
+`cap_reached` never triggers this at all (nor does `cell_exhausted`, its budgeted-run
+spelling).
 
 R3: `to_json()` always carries the same five keys the runner's off block does (state, enabled,
 max_usd, screened_units, hits), plus `spend_usd` and `hit_case_ids` once the screen is on.

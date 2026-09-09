@@ -964,3 +964,41 @@ def test_a_capped_run_still_records_the_cell_order_and_no_budget(tmp_path, fixtu
     out = r.run()
     assert out.manifest["flags"]["order"] == "cell"
     assert out.manifest["flags"]["case_budget"] is None
+
+
+def test_a_budget_that_falls_mid_batch_overshoots_by_at_most_one_batch(tmp_path, fixture_db,
+                                                                       repo_root):
+    """Parked p4. The gate is checked BEFORE a batch is begun and a batch is bought whole, so
+    a budget that runs out inside one is spent to the end of that batch and no further - the
+    bound tools/map_reader.py documents. Three batches of two cases, budget 3: batch 2 is begun
+    (2 < 3) and finished (4 cases), batch 3 is never begun."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 3})
+    batches = load_batches(pool)
+    r = _runner(tmp_path, fixture_db, pool, answer=_answer(lambda bid: 1),
+                cells=build_budget_cells(batches),
+                caps=RunnerCaps(max_units=99, max_wall_seconds=999, case_budget=3),
+                global_order=global_batch_order(batches))
+    out = r.run()
+    assert out.stop == "budget:cases"
+    assert out.manifest["totals"]["batches_completed"] == 2
+    assert out.manifest["totals"]["cases_read"] == 4         # 3 + at most one batch of 2
+    assert out.manifest["totals"]["cases_read"] < 3 + 2 + 1
+
+
+def test_a_budgeted_cell_that_runs_out_of_batches_is_exhausted_not_capped(tmp_path, fixture_db,
+                                                                          repo_root):
+    """Nit 14. A budgeted run has no per-cell cap - the manifest writes `cap: "none"` - so the
+    cell that walks all of its batches stopped because it ran OUT, not because a depth decision
+    stopped it. `cells_stopped_on_cap` in a budgeted run would answer D5's question ("which
+    cells were still yielding when the budget stopped?") with a cap that does not exist."""
+    pool = _pool(tmp_path, repo_root, {("1930-1970", "N.Y."): 2})
+    batches = load_batches(pool)
+    r = _runner(tmp_path, fixture_db, pool, answer=_answer(lambda bid: 1),
+                cells=build_budget_cells(batches),
+                caps=RunnerCaps(max_units=99, max_wall_seconds=999, case_budget=99),
+                global_order=global_batch_order(batches))
+    out = r.run()
+    cell = out.manifest["cells"]["1930-1970|N.Y."]
+    assert cell["cap"] == "none" and cell["stop"]["kind"] == "cell_exhausted"
+    assert out.manifest["totals"]["cells_stopped_on_cap"] == 0
+    assert out.manifest["totals"]["cells_exhausted"] == 1

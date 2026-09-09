@@ -617,7 +617,7 @@ class MapRunner:
         stop = "done"
         try:
             for cell in cells:
-                prog = CellProgress(cell.key, cell.cap_batches)
+                prog = CellProgress(cell.key, cell.cap_batches, uncapped=cell.uncapped)
                 progress[cell.key] = prog
                 acc = records.setdefault(cell.key, {
                     **cell.to_json(), "units": [],
@@ -707,7 +707,8 @@ class MapRunner:
                 if cell is None:
                     continue                   # a `--cells` subset: not this run's business
                 if cell_key not in progress:
-                    progress[cell_key] = CellProgress(cell_key, cell.cap_batches)
+                    progress[cell_key] = CellProgress(cell_key, cell.cap_batches,
+                                                     uncapped=cell.uncapped)
                     records[cell_key] = {**cell.to_json(), "units": [],
                                          "screen": dict(CELL_SCREEN_OFF), "screen_pinned": [],
                                          "wall_seconds": 0.0}
@@ -826,6 +827,10 @@ class MapRunner:
                                           if (c.get("stop") or {}).get("kind") == "yield_floor"),
             "cells_stopped_on_cap": sum(1 for c in cells
                                         if (c.get("stop") or {}).get("kind") == "cap_reached"),
+            # A budgeted run's cells carry no cap (cells.py: `cap: "none"`), so the same
+            # arithmetic is reported as exhaustion rather than as a cap (nit 14).
+            "cells_exhausted": sum(1 for c in cells
+                                   if (c.get("stop") or {}).get("kind") == "cell_exhausted"),
             "batches_attempted": sum(n(c, "batches_attempted") for c in cells),
             "batches_completed": sum(n(c, "batches_completed") for c in cells),
             "cases_read": sum(n(c, "cases_read") for c in cells),

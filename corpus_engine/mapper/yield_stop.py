@@ -14,7 +14,15 @@ THRESHOLD = 2       # relevant accepted records across that window, at or below 
 
 @dataclass(frozen=True)
 class CellStop:
-    """Why a cell stopped. `kind` is "yield_floor" or "cap_reached".
+    """Why a cell stopped. `kind` is "yield_floor", "cap_reached" or "cell_exhausted".
+
+    `cap_reached` and `cell_exhausted` are the same arithmetic - completed batches met
+    `cap_batches` - reported as the two different facts they are. A capped run's cap is a
+    DEPTH DECISION (`build_cells`), so meeting it means "this cell was allowed no more". A
+    budgeted run has no per-cell cap at all (`build_budget_cells` sets `cap_batches` to the
+    cell's own size and the manifest writes `cap: "none"`), so meeting it means "this cell ran
+    out of batches" - and reporting that as `cells_stopped_on_cap` would answer the D5 question
+    "which cells were still yielding when the budget stopped?" with a cap that does not exist.
 
     Not called `StopReason`: `corpus_engine.reader.model.StopReason` already carries that name
     for the driver's budget stops, and runner.py handles both in the same function."""
@@ -26,9 +34,12 @@ class CellStop:
 
 
 class CellProgress:
-    def __init__(self, cell_key: str, cap_batches: int):
+    def __init__(self, cell_key: str, cap_batches: int, *, uncapped: bool = False):
         self.cell_key = cell_key
         self.cap_batches = int(cap_batches)
+        # `Cell.uncapped` (a budgeted run): the cap is the cell's own size and governs nothing,
+        # so exhausting it is `cell_exhausted`, not `cap_reached`.
+        self.uncapped = bool(uncapped)
         self._series: list[dict] = []       # completed batches only, in read order
         self._failed: list[str] = []
 
@@ -77,7 +88,8 @@ class CellProgress:
         remainder to screen, so reporting the yield floor there would offer the screen a
         finished cell."""
         if self.completed_batches >= self.cap_batches:
-            return CellStop("cap_reached", f"{self.completed_batches} of {self.cap_batches} batches")
+            kind = "cell_exhausted" if self.uncapped else "cap_reached"
+            return CellStop(kind, f"{self.completed_batches} of {self.cap_batches} batches")
         if len(self._series) >= window:
             recent = self._series[-window:]
             got = sum(e["relevant_accepted"] for e in recent)

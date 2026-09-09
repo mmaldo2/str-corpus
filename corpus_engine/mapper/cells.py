@@ -82,7 +82,12 @@ def build_cells(batches: Sequence[Mapping], *, era_depth: Mapping[str, int] = ER
 
     `jurisdictions_by_era` is optional: the pool's own batch files are the authority on which
     cells exist (ten jurisdictions on disk against the eleven the spec's prose names), so the
-    map is derived from them unless a caller restricts it."""
+    map is derived from them unless a caller restricts it.
+
+    `mean_rank_score` here is the mean over the cell's CAPPED HEAD - the batches this run will
+    actually buy - because that is what the cell is worth at this depth. `build_budget_cells`
+    (D4) uses a different mean, pooled over every case in the cell, and says why: an uncapped
+    cell has no head to average."""
     by_cell: dict[tuple[str, str], list[tuple[float, str]]] = {}
     for b in batches:
         era, jur = b["era_partition"], b["jurisdiction"]

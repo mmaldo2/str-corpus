@@ -108,3 +108,15 @@ def test_the_parameters_are_overridable_and_recorded(caplog):
     assert doc["batches_attempted"] == 2 and doc["failed_units"] == []
     assert doc["stop"] == {"kind": "yield_floor", "detail": doc["stop"]["detail"]}
     assert p.to_json()["stop"] is None
+
+
+def test_an_uncapped_cell_reports_exhaustion_rather_than_a_cap_it_does_not_have():
+    """Nit 14. A budgeted run's cells carry `cap_batches = len(batch_ids)` and `uncapped=True`,
+    and the manifest writes `cap: "none"` - so the same arithmetic means "ran out of batches",
+    not "a depth decision stopped it"."""
+    p = CellProgress("1930-1970|N.Y.", 2, uncapped=True)
+    p.add("b1", 8, True)
+    assert p.should_stop() is None
+    p.add("b2", 8, True)
+    stop = p.should_stop()
+    assert stop.kind == "cell_exhausted" and stop.detail == "2 of 2 batches"

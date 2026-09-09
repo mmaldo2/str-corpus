@@ -229,7 +229,10 @@ def run_check(queue_doc: dict, out_path: Path, *, reader_factory, codebook, chec
     results = check_queue(queue, reader_factory=reader_factory, codebook=codebook,
                           checker_pin=checker_pin, budget=budget)
     write_text(out_path, json.dumps({str(k): v for k, v in sorted(results.items())}, indent=1))
-    queue_doc["checker_path"] = checker_path(checker_pin, unit_cap=len(queue.cards))
+    # One unit per DISTINCT case, not per card: section G can queue two cards for one case
+    # and `check_queue` asks the checker about the case once (final review, nit 13).
+    queue_doc["checker_path"] = checker_path(
+        checker_pin, unit_cap=len({c.case_id for c in queue.cards}))
     queue_doc["checker_results"] = out_path.as_posix()
     if manifest_path is not None:
         write_text(manifest_path, json.dumps(queue_doc, indent=1))
