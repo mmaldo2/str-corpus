@@ -10,7 +10,7 @@
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=incident_of_ownership restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=lease
 - Holding: Homeowners who leased their primary residence for a year were not engaged in trade or commerce under G. L. c. 93A and were not liable for treble security-deposit damages where the deposit was returned before suit, though they did violate the escrow requirement of G. L. c. 186, s. 15B(3)(a).
 - CourtListener: https://www.courtlistener.com/?q=%2286%20Mass.%20App.%20Ct.%20714%22
 - Quotes:
@@ -30,7 +30,7 @@ shoreh karaa & another1 vs. kuk yim & others.2 no. 14-p-17. middlesex. october 8
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=incident_of_ownership restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: G.L. c. 143, §51 strict liability applies to all building code violations, not only fire-safety ones, but the residential portion of a small mixed-use structure with three apartments is not a 'building' within the statute. Judgment notwithstanding the verdict on the §51 claim was ordered for the landlords.
 - CourtListener: https://www.courtlistener.com/?q=%22467%20Mass.%20734%22
 - Quotes:
@@ -50,7 +50,7 @@ william sheehan vs. david b. weaver & another.1 essex. december 2, 2013. april 1
 - Decide: **polarity**
 - Other reasons: gate_erased
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=mixed characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Holding: The Berkeley rent board acted within its authority in adopting regulations granting one-time and annual inflation adjustments (including debt service), comparable-rent adjustments, and historically-low-rent adjustments to ensure landlords a fair return. The court affirmed the rent control system itself while requiring that it not operate confiscatorily.
 - CourtListener: https://www.courtlistener.com/?q=%2227%20Cal.%20App.%204th%20951%22
@@ -71,7 +71,7 @@ william sheehan vs. david b. weaver & another.1 essex. december 2, 2013. april 1
 - Decide: **polarity**
 - Other reasons: gate_erased
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=mixed characterization=other
 - Nulled by the quote gate: under_thirty_days
 - Holding: The rent review board's grant of only a $4 monthly space-rent increase was not supported by substantial evidence that the resulting 2.78 percent return was a fair return on the owner's investment, so the judgment denying mandate was reversed; but the mobilehome rent control ordinance itself was not facially unconstitutional or a taking.
 - CourtListener: https://www.courtlistener.com/?q=%2230%20Cal.%20App.%204th%2084%22
@@ -92,7 +92,7 @@ william sheehan vs. david b. weaver & another.1 essex. december 2, 2013. april 1
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=nights characterization=innkeeping under_thirty_days=yes owner_freedom_characterization=commercial_use restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=other
 - Holding: A motel occupant who paid a day's rent with a counterfeit bill, without shown intent to defraud, retained a reasonable expectation of privacy in the room because the motel had not rescinded the rental or taken steps to evict; the warrantless police entry was therefore unlawful. The court affirmed that the rental terms are a matter of contract and that a defrauded innkeeper may enter and ask occupants to leave.
 - CourtListener: https://www.courtlistener.com/?q=%22167%20Cal.%20App.%204th%20126%22
 - Quotes:
@@ -118,7 +118,7 @@ william sheehan vs. david b. weaver & another.1 essex. december 2, 2013. april 1
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=mixed characterization=lease
 - Holding: Rent control of mobilehome park spaces is a valid police power measure, but park owners who allege the ordinance as applied denies them a just and reasonable return may plead an as-applied taking or mandamus claim; dismissal as to the city was reversed.
 - CourtListener: https://www.courtlistener.com/?q=%22232%20Cal.%20App.%203d%20267%22
 - Quotes:
@@ -138,7 +138,7 @@ william sheehan vs. david b. weaver & another.1 essex. december 2, 2013. april 1
 - Decide: **polarity**
 - Other reasons: gate_erased
 - Reader: relevant=True polarity=mixed who_was_letting=householder duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=zoning
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Holding: Chula Vista's zoning definition of 'family' limiting unrelated occupants to three in the R-1 zone, and its conditional-use 'group residence' ordinance regulating dwellings where meals or lodging are provided to more than three unrelated persons, were both held invalid as infringing the state constitutional right of privacy. The court nonetheless made clear the city may enact properly drawn density and occupancy regulations and may restrict transient and institutional uses such as boarding houses.
 - CourtListener: https://www.courtlistener.com/?q=%22115%20Cal.%20App.%203d%20785%22
@@ -159,7 +159,7 @@ william sheehan vs. david b. weaver & another.1 essex. december 2, 2013. april 1
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=mixed characterization=lease
 - Holding: A Santa Monica landlord could not evict a nonresident tenant who used the rent-controlled unit only about three months a year and paid rent, but the landlord could petition the board for a determination of nonoccupancy and raise the rent to market rate. The judgment against the landlord's constitutional challenge was affirmed.
 - CourtListener: https://www.courtlistener.com/?q=%22141%20Cal.%20App.%204th%201485%22
 - Quotes:
@@ -179,7 +179,7 @@ william sheehan vs. david b. weaver & another.1 essex. december 2, 2013. april 1
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: The landlord breached his statutory duty to maintain air conditioning and the covenant of quiet enjoyment, and the tenant recovered the diminution in rental value; but the court affirmed that the landlord's termination of the tenancy was not retaliatory.
 - CourtListener: https://www.courtlistener.com/?q=%2218%20Ohio%20App.%203d%2014%22
 - Quotes:
@@ -199,7 +199,7 @@ howard, appellant, v. simon, appellee. (no. 47640 decided june 25, 1984.) john a
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=null
 - Holding: A city may constitutionally require a license/occupancy fee from the owner of an apartment building, but the fee must bear a reasonable relation to the burden imposed; a $10-per-unit fee unsupported by cost evidence was an unconstitutional tax disguised as a license fee and was refundable.
 - CourtListener: https://www.courtlistener.com/?q=%2236%20Ohio%20App.%203d%2083%22
 - Quotes:
@@ -219,7 +219,7 @@ teamster's housing, inc., appellee, v. city of east cleveland, appellant. (no. 5
 - Decide: **polarity**
 - Other reasons: fuzzy_quote
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=nights characterization=lodging under_thirty_days=yes owner_freedom_characterization=regulable_privilege restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=mixed characterization=lodging
 - Holding: Owners of commercially designated lodge and chalet lots used as short-term vacation rentals were held not subject to strict enforcement of the CC&R provision barring transient use and rentals of less than 30 days, because it conflicted with the provision expressly permitting commercial use; but the association retained authority to impose and fine for reasonable use restrictions, and most fines were disallowed while a subset was upheld.
 - CourtListener: https://www.courtlistener.com/?q=%22246%20Cal.%20App.%204th%20761%22
 - Quotes:
@@ -243,7 +243,7 @@ teamster's housing, inc., appellee, v. city of east cleveland, appellant. (no. 5
 - Decide: **polarity**
 - Other reasons: gate_erased
 - Reader: relevant=True polarity=mixed who_was_letting=householder duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=null restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: owner_freedom_characterization
 - Holding: A tenant who housed three unrelated roommates beyond what Real Property Law § 235-f permits violated his lease, and the landlord's acceptance of rent did not waive the violation; possession was awarded to the landlord.
 - CourtListener: https://www.courtlistener.com/?q=%2252%20Misc.%203d%2076%22

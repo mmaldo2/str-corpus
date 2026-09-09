@@ -10,7 +10,7 @@
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=null restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: A 1982 contract of sale reserving a life tenancy at $120 per month for the sellers was enforced against the current building owner; no primary-residence condition would be implied, and ejectment was dismissed.
@@ -30,7 +30,7 @@ aurora sportswear group ltd., appellant, v george eng et al., respondents. [815 
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=commercial_use restriction_nature=tax
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: An apartment corporation that rented eight of its 160 apartments as completely furnished units was reclassified out of the real-estate franchise tax provision and taxed under article 9-A.
@@ -50,7 +50,7 @@ in the matter of fleetwood acres, inc., petitioner, v. state tax commission, res
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=householder duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: Upholding Los Angeles County zoning ordinance against vagueness attack, the court catalogued permitted uses in a single-family residential zone, which expressly include the rental of rooms in a house as an accessory use; the defendant's junk storage was not a residential use.
@@ -68,7 +68,7 @@ in the matter of fleetwood acres, inc., petitioner, v. state tax commission, res
 - Decide: **characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=nights characterization=null under_thirty_days=yes owner_freedom_characterization=commercial_use restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=null
 - Nulled by the quote gate: characterization, holding_summary, restriction_nature
 - Erased value for characterization (the reader's answer before the quote gate nulled it): null
 - CourtListener: https://www.courtlistener.com/?q=%2234%20Mass.%20L.%20Rptr.%2052%22
@@ -85,7 +85,7 @@ wildlands trust of southeastern massachusetts, inc. et al. v. cedar hill retreat
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=null restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: A guarantor's obligation did not extend beyond the original one-year lease term because the automatic month-to-month renewal clause was ambiguous, and the tenant effectively terminated her month-to-month tenancy by oral notice.
@@ -105,7 +105,7 @@ yearling properties, inc., appellant, v. tedder et al., appellees. (no. 88ap-205
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=months characterization=other under_thirty_days=no owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: An occupant of a cooperative town house who failed to pay monthly carrying charges could be dispossessed by the cooperative corporation in forcible entry and detainer; his claimed setoff and cooperative-membership claims did not defeat the owner's present right to possession.
@@ -125,7 +125,7 @@ central park place, appellee, v. mcdowell, appellant. (no. 33242 decided january
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: Where a landlord prevails in forcible entry and detainer, the bailiff has a clear legal duty to remove the tenant's possessions as well as the tenant in order to restore possession to the owner. Mandamus granted to the apartment owner and manager.
@@ -145,7 +145,7 @@ the state, ex rel. marsol apartment company et al., v. vannuci et al. (no. 41963
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: Judgment for the landlord affirmed where the jury found no negligence in a tenant's stairway fall, and the judge properly refused late-raised instructions on quiet enjoyment and implied warranty of habitability.
@@ -165,7 +165,7 @@ pauline civetti vs. mark petti, trustee of 6-8 brook street realty trust souther
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: Lessor of a furnished dwelling was liable in damages to the tenant's family and guests for asphyxiation caused by an unvented water heater, a structural defect in the leased premises.
@@ -185,7 +185,7 @@ gaida v. hourgettes. no. 19915. court of appeal of louisiana. orleans. nov. 2, 1
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: Oakland's just cause for eviction ordinance is largely valid and not preempted; only limited provisions (a presumption shifting the burden of proof and certain remedies) are invalid and severable.
@@ -208,7 +208,7 @@ gaida v. hourgettes. no. 19915. court of appeal of louisiana. orleans. nov. 2, 1
 - Decide: **quotes**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: The Mobilehome Residency Law does not authorize a park owner to charge residents for nonessential services such as cable television that they neither requested nor used. Summary judgment for the park owner was reversed.
 - CourtListener: https://www.courtlistener.com/?q=%2253%20Cal.%20App.%202d%201223%22
 - Quotes:
@@ -230,7 +230,7 @@ gaida v. hourgettes. no. 19915. court of appeal of louisiana. orleans. nov. 2, 1
 - Decide: **quotes**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=incident_of_ownership restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=lease
 - Holding: A zoning ordinance may not require an owner of a multi-family dwelling to obtain a certificate of occupancy before re-renting an apartment to a new tenant; absent a change of use there is no statutory authority for such a requirement, and conditioning use on it deprives the owner of the use of his property without notice and hearing. Conviction reversed.
 - CourtListener: https://www.courtlistener.com/?q=%22169%20N.J.%20Super.%2069%22
 - Quotes:
@@ -254,7 +254,7 @@ state of new jersey, plaintiff-respondent, v. cib international, defendant-appel
 - Decide: **quotes**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=null
 - Holding: Trailer park tenants proved the owner failed her statutory landlord duties, and the court properly appointed a receiver of rents to collect rent and correct code violations.
 - CourtListener: https://www.courtlistener.com/?q=%2240%20Conn.%20App.%20595%22
 - Quotes:
@@ -278,7 +278,7 @@ margaret balint et al. v. theodora casale (14372) (14706) foti, heiman and crete
 - Decide: **quotes**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: Palo Alto's ordinance compelling landlords to offer every tenant a written one-year lease at fixed rent is not preempted by state law, and a landlord's failure to offer such a lease is a substantive defense to eviction.
 - CourtListener: https://www.courtlistener.com/?q=%2297%20Cal.%20App.%204th%20335%22
 - Quotes:
@@ -304,7 +304,7 @@ margaret balint et al. v. theodora casale (14372) (14706) foti, heiman and crete
 - Decide: **quotes**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: A tenant's guest may sue the landlord for breach of the implied warranty of habitability, and such a claim is governed by strict liability just as the tenant's would be.
 - CourtListener: https://www.courtlistener.com/?q=%2213%20Mass.%20L.%20Rptr.%20346%22
 - Quotes:
@@ -326,7 +326,7 @@ maria ruiz v. pelson realty trust et al.1 superior court, essex, ss no. ca991969
 - Decide: **quotes**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=not_addressed restriction_nature=tax
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: A university house made available under contract to a sorority house corporation for housing its members is not used exclusively for charitable or educational purposes and is not exempt from real property taxation.
 - CourtListener: https://www.courtlistener.com/?q=%22105%20Ohio%20St.%203d%20276%22
 - Quotes:
@@ -350,7 +350,7 @@ case western reserve university, appellant, v. wilkins, tax commr., appellee. [c
 - Decide: **quotes**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: Mobilehome park tenants subjected to a retaliatory rent increase may recover statutory punitive damages under Civil Code section 1942.5 without proving the landlord's net worth and without vacating, and those who moved are entitled to attorney fees; section 1942.5 applies to space rentals and is not preempted by the Mobilehome Residency Law.
 - CourtListener: https://www.courtlistener.com/?q=%2263%20Cal.%20App.%202d%20803%22
 - Quotes:
@@ -374,7 +374,7 @@ case western reserve university, appellant, v. wilkins, tax commr., appellee. [c
 - Decide: **quotes**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: A manufactured home park operator cannot maintain forcible entry and detainer against a lot tenant who has neither defaulted in rent nor breached the rental agreement; month-to-month termination rules for ordinary tenancies do not apply.
 - CourtListener: https://www.courtlistener.com/?q=%2222%20Ohio%20St.%203d%2014%22
 - Quotes:
@@ -396,7 +396,7 @@ schwartz et al., appellees, v. mcatee, appellant. [cite as schwartz v. mcatee (1
 - Decide: **quotes**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: Because no certificate of occupancy had issued for the rented building, the occupancy was unlawful and the lease an illegal contract; the landlord may not recover past due rent, and the money judgment was reversed.
 - CourtListener: https://www.courtlistener.com/?q=%22169%20Cal.%20App.%204th%201393%22
 - Quotes:
@@ -420,7 +420,7 @@ schwartz et al., appellees, v. mcatee, appellant. [cite as schwartz v. mcatee (1
 - Decide: **quotes**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: A landlord suing in unlawful detainer to recover a month-to-month dwelling must plead compliance with the federal OPA Rent Regulation for Housing, including a notice stating the statutory ground and a direct allegation that he seeks possession in good faith for his own immediate occupancy. The complaint failed to do so and the demurrer should have been sustained.
 - CourtListener: https://www.courtlistener.com/?q=%2263%20Cal.%20App.%202d%20Supp.%20851%22
 - Quotes:
@@ -444,7 +444,7 @@ appellate department, superior court, los angeles [civ. a. no. 5710. mar. 2, 194
 - Decide: **quotes**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=months characterization=lodging under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=zoning
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: A neighboring apartment owner had standing under MPC section 617 to bring a private enforcement action, and material factual issues remained whether the operator's community corrections center exceeded or abandoned the prior nonconforming transitional-living use; summary judgment was reversed.
 - CourtListener: https://www.courtlistener.com/?q=%2225%20A.3d%20427%22
 - Quotes:
@@ -468,7 +468,7 @@ geneva house, inc., appellant v. minsec of scranton, inc. and iannielli family l
 - Decide: **quotes**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: In an Ellis Act unlawful detainer, the landlord must prove a bona fide intent to withdraw all units from the rental market; the trial court abused its discretion in excluding the tenant's evidence that a purported sale of an interest to another occupant was a sham, and the judgment of possession for the landlord was reversed.
 - CourtListener: https://www.courtlistener.com/?q=%22237%20Cal.%20Rptr.%203d%20359%22
 - Quotes:

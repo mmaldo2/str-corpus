@@ -10,7 +10,7 @@
 - Decide: **polarity**
 - Other reasons: gate_erased
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Holding: In an Ellis Act unlawful detainer, the court held the owner's termination notice satisfied the rent ordinance because the ordinance does not require notice of rerental rights against future successor owners. The owner prevailed, but only within a regulatory scheme conditioning his withdrawal of units from the rental market on extensive notice and reoccupancy obligations.
 - CourtListener: https://www.courtlistener.com/?q=%22236%20Cal.%20App.%204th%20Supp.%201%22
@@ -31,7 +31,7 @@ appellate division, superior court, city and county of san francisco [no. cud-14
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: A public housing authority landlord could evict a tenant for repeatedly failing to report income increases of ten percent or more; the lease reporting requirement was not unconstitutionally vague as applied.
 - CourtListener: https://www.courtlistener.com/?q=%222012%20Mass.%20App.%20Div.%207%22
 - Quotes:
@@ -51,7 +51,7 @@ chelsea housing authority vs. tracey fontes northern district january 18, 2012. 
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: The condominium conversion statute imposes on the owner duties of extended notice and relocation assistance to elderly tenants, but the owner here satisfied them by identifying comparable apartments, so judgment for possession was affirmed and the tenant's appeal dismissed as frivolous.
 - CourtListener: https://www.courtlistener.com/?q=%222009%20Mass.%20App.%20Div.%20110%22
 - Quotes:
@@ -71,7 +71,7 @@ beaconview investments, llc vs. jack entis southern district june 18, 2009. pres
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=householder duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=lease
 - Holding: A resident owner who let a first-floor apartment (partly in exchange for personal services) recovered possession and unpaid rent, but his breach of the implied warranty of habitability produced a fifteen percent rent abatement.
 - CourtListener: https://www.courtlistener.com/?q=%222009%20Mass.%20App.%20Div.%20191%22
 - Quotes:
@@ -93,7 +93,7 @@ joseph w. sarno vs. karen ciampa ingalls, and others1 northern district septembe
 - Decide: **polarity**
 - Other reasons: fuzzy_quote
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: Under the security-deposit statute a landlord is liable for penalties and fees only on an affirmative finding of bad faith, which the trial court did not make, so judgment against the apartment complex was reversed and remanded. The resident manager was not a 'landlord' under the statute and judgment was rendered in her favor.
 - CourtListener: https://www.courtlistener.com/?q=%22561%20S.W.2d%20612%22
 - Quotes:
@@ -117,7 +117,7 @@ diamond oaks terrace apartments and margaret byers, appellants, v. jerrie l. spr
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: The security-deposit statute is penal and strictly construed, so the landlords' advance-notice forfeiture provision was ineffective because it was not underlined or in conspicuous bold print, and the deposit had to be refunded. But the landlords did not act in bad faith, so treble damages, the statutory penalty, and attorney's fees were reversed.
 - CourtListener: https://www.courtlistener.com/?q=%22694%20S.W.2d%20148%22
 - Quotes:
@@ -137,7 +137,7 @@ ofelia m. minor, et al., appellants, v. christine adams, et al., appellees. no. 
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: Sprinkler retrofit under G.L. c. 148, §26I is required only where a multi-unit residential building (including lodging and boarding houses) has been rehabilitated so as to be essentially as good as new; the fire chief's unexplained orders were vacated and a hearing was warranted.
 - CourtListener: https://www.courtlistener.com/?q=%22475%20Mass.%20231%22
 - Quotes:
@@ -157,7 +157,7 @@ robert maclaurin1 & another2 vs. city of holyoke & others.3 robert maclaurin4 & 
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=mixed characterization=lease
 - Holding: The court affirmed that the owner violated a settlement agreement by re-renting withdrawn units without offering displaced tenants a right of first refusal, but reversed the permanent injunction barring termination of tenancies as unenforceable.
 - CourtListener: https://www.courtlistener.com/?q=%22224%20Cal.%20Rptr.%203d%20577%22
 - Quotes:
@@ -182,7 +182,7 @@ city of west hollywood, plaintiff and respondent, v. anne kihagi et al., defenda
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: Continued monthly payments under a five-year lease after the life tenant's death did not create an implied month-to-month tenancy; a one month's notice was insufficient to terminate, and the dispossession judgment was reversed.
@@ -202,7 +202,7 @@ joseph e. bernstein et al., defendants, v. ferdinand demmert, prosecutor. argued
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=null restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: Where a lessor of a room in a business building refused consent to a new key, so the lessees could not enter, the facts constituted a constructive eviction as matter of law and a defense to the action for rent.
@@ -222,7 +222,7 @@ charlotte smith vs. mary a. tennyson & another. suffolk. october 9, 1914. decemb
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A deed restriction that 'but one dwelling house shall be erected' was construed as limiting use to a single family, so the owner was enjoined from building an apartment house.
@@ -242,7 +242,7 @@ ida c. powers vs. edward padding & others, trustees. sarah d. stone vs. same. ha
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=unclear characterization=lodging under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=other
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: The tenement house fire-egress statute, requiring the owner of a building with lodging rooms to provide fire escapes, lighting, and extinguishers on an inspector's order, is a valid police regulation; the inspector's order was affirmed.
@@ -262,7 +262,7 @@ charles f. stevens, landowner. worcester. october 1, 1917. october 29, 1917. pre
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: An ordinance provision requiring owners to obtain discretionary approval, and to prove community necessity, before building three-or-more-family dwellings anywhere in the borough exceeded the zoning power and was set aside. Multi-family dwellings have no inherent danger justifying such exclusion.
@@ -282,7 +282,7 @@ fannie weininger and jacob bass, prosecutors, v. borough of metuchen in the coun
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=nights characterization=innkeeping under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: Section 4 of the Bishops' Law is a valid exercise of the police power; inns, taverns and hotels with fewer than ten spare rooms and beds for boarders and travelers are subject to the liquor bar restrictions.
@@ -302,7 +302,7 @@ hugh meehan, plaintiff in error, v. board of excise commissioners of jersey city
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: Deed restrictions in the Back Bay would not be specifically enforced against construction of an apartment-hotel complex; the hotel and apartment use, with incidental shops, did not violate the restriction against mercantile uses, though damages were awarded for lost light and air.
@@ -320,7 +320,7 @@ gerald w. blakeley, jr., & others, trustees, vs. harry n. gorin & others. suffol
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=zoning
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A town by-law capping the number of trailer park licenses was in substance a zoning amendment; if not enacted under the zoning procedures it was invalid, and if valid the landowner's plan was protected by G.L. c. 40A, §7A, so the license application was unaffected.
@@ -340,7 +340,7 @@ rayco investment corp. vs. board of selectmen of raynham & another.1 bristol. fe
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=null restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: A five-year lease of a hotel building; temporary obstruction of a passageway was no eviction, but the landlord's remodeling beyond preservation after the tenants abandoned constituted acceptance of a surrender by operation of law, relieving the tenants of rent.
@@ -360,7 +360,7 @@ edward meeker v. emma spalsbury and charles c. spalsbury. submitted december 8, 
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=unclear characterization=lease under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=lease
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: An owner who rents a portion of his house owes no implied duty to disclose its dangerous condition to a prospective tenant; absent warranty or deceit no action lies, though he owes reasonable care to invitees.
@@ -380,7 +380,7 @@ thomas f. land v. bartholomew fitzgerald. submitted march 21, 1902 decided june 
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=lodging under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: The court rejected constitutional attacks (special legislation, due process, equal protection) on L. 1989, c. 67, N.J.S.A. 40:55D-68.1 to 68.3, upholding the statutory protection benefiting guest houses and hotels.
@@ -400,7 +400,7 @@ thomas f. land v. bartholomew fitzgerald. submitted march 21, 1902 decided june 
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=null restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: A monthly letting from the 10th of the month could be ended only by a notice to quit on the corresponding day of a later month; the landlord's notice to quit on April 1 was insufficient and the dispossession was reversed.
@@ -420,7 +420,7 @@ karsel finkelstein v. matthew herson. "1. by the common law, whenever a notice t
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=nights characterization=innkeeping under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: An act stripping Morristown's council of the power to license inns and taverns was a special and local law regulating internal municipal affairs and was unconstitutional; licensing power itself is assumed proper.
@@ -440,7 +440,7 @@ state, henry h. tiger, prosecutor, plaintiff in error, v. court of common pleas 
 - Decide: **characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=months characterization=null under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Nulled by the quote gate: characterization
 - Erased value for characterization (the reader's answer before the quote gate nulled it): null
 - Holding: The Senior Citizens and Disabled Protected Tenancy Act, applied retroactively to a completed condominium conversion, was upheld against contract-clause and takings challenges. The owner's ability to convert and to remove tenants was subordinated to a valid exercise of the police power.
@@ -460,7 +460,7 @@ edgewater investment associates, a new jersey partnership, plaintiff-respondent,
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=householder duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=zoning
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: The board properly denied a special permit for an apartment in a detached building on the owners' lot, and the court enjoined use of the detached building as a dwelling unit, ordering removal of beds and kitchen appliances and barring anyone from sleeping there overnight.
@@ -480,7 +480,7 @@ john e. norton et al. v. board of appeals of the town of acton et al. superior c
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=unclear owner_freedom_characterization=null restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: A landlord who re-entered and expelled a tenant of two rooms in his tenement house because the rooms were used for prostitution and disorder could not plead those facts in justification; absent an express covenant, misuse does not forfeit the term.
@@ -502,7 +502,7 @@ william l. miller v. margaret forman. if a landlord remove his tenant during the
 - Decide: **characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=householder duration_of_occupancy=months characterization=null under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=zoning
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=null
 - Nulled by the quote gate: characterization, under_thirty_days
 - Erased value for characterization (the reader's answer before the quote gate nulled it): null
 - Holding: Santa Cruz County's second dwelling unit ordinance imposes rent and occupancy restrictions on accessory rental units. Only Travis's challenge to conditions on his own permit was timely; the broader attack on the ordinance's continued enforcement was time-barred, leaving the rent and occupancy restrictions in place.

@@ -31,14 +31,14 @@ card). Page: https://claude.ai/code/artifact/0dcc7b08-8b76-48fc-8175-c38e0ff9b5d
 Section G (re-read conflicts) is empty in this round: it belongs to the cycles 1–3 re-read,
 whose round follows separately.
 
-## No checker opinion this round
+## Checker opinion
 
-The 100% Codex pass over the queue failed on every card: the OpenAI usage limit was hit
-before the first unit ran ("try again at Sep 15th, 2026 9:40 PM"). The checker file
-(`runs/cycle-004-shard-02/review-round-1-checker.json`) records 213 `failed` entries, so
-**`adopt` is not available on any card** — the tool refuses it. Decide from the opinion text
-with `keep`, `set` or `unsure`. The C cards still carry the checker's opinion from the map's
-own 10% sample (that is why they are C cards); treat it as one more reading, not a vote.
+The 100% Codex pass over the queue first failed on every card (OpenAI usage limit, 2026-09-09
+04:00) and was re-run after the user reset usage: 213 of 213 ok. Every card carries the
+checker's reading of `relevant`, `polarity` and `characterization`
+(`runs/cycle-004-shard-02/review-round-1-checker.json`), so `adopt` is available. A first pass
+should decide from the opinion before consulting the checker and flag where it differs; the
+checker is one more reading, not a vote.
 
 ## Decisions file
 

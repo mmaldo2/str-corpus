@@ -10,7 +10,7 @@
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=lease under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A city ordinance subjecting all of a landlord's rental properties to mandatory semi-annual paid inspections because of two convictions for failure to register was unconstitutional as applied, violating substantive due process.
@@ -32,7 +32,7 @@ urban imperial building & rental corporation, appellant, v. city of akron et al.
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=months characterization=lodging under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: The owner of a Boston building let in part to a storekeeper and in part to a boarding-house keeper was not liable under the city snow-removal ordinance, which fell on the owner only where there was no tenant. That he boarded with his own tenant and hired an office room from her did not make him an occupant.
@@ -54,7 +54,7 @@ commonwealth vs. abraham a. watson. the owner of a building in boston, part of w
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=innkeeping
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A deed covenant forbidding use of the lot as a hotel or apartment-house was enforced by injunction on a finding of fact that the building was being used as a hotel.
@@ -74,7 +74,7 @@ margaret workman, complainant, v. ralwech realty corporation, defendant. [submit
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=householder duration_of_occupancy=unclear characterization=lodging under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A householder who kept boarders was convicted of illegally keeping intoxicating liquors with intent to sell; the court held the beer-pump, tumblers and strainer found in his dwelling warranted the jury in inferring an intent to sell rather than mere domestic family use. The presence of boarders helped make the dwelling resemble a place of public resort.
@@ -94,7 +94,7 @@ commonwealth vs. ole levy. essex. nov. 8, 1878. jan. 1, 1879. endicott & lord, j
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=other under_thirty_days=no owner_freedom_characterization=null restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: An owner could not recover for use and occupation from an occupant who held under a lease from her contract-purchaser, because no landlord-tenant relation existed between them.
@@ -114,7 +114,7 @@ rosy kertesz, plaintiff-appellant, v. joseph feldheim, defendant-respondent. dec
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=householder duration_of_occupancy=unclear characterization=lease under_thirty_days=null owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Nulled by the quote gate: owner_freedom_characterization, under_thirty_days
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: A rent-controlled tenant's alleged illegal subletting of his apartment, and even alleged rent profiteering on the sublet, does not constitute a nuisance permitting termination without a notice to cure. The eviction petition was dismissed.
@@ -134,7 +134,7 @@ peter sourian et al., as trustees created under the last will and testament of z
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=commercial_use restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A mortgage company holding a vacant foreclosed house for resale is a 'commercial' landowner for abutting-sidewalk liability; the opinion rests on the line of cases treating non-owner-occupied rental dwellings as commercial ventures.
@@ -154,7 +154,7 @@ peter sourian et al., as trustees created under the last will and testament of z
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=lease
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: A hospital employee who rented a room in the employer's dormitory under a written lease was injured in a compensable workplace accident, so her tort suit was barred; her asserted tenant status did not create an independent habitability claim against the owner-employer.
@@ -174,7 +174,7 @@ jane doe (fictitious), plaintiff-appellant, v. saint michael's medical center of
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=unclear characterization=lease under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A condominium association regulation requiring only unit owners who rent their units to post a $225 security deposit was unreasonable and arbitrary, and the association could not intrude into the owner-tenant relationship.
@@ -194,7 +194,7 @@ coventry square condominium association, plaintiff, v. jeff halpern t/a first wo
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=unclear duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A group home for up to ten adolescent girls qualifies as a 'family' occupying a single-family house under the zoning ordinance; the board of adjustment's contrary interpretative decision was void and a certificate of occupancy was ordered.
@@ -214,7 +214,7 @@ young women's christian association of summit, new jersey, a new jersey corporat
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=lodging under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=lodging
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: Under the Rent Regulation for Hotels and Rooming Houses, a landlord who in good faith seeks not to offer a room for rent may recover it, and his intention to occupy the space himself does not defeat that ground; dismissal of the petition was error.
@@ -234,7 +234,7 @@ martin simon, landlord, appellant, v. donald mayer et al., tenants, respondents.
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=householder duration_of_occupancy=months characterization=other under_thirty_days=no owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lodging
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: An elderly mother paid $7,000 to her daughter and son-in-law under a verbal contract to board and lodge her in their home for life; when they ejected her and secretly put title in a minor grandchild, the court imposed a constructive/resulting trust in her favor. The board-and-lodging contract itself was treated as a lawful and enforceable arrangement between householders and a paying occupant.
@@ -254,7 +254,7 @@ letitia roy, complainant, v. letitia enot, michael enot, myrtle king and rodney 
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=license under_thirty_days=null owner_freedom_characterization=commercial_use restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=other
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: Where the City merely referred homeless families to a hotel, which registered them as ordinary guests at a daily rate, no lease was created because no area or term was agreed upon; the hotel retained control and the arrangement was not subject to ULURP or fair-share review, so neighbors' challenge failed.
@@ -276,7 +276,7 @@ in the matter of james davis et al., respondents-appellants, v david n. dinkins 
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=null who_was_letting=unclear duration_of_occupancy=months characterization=null under_thirty_days=no owner_freedom_characterization=null restriction_nature=zoning
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: The board erroneously applied variance standards to a special exception request for a community living arrangement; the case was vacated and remanded for findings on whether the residents constitute a 'family' as a single housekeeping unit.
@@ -296,7 +296,7 @@ appeal of philadelphia center for developmental services, inc., from the decisio
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=null who_was_letting=non_resident_owner duration_of_occupancy=weeks characterization=lease under_thirty_days=yes owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: In a lessee's claim against the owner's estate for half the cost of agreed repairs to a shore-front summer property, the court construed the written agreement to cover repairs to the main house only and allowed one-half of the ascertainable repair costs, to be withheld from monthly rent. The lease's express right to sublet summer vacation quarters (apartments let at $50 per week) was treated as lawful and unremarkable.
@@ -320,7 +320,7 @@ clair o. dorne v. elizabeth n. williams, executrix (estate of harriett c. willia
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=weeks characterization=lease under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=lease
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A week-to-week tenant who vacated on the landlord's request could not sue for fraud based on the landlord's false claim of intended personal occupancy. The court held the federal rent act merely barred an eviction action and did not enlarge the tenant's rights against the landlord's common-law freedom to end the tenancy.
@@ -340,7 +340,7 @@ ferguson, appellee, v. buddenberg et al., appellants. (no. 7225 decided may 15, 
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=other
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A city ordinance licensing and regulating trailers and trailer parks was held void because the state had pre-empted the field, and enforcement would interrupt the state-conferred right of a licensed park operator to rent trailer lots for human habitation.
@@ -360,7 +360,7 @@ noland et al., appellants, v. city of sharonville et al., appellees. [cite as no
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=householder duration_of_occupancy=unclear characterization=lodging under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=lodging
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A special permit authorizing use of part of a dwelling as a lodging unit did not lapse for failure to record where the owner substantially used it, and the board's revocation was annulled.
@@ -380,7 +380,7 @@ julie ann mcdermott vs. board of appeals of melrose. no. 02-p-188. middlesex. ma
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=null restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: A landlord's long, unexplained retention of rent checks after serving a notice to quit constituted acceptance of rent, renewing the month-to-month tenancy and waiving the default, so summary process possession was denied.
@@ -400,7 +400,7 @@ mildred borst v. charles ruff brown, c. j., jennings, baldwin, inglis and o'sull
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=null restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: Month-to-month tenants who received no actual notice of the foreclosure lis pendens could not be ejected under § 49-22; the ejectment was permanently enjoined as a deprivation of their property interest without due process.
@@ -420,7 +420,7 @@ beatrice hite et al. v. jonathan field et al. superior court housing session jud
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=unclear duration_of_occupancy=unclear characterization=null under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=zoning
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A zoning ordinance requiring every dwelling to be on a lot fronting a public street was upheld against owners who wished to build a garage-apartment on the rear of their land; the restriction on use of their property was a valid police-power measure and not a taking.
@@ -438,7 +438,7 @@ the state, ex rel. jack et al., appellants, v. russell, bldg. commr., appellee. 
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=householder duration_of_occupancy=months characterization=lodging under_thirty_days=null owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: owner_freedom_characterization, under_thirty_days
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: In a partition/specific-performance dispute, the court held that the decedent's remaining in the home occupying a sleeping room and boarding with the claimant did not amount to retention of possession; his position was likened to a stranger contracting for room and board, an occupancy of a fixed room not kindred to possession as owner.
@@ -458,7 +458,7 @@ mossholder v wiggins et ohio appeals, 2nd dist, franklin co. no. 3220. decided o
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=unclear duration_of_occupancy=unclear characterization=lodging under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A Dayton housing-code ordinance authorizing warrantless inspections of dwellings, rooming houses and rooming units at reasonable hours, backed by criminal penalties, was upheld against a search-and-seizure challenge. The owner's right to exclude was held subordinate to the community's health and safety interest.
@@ -478,7 +478,7 @@ the state, ex rel. eaton, appellant, v. price, chief of police, appellee. (no. 3
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=lodging under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=other
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: The court refused to enjoin the Secretary of Labor and Industry from closing the Spring Mountain House, holding that the establishment, though claimed to be a hotel, functioned as a boarding home for the aged subject to stricter Fire and Panic Law regulations. The Secretary neither abused discretion nor acted contrary to law in ordering it to cease operations.
@@ -502,7 +502,7 @@ irm, inc., trad. as spring mountain house v. smith lawrence goldberg, for plaint
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: Landlords seeking possession of a rent-controlled suite for personal use had to give the sixty-day written notice stating a statutory ground required by the Federal Housing and Rent Act; the three-day state-law notice was insufficient and judgment for possession was reversed.
@@ -522,7 +522,7 @@ kletecke, et, plaintiffs-appellees, v. lunger, et, defendants-appellants. ohio a
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: Deed covenants barring apartment houses, flats and boarding houses on the plaintiff's lot were imposed solely for the original grantor's benefit and not under a general plan, so no party could enforce them; the lot is free to be used for an apartment building.
@@ -542,7 +542,7 @@ copelin v. morris et. common pleas court, cuyahoga county. no. 604336. decided a
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=zoning
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=other
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: Owners who began actual construction of a trailer park under lawful permits before county zoning took effect acquired a vested nonconforming use, and neighbors' injunction against operating the trailer park was denied.
@@ -564,7 +564,7 @@ meuser et, plaintiffs, v. smith et, defendants. common pleas court, franklin cou
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=other
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A village zoning ordinance applied retroactively to bar an owner's already-substantially-developed trailer park was held arbitrary, confiscatory and invalid as to that land. The owner was permitted free use of his property for renting trailer spaces to occupants.
@@ -584,7 +584,7 @@ kessler et, plaintiffs-appellees, v. smith, sr. et, defendants-appellants. smith
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=lease
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: Lessor could not evict a rest/nursing home operator for housing 21-22 patients or for living on the premises with his family, since the lease's express terms did not forbid either; courts will not imply exceptions not in the lease.
@@ -604,7 +604,7 @@ schweller et, plaintiffs, v. cloyd, defendant. municipal court, oberlin. no. 166
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=null who_was_letting=non_resident_owner duration_of_occupancy=months characterization=null under_thirty_days=null owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=null
 - Nulled by the quote gate: owner_freedom_characterization, under_thirty_days
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: The Court dismissed as moot a challenge to a municipal ordinance forbidding any person to occupy or let to another for occupancy a dwelling unit with less than prescribed minimum floor area per occupant, vacating the Appellate Division judgment without reaching the merits.

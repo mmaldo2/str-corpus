@@ -20,9 +20,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "innkeeping"
   },
   "holding_summary": "An innkeeper is not liable under G.L. c. 140, \u00a710 or at common law for a guest's property stolen from the inn's parking lot, absent a special contract. Summary judgment for the inn was allowed.",
   "quotes": [
@@ -70,9 +70,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "innkeeping"
   },
   "holding_summary": "A zoning provision requiring 5,000 feet of separation between motels on the same side of a highway was struck down as arbitrary, discriminatory, and lacking any rational planning basis.",
   "quotes": [
@@ -120,9 +120,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "A weekly tenant of a furnished apartment who remained in possession rather than repairing or removing was not entitled to a further rent rebate beyond the abatement already granted in the dispossess proceeding; the judgment for the tenant was reversed.",
   "quotes": [
@@ -171,9 +171,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "innkeeping"
   },
   "holding_summary": "The owner of an approved hotel/conference center and office building was entitled to a declaration that it may use or sell the properties for transient hotel and office purposes without further planning board approval. Zoning regulates use, not users, so the municipality could not dictate who may occupy, rent, or own the premises.",
   "quotes": [
@@ -229,7 +229,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -280,9 +280,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
   "holding_summary": "Permitting a single or occasional private act of illicit intercourse in a house \u2014 including by letting a spare room to a couple \u2014 does not make the house one 'resorted to' for prostitution or lewdness; the contrary instruction was erroneous and exceptions were sustained.",
   "quotes": [
@@ -334,9 +334,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "innkeeping"
   },
   "holding_summary": "A hotel guest who obtained her room with a stolen credit card number and could not pay had no legitimate expectation of privacy there, and the innkeeper could lawfully enter the room and enlist police to oust her without a warrant or notice to quit.",
   "quotes": [
@@ -384,7 +384,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -442,9 +442,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "innkeeping"
   },
   "holding_summary": "Two bed-and-breakfast special exception permits were affirmed; the ordinance's minimum lot size for hotel/motel uses with centralized systems could not be extended by implication to B&Bs with on-lot systems, and conditions imposed adequately addressed runoff and lighting.",
   "quotes": [
@@ -500,9 +500,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "license"
   },
   "holding_summary": "Occupancy of a ballroom for a four-and-one-half hour wedding reception was a license, not a lease; the owner retained control and no leasehold interest was created.",
   "quotes": [
@@ -552,9 +552,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
   "holding_summary": "A week-to-week tenant who voluntarily vacated after a notice to quit could not sue the landlord in fraud; the Federal Housing and Rent Act only barred an eviction proceeding and, being in derogation of the landlord's common law rights, would not be extended beyond its expressed scope.",
   "quotes": [
@@ -604,9 +604,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lodging"
   },
   "holding_summary": "A two-week seasonal shore rental is not a 'rental premise or unit used for dwelling purposes' under the Rent Security Deposit Act, so the Act's penalty and counsel-fee provisions do not apply. Reading the Anti-Eviction Act and summary dispossess statutes in pari materia, the court held that vacation rentals of less than four months receive no special consumer/tenant benefits. The deposit was ordered returned on ordinary contract grounds only.",
   "quotes": [
@@ -661,7 +661,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -712,9 +712,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "other"
   },
   "holding_summary": "A purchaser who entered a dwelling under an unexecuted parol contract of sale was tenant at will of the owner, and liable in assumpsit for use and occupation for the four days he occupied before the house burned. His refusal to take a deed determined the tenancy at will and ended his liability.",
   "quotes": [
@@ -762,9 +762,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
   "holding_summary": "A weekly lodger who hired two rooms with care and fire, in a house whose occupant sublet rooms to lodgers by the week, could recover from the city for a sidewalk defect because he had no control over the cellar or duty to repair. The court treated the weekly letting of rooms to lodgers as an ordinary lawful arrangement.",
   "quotes": [
@@ -819,9 +819,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lodging"
   },
   "holding_summary": "A motel customer is a lodger or guest, not a tenant, and the proprietor retains control of and reasonable right of access to the rooms; the manager's entry to protect motel property was lawful and the evidence was not suppressible.",
   "quotes": [
@@ -885,7 +885,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -933,9 +933,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "other"
   },
   "holding_summary": "Hotel and motel rooms in which the victim socialized and ate meals while working as a prostitute were 'inhabited' for first degree robbery purposes; a room rented even for one night can serve as temporary living quarters.",
   "quotes": [
@@ -987,9 +987,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "innkeeping"
   },
   "holding_summary": "A hotel guest who was lawfully evicted by the hotel manager for violating hotel rules and State drug law lost his reasonable expectation of privacy in the room; the manager's consent made the subsequent police search lawful.",
   "quotes": [
@@ -1044,9 +1044,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
   "holding_summary": "The court declined to extend the Ingalls v. Hobbs implied warranty of fitness, applicable to short-term lettings of furnished dwellings, to the grounds surrounding a one-week furnished summer cottage rental, or to defects arising after the letting began. Recovery by the tenant's child was denied.",
   "quotes": [
@@ -1106,7 +1106,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -1157,7 +1157,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -1208,7 +1208,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -1266,7 +1266,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -1322,9 +1322,9 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
   },
   "holding_summary": "An inn and tavern license in a township was set aside because the applicant lacked the statutorily required house room, stabling and provender; a place with the characteristics of a saloon rather than an inn accommodating travelers cannot be licensed.",
   "quotes": [
@@ -1373,7 +1373,7 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -1433,9 +1433,9 @@
    "restriction_nature": "zoning"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "other"
   },
   "holding_summary": "A Santa Monica ordinance permitting second units only if occupied by the owner, a dependent, or a caregiver\u2014and barring rental to others\u2014violated the state constitutional right of privacy and equal protection; the occupancy limitation was severed and enjoined.",
   "quotes": [
@@ -1491,9 +1491,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
   "holding_summary": "A foster daughter is a member of the landlord's immediate family, so the landlord may recover possession under the Housing and Rent Act; the court construed the statute so as to preserve the owner's free use of his property.",
   "quotes": [
@@ -1548,7 +1548,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -1599,9 +1599,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
   },
   "holding_summary": "In a nonpayment proceeding the court held the landlord may rely on the building's existing DHCR classification as a 'hotel' and need not prove hotel services in its prima facie case, but factual issues remain on whether the apartment is rent stabilized.",
   "quotes": [
@@ -1655,9 +1655,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
   "holding_summary": "Owner of two two-family houses who had rented out her own flat may recover possession for immediate personal occupancy under the rent regulation; the fact that her necessity was self-created is no bar as a matter of law.",
   "quotes": [
@@ -1706,7 +1706,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -1757,9 +1757,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
   },
   "holding_summary": "Federal rent legislation did not preempt local rent control over hotel accommodations; the city rent commission retains jurisdiction over the rents of a residential hotel occupied largely by nontransient tenants.",
   "quotes": [
@@ -1814,7 +1814,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -1876,7 +1876,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -1933,9 +1933,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "other"
   },
   "holding_summary": "A Class B multiple dwelling's occupancy classification turns on how the building is actually primarily occupied, not on the certificate of occupancy; because the hotel was occupied by permanent tenants and students on a month-to-month or longer basis it was properly J-2 rather than J-1, escaping heightened transient fire-safety requirements.",
   "quotes": [
@@ -1985,7 +1985,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -2035,7 +2035,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -2085,9 +2085,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "State rent control over a federally insured rental housing project is compatible with the National Housing Act and constitutional; the owner's rents remain subject to the state police power, though the Director's quantitative classification was void.",
   "quotes": [
@@ -2143,8 +2143,8 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "adverse",
    "characterization": null
   },
   "holding_summary": "Owners of a four-family apartment sought possession of two suites under federal rent control to occupy them themselves. The court held the sixty-day federal notice provision does not bar filing an eviction action after the three-day state notice; it only delays the tenant's actual dispossession, and affirmed judgment for the owners.",
@@ -2211,9 +2211,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "Evicted tenant cannot sue the landlady for damages alleging that the good-faith self-occupancy ground for eviction under the Housing and Rent Act of 1947 was false; the eviction judgment is res judicata and no statutory remedy exists in Ohio.",
   "quotes": [
@@ -2265,9 +2265,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
   },
   "holding_summary": "A charitable home admitted a resident under an agreement exchanging all her property for board, lodging and care for life, subject to a six-month probationary period. Because she died during probation, the home could keep only the reasonable value of board, shelter and care rendered and must return the balance. The contract was construed strictly against the home as drafter.",
   "quotes": [
@@ -2319,7 +2319,7 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -2376,9 +2376,9 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "innkeeping"
   },
   "holding_summary": "A Canton ordinance requiring city licenses for hotels, rooming houses and lodging houses is invalid as to hotels and motels because it conflicts with the state hotel licensing statutes. The state licensing scheme itself is treated as valid, and the state statutes exempt family hotels, apartment houses, lodging houses and rooming houses.",
   "quotes": [
@@ -2435,9 +2435,9 @@
    "restriction_nature": "tax"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "The court upheld Buffalo's excise tax on occupancy, holding the city had statutory power to impose it and that requiring lessors to collect it does not impair the landlord-tenant contract or take property.",
   "quotes": [
@@ -2486,9 +2486,9 @@
    "restriction_nature": "tax"
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
   "holding_summary": "A dwelling-house owned by Harvard College and leased to a professor at an annual rent was not within the statutory exemption for real estate occupied by the institution or its officers, and was taxable. The result would differ if the professor occupied by permission without an estate or rent.",
   "quotes": [
@@ -2539,9 +2539,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "innkeeping"
   },
   "holding_summary": "A hotel guest's trunk lost by an independent transfer agent en route from the railroad was recoverable from the hotel on a contract theory, the hotel having charged for baggage transportation; the court declined to extend the innkeeper's common-law insurer liability to property never infra hospitium.",
   "quotes": [
@@ -2594,7 +2594,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -2649,9 +2649,9 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
   },
   "holding_summary": "Innholder and liquor licenses granted on an application describing a building not yet in existence were void, and the premises could be enjoined as a nuisance; innholders' licenses may however be granted in months other than April. Innkeeping for pay is treated as a licensed privilege subject to strict statutory conditions.",
   "quotes": [
@@ -2704,8 +2704,8 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "favorable",
    "characterization": null
   },
   "holding_summary": "A village rental-permit law requiring registration, on-site inspection and certification of each rental dwelling unit was held facially unconstitutional because it conditioned the owner's ability to rent on submission to warrantless inspection.",
@@ -2753,7 +2753,7 @@
    "restriction_nature": "tax"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -2816,9 +2816,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
   },
   "holding_summary": "The lease limited occupancy to the tenant and her immediate family, so other occupants were mere permissive occupants; on reargument, however, the court denied summary judgment against the individual occupants, holding their status must be judged against the rent regulations and whether the lease violation was substantial.",
   "quotes": [
@@ -2871,7 +2871,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -2927,8 +2927,8 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "adverse",
    "characterization": null
   },
   "holding_summary": "Municipal rent stabilization ordinances imposing percentage ceilings on rent increases and using general 'hardship' and 'major capital improvement' standards were sustained against facial attack; but the tax-surcharge formula compelling landlords to absorb part of a tax increase and the ordinance provisions regulating eviction were held invalid.",
@@ -2998,9 +2998,9 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "other"
   },
   "holding_summary": "A municipal ordinance licensing and regulating apartment houses is invalid because the State has preempted multiple-dwelling regulation except as to more stringent local rules; the court nonetheless upheld the municipality's general power to license such dwellings and found the $10-per-unit fee not shown to be excessive.",
   "quotes": [
@@ -3078,7 +3078,7 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -3136,8 +3136,8 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "mixed",
    "characterization": null
   },
   "holding_summary": "Owners of two or fewer condominium units in a building are exempt from the rent control ordinance, but units rented to protected preconversion tenants remain subject to the ordinance's rent limits.",
@@ -3188,9 +3188,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "Newark housing ordinances imposing on owners of rented dwellings duties to maintain hot water apparatus and to paint were upheld as valid police-power regulation despite the common-law rule that a landlord need not repair. A third ordinance penalizing 'whatever is dangerous to human life or health' was held void for want of standards.",
   "quotes": [
@@ -3262,9 +3262,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
   "holding_summary": "Tenants of a federally aided garden apartment project challenged a $5 monthly rent increase reserved to the landlord by clause 5 of their five-year leases. The court held the increase lawful because it had been approved by the Federal Housing Administration (and, where still controlled, the Housing Expediter), and binding on tenants who elected not to exercise their cancellation option.",
   "quotes": [
@@ -3319,7 +3319,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -3375,9 +3375,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "After a condominium conversion, an owner who pays hardship relocation compensation of five months' rent need not continue seeking comparable housing beyond the first one-year stay; the tenant's eviction stay was dissolved.",
   "quotes": [
@@ -3426,9 +3426,9 @@
    "restriction_nature": "tax"
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
   "holding_summary": "A farm divided by a township line was taxable where the owner-occupant resided, but the dwelling-house and garden let to a tenant for a money rent were treated as a separate property, taxable in the township where situated.",
   "quotes": [
@@ -3481,9 +3481,9 @@
    "restriction_nature": "nuisance"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "lease"
   },
   "holding_summary": "Landlords who neither knew of nor participated in tenants' drug activity may still be found guilty of 'maintaining a nuisance' under R.C. 3767.02, but the mandatory one-year closure of their rental property under R.C. 3767.06(A) is an unconstitutional taking and denial of due process as applied to such innocent owners.",
   "quotes": [
@@ -3540,7 +3540,7 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -3599,9 +3599,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
   "holding_summary": "A seasonal letting of a furnished seashore house carries an implied agreement that it is fit for immediate occupancy, but the warranty covers only conditions existing at the beginning of the term; the tenant failed to prove the beetle infestation existed then, and the fire/unavoidable casualty clause did not apply absent physical damage. Judgment for the lessor.",
   "quotes": [
@@ -3651,7 +3651,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
    "characterization": null
   },
@@ -3708,9 +3708,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
   },
   "holding_summary": "Res judicata barred the tenant from relitigating the unconscionability of the $1350 rent already adjudicated in an earlier dispossess action, so that rent stands; but the court abated the rent by $500 per month for breach of the implied covenant of habitability and allowed the tenant credits for repairs.",
   "quotes": [
@@ -3765,9 +3765,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
   "holding_summary": "A new tenant does not get a fresh two-year period to challenge a rent increase under the Jersey City rent leveling ordinance; the $450 rent charged was lawful.",
   "quotes": [
@@ -3821,9 +3821,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "Under the Rent Withholding Act an owner of a six-unit apartment house could not recover rents paid into escrow because the premises were never certified fit for human habitation, but the court held the withholding remedy is limited to six months and does not let tenants occupy indefinitely.",
   "quotes": [
@@ -3879,9 +3879,9 @@
    "restriction_nature": "tax"
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "other"
   },
   "holding_summary": "A corporation providing a home for working girls at moderate cost, including incidental temporary shelter to other women, is a charitable institution whose property is exempt from taxation; the occupation of the property is that of the corporation, not of the inmates.",
   "quotes": [
@@ -3941,9 +3941,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "lease"
   },
   "holding_summary": "A mobile home park rent leveling ordinance was upheld as facially valid, including its base-rent definition and retroactive base provisions, but the section conditioning any rent increase on certified compliance with state, county and local codes was struck down as an unauthorized penalty.",
   "quotes": [
@@ -3993,7 +3993,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -4050,9 +4050,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "The 5% cap in the township's rent control ordinance was upheld as constitutional, but the tax surcharge provisions were construed to let the landlord pass through the cumulative tax increases since the ordinance's enactment rather than only the prior year's increase.",
   "quotes": [
@@ -4107,8 +4107,8 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "favorable",
    "characterization": null
   },
   "holding_summary": "The court sustained a municipal rent leveling ordinance against tenant attack, upholding both the rent-increase formula and the vacancy decontrol and new-construction exemption provisions.",
@@ -4159,7 +4159,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -4216,8 +4216,8 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "favorable",
    "characterization": null
   },
   "holding_summary": "Rent regulation protects only a tenant occupying the premises as his own dwelling; a tenant who sublet the whole apartment at more than the legal rent is not protected, and the landlord's proceeding was reinstated.",
@@ -4268,9 +4268,9 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "innkeeping"
   },
   "holding_summary": "The licensed innholder statutes penalizing knowing permission of immoral use of hotel rooms and false registration are valid regulations, but scienter is an element; the evidence of the proprietor's knowledge was as consistent with innocence as guilt, so verdicts should have been directed for him.",
   "quotes": [
@@ -4325,7 +4325,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -4384,7 +4384,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -4443,9 +4443,9 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
   },
   "holding_summary": "A town ordinance licensing trailer parks at $3.50 per trailer per month is a valid exercise of the police power and not a tax, but the Tax Law provision assessing occupants' trailers as real property to the landowner is unconstitutional.",
   "quotes": [
@@ -4509,9 +4509,9 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lodging"
   },
   "holding_summary": "Lodging and boarding houses in a municipality accepting G. L. c. 148, s. 26H, must install automatic sprinkler systems, but the 1989 amendment gave a five-year grace period from local acceptance, so the injunction and contempt order against the boarding house owners were reversed.",
   "quotes": [
@@ -4561,8 +4561,8 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "adverse",
    "characterization": null
   },
   "holding_summary": "In a tenant's action for rent-control overcharges, a record titleholder whose deed was in substance a mortgage and who neither controlled the premises nor received rent was not a 'landlord' liable under the federal Housing and Rent Act.",
@@ -4618,7 +4618,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
    "characterization": null
   },
@@ -4682,9 +4682,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "A week-to-week roomer in a converted rooming house was held exempt from ETPA rent stabilization because the building was substantially rehabilitated, and the landlord obtained possession; but the landlord was barred from recovering rent absent a proper certificate of occupancy and was liable for consequential damages for breach of the warranty of habitability.",
   "quotes": [
@@ -4747,9 +4747,9 @@
    "restriction_nature": "nuisance"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "Indictment charging an owner with letting a tenement to be used for prostitution was arrested for failure to allege a day certain and the lessee's name. The statute criminalizing such letting is assumed valid, but the defendant owner prevailed on pleading grounds.",
   "quotes": [
@@ -4803,9 +4803,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
   "holding_summary": "A condominium association may condition transfer of a unit on its approval, but must exercise that power reasonably and non-discriminatorily; here its refusal to approve transfers of quarter interests to four families who would occupy the unit successively in thirteen-week periods was unreasonable as a matter of law, particularly since the bylaws already permitted rentals of ninety days or more. The transfers were upheld.",
   "quotes": [
@@ -4868,7 +4868,7 @@
    "restriction_nature": "nuisance"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -4938,7 +4938,7 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
    "characterization": null
   },
@@ -4991,9 +4991,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "The city's mobilehome space rent control ordinance is not preempted by state law and, construed to allow a fair return on the value of the property, is facially valid. But the provision granting park residents a preemptive right to purchase the park is an unconstitutional taking of the owner's right to dispose of his property.",
   "quotes": [
@@ -5056,7 +5056,7 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -5108,7 +5108,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
    "characterization": null
   },
@@ -5170,9 +5170,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "The landlord recovered possession after valid notice of termination, but the lease clause shifting all legal expenses to the tenant was held unenforceable as an unbargained-for, oppressive form-lease term.",
   "quotes": [
@@ -5227,9 +5227,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
   "holding_summary": "Both post-trial motions were denied: the jury's verdict for the tenant on the landlord's breach of an express covenant to repair stood alongside the verdict for the landlord on his counterclaim for back rent and damage, and the tenant waived any reliance on the newly announced implied warranty of habitability.",
   "quotes": [
@@ -5284,9 +5284,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
   "holding_summary": "The rent control board's finding that the landlord acquiesced in chronically late rent payments was unsupported by substantial evidence, and chronic late payment is 'just cause' warranting a certificate of eviction. The board's denial was annulled and remanded, though the landlord's right to evict remains conditioned on board approval under the rent control by-law.",
   "quotes": [
@@ -5340,8 +5340,8 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "mixed",
    "characterization": null
   },
   "holding_summary": "Subdividing one existing apartment into two after 1969 produced only one newly constructed unit for purposes of the Brookline rent control exemption. One of the two units is exempt; the other remains subject to rent and eviction control.",
@@ -5399,9 +5399,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "The court upheld a cooperative board's power to condition subletting on a sublet fee and legal-fee escrow, but on equitable grounds permanently enjoined termination of the shareholders' proprietary lease for the default.",
   "quotes": [
@@ -5456,7 +5456,7 @@
    "restriction_nature": "zoning"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -5512,7 +5512,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -5570,9 +5570,9 @@
    "restriction_nature": "zoning"
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "other"
   },
   "holding_summary": "The court upheld the board of aldermen's grant of a special permit allowing a single-family residence in a single-residence district to house up to nine high-school students supervised by an adult couple, charged only actual cost of room and board. The group qualified as an 'association of persons living together in a common dwelling,' but the use was allowed only under detailed conditions, personal to the permittee and renewable at the board's discretion.",
   "quotes": [
@@ -5639,9 +5639,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
   "holding_summary": "Homeowners who leased their primary residence for a year were not engaged in trade or commerce under G. L. c. 93A and were not liable for treble security-deposit damages where the deposit was returned before suit, though they did violate the escrow requirement of G. L. c. 186, s. 15B(3)(a).",
   "quotes": [
@@ -5696,7 +5696,7 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -5755,8 +5755,8 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "mixed",
    "characterization": null
   },
   "holding_summary": "The Berkeley rent board acted within its authority in adopting regulations granting one-time and annual inflation adjustments (including debt service), comparable-rent adjustments, and historically-low-rent adjustments to ensure landlords a fair return. The court affirmed the rent control system itself while requiring that it not operate confiscatorily.",
@@ -5815,9 +5815,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "other"
   },
   "holding_summary": "The rent review board's grant of only a $4 monthly space-rent increase was not supported by substantial evidence that the resulting 2.78 percent return was a fair return on the owner's investment, so the judgment denying mandate was reversed; but the mobilehome rent control ordinance itself was not facially unconstitutional or a taking.",
   "quotes": [
@@ -5877,9 +5877,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "other"
   },
   "holding_summary": "A motel occupant who paid a day's rent with a counterfeit bill, without shown intent to defraud, retained a reasonable expectation of privacy in the room because the motel had not rescinded the rental or taken steps to evict; the warrantless police entry was therefore unlawful. The court affirmed that the rental terms are a matter of contract and that a defrauded innkeeper may enter and ask occupants to leave.",
   "quotes": [
@@ -5949,9 +5949,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "lease"
   },
   "holding_summary": "Rent control of mobilehome park spaces is a valid police power measure, but park owners who allege the ordinance as applied denies them a just and reasonable return may plead an as-applied taking or mandamus claim; dismissal as to the city was reversed.",
   "quotes": [
@@ -6006,7 +6006,7 @@
    "restriction_nature": "zoning"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -6067,9 +6067,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "lease"
   },
   "holding_summary": "A Santa Monica landlord could not evict a nonresident tenant who used the rent-controlled unit only about three months a year and paid rent, but the landlord could petition the board for a determination of nonoccupancy and raise the rent to market rate. The judgment against the landlord's constitutional challenge was affirmed.",
   "quotes": [
@@ -6124,9 +6124,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "The landlord breached his statutory duty to maintain air conditioning and the covenant of quiet enjoyment, and the tenant recovered the diminution in rental value; but the court affirmed that the landlord's termination of the tenancy was not retaliatory.",
   "quotes": [
@@ -6182,8 +6182,8 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "favorable",
    "characterization": null
   },
   "holding_summary": "A city may constitutionally require a license/occupancy fee from the owner of an apartment building, but the fee must bear a reasonable relation to the burden imposed; a $10-per-unit fee unsupported by cost evidence was an unconstitutional tax disguised as a license fee and was refundable.",
@@ -6240,9 +6240,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "lodging"
   },
   "holding_summary": "Owners of commercially designated lodge and chalet lots used as short-term vacation rentals were held not subject to strict enforcement of the CC&R provision barring transient use and rentals of less than 30 days, because it conflicted with the provision expressly permitting commercial use; but the association retained authority to impose and fine for reasonable use restrictions, and most fines were disallowed while a subset was upheld.",
   "quotes": [
@@ -6308,7 +6308,7 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -6364,8 +6364,8 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "adverse",
    "characterization": null
   },
   "holding_summary": "In an Ellis Act unlawful detainer, the court held the owner's termination notice satisfied the rent ordinance because the ordinance does not require notice of rerental rights against future successor owners. The owner prevailed, but only within a regulatory scheme conditioning his withdrawal of units from the rental market on extensive notice and reoccupancy obligations.",
@@ -6424,7 +6424,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -6481,7 +6481,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -6539,9 +6539,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
   "holding_summary": "A resident owner who let a first-floor apartment (partly in exchange for personal services) recovered possession and unpaid rent, but his breach of the implied warranty of habitability produced a fifteen percent rent abatement.",
   "quotes": [
@@ -6603,7 +6603,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -6670,9 +6670,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "The security-deposit statute is penal and strictly construed, so the landlords' advance-notice forfeiture provision was ineffective because it was not underlined or in conspicuous bold print, and the deposit had to be refunded. But the landlords did not act in bad faith, so treble damages, the statutory penalty, and attorney's fees were reversed.",
   "quotes": [
@@ -6728,7 +6728,7 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -6787,9 +6787,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "mixed",
+   "characterization": "lease"
   },
   "holding_summary": "The court affirmed that the owner violated a settlement agreement by re-renting withdrawn units without offering displaced tenants a right of first refusal, but reversed the permanent injunction barring termination of tenancies as unenforceable.",
   "quotes": [
@@ -6849,9 +6849,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "Continued monthly payments under a five-year lease after the life tenant's death did not create an implied month-to-month tenancy; a one month's notice was insufficient to terminate, and the dispossession judgment was reversed.",
   "quotes": [
@@ -6901,7 +6901,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -6954,7 +6954,7 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -7007,9 +7007,9 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
   },
   "holding_summary": "The tenement house fire-egress statute, requiring the owner of a building with lodging rooms to provide fire escapes, lighting, and extinguishers on an inspector's order, is a valid police regulation; the inspector's order was affirmed.",
   "quotes": [
@@ -7060,7 +7060,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -7114,7 +7114,7 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -7167,7 +7167,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -7214,7 +7214,7 @@
    "restriction_nature": "zoning"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -7269,7 +7269,7 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -7322,9 +7322,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
   "holding_summary": "An owner who rents a portion of his house owes no implied duty to disclose its dangerous condition to a prospective tenant; absent warranty or deceit no action lies, though he owes reasonable care to invitees.",
   "quotes": [
@@ -7375,7 +7375,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -7428,9 +7428,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "A monthly letting from the 10th of the month could be ended only by a notice to quit on the corresponding day of a later month; the landlord's notice to quit on April 1 was insufficient and the dispossession was reversed.",
   "quotes": [
@@ -7481,7 +7481,7 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -7534,9 +7534,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "The Senior Citizens and Disabled Protected Tenancy Act, applied retroactively to a completed condominium conversion, was upheld against contract-clause and takings challenges. The owner's ability to convert and to remove tenants was subordinated to a valid exercise of the police power.",
   "quotes": [
@@ -7588,7 +7588,7 @@
    "restriction_nature": "zoning"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -7642,9 +7642,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "A landlord who re-entered and expelled a tenant of two rooms in his tenement house because the rooms were used for prostitution and disorder could not plead those facts in justification; absent an express covenant, misuse does not forfeit the term.",
   "quotes": [
@@ -7702,7 +7702,7 @@
    "restriction_nature": "zoning"
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
    "characterization": null
   },
@@ -7757,8 +7757,8 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "favorable",
    "characterization": null
   },
   "holding_summary": "A city ordinance subjecting all of a landlord's rental properties to mandatory semi-annual paid inspections because of two convictions for failure to register was unconstitutional as applied, violating substantive due process.",
@@ -7816,7 +7816,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -7875,9 +7875,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
   },
   "holding_summary": "A deed covenant forbidding use of the lot as a hotel or apartment-house was enforced by injunction on a finding of fact that the building was being used as a hotel.",
   "quotes": [
@@ -7930,7 +7930,7 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -7984,7 +7984,7 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -8038,9 +8038,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "A rent-controlled tenant's alleged illegal subletting of his apartment, and even alleged rent profiteering on the sublet, does not constitute a nuisance permitting termination without a notice to cure. The eviction petition was dismissed.",
   "quotes": [
@@ -8092,7 +8092,7 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -8146,9 +8146,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
   "holding_summary": "A hospital employee who rented a room in the employer's dormitory under a written lease was injured in a compensable workplace accident, so her tort suit was barred; her asserted tenant status did not create an independent habitability claim against the owner-employer.",
   "quotes": [
@@ -8198,8 +8198,8 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "favorable",
    "characterization": null
   },
   "holding_summary": "A condominium association regulation requiring only unit owners who rent their units to post a $225 security deposit was unreasonable and arbitrary, and the association could not intrude into the owner-tenant relationship.",
@@ -8251,7 +8251,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -8303,9 +8303,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lodging"
   },
   "holding_summary": "Under the Rent Regulation for Hotels and Rooming Houses, a landlord who in good faith seeks not to offer a room for rent may recover it, and his intention to occupy the space himself does not defeat that ground; dismissal of the petition was error.",
   "quotes": [
@@ -8355,9 +8355,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lodging"
   },
   "holding_summary": "An elderly mother paid $7,000 to her daughter and son-in-law under a verbal contract to board and lodge her in their home for life; when they ejected her and secretly put title in a minor grandchild, the court imposed a constructive/resulting trust in her favor. The board-and-lodging contract itself was treated as a lawful and enforceable arrangement between householders and a paying occupant.",
   "quotes": [
@@ -8410,9 +8410,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "other"
   },
   "holding_summary": "Where the City merely referred homeless families to a hotel, which registered them as ordinary guests at a daily rate, no lease was created because no area or term was agreed upon; the hotel retained control and the arrangement was not subject to ULURP or fair-share review, so neighbors' challenge failed.",
   "quotes": [
@@ -8469,7 +8469,7 @@
    "restriction_nature": "zoning"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -8521,7 +8521,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -8586,9 +8586,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
   "holding_summary": "A week-to-week tenant who vacated on the landlord's request could not sue for fraud based on the landlord's false claim of intended personal occupancy. The court held the federal rent act merely barred an eviction action and did not enlarge the tenant's rights against the landlord's common-law freedom to end the tenancy.",
   "quotes": [
@@ -8641,9 +8641,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "other"
   },
   "holding_summary": "A city ordinance licensing and regulating trailers and trailer parks was held void because the state had pre-empted the field, and enforcement would interrupt the state-conferred right of a licensed park operator to rent trailer lots for human habitation.",
   "quotes": [
@@ -8695,9 +8695,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lodging"
   },
   "holding_summary": "A special permit authorizing use of part of a dwelling as a lodging unit did not lapse for failure to record where the owner substantially used it, and the board's revocation was annulled.",
   "quotes": [
@@ -8748,7 +8748,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -8802,9 +8802,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "Month-to-month tenants who received no actual notice of the foreclosure lis pendens could not be ejected under \u00a7 49-22; the ejectment was permanently enjoined as a deprivation of their property interest without due process.",
   "quotes": [
@@ -8855,7 +8855,7 @@
    "restriction_nature": "zoning"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -8902,7 +8902,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -8957,7 +8957,7 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -9011,9 +9011,9 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
   },
   "holding_summary": "The court refused to enjoin the Secretary of Labor and Industry from closing the Spring Mountain House, holding that the establishment, though claimed to be a hotel, functioned as a boarding home for the aged subject to stricter Fire and Panic Law regulations. The Secretary neither abused discretion nor acted contrary to law in ordering it to cease operations.",
   "quotes": [
@@ -9078,9 +9078,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "Landlords seeking possession of a rent-controlled suite for personal use had to give the sixty-day written notice stating a statutory ground required by the Federal Housing and Rent Act; the three-day state-law notice was insufficient and judgment for possession was reversed.",
   "quotes": [
@@ -9133,8 +9133,8 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "favorable",
    "characterization": null
   },
   "holding_summary": "Deed covenants barring apartment houses, flats and boarding houses on the plaintiff's lot were imposed solely for the original grantor's benefit and not under a general plan, so no party could enforce them; the lot is free to be used for an apartment building.",
@@ -9186,9 +9186,9 @@
    "restriction_nature": "zoning"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "other"
   },
   "holding_summary": "Owners who began actual construction of a trailer park under lawful permits before county zoning took effect acquired a vested nonconforming use, and neighbors' injunction against operating the trailer park was denied.",
   "quotes": [
@@ -9245,9 +9245,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "other"
   },
   "holding_summary": "A village zoning ordinance applied retroactively to bar an owner's already-substantially-developed trailer park was held arbitrary, confiscatory and invalid as to that land. The owner was permitted free use of his property for renting trailer spaces to occupants.",
   "quotes": [
@@ -9298,9 +9298,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
   "holding_summary": "Lessor could not evict a rest/nursing home operator for housing 21-22 patients or for living on the premises with his family, since the lease's express terms did not forbid either; courts will not imply exceptions not in the lease.",
   "quotes": [
@@ -9351,7 +9351,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
    "characterization": null
   },
@@ -9403,8 +9403,8 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "favorable",
    "characterization": null
   },
   "holding_summary": "In enforcing a restrictive covenant against subdivision, the court held that an owner's rental of part of his own house and carriage house to tenants did not change the residential character of the property and did not constitute unclean hands or a change of circumstances barring enforcement.",
@@ -9457,9 +9457,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
   },
   "holding_summary": "Displaced beach homeowners were entitled to owner-level relocation benefits, but the agency did not abuse its discretion in denying business relocation payments to those renting out rooms, because the room-renting did not contribute materially to their income.",
   "quotes": [
@@ -9505,9 +9505,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
   "holding_summary": "A lessee of rooms in a San Francisco 'segregated district,' who leased with the lessor's knowledge that the rooms would be sublet to prostitutes, could not obtain cancellation or rent reduction after the police abolished the district. The court held the parties to an admittedly immoral letting arrangement had no standing in law or equity.",
   "quotes": [
@@ -9560,8 +9560,8 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "adverse",
    "characterization": null
   },
   "holding_summary": "The Tenement House Act of 1911, regulating the construction and occupation of tenement houses and forbidding occupancy of newly constructed tenements until a health-department certificate issues, was upheld as a valid police-power regulation. Different requirements for existing and future tenements were held a permissible classification.",
@@ -9614,9 +9614,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
   "holding_summary": "The lessee-operator of an apartment house with single rooms, evicted when the health department condemned the building as unfit for human habitation, could not recover damages from the lessor's grantee: there was no express or implied warranty of habitability, and the statutory remedies of sections 1941-1942 were not invoked.",
   "quotes": [
@@ -9667,9 +9667,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
   "holding_summary": "A lessee of a house who underlet part of it did not forfeit his lease under the liquor nuisance statute when the undertenant used the underlet portion for illegal liquor sales without the lessee's knowledge. The lessee's right to underlet was undisputed.",
   "quotes": [
@@ -9720,7 +9720,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -9774,7 +9774,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
    "characterization": null
   },
@@ -9833,9 +9833,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lodging"
   },
   "holding_summary": "Plaintiffs failed to prove entitlement to 375 units of comparable replacement housing under the Relocation Assistance Act after a law school acquired residential hotels; the judgment ordering such housing was reversed for lack of supporting evidence, in part because hotel ledgers showed highly transient, short-term occupancy.",
   "quotes": [
@@ -9891,9 +9891,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
   "holding_summary": "Owner of a furnished five-room cottage swore a complaint against a short-term occupant who left after about two weeks without paying roughly $15 for accommodations; the court held that because the sworn facts were true and charged no crime, no action for malicious prosecution lay, and affirmed the new trial order. The opinion discusses Penal Code section 537 (defrauding an innkeeper, lodging house or furnished apartment house) but does not rule on the owner's right to let.",
   "quotes": [
@@ -9950,9 +9950,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "other"
   },
   "holding_summary": "The court refused to enforce an alleged oral promise to devise property in exchange for care, finding instead that the parties' actual arrangement was that the claimant furnished food and care to the householder in return for occupying his home rent free. The statute of frauds barred relief.",
   "quotes": [
@@ -9996,8 +9996,8 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "adverse",
    "characterization": null
   },
   "holding_summary": "A rent control ordinance may permanently bar unregistered landlords and their successors from recapturing annual general rent adjustments forfeited by prior nonregistration, so long as the ordinance permits an individual rent adjustment ensuring a fair return on investment.",
@@ -10050,9 +10050,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "other"
   },
   "holding_summary": "The state 'granny flat' statute compels a city to process and approve conditional use permits for second rental units in single-family zones; Laguna Beach could not require extra parking or use bureaucratic obstruction to defeat owners' right to legalize and rent second units.",
   "quotes": [
@@ -10119,7 +10119,7 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -10173,9 +10173,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
   "holding_summary": "After the landlord obtained a writ of restitution and the tenant vacated and the lease term expired, the tenant's appeal challenging the court's refusal to consider her R.C. 1923.061 offset was dismissed as moot; the landlord's recovery of possession stood.",
   "quotes": [
@@ -10225,7 +10225,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -10279,9 +10279,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
   },
   "holding_summary": "A testamentary permission to a beneficiary to 'occupy and enjoy the use' of property is personal and does not authorize him to let the premises to tenants; the privilege is inalienable and unreachable by creditors, though the income alternative is reachable.",
   "quotes": [
@@ -10334,7 +10334,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -10386,9 +10386,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "lease"
   },
   "holding_summary": "The owner of a condominium legally converted under TORCA may evict a nonparticipating tenant for owner occupancy; the rent control provision barring such evictions applies only to illegally converted units, and a Board regulation barring a second eviction attempt for four years after voluntary dismissal is invalid.",
   "quotes": [
@@ -10440,7 +10440,7 @@
    "restriction_nature": "zoning"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -10488,9 +10488,9 @@
    "restriction_nature": "zoning"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "innkeeping"
   },
   "holding_summary": "The town's zoning by-law permitting motels only after planning board site plan review and approval was an invalid delegation of zoning power, since only the board of appeals or selectmen may grant special permits under G. L. c. 40A, \u00a7 4; the motel permits and the by-law sections were declared invalid.",
   "quotes": [
@@ -10541,9 +10541,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
   },
   "holding_summary": "The court upheld the validity of St. 1985, c. 703, authorizing the town of Middleborough to regulate mobile home park rents and evictions, rejecting the park owner's challenges based on lack of local emergency declaration and absence of an implementing by-law.",
   "quotes": [
@@ -10607,9 +10607,9 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
-   "characterization": null
+   "characterization": "other"
   },
   "holding_summary": "A motel room is a 'dwelling house' within the burglary statute because a motel, like a hotel or boarding house, is a place of habitation.",
   "quotes": [
@@ -10665,7 +10665,7 @@
    "restriction_nature": "tax"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -10713,9 +10713,9 @@
    "restriction_nature": "nuisance"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "other"
   },
   "holding_summary": "A preliminary injunction under the State Housing Act compelling the owner of rented apartments and sleeping rooms to abate insanitary conditions, add toilets and baths, relocate partitions and provide ventilation was affirmed. The court held the Legislature may declare certain uses of property to be nuisances and that the housing shortage did not excuse violations.",
   "quotes": [
@@ -10774,7 +10774,7 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -10829,8 +10829,8 @@
    "restriction_nature": "tax"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "adverse",
    "characterization": null
   },
   "holding_summary": "An apartment corporation that rented eight of its 160 apartments as completely furnished units was reclassified out of the real-estate franchise tax provision and taxed under article 9-A.",
@@ -10883,7 +10883,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": true,
    "polarity": null,
    "characterization": null
   },
@@ -10931,8 +10931,8 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "adverse",
    "characterization": null
   },
   "holding_summary": null,
@@ -10980,9 +10980,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "A guarantor's obligation did not extend beyond the original one-year lease term because the automatic month-to-month renewal clause was ambiguous, and the tenant effectively terminated her month-to-month tenancy by oral notice.",
   "quotes": [
@@ -11033,7 +11033,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -11085,7 +11085,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -11137,7 +11137,7 @@
    "restriction_nature": null
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -11189,9 +11189,9 @@
    "restriction_nature": "other"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "Lessor of a furnished dwelling was liable in damages to the tenant's family and guests for asphyxiation caused by an unvented water heater, a structural defect in the leased premises.",
   "quotes": [
@@ -11243,9 +11243,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "Oakland's just cause for eviction ordinance is largely valid and not preempted; only limited provisions (a presumption shifting the burden of proof and certain remedies) are invalid and severable.",
   "quotes": [
@@ -11297,9 +11297,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "The Mobilehome Residency Law does not authorize a park owner to charge residents for nonessential services such as cable television that they neither requested nor used. Summary judgment for the park owner was reversed.",
   "quotes": [
@@ -11356,9 +11356,9 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "favorable",
+   "characterization": "lease"
   },
   "holding_summary": "A zoning ordinance may not require an owner of a multi-family dwelling to obtain a certificate of occupancy before re-renting an apartment to a new tenant; absent a change of use there is no statutory authority for such a requirement, and conditioning use on it deprives the owner of the use of his property without notice and hearing. Conviction reversed.",
   "quotes": [
@@ -11424,8 +11424,8 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
+   "relevant": true,
+   "polarity": "adverse",
    "characterization": null
   },
   "holding_summary": "Trailer park tenants proved the owner failed her statutory landlord duties, and the court properly appointed a receiver of rents to collect rent and correct code violations.",
@@ -11489,9 +11489,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "Palo Alto's ordinance compelling landlords to offer every tenant a written one-year lease at fixed rent is not preempted by state law, and a landlord's failure to offer such a lease is a substantive defense to eviction.",
   "quotes": [
@@ -11561,7 +11561,7 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -11620,7 +11620,7 @@
    "restriction_nature": "tax"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -11685,9 +11685,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "Mobilehome park tenants subjected to a retaliatory rent increase may recover statutory punitive damages under Civil Code section 1942.5 without proving the landlord's net worth and without vacating, and those who moved are entitled to attorney fees; section 1942.5 applies to space rentals and is not preempted by the Mobilehome Residency Law.",
   "quotes": [
@@ -11750,9 +11750,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "A manufactured home park operator cannot maintain forcible entry and detainer against a lot tenant who has neither defaulted in rent nor breached the rental agreement; month-to-month termination rules for ordinary tenancies do not apply.",
   "quotes": [
@@ -11810,9 +11810,9 @@
    "restriction_nature": "licensing"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "Because no certificate of occupancy had issued for the rented building, the occupancy was unlawful and the lease an illegal contract; the landlord may not recover past due rent, and the money judgment was reversed.",
   "quotes": [
@@ -11876,9 +11876,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "A landlord suing in unlawful detainer to recover a month-to-month dwelling must plead compliance with the federal OPA Rent Regulation for Housing, including a notice stating the statutory ground and a direct allegation that he seeks possession in good faith for his own immediate occupancy. The complaint failed to do so and the demurrer should have been sustained.",
   "quotes": [
@@ -11943,7 +11943,7 @@
    "restriction_nature": "zoning"
   },
   "checker": {
-   "relevant": null,
+   "relevant": false,
    "polarity": null,
    "characterization": null
   },
@@ -12007,9 +12007,9 @@
    "restriction_nature": "tenant_protection"
   },
   "checker": {
-   "relevant": null,
-   "polarity": null,
-   "characterization": null
+   "relevant": true,
+   "polarity": "adverse",
+   "characterization": "lease"
   },
   "holding_summary": "In an Ellis Act unlawful detainer, the landlord must prove a bona fide intent to withdraw all units from the rental market; the trial court abused its discretion in excluding the tenant's evidence that a purported sale of an interest to another occupant was a sham, and the judgment of possession for the landlord was reversed.",
   "quotes": [

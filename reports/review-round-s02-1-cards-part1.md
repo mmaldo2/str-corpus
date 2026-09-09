@@ -10,7 +10,7 @@
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=innkeeping under_thirty_days=yes owner_freedom_characterization=commercial_use restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=innkeeping
 - Holding: An innkeeper is not liable under G.L. c. 140, §10 or at common law for a guest's property stolen from the inn's parking lot, absent a special contract. Summary judgment for the inn was allowed.
 - CourtListener: https://www.courtlistener.com/?q=%2212%20Mass.%20L.%20Rptr.%20726%22
 - Quotes:
@@ -28,7 +28,7 @@ brenda l. welton v. red roof inns superior court, middlesex, ss no. 9901885 memo
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=innkeeping under_thirty_days=yes owner_freedom_characterization=commercial_use restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=innkeeping
 - Holding: A zoning provision requiring 5,000 feet of separation between motels on the same side of a highway was struck down as arbitrary, discriminatory, and lacking any rational planning basis.
 - CourtListener: https://www.courtlistener.com/?q=%22123%20N.J.%20Super.%20162%22
 - Quotes:
@@ -46,7 +46,7 @@ sol davidow, plaintiff-appellant, v. board of adjustment of the township of sout
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=weeks characterization=lease under_thirty_days=yes owner_freedom_characterization=regulable_privilege restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: A weekly tenant of a furnished apartment who remained in possession rather than repairing or removing was not entitled to a further rent rebate beyond the abatement already granted in the dispossess proceeding; the judgment for the tenant was reversed.
 - CourtListener: https://www.courtlistener.com/?q=%22119%20N.J.%20Super.%20332%22
 - Quotes:
@@ -64,7 +64,7 @@ lillias berzito, plaintiff-respondent, v. vincent gambino, defendant-appellant. 
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=other under_thirty_days=yes owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=innkeeping
 - Holding: The owner of an approved hotel/conference center and office building was entitled to a declaration that it may use or sell the properties for transient hotel and office purposes without further planning board approval. Zoning regulates use, not users, so the municipality could not dictate who may occupy, rent, or own the premises.
 - CourtListener: https://www.courtlistener.com/?q=%22316%20N.J.%20Super.%20200%22
 - Quotes:
@@ -84,7 +84,7 @@ lillias berzito, plaintiff-respondent, v. vincent gambino, defendant-appellant. 
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=innkeeping under_thirty_days=yes owner_freedom_characterization=commercial_use restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: A hotelkeeper is not an insurer of guest safety but owes only reasonable care; the hotel's response to a contained fire was reasonable as a matter of law and the guests' negligence verdict was reversed.
 - CourtListener: https://www.courtlistener.com/?q=%22132%20Misc.%202d%20892%22
 - Quotes:
@@ -102,7 +102,7 @@ bella taieb et al., respondents, v hilton hotels corporation et al., appellants.
 - Decide: **polarity**
 - Other reasons: householder_nights
 - Reader: relevant=True polarity=favorable who_was_letting=householder duration_of_occupancy=nights characterization=lease under_thirty_days=yes owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=lease
 - Holding: Permitting a single or occasional private act of illicit intercourse in a house — including by letting a spare room to a couple — does not make the house one 'resorted to' for prostitution or lewdness; the contrary instruction was erroneous and exceptions were sustained.
 - CourtListener: https://www.courtlistener.com/?q=%2294%20Mass.%20177%22
 - Quotes:
@@ -120,7 +120,7 @@ commonwealth vs. maria lambert. buffering a single private act of illicit interc
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=innkeeping under_thirty_days=yes owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=innkeeping
 - Holding: A hotel guest who obtained her room with a stolen credit card number and could not pay had no legitimate expectation of privacy there, and the innkeeper could lawfully enter the room and enlist police to oust her without a warrant or notice to quit.
 - CourtListener: https://www.courtlistener.com/?q=%2261%20Cal.%20App.%204th%20322%22
 - Quotes:
@@ -138,7 +138,7 @@ commonwealth vs. maria lambert. buffering a single private act of illicit interc
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=innkeeping under_thirty_days=yes owner_freedom_characterization=commercial_use restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: A hotel is not an insurer of its transient guests' acts and owes passers-by only a duty of reasonable care once it knows or should know of danger. Because the clerk acted prudently and heard nothing for two hours, no negligence could be inferred and dismissal was reinstated.
 - CourtListener: https://www.courtlistener.com/?q=%229%20N.J.%20493%22
 - Quotes:
@@ -158,7 +158,7 @@ ethel holly, plaintiff-respondent, v. meyers hotel and tavern, inc., a corporati
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=lodging under_thirty_days=yes owner_freedom_characterization=regulable_privilege restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=innkeeping
 - Holding: Two bed-and-breakfast special exception permits were affirmed; the ordinance's minimum lot size for hotel/motel uses with centralized systems could not be extended by implication to B&Bs with on-lot systems, and conditions imposed adequately addressed runoff and lighting.
 - CourtListener: https://www.courtlistener.com/?q=%22133%20Pa.%20Commw.%20239%22
 - Quotes:
@@ -178,7 +178,7 @@ ethel holly, plaintiff-respondent, v. meyers hotel and tavern, inc., a corporati
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=license under_thirty_days=yes owner_freedom_characterization=commercial_use restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=license
 - Holding: Occupancy of a ballroom for a four-and-one-half hour wedding reception was a license, not a lease; the owner retained control and no leasehold interest was created.
 - CourtListener: https://www.courtlistener.com/?q=%22165%20Ohio%20St.%20386%22
 - Quotes:
@@ -196,7 +196,7 @@ direnzo, appellee, v. cavalier, appellant. (no. 34731 decided june 20, 1956.) mr
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=weeks characterization=lease under_thirty_days=yes owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=lease
 - Holding: A week-to-week tenant who voluntarily vacated after a notice to quit could not sue the landlord in fraud; the Federal Housing and Rent Act only barred an eviction proceeding and, being in derogation of the landlord's common law rights, would not be extended beyond its expressed scope.
 - CourtListener: https://www.courtlistener.com/?q=%2257%20Ohio%20Law%20Abs.%20473%22
 - Quotes:
@@ -214,7 +214,7 @@ ferguson, plaintiff-appellee, v. buddenberg et, defendants-appellants. ohio appe
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=weeks characterization=other under_thirty_days=yes owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=lodging
 - Holding: A two-week seasonal shore rental is not a 'rental premise or unit used for dwelling purposes' under the Rent Security Deposit Act, so the Act's penalty and counsel-fee provisions do not apply. Reading the Anti-Eviction Act and summary dispossess statutes in pari materia, the court held that vacation rentals of less than four months receive no special consumer/tenant benefits. The deposit was ordered returned on ordinary contract grounds only.
 - CourtListener: https://www.courtlistener.com/?q=%22213%20N.J.%20Super.%20309%22
 - Quotes:
@@ -234,7 +234,7 @@ brian a. rogers, plaintiff, v. peter donovan and norma donovan, defendants. supe
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=innkeeping under_thirty_days=yes owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: Where the innkeeper complied with the Innkeepers Liability Act by providing a safe and posting notice, it is not liable for a guest's jewelry stolen from her room when she did not deposit it in the safe.
 - CourtListener: https://www.courtlistener.com/?q=%2230%20Pa.%20D.%20%26%20C.3d%20147%22
 - Quotes:
@@ -252,7 +252,7 @@ tishman v. host enterprises, inc. kevin e. osborne, for plaintiff. judith l. whi
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=nights characterization=lease under_thirty_days=yes owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=other
 - Holding: A purchaser who entered a dwelling under an unexecuted parol contract of sale was tenant at will of the owner, and liable in assumpsit for use and occupation for the four days he occupied before the house burned. His refusal to take a deed determined the tenancy at will and ended his liability.
 - CourtListener: https://www.courtlistener.com/?q=%2245%20Mass.%20224%22
 - Quotes:
@@ -270,7 +270,7 @@ thomas gould vs. samuel thompson. a. made an oral agreement for the purchase of 
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=householder duration_of_occupancy=weeks characterization=lodging under_thirty_days=yes owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=lease
 - Holding: A weekly lodger who hired two rooms with care and fire, in a house whose occupant sublet rooms to lodgers by the week, could recover from the city for a sidewalk defect because he had no control over the cellar or duty to repair. The court treated the weekly letting of rooms to lodgers as an ordinary lawful arrangement.
 - CourtListener: https://www.courtlistener.com/?q=%22122%20Mass.%20223%22
 - Quotes:
@@ -290,7 +290,7 @@ charles f. burt vs. city of boston. suffolk. nov. 16, 17, 1876. march 7, 1877. a
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=lodging under_thirty_days=yes owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=lodging
 - Holding: A motel customer is a lodger or guest, not a tenant, and the proprietor retains control of and reasonable right of access to the rooms; the manager's entry to protect motel property was lawful and the evidence was not suppressible.
 - CourtListener: https://www.courtlistener.com/?q=%2220%20Cal.%20App.%203d%20832%22
 - Quotes:
@@ -312,7 +312,7 @@ charles f. burt vs. city of boston. suffolk. nov. 16, 17, 1876. march 7, 1877. a
 - Decide: **polarity**
 - Other reasons: checker_disagreement
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=other under_thirty_days=yes owner_freedom_characterization=regulable_privilege restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: The Board of Standards and Appeals rationally classified a homeless-shelter/detox facility as a Use Group 5 'transient hotel' under the zoning resolution because it provided sleeping accommodations used primarily for transient occupancy with a common entrance and hotel services, so the permits were upheld.
 - CourtListener: https://www.courtlistener.com/?q=%22107%20A.D.3d%20414%22
 - Quotes:
@@ -328,7 +328,7 @@ in the matter of chelsea business & property owners' association, llc, doing bus
 - Decide: **polarity**
 - Other reasons: gate_erased
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=lodging under_thirty_days=yes owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=other
 - Nulled by the quote gate: owner_freedom_characterization
 - Holding: Hotel and motel rooms in which the victim socialized and ate meals while working as a prostitute were 'inhabited' for first degree robbery purposes; a room rented even for one night can serve as temporary living quarters.
 - CourtListener: https://www.courtlistener.com/?q=%22189%20Cal.%20App.%204th%20826%22
@@ -347,7 +347,7 @@ in the matter of chelsea business & property owners' association, llc, doing bus
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=innkeeping under_thirty_days=yes owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=innkeeping
 - Holding: A hotel guest who was lawfully evicted by the hotel manager for violating hotel rules and State drug law lost his reasonable expectation of privacy in the room; the manager's consent made the subsequent police search lawful.
 - CourtListener: https://www.courtlistener.com/?q=%22459%20Mass.%20819%22
 - Quotes:
@@ -367,7 +367,7 @@ commonwealth vs. mark molina. suffolk. february 7, 2011. june 1, 2011. present: 
 - Decide: **polarity**
 - Other reasons: checker_disagreement
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=weeks characterization=lease under_thirty_days=yes owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=lease
 - Holding: The court declined to extend the Ingalls v. Hobbs implied warranty of fitness, applicable to short-term lettings of furnished dwellings, to the grounds surrounding a one-week furnished summer cottage rental, or to defects arising after the letting began. Recovery by the tenant's child was denied.
 - CourtListener: https://www.courtlistener.com/?q=%2211%20Mass.%20App.%20Dec.%20104%22
 - Quotes:
@@ -387,7 +387,7 @@ municipal court of the city of boston no. 392579 joseph f. doyle p.p.a. v. john 
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=weeks characterization=lease under_thirty_days=yes owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: A week-to-week apartment tenant's suit to enjoin the landlord from terminating his tenancy as retaliation became moot once the landlord gave notice, obtained a forcible-detainer judgment, and evicted him; the temporary injunction was dissolved and the application dismissed.
 - CourtListener: https://www.courtlistener.com/?q=%22541%20S.W.2d%20206%22
 - Quotes:
@@ -405,7 +405,7 @@ willie sims, appellant, v. century kiest apartments, appellees. no. 19018. court
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=innkeeping under_thirty_days=yes owner_freedom_characterization=commercial_use restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: A hotel keeper is liable for loss of a guest's property only on proof of negligence measured as ordinary care under the circumstances; the evidence showed no negligence, so judgment for the guest was reversed and rendered for the hotel company.
 - CourtListener: https://www.courtlistener.com/?q=%2259%20S.W.2d%20943%22
 - Quotes:
@@ -423,7 +423,7 @@ dallas hotel co. v. raitman. no. 11221. court of civil appeals of texas. dallas.
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=lease under_thirty_days=yes owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: A hotel timeshare interval lease gave the lessee the right to use a unit a set number of nights per year, subject to a minimum length of stay and no carryover of unused nights. The court enforced the written lease terms against the occupant, holding an assignee-owner could not be bound by an alleged oral modification permitting one- and two-night stays and carryover.
 - CourtListener: https://www.courtlistener.com/?q=%22778%20So.%202d%20613%22
 - Quotes:
@@ -443,7 +443,7 @@ sumpter b. davis, iii v. avenue plaza, llc. no. 2000-ca-0226. court of appeal of
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=lodging under_thirty_days=yes owner_freedom_characterization=regulable_privilege restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: The zoning board properly treated a nighttime shelter for homeless women, with counseling and a coffee shop, as a permitted lodging facility in a C-4 commercial zone and validly granted dimensional and parking variances plus a special exception.
 - CourtListener: https://www.courtlistener.com/?q=%22710%20A.2d%20653%22
 - Quotes:
@@ -466,7 +466,7 @@ louis p. vitti, an individual and louis p. vitti & associates p.c., appellants, 
 - Decide: **who_was_letting**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=householder duration_of_occupancy=nights characterization=innkeeping under_thirty_days=yes owner_freedom_characterization=regulable_privilege restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=innkeeping
 - Holding: An inn and tavern license in a township was set aside because the applicant lacked the statutorily required house room, stabling and provender; a place with the characteristics of a saloon rather than an inn accommodating travelers cannot be licensed.
 - CourtListener: https://www.courtlistener.com/?q=%2291%20N.J.L.%20409%22
 - Quotes:
@@ -487,8 +487,8 @@ wallace lanning, prosecutor, v. harry cohen et al., respondents. argued february
 - Decide: **relevant**
 - Other reasons: gate_erased
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=months characterization=lodging under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
-- **Reader says True; checker says null**
+- Checker: relevant=False polarity=null characterization=null
+- **Reader says True; checker says False**
 - Nulled by the quote gate: under_thirty_days
 - Holding: Conviction of a college for violating an ordinance regulating buildings converted to dormitory/rooming-house use was set aside because the complaint and proof failed to allege the essential element that the building was other than fireproof construction.
 - CourtListener: https://www.courtlistener.com/?q=%22136%20N.J.L.%20469%22
@@ -509,8 +509,8 @@ township of teaneck, george m. cady, complainant-respondent, v. junior college o
 - Decide: **characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=householder duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=incident_of_ownership restriction_nature=zoning
-- Checker: relevant=null polarity=null characterization=null
-- **Reader says lease; checker says null**
+- Checker: relevant=True polarity=favorable characterization=other
+- **Reader says lease; checker says other**
 - Holding: A Santa Monica ordinance permitting second units only if occupied by the owner, a dependent, or a caregiver—and barring rental to others—violated the state constitutional right of privacy and equal protection; the occupancy limitation was severed and enjoined.
 - CourtListener: https://www.courtlistener.com/?q=%2288%20Cal.%20App.%204th%20451%22
 - Quotes:
@@ -530,8 +530,8 @@ township of teaneck, george m. cady, complainant-respondent, v. junior college o
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
-- **Reader says favorable; checker says null**
+- Checker: relevant=True polarity=favorable characterization=lease
+- **Reader says favorable; checker says favorable**
 - Holding: A foster daughter is a member of the landlord's immediate family, so the landlord may recover possession under the Housing and Rent Act; the court construed the statute so as to preserve the owner's free use of his property.
 - CourtListener: https://www.courtlistener.com/?q=%2226%20N.J.%20Misc.%20300%22
 - Quotes:
@@ -551,8 +551,8 @@ district court of the second judicial district of the county of union. carmine c
 - Decide: **relevant**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=months characterization=lodging under_thirty_days=unclear owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
-- **Reader says True; checker says null**
+- Checker: relevant=False polarity=null characterization=null
+- **Reader says True; checker says False**
 - Holding: In holdover proceedings against social-service licensees occupying space in an SRO hotel, the court held the services were 'required services' under the hotel stabilization code that the landlord could not curtail, and dismissed the petitions.
 - CourtListener: https://www.courtlistener.com/?q=%22111%20Misc.%202d%20791%22
 - Quotes:
@@ -570,8 +570,8 @@ saljen realty corp., petitioner, v human resources administration crisis interve
 - Decide: **polarity**
 - Other reasons: polarity_mixed, gate_erased
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lodging under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
-- **Reader says mixed; checker says null**
+- Checker: relevant=True polarity=adverse characterization=innkeeping
+- **Reader says mixed; checker says adverse**
 - Nulled by the quote gate: under_thirty_days
 - Holding: In a nonpayment proceeding the court held the landlord may rely on the building's existing DHCR classification as a 'hotel' and need not prove hotel services in its prima facie case, but factual issues remain on whether the apartment is rent stabilized.
 - CourtListener: https://www.courtlistener.com/?q=%22162%20Misc.%202d%201%22
@@ -590,8 +590,8 @@ saljen realty corp., petitioner, v human resources administration crisis interve
 - Decide: **relevant**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
-- **Reader says True; checker says null**
+- Checker: relevant=True polarity=null characterization=lease
+- **Reader says True; checker says True**
 - Holding: Owner of two two-family houses who had rented out her own flat may recover possession for immediate personal occupancy under the rent regulation; the fact that her necessity was self-created is no bar as a matter of law.
 - CourtListener: https://www.courtlistener.com/?q=%22187%20Misc.%20890%22
 - Quotes:
@@ -609,8 +609,8 @@ charlotte c. dager, landlord, v. lynn leonard, tenant. municipal court of the ci
 - Decide: **relevant**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
-- **Reader says True; checker says null**
+- Checker: relevant=False polarity=null characterization=null
+- **Reader says True; checker says False**
 - Holding: The city rent commission acted arbitrarily in refusing an owner a certificate of eviction for his own occupancy; it could not by local law or regulation impose an 'immediate and compelling necessity' requirement beyond the statute.
 - CourtListener: https://www.courtlistener.com/?q=%22191%20Misc.%20704%22
 - Quotes:
@@ -628,8 +628,8 @@ in the matter of roy t. olsen, petitioner, against paul l. ross et al., constitu
 - Decide: **characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=months characterization=other under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
-- **Reader says other; checker says null**
+- Checker: relevant=True polarity=adverse characterization=innkeeping
+- **Reader says other; checker says innkeeping**
 - Holding: Federal rent legislation did not preempt local rent control over hotel accommodations; the city rent commission retains jurisdiction over the rents of a residential hotel occupied largely by nontransient tenants.
 - CourtListener: https://www.courtlistener.com/?q=%22196%20Misc.%20610%22
 - Quotes:
@@ -649,8 +649,8 @@ in the matter of coronet hotel corporation, petitioner, against charles g. coste
 - Decide: **relevant**
 - Other reasons: fuzzy_quote
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
-- **Reader says True; checker says null**
+- Checker: relevant=False polarity=null characterization=null
+- **Reader says True; checker says False**
 - Holding: The Rent Administrator's prior-opinion order and conditional eviction certificate letting the landlord force heating improvements and rent increases on unwilling tenants were annulled as beyond his power and arbitrary.
 - CourtListener: https://www.courtlistener.com/?q=%22208%20Misc.%20342%22
 - Quotes:
@@ -672,8 +672,8 @@ in the matter of john heissenbuttal et al., petitioners, against charles abrams,
 - Decide: **relevant**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
-- **Reader says True; checker says null**
+- Checker: relevant=False polarity=null characterization=null
+- **Reader says True; checker says False**
 - Holding: The Administrator's determination that a psychologist's combined residence and office was exempt from rent control lacked proof of comparative rental values; the tenant's lease recitals could not waive rent-law protection, and the matter was remanded.
 - CourtListener: https://www.courtlistener.com/?q=%2226%20Misc.%202d%20334%22
 - Quotes:
@@ -693,7 +693,7 @@ in the matter of rosetta hurwitz, petitioner, v. joseph j. capeta, as state rent
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=months characterization=lodging under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=other
 - **Reader says favorable; checker says null**
 - Holding: A Class B multiple dwelling's occupancy classification turns on how the building is actually primarily occupied, not on the certificate of occupancy; because the hotel was occupied by permanent tenants and students on a month-to-month or longer basis it was properly J-2 rather than J-1, escaping heightened transient fire-safety requirements.
 - CourtListener: https://www.courtlistener.com/?q=%22214%20A.D.2d%20467%22
@@ -712,8 +712,8 @@ greystone hotel co. et al., respondents, v city of new york board of standards a
 - Decide: **relevant**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
-- **Reader says True; checker says null**
+- Checker: relevant=False polarity=null characterization=null
+- **Reader says True; checker says False**
 - Holding: The court annulled the denial of a J51 tax abatement, holding the owner's mixed store-and-apartment building qualified as an 'existing dwelling' and was neither a private dwelling nor nonresidential.
 - CourtListener: https://www.courtlistener.com/?q=%2264%20Misc.%202d%20991%22
 - Quotes:
@@ -731,7 +731,7 @@ in the matter of martell's restaurant corporation, petitioner, v. housing and de
 - Decide: **characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - **Reader says lease; checker says null**
 - Holding: The court affirmed possession for the landlord, holding a corporate tenant occupying an apartment solely as offices is not within section 13 of the rent regulations because a 'housing accommodation' is one occupied by individuals as a residence.
 - CourtListener: https://www.courtlistener.com/?q=%2274%20Misc.%202d%20760%22

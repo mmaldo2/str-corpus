@@ -10,7 +10,7 @@
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: A city ordinance requiring smoke detectors in apartments was ambiguous as to whether it incorporated the national standard in full, and was construed in the landlord's favor, defeating negligence per se; common-law negligence claims against the landlord nevertheless remained for trial.
 - CourtListener: https://www.courtlistener.com/?q=%22138%20Ohio%20App.%203d%20353%22
 - Quotes:
@@ -30,7 +30,7 @@ shump, admr., appellant, v. first continental-robinwood associates et al., appel
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=lease
 - Holding: A seasonal letting of a furnished seashore house carries an implied agreement that it is fit for immediate occupancy, but the warranty covers only conditions existing at the beginning of the term; the tenant failed to prove the beetle infestation existed then, and the fire/unavoidable casualty clause did not apply absent physical damage. Judgment for the lessor.
 - CourtListener: https://www.courtlistener.com/?q=%22320%20Mass.%20629%22
 - Quotes:
@@ -48,7 +48,7 @@ mary m. davenport vs. charles g. squibb. middlesex. december 6, 1946. - january 
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=null
 - Holding: A tenant displaced by zoning-ordinance enforcement of an illegal apartment was at most entitled to $200 under the 1967 Relocation Assistance Law, and she waived that entitlement by settling and accepting $1,000 from her landlord.
 - CourtListener: https://www.courtlistener.com/?q=%22270%20N.J.%20Super.%20417%22
 - Quotes:
@@ -68,7 +68,7 @@ mary m. davenport vs. charles g. squibb. middlesex. december 6, 1946. - january 
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=other
 - Holding: Res judicata barred the tenant from relitigating the unconscionability of the $1350 rent already adjudicated in an earlier dispossess action, so that rent stands; but the court abated the rent by $500 per month for breach of the implied covenant of habitability and allowed the tenant credits for repairs.
 - CourtListener: https://www.courtlistener.com/?q=%22267%20N.J.%20Super.%20213%22
 - Quotes:
@@ -88,7 +88,7 @@ mary m. davenport vs. charles g. squibb. middlesex. december 6, 1946. - january 
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=lease
 - Holding: A new tenant does not get a fresh two-year period to challenge a rent increase under the Jersey City rent leveling ordinance; the $450 rent charged was lawful.
 - CourtListener: https://www.courtlistener.com/?q=%22296%20N.J.%20Super.%20191%22
 - Quotes:
@@ -108,7 +108,7 @@ mary m. davenport vs. charles g. squibb. middlesex. december 6, 1946. - january 
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: Under the Rent Withholding Act an owner of a six-unit apartment house could not recover rents paid into escrow because the premises were never certified fit for human habitation, but the court held the withholding remedy is limited to six months and does not let tenants occupy indefinitely.
 - CourtListener: https://www.courtlistener.com/?q=%22216%20Pa.%20Super.%2050%22
 - Quotes:
@@ -128,7 +128,7 @@ klein, appellant, v. allegheny county health department. argued november 10, 196
 - Decide: **polarity**
 - Other reasons: gate_erased
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=lodging under_thirty_days=null owner_freedom_characterization=commercial_use restriction_nature=tax
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=other
 - Nulled by the quote gate: under_thirty_days
 - Holding: A corporation providing a home for working girls at moderate cost, including incidental temporary shelter to other women, is a charitable institution whose property is exempt from taxation; the occupation of the property is that of the corporation, not of the inmates.
 - CourtListener: https://www.courtlistener.com/?q=%22188%20Mass.%20409%22
@@ -149,7 +149,7 @@ franklin square house vs. city of boston. suffolk. march 9, 1905. -june 21, 1905
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=mixed characterization=lease
 - Holding: A mobile home park rent leveling ordinance was upheld as facially valid, including its base-rent definition and retroactive base provisions, but the section conditioning any rent increase on certified compliance with state, county and local codes was struck down as an unauthorized penalty.
 - CourtListener: https://www.courtlistener.com/?q=%22146%20N.J.%20Super.%20138%22
 - Quotes:
@@ -167,7 +167,7 @@ modular concepts, inc., a new jersey corporation, plaintiff-appellant and cross-
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: A municipal rent control ordinance provision conditioning a landlord's right to a tax surcharge on being current in taxes was invalid as arbitrary and preempted. The court reaffirmed municipalities' general power to enact rent control ordinances subject to a fair return.
 - CourtListener: https://www.courtlistener.com/?q=%22150%20N.J.%20Super.%20448%22
 - Quotes:
@@ -187,7 +187,7 @@ dome realty, inc., et al., plaintiffs-respondents, v. city of paterson et al., d
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: The 5% cap in the township's rent control ordinance was upheld as constitutional, but the tax surcharge provisions were construed to let the landlord pass through the cumulative tax increases since the ordinance's enactment rather than only the prior year's increase.
 - CourtListener: https://www.courtlistener.com/?q=%22140%20N.J.%20Super.%20220%22
 - Quotes:
@@ -207,7 +207,7 @@ apartment management company, plaintiff-appellant, v. township committee of the 
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=null
 - Holding: The court sustained a municipal rent leveling ordinance against tenant attack, upholding both the rent-increase formula and the vacancy decontrol and new-construction exemption provisions.
 - CourtListener: https://www.courtlistener.com/?q=%22180%20N.J.%20Super.%20128%22
 - Quotes:
@@ -225,7 +225,7 @@ wayne tenants council, an unincorporated association, plaintiff, v. mayor and co
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: Under the Atlantic City rent control ordinance the landlord may surcharge tenants the full tax increase over the 1972 base year, but the surcharge for a lease year beginning June 1978 must be measured by 1978 taxes.
 - CourtListener: https://www.courtlistener.com/?q=%22168%20N.J.%20Super.%20576%22
 - Quotes:
@@ -245,7 +245,7 @@ warwick raleigh company, plaintiff-respondent, bally warwick, inc., intervenor-r
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=householder duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=null
 - Holding: Rent regulation protects only a tenant occupying the premises as his own dwelling; a tenant who sublet the whole apartment at more than the legal rent is not protected, and the landlord's proceeding was reinstated.
 - CourtListener: https://www.courtlistener.com/?q=%22186%20Misc.%20211%22
 - Quotes:
@@ -263,7 +263,7 @@ warwick raleigh company, plaintiff-respondent, bally warwick, inc., intervenor-r
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=nights characterization=innkeeping under_thirty_days=yes owner_freedom_characterization=regulable_privilege restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=innkeeping
 - Holding: The licensed innholder statutes penalizing knowing permission of immoral use of hotel rooms and false registration are valid regulations, but scienter is an element; the evidence of the proprietor's knowledge was as consistent with innocence as guilt, so verdicts should have been directed for him.
 - CourtListener: https://www.courtlistener.com/?q=%22317%20Mass.%20270%22
 - Quotes:
@@ -283,7 +283,7 @@ commonwealth vs. philip altenhaus. same vs. same. bristol. october 25, 1944. nov
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: The court found the tenants substantially breached lease clauses limiting occupancy to named persons and barring subletting by housing unauthorized occupants. Nonetheless it dismissed the eviction complaint without prejudice because only six days separated the notice to cease from the notice to quit, an unreasonably short period to cure.
 - CourtListener: https://www.courtlistener.com/?q=%22357%20N.J.%20Super.%20598%22
 - Quotes:
@@ -303,7 +303,7 @@ commonwealth vs. philip altenhaus. same vs. same. bristol. october 25, 1944. nov
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=householder duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: A tenant's subletting of garage space was not prohibited by the lease, and in any event the owner waived the restriction by accepting rent for a year and a half with knowledge of the subletting; the holdover proceeding failed.
 - CourtListener: https://www.courtlistener.com/?q=%22207%20Misc.%20707%22
 - Quotes:
@@ -323,7 +323,7 @@ moses werber, landlord, v. thelma weinstein, tenant, and " johh doe ", undertena
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=other under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=other
 - Holding: A town ordinance licensing trailer parks at $3.50 per trailer per month is a valid exercise of the police power and not a tax, but the Tax Law provision assessing occupants' trailers as real property to the landowner is unconstitutional.
 - CourtListener: https://www.courtlistener.com/?q=%2212%20Misc.%202d%20285%22
 - Quotes:
@@ -345,7 +345,7 @@ leona m. barnes, suing on behalf of herself and all other persons, operators or 
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=lodging under_thirty_days=unclear owner_freedom_characterization=regulable_privilege restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lodging
 - Holding: Lodging and boarding houses in a municipality accepting G. L. c. 148, s. 26H, must install automatic sprinkler systems, but the 1989 amendment gave a five-year grace period from local acceptance, so the injunction and contempt order against the boarding house owners were reversed.
 - CourtListener: https://www.courtlistener.com/?q=%2230%20Mass.%20App.%20Ct.%20128%22
 - Quotes:
@@ -363,7 +363,7 @@ chief of the fire department of lynn vs. leo allard & another.1 no. 90-p-31. ess
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=null
 - Holding: In a tenant's action for rent-control overcharges, a record titleholder whose deed was in substance a mortgage and who neither controlled the premises nor received rent was not a 'landlord' liable under the federal Housing and Rent Act.
 - CourtListener: https://www.courtlistener.com/?q=%22100%20Ohio%20App.%20116%22
 - Quotes:
@@ -383,7 +383,7 @@ king, appellant, v. loren et al., appellees. (no. 5107 decided february 11, 1955
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=null
 - Holding: The tenant of a residence who sublet rooms to roomers could not be evicted on a notice served before the end of the month for which rent had been paid, so the eviction judgment was reversed. The court also held that once an OPA certificate of eviction issues, the landlord need not prove the underlying breach and the certificate's issuance is not reviewable.
 - CourtListener: https://www.courtlistener.com/?q=%2250%20Ohio%20Law%20Abs.%20233%22
 - Quotes:
@@ -405,7 +405,7 @@ hile, plaintiff-appellee, v. besecker, defendant-appellant. ohio appeals, second
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=weeks characterization=lease under_thirty_days=yes owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: A week-to-week roomer in a converted rooming house was held exempt from ETPA rent stabilization because the building was substantially rehabilitated, and the landlord obtained possession; but the landlord was barred from recovering rent absent a proper certificate of occupancy and was liable for consequential damages for breach of the warranty of habitability.
 - CourtListener: https://www.courtlistener.com/?q=%22100%20Misc.%202d%20881%22
 - Quotes:
@@ -427,7 +427,7 @@ david goodman et al., petitioners, v victor a. ramirez, respondent. civil court 
 - Decide: **polarity**
 - Other reasons: gate_erased
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=unclear characterization=lease under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=nuisance
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Nulled by the quote gate: under_thirty_days
 - Holding: Indictment charging an owner with letting a tenement to be used for prostitution was arrested for failure to allege a day certain and the lessee's name. The statute criminalizing such letting is assumed valid, but the defendant owner prevailed on pleading grounds.
 - CourtListener: https://www.courtlistener.com/?q=%2265%20Mass.%20600%22
@@ -446,7 +446,7 @@ commonwealth vs. charles moore. an indictment for letting a tenement, to be used
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=weeks characterization=other under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=lease
 - Holding: A condominium association may condition transfer of a unit on its approval, but must exercise that power reasonably and non-discriminatorily; here its refusal to approve transfers of quarter interests to four families who would occupy the unit successively in thirteen-week periods was unreasonable as a matter of law, particularly since the bylaws already permitted rentals of ninety days or more. The transfers were upheld.
 - CourtListener: https://www.courtlistener.com/?q=%22119%20Cal.%20App.%203d%20670%22
 - Quotes:
@@ -468,7 +468,7 @@ commonwealth vs. charles moore. an indictment for letting a tenement, to be used
 - Decide: **polarity**
 - Other reasons: gate_erased, fuzzy_quote
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=unclear characterization=lease under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=nuisance
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Holding: Under the Red-light Abatement Act the owner's building could be closed as a nuisance for immoral use by tenants, but where the owner in good faith evicted the occupants and abated the nuisance before suit, the action could not be maintained and the closing decree was reversed.
 - CourtListener: https://www.courtlistener.com/?q=%2247%20Cal.%20App.%20730%22
@@ -493,7 +493,7 @@ commonwealth vs. charles moore. an indictment for letting a tenement, to be used
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=commercial_use restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=null
 - Holding: Rent of a dwelling-house occupied by a debtor and his family is a claim for necessaries not barred by a discharge in insolvency. The court distinguishes the hire of a boarding-house, which is a business undertaking for gain and therefore not a necessary.
 - CourtListener: https://www.courtlistener.com/?q=%2283%20Mass.%20219%22
 - Quotes:
@@ -511,7 +511,7 @@ luther v. bell vs. james s. tuttle. tool to st. 1859, c. 127, a discharge in ins
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: The city's mobilehome space rent control ordinance is not preempted by state law and, construed to allow a fair return on the value of the property, is facially valid. But the provision granting park residents a preemptive right to purchase the park is an unconstitutional taking of the owner's right to dispose of his property.
 - CourtListener: https://www.courtlistener.com/?q=%22142%20Cal.%20App.%203d%2072%22
 - Quotes:
@@ -533,7 +533,7 @@ luther v. bell vs. james s. tuttle. tool to st. 1859, c. 127, a discharge in ins
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=unclear characterization=lease under_thirty_days=unclear owner_freedom_characterization=regulable_privilege restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: Statute made an owner criminally liable for failing to eject a tenant using the let premises for illegal liquor sales, but the indictment charged letting a whole building while the proof showed only a separate tenement within it; the variance was fatal and a new trial ordered.
 - CourtListener: https://www.courtlistener.com/?q=%22112%20Mass.%20277%22
 - Quotes:
@@ -551,7 +551,7 @@ commonwealth vs. patrick bossidy. an indictment on the gen. sts. c. 87, § 9, ch
 - Decide: **polarity**
 - Other reasons: gate_erased
 - Reader: relevant=True polarity=mixed who_was_letting=householder duration_of_occupancy=unclear characterization=lodging under_thirty_days=unclear owner_freedom_characterization=commercial_use restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=null
 - Nulled by the quote gate: restriction_nature
 - Holding: Groceries consumed in common by a debtor's family and his two to five boarders were not "necessaries furnished to the debtor or his family" excepted from an insolvency discharge, because boarders are not of the debtor's family. The court treats keeping boarders in one's own dwelling as an assumed lawful but business-like activity distinct from family support.
 - CourtListener: https://www.courtlistener.com/?q=%2289%20Mass.%20264%22
@@ -572,7 +572,7 @@ james b. lincoln & another vs. augustus l. dunbar. if articles which are in thei
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: The landlord recovered possession after valid notice of termination, but the lease clause shifting all legal expenses to the tenant was held unenforceable as an unbargained-for, oppressive form-lease term.
 - CourtListener: https://www.courtlistener.com/?q=%2211%20Pa.%20D.%20%26%20C.3d%20791%22
 - Quotes:
@@ -592,7 +592,7 @@ parkview court apartments v. carr april 4, 1979 timothy f. sullivan, for plainti
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=lease
 - Holding: Both post-trial motions were denied: the jury's verdict for the tenant on the landlord's breach of an express covenant to repair stood alongside the verdict for the landlord on his counterclaim for back rent and damage, and the tenant waived any reliance on the newly announced implied warranty of habitability.
 - CourtListener: https://www.courtlistener.com/?q=%2213%20Pa.%20D.%20%26%20C.3d%20427%22
 - Quotes:
@@ -612,7 +612,7 @@ bender v. seletski mark a. peleak, for plaintiff. george r. seletski, pro se. de
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=lease
 - Holding: The rent control board's finding that the landlord acquiesced in chronically late rent payments was unsupported by substantial evidence, and chronic late payment is 'just cause' warranting a certificate of eviction. The board's denial was annulled and remanded, though the landlord's right to evict remains conditioned on board approval under the rent control by-law.
 - CourtListener: https://www.courtlistener.com/?q=%223%20Mass.%20Supp.%20569%22
 - Quotes:
@@ -632,7 +632,7 @@ leonard kahn1 vs. brookline rent control board, et al2 no. 297 district court, n
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=mixed characterization=null
 - Holding: Subdividing one existing apartment into two after 1969 produced only one newly constructed unit for purposes of the Brookline rent control exemption. One of the two units is exempt; the other remains subject to rent and eviction control.
 - CourtListener: https://www.courtlistener.com/?q=%223%20Mass.%20Supp.%20235%22
 - Quotes:
@@ -652,7 +652,7 @@ william nitkin, trustee, plaintiff v. brookline rent control board, paul nitkin 
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=lease
 - Holding: The court upheld a cooperative board's power to condition subletting on a sublet fee and legal-fee escrow, but on equitable grounds permanently enjoined termination of the shareholders' proprietary lease for the default.
 - CourtListener: https://www.courtlistener.com/?q=%2297%20A.D.2d%20736%22
 - Quotes:
@@ -672,7 +672,7 @@ jeffrey i. zuckerman et al., appellants, v 33072 owners corp., respondent. order
 - Decide: **polarity**
 - Other reasons: gate_erased
 - Reader: relevant=True polarity=mixed who_was_letting=householder duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=zoning
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Holding: The Town of Brookhaven's zoning definition of "family" is facially unconstitutional because it excludes surrogate families, so it cannot bar the plaintiffs' use of their house. The court nevertheless noted that a properly drafted ordinance could restrict the plaintiffs' boarding-house-like use.
 - CourtListener: https://www.courtlistener.com/?q=%22137%20A.D.2d%20472%22
@@ -691,7 +691,7 @@ second department, february, 1988 (february 1, 1988) roseann baer et al., appell
 - Decide: **polarity**
 - Other reasons: -
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Holding: An agreement letting tenants pay an above-legal rent for a stabilized apartment in exchange for permission to use it as a non-primary second home is void as against public policy and unenforceable by either party.
 - CourtListener: https://www.courtlistener.com/?q=%2210%20N.Y.3d%2018%22
 - Quotes:
@@ -711,7 +711,7 @@ second department, february, 1988 (february 1, 1988) roseann baer et al., appell
 - Decide: **polarity**
 - Other reasons: fuzzy_quote
 - Reader: relevant=True polarity=mixed who_was_letting=commercial_operator duration_of_occupancy=months characterization=other under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=zoning
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=other
 - Holding: The court upheld the board of aldermen's grant of a special permit allowing a single-family residence in a single-residence district to house up to nine high-school students supervised by an adult couple, charged only actual cost of room and board. The group qualified as an 'association of persons living together in a common dwelling,' but the use was allowed only under detailed conditions, personal to the permittee and renewable at the board's discretion.
 - CourtListener: https://www.courtlistener.com/?q=%22361%20Mass.%20758%22
 - Quotes:

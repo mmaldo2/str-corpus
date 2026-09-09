@@ -10,7 +10,7 @@
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=householder duration_of_occupancy=unclear characterization=lease under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: In enforcing a restrictive covenant against subdivision, the court held that an owner's rental of part of his own house and carriage house to tenants did not change the residential character of the property and did not constitute unclean hands or a change of circumstances barring enforcement.
@@ -30,7 +30,7 @@ john h. grady et al. v. robert a. schmitz et al. (5716) borden, daly and norcott
 - Decide: **characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=householder duration_of_occupancy=unclear characterization=null under_thirty_days=null owner_freedom_characterization=commercial_use restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=other
 - Nulled by the quote gate: characterization, under_thirty_days
 - Erased value for characterization (the reader's answer before the quote gate nulled it): null
 - Holding: Displaced beach homeowners were entitled to owner-level relocation benefits, but the agency did not abuse its discretion in denying business relocation payments to those renting out rooms, because the room-renting did not contribute materially to their income.
@@ -48,7 +48,7 @@ john h. grady et al. v. robert a. schmitz et al. (5716) borden, daly and norcott
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=lease under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=lease
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A lessee of rooms in a San Francisco 'segregated district,' who leased with the lessor's knowledge that the rooms would be sublet to prostitutes, could not obtain cancellation or rent reduction after the police abolished the district. The court held the parties to an admittedly immoral letting arrangement had no standing in law or equity.
@@ -68,7 +68,7 @@ john h. grady et al. v. robert a. schmitz et al. (5716) borden, daly and norcott
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: The Tenement House Act of 1911, regulating the construction and occupation of tenement houses and forbidding occupancy of newly constructed tenements until a health-department certificate issues, was upheld as a valid police-power regulation. Different requirements for existing and future tenements were held a permissible classification.
@@ -88,7 +88,7 @@ john h. grady et al. v. robert a. schmitz et al. (5716) borden, daly and norcott
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=lease under_thirty_days=null owner_freedom_characterization=not_addressed restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=lease
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: The lessee-operator of an apartment house with single rooms, evicted when the health department condemned the building as unfit for human habitation, could not recover damages from the lessor's grantee: there was no express or implied warranty of habitability, and the statutory remedies of sections 1941-1942 were not invoked.
@@ -108,7 +108,7 @@ john h. grady et al. v. robert a. schmitz et al. (5716) borden, daly and norcott
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=unclear characterization=lease under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=lease
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A lessee of a house who underlet part of it did not forfeit his lease under the liquor nuisance statute when the undertenant used the underlet portion for illegal liquor sales without the lessee's knowledge. The lessee's right to underlet was undisputed.
@@ -128,7 +128,7 @@ maurice o'connell vs. john m'grath. the nse of a portion of leased premises for 
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=unclear characterization=lease under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: An owner who leased premises knowing the lessee intended illegal liquor sales commits only the separate statutory offence of aiding a nuisance and cannot be indicted for keeping and maintaining the tenement. Letting is not itself keeping; the court refused to extend the nuisance statute to the act of letting.
@@ -148,7 +148,7 @@ commonwealth vs. george churchill & another. plymouth. oct. 16. nov. 30, 1883. f
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=null who_was_letting=commercial_operator duration_of_occupancy=weeks characterization=lodging under_thirty_days=yes owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=null
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: A room in a boarding hotel occupied by a paying resident for a week or two is an 'inhabited dwelling house' for purposes of the residential robbery and burglary statutes; hotel rooms have historically been included within the definition of a dwelling house.
@@ -170,7 +170,7 @@ commonwealth vs. george churchill & another. plymouth. oct. 16. nov. 30, 1883. f
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=null who_was_letting=commercial_operator duration_of_occupancy=nights characterization=lodging under_thirty_days=yes owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=lodging
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: Plaintiffs failed to prove entitlement to 375 units of comparable replacement housing under the Relocation Assistance Act after a law school acquired residential hotels; the judgment ordering such housing was reversed for lack of supporting evidence, in part because hotel ledgers showed highly transient, short-term occupancy.
@@ -192,7 +192,7 @@ commonwealth vs. george churchill & another. plymouth. oct. 16. nov. 30, 1883. f
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=null who_was_letting=householder duration_of_occupancy=weeks characterization=lodging under_thirty_days=yes owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=lease
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: Owner of a furnished five-room cottage swore a complaint against a short-term occupant who left after about two weeks without paying roughly $15 for accommodations; the court held that because the sworn facts were true and charged no crime, no action for malicious prosecution lay, and affirmed the new trial order. The opinion discusses Penal Code section 537 (defrauding an innkeeper, lodging house or furnished apartment house) but does not rule on the owner's right to let.
@@ -214,7 +214,7 @@ commonwealth vs. george churchill & another. plymouth. oct. 16. nov. 30, 1883. f
 - Decide: **characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=null who_was_letting=householder duration_of_occupancy=months characterization=null under_thirty_days=no owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=other
 - Nulled by the quote gate: characterization, owner_freedom_characterization
 - Erased value for characterization (the reader's answer before the quote gate nulled it): null
 - Holding: The court refused to enforce an alleged oral promise to devise property in exchange for care, finding instead that the parties' actual arrangement was that the claimant furnished food and care to the householder in return for occupying his home rent free. The statute of frauds barred relief.
@@ -232,7 +232,7 @@ commonwealth vs. george churchill & another. plymouth. oct. 16. nov. 30, 1883. f
 - Decide: **characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=months characterization=null under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=null
 - Nulled by the quote gate: characterization
 - Erased value for characterization (the reader's answer before the quote gate nulled it): null
 - Holding: A rent control ordinance may permanently bar unregistered landlords and their successors from recapturing annual general rent adjustments forfeited by prior nonregistration, so long as the ordinance permits an individual rent adjustment ensuring a fair return on investment.
@@ -252,7 +252,7 @@ commonwealth vs. george churchill & another. plymouth. oct. 16. nov. 30, 1883. f
 - Decide: **under_thirty_days**
 - Other reasons: fuzzy_quote
 - Reader: relevant=True polarity=favorable who_was_letting=householder duration_of_occupancy=unclear characterization=lease under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=favorable characterization=other
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: The state 'granny flat' statute compels a city to process and approve conditional use permits for second rental units in single-family zones; Laguna Beach could not require extra parking or use bureaucratic obstruction to defeat owners' right to legalize and rent second units.
@@ -278,7 +278,7 @@ commonwealth vs. george churchill & another. plymouth. oct. 16. nov. 30, 1883. f
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=lease under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=licensing
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: Hotel owners who leased the hotel to operators bore the cost of correcting structural defects—unvented water heater and defective wiring—required by the State Fire Marshal and city safety regulations, since the lease excused lessees from structural repairs.
@@ -298,7 +298,7 @@ commonwealth vs. george churchill & another. plymouth. oct. 16. nov. 30, 1883. f
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=months characterization=lease under_thirty_days=no owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=lease
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: After the landlord obtained a writ of restitution and the tenant vacated and the lease term expired, the tenant's appeal challenging the court's refusal to consider her R.C. 1923.061 offset was dismissed as moot; the landlord's recovery of possession stood.
@@ -318,7 +318,7 @@ schwab, appellee, v. lattimore, appellant. [cite as schwab v. lattimore, 166 ohi
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=innkeeping under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A proposed law barring young women from Chinese-kept hotels and restaurants would violate equal protection and is not a proper exercise of the police power; hotel keeping is a lawful business entitled to the protection of the laws.
@@ -338,7 +338,7 @@ opinion of the justices to the house of representatives. a statute, which should
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=non_resident_owner duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=not_addressed restriction_nature=other
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=other
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A testamentary permission to a beneficiary to 'occupy and enjoy the use' of property is personal and does not authorize him to let the premises to tenants; the privilege is inalienable and unreachable by creditors, though the income alternative is reachable.
@@ -358,7 +358,7 @@ mary a. cashman vs. edward a. bangs & others. suffolk. december 3, 1908. january
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=innkeeping under_thirty_days=null owner_freedom_characterization=commercial_use restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: Preliminary injunction against the City's practice of referring homeless families to Midtown South hotels was denied; the hotels' willingness to accept such guests was ordinary hotel business and no SEQRA 'action' or policy was shown.
@@ -378,7 +378,7 @@ midtown south preservation and development committee et al., respondents, v city
 - Decide: **characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=non_resident_owner duration_of_occupancy=months characterization=null under_thirty_days=null owner_freedom_characterization=incident_of_ownership restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=lease
 - Nulled by the quote gate: characterization, under_thirty_days
 - Erased value for characterization (the reader's answer before the quote gate nulled it): null
 - Holding: The owner of a condominium legally converted under TORCA may evict a nonparticipating tenant for owner occupancy; the rent control provision barring such evictions applies only to illegally converted units, and a Board regulation barring a second eviction attempt for four years after voluntary dismissal is invalid.
@@ -398,7 +398,7 @@ midtown south preservation and development committee et al., respondents, v city
 - Decide: **characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=months characterization=null under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=zoning
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: characterization, under_thirty_days
 - Erased value for characterization (the reader's answer before the quote gate nulled it): null
 - Holding: The zoning board acted within its discretion in denying a permit to add fourteen mobile home units to an existing sixty-five-unit park; concern for increased density justified denying expansion of the lawfully nonconforming rental use.
@@ -416,7 +416,7 @@ shirley wayside limited partnership vs. board of appeals of shirley. no. 09-p-13
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=favorable who_was_letting=commercial_operator duration_of_occupancy=nights characterization=other under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=zoning
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=innkeeping
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: The town's zoning by-law permitting motels only after planning board site plan review and approval was an invalid delegation of zoning power, since only the board of appeals or selectmen may grant special permits under G. L. c. 40A, § 4; the motel permits and the by-law sections were declared invalid.
@@ -436,7 +436,7 @@ helen stevens coolidge & others vs. planning board of north andover & others. es
 - Decide: **characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=months characterization=null under_thirty_days=no owner_freedom_characterization=regulable_privilege restriction_nature=tenant_protection
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=other
 - Nulled by the quote gate: characterization
 - Erased value for characterization (the reader's answer before the quote gate nulled it): null
 - Holding: The court upheld the validity of St. 1985, c. 703, authorizing the town of Middleborough to regulate mobile home park rents and evictions, rejecting the park owner's challenges based on lack of local emergency declaration and absence of an implementing by-law.
@@ -460,7 +460,7 @@ richard j. civitarese, trustee,1 vs. town of middleborough & others.2 plymouth. 
 - Decide: **owner_freedom_characterization**
 - Other reasons: -
 - Reader: relevant=True polarity=null who_was_letting=commercial_operator duration_of_occupancy=nights characterization=lodging under_thirty_days=yes owner_freedom_characterization=null restriction_nature=null
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=null characterization=other
 - Nulled by the quote gate: owner_freedom_characterization
 - Erased value for owner_freedom_characterization (the reader's answer before the quote gate nulled it): null
 - Holding: A motel room is a 'dwelling house' within the burglary statute because a motel, like a hotel or boarding house, is a place of habitation.
@@ -482,7 +482,7 @@ commonwealth vs. steven d. correia. bristol. october 17, 1983. - december 14, 19
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=householder duration_of_occupancy=months characterization=lease under_thirty_days=null owner_freedom_characterization=commercial_use restriction_nature=tax
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=False polarity=null characterization=null
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A disabled veteran's surviving spouse is entitled to a 50% exemption on the dwelling and curtilage only; a second dwelling on the parcel rented to third parties (and lately to a granddaughter) is not part of the exempt curtilage.
@@ -500,7 +500,7 @@ joan hays, plaintiff, v. paramus borough, defendant. tax court of new jersey dec
 - Decide: **under_thirty_days**
 - Other reasons: -
 - Reader: relevant=True polarity=adverse who_was_letting=commercial_operator duration_of_occupancy=unclear characterization=other under_thirty_days=null owner_freedom_characterization=regulable_privilege restriction_nature=nuisance
-- Checker: relevant=null polarity=null characterization=null
+- Checker: relevant=True polarity=adverse characterization=other
 - Nulled by the quote gate: under_thirty_days
 - Erased value for under_thirty_days (the reader's answer before the quote gate nulled it): null
 - Holding: A preliminary injunction under the State Housing Act compelling the owner of rented apartments and sleeping rooms to abate insanitary conditions, add toilets and baths, relocate partitions and provide ventilation was affirmed. The court held the Legislature may declare certain uses of property to be nuisances and that the housing shortage did not excuse violations.
