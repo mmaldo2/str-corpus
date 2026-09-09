@@ -39,7 +39,7 @@ import copy
 from dataclasses import dataclass
 from typing import Mapping, Sequence
 
-from corpus_engine.ledger.fold import FLAG_PREFIX
+from corpus_engine.ledger.fold import FLAG_PREFIX, JUDGED_DEFAULT
 from corpus_engine.ledger.types import Basis, Patch
 # The section-G card's shape belongs to the queue that renders it (T7). Imported rather than
 # re-spelled here: one shape, two producers, and a fourth key added at one end only would be a
@@ -403,6 +403,19 @@ CONFLICT_VALUE, CONFLICT_RELEVANT = CONFLICT_KINDS
 # doctrine of the read it withdraws standing on the record would be a record asserting a
 # polarity for a case it also says bears on nothing.
 RELEVANT_FALSE_NULLS = ("polarity", "who_was_letting")
+# What the record STANDS ON, as against what it says. A re-read is additive evidence and never
+# subtractive: `gate_record` empties the quotes of an irrelevant record outright
+# (reader/gate.py), and an `extraction-invalid` unit arrives with none either, so taking these
+# four from the re-read unconditionally would strip a record of the verified quotes - page cites
+# and all - that its judged values, human decisions included, stand on. The re-admit installs
+# the mapper-v3 six-field support rule, which makes that loss the difference between a value
+# standing on evidence and a value standing on nothing.
+EVIDENCE_FIELDS = ("quotes", "nulled_fields", "extraction_status", "gate_notes")
+# The gate's verdict on a unit whose quotes all failed verification. Such a re-read has read
+# nothing usable about the record, so it is not evidence for a fill, not evidence for a
+# replacement, and not a disagreement with anybody: the record is left exactly as it was and the
+# case is listed as unreadable for the next attempt.
+INVALID_STATUS = "extraction-invalid"
 
 
 @dataclass(frozen=True)
@@ -412,45 +425,83 @@ class RereadOutcome:
     counts: dict
 
 
-def _human_decision(view, case_id: int, field: str) -> tuple[dict, int]:
-    """(basis, seq) of the reviewer patch a conflict is against - the LAST reviewer `set` on
-    that field. The card has to name the decision it is asking the reviewer to revisit, and
-    "some human, at some point" is not a thing a reviewer can check."""
-    last = None
+def _human_decision(view, case_id: int, field: str,
+                    judged: Sequence[str] = JUDGED_DEFAULT) -> tuple[dict, int, str]:
+    """(basis, seq, the field it decided) of the reviewer decision a conflict is against.
+
+    The LAST reviewer patch that decided `field`; failing that, the last reviewer decision on
+    ANY judged field. The fallback is what makes a `relevant_false` card nameable: that card is
+    raised because SOME judged field is a human's, and the field is usually not `relevant`
+    itself - a reviewer decided the polarity and never touched the relevance - so looking only
+    at `relevant` would ship a card reading "reviewer ?, run ?, seq 0", which is exactly the
+    "some human, at some point" a reviewer cannot check. The field that IS the reason is
+    returned so the note can name it.
+
+    A reviewer `admit` counts as a decision, not just a `set`: `fold._record_provenance` records
+    human provenance from every judged field a reviewer's re-admit body carries, so a card that
+    looked only at `set` would ship the same blank for a record whose reviewer re-admitted it."""
+    exact = fallback = None
+    exact_field = fallback_field = ""
     for p in view.history(case_id):
-        if p.basis.reviewer and p.op == "set" and p.field == field:
-            last = p
-    return (last.basis.to_json(), int(last.seq)) if last is not None else ({}, 0)
+        if not p.basis.reviewer:
+            continue
+        if p.op == "set" and p.field in judged:
+            decided = (p.field,)
+        elif p.op == "admit" and isinstance(p.new, dict):
+            decided = tuple(f for f in p.new if f in judged)
+        else:
+            continue
+        if not decided:
+            continue
+        if field in decided:
+            exact, exact_field = p, field
+        fallback, fallback_field = p, (field if field in decided else decided[0])
+    p, name = (exact, exact_field) if exact is not None else (fallback, fallback_field)
+    return (p.basis.to_json(), int(p.seq), name) if p is not None else ({}, 0, "")
 
 
 def reread_patches(admitted: Sequence[AdmittedRecord], *, manifest: Mapping,
                    view) -> RereadOutcome:
     """A re-read of records the ledger already holds, as patches, conflicts and counts (D7).
 
-    Per record: one re-admit under mapper-v3, which moves the record onto the six-field quote
-    support rule (`fold.supported_fields`), then per field fill / replace / agree / conflict.
+    Per record, one of four outcomes:
 
-    The re-admit body is the record the ledger holds, with the re-read's identity, quotes and
-    gate notes over it, and `relevant` decided below. That is not belt and braces: `apply_patch`
-    's `admit` op replaces the whole record, so a body naming only the re-read's fields would
-    wipe every value the record already carries - reviewer decisions, doctrinal concepts, and
-    the review block's flags and notes included (R6). The values carried through are
-    value-identical writes, which the fold treats as no-ops (D2), so nothing about provenance
-    moves. The patch's `cycle` is the record's OWN cycle, because a re-admit under any other
-    raises `DuplicateRecord`: a re-read fills a record in place, it does not move it.
+    * **unreadable** - the re-read came back `extraction-invalid` (its quotes did not verify).
+      Nothing is emitted at all: the record is left byte-identical and the case id is listed in
+      `counts["unreadable"]` so it can be re-read again. A failed read is not a disagreement
+      with anyone and must not be recorded as one.
+    * **carded** - the re-read says `relevant: false` about a record carrying ANY human
+      judgment. Nothing is written either: one `relevant_false` conflict, the
+      `needs-review:relevant` flag and a note. Applying the withdrawal would set `in_file`
+      false and drop the record out of its cycle file altogether, taking the human's decision
+      with it; and a read that says the case is irrelevant is not evidence for any FIELD of it
+      either, so the per-field pass is skipped too (F1/F2).
+    * **withdrawn** - the same verdict about a machine-only record, which IS applied (D7: a
+      reader's relevance is a reader's), with the codebook's own cascade
+      (`RELEVANT_FALSE_NULLS`).
+    * **re-admitted** - everything else: one re-admit under mapper-v3, which moves the record
+      onto the six-field quote support rule (`fold.supported_fields`), then per field fill /
+      replace / agree / conflict.
+
+    The re-admit body is the record the ledger holds, with the re-read's identity over it and
+    `relevant` decided above. That is not belt and braces: `apply_patch`'s `admit` op replaces
+    the whole record, so a body naming only the re-read's fields would wipe every value the
+    record already carries - reviewer decisions, doctrinal concepts, and the review block's
+    flags and notes included (R6). The `EVIDENCE_FIELDS` are the ledger's own and the re-read's
+    verified quotes are ADDED to them, so a re-admit can never leave a record standing on fewer
+    quotes than it had. The values carried through are value-identical writes, which the fold
+    treats as no-ops (D2), so nothing about provenance moves. The patch's `cycle` is the
+    record's OWN cycle, because a re-admit under any other raises `DuplicateRecord`: a re-read
+    fills a record in place, it does not move it.
 
     A field whose provenance is `human` is never written. If the re-read agrees, that is an
     agreement; if it differs, the tool records a conflict, flags the field and writes a note,
     and emits NO set - it does not emit a patch for the fold to reject, because a rejected
     patch is still a line in an append-only log that every later replay has to re-reject.
 
-    `relevant: false` is the one verdict with two answers (D7). Against a record no human has
-    judged it is applied, with the codebook's own cascade (`RELEVANT_FALSE_NULLS`): a reader's
-    relevance is a reader's, and the newer codebook's reading of it replaces the older one's.
-    Against a record carrying ANY human judgment it is a `relevant_false` conflict and nothing
-    is written - applying it would set `in_file` false and drop the record out of its cycle
-    file altogether, taking the human's decision with it, which is precisely the thing D2
-    exists to stop a machine read doing quietly."""
+    `counts["by_field"]` is the per-field tally of the re-admitted records only: a carded,
+    withdrawn or unreadable record has no per-field pass, so the rows do not reconcile against
+    records x fields (`records` minus the three lists is what they cover)."""
     basis = basis_for(manifest)
     reread_basis = basis.to_json()
     cell_order = manifest.get("cell_order") or list(manifest.get("cells") or {})
@@ -458,6 +509,7 @@ def reread_patches(admitted: Sequence[AdmittedRecord], *, manifest: Mapping,
     out: list[Patch] = []
     conflicts: list[dict] = []
     skipped: list[int] = []
+    unreadable: list[int] = []
     relevant_false: list[int] = []
     by_field: dict[str, dict] = {}
 
@@ -467,7 +519,7 @@ def reread_patches(admitted: Sequence[AdmittedRecord], *, manifest: Mapping,
         row[kind] += 1
 
     def conflict(a, field, human_value, reread_value, kind, into: list) -> None:
-        human_basis, human_at = _human_decision(view, a.case_id, field)
+        human_basis, human_at, human_field = _human_decision(view, a.case_id, field)
         entry = {"case_id": int(a.case_id), "field": field,
                  "human_value": human_value, "human_basis": human_basis,
                  "human_at": human_at, "reread_value": reread_value,
@@ -475,7 +527,7 @@ def reread_patches(admitted: Sequence[AdmittedRecord], *, manifest: Mapping,
                  "cell_key": a.cell_key, "batch_id": a.batch_id}
         # Projected through the queue's own key list, so a card that is missing one raises
         # HERE rather than rendering blank in section G a round later.
-        into.append({k: entry[k] for k in CONFLICT_KEYS})
+        into.append(({k: entry[k] for k in CONFLICT_KEYS}, human_field))
         count(field, "conflict")
 
     for a in sorted(admitted, key=lambda a: (order.get(a.cell_key, len(order)), a.cell_key,
@@ -485,26 +537,31 @@ def reread_patches(admitted: Sequence[AdmittedRecord], *, manifest: Mapping,
             skipped.append(int(a.case_id))      # a re-read admits nothing the ledger lacks
             continue
         new = a.record
+        if new.get("extraction_status") == INVALID_STATUS:
+            unreadable.append(int(a.case_id))   # nothing was read; leave the record alone
+            continue
         prov = view.provenance(a.case_id)
-        mine: list[dict] = []                   # this record's conflicts, in emission order
+        mine: list[tuple[dict, str]] = []       # this record's conflicts, in emission order
         note = f"cache {a.cache_key}; batch {a.batch_id}; cell {a.cell_key}"
         cycle = str(view.state.cycles.get(int(a.case_id)) or manifest.get("cycle") or "")
-        relevance = rec.get("relevant")
         withdraw = new.get("relevant") is False and rec.get("relevant") is True
-        if withdraw and any(kind == "human" for kind in prov.values()):
-            # D7: never an overturn of a human's record. See the docstring.
+        carded = withdraw and any(kind == "human" for kind in prov.values())
+        if carded:
+            # D7: never an overturn of a human's record, and never a fill from the read that
+            # asked for one. See the docstring.
             conflict(a, "relevant", rec.get("relevant"), False, CONFLICT_RELEVANT, mine)
             relevant_false.append(int(a.case_id))
-            withdraw = False
-        elif withdraw:
-            relevance = False
-        body = copy.deepcopy(rec)               # R6: every key the record carries, forward
-        body.update({f: new[f] for f in IDENTITY_FIELDS if f in new})
-        body["case_id"] = int(a.case_id)
-        body["relevant"] = relevance
-        out.append(Patch(a.case_id, "admit", "", body, f"{REREAD_WHY}: re-admit under "
-                         f"{CODEBOOK_ID}", basis, cycle=cycle, note=note))
-        if withdraw:
+        else:
+            body = copy.deepcopy(rec)           # R6: every key the record carries, forward
+            body.update({f: new[f] for f in IDENTITY_FIELDS
+                         if f in new and f not in EVIDENCE_FIELDS})
+            body["case_id"] = int(a.case_id)
+            body["relevant"] = False if withdraw else rec.get("relevant")
+            if new.get("relevant") and new.get("quotes"):
+                body["quotes"] = _added_quotes(rec.get("quotes") or (), new["quotes"])
+            out.append(Patch(a.case_id, "admit", "", body, f"{REREAD_WHY}: re-admit under "
+                             f"{CODEBOOK_ID}", basis, cycle=cycle, note=note))
+        if withdraw and not carded:
             # The judged value still arrives as a `set` under the D8 basis, like every other
             # one (this module's docstring): the body is what the record IS, the `set` is what
             # judged it.
@@ -519,7 +576,7 @@ def reread_patches(admitted: Sequence[AdmittedRecord], *, manifest: Mapping,
                                  f"{REREAD_WHY}: {field} nulled with the relevance", basis,
                                  cycle=cycle))
                 count(field, "replace")
-        else:
+        elif not withdraw:
             for field in MAPPER_FIELDS:
                 value = new.get(field)
                 current = rec.get(field)
@@ -541,17 +598,32 @@ def reread_patches(admitted: Sequence[AdmittedRecord], *, manifest: Mapping,
                     out.append(Patch(a.case_id, "set", field, value,
                                      f"{REREAD_WHY}: {field} replaced", basis, cycle=cycle))
                     count(field, "replace")
-        for c in mine:
+        for c, human_field in mine:
+            because = ("" if not human_field or human_field == c["field"]
+                       else f" (the reviewer's decision on {human_field} is why this is a card)")
             out.append(Patch(a.case_id, "append", "review.flags",
                              f"{FLAG_PREFIX}{c['field']}", f"{REREAD_WHY}: {c['field']}", basis,
                              cycle=cycle))
             out.append(Patch(a.case_id, "append", "review.notes",
                              f"{REREAD_WHY}: the re-read read {c['field']} as "
                              f"{c['reread_value']!r}; the reviewer's {c['human_value']!r} "
-                             f"stands and the disagreement is queued as a review card",
+                             f"stands and the disagreement is queued as a review card{because}",
                              f"{REREAD_WHY}: {c['field']}", basis, cycle=cycle))
-        conflicts.extend(mine)
+        conflicts.extend(c for c, _f in mine)
     counts = {"records": len(admitted) - len(skipped), "skipped": skipped,
-              "conflicts": len(conflicts), "relevant_false_conflicts": relevant_false,
-              "by_field": by_field}
+              "unreadable": unreadable, "conflicts": len(conflicts),
+              "relevant_false_conflicts": relevant_false, "by_field": by_field}
     return RereadOutcome(out, conflicts, counts)
+
+
+def _added_quotes(standing: Sequence[Mapping], fresh: Sequence[Mapping]) -> list:
+    """The record's own quotes, plus the re-read's that it does not already carry.
+
+    A union, not a replacement: the standing quotes are what the record's judged values - the
+    human ones included - are supported by under the six-field rule the re-admit installs, and
+    a re-read that quotes a different passage has found more evidence, not less. Matched on the
+    quote text, because that is what `drop_quote` addresses a quote by."""
+    seen = {str((q or {}).get("text", "")) for q in standing}
+    out = [copy.deepcopy(q) for q in standing]
+    out += [copy.deepcopy(q) for q in fresh if str((q or {}).get("text", "")) not in seen]
+    return out

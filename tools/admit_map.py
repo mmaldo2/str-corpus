@@ -168,7 +168,9 @@ def main(argv=None) -> int:
         patches, conflicts, counts = outcome.patches, outcome.conflicts, outcome.counts
         print(f"{counts['records']} records re-read, {len(patches)} patches, "
               f"{counts['conflicts']} conflicts "
-              f"({len(counts['relevant_false_conflicts'])} of them relevance)", flush=True)
+              f"({len(counts['relevant_false_conflicts'])} of them relevance), "
+              f"{len(counts['unreadable'])} unreadable, "
+              f"{len(counts['skipped'])} not in the ledger", flush=True)
         for field in sorted(counts["by_field"]):
             row = counts["by_field"][field]
             print(f"  {field}: fill {row['fill']}, replace {row['replace']}, "
@@ -183,6 +185,14 @@ def main(argv=None) -> int:
     if run_id != a.run_id:
         print(f"note: the manifest's run id is {run_id!r}, not --run-id {a.run_id!r}; the "
               f"patches and the duplicate-admission guard both use the manifest's", flush=True)
+    if a.reread and a.apply and run_id != a.run_id:
+        # The two queue artefacts are written under the MANIFEST's run id, and T7 reads them
+        # from there. Writing a ledger under one run id while the operator believes they are
+        # running another is the kind of mismatch that ends with section G reading a stale
+        # file, so it is refused rather than noted.
+        sys.exit(f"--reread --apply: the manifest's run id is {run_id!r} but --run-id is "
+                 f"{a.run_id!r}. The patches, the conflict cards and the admission counts all "
+                 f"belong to {run_id!r}; re-run with --run-id {run_id}.")
     if a.apply and not a.force and run_id_already_applied(head, run_id):
         sys.exit(f"run-id {run_id!r} already has patches in the ledger; admitting it again "
                  f"would re-append every review.notes line the first admission wrote for every "
@@ -207,12 +217,15 @@ def main(argv=None) -> int:
     print(f"after:  {_summary(led.view())}", flush=True)
     rc = _report_rejected(res, applied=True)
     if a.reread:
-        # The queue's input (spec section 7). Written after the apply, not before: a conflict
-        # file naming decisions that were never written would put cards in front of the user
-        # for a round that does not exist.
-        _write_json(run_dir / "reread-conflicts.json", conflicts)
-        _write_json(run_dir / "reread-admission.json", {"run_id": run_id, **counts})
-        print(f"conflicts -> {run_dir / 'reread-conflicts.json'} "
+        # The queue's input (spec section 7). Under the MANIFEST's run id, which is what every
+        # patch carries and what T7 looks under - not `--run-id`, which only picks the default
+        # input paths. Written after the apply, not before: a conflict file naming decisions
+        # that were never written would put cards in front of the user for a round that does
+        # not exist.
+        reread_dir = ROOT / "runs" / run_id
+        _write_json(reread_dir / "reread-conflicts.json", conflicts)
+        _write_json(reread_dir / "reread-admission.json", {"run_id": run_id, **counts})
+        print(f"conflicts -> {reread_dir / 'reread-conflicts.json'} "
               f"({len(conflicts)} cards for section G)", flush=True)
     return rc or (0 if res.replay_ok else 1)
 

@@ -648,14 +648,23 @@ def test_a_reread_agreeing_with_a_reviewer_writes_nothing_and_is_counted_as_agre
 
 
 def test_a_reread_relevant_false_on_a_human_judged_record_is_a_conflict_never_an_overturn():
-    view = _RereadView({7: {"case_id": 7, "relevant": True}}, {7: {"relevant": "human"}})
+    """F1/F2: the record is left UNTOUCHED - no re-admit either. A re-admit would have had to
+    carry the irrelevant read's empty quote list or its own copy of the record, and neither is
+    a thing a refused withdrawal should be writing. The reviewer's own re-ADMIT is what the
+    card names (`fold._record_provenance` records human provenance from an admit body too)."""
+    view = _RereadView({7: {"case_id": 7, "relevant": True}}, {7: {"relevant": "human"}},
+                       history=[Patch(7, "admit", "", {"case_id": 7, "relevant": True},
+                                      "reviewer re-admit",
+                                      Basis(reviewer="mmaldo2", run_id="round-2"), seq=800)])
     out = reread_patches([_reread({"case_id": 7, "relevant": False, "quotes": []})],
                          manifest=MANIFEST, view=view)
-    assert not [p for p in out.patches if p.op == "set" and p.field == "relevant"]
+    assert not [p for p in out.patches if p.op in ("set", "admit")]
     assert out.conflicts[0]["kind"] == "relevant_false"
     assert out.counts["relevant_false_conflicts"] == [7]
-    admit = next(p for p in out.patches if p.op == "admit")
-    assert admit.new["relevant"] is True             # the ledger's relevance, not the re-read's
+    assert out.conflicts[0]["human_basis"] == {"reviewer": "mmaldo2", "run_id": "round-2"}
+    assert out.conflicts[0]["human_at"] == 800
+    assert [(p.op, p.field) for p in out.patches] == [("append", "review.flags"),
+                                                      ("append", "review.notes")]
 
 
 def test_a_reread_relevant_false_on_a_machine_judged_record_is_applied_with_its_cascade():
@@ -677,15 +686,23 @@ def test_a_reread_relevant_false_on_a_machine_judged_record_is_applied_with_its_
 
 def test_a_relevant_false_over_any_human_judgment_is_a_card_not_a_withdrawal():
     """Applying it would set `in_file` false and drop the record out of the cycle file
-    altogether, taking a human's decision with it. That is a review card, not a re-read's."""
+    altogether, taking a human's decision with it. That is a review card, not a re-read's.
+
+    F3: the card is raised because `polarity` is a human's, and `relevant` itself was never
+    reviewer-set, so the card falls back to that decision and NAMES it - a card reading
+    "reviewer ?, run ?, seq 0" is not one a reviewer can check."""
     view = _RereadView({7: {"case_id": 7, "relevant": True, "polarity": "favorable"}},
-                       {7: {"relevant": "reader", "polarity": "human"}})
+                       {7: {"relevant": "reader", "polarity": "human"}},
+                       history=[Patch(7, "set", "polarity", "favorable", "round 1",
+                                      Basis(reviewer="mmaldo2", run_id="round-1"), seq=700)])
     out = reread_patches([_reread({"case_id": 7, "relevant": False, "quotes": []})],
                          manifest=MANIFEST, view=view)
-    assert not [p for p in out.patches if p.op == "set"]
+    assert not [p for p in out.patches if p.op in ("set", "admit")]
     assert out.conflicts[0]["kind"] == "relevant_false"
     assert out.counts["relevant_false_conflicts"] == [7]
-    assert next(p for p in out.patches if p.op == "admit").new["relevant"] is True
+    assert out.conflicts[0]["human_basis"] and out.conflicts[0]["human_at"] == 700
+    note = next(p for p in out.patches if p.field == "review.notes")
+    assert "the reviewer's decision on polarity is why this is a card" in note.new
 
 
 def test_the_re_admit_body_carries_every_judged_value_forward():
@@ -805,3 +822,129 @@ def test_the_tool_re_admits_a_map_as_a_reread_and_writes_the_section_G_cards(adm
     counts = json.loads((run_dir / "reread-admission.json").read_text(encoding="utf-8"))
     assert counts["run_id"] == "cycles-001-003-reread" and counts["conflicts"] == 1
     assert counts["records"] == 4 and counts["skipped"] == []
+    # 201's quotes are nowhere in its opinion, so the gate voids the record: unreadable, not
+    # a disagreement, and its ledger record is left exactly as the map admitted it.
+    assert counts["unreadable"] == [201]
+    assert after.record(201)["quotes"] == [] and after.record(201).get("polarity") is None
+
+
+def test_reread_apply_refuses_a_manifest_whose_run_id_is_not_the_one_asked_for(admit_map,
+                                                                              tmp_path,
+                                                                              fixture_dir):
+    """F4. The two queue artefacts are written under the MANIFEST's run id, which is what T7
+    reads; running the apply under a `--run-id` that names a different directory would leave
+    section G reading a stale file, so it is refused rather than noted."""
+    with pytest.raises(SystemExit) as exc:
+        admit_map.main(_rehearsal_argv(tmp_path, fixture_dir, "--reread", "--apply",
+                                       "--run-id", "cycles-001-003-reread"))
+    assert "cycle-004-shard-01" in str(exc.value) and "--run-id" in str(exc.value)
+    assert not (tmp_path / "ledger").exists()               # refused before anything was written
+
+
+# ------------------------------------------------------------------- fix round 1 (F1-F5) ----
+_QUOTES = [{"text": "a lodger has no possession", "supports": ["polarity"], "status": "verified",
+            "reporter_page": "1"},
+           {"text": "the householder let two rooms", "supports": ["who_was_letting"],
+            "status": "verified", "reporter_page": "2"}]
+
+
+def test_a_relevant_false_card_cannot_strip_the_record_of_its_verified_quotes():
+    """F1. `gate_record` empties the quotes of an irrelevant record outright, so a re-admit on
+    the carded path would have written `quotes: []` over the evidence the reviewer's own
+    decision stands on - and the same patch installs the six-field support rule those values
+    are supposed to stand on a surviving quote under. The record is not written at all."""
+    view = _RereadView({7: {"case_id": 7, "relevant": True, "polarity": "favorable",
+                            "quotes": copy.deepcopy(_QUOTES)}},
+                       {7: {"polarity": "human"}})
+    out = reread_patches([_reread({"case_id": 7, "relevant": False, "quotes": [],
+                                   "extraction_status": "ok"})],
+                         manifest=MANIFEST, view=view)
+    assert not [p for p in out.patches if p.op in ("admit", "set")]
+    assert view.state.records[7]["quotes"] == _QUOTES      # untouched, in the view too
+    assert out.counts["relevant_false_conflicts"] == [7]
+
+
+def test_a_relevant_false_card_fills_and_replaces_nothing_from_the_read_it_refused():
+    """F2. The gate returns an irrelevant record early WITHOUT nulling the judged fields, and
+    the codebook only constrains `polarity` and `who_was_letting` on one - so a re-read that
+    says "irrelevant" and names a characterization must not write that characterization onto
+    the record whose relevance the tool has just refused to overturn."""
+    view = _RereadView({7: {"case_id": 7, "relevant": True, "polarity": "favorable",
+                            "characterization": "lease", "holding_summary": None}},
+                       {7: {"polarity": "human", "characterization": "reader"}})
+    out = reread_patches([_reread({"case_id": 7, "relevant": False, "characterization": "lodging",
+                                   "holding_summary": "a lodging, on no quote at all",
+                                   "quotes": []})], manifest=MANIFEST, view=view)
+    assert not [p for p in out.patches if p.op == "set"]
+    assert len(out.conflicts) == 1 and out.conflicts[0]["field"] == "relevant"
+
+
+def test_an_extraction_invalid_reread_leaves_the_record_byte_identical():
+    """F1's mirror. A unit whose quotes all failed verification arrives with `quotes: []` and
+    every judged field nulled by the gate; `records_from_manifest` admits it because its
+    relevance is decided. It is not evidence for a fill, not evidence for a replacement, and
+    not a disagreement with anybody - so nothing is emitted and the case is listed for a
+    re-read."""
+    state = State()
+    apply_patch(state, Patch(7, "admit", "", {"case_id": 7, "relevant": True,
+                                              "polarity": "favorable",
+                                              "quotes": copy.deepcopy(_QUOTES)},
+                             "map", basis_for(MANIFEST), cycle="cycle-001"))
+    before = copy.deepcopy(state.records[7])
+    view = _RereadView(state.records, {7: dict(state.provenance[7])})
+    out = reread_patches([_reread({"case_id": 7, "relevant": True, "polarity": "adverse",
+                                   "quotes": [], "extraction_status": "extraction-invalid",
+                                   "nulled_fields": ["polarity"]})],
+                         manifest=MANIFEST, view=view)
+    assert out.patches == [] and out.conflicts == []
+    assert out.counts["unreadable"] == [7] and out.counts["by_field"] == {}
+    for p in out.patches:                                  # nothing to fold, and so nothing moves
+        apply_patch(state, p)
+    assert state.records[7] == before
+
+
+def test_the_re_admit_body_adds_the_rereads_quotes_and_never_loses_one():
+    """The body must never carry fewer verified quotes than the record has: the standing quotes
+    are what its judged values - the human ones included - are supported by under the six-field
+    rule the re-admit installs, and a re-read quoting a different passage has found MORE
+    evidence, not less. Matched on the text, which is what `drop_quote` addresses a quote by."""
+    view = _RereadView({7: {"case_id": 7, "relevant": True, "quotes": copy.deepcopy(_QUOTES)}},
+                       {7: {}})
+    fresh = [{"text": _QUOTES[0]["text"], "supports": ["polarity"], "status": "verified"},
+             {"text": "a new passage", "supports": ["characterization"], "status": "verified"}]
+    out = reread_patches([_reread({"case_id": 7, "relevant": True, "quotes": fresh,
+                                   "extraction_status": "ok"})], manifest=MANIFEST, view=view)
+    admit = next(p for p in out.patches if p.op == "admit")
+    assert [q["text"] for q in admit.new["quotes"]] == [_QUOTES[0]["text"], _QUOTES[1]["text"],
+                                                        "a new passage"]
+    assert admit.new["quotes"][0]["reporter_page"] == "1"       # the ledger's own, not re-gated
+
+
+def test_one_record_covers_fill_replace_conflict_and_agree_over_three_provenances():
+    """Spec section 10's fixture: human, reader AND rule provenance in one pass. `rule` is a
+    machine write like a reader's - `fold.is_protected_write` protects a rule's write FROM a
+    machine, it does not protect a rule's value from a re-read - so it is replaced."""
+    view = _RereadView({7: {"case_id": 7, "relevant": True,
+                            "under_thirty_days": None,          # -> fill
+                            "polarity": "favorable",            # reader -> replace
+                            "characterization": "lease",        # rule   -> replace
+                            "who_was_letting": "householder",   # human, differs -> conflict
+                            "holding_summary": "a lodger keeps no possession"}},  # human, agrees
+                       {7: {"polarity": "reader", "characterization": "rule",
+                            "who_was_letting": "human", "holding_summary": "human"}},
+                       history=[Patch(7, "set", "who_was_letting", "householder", "round 1",
+                                      Basis(reviewer="mmaldo2", run_id="round-1"), seq=700)])
+    out = reread_patches([_reread({"case_id": 7, "relevant": True, "under_thirty_days": "yes",
+                                   "polarity": "adverse", "characterization": "lodging",
+                                   "who_was_letting": "commercial_operator",
+                                   "holding_summary": "a lodger keeps no possession",
+                                   "quotes": []})], manifest=MANIFEST, view=view)
+    sets = {(p.field, p.new) for p in out.patches if p.op == "set"}
+    assert sets == {("under_thirty_days", "yes"), ("polarity", "adverse"),
+                    ("characterization", "lodging")}
+    rows = out.counts["by_field"]
+    assert rows["under_thirty_days"]["fill"] == 1
+    assert rows["polarity"]["replace"] == 1 and rows["characterization"]["replace"] == 1
+    assert rows["who_was_letting"]["conflict"] == 1 and rows["holding_summary"]["agree"] == 1
+    assert [(c["field"], c["kind"]) for c in out.conflicts] == [("who_was_letting", "value")]
+    assert out.conflicts[0]["human_at"] == 700
