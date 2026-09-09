@@ -526,6 +526,7 @@ function card(it){
       ${adoptRow}
       ${setRow}
       <label><input type="radio" name="d-${k}" value="unsure"> Unsure &mdash; needs full read</label>
+      ${field === 'relevant' ? '' : `<label><input type="radio" name="d-${k}" value="withdraw"> Not a letting case &mdash; withdraw the record (relevant &rarr; false)</label>`}
       <input type="text" placeholder="note (optional)">
     </div>`;
 
@@ -534,8 +535,9 @@ function card(it){
   if (sel && st.decision === 'set' && st.value != null) sel.value = String(st.value);
   if (st.note) note.value = st.note;
   const radios = div.querySelectorAll('input[type=radio]');
+  const withdrawn = st.field === 'relevant' && field !== 'relevant' && st.decision === 'set';
   radios.forEach(r => {
-    if (st.decision === r.value) r.checked = true;
+    if (withdrawn ? r.value === 'withdraw' : st.decision === r.value) r.checked = true;
     r.onchange = () => { record(div, it, k, field, r.value, sel, note); };
   });
   if (sel) sel.onchange = () => {
@@ -550,6 +552,14 @@ function card(it){
 }
 
 function record(div, it, k, field, decision, sel, note){
+  if (decision === 'withdraw') {
+    // Legal on any card: the apply tool runs the relevance-overturn cascade for it.
+    state[k] = {case_id: it.case_id, field: 'relevant', decision: 'set', value: false,
+                note: note.value || ''};
+    div.classList.add('decided');
+    dirty++; updateCounts(); updateBar();
+    return;
+  }
   let value = null;
   if (decision === 'keep') value = field === 'quotes' ? null : ((it.values || {})[field] ?? null);
   else if (decision === 'adopt') value = checkerValue(it, field) ?? null;

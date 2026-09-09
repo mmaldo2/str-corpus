@@ -171,10 +171,18 @@ def values_for(fields: Sequence[str]) -> dict:
     return {f: VALUES[f] for f in fields}
 
 
+def _with_relevant(fields: Sequence[str]) -> tuple[str, ...]:
+    """The round's decide fields plus `relevant`: a withdrawal (`relevant`/`set`/false) is
+    legal on ANY card, so the page's withdraw control and a decisions file may carry it in a
+    round none of whose cards decides relevance."""
+    return tuple(dict.fromkeys(tuple(fields) + ("relevant",)))
+
+
 def read_page(html: str, fields: Sequence[str]) -> list[dict]:
     """The decisions a saved page carries, validated against the vocabulary - one function, so
     the tool and its tests can never read a page under different rules."""
-    return arr.read_state(html, fields=tuple(fields), values=values_for(fields))
+    fields = _with_relevant(fields)
+    return arr.read_state(html, fields=fields, values=values_for(fields))
 
 
 def read_decisions(raw, fields: Sequence[str]) -> list[dict]:
@@ -183,8 +191,9 @@ def read_decisions(raw, fields: Sequence[str]) -> list[dict]:
     `keep|adopt|set|unsure`, field one of the round's decide fields. `raw` is the file's own
     parsed JSON - a bare list, not a page - so this calls the shared validator directly
     rather than going through `read_page`'s HTML parsing."""
+    fields = _with_relevant(fields)
     try:
-        return arr._decisions_from_list(raw, fields=tuple(fields), values=values_for(fields))
+        return arr._decisions_from_list(raw, fields=fields, values=values_for(fields))
     except ValueError as exc:
         if str(exc) == "no decisions to apply":
             raise ValueError("the decisions file carries no decisions") from None

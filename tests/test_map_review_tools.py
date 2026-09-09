@@ -274,6 +274,26 @@ def test_the_saved_page_parses_back_through_the_reference_tools_state_reader(tmp
     assert got[2]["note"] == "both ways"
 
 
+def test_a_saved_page_may_withdraw_a_record_from_a_card_that_decides_another_field(tmp_path):
+    """The page's withdraw control writes `relevant`/`set`/false under the card's own key, so a
+    round whose cards decide polarity still saves a relevance entry. The page reader used to
+    refuse it because `relevant` was not among the round's decide fields; in slice 3 the
+    reviewer had to spell it as `unsure` with an "Irrelevant" note instead."""
+    page = _saved_page(tmp_path, [_d(700, "relevant", "set", False, note="not a letting case"),
+                                  _d(701, "polarity", "keep", "adverse")])
+    got = ap.read_page(page.read_text(encoding="utf-8"), ("polarity",))
+    assert [(d["case_id"], d["field"], d["decision"], d["value"]) for d in got] == [
+        (700, "relevant", "set", False), (701, "polarity", "keep", "adverse")]
+
+
+def test_the_page_offers_a_withdraw_control_that_writes_a_relevance_decision(tmp_path):
+    html_path, _md, _n = mk.build_pages(_queue_doc(), tmp_path / "page", checker=CHECKER)
+    html = html_path.read_text(encoding="utf-8")
+    assert 'value="withdraw"' in html and "Not a letting case" in html
+    assert "decision === 'withdraw'" in html          # the recorder maps it to relevant/set/false
+    assert "field: 'relevant'" in html
+
+
 def test_a_note_containing_a_closing_script_tag_survives_the_page(tmp_path):
     note = "the court cites </script> in the syllabus"
     page = _saved_page(tmp_path, [_d(700, "polarity", "keep", "favorable", note=note)])
