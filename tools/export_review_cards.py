@@ -69,6 +69,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from corpus_engine import store                          # noqa: E402
+from corpus_engine.quotes import quote_supports                 # noqa: E402
 from corpus_engine.mapper.cells import load_batches      # noqa: E402
 from corpus_engine.mapper.queue import SECTIONS          # noqa: E402
 from corpus_engine.reader.parse import _as_case_id, parse_records  # noqa: E402
@@ -130,7 +131,7 @@ def cards_from_queue(queue_doc: Mapping, checker: Mapping) -> list[dict]:
                 "checker": ({f: chk_values.get(f) for f in CHECKER_FIELDS}
                            if chk_entry is not None else None),
                 "holding_summary": c.get("holding_summary"),
-                "quotes": [{"text": q.get("text"), "supports": list(q.get("supports") or ())}
+                "quotes": [{"text": q.get("text"), "supports": list(quote_supports(q))}
                           for q in (c.get("quotes") or ())],
                 "fuzzy": [{"text": q.get("text"), "source": q.get("source"),
                           "classification": q.get("classification"),
@@ -212,7 +213,7 @@ def markdown_for(cards: Sequence[dict], run_id: str, *, part: tuple[int, int] | 
         if c["quotes"]:
             lines.append("- Quotes:")
             for q in c["quotes"]:
-                supports = ", ".join(q["supports"]) or "-"
+                supports = ", ".join(quote_supports(q)) or "-"
                 lines.append(f"  > {q['text']}")
                 lines.append(f"  > (supports: {supports})")
         if c.get("fuzzy"):

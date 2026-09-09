@@ -749,6 +749,20 @@ def test_markdown_shows_the_fuzzy_quote_beside_the_opinion_passage():
     assert "needs-human" in md
 
 
+def test_export_reads_a_legacy_string_supports_as_one_field_not_its_letters():
+    """Cycles 1-3 quotes carry the mapper-v1 shape, `supports` a bare field name. The JSON
+    export listed it as a list of characters and the markdown joined its letters with commas;
+    every reader goes through `quote_supports` now."""
+    rec = _rec(704, polarity="favorable", under_thirty_days="yes",
+               quotes=[{"text": "she let the room", "supports": "polarity", "status": "verified"}])
+    cards = ec.cards_from_queue(_queue_doc(records=[rec]), {})
+    card = next(c for c in cards if c["case_id"] == 704)
+    assert card["quotes"][0]["supports"] == ["polarity"]
+    md = ec.markdown_for(cards, "test-run")
+    assert "(supports: polarity)" in md
+    assert "p, o, l" not in md
+
+
 def test_a_card_with_no_checker_answer_carries_none_not_a_dict_of_nulls():
     doc = _queue_doc()
     cards = ec.cards_from_queue(doc, {})
