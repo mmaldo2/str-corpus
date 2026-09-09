@@ -448,7 +448,7 @@ function quotes(list){
   const rows = (list || []).map(q => {
     const tag = q.status && q.status !== 'verified'
       ? `<span class="who">${esc(q.status)}</span>` : '';
-    const sup = (q.supports || []).join(', ');
+    const sup = (Array.isArray(q.supports) ? q.supports : (q.supports ? [q.supports] : [])).join(', ');
     return `<blockquote>&ldquo;${esc(q.text || '')}&rdquo;<span class="who">supports: ${esc(sup)}</span>${tag}</blockquote>`;
   }).join('');
   return rows ? `<div class="ev"><div class="lab">Verified quotes</div>${rows}</div>` : '';

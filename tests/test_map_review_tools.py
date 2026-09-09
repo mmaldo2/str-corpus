@@ -1559,3 +1559,13 @@ def test_the_checker_unit_cap_counts_cases_not_cards(tmp_path):
                  codebook=None, checker_pin=ModelPin("codex-cli", "openai", "codex-cli"),
                  budget=None)
     assert doc["checker_path"]["unit_cap"] == 1                 # one case, two cards
+
+
+def test_the_page_tolerates_a_legacy_string_supports_on_a_quote(tmp_path):
+    """Cycles 1-3 records carry the mapper-v1 quote shape (`supports` a single field name, not a
+    list). The page's card renderer once assumed a list and threw, leaving every section empty
+    (re-read round 1b, 2026-09-09). The tolerant expression must stay in the shipped script."""
+    html_path, _md, _n = mk.build_pages(_queue_doc(), tmp_path / "page", checker=CHECKER)
+    html = html_path.read_text(encoding="utf-8")
+    assert "Array.isArray(q.supports) ? q.supports : (q.supports ? [q.supports] : [])" in html
+    assert "(q.supports || []).join" not in html
