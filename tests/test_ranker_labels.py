@@ -61,3 +61,11 @@ def test_case_partitions_drops_duplicates(tmp_path, fixture_db, repo_root):
     meta = case_partitions(conn, [a, b, 424242])
     assert a in meta and b not in meta and 424242 not in meta
     assert len(meta[a]) == 2
+
+
+def test_check_heldout_names_the_missing_pin_before_touching_the_file(tmp_path):
+    """An unpinned v2 slice fails on the pin, not with FileNotFoundError over an absent file."""
+    from types import SimpleNamespace
+    dom = SimpleNamespace(ranking=SimpleNamespace(heldout_v2_sha256=None))
+    with pytest.raises(ValueError, match="heldout_v2_sha256 is not pinned"):
+        check_heldout(dom, tmp_path / "does-not-exist.jsonl", pin="heldout_v2_sha256")

@@ -126,10 +126,11 @@ def check_heldout(domain, path: Path, *, pin: str = "heldout_sha256") -> str:
 
     `pin` names WHICH slice is being checked (`heldout_sha256` for v1, `heldout_v2_sha256` for
     v2), so one function guards both and neither can be trained against unverified."""
-    h = sha256_file(path)
     want = getattr(domain.ranking, pin, None)
     if not want:
+        # Pin first, hash second: an unpinned slice must say so even when its file is absent.
         raise ValueError(f"domain.ranking.{pin} is not pinned; held-out file {path} is not frozen")
+    h = sha256_file(path)
     if h != want:
         raise ValueError(f"held-out file {path} sha256 {h[:12]}… does not match domain.yaml "
                          f"{pin} {str(want)[:12]}…; never edit it, make a new version")
