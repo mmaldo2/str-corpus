@@ -84,6 +84,20 @@ $R = "cycle-004-shard-01"
 # same saved page twice.
 .venv\Scripts\python tools\apply_map_review.py --saved <saved page> --checker runs\$R\review-round-1-checker.json --run-id map-cycle-004-round-1 --dry-run
 .venv\Scripts\python tools\apply_map_review.py --saved <saved page> --checker runs\$R\review-round-1-checker.json --run-id map-cycle-004-round-1
+# Held-out v2 + ranker v2 (offline; slice 3). The builder refuses to overwrite a frozen
+# slice; the trainer applies the ship rule (both AP views > fusion, no margin) and
+# never edits domain.yaml -- ranking.classifier_version is set by hand.
+.venv\Scripts\python tools\build_ranker_heldout.py --human-only --out data\eval\ranker-heldout-v2.jsonl
+.venv\Scripts\python tools\train_ranker.py --heldout v2 --tag v2 --report reports\ranking-v2.md
+# The unread tail of an earlier run, re-ranked and read under a fixed case budget in
+# global rank order (no cell caps; the yield floor still stops a quiet cell).
+.venv\Scripts\python pipeline\rank.py --run-id cycle-004-shard-02 --from-run cycle-004-shard-01 --exclude-read
+.venv\Scripts\python tools\map_reader.py --run-id cycle-004-shard-02 --case-budget 3000
+# Re-read the cycles 1-3 relevant records under mapper-v3: fills and replacements only;
+# a re-read that disagrees with a human decision becomes a section-G review card.
+.venv\Scripts\python tools\reread_records.py --plan
+.venv\Scripts\python tools\reread_records.py --max-wall-seconds 21600
+.venv\Scripts\python tools\admit_map.py --run-id cycles-001-003-reread --reread --dry-run
 ```
 
 `runs\<run-id>\map-manifest.json` is tracked (small: per-cell progress, yield
