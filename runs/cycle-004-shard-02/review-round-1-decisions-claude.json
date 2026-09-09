@@ -786,9 +786,8 @@
  {
   "case_id": 14234,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The opinion decides only whether continued monthly payments after the life tenant's death raise an implied month-to-month letting ('obviously this circumstance itself is not sufficient to raise such an implied letting'); it never frames the owner's liberty to let as an incident of ownership or as regulable, so the court did not address the field."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The opinion decides only whether continued monthly payments after the life tenant's death raise an implied month-to-month letting ('obviously this circumstance itself is not sufficient to raise such an implied letting'); it never frames the owner's liberty to let as an incident of ownership or as regulable, so the court did not address the field."
  },
  {
   "case_id": 33664,
@@ -856,9 +855,8 @@
  {
   "case_id": 344826,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The court decides only that a notice to quit must fall on the corresponding day of a succeeding month and that the 1888 act 'regulating lettings in cases where no definite term is fixed' does not reach a letting 'for the term of one month, and month to month thereafter'; it never characterises the owner's liberty to let, so the court did not address the field."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The court decides only that a notice to quit must fall on the corresponding day of a succeeding month and that the 1888 act 'regulating lettings in cases where no definite term is fixed' does not reach a letting 'for the term of one month, and month to month thereafter'; it never characterises the owner's liberty to let, so the court did not address the field."
  },
  {
   "case_id": 359535,
@@ -883,9 +881,8 @@
  {
   "case_id": 389534,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The court frames the question purely as forfeiture of a term - 'nor is there any implied covenant in law, that if a house be kept in a noisy or disorderly manner, or as a house of prostitution, that the landlord may re-enter and forfeit the term' - and never characterises the owner's liberty to let the two tenement rooms as an incident of ownership or as a regulable privilege."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The court frames the question purely as forfeiture of a term - 'nor is there any implied covenant in law, that if a house be kept in a noisy or disorderly manner, or as a house of prostitution, that the landlord may re-enter and forfeit the term' - and never characterises the owner's liberty to let the two tenement rooms as an incident of ownership or as a regulable privilege."
  },
  {
   "case_id": 493358,
@@ -929,9 +926,8 @@
  {
   "case_id": 810147,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The court decided only that harbouring a sublessee is not a nuisance and that a sublessor's rent gouging gives the fee owner no independent eviction claim; it never framed the fee owner's liberty to let, and the letting it discussed was the rent-controlled tenant's."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The court decided only that harbouring a sublessee is not a nuisance and that a sublessor's rent gouging gives the fee owner no independent eviction claim; it never framed the fee owner's liberty to let, and the letting it discussed was the rent-controlled tenant's."
  },
  {
   "case_id": 864957,
@@ -943,9 +939,8 @@
  {
   "case_id": 888209,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The hospital's dormitory room let to an employee at $54.16 a month was treated only as part of the locus of employment for workers' compensation, and the dual-capacity doctrine was rejected; the court framed the owner-employer's duties, never its liberty to let."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The hospital's dormitory room let to an employee at $54.16 a month was treated only as part of the locus of employment for workers' compensation, and the dual-capacity doctrine was rejected; the court framed the owner-employer's duties, never its liberty to let."
  },
  {
   "case_id": 909211,
@@ -969,16 +964,14 @@
  {
   "case_id": 946624,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The verbal board-and-lodging contract is only the source of the $7,000 the court traces into a resulting and constructive trust; the decision rests on fraud and trust doctrine and never frames the householders' liberty to take a paying lodger."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The verbal board-and-lodging contract is only the source of the $7,000 the court traces into a resulting and constructive trust; the decision rests on fraud and trust doctrine and never frames the householders' liberty to take a paying lodger."
  },
  {
   "case_id": 1177653,
   "field": "under_thirty_days",
-  "decision": "set",
-  "value": "unclear",
-  "note": "Duration is squarely discussed and left open: families registered as ordinary hotel guests at $105 per day and were charged only for the days actually stayed, yet 'there was no lower or upper limit to the amount of time a homeless family could stay' and stays past thirty days were contemplated."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) Duration is squarely discussed and left open: families registered as ordinary hotel guests at $105 per day and were charged only for the days actually stayed, yet 'there was no lower or upper limit to the amount of time a homeless family could stay' and stays past thirty days were contemplated."
  },
  {
   "case_id": 1311897,
@@ -990,9 +983,8 @@
  {
   "case_id": 1321749,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The court construed a repairs agreement and allowed half the ascertainable cost against the lessor's estate; the ten-year lease with a right to sublet and the $50-a-week garage apartments are recited as facts only, with no framing of the owner's liberty to let - the checker read the case as not relevant, but the suit is between lessor and lessee of summer dwelling quarters and the remedy runs against the monthly rent."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The court construed a repairs agreement and allowed half the ascertainable cost against the lessor's estate; the ten-year lease with a right to sublet and the $50-a-week garage apartments are recited as facts only, with no framing of the owner's liberty to let - the checker read the case as not relevant, but the suit is between lessor and lessee of summer dwelling quarters and the remedy runs against the monthly rent."
  },
  {
   "case_id": 1399740,
@@ -1016,16 +1008,14 @@
  {
   "case_id": 1568906,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The landlord's long, unexplained retention of five rent checks was held an acceptance of rent that renewed the month-to-month tenancy and waived the default - a common-law waiver holding with no framing of the owner's liberty to let; the checker read the case as not relevant, but a $35-a-month letting of a New Haven dwelling and the owner's power to end it are the whole subject."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The landlord's long, unexplained retention of five rent checks was held an acceptance of rent that renewed the month-to-month tenancy and waived the default - a common-law waiver holding with no framing of the owner's liberty to let; the checker read the case as not relevant, but a $35-a-month letting of a New Haven dwelling and the owner's power to end it are the whole subject."
  },
  {
   "case_id": 1659568,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The holding runs entirely on the tenants' side - month-to-month tenants of eight to twelve years' standing have a constitutionally protected property interest and could not be ejected under s 49-22 without actual notice of the lis pendens; the foreclosing owner's liberty to let is never framed."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The holding runs entirely on the tenants' side - month-to-month tenants of eight to twelve years' standing have a constitutionally protected property interest and could not be ejected under s 49-22 without actual notice of the lis pendens; the foreclosing owner's liberty to let is never framed."
  },
  {
   "case_id": 1702438,
@@ -1081,16 +1071,14 @@
  {
   "case_id": 1816967,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "Forcible entry and detainer refused because the five-year lease neither barred more than twenty patients at the basic rent nor barred the operator's family, and 'a court cannot imply exceptions in the lease'; the lessor's control was measured only by the lease's words, not framed as a liberty to let."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) Forcible entry and detainer refused because the five-year lease neither barred more than twenty patients at the basic rent nor barred the operator's family, and 'a court cannot imply exceptions in the lease'; the lessor's control was measured only by the lease's words, not framed as a liberty to let."
  },
  {
   "case_id": 1946459,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The Court dismissed the attack on Clifton's minimum-floor-area ordinance as moot and vacated the Appellate Division judgment without reaching the merits, so although the ordinance reaches 'letting to another for occupancy', the majority framed nothing about the owner's liberty."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The Court dismissed the attack on Clifton's minimum-floor-area ordinance as moot and vacated the Appellate Division judgment without reaching the merits, so although the ordinance reaches 'letting to another for occupancy', the majority framed nothing about the owner's liberty."
  },
  {
   "case_id": 1964255,
@@ -1108,16 +1096,14 @@
  {
   "case_id": 2027389,
   "field": "under_thirty_days",
-  "decision": "set",
-  "value": "unclear",
-  "note": "The complaint alleges only that rooms in the leased premises were 'rented and used' by prostitutes who 'reside and pursue their said life and calling' in the segregated district; neither the head lease's term nor any room occupant's stay is stated."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The complaint alleges only that rooms in the leased premises were 'rented and used' by prostitutes who 'reside and pursue their said life and calling' in the segregated district; neither the head lease's term nor any room occupant's stay is stated."
  },
  {
   "case_id": 2062875,
   "field": "under_thirty_days",
-  "decision": "set",
-  "value": "unclear",
-  "note": "A facial police-power challenge to the Tenement House Act of 1911: the opinion addresses construction and occupation 'for human habitation' and 'living purposes' generally and fixes no period for any occupancy at issue."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) A facial police-power challenge to the Tenement House Act of 1911: the opinion addresses construction and occupation 'for human habitation' and 'living purposes' generally and fixes no period for any occupancy at issue."
  },
  {
   "case_id": 2125729,
@@ -1129,9 +1115,8 @@
  {
   "case_id": 2138257,
   "field": "under_thirty_days",
-  "decision": "set",
-  "value": "unclear",
-  "note": "The opinion records only that the plaintiff leased a house in Boston to the defendant and that 'a portion of the house was underlet by the defendant'; neither the lease term nor the undertenant's period of occupancy appears."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The opinion records only that the plaintiff leased a house in Boston to the defendant and that 'a portion of the house was underlet by the defendant'; neither the lease term nor the undertenant's period of occupancy appears."
  },
  {
   "case_id": 2149156,
@@ -1143,23 +1128,20 @@
  {
   "case_id": 2152083,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The opinion decides only whether an occupied boarding-hotel room is an 'inhabited dwelling house' under Pen. Code sections 213.5 and 460; the hotel keeper's liberty to let is never mentioned."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The opinion decides only whether an occupied boarding-hotel room is an 'inhabited dwelling house' under Pen. Code sections 213.5 and 460; the hotel keeper's liberty to let is never mentioned."
  },
  {
   "case_id": 2183829,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The judgment is reversed because 'Plaintiffs had the burden of proving Hastings' noncompliance' and failed to carry it; the opinion frames the acquiring owner's relocation duties, never any owner's liberty to let."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The judgment is reversed because 'Plaintiffs had the burden of proving Hastings' noncompliance' and failed to carry it; the opinion frames the acquiring owner's relocation duties, never any owner's liberty to let."
  },
  {
   "case_id": 2210949,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "A malicious-prosecution appeal turning on whether the sworn complaint stated true facts charging no crime; the court quotes Pen. Code section 537 and discusses whether the cottage was a 'furnished apartment', but never frames the owner's liberty to let."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) A malicious-prosecution appeal turning on whether the sworn complaint stated true facts charging no crime; the court quotes Pen. Code section 537 and discusses whether the cottage was a 'furnished apartment', but never frames the owner's liberty to let."
  },
  {
   "case_id": 2212430,
@@ -1192,16 +1174,14 @@
  {
   "case_id": 3469270,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "'Having held that the case is moot, we hereby dismiss the appeal' - the court reaches only mootness after the tenant vacated and the one-year term expired, and never frames the landlord's liberty to let."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) 'Having held that the case is moot, we hereby dismiss the appeal' - the court reaches only mootness after the tenant vacated and the one-year term expired, and never frames the landlord's liberty to let."
  },
  {
   "case_id": 3475162,
   "field": "under_thirty_days",
-  "decision": "set",
-  "value": "unclear",
-  "note": "The proposed law concerned a young woman's entering a Chinese-kept hotel or restaurant and being 'served with food or drink therein'; no period of accommodation is anywhere discussed. (I keep relevance, which the checker read as false, because the law would have made it criminal for a hotel proprietor 'to admit thereto' a whole class of guests - a restriction on whom he may accommodate, which the justices held not a proper exercise of the police power.)"
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The proposed law concerned a young woman's entering a Chinese-kept hotel or restaurant and being 'served with food or drink therein'; no period of accommodation is anywhere discussed. (I keep relevance, which the checker read as false, because the law would have made it criminal for a hotel proprietor 'to admit thereto' a whole class of guests - a restriction on whom he may accommodate, which the justices held not a proper exercise of the police power.)"
  },
  {
   "case_id": 3493179,
@@ -1213,9 +1193,8 @@
  {
   "case_id": 3518161,
   "field": "under_thirty_days",
-  "decision": "set",
-  "value": "unclear",
-  "note": "HRA telephones hotels daily 'to ascertain current vacancies' and pays each hotel's stated rate by two-party check, but the opinion never states how long a referred homeless family stays in the room."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) HRA telephones hotels daily 'to ascertain current vacancies' and pays each hotel's stated rate by two-party check, but the opinion never states how long a referred homeless family stays in the room."
  },
  {
   "case_id": 3686090,
@@ -1248,9 +1227,8 @@
  {
   "case_id": 3981075,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The opinion construes 'dwelling house' in G. L. c. 266, section 14, holding 'A motel is similar to a hotel and is a place of habitation'; the motel keeper's liberty to let is not discussed."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The opinion construes 'dwelling house' in G. L. c. 266, section 14, holding 'A motel is similar to a hotel and is a place of habitation'; the motel keeper's liberty to let is not discussed."
  },
  {
   "case_id": 4360838,
@@ -1269,9 +1247,8 @@
  {
   "case_id": 5571522,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The court only construes the 1982 contract of sale - a life tenancy at $120 a month with a bar on subletting - and never frames the building owner's liberty to let; kept relevant against the checker's relevant=False because the whole dispute is over a paid apartment occupancy and the right to sublet."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The court only construes the 1982 contract of sale - a life tenancy at $120 a month with a bar on subletting - and never frames the building owner's liberty to let; kept relevant against the checker's relevant=False because the whole dispute is over a paid apartment occupancy and the right to sublet."
  },
  {
   "case_id": 5838188,
@@ -1294,23 +1271,20 @@
  {
   "case_id": 6711483,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "Yearling Properties decides only that an ambiguous renewal clause did not bind the guarantor past the first year and that the month-to-month tenancy was orally terminated; the lessor's liberty to let is never framed."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) Yearling Properties decides only that an ambiguous renewal clause did not bind the guarantor past the first year and that the month-to-month tenancy was orally terminated; the lessor's liberty to let is never framed."
  },
  {
   "case_id": 6713640,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The court holds only that unpaid monthly carrying charges defeat a co-op occupant's present right to possession in forcible entry and detainer and never frames the owner's liberty to let; kept relevant against the checker's relevant=False because the legal character of the paid occupancy agreement was itself contested."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The court holds only that unpaid monthly carrying charges defeat a co-op occupant's present right to possession in forcible entry and detainer and never frames the owner's liberty to let; kept relevant against the checker's relevant=False because the legal character of the paid occupancy agreement was itself contested."
  },
  {
   "case_id": 6714582,
   "field": "owner_freedom_characterization",
-  "decision": "set",
-  "value": "not_addressed",
-  "note": "The holding is the bailiff's clear legal duty to remove a tenant's goods so as to restore possession to the 'lawful owner' - a possessory remedy, not the owner's freedom to let; kept relevant against the checker's relevant=False because the court construes R.C. 5321.15 of the residential landlord-tenant act."
+  "decision": "keep",
+  "note": "(normalised to keep: the opinion is silent; user rule 2026-09-09) The holding is the bailiff's clear legal duty to remove a tenant's goods so as to restore possession to the 'lawful owner' - a possessory remedy, not the owner's freedom to let; kept relevant against the checker's relevant=False because the court construes R.C. 5321.15 of the residential landlord-tenant act."
  },
  {
   "case_id": 7341290,
