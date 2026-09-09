@@ -22,6 +22,8 @@ class RankingSpec:
     reranker: Mapping[str, object] = None         # type: ignore[assignment]
     heldout: str = ""
     heldout_sha256: str | None = None
+    heldout_v2: str = ""
+    heldout_v2_sha256: str | None = None
     bar_ap_delta: float = 0.05
 
     def __post_init__(self):

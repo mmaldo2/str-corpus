@@ -50,3 +50,14 @@ def test_check_heldout_refuses_unpinned_hash(tmp_path):
     dom.ranking.heldout_sha256 = ""
     with pytest.raises(ValueError):
         check_heldout(dom, p)
+
+
+def test_case_partitions_drops_duplicates(tmp_path, fixture_db, repo_root):
+    from corpus_engine.store import case_partitions
+    conn = make_ranker_db(tmp_path, fixture_db, repo_root)
+    a, b = [r[0] for r in conn.execute(
+        "SELECT case_id FROM cases WHERE is_duplicate_of IS NULL ORDER BY case_id LIMIT 2")]
+    conn.execute("UPDATE cases SET is_duplicate_of=? WHERE case_id=?", (a, b)); conn.commit()
+    meta = case_partitions(conn, [a, b, 424242])
+    assert a in meta and b not in meta and 424242 not in meta
+    assert len(meta[a]) == 2

@@ -62,6 +62,11 @@ ranking:
       occupants, or about regulation of that practice.
   heldout: data/eval/ranker-heldout-v1.jsonl
   heldout_sha256: "d2d3dd74fb0eaac0015524fabcadd7cf94631e39e27cd490910bc3bd58ab5048"
+  # Held-out v2 (slice 3, D3): human decisions only - human-reviewed relevant positives and
+  # reviewer-overturned negatives - stratified by (era, jurisdiction, label) at ceil(25%).
+  # Covers all ten jurisdictions, unlike v1's four. Frozen; v1 is never edited.
+  heldout_v2: data/eval/ranker-heldout-v2.jsonl
+  heldout_v2_sha256: null                # pinned by tools/build_ranker_heldout.py (T8 step 2)
   bar_ap_delta: 0.05
 reader:
   codebooks_dir: codebooks

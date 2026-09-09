@@ -195,6 +195,26 @@ def env_value(name: str) -> str | None:
     return val or None
 
 
+def case_partitions(conn, case_ids) -> dict[int, tuple[str, str]]:
+    """`{case_id: (era_partition, jurisdiction)}` for the live (non-duplicate) cases among
+    `case_ids`, read in chunks of 500 so a 30,000-id list is one bounded query per chunk.
+
+    One function, two callers on purpose: the two held-out slices must be stratified on
+    exactly the same facts, and the re-read's batch planner must group cases into the same
+    cells the map used."""
+    ids = sorted({int(c) for c in case_ids})
+    out: dict[int, tuple[str, str]] = {}
+    for i in range(0, len(ids), 500):
+        chunk = ids[i:i + 500]
+        ph = ",".join("?" * len(chunk))
+        for cid, era, jur, dup in conn.execute(
+                f"SELECT case_id, era_partition, jurisdiction, is_duplicate_of "
+                f"FROM cases WHERE case_id IN ({ph})", chunk):
+            if dup is None:
+                out[int(cid)] = (era, jur)
+    return out
+
+
 def era_partition(year: int | None, bounds) -> str:
     """bounds: [(upper_exclusive_year, label), ...] ascending, last is a sentinel."""
     if year is None:
