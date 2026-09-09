@@ -203,3 +203,29 @@ def test_the_global_order_is_every_batch_best_first_regardless_of_cell():
 def test_the_global_order_breaks_ties_on_batch_id():
     order = global_batch_order([_b("z", "pre-1860", "Pa.", 0.5), _b("a", "pre-1860", "Pa.", 0.5)])
     assert [bid for _k, bid in order] == ["a", "z"]
+
+
+from corpus_engine.mapper.cells import walk_order
+
+
+def test_the_walk_order_replays_read_batches_then_a_floor_per_cell_then_the_global_order():
+    """A second budget under reading 2 (density per cell, 2026-09-09): the batches already read
+    come first (free cache replays that the cumulative budget still counts), then the top
+    `floor` unread batches of every cell that has fewer than `floor` read, best score first
+    across cells, then everything else in the global order. A cell already at the floor adds
+    nothing to it."""
+    batches = [_b("ny1", "1930-1970", "N.Y.", 0.9), _b("ny2", "1930-1970", "N.Y.", 0.8),
+               _b("ny3", "1930-1970", "N.Y.", 0.7), _b("ny4", "1930-1970", "N.Y.", 0.6),
+               _b("pa1", "pre-1860", "Pa.", 0.5), _b("pa2", "pre-1860", "Pa.", 0.3),
+               _b("pa3", "pre-1860", "Pa.", 0.1), _b("tx1", "pre-1860", "Tex.", 0.4)]
+    order = walk_order(batches, read={"ny1", "ny2", "ny3"}, floor=2)
+    assert [bid for _k, bid in order] == [
+        "ny1", "ny2", "ny3",          # replays, in global order
+        "pa1", "tx1", "pa2",          # the floor: Pa. needs two, Tex. needs two but has one; by score
+        "ny4", "pa3"]                 # the rest of the global order
+
+
+def test_the_walk_order_without_a_floor_is_the_global_order():
+    batches = [_b("a", "1930-1970", "N.Y.", 0.2), _b("b", "pre-1860", "Pa.", 0.9)]
+    assert walk_order(batches, read=set(), floor=0) == global_batch_order(batches)
+    assert walk_order(batches, read={"a"}, floor=0) == (("1930-1970|N.Y.", "a"), ("pre-1860|Pa.", "b"))

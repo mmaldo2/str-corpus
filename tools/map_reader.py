@@ -38,7 +38,8 @@ from corpus_engine.domain import load_domain                                    
 from corpus_engine.mapper.admit import unanswered_cases                              # noqa: E402
 from corpus_engine.mapper.cells import (DEPTH_COLUMNS, BatchSource,                 # noqa: E402
                                         build_budget_cells, build_cells,
-                                        global_batch_order, load_batches, select_cells)
+                                        global_batch_order, load_batches, select_cells,
+                                        floor_batches, read_batch_ids, walk_order)
 from corpus_engine.mapper.runner import (DEFAULT_MAX_WALL_SECONDS, MapRunner,       # noqa: E402
                                          RunnerCaps, default_max_units,
                                          default_max_units_for_budget, lost_cases,
@@ -95,6 +96,12 @@ def build_parser() -> argparse.ArgumentParser:
                          "used (the manifest records cap: none); the yield floor still stops "
                          "a cell that has stopped paying. The ceiling is checked between "
                          "batches, so a run overshoots by at most one batch.")
+    ap.add_argument("--cell-floor", type=int, default=0,
+                    help="with --case-budget: before the global walk, read the top N unread "
+                         "batches of every cell that has fewer than N read (best score first "
+                         "across cells), so the thin cells get a first look the global order "
+                         "would never give them. Batches already read replay from the cache "
+                         "first and count toward the budget as before.")
     ap.add_argument("--sample-pct", type=int, default=None,
                     help="checker sample percentage (default: domain.yaml's checker_sample_pct)")
     ap.add_argument("--retry-lost", action="store_true",
@@ -125,6 +132,10 @@ def main(argv=None) -> int:
     if a.retry_lost and a.case_budget is not None:
         sys.exit("--retry-lost re-reads the cases the map lost, which the budget does not "
                  "govern; run it without --case-budget")
+    if a.cell_floor and a.case_budget is None:
+        sys.exit("--cell-floor is a rule for the budgeted walk; pass --case-budget with it")
+    if a.cell_floor < 0:
+        sys.exit(f"--cell-floor {a.cell_floor} makes no sense; pass 0 or more")
 
     def log(msg):
         print(msg, flush=True)
@@ -136,9 +147,12 @@ def main(argv=None) -> int:
     if not batches_dir.is_dir():
         sys.exit(f"no batches to map: {batches_dir} does not exist")
     batches = load_batches(batches_dir)
+    floor_n = 0
     if a.case_budget is not None:
         cells = build_budget_cells(batches)
-        order = global_batch_order(batches)
+        read_ids = read_batch_ids(run_dir / "map-manifest.json")
+        order = walk_order(batches, read=read_ids, floor=a.cell_floor)
+        floor_n = len(floor_batches(batches, read=read_ids, floor=a.cell_floor))
     else:
         cells = build_cells(batches, era_depth=DEPTH_COLUMNS[a.depth_column])
         order = None
@@ -224,6 +238,8 @@ def main(argv=None) -> int:
     caps = RunnerCaps(max_units=a.max_units if a.max_units is not None else default_units,
                       max_wall_seconds=a.max_wall_seconds, case_budget=a.case_budget)
     budget_note = f", case budget {a.case_budget} in global rank order" if a.case_budget else ""
+    if a.cell_floor:
+        budget_note += f", cell floor {a.cell_floor} ({floor_n} batches first)"
     log(f"{len(cells)} cells, {sum(c.cap_batches for c in cells)} walkable batches{budget_note}, "
         f"caps: {caps.max_units} reader units (+2 worst case, see --help) / "
         f"{caps.max_wall_seconds:.0f} s")
@@ -246,6 +262,7 @@ def main(argv=None) -> int:
                        read_timeout_seconds=READ_TIMEOUT, resume_args=argv,
                        flags={"cells": a.cells, "dry_run_batches": a.dry_run_batches,
                               "retry_lost": bool(a.retry_lost),
+                              "cell_floor": a.cell_floor, "cell_floor_batches": floor_n,
                               # M6: the flag records what was ASKED for. `screen.state` records
                               # what was BUILT, which in this slice is always "off".
                               "screen_requested": bool(a.screen),

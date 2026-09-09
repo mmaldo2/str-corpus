@@ -363,6 +363,44 @@ def test_the_case_budget_flag_switches_the_run_to_a_global_uncapped_walk(wired, 
     assert "case budget 2" in capsys.readouterr().out
 
 
+def test_the_cell_floor_reads_one_batch_of_each_cell_before_the_second_of_any(wired, capsys):
+    """Density per cell (2026-09-09): `--cell-floor 1` puts a first look into every cell before
+    the global order buys a second batch of the best one. The wired pool is four two-case
+    batches: 001 and 002 in 1930-1970 N.Y. (scores .99, .98), 003 and 004 in pre-1860 Pa.
+    (.97, .96). Two batches under the floor reach both cells; the plain global order would
+    spend them both on N.Y."""
+    assert mr.main(["--run-id", RUN_ID, "--case-budget", "4", "--cell-floor", "1",
+                    "--sample-pct", "0"]) == 0
+    doc = _manifest(wired)
+    assert doc["flags"]["cell_floor"] == 1 and doc["flags"]["cell_floor_batches"] == 2
+    read = {k for k, c in doc["cells"].items() if c["batches_completed"]}
+    assert read == {"1930-1970|N.Y.", "pre-1860|Pa."}
+    assert doc["totals"]["cases_read"] == 4 and doc["stop"] == "budget:cases"
+    assert "cell floor 1" in capsys.readouterr().out
+
+
+def test_the_cell_floor_skips_cells_the_earlier_run_already_covered(wired):
+    """A resume under a larger budget: the batch read last time replays first and the floor
+    counts it - a cell at the floor gets nothing more from it, and the walk then continues in
+    the global order."""
+    assert mr.main(["--run-id", RUN_ID, "--case-budget", "2", "--sample-pct", "0"]) == 0
+    doc = _manifest(wired)
+    assert doc["totals"]["cases_read"] == 2                    # batch 001 only
+    assert mr.main(["--run-id", RUN_ID, "--case-budget", "6", "--cell-floor", "1",
+                    "--sample-pct", "0"]) == 0
+    doc = _manifest(wired)
+    assert doc["flags"]["cell_floor_batches"] == 1            # N.Y. was covered; Pa. gets 003
+    done = {k: c["batches_completed"] for k, c in doc["cells"].items()}
+    assert done == {"1930-1970|N.Y.": 2, "pre-1860|Pa.": 1}   # 001 replayed, 003 floor, 002 global
+    assert doc["totals"]["cases_read"] == 6
+
+
+def test_the_cell_floor_needs_a_case_budget():
+    with pytest.raises(SystemExit) as exc:
+        mr.main(["--cell-floor", "1"])
+    assert "case-budget" in str(exc.value)
+
+
 def test_a_case_budget_of_zero_is_refused(wired):
     with pytest.raises(SystemExit) as exc:
         mr.main(["--case-budget", "0"])
@@ -373,3 +411,4 @@ def test_the_parser_carries_the_budget_flag():
     ap = mr.build_parser()
     assert "--case-budget" in {a for action in ap._actions for a in action.option_strings}
     assert ap.parse_args([]).case_budget is None
+    assert ap.parse_args([]).cell_floor == 0

@@ -149,6 +149,55 @@ def global_batch_order(batches: Sequence[Mapping]) -> tuple[tuple[str, str], ...
     return tuple((cell_key, bid) for _s, bid, cell_key in rows)
 
 
+def walk_order(batches: Sequence[Mapping], *, read: set[str], floor: int) -> tuple[tuple[str, str], ...]:
+    """The order a second budget walks: the batches already read first (cache replays, free,
+    but the cumulative budget still counts them), then a FLOOR - the top `floor` unread batches
+    of every cell that has fewer than `floor` read, best score first across cells - then the
+    rest of the global order. With `floor` 0 this is `global_batch_order` with the read batches
+    hoisted to the front. Density per cell (2026-09-09): the floor is what puts a first look
+    into the thin early cells the global order would never reach."""
+    order = global_batch_order(batches)
+    replays = tuple(x for x in order if x[1] in read)
+    picked = floor_batches(batches, read=read, floor=floor)
+    chosen = set(picked)
+    rest = tuple(x for x in order if x[1] not in read and x not in chosen)
+    return replays + picked + rest
+
+
+def floor_batches(batches: Sequence[Mapping], *, read: set[str], floor: int) -> tuple[tuple[str, str], ...]:
+    """The floor's picks: for every cell with fewer than `floor` batches in `read`, its best
+    unread batches up to the floor, ordered best-first across cells."""
+    if floor <= 0:
+        return ()
+    order = global_batch_order(batches)
+    have: dict[str, int] = {}
+    for key, bid in order:
+        have[key] = have.get(key, 0) + (1 if bid in read else 0)
+    picked: list[tuple[str, str]] = []
+    for key, bid in order:                          # already best-first across cells
+        if bid in read:
+            continue
+        if have.get(key, 0) < floor:
+            picked.append((key, bid)); have[key] = have.get(key, 0) + 1
+    return tuple(picked)
+
+
+def read_batch_ids(manifest_path: Path) -> set[str]:
+    """The batch ids a run's manifest says were completed, across every cell - a split unit
+    (`<batch>-part1`) counts for its batch. No manifest, no ids."""
+    if not manifest_path.exists():
+        return set()
+    doc = json.loads(manifest_path.read_text(encoding="utf-8"))
+    out: set[str] = set()
+    for cell in (doc.get("cells") or {}).values():
+        units = cell.get("units") or []
+        units = list(units.values()) if isinstance(units, dict) else units
+        for u in units:
+            if u.get("status") == "ok" or u.get("cases_read"):
+                out.add((u.get("batch_id") or str(u.get("unit_id", ""))).split("-part")[0])
+    return out
+
+
 def select_cells(cells: Sequence[Cell], spec: str | None) -> list[Cell]:
     """`--cells era|jurisdiction[,...]`. The run order is the cells' own order, never the
     order they were typed in: a `--cells` run and a full run read the same cell first."""
