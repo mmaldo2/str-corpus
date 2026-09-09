@@ -477,6 +477,9 @@ function card(it){
     `<tr><td class="c">${esc(d.field)}</td><td>reader ${esc(show(d.reader_value))} &middot;
       checker ${esc(show(d.checker_value))}</td></tr>`).join('');
   const dis = rows ? `<table class="cand">${rows}</table>` : '';
+  const fpRows = (it.first_passes || []).map(p =>
+    `<tr><td class="c">${esc(p.who)}</td><td><b>${esc(p.outcome)}</b> &mdash; ${esc(p.note || '')}</td></tr>`).join('');
+  const fp = fpRows ? `<div class="warn">Two independent first passes disagree on this card; both are shown, neither is a vote.</div><table class="cand">${fpRows}</table>` : '';
 
   const nulled = (it.nulled_fields || []).length
     ? `<div class="warn">The quote gate voided <b>${esc((it.nulled_fields || []).join(', '))}</b>
@@ -512,7 +515,7 @@ function card(it){
       <div><div class="lab">Reader says</div><div class="val">${esc(readerVal)}</div></div>
       <div class="chk"><div class="lab">Checker says</div><div class="val">${checkerCell}</div></div>
     </div>
-    ${dis}
+    ${dis}${fp}
     ${nulled}
     ${conflict}
     ${it.holding_summary ? `<p class="hold">Holding: ${esc(it.holding_summary)}</p>` : ''}
