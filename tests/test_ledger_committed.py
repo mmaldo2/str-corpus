@@ -30,11 +30,11 @@ def test_the_rename_leaves_the_committed_counts_and_the_replay_untouched(repo_ro
     log = (repo_root / "data" / "ledger" / "patches.jsonl").read_text(encoding="utf-8")
     assert "under_30_days" not in log and "right_characterization" not in log
     v = open_ledger(domain=dom).view()
-    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 2716   # 2795 after round 3b; round 4 overturned relevance on 79 (full text)
+    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 3466   # 2716 after the cycle-004 review; the shard-02 tail map admitted 750 relevant (2026-09-09)
     fav = v.counts(polarity="favorable").total
-    assert fav.human_reviewed + fav.machine_only == 1229   # 1228 after round 4; round 5b set one polarity favorable
+    assert fav.human_reviewed + fav.machine_only == 1501   # 1229 after the cycle-004 review; shard-02 tail map (2026-09-09)
     hh = v.counts(polarity="favorable", who_was_letting="householder").total
-    assert hh.human_reviewed + hh.machine_only == 303    # 317 after round 3b; round 4
+    assert hh.human_reviewed + hh.machine_only == 341    # 303 after the cycle-004 review; shard-02 tail map (2026-09-09)
 
 
 # ---------------------------------------------------------------- D2: reviewer protection
@@ -115,7 +115,8 @@ def test_a_real_dry_run_refuses_a_re_read_of_a_human_decided_field(repo_root):
     res = led.apply([p], note="dry run only", dry_run=True)
     assert res.applied == [] and res.files_written == []
     assert len(res.rejected) == 1
-    assert res.rejected[0]["at"] == PROTECTION_FROM_SEQ + 1   # the seq the append would give
+    assert res.rejected[0]["at"] == led.log.head() + 1   # the seq the append would give
+    assert res.rejected[0]["at"] > PROTECTION_FROM_SEQ           # and it is above the baseline
     assert res.rejected[0]["historical"] is False
     assert res.rejected[0]["by_rule"] == "reviewer-protection"
     assert res.rejected[0]["standing"] == standing
@@ -156,7 +157,7 @@ def test_a_patch_above_the_baseline_is_rejected_over_the_real_state(repo_root):
 
 def test_the_protection_rule_leaves_the_published_counts_untouched(repo_root):
     v = open_ledger(domain=load_domain()).view()
-    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 2716
+    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 3466
     assert v.counts().total.human_reviewed == 821
     flagged = sum(1 for cid in v.state.order
                   for f in (v.state.records[cid].get("review") or {}).get("flags") or ()
