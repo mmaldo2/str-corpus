@@ -27,7 +27,7 @@ def test_counts_and_matrix_on_the_real_ledger(repo_root):
     assert hh.total.human_reviewed + hh.total.machine_only == 318    # 341 after the shard-02 tail map; the cycles 1-3 re-read (2026-09-09)   # 138 before reference v2
     m = v.matrix()
     pre = {k: t for k, t in m.cells.items() if k[0] == "pre-1860" and k[2] == "householder"}
-    assert sum(t.human_reviewed + t.machine_only for t in pre.values()) == 16   # 14 after the cycle-004 review; the shard-02 tail map admitted two more (2026-09-09)
+    assert sum(t.human_reviewed + t.machine_only for t in pre.values()) == 17   # 16 after the shard-02 tail map; the cycles 1-3 re-read replaced one who_was_letting (2026-09-09)
     assert ("pre-1860", "south", "householder", "nights") in m.empty_cells(minimum=3, tier="either")
     assert "| era |" in m.render_markdown()
 

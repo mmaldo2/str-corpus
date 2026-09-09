@@ -142,6 +142,7 @@ def test_a_patch_above_the_baseline_is_rejected_over_the_real_state(repo_root):
     cid, field, _, _ = HISTORICAL[0]
     trial = copy.deepcopy(v.state)
     standing = trial.records[cid][field]
+    flags_before = list(v.record(cid)["review"]["flags"])
     assert trial.provenance[cid][field] == "human"
     old = apply_patch(trial, Patch(cid, "set", field, "favorable", "slice-3 re-read",
                                    Basis(model="claude-opus-5@claude-cli",
@@ -153,7 +154,7 @@ def test_a_patch_above_the_baseline_is_rejected_over_the_real_state(repo_root):
     entry = trial.conflicts[cid][-1]
     assert entry["historical"] is False and entry["at"] == PROTECTION_FROM_SEQ + 1
     assert f"needs-review:{field}" in trial.records[cid]["review"]["flags"]
-    assert v.record(cid)["review"]["flags"] == []               # the real view is untouched
+    assert v.record(cid)["review"]["flags"] == flags_before     # the real view is untouched
 
 
 def test_the_protection_rule_leaves_the_published_counts_untouched(repo_root):
@@ -163,4 +164,4 @@ def test_the_protection_rule_leaves_the_published_counts_untouched(repo_root):
     flagged = sum(1 for cid in v.state.order
                   for f in (v.state.records[cid].get("review") or {}).get("flags") or ()
                   if f.startswith("needs-review:"))
-    assert flagged == 34          # every one of them already in the committed log
+    assert flagged == 103   # 34 after the cycle-004 review; the cycles 1-3 re-read carded 69 conflicts (2026-09-09)
