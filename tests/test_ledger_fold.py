@@ -306,3 +306,171 @@ def test_cascade_false_still_skips_the_cascade_under_the_v3_rule():
     apply_patch(s, Patch(4, "drop_quote", "quotes", "Q1", "no cascade", Basis(reviewer="mmaldo2"),
                          cascade=False), cascade=False)
     assert s.records[4]["polarity"] == "favorable" and s.records[4]["under_thirty_days"] == "yes"
+
+
+# ---------------------------------------------------------------- D2: reviewer protection
+
+from corpus_engine.ledger.fold import (FLAG_PREFIX, PROTECTION_FROM_SEQ, PROTECTION_RULE_ID,
+                                       UNSET, is_protected_write, is_reader_write,
+                                       provenance_kind)
+
+READER = Basis(model="claude-opus-5@claude-cli", prompt_version="mapper-v3:f92016681314",
+               run_id="cycles-001-003-reread")
+HUMAN = Basis(reviewer="mmaldo2", run_id="map-cycle-004-round-1")
+# Protection is enforced above the grandfather baseline only (R1), so every patch that is
+# meant to be judged by the rule carries a seq the real log has not reached.
+AFTER = PROTECTION_FROM_SEQ + 1
+
+
+def _admitted() -> State:
+    s = State()
+    apply_patch(s, Patch(5, "admit", "", REC, "v", Basis(model="m", prompt_version="mapper-v1",
+                                                         run_id="cycle-001"), cycle="cycle-001"))
+    return s
+
+
+def test_the_fold_flag_prefix_is_the_readers_flag_prefix():
+    """One spelling of the flag. The ledger cannot import the reader (it is upstream of it),
+    so the constant is re-declared there and pinned equal here instead."""
+    from corpus_engine.reader.schema import FLAG_PREFIX as READER_PREFIX
+    assert FLAG_PREFIX == READER_PREFIX == "needs-review:"
+
+
+def test_the_rejecting_rule_has_a_name():
+    """R2: a tool that records a rejection as a patch spells the basis this way."""
+    assert PROTECTION_RULE_ID == "reviewer-protection"
+
+
+def test_a_reader_set_never_overwrites_a_reviewer_value():
+    s = _admitted()
+    apply_patch(s, Patch(5, "set", "polarity", "adverse", "round 1", HUMAN))
+    assert s.provenance[5]["polarity"] == "human"
+    old = apply_patch(s, Patch(5, "set", "polarity", "favorable", "re-read", READER, seq=AFTER))
+    assert old is UNSET                                     # nothing was replaced
+    assert s.records[5]["polarity"] == "adverse"            # the human's value stands
+    assert s.provenance[5]["polarity"] == "human"
+    assert s.conflicts[5] == [{"field": "polarity", "attempted": "favorable",
+                               "standing": "adverse", "by": READER.to_json(), "at": AFTER,
+                               "op": "set", "historical": False}]
+    assert s.records[5]["review"]["flags"] == ["needs-review:polarity"]
+
+
+def test_a_reader_set_of_the_same_value_is_silent():
+    """161 writes in the real log do exactly this. Nothing is overwritten, so nothing is
+    reported - and the committed snapshot still reproduces."""
+    s = _admitted()
+    apply_patch(s, Patch(5, "set", "polarity", "adverse", "round 1", HUMAN))
+    apply_patch(s, Patch(5, "set", "polarity", "adverse", "re-read", READER, seq=AFTER))
+    assert s.records[5]["polarity"] == "adverse"
+    assert 5 not in s.conflicts
+    assert s.records[5]["review"]["flags"] == []
+
+
+def test_a_reader_retraction_to_none_is_rejected_on_a_reviewer_field():
+    s = _admitted()
+    apply_patch(s, Patch(5, "set", "who_was_letting", "householder", "round 1", HUMAN))
+    apply_patch(s, Patch(5, "set", "who_was_letting", None, "re-read", READER, seq=AFTER))
+    assert s.records[5]["who_was_letting"] == "householder"
+    assert s.conflicts[5][0]["attempted"] is None and s.conflicts[5][0]["at"] == AFTER
+    assert s.records[5]["review"]["flags"] == ["needs-review:who_was_letting"]
+
+
+def test_a_reader_set_replaces_a_reader_value_and_keeps_reader_provenance():
+    s = _admitted()
+    apply_patch(s, Patch(5, "set", "polarity", "mixed", "re-read", READER, seq=AFTER))
+    assert s.records[5]["polarity"] == "mixed"
+    assert s.provenance[5]["polarity"] == "reader" and 5 not in s.conflicts
+
+
+def test_a_rule_retraction_over_a_reviewer_value_is_rejected_too():
+    """Controller ruling: D2 rejects EVERY non-reviewer write, rule basis included. The
+    `retraction-cascade-v1` null of a human characterization is exactly the overwrite the
+    protection exists to stop, so after the baseline a rule must go through a reviewer."""
+    s = _admitted()
+    apply_patch(s, Patch(5, "set", "polarity", "adverse", "round 1", HUMAN))
+    old = apply_patch(s, Patch(5, "set", "polarity", None, "cascade",
+                               Basis(rule_id="retraction-cascade-v1"), seq=AFTER))
+    assert old is UNSET
+    assert s.records[5]["polarity"] == "adverse"
+    assert s.provenance[5]["polarity"] == "human"
+    assert s.conflicts[5][0]["by"] == {"rule_id": "retraction-cascade-v1"}
+    assert s.conflicts[5][0]["historical"] is False
+    assert s.records[5]["review"]["flags"] == ["needs-review:polarity"]
+
+
+def test_a_write_at_or_below_the_baseline_is_grandfathered_and_only_recorded():
+    """R1. The six rule-basis writes over reviewer values already in the log applied when
+    they were written; re-judging them now would rewrite five committed records. They stay
+    applied, carry no flag, and are visible only through `historical=True`."""
+    s = _admitted()
+    apply_patch(s, Patch(5, "set", "polarity", "adverse", "round 1", HUMAN))
+    apply_patch(s, Patch(5, "set", "polarity", None, "cascade",
+                         Basis(rule_id="retraction-cascade-v1"), seq=PROTECTION_FROM_SEQ))
+    assert s.records[5]["polarity"] is None                  # it applied, as it always has
+    assert s.provenance[5]["polarity"] == "human"            # and the judgment is not un-made
+    assert s.records[5]["review"]["flags"] == []             # no flag, so no rendered byte moves
+    assert s.conflicts[5] == [{"field": "polarity", "attempted": None, "standing": "adverse",
+                               "by": {"rule_id": "retraction-cascade-v1"},
+                               "at": PROTECTION_FROM_SEQ, "op": "set", "historical": True}]
+    # and the field is still human, so a later re-read is carded rather than silently applied
+    apply_patch(s, Patch(5, "set", "polarity", "favorable", "re-read", READER, seq=AFTER))
+    assert s.records[5]["polarity"] is None and s.conflicts[5][1]["standing"] is None
+
+
+def test_a_reviewer_may_always_redecide():
+    s = _admitted()
+    apply_patch(s, Patch(5, "set", "polarity", "adverse", "round 1", HUMAN))
+    apply_patch(s, Patch(5, "set", "polarity", "mixed", "round 2", Basis(reviewer="mmaldo2"),
+                         seq=AFTER))
+    assert s.records[5]["polarity"] == "mixed" and 5 not in s.conflicts
+
+
+def test_a_re_admit_body_may_not_change_a_reviewer_decided_field():
+    s = _admitted()
+    apply_patch(s, Patch(5, "set", "polarity", "adverse", "round 1", HUMAN))
+    body = {**REC, "polarity": "favorable", "characterization": "tenancy"}
+    apply_patch(s, Patch(5, "admit", "", body, "re-read", READER, cycle="cycle-001", seq=AFTER))
+    assert s.records[5]["polarity"] == "adverse"            # the human's value survives
+    assert s.records[5]["characterization"] == "tenancy"    # a reader field does not
+    assert s.conflicts[5] == [{"field": "polarity", "attempted": "favorable",
+                               "standing": "adverse", "by": READER.to_json(), "at": AFTER,
+                               "op": "admit", "historical": False}]
+    assert s.records[5]["review"]["flags"] == ["needs-review:polarity"]
+
+
+def test_a_migrate_never_touches_a_decided_field_and_records_no_conflict():
+    """R1 exempts `migrate`: a vocabulary migration renames a value rather than judging a
+    case, and it only ever fills a key the record does not already carry."""
+    s = _admitted()
+    apply_patch(s, Patch(5, "set", "polarity", "adverse", "round 1", HUMAN))
+    apply_patch(s, Patch(5, "migrate", "", {"schema_version": 3, "polarity": "favorable",
+                                            "restriction_nature": None}, "v3",
+                         Basis(rule_id="m"), seq=AFTER))
+    assert s.records[5]["polarity"] == "adverse"            # a present key is never rewritten
+    assert s.records[5]["restriction_nature"] is None       # an absent one is filled
+    assert s.records[5]["schema_version"] == 3
+    assert 5 not in s.conflicts and s.records[5]["review"]["flags"] == []
+
+
+def test_provenance_and_the_protection_helpers():
+    assert provenance_kind(HUMAN) == "human"
+    assert provenance_kind(READER) == "reader"
+    assert provenance_kind(Basis(rule_id="r")) == "rule"
+    assert provenance_kind(Basis()) == "reader"             # an admit body with a bare basis
+    # `is_reader_write` still answers only "did a reader write this"...
+    assert is_reader_write(READER) is True
+    assert is_reader_write(HUMAN) is False
+    assert is_reader_write(Basis(rule_id="retraction-cascade-v1")) is False
+    # ...but the gate is wider: everything that is not a reviewer is protected against.
+    assert is_protected_write(READER) is True
+    assert is_protected_write(Basis(rule_id="retraction-cascade-v1")) is True
+    assert is_protected_write(Basis()) is True
+    assert is_protected_write(HUMAN) is False
+    assert is_protected_write(Basis(reviewer="m", rule_id="r")) is False
+
+
+def test_an_admit_body_records_provenance_for_every_judged_field_it_carries():
+    s = _admitted()
+    assert s.provenance[5]["relevant"] == "reader"
+    assert s.provenance[5]["polarity"] == "reader"
+    assert "who_was_letting" not in s.provenance[5]         # the body does not carry it

@@ -107,6 +107,18 @@ Whether a ledger record's judgments have been confirmed by a human
 (human-reviewed) or rest on machine readers only (machine-only). Every count
 is reported by tier, never blended.
 
+**Provenance**:
+Who decided a field on a record: human, reader, or rule. Tracked per field and
+sticky at human — a rule that later withdraws the value does not un-make the
+judgment.
+_Avoid_: source, origin
+
+**Conflict**:
+A machine write that disagrees with a human decision. Never applied: the human
+value stands, the attempt is recorded, and the record is flagged so the
+disagreement reaches a review card.
+_Avoid_: mismatch, error
+
 **Adjudication**:
 A human's saved decision on a ledger record or one of its fields. The human's
 decision is the record; every machine recommendation is a recommendation only.

@@ -45,6 +45,32 @@ class LedgerView:
         return any(p.basis.reviewer and p.op in ("set", "append") and p.field in judged
                    for p in self.history(case_id))
 
+    def conflicts(self, case_id: int | None = None, *,
+                  historical: bool = False) -> dict[int, list[dict]]:
+        """Every write that landed on a field a human had already decided (D2).
+
+        `{case_id: [{"field", "attempted", "standing", "by", "at", "op", "historical"}, ...]}`.
+        By default only the writes the fold REFUSED. `historical=True` adds the six
+        grandfathered writes from below `PROTECTION_FROM_SEQ`, which were applied and are
+        listed for the record only - they carry no flag and changed no committed byte.
+        Copies, not the fold's own lists: the queue reads this and must not be able to edit
+        the state."""
+        rows = self.state.conflicts
+        if case_id is not None:
+            rows = {case_id: rows[case_id]} if case_id in rows else {}
+        out = {}
+        for cid, entries in rows.items():
+            kept = [dict(c) for c in entries if historical or not c.get("historical")]
+            if kept:
+                out[cid] = kept
+        return out
+
+    def provenance(self, case_id: int) -> dict[str, str]:
+        """`{field: "human"|"reader"|"rule"}` for this record. Empty for a case with no
+        judged field ever written - never a KeyError, because the re-read asks about every
+        record it re-reads and a missing entry means "nobody has decided this field"."""
+        return dict(self.state.provenance.get(case_id, {}))
+
     def counts(self, *, by: tuple[str, ...] = (), **filters):
         from corpus_engine.ledger.tally import counts
         return counts(self, by=by, **filters)

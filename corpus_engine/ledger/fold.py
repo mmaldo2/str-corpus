@@ -33,6 +33,60 @@ SUPPORTED_BY_PROMPT = {
 }
 REVIEW_DEFAULT = {"status": "machine", "flags": [], "notes": []}
 
+# The flag a rejected write leaves on the record. It MUST equal
+# `corpus_engine.reader.schema.FLAG_PREFIX`; the ledger is upstream of the reader and cannot
+# import it, so the two are pinned equal by a test instead of by an import.
+FLAG_PREFIX = "needs-review:"
+PROVENANCE_KINDS = ("human", "reader", "rule")
+# R2: a rejection is a rule speaking, and this is the rule's name. The fold flags the record
+# in place while it folds, so it writes no patch of its own; a tool that later records the
+# same rejection as a patch (the re-read in T6, the queue in T7) spells its basis
+# `Basis(rule_id=PROTECTION_RULE_ID)`.
+PROTECTION_RULE_ID = "reviewer-protection"
+# D2 protects human decisions from THIS SEQ ON (controller ruling R1). The log head on
+# 2026-09-08 was 42984, and six writes below it already changed a field a reviewer had
+# decided: seq 7368 (4268287.polarity), 7372 (1932707.polarity), 7376
+# (2186819.characterization) and 7378 (2186819.polarity), all `retraction-cascade-v1` nulls
+# a reviewer's own `drop_quote` triggered and all restored by hand afterwards; and seq 7818
+# (608729.polarity) and 7820 (10225079.polarity), the `vocab-v3-cleanup` nulls of the
+# deleted value "irrelevant". Enforcing the rule over them would rewrite five committed
+# records and flag them, so history is grandfathered: those six are recorded as conflicts
+# with `historical: True`, apply exactly as they always have, and add no flag - which is why
+# a fresh replay of the committed log still renders the cycle files byte for byte. Every
+# patch after the baseline is judged by the rule.
+PROTECTION_FROM_SEQ = 42984
+
+
+def provenance_kind(basis) -> str:
+    """The provenance a patch writes: human | reader | rule.
+
+    `Basis.kind()` has a fourth answer, "none", for a bare basis. A judged value can only
+    reach the fold under a basis that can judge (`MissingBasis`), so a bare basis here is
+    either an admit body or a retraction to None - both records of a read, and "reader" is
+    the honest name for them."""
+    kind = basis.kind()
+    return kind if kind in PROVENANCE_KINDS else "reader"
+
+
+def is_reader_write(basis) -> bool:
+    """Whether this patch is a machine read speaking on its own authority.
+
+    NOT the protection gate - see `is_protected_write`, which D2 widened to every
+    non-reviewer basis. Kept because it is the honest name for "a reader wrote this" and the
+    re-read tooling asks that question about its own patches."""
+    return bool(basis.model) and not basis.reviewer
+
+
+def is_protected_write(basis) -> bool:
+    """Whether D2's protection applies to this patch: every basis that is not a reviewer.
+
+    A reader re-read is the obvious case, but a rule is protected against too (controller
+    ruling): `retraction-cascade-v1` once nulled a human's characterization, and a rule that
+    can quietly undo a judgment is the same hole as a reader that can. A rule may still fix
+    such a field - through a reviewer, or through a `migrate` op, which is exempt because a
+    vocabulary migration renames a value rather than judging a case."""
+    return not basis.reviewer
+
 
 def supported_fields(prompt_version: str | None) -> tuple[str, ...]:
     """The support rule for a record admitted under `prompt_version`.
@@ -94,6 +148,55 @@ class State:
     # that wants the real rule preserved must copy `prompts` too, the same as it must copy
     # `cycles` and `in_file`.
     prompts: dict[int, str] = field(default_factory=dict)
+    # Per-field provenance, `{case_id: {field: kind}}` (D2). Written by every applied `set` on
+    # a judged field and by every judged field an `admit` body carries. STICKY AT "human": once
+    # a human has decided a field, a rule that later withdraws the value has not un-made the
+    # judgment, and a field that quietly reverted to rule provenance would be silently
+    # re-fillable by the next machine read. A side map for the same reason as `cycles`.
+    provenance: dict[int, dict[str, str]] = field(default_factory=dict)
+    # Writes over a human decision, `{case_id: [entry, ...]}`. An entry is
+    # {"field", "attempted", "standing", "by", "at", "op", "historical"}. `historical` is True
+    # for the six writes below `PROTECTION_FROM_SEQ`, which are recorded but still applied;
+    # every other entry is a write the fold REFUSED. A rejection never raises: `view()`
+    # replays the whole log on every call and a raise would take the corpus down (spec §9).
+    conflicts: dict[int, list[dict]] = field(default_factory=dict)
+
+
+def _record_provenance(state: "State", case_id: int, field_name: str, basis) -> None:
+    """See `State.provenance` for the stickiness rule."""
+    fields = state.provenance.setdefault(case_id, {})
+    if fields.get(field_name) == "human":
+        return
+    fields[field_name] = provenance_kind(basis)
+
+
+def _may_write(state: "State", case_id: int, field_name: str, value, basis, *, seq: int,
+               op: str, standing, target: dict) -> bool:
+    """Whether `field_name` may take `value` (D2), recording the attempt when it may not.
+
+    A write of the SAME value is not an overwrite: it changes nothing, so it is neither
+    applied nor reported. That is what keeps the 161 value-identical re-admit writes in the
+    committed log silent, and it is half of what makes a fresh replay reproduce the four
+    cycle files byte for byte; the `PROTECTION_FROM_SEQ` baseline is the other half.
+    `target` is the record the flag goes on - on a re-admit that is the NEW record, not the
+    one being replaced."""
+    if state.provenance.get(case_id, {}).get(field_name) != "human":
+        return True
+    if not is_protected_write(basis):
+        return True
+    if standing == value:
+        return False
+    historical = int(seq) <= PROTECTION_FROM_SEQ
+    state.conflicts.setdefault(case_id, []).append(
+        {"field": field_name, "attempted": value, "standing": standing,
+         "by": basis.to_json(), "at": int(seq), "op": op, "historical": historical})
+    if historical:
+        return True                        # grandfathered: recorded, but it still applies
+    review = target.setdefault("review", copy.deepcopy(REVIEW_DEFAULT))
+    flag = f"{FLAG_PREFIX}{field_name}"
+    if flag not in review.setdefault("flags", []):
+        review["flags"].append(flag)
+    return False
 
 
 def _record_admitting_prompt(state: "State", case_id: int, basis, *,
@@ -134,14 +237,27 @@ def apply_patch(state: State, p: Patch, *, judged: tuple[str, ...] = JUDGED_DEFA
             if state.cycles[p.case_id] != p.cycle:
                 raise DuplicateRecord(f"{p.case_id} already admitted in {state.cycles[p.case_id]}")
             old = state.records[p.case_id]
+            # A re-admit REPLACES the record, so its body is a write of every judged field it
+            # names. D2 applies to those writes exactly as it applies to a `set`.
+            for f in judged:
+                if f in rec and not _may_write(state, p.case_id, f, rec[f], p.basis,
+                                               seq=p.seq, op="admit", standing=old.get(f),
+                                               target=rec):
+                    rec[f] = old.get(f)     # the standing value keeps its place in the record
             state.records[p.case_id] = rec          # same position in state.order
             state.in_file[p.case_id] = bool(rec.get("relevant"))
+            for f in judged:
+                if f in rec:
+                    _record_provenance(state, p.case_id, f, p.basis)
             _record_admitting_prompt(state, p.case_id, p.basis, admit=True)
             return old
         state.records[p.case_id] = rec
         state.order.append(p.case_id)
         state.cycles[p.case_id] = p.cycle
         state.in_file[p.case_id] = bool(rec.get("relevant"))
+        for f in judged:
+            if f in rec:
+                _record_provenance(state, p.case_id, f, p.basis)
         _record_admitting_prompt(state, p.case_id, p.basis, admit=True)
         return UNSET
     rec = state.records.get(p.case_id)
@@ -159,7 +275,11 @@ def apply_patch(state: State, p: Patch, *, judged: tuple[str, ...] = JUDGED_DEFA
         # source of the admitting prompt. `_record_admitting_prompt` is idempotent past the
         # first non-empty value, so this only ever fires once per record.
         if p.field in judged:
+            if not _may_write(state, p.case_id, p.field, p.new, p.basis, seq=p.seq, op="set",
+                              standing=rec.get(p.field), target=rec):
+                return UNSET               # the value stands; the attempt is on the record
             _record_admitting_prompt(state, p.case_id, p.basis)
+            _record_provenance(state, p.case_id, p.field, p.basis)
         target, key = _resolve(rec, p.field, create=True)
         old = target.get(key, UNSET)
         target[key] = p.new
@@ -172,6 +292,10 @@ def apply_patch(state: State, p: Patch, *, judged: tuple[str, ...] = JUDGED_DEFA
         lst.append(p.new)
         return UNSET
     if p.op == "drop_quote":
+        # The cascade nulls a supported field directly and is deliberately outside D2: the
+        # patch that triggers it carries a reviewer basis in all 14 cases in the log, and
+        # provenance is sticky, so a cascaded null over a human field keeps `human`
+        # provenance and a later machine read still cannot re-fill it.
         before = rec.get("quotes", [])
         rec["quotes"] = [q for q in before if q.get("text") != p.new]
         if cascade:
@@ -182,6 +306,8 @@ def apply_patch(state: State, p: Patch, *, judged: tuple[str, ...] = JUDGED_DEFA
                     rec.setdefault("nulled_fields", []).append(f)
         return [q for q in before if q.get("text") == p.new]
     if p.op == "migrate":
+        # Exempt from D2 (controller ruling R1): a vocabulary migration renames a value, it
+        # does not judge a case, and it only ever fills a key the record does not have.
         rec["schema_version"] = p.new["schema_version"]
         for k, v in p.new.items():
             if k != "schema_version" and k not in rec:
