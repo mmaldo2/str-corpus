@@ -30,9 +30,12 @@ def _already_read_ids_with_skips(runs_dir: Path, ledger_dir: Path, *, log=print)
             skipped += 1
             log(f"WARN already_read_ids: skipping unreadable extraction file {f}: {type(e).__name__}: {e}")
             continue
+        if isinstance(data, dict) and isinstance(data.get("records"), list):
+            data = data["records"]            # the {"records": [...]} wrapper mapper-v3 units write
         if not isinstance(data, list):
             skipped += 1
-            log(f"WARN already_read_ids: skipping extraction file {f}: top-level JSON is not a list")
+            log(f"WARN already_read_ids: skipping extraction file {f}: top-level JSON is neither a "
+                f"list nor a records wrapper")
             continue
         for r in data:
             if not (isinstance(r, dict) and r.get("case_id") is not None):

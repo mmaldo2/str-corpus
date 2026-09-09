@@ -102,6 +102,22 @@ def test_already_read_ids_skips_malformed_input(tmp_path):
     assert already_read_ids(runs_dir, ledger_dir) == {42, 43, 44}          # public wrapper: same ids, no crash
 
 
+def test_already_read_ids_accepts_the_records_wrapper_a_mapper_v3_unit_writes(tmp_path):
+    """mapper-v3 units write `{"records": [...]}`; slice 3's re-rank warned on 382 such files
+    and skipped them (the ledger still covered their cases, so nothing was lost). A wrapped file
+    contributes its ids exactly like a bare list and is not counted as skipped."""
+    runs_dir = tmp_path / "runs"; ledger_dir = tmp_path / "ledger"
+    ext_dir = runs_dir / "cycle-x" / "extractions"
+    ext_dir.mkdir(parents=True)
+    (ext_dir / "bare.json").write_text(json.dumps([{"case_id": 42}]), encoding="utf-8")
+    (ext_dir / "wrapped.json").write_text(json.dumps({"records": [{"case_id": 45}, {"case_id": 46}],
+                                                      "unit_id": "cycle-x-batch-001"}), encoding="utf-8")
+    (ledger_dir / "manifest").mkdir(parents=True)
+    ids, skipped = _already_read_ids_with_skips(runs_dir, ledger_dir, log=lambda *_: None)
+    assert ids == {42, 45, 46}
+    assert skipped == 0
+
+
 def test_shard_rolls_back_on_runner_exception(tmp_path, fixture_db, repo_root, monkeypatch):
     conn = _conn(tmp_path, fixture_db); dom = load_domain()
     seeds = FrozenSeedResolver({"both": list(range(10)), "ledger-favorable-reviewed": list(range(10))})
