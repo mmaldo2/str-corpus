@@ -534,11 +534,10 @@ def test_the_tool_fails_loudly_when_a_re_admit_would_overwrite_a_human_decision(
     grandfather baseline is moved out of the way for the rehearsal.
 
     The refused write is the re-admission's `set` on the judged field (every judged value
-    reaches the ledger as a `set` under the D8 basis - see this module's docstring), and the
-    value it reports as standing is `None`, because the `admit` that precedes it replaced the
-    record with a body that carries no judged field at all. That erasure-by-omission is the
-    hazard controller ruling R6 closes for the re-read by carrying every current key forward;
-    it is pinned at the fold in test_ledger_fold.py."""
+    reaches the ledger as a `set` under the D8 basis - see this module's docstring). The
+    `admit` that precedes it carries no judged field at all, and D2 carries the reviewer's
+    value forward across it rather than letting the wholesale replacement drop it, so what
+    the `set` is refused against is the human's own value."""
     from corpus_engine.ledger import open_ledger
     monkeypatch.setattr("corpus_engine.ledger.fold.PROTECTION_FROM_SEQ", 0)
     assert admit_map.main(_rehearsal_argv(tmp_path, fixture_dir, "--apply")) == 0
@@ -565,7 +564,8 @@ def test_the_tool_fails_loudly_when_a_re_admit_would_overwrite_a_human_decision(
     assert "are NOT part of the 28 above" in out              # 29 patches, one of them refused
     assert f"case {cid} polarity:" in out and "refused by reviewer-protection" in out
     assert "28 applied" in out
+    assert f"case {cid} polarity: {overturned!r} stands" in out
     after = open_ledger(root=tmp_path / "ledger", domain=load_domain()).view()
-    assert after.record(cid).get("polarity") != standing      # the reader's value never lands
+    assert after.record(cid)["polarity"] == overturned        # the reader's value never lands
     assert after.provenance(cid)["polarity"] == "human"
     assert len(after.conflicts(cid)[cid]) == 1

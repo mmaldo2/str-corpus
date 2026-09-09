@@ -256,12 +256,24 @@ def apply_patch(state: State, p: Patch, *, judged: tuple[str, ...] = JUDGED_DEFA
                 raise DuplicateRecord(f"{p.case_id} already admitted in {state.cycles[p.case_id]}")
             old = state.records[p.case_id]
             # A re-admit REPLACES the record, so its body is a write of every judged field it
-            # names. D2 applies to those writes exactly as it applies to a `set`.
+            # names - and a SILENCE about a field a human decided is a write too: the
+            # replacement would drop the value. D2 applies to both (controller ruling, fix
+            # round 2): a body that carries a different value is refused, and a body that
+            # carries no value at all leaves the standing one alone. Nothing was attempted
+            # against an omitted field, so it is no conflict and no flag - it is the human's
+            # value simply staying where it was.
+            protects = is_protected_write(p.basis) and int(p.seq) > PROTECTION_FROM_SEQ
             for f in judged:
-                if f in rec and not _may_write(state, p.case_id, f, rec[f], p.basis,
-                                               seq=p.seq, op="admit", standing=old.get(f),
-                                               target=rec):
-                    rec[f] = old.get(f)     # the standing value keeps its place in the record
+                if f in rec:
+                    if not _may_write(state, p.case_id, f, rec[f], p.basis, seq=p.seq,
+                                      op="admit", standing=old.get(f), target=rec):
+                        rec[f] = old.get(f)  # the standing value keeps its place in the record
+                elif (protects and f in old
+                      and state.provenance.get(p.case_id, {}).get(f) == "human"):
+                    # Carried forward at the END of the record: the body chose the key order
+                    # and this key was not in it. A re-read must carry every current key
+                    # forward itself (ruling R6) if it wants the order preserved.
+                    rec[f] = old[f]
             state.records[p.case_id] = rec          # same position in state.order
             state.in_file[p.case_id] = bool(rec.get("relevant"))
             for f in judged:

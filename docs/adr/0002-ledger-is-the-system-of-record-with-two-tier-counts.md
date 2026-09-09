@@ -50,6 +50,15 @@ recorded in `State.conflicts`, and the record is flagged `needs-review:<field>`
 write of the same value is not an overwrite and is silent: 161 writes in the log
 re-state a reviewer's own value from a later `admit` body.
 
+A re-admit replaces the record, so its body is a write of every judged field it
+names — and its silence about a field a human decided is a write too, since the
+replacement would drop the value. A non-reviewer re-admit therefore carries a
+human-decided field forward unchanged when its body omits it: a null by omission
+is an overwrite by another name. Nothing was attempted against such a field, so
+it is no conflict and no flag, only the human's value staying where it was; a
+body that names a *different* value for it is refused like any other write. A
+reviewer's own re-admit still replaces the record freely, omissions included.
+
 A refused patch is still appended. The log is append-only and the replay is the
 truth, so the disagreement is recorded rather than swallowed — but it changed
 nothing, so `ApplyResult` reports it under `rejected` and not under `applied`,

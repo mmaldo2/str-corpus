@@ -458,23 +458,42 @@ def test_a_re_admit_body_may_not_change_a_reviewer_decided_field():
     assert s.records[5]["review"]["flags"] == ["needs-review:polarity"]
 
 
-def test_a_re_admit_body_that_omits_a_human_field_drops_it_but_keeps_the_provenance():
-    """A re-admit REPLACES the record (pre-existing behaviour), so D2 gates the writes a body
-    MAKES, not the keys it omits: a body with no `polarity` leaves the record with none, even
-    where a human had decided it. The provenance stays `human`, so the next machine read that
-    tries to fill the field is carded rather than applied - but the human's value is gone
-    from the record. This is why controller ruling R6 has the re-read carry every current key
-    forward; pinned here so the gap is known rather than discovered."""
+def test_a_re_admit_body_that_omits_a_human_field_carries_the_value_forward():
+    """A re-admit REPLACES the record, so a body that says nothing about a field a human
+    decided would drop the value - a null by omission, which is an overwrite by any other
+    name (controller ruling, fix round 2). The standing value is carried forward instead.
+    Nothing was attempted against it, so there is no conflict and no flag; a body that does
+    carry a DIFFERENT value for the same field is still refused, with both."""
     s = _admitted()
     apply_patch(s, Patch(5, "set", "polarity", "adverse", "round 1", HUMAN))
     body = {k: v for k, v in REC.items() if k != "polarity"}
     apply_patch(s, Patch(5, "admit", "", body, "re-read", READER, cycle="cycle-001", seq=AFTER))
-    assert "polarity" not in s.records[5]                    # dropped, with no conflict recorded
-    assert 5 not in s.conflicts
-    assert s.provenance[5]["polarity"] == "human"            # but the judgment is remembered
-    apply_patch(s, Patch(5, "set", "polarity", "favorable", "re-read", READER, seq=AFTER + 1))
-    assert s.records[5].get("polarity") is None
-    assert s.conflicts[5][0]["standing"] is None
+    assert s.records[5]["polarity"] == "adverse"             # the human's value stands
+    assert s.provenance[5]["polarity"] == "human"
+    assert 5 not in s.conflicts                              # nothing was attempted against it
+    assert s.records[5]["review"]["flags"] == []
+    # A reader field the body omits is NOT carried forward: the body is the read now.
+    body2 = {k: v for k, v in REC.items() if k not in ("polarity", "characterization")}
+    apply_patch(s, Patch(5, "admit", "", body2, "re-read", READER, cycle="cycle-001",
+                         seq=AFTER + 1))
+    assert s.records[5]["polarity"] == "adverse" and "characterization" not in s.records[5]
+    # ...and a body that speaks against the human value is refused, as in round 1.
+    apply_patch(s, Patch(5, "admit", "", {**REC, "polarity": "favorable"}, "re-read", READER,
+                         cycle="cycle-001", seq=AFTER + 2))
+    assert s.records[5]["polarity"] == "adverse"
+    assert s.conflicts[5][0]["attempted"] == "favorable" and s.conflicts[5][0]["op"] == "admit"
+    assert s.records[5]["review"]["flags"] == ["needs-review:polarity"]
+
+
+def test_a_reviewer_re_admit_may_still_drop_a_field_it_omits():
+    """The protection is against non-reviewer writes only: a reviewer re-admitting a record
+    is a human replacing it, omissions included."""
+    s = _admitted()
+    apply_patch(s, Patch(5, "set", "polarity", "adverse", "round 1", HUMAN))
+    body = {k: v for k, v in REC.items() if k != "polarity"}
+    apply_patch(s, Patch(5, "admit", "", body, "re-admit", Basis(reviewer="mmaldo2"),
+                         cycle="cycle-001", seq=AFTER))
+    assert "polarity" not in s.records[5] and 5 not in s.conflicts
 
 
 def test_a_migrate_never_touches_a_decided_field_and_records_no_conflict():
