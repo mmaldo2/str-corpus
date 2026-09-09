@@ -1,0 +1,418 @@
+[
+ {
+  "case_id": 749404,
+  "field": "who_was_letting",
+  "decision": "set",
+  "note": "",
+  "value": "non_resident_owner"
+ },
+ {
+  "case_id": 782936,
+  "field": "who_was_letting",
+  "decision": "set",
+  "note": "",
+  "value": "non_resident_owner"
+ },
+ {
+  "case_id": 828076,
+  "field": "characterization",
+  "decision": "set",
+  "note": "",
+  "value": "lease"
+ },
+ {
+  "case_id": 860155,
+  "field": "who_was_letting",
+  "decision": "set",
+  "note": "",
+  "value": "unclear"
+ },
+ {
+  "case_id": 1112849,
+  "field": "characterization",
+  "decision": "set",
+  "note": "",
+  "value": "lease"
+ },
+ {
+  "case_id": 1126530,
+  "field": "characterization",
+  "decision": "set",
+  "note": "",
+  "value": "lodging"
+ },
+ {
+  "case_id": 1177933,
+  "field": "who_was_letting",
+  "decision": "set",
+  "note": "",
+  "value": "non_resident_owner"
+ },
+ {
+  "case_id": 2172545,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 2721901,
+  "field": "characterization",
+  "decision": "set",
+  "note": "",
+  "value": "lodging"
+ },
+ {
+  "case_id": 3288237,
+  "field": "characterization",
+  "decision": "set",
+  "note": "",
+  "value": "lodging"
+ },
+ {
+  "case_id": 3971519,
+  "field": "who_was_letting",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 5289134,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 5487598,
+  "field": "characterization",
+  "decision": "set",
+  "note": "",
+  "value": "lodging"
+ },
+ {
+  "case_id": 12692177,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 1407541,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "adverse"
+ },
+ {
+  "case_id": 1643198,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "adverse"
+ },
+ {
+  "case_id": 2301654,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 4918420,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 1549796,
+  "field": "who_was_letting",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 4155206,
+  "field": "who_was_letting",
+  "decision": "set",
+  "note": "",
+  "value": "commercial_operator"
+ },
+ {
+  "case_id": 12434579,
+  "field": "who_was_letting",
+  "decision": "set",
+  "note": "",
+  "value": "commercial_operator"
+ },
+ {
+  "case_id": 810451,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 858848,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 2081402,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 2211876,
+  "field": "characterization",
+  "decision": "set",
+  "note": "",
+  "value": "lodging"
+ },
+ {
+  "case_id": 2266583,
+  "field": "characterization",
+  "decision": "set",
+  "note": "",
+  "value": "other"
+ },
+ {
+  "case_id": 8877300,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "adverse"
+ },
+ {
+  "case_id": 9606185,
+  "field": "relevant",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 9659934,
+  "field": "characterization",
+  "decision": "set",
+  "note": "",
+  "value": "other"
+ },
+ {
+  "case_id": 229840,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 484038,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "adverse"
+ },
+ {
+  "case_id": 674172,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 695162,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 697777,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 777057,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 801492,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 814951,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 963049,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "adverse"
+ },
+ {
+  "case_id": 1001214,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "adverse"
+ },
+ {
+  "case_id": 1028885,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 1063186,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1171347,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "adverse"
+ },
+ {
+  "case_id": 1280223,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 1393244,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 1848874,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 1858054,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 2034060,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 2257077,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 2618266,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 3118329,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "adverse"
+ },
+ {
+  "case_id": 3524120,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 4295702,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 4649203,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "adverse"
+ },
+ {
+  "case_id": 4809400,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "adverse"
+ },
+ {
+  "case_id": 10141122,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 10264860,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 378845,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 769025,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 806684,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1167291,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 1199919,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1250504,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ }
+]
