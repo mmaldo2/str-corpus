@@ -1,0 +1,646 @@
+[
+ {
+  "case_id": 1292156,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The liquor-tax opinion turns on whether the Colegrove residence stayed a dwelling; it says only that the family occasionally took a boarder and that two gentlemen boarded 'for a short period', never how long any boarder stayed, so the field stays empty."
+ },
+ {
+  "case_id": 1306495,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Cantrell v. Conner decides only whose dwelling-house the apartments were for purposes of a sheriff's breaking (the landlady lived in the house, so the renters are 'lodgers or inmates'); it never frames Mrs. Brown's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 1313498,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Rodriguez v. DPW remands for a finding whether the petitioner paid Ms. Torres a fixed fee as a roomer under 55 Pa. Code 171.22; the opinion is about welfare assistance-unit eligibility and never characterizes an owner's freedom to let."
+ },
+ {
+  "case_id": 1318469,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Tuckfelt records that the third-floor rooms were rented to two lodgers from 1964 onward and that renting continued through the appeal, but never states how long a roomer occupied; the continuity of the letting is not the occupant's stay, so duration stays empty."
+ },
+ {
+  "case_id": 1325362,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "Miller's boarders are charged on a per diem basis, but the opinion states the home has housed seven boarders since 1977 and that 'only two of the boarders who were with appellant in 1978 are still with her today' - occupancy measured in months and years, not days."
+ },
+ {
+  "case_id": 1417306,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Sulzbacher v. Davison is a coverture and goods-sold case; the boarding house appears only to show Mrs. Davison carried on a separate business, and nothing says how long any boarder stayed."
+ },
+ {
+  "case_id": 1466737,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Commonwealth v. Tarlecki reverses for failure to prove that meals were 'prepared and served'; the only occupancy fact is that several adults reside in the building and share expenses, with no stay length, so duration stays empty."
+ },
+ {
+  "case_id": 1608028,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Corbett v. Cushing decides priority between a boarding-house keeper's statutory lien and an unfiled chattel mortgage; the court never frames the keeper's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 1636517,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Harris v. Greenberg voids an exculpatory clause in an apartment lease as contrary to the Philadelphia Housing Code; neither the lease term nor the tenant's length of occupancy is stated."
+ },
+ {
+  "case_id": 1718705,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Knewstub Appeal holds the premises a permitted 'rooming or boarding house' rather than an institution; the roomers are described as living there with rent scaled to ability to pay, but no stay length is given."
+ },
+ {
+  "case_id": 1782441,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Layne turns on the meal-service distinction between boarding and rooming houses; the only transience talk is the zoning administrator's rationale and the dissent's rejoinder, and the court makes no finding on how long the occupants stayed."
+ },
+ {
+  "case_id": 1802225,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Atterbury v. Somers holds only that tender extinguished the boarding-house keeper's lien and says nothing about the boarder's stay; I also decline the relevance call the checker makes, since the opinion fixes a legal incident of the boarding relation (the keeper's lien, 'practically the same as that of an innkeeper') rather than mentioning board as incidental colour."
+ },
+ {
+  "case_id": 1965708,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Harris v. Curet lets the boarding-house keeper counterclaim the unpaid board bill in the guest's bailment action; the opinion is about counterclaim practice under section 150 of the Code and never frames the keeper's liberty to let."
+ },
+ {
+  "case_id": 1973677,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Wulfsohn v. Burden upholds height, set-back and rear-yard limits on apartment houses and says nothing about occupancy length (only that the proposed building would hold 144 families); I keep the record relevant against the checker's relevant=False because the ordinance is sustained precisely as an exclusion of large apartment houses from residential districts, though this is a marginal record that regulates building bulk rather than the letting relation."
+ },
+ {
+  "case_id": 1977895,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Board of Foreign Missions records 3,575 persons accommodated at a 100-guest-room lodge in 1920, of whom 317 were 'outside visitors paying for their meals and lodging', and the dissent likens the property to a summer hotel - suggestive of short stays, but no length of stay is stated, so the field stays empty."
+ },
+ {
+  "case_id": 1978598,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Swan v. Smith decides a lodging-house keeper's custody duty and the lodger's own negligence in leaving his door unlocked; the owner's liberty to let the upper floors is never characterized."
+ },
+ {
+  "case_id": 2046170,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Stone v. Matthews resolves only whether boarders' goods at taverns and boarding houses are exempt from distress for rent, with no word on the owner's freedom to let; I decline the relevance call the checker makes, because that exemption is a legal incident of the boarding relation itself."
+ },
+ {
+  "case_id": 2182800,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Milliken v. Weatherford voids an ordinance penalizing the renting of 'any premises or place' to a lewd woman without regard to use; the opinion never says for how long the house was rented or occupied."
+ },
+ {
+  "case_id": 2273189,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Sargeant v. Sargeant makes all rents from a 40-room rooming-house homestead the survivor's separate property; the roomers appear only in the expense adjustment and no stay length is stated."
+ },
+ {
+  "case_id": 2293293,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Dept. of Buildings v. Field decides only that two connected Madison Avenue houses form one boarding house with more than fifteen sleeping rooms for the fire-escape statute; nothing is said about how long boarders stayed."
+ },
+ {
+  "case_id": 2297464,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Hicks-Alixanian v. Walton describes the exclusive and partial use of a room 'during a period mentioned in the complaint' without quantifying it, so duration stays empty; I also decline the relevance call the checker makes, since the causes of action are for the value of board and of the use of rooms in the plaintiff's boarding house."
+ },
+ {
+  "case_id": 2385137,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Johnson v. State makes the boarding-house keeper a fiduciary as to money a boarder deposits; Norman is said only to have 'stopped at appellant's boarding house' while working locally, with no stay length given."
+ },
+ {
+  "case_id": 2416382,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "Mulligan v. Fioravera turns on a written lease of the building 'for a term of nine years and nine months commencing December 1, 1925', itself subject to apartment leases with ten months unexpired, so the letting at issue is far longer than thirty days."
+ },
+ {
+  "case_id": 2580389,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Peters v. Kelly holds the landlord retained control of the outside stairway where only three rooms were let; the hiring is proved by a rent receipt and a key, with no term or length of occupancy stated."
+ },
+ {
+  "case_id": 2613090,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "Reynolds v. Egan concerns a lease of the Canal Street house 'from the 1st of October, 1906, to the 30th of September, 1907, at the rate of $900 per annum, payable monthly', in renewal of similar yearly leases - the compensated occupancy at issue plainly exceeds thirty days."
+ },
+ {
+  "case_id": 2823516,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Matter of McCoy sustains a conditional eviction certificate as to the rooming-house portion of a ten-room house while protecting both the tenants' basement quarters and the roomers; no roomer's length of stay appears."
+ },
+ {
+  "case_id": 3003000,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Knauer v. Seagrist reverses for want of competent proof of the items of a board-and-nursing account; the plaintiff's being 'engaged in letting furnished rooms' is background fact and the court never frames his liberty to let."
+ },
+ {
+  "case_id": 3044113,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Ruhl v. Heintze decides that a contract for board and lodging is presumptively the husband's, defeating the keeper's lien on the wife's trunks; the keeper's freedom to let is nowhere characterized."
+ },
+ {
+  "case_id": 3175614,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "Coe v. Haight states the room was hired at $8 a week from about October 5, 1914 until the plaintiff left on May 24, 1915 (33 weeks billed), the defendant claiming a yearly hiring - the occupancy plainly exceeded thirty days."
+ },
+ {
+  "case_id": 3187417,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "In re Doubleday is a claim against a boarder's estate for board, room rent and services; the court defines board/boarder/guest but never frames the keeper's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 3299620,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The Long Beach rooming-house ordinance opinion says nothing about how long any roomer stayed - it turns on in-room cooking and a claimed nonconforming use - so duration stays empty."
+ },
+ {
+  "case_id": 3325622,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Spring v. Barr decides only that lodging and board furnished an abandoned wife are necessaries recoverable from the husband, and that art. 3534 prescription was interrupted; nothing frames the mother's liberty to let."
+ },
+ {
+  "case_id": 3330724,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Bichard v. Lidel resolves a lost-property claim on failure of proof of the innkeeper-lodger relation ('we are relieved of the necessity of considering the legal question'), so the court never characterises the keeper's freedom to let."
+ },
+ {
+  "case_id": 3343457,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "The occupancy sued on is Levy's apartment under a written lease running to October 1, 1909 at $70 a month, so it plainly was not under thirty days; Mrs. Hunter's 'table boarders' are meal-takers whose stay the court never describes."
+ },
+ {
+  "case_id": 3407559,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Biggs v. Sea Gate turns on whether the association could cut water and sewer to a boarding house under its regulation; nothing in either opinion says how long the boarders stayed, so duration stays empty."
+ },
+ {
+  "case_id": 3466253,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "Plath v. Kline recites the letting in suit as a lease of No. 16 Delancey Street 'for the term of four years from the 1st day of May', a renewal of earlier multi-year terms, so the occupancy at issue was not under thirty days."
+ },
+ {
+  "case_id": 3498716,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Alixanian v. Walton describes the room use only as 'during a period mentioned in the complaint' and 'another period of time', never stating any length, so duration stays empty."
+ },
+ {
+  "case_id": 3559534,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "Local Law No. 9 protects SRO units that the court says have 'for generations' served as inexpensive shelter for the poor and requires owners to rent them to bona fide tenants; the occupancy preserved is long-term residence, not stays under thirty days, notwithstanding one plaintiff's transient hotel income."
+ },
+ {
+  "case_id": 3710248,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "unclear",
+  "note": "Terrilee squarely reaches the transiency question and leaves it open: the term 'transient' 'was not defined in the multiple dwelling law during the relevant time period', the inspector never testified, and calling the units transient 'is not a fact but a mere conclusory statement'."
+ },
+ {
+  "case_id": 3754107,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Schultz v. Finegan holds only that a boarder in leased premises is a sub-tenant whose goods answer for rent to the extent he owes board; it says nothing about the owner's liberty to let, so the field stays empty. (The flagged quote differs from the opinion only by the OCR hyphen in 'lease-d'.)"
+ },
+ {
+  "case_id": 4417931,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Albertson v. State decides only that the Texas code does not make renting a house for prostitution an offence; neither the term nor the length of the letting is stated anywhere in the opinion."
+ },
+ {
+  "case_id": 4484612,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Musgrave v. Sherwood holds the French flat a 'tenement-house' because its compartments 'are let and rented to them, they paying a sum in money as the rent thereof', but never says for how long any compartment was taken."
+ },
+ {
+  "case_id": 4530608,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The General Term opinion in the same Fifth Avenue dispute turns on estoppel and the party wall against use as part of a family hotel; it describes the plaintiff's own house as a permanent home but never states how long the hotel's occupants stayed."
+ },
+ {
+  "case_id": 4652436,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Sonn v. Heilberg (A.D. report) construes the 'family residence' covenant and says in passing that letting rooms or boarding others would not breach it; no occupancy period appears anywhere in the opinion."
+ },
+ {
+  "case_id": 4686927,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Nash v. Springstead is an evidence ruling on rebutting the presumption that continued occupation accepted the longer term; the court never characterises the owner's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 4740197,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "Symonds v. Hurlbut records that Rector and his family occupied the two upper floors 'from October, 1918, until October, 1921' at fifty-five dollars a month, which the court held an underletting rather than lodging - far more than thirty days."
+ },
+ {
+  "case_id": 4797215,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "Spelman Hall 'accommodates about 206 permanent women residents and about 35 transient guests', so the residence or lodging-house occupancy whose exemption was litigated was overwhelmingly permanent, not under thirty days."
+ },
+ {
+  "case_id": 5114921,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Goss v. Cahill says only that Mrs. Cahill 'kept boarders upon the property for some portion of the time, furnishing board and rooms'; no stay length is given, so duration stays empty."
+ },
+ {
+  "case_id": 5424022,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Hook v. Kenyon fixes the value of the board and room but never states how long the plaintiff boarded ('during the time plaintiff was there'), so duration stays empty."
+ },
+ {
+  "case_id": 5438241,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Siegman v. Keeler decides only the standard of care owed by a boarding-house keeper as bailee of a boarder's goods; it never frames her liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 5442302,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Thorn v. Whitbeck holds the boarding-house keeper's lien reaches goods exempt from execution; the lien is treated as an ordinary incident of the business but the court never characterises the freedom to let itself."
+ },
+ {
+  "case_id": 5561343,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Abbott House voids the Tarrytown ordinance because it 'conflicts and hinders an overriding State law and policy' on neglected children - a pre-emption ground, with no characterisation of any owner's liberty to let; I also decline the checker's relevant=false, since the case is a zoning restriction on housing six paid-for children in a rented dwelling, not a case with no letting question at all."
+ },
+ {
+  "case_id": 5627116,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Crane v. Powell is a statute-of-frauds and damages ruling on a boarder's breach of a year's contract for furnished rooms and board; nothing frames the keeper's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 5637610,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Babcock v. Smith decides only that a boarding-house keeper's claim on the lien for board against clandestinely removed baggage is an action for wrongful conversion carrying body execution; the owner's freedom to let is not addressed."
+ },
+ {
+  "case_id": 5648059,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The N.Y.S. report of Sonn v. Heilberg contains the same covenant analysis and the same dictum about letting rooms or boarding others, with no occupancy period stated anywhere."
+ },
+ {
+  "case_id": 6759651,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Rosenthal v. Longley holds a boarder an under-tenant only so far as he occupies apartments and keeps his furniture there, and releases prepaid boarders' effects from the lessor's pledge; the owner's liberty to let is not characterised."
+ },
+ {
+  "case_id": 6759664,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Block v. Ocean Accident holds 'family' in the policy warranty covers boarders and lodgers so their presence broke no warranty; it never says how long the private boarders stayed."
+ },
+ {
+  "case_id": 6767902,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Harris v. State reversed on the presumptions attached to renting a room for a faro bank, and there was no statement of facts; the only period mentioned ('leased out his house for a year') is the judge's hypothetical, not the letting at issue."
+ },
+ {
+  "case_id": 7022713,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Zoning/health-ordinance fight over a nineteen-room rooming house; the opinion never states how long any roomer stayed, so the field stays empty."
+ },
+ {
+  "case_id": 7672348,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Boarding-house keeper's lien on a boarder's trunk for $20 of board; the opinion gives no length of the boarder's stay."
+ },
+ {
+  "case_id": 7681755,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Boarding-house keeper's duty of care for a boarder's room; the chambermaid describes a course of conduct 'during all the time he was there' but no occupancy length is stated."
+ },
+ {
+  "case_id": 7701664,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "The occupancy the court adjudicated is the decedent's board and lodging in the claimant's house 'for nearly the entire 17 years of her married life', which is plainly not under thirty days; the checker read the record as not a letting case at all, but the opinion decides whether lodging furnished in a householder's own boarding house was compensated, which is the corpus's subject."
+ },
+ {
+  "case_id": 8499979,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court decided only that the Y.M.C.A. is not an innkeeper and is a charity ('do not keep a tavern or hotel, or make a business of lodging travelers'); it never frames anyone's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 8501237,
+  "field": "restriction_nature",
+  "decision": "keep",
+  "note": "restriction_nature is an adverse-record field and this record is favorable: the State's nuisance abatement and injunction suit against the boarding and rooming house was dismissed, so no restriction was upheld and the field stays empty."
+ },
+ {
+  "case_id": 8502118,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Holding is that a householder-tenant who takes in boarders, lodgers and roomers neither changes the use nor sublets; the opinion says nothing about how long any of them stayed."
+ },
+ {
+  "case_id": 8503456,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Owner fined for renting his house to lewd women; the opinion addresses only the ordinance's procedure and the council's power, never the length of the tenants' occupancy."
+ },
+ {
+  "case_id": 8503606,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The boarder/lodger rule is invoked as authority ('a householder may admit into his house whomsoever he pleases even boarders and lodgers') but no occupancy duration is given; I keep the record relevant because the court's ground of decision is the boarders-as-incident rule, where the checker read it as not a letting case."
+ },
+ {
+  "case_id": 8594047,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "A contract-damages case: the keeper's duty to relet the rooms in mitigation is assumed, not characterized, and the court never frames her liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 8823584,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "Parallel report of In re Hamilton: the decedent 'resided in her house and was boarded and lodged there' for nearly the entire seventeen years of the marriage, so the occupancy at issue was not under thirty days."
+ },
+ {
+  "case_id": 9905690,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Zoning injunction against a multiple dwelling or rooming house in a two-family district; the only occupancy fact is 'the number of families residing in the property', which does not fix any occupancy at over or under thirty days."
+ },
+ {
+  "case_id": 9925389,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Subdivision restrictions did not bar one owner from renting all eighteen single-family houses; the opinion states no rental term."
+ },
+ {
+  "case_id": 9937705,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The halfway house was found to be a permitted lodging and boarding house, but the opinion gives no length of any resident's stay, only that residents live and work there."
+ },
+ {
+  "case_id": 9976447,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The 128 rental mobile home and recreational vehicle spaces are treated as a 'subdivision' for platting purposes; the opinion never states how long an occupant of a space stayed."
+ },
+ {
+  "case_id": 10029864,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court decided only whether the room occupant was a sublessee or a roomer for purposes of the lessor's privilege under arts. 2692 and 2706; it never frames an owner's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 10096991,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court held only that taking in a relative for room and board 'does not make them furnishers of board as a trade or occupation' so the innkeepers' one-year prescription did not apply; that speaks to characterization, not to how the owner's liberty to let was framed, so the field stays empty."
+ },
+ {
+  "case_id": 10136044,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The court construed a covenant that expressly preserves 'the renting out of one room' while barring a regular rooming or boarding house, but stated no occupancy duration; I keep the record relevant because the letting clause is part of the construed text, where the checker read it as not a letting case."
+ },
+ {
+  "case_id": 10147739,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The Shadyside restrictions bar a 'public boarding house' among other business uses and were held perpetual, but the opinion is entirely about the duration of the covenants, not of any occupancy."
+ },
+ {
+  "case_id": 10153038,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Board of Adjustment found no nonconforming trailer-court use at annexation; the only timing facts concern when trailers were on the land, not how long any occupant stayed."
+ },
+ {
+  "case_id": 10156136,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The covenant permitting the renting of one room while barring a regular rooming or boarding house is quoted, but the breach enjoined was the student-centre activities and no occupancy duration appears; I keep the record relevant on the covenant's letting terms, where the checker read it as not a letting case."
+ },
+ {
+  "case_id": 10197826,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The rezoning permitting a tourist camp was held unreasonable; the court calls the use a tourist camp of cottages serving 'guests' but never states a length of stay, so the label alone does not carry the field."
+ },
+ {
+  "case_id": 10273844,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Mandamus over a permit for a transit/tourist camp dismissed for want of a necessary party; the opinion says nothing about how long campers stayed."
+ },
+ {
+  "case_id": 10280512,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Hotels where persons resort for prostitution held abatable nuisances; the opinion speaks of resorting to the houses, never of the length of any guest's occupancy."
+ },
+ {
+  "case_id": 10295098,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Renting rooms in one's own dwelling held not a 'business enterprise' under the covenant; the opinion gives no term for any roomer, lodger or boarder."
+ },
+ {
+  "case_id": 10317170,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Incidental renting of three or fewer rooms held not to forfeit a fire policy; the evidence is that tenants rented spare rooms 'when they were able to do so' and none were rented at the fire, with no occupancy length stated."
+ },
+ {
+  "case_id": 10335445,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Homestead case about rooms rented in a rooming house since 1909; the opinion never states how long any roomer stayed, so the field stays empty."
+ },
+ {
+  "case_id": 10343571,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court construes 'board' to include lodging and upholds the college's contractual power over where its student rooms; it never characterises any owner's liberty to let, so the field stays empty (the checker read the record as irrelevant, but real paid rooming and the meaning of board are the holding)."
+ },
+ {
+  "case_id": 12121380,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Suit for services in managing a boarding house for mechanics; the opinion gives no term for any boarder's stay, so the field stays empty."
+ },
+ {
+  "case_id": 12321139,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "yes",
+  "note": "The whole controversy is 'renting an entire single-family home to vacationers' as 'short-term transient tenancies', and the neighbour testifies to disturbance 'during weekends when that house is leased', so the occupancy at issue is plainly under thirty days."
+ },
+ {
+  "case_id": 351173,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "Quote matches the opinion word for word except the dropped connective 'therefore,' - 'we, therefore, find that it would create an unnecessary and unique hardship ... was proper' - which is drift, not paraphrase."
+ },
+ {
+  "case_id": 428427,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "Syllabus point 2 reads 'where one boards in a family consisting of husband and wife the money due for boarding furnished, belongs primarily to the husband'; the quote differs only by one added comma after 'wife'."
+ },
+ {
+  "case_id": 1238067,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "The quoted zoning sentence is verbatim in the opinion; the only difference is the OCR of 'R-1' as 'r-l' in the printed text."
+ },
+ {
+  "case_id": 1423661,
+  "field": "quotes",
+  "decision": "set",
+  "value": "the plaintiff represented that the premises were \u201c a go'od place\u201d to let out furnished rooms to gentlemen",
+  "note": "Not a contiguous passage: the headnote reads 'the plaintiff, although knowing that his house had a bad repute, did not disclose the fact to the defendant, but represented that the premises were \"a go'od place\" to let out furnished rooms to gentlemen', so the quote splices out a fourteen-word clause - and the same proposition survives verbatim in the body quote about 'a good place' for the defendant to let out rooms furnished to gentlemen."
+ },
+ {
+  "case_id": 1928403,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "The boarding-house facts sentence is verbatim; the drift is a stray period before 'five-bedroom' and the lost space in 'seventeenboarders'."
+ },
+ {
+  "case_id": 2030674,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "The opinion reads 'a lease for the ordinary period of one year,- instead of a few weeks or months during the fashionable season'; the quote only moves the stray hyphen, and the second flagged quote is verbatim."
+ },
+ {
+  "case_id": 2039624,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "The quote reproduces the closing sentence exactly, including the printer's corruptions 'croperly'; the only variance is ']he' for the opinion's ';he', both OCR of 'the' (the checker read the record as irrelevant, but the wife's keeping of boarders as her separate business is what the holding turns on)."
+ },
+ {
+  "case_id": 2084208,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "Syllabus point 3 is verbatim in the opinion; the difference is the hyphen in 'as-an effort on her part'."
+ },
+ {
+  "case_id": 2216203,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "The quoted text of the act of April 13, 1860 is verbatim; the opinion prints 'occupaney' where the quote has 'occupancy'."
+ },
+ {
+  "case_id": 2439741,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "Woodward J.'s opening sentence is verbatim; the drift is the lost spaces in 'ortheir value' and 'for-the amount'."
+ },
+ {
+  "case_id": 3299925,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "Syllabus point 1 on the lessor's warranty is verbatim; the opinion merely prints a stray comma in 'indemnify, the lessee' (the checker read the record as irrelevant, but the warranty owed by a lessor of a dwelling is a letting holding)."
+ },
+ {
+  "case_id": 3957403,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "The Belle Terre passage is quoted verbatim; the only difference is the opinion's bracketed '[t]he' where the quote capitalises 'The'."
+ },
+ {
+  "case_id": 4396009,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "'the renting of rooms in the manner shown by the evidence does not constitute the exercise of a calling or business within the meaning of the constitution' appears verbatim; the quote merely stops before the clause 'and the giving of this charge was error'."
+ },
+ {
+  "case_id": 4464507,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "The statutory definitions of inn, guest and lodging are verbatim in the headnote; the drift is the doubled comma after 'compensation,,' and a hyphen for the dash in 'for a time- a temporary habitation'."
+ },
+ {
+  "case_id": 4488853,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "The sentence is verbatim in the opinion, which prints the initial 'R' as 'Eooms in suits or singly, on the different floors, are taken by families or individuals for some period.'"
+ },
+ {
+  "case_id": 5264343,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "The Liquor Tax Law definition of 'hotel' is reproduced verbatim, including its own OCR damage; the only variance is the hyphen in 'temporary home,-and in which'."
+ },
+ {
+  "case_id": 5364138,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "The headnote sentence is verbatim; the opinion prints 'hoard and lodging' where the quote reads 'board and lodging'."
+ }
+]
