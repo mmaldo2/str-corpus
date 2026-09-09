@@ -210,6 +210,48 @@ review page publishable as an artifact; reviewer identity recorded.
     (D10) stayed off; cycles 1-3 re-read, `ranker-heldout-v2`, and the ship-rule
     re-run remain slice 3.
 
+    **Slice 3 (2026-09-08/09, branch refactor/stage-3b-slice-3) — the three slice-3
+    carry-forwards are DONE.** (a) The ledger fold now refuses any non-reviewer
+    write over a human-decided field (`PROTECTION_FROM_SEQ` 42,984 grandfathers
+    the six historical rule overwrites; `ApplyResult.rejected`; `admit_map`
+    exits 3 on a refusal); a machine read that disagrees with a human value is a
+    section-G review card, never a value change. (b) Held-out v2 frozen
+    (`data/eval/ranker-heldout-v2.jsonl`, 293 human relevance decisions over all
+    ten jurisdictions, sha `4146d442e311`); classifier v2 trained on 2,331 pos /
+    4,170 neg with both slices excluded: AP 0.8274 vs fusion 0.7860 on both views
+    (D6 met) and 0.8319 for v1 on the same slice, 32 of whose rows were in v1's
+    training data — the user shipped v2 (`ranking.classifier_version: v2`,
+    `reports/ranking-v2.md`). (c) The cycle-004 tail was re-ranked on v2 into
+    `cycle-004-shard-02` (1,465 batches / 25,955 unread cases) and read under a
+    3,000-case budget in global order: 167 batches, 3,006 cases, **750
+    relevant**, 0 failed, 34 cells reached, 3 stopped on the yield floor; the
+    last ten batches bought still yielded 16% against a ~4% floor
+    (`reports/map-cycle-004-shard-02.md` §3, the D5 test). (d) The 693 relevant
+    cycles 1-3 records were re-read under mapper-v3: 1,396 fills on the three
+    fields they never had, 198 reader-held polarities replaced, 47 machine-only
+    withdrawals, **69 conflicts with human decisions carded and none applied**,
+    0 fold rejections; three review rounds (Claude + GPT Astra first passes,
+    user confirmation) closed the re-read queue: section G 39 keep / 25 set / 5
+    withdrawn (`reports/reread-cycles-001-003.md`). Published: relevant
+    **3,405** (1,093 human-reviewed, 2,312 machine-only), favorable **1,465**,
+    favorable+householder **326**.
+
+    **Carried forward from slice 3.** (1) The tail-map review round
+    (`runs/cycle-004-shard-02/review-round-1.json`, 213 cards, Codex 213/213):
+    Claude's first pass is on file; the GPT Astra pass and the user's
+    confirmation are pending; apply with `--run-id map-cycle-004-shard-02-round-1`.
+    (2) 22,949 cases of the re-ranked tail remain unread beyond the 3,000-case
+    budget; `tools/map_reader.py --run-id cycle-004-shard-02 --case-budget 6000`
+    resumes from the cache and buys the next 3,000 in the same order. (3) D5:
+    the yield at the budget boundary puts the Gemini screen back on the table on
+    the evidence; the case for it is wall clock, not money, while the reader is
+    inside the Max plan. (4) Parked from the reviews: normalise the mapper-v1
+    string `supports` on cycles 1-3 quotes (1,972 quotes, 664 records) with a
+    migrate patch; give the review page a relevance-overturn control (the
+    reviewer used an `unsure` + "Irrelevant" note convention in round 1b);
+    `already_read_ids` should accept the `{"records": [...]}` extraction shape;
+    `make_map_review` checker `unit_cap` counts cards not cases.
+
     **Measured cost of a corpus-wide vector selector (2026-09-04, live index,
     read-only `probe()`).** One `probe()` of `embed-householder-letting-21@v2`
     on `1900-1930|N.Y.` — whose scope is all 5 eras x 10 jurisdictions, so it
