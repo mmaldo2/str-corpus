@@ -1,0 +1,503 @@
+[
+ {
+  "case_id": 192082,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 338493,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "mixed"
+ },
+ {
+  "case_id": 851694,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1325562,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1722422,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 1940541,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 2134565,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 3715306,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 4225514,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 10125349,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 10267629,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 11143679,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 11833776,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 189783,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 101040,
+  "field": "relevant",
+  "decision": "adopt",
+  "note": ""
+ },
+ {
+  "case_id": 203584,
+  "field": "characterization",
+  "decision": "adopt",
+  "note": ""
+ },
+ {
+  "case_id": 951707,
+  "field": "characterization",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1222770,
+  "field": "relevant",
+  "decision": "adopt",
+  "note": ""
+ },
+ {
+  "case_id": 1341817,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "mixed"
+ },
+ {
+  "case_id": 1787487,
+  "field": "relevant",
+  "decision": "adopt",
+  "note": ""
+ },
+ {
+  "case_id": 2028562,
+  "field": "relevant",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 4039093,
+  "field": "characterization",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 7305650,
+  "field": "relevant",
+  "decision": "adopt",
+  "note": ""
+ },
+ {
+  "case_id": 8837869,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 12500458,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 303639,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 310579,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 488345,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 611599,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 790290,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 898182,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 969010,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1970404,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 2058322,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 2107708,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 2111305,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 2123108,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 2376953,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 2379478,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 3351669,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 3779779,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 3870354,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 5729158,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "adverse"
+ },
+ {
+  "case_id": 6043996,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 6052026,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 6776280,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 8154418,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 14234,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 46356,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 289953,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 315903,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 344826,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 380055,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 493358,
+  "field": "characterization",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 732555,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 930543,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1311897,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1704112,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1726791,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 1739606,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1766625,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 1946459,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 1964255,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 2315379,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 2991645,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "note": "",
+  "value": "no"
+ },
+ {
+  "case_id": 3493179,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 3840591,
+  "field": "characterization",
+  "decision": "set",
+  "note": "",
+  "value": "other"
+ },
+ {
+  "case_id": 3847625,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 4625707,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 6040882,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Irrelevant: the reviewer withdrew the record on the full opinion (shard-02 round 1b; both first passes shown)"
+ },
+ {
+  "case_id": 7341290,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 9921268,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "note": "",
+  "value": "unclear"
+ },
+ {
+  "case_id": 12127536,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1018414,
+  "field": "quotes",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1195918,
+  "field": "quotes",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1821092,
+  "field": "quotes",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 3957497,
+  "field": "quotes",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 6044561,
+  "field": "quotes",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 7276854,
+  "field": "quotes",
+  "decision": "keep",
+  "note": ""
+ }
+]

@@ -99,7 +99,9 @@ Via `open_ledger().view().counts()`, two-tier, before and after admission (`tool
 | favorable | 1,229 (379 / 850) | 1,501 (379 / 1,122) |
 | favorable householder | 303 (80 / 223) | 341 (80 / 261) |
 
-Every new record is machine-only until a review round moves it; the rounds over this shard and the cycles 1-3 re-read are recorded in the round handoffs and reports/reread-cycles-001-003.md.
+Every new record is machine-only until a review round moves it.
+
+**The review round (2026-09-09).** The queue over the 750 relevant records held 213 cards in one round (A 24, B 1, C 28, D 66, E 82, F 12; nothing deferred), each with the full opinion and the Codex checker's reading (the 100% pass failed on the OpenAI usage limit at first and was re-run after the user reset it: 213 of 213 ok). Two independent first passes read every card, Claude (eight opus agents) and GPT Astra; under the user's rule that an erased field stays empty when the opinion is silent, they agreed on 134 cards, applied as one set with an assisted-by note naming both readers (591 patches). The 79 disagreements went to the user with both readers' notes on each card: 47 keep, 7 set, 5 adopt, **20 withdrawn as not letting cases** (238 patches). The disagreements were mostly appetite for relevance (hotel torts, shelters, zoning cases that only quote a rooming-house clause) and whether a mixed polarity resolves to a side. After the round: relevant 3,373 (1,274 human-reviewed, 2,099 machine-only), favorable 1,482 (625 / 857), favorable householder 328 (144 / 184); 28 of the shard's 750 relevant records were withdrawn on review, and the rest of its reviewed records moved into the human tier.
 
 ## 8. Reproduction
 
