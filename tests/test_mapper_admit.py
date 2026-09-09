@@ -948,3 +948,56 @@ def test_one_record_covers_fill_replace_conflict_and_agree_over_three_provenance
     assert rows["who_was_letting"]["conflict"] == 1 and rows["holding_summary"]["agree"] == 1
     assert [(c["field"], c["kind"]) for c in out.conflicts] == [("who_was_letting", "value")]
     assert out.conflicts[0]["human_at"] == 700
+
+
+def test_a_refilled_field_loses_its_nulled_fields_entry():
+    """Final review, finding 8 (parked p6 promoted). The re-admit body used to keep the
+    ledger's `nulled_fields` verbatim, so a field the same re-admission FILLED still read as
+    "erased by the quote gate" - and `queue.reasons_for` raised a section-E card for it, on a
+    field that now has a value, for a measurable share of 693 re-read records."""
+    view = _RereadView({7: {"case_id": 7, "relevant": True, "characterization": None,
+                            "nulled_fields": ["characterization"], "quotes": [],
+                            "extraction_status": "partial"}}, {7: {}})
+    out = reread_patches([_reread({"case_id": 7, "relevant": True,
+                                   "characterization": "lodging", "quotes": [],
+                                   "nulled_fields": [], "extraction_status": "ok"})],
+                         manifest=MANIFEST, view=view)
+    body = next(p for p in out.patches if p.op == "admit").new
+    assert body["nulled_fields"] == []
+    # nothing left nulled and neither read was extraction-invalid: the gate's own `ok` rule
+    assert body["extraction_status"] == "ok"
+    assert out.counts["by_field"]["characterization"]["fill"] == 1
+
+
+def test_the_re_admit_carries_the_worse_of_the_two_reads_extraction_status():
+    """Finding 7 (parked p8 promoted). `queue.fuzzy_quotes` reads the RECORD's own
+    `extraction_status`/`nulled_fields` to decide whether a trivial-OCR fuzzy quote may be
+    auto-accepted without a card. Keeping the older read's `ok` auto-accepted a quote the
+    re-read produced under a `partial` gate outcome - a quote no human ever read."""
+    view = _RereadView({7: {"case_id": 7, "relevant": True, "quotes": [],
+                            "nulled_fields": [], "extraction_status": "ok"}}, {7: {}})
+    out = reread_patches([_reread({"case_id": 7, "relevant": True, "quotes": [],
+                                   "nulled_fields": ["holding_summary"],
+                                   "extraction_status": "partial"})],
+                         manifest=MANIFEST, view=view)
+    body = next(p for p in out.patches if p.op == "admit").new
+    assert body["extraction_status"] == "partial"
+    assert body["nulled_fields"] == ["holding_summary"]
+
+    from corpus_engine.mapper.queue import fuzzy_quotes
+    fuzzy = fuzzy_quotes({**body, "quotes": [{"text": "a quote", "status": "verified-fuzzy"}]},
+                         "a quote")
+    assert fuzzy[0]["classification"] == "trivial-ocr" and not fuzzy[0]["auto_accepted"]
+
+
+def test_the_two_reads_nulled_fields_are_unioned_minus_what_this_pass_filled():
+    view = _RereadView({7: {"case_id": 7, "relevant": True, "polarity": None,
+                            "nulled_fields": ["polarity", "holding_summary"], "quotes": [],
+                            "extraction_status": "partial"}}, {7: {}})
+    out = reread_patches([_reread({"case_id": 7, "relevant": True, "polarity": "adverse",
+                                   "quotes": [], "nulled_fields": ["characterization"],
+                                   "extraction_status": "partial"})],
+                         manifest=MANIFEST, view=view)
+    body = next(p for p in out.patches if p.op == "admit").new
+    assert body["nulled_fields"] == ["holding_summary", "characterization"]  # polarity refilled
+    assert body["extraction_status"] == "partial"

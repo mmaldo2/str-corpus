@@ -7,9 +7,9 @@ to human-reviewed (D3)."""
 import pytest
 
 from corpus_engine.mapper.queue import (CONFLICT_KEYS, QUEUE_CAP, SECTIONS, Queue, QueueCard,
-                                        check_queue, checker_path, classify_fuzzy,
-                                        conflicts_from_view, fuzzy_quotes, reasons_for,
-                                        select_queue)
+                                        UnknownSection, check_queue, checker_path,
+                                        classify_fuzzy, conflicts_from_view, fuzzy_quotes,
+                                        human_decision, reasons_for, select_queue)
 
 
 def _rec(cid, **over):
@@ -365,8 +365,19 @@ CONFLICT = {"case_id": 70, "field": "polarity", "human_value": "favorable",
             "kind": "value", "cell_key": "pre-1860|N.Y.", "batch_id": "b1"}
 
 
+def _flagged(cid, *fields, **over):
+    """A record carrying the `needs-review:<field>` flag the re-read raises for a conflict.
+
+    Every section-G card is built from one: the flag is what says the disagreement is still
+    open, and `select_queue` retires a card whose flag a reviewer's decision has cleared."""
+    rec = _rec(cid, **over)
+    rec["review"] = {"status": "human-adjudicated",
+                     "flags": [f"needs-review:{f}" for f in fields], "notes": []}
+    return rec
+
+
 def test_section_g_is_first_and_its_card_decides_the_conflicting_field():
-    rec = _rec(70, polarity="favorable")
+    rec = _flagged(70, "polarity", polarity="favorable")
     q = select_queue(_View([rec], "r", reviewed=[70]), "r", manifest=_manifest([70]),
                      cases=_Cases(), conflicts=[CONFLICT])
     assert [s for s, _k, _t in SECTIONS][0] == "G"
@@ -382,7 +393,7 @@ def test_section_g_is_first_and_its_card_decides_the_conflicting_field():
 def test_a_reviewed_record_is_queued_for_g_though_it_is_skipped_for_a_to_f():
     """A G card exists BECAUSE a human decided the field; the A-F rule that skips a reviewed
     record would throw away every card the re-read exists to raise."""
-    rec = _rec(70, polarity="favorable", under_thirty_days="yes")
+    rec = _flagged(70, "polarity", polarity="favorable", under_thirty_days="yes")
     q = select_queue(_View([rec], "r", reviewed=[70]), "r", manifest=_manifest([70]),
                      cases=_Cases(), conflicts=[CONFLICT])
     assert [(c.section, c.case_id) for c in q.cards] == [("G", 70)]     # not also section A
@@ -391,8 +402,9 @@ def test_a_reviewed_record_is_queued_for_g_though_it_is_skipped_for_a_to_f():
 def test_one_card_per_conflicting_field_on_the_same_case():
     second = {**CONFLICT, "field": "who_was_letting", "human_value": "householder",
               "reread_value": "commercial_operator"}
-    q = select_queue(_View([_rec(70)], "r", reviewed=[70]), "r", manifest=_manifest([70]),
-                     cases=_Cases(), conflicts=[second, CONFLICT])
+    q = select_queue(_View([_flagged(70, "polarity", "who_was_letting")], "r", reviewed=[70]),
+                     "r", manifest=_manifest([70]), cases=_Cases(),
+                     conflicts=[second, CONFLICT])
     assert [(c.case_id, c.decide_field) for c in q.cards] == [(70, "polarity"),
                                                               (70, "who_was_letting")]
 
@@ -403,7 +415,8 @@ def test_g_cards_come_before_every_other_section_under_the_cap():
     only so the G loop has a record to build the card from (deviation from the brief: 82 is
     added to `recs` so this does not collide with the "ledger does not hold it" drop rule
     below, which requires the SAME lookup to come back empty)."""
-    recs = [_rec(80, polarity="mixed"), _rec(81, polarity="mixed"), _rec(82)]
+    recs = [_rec(80, polarity="mixed"), _rec(81, polarity="mixed"),
+            _flagged(82, "polarity")]
     q = select_queue(_View(recs, "r"), "r", manifest=_manifest([80, 81, 82]), cases=_Cases(),
                      conflicts=[{**CONFLICT, "case_id": 82}], cap=1)
     assert [c.section for c in q.cards] == ["G"] and q.deferred == (80, 81)
@@ -433,3 +446,88 @@ def test_conflicts_from_view_renders_the_folds_rejections_in_the_same_shape():
     assert set(rows[0]) == set(CONFLICT_KEYS)
     assert rows[0]["human_value"] == "favorable" and rows[0]["reread_value"] == "adverse"
     assert rows[0]["human_at"] == 900 and rows[0]["kind"] == "value"
+
+
+def test_a_g_card_whose_flag_a_reviewer_cleared_is_not_asked_again():
+    """Final review, finding 1. Every round is rebuilt from the WHOLE conflicts file, so the
+    only thing that can retire a decided G card is the `needs-review:<field>` flag protocol the
+    re-read and `tools/apply_map_review.py` already share: raised per conflict, cleared on a
+    keep or a set. Without this, round 2 re-queues round 1's head and never reaches the
+    deferred conflicts."""
+    decided = _rec(70, polarity="favorable")            # flags cleared by the reviewer's keep
+    q = select_queue(_View([decided], "r", reviewed=[70]), "r", manifest=_manifest([70]),
+                     cases=_Cases(), conflicts=[CONFLICT])
+    assert q.cards == () and q.deferred == ()
+
+
+def test_a_g_card_left_unsure_is_asked_again_next_round():
+    """`unsure` re-appends the flag (apply_map_review), so the card comes back - which is the
+    difference between "decided" and "looked at and not decided"."""
+    unsure = _flagged(70, "polarity", polarity="favorable")
+    q = select_queue(_View([unsure], "r", reviewed=[70]), "r", manifest=_manifest([70]),
+                     cases=_Cases(), conflicts=[CONFLICT])
+    assert [(c.case_id, c.decide_field) for c in q.cards] == [(70, "polarity")]
+
+
+def test_only_the_deciding_fields_flag_retires_its_own_card():
+    """Two conflicts on one case, one of them decided: the other still gets its card."""
+    second = {**CONFLICT, "field": "who_was_letting", "human_value": "householder",
+              "reread_value": "commercial_operator"}
+    q = select_queue(_View([_flagged(70, "who_was_letting")], "r", reviewed=[70]), "r",
+                     manifest=_manifest([70]), cases=_Cases(), conflicts=[CONFLICT, second])
+    assert [(c.case_id, c.decide_field) for c in q.cards] == [(70, "who_was_letting")]
+
+
+def test_the_same_conflict_from_two_producers_spends_one_card():
+    """`reread-conflicts.json` and `conflicts_from_view` are not guaranteed disjoint, and
+    `card_index` keys on (case_id, field) - a duplicate would spend two cards on one question
+    and then silently drop one of them at apply time."""
+    q = select_queue(_View([_flagged(70, "polarity")], "r", reviewed=[70]), "r",
+                     manifest=_manifest([70]), cases=_Cases(),
+                     conflicts=[CONFLICT, {**CONFLICT, "cell_key": "other"}])
+    assert [(c.case_id, c.decide_field) for c in q.cards] == [(70, "polarity")]
+    assert q.cards[0].conflict["cell_key"] == "pre-1860|N.Y."       # the first one, kept
+
+
+def test_a_deferred_g_card_says_which_field_waits():
+    """A case can carry two G cards, so a deferred case id alone would not say which of its
+    disagreements the next round owes (final review, nit 16)."""
+    second = {**CONFLICT, "field": "who_was_letting"}
+    q = select_queue(_View([_flagged(70, "polarity", "who_was_letting")], "r", reviewed=[70]),
+                     "r", manifest=_manifest([70]), cases=_Cases(),
+                     conflicts=[CONFLICT, second], cap=1)
+    assert q.deferred == ({"case_id": 70, "field": "who_was_letting"},)
+    assert q.to_json()["deferred"] == [{"case_id": 70, "field": "who_was_letting"}]
+
+
+def test_a_sections_tuple_without_a_cards_section_is_refused_by_name():
+    """`order[c.reason]` would raise a bare KeyError; a caller passing a restricted `sections`
+    deserves to be told which reason has no section."""
+    with pytest.raises(UnknownSection, match="reread_conflict"):
+        select_queue(_View([_flagged(70, "polarity")], "r", reviewed=[70]), "r",
+                     manifest=_manifest([70]), cases=_Cases(), conflicts=[CONFLICT],
+                     sections=tuple(s for s in SECTIONS if s[0] != "G"))
+
+
+def test_both_conflict_producers_read_the_human_decision_the_same_way():
+    """Finding 9: `conflicts_from_view` used to scan for a reviewer `set` only, so a record
+    whose reviewer re-ADMITTED it produced a card reading "reviewer ?, run ?, seq 0" through
+    one producer and a named decision through the other. One function now, and the row is
+    projected through CONFLICT_KEYS."""
+    from corpus_engine.ledger.types import Basis, Patch
+
+    admit = Patch(70, "admit", "", {"case_id": 70, "relevant": True, "polarity": "favorable"},
+                  "reviewer re-admit", Basis(reviewer="mmaldo2", run_id="round-2"), seq=800)
+
+    class _V:
+        def conflicts(self):
+            return {70: [{"field": "relevant", "attempted": False, "standing": True,
+                          "by": CONFLICT["reread_basis"], "at": 901, "op": "set"}]}
+
+        def history(self, cid):
+            return [admit]
+
+    row = conflicts_from_view(_V())[0]
+    assert set(row) == set(CONFLICT_KEYS) and row["kind"] == "relevant_false"
+    assert row["human_basis"]["reviewer"] == "mmaldo2" and row["human_at"] == 800
+    assert human_decision(_V(), 70, "relevant") == (admit.basis.to_json(), 800, "relevant")

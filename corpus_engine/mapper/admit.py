@@ -39,12 +39,12 @@ import copy
 from dataclasses import dataclass
 from typing import Mapping, Sequence
 
-from corpus_engine.ledger.fold import FLAG_PREFIX, JUDGED_DEFAULT
+from corpus_engine.ledger.fold import FLAG_PREFIX
 from corpus_engine.ledger.types import Basis, Patch
 # The section-G card's shape belongs to the queue that renders it (T7). Imported rather than
 # re-spelled here: one shape, two producers, and a fourth key added at one end only would be a
 # card the other end cannot read.
-from corpus_engine.mapper.queue import CONFLICT_KEYS, CONFLICT_KINDS
+from corpus_engine.mapper.queue import CONFLICT_KEYS, CONFLICT_KINDS, human_decision
 from corpus_engine.reader.cache import ResponseCache
 from corpus_engine.reader.driver import COMPARE_FIELDS, schema_for
 from corpus_engine.reader.gate import gate_unit
@@ -411,11 +411,19 @@ RELEVANT_FALSE_NULLS = ("polarity", "who_was_letting")
 # the mapper-v3 six-field support rule, which makes that loss the difference between a value
 # standing on evidence and a value standing on nothing.
 EVIDENCE_FIELDS = ("quotes", "nulled_fields", "extraction_status", "gate_notes")
+# ... except that `nulled_fields` and `extraction_status` are MERGED rather than kept: taking
+# them from the ledger alone auto-accepts a fuzzy quote the re-read produced under a `partial`
+# gate outcome (the queue's `clean` test reads the record's own status), and keeps a field's
+# name on the erased list after the re-read has refilled it. `_merged_evidence` is the rule.
 # The gate's verdict on a unit whose quotes all failed verification. Such a re-read has read
 # nothing usable about the record, so it is not evidence for a fill, not evidence for a
 # replacement, and not a disagreement with anybody: the record is left exactly as it was and the
 # case is listed as unreadable for the next attempt.
 INVALID_STATUS = "extraction-invalid"
+# The gate's own `extraction_status` vocabulary (reader/gate.py), worst last. A status this
+# tuple does not know ranks as the worst of all rather than as the best, so an unrecognised
+# verdict is never silently upgraded to `ok`.
+EXTRACTION_SEVERITY = ("ok", "partial", "missing", INVALID_STATUS)
 
 
 @dataclass(frozen=True)
@@ -423,41 +431,6 @@ class RereadOutcome:
     patches: list
     conflicts: list
     counts: dict
-
-
-def _human_decision(view, case_id: int, field: str,
-                    judged: Sequence[str] = JUDGED_DEFAULT) -> tuple[dict, int, str]:
-    """(basis, seq, the field it decided) of the reviewer decision a conflict is against.
-
-    The LAST reviewer patch that decided `field`; failing that, the last reviewer decision on
-    ANY judged field. The fallback is what makes a `relevant_false` card nameable: that card is
-    raised because SOME judged field is a human's, and the field is usually not `relevant`
-    itself - a reviewer decided the polarity and never touched the relevance - so looking only
-    at `relevant` would ship a card reading "reviewer ?, run ?, seq 0", which is exactly the
-    "some human, at some point" a reviewer cannot check. The field that IS the reason is
-    returned so the note can name it.
-
-    A reviewer `admit` counts as a decision, not just a `set`: `fold._record_provenance` records
-    human provenance from every judged field a reviewer's re-admit body carries, so a card that
-    looked only at `set` would ship the same blank for a record whose reviewer re-admitted it."""
-    exact = fallback = None
-    exact_field = fallback_field = ""
-    for p in view.history(case_id):
-        if not p.basis.reviewer:
-            continue
-        if p.op == "set" and p.field in judged:
-            decided = (p.field,)
-        elif p.op == "admit" and isinstance(p.new, dict):
-            decided = tuple(f for f in p.new if f in judged)
-        else:
-            continue
-        if not decided:
-            continue
-        if field in decided:
-            exact, exact_field = p, field
-        fallback, fallback_field = p, (field if field in decided else decided[0])
-    p, name = (exact, exact_field) if exact is not None else (fallback, fallback_field)
-    return (p.basis.to_json(), int(p.seq), name) if p is not None else ({}, 0, "")
 
 
 def reread_patches(admitted: Sequence[AdmittedRecord], *, manifest: Mapping,
@@ -489,7 +462,8 @@ def reread_patches(admitted: Sequence[AdmittedRecord], *, manifest: Mapping,
     record already carries - reviewer decisions, doctrinal concepts, and the review block's
     flags and notes included (R6). The `EVIDENCE_FIELDS` are the ledger's own and the re-read's
     verified quotes are ADDED to them, so a re-admit can never leave a record standing on fewer
-    quotes than it had. The values carried through are value-identical writes, which the fold
+    quotes than it had; `nulled_fields` and `extraction_status` are the two that are merged
+    rather than kept, by `_merged_evidence`, which states both rules. The values carried through are value-identical writes, which the fold
     treats as no-ops (D2), so nothing about provenance moves. The patch's `cycle` is the
     record's OWN cycle, because a re-admit under any other raises `DuplicateRecord`: a re-read
     fills a record in place, it does not move it.
@@ -519,7 +493,7 @@ def reread_patches(admitted: Sequence[AdmittedRecord], *, manifest: Mapping,
         row[kind] += 1
 
     def conflict(a, field, human_value, reread_value, kind, into: list) -> None:
-        human_basis, human_at, human_field = _human_decision(view, a.case_id, field)
+        human_basis, human_at, human_field = human_decision(view, a.case_id, field)
         entry = {"case_id": int(a.case_id), "field": field,
                  "human_value": human_value, "human_basis": human_basis,
                  "human_at": human_at, "reread_value": reread_value,
@@ -542,6 +516,8 @@ def reread_patches(admitted: Sequence[AdmittedRecord], *, manifest: Mapping,
             continue
         prov = view.provenance(a.case_id)
         mine: list[tuple[dict, str]] = []       # this record's conflicts, in emission order
+        filled: list[str] = []                  # fields THIS re-admission gives a value to
+        body = None
         note = f"cache {a.cache_key}; batch {a.batch_id}; cell {a.cell_key}"
         cycle = str(view.state.cycles.get(int(a.case_id)) or manifest.get("cycle") or "")
         withdraw = new.get("relevant") is False and rec.get("relevant") is True
@@ -559,6 +535,10 @@ def reread_patches(admitted: Sequence[AdmittedRecord], *, manifest: Mapping,
             body["relevant"] = False if withdraw else rec.get("relevant")
             if new.get("relevant") and new.get("quotes"):
                 body["quotes"] = _added_quotes(rec.get("quotes") or (), new["quotes"])
+            # `nulled_fields` and `extraction_status` are settled AFTER the per-field pass
+            # below, by `_merged_evidence`, because they depend on which fields that pass
+            # fills. `body` is the admit patch's own dict and is finished before this loop
+            # iteration ends - nothing reads the patch in between.
             out.append(Patch(a.case_id, "admit", "", body, f"{REREAD_WHY}: re-admit under "
                              f"{CODEBOOK_ID}", basis, cycle=cycle, note=note))
         if withdraw and not carded:
@@ -591,6 +571,7 @@ def reread_patches(admitted: Sequence[AdmittedRecord], *, manifest: Mapping,
                 elif current is None:
                     out.append(Patch(a.case_id, "set", field, value,
                                      f"{REREAD_WHY}: {field} filled", basis, cycle=cycle))
+                    filled.append(field)
                     count(field, "fill")
                 elif value == current:
                     count(field, "agree")
@@ -598,6 +579,8 @@ def reread_patches(admitted: Sequence[AdmittedRecord], *, manifest: Mapping,
                     out.append(Patch(a.case_id, "set", field, value,
                                      f"{REREAD_WHY}: {field} replaced", basis, cycle=cycle))
                     count(field, "replace")
+        if body is not None:
+            body["nulled_fields"], body["extraction_status"] = _merged_evidence(rec, new, filled)
         for c, human_field in mine:
             because = ("" if not human_field or human_field == c["field"]
                        else f" (the reviewer's decision on {human_field} is why this is a card)")
@@ -614,6 +597,44 @@ def reread_patches(admitted: Sequence[AdmittedRecord], *, manifest: Mapping,
               "unreadable": unreadable, "conflicts": len(conflicts),
               "relevant_false_conflicts": relevant_false, "by_field": by_field}
     return RereadOutcome(out, conflicts, counts)
+
+
+def _merged_evidence(rec: Mapping, new: Mapping, filled: Sequence[str]) -> tuple[list, str]:
+    """The `nulled_fields` and `extraction_status` a re-admit body carries (final review,
+    findings 7 and 8). Two rules, and the reread report cites both:
+
+    1. `nulled_fields` is the UNION of the two reads' lists, minus every field THIS
+       re-admission fills. The union, because a field the re-read's gate erased is a field
+       nothing on the record now supports, whichever read erased it; minus the fills, because
+       a field the re-read just supplied a value for is not erased any more, and leaving its
+       name behind puts a section-E card ("judged fields erased by the quote gate") in front
+       of the reviewer for a field that has a value.
+    2. `extraction_status` is the WORSE of the two reads' statuses - a fuzzy quote the re-read
+       produced under a `partial` gate outcome must not be auto-accepted by the queue's
+       `clean` test on the strength of the older read's `ok` - EXCEPT that it is `ok` when the
+       merged `nulled_fields` is empty and neither read was `extraction-invalid`, which is the
+       gate's own rule (`reader/gate.py`: `ok` iff nothing dropped and nothing nulled) applied
+       to the merged record rather than to either read alone.
+
+    A re-read that came back `extraction-invalid` never reaches this: `reread_patches` leaves
+    that record byte-identical and lists it as unreadable."""
+    drop = set(filled)
+    nulled, seen = [], set()
+    for f in list(rec.get("nulled_fields") or ()) + list(new.get("nulled_fields") or ()):
+        if f in drop or f in seen:
+            continue
+        seen.add(f)
+        nulled.append(f)
+
+    def rank(status) -> int:
+        return (EXTRACTION_SEVERITY.index(status) if status in EXTRACTION_SEVERITY
+                else len(EXTRACTION_SEVERITY))
+
+    old_s, new_s = rec.get("extraction_status"), new.get("extraction_status")
+    worse = old_s if rank(old_s) >= rank(new_s) else new_s
+    if not nulled and INVALID_STATUS not in (old_s, new_s):
+        return nulled, "ok"
+    return nulled, worse
 
 
 def _added_quotes(standing: Sequence[Mapping], fresh: Sequence[Mapping]) -> list:

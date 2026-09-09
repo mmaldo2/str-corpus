@@ -3,13 +3,15 @@
 Seven sections in a fixed priority order. A record appears ONCE, in its highest section, with
 its other reasons listed on the card - a queue that showed the same case four times would
 spend the round's 150 cards on twenty cases. What does not fit waits for the next round in
-the same order; nothing is dropped, and the deferred ids are written into the queue manifest
-so the next round starts exactly where this one stopped.
+the same order; nothing is dropped, and the deferred cards are written into the queue manifest
+so the next round starts exactly where this one stopped (a case id for sections A-F, a
+`{case_id, field}` pair for section G, where one case can carry two cards).
 
 Section G (spec section 7) is the one exception: it is built from re-read conflicts on
 records a human ALREADY reviewed, so it is exempt from both the one-appearance rule (one G
 card per conflicting field, not per record) and the reviewed-record filter (a G card exists
-BECAUSE the record is reviewed).
+BECAUSE the record is reviewed). What retires a G card instead is the `needs-review:<field>`
+flag going away - see `select_queue`.
 
 The checker runs on every queued record before the page is built (D5), so the card can show
 what a second family said about the case the user is about to decide. `check_queue` is that
@@ -35,6 +37,7 @@ from typing import Mapping, Sequence
 
 from rapidfuzz import fuzz
 
+from corpus_engine.ledger.fold import FLAG_PREFIX, JUDGED_DEFAULT
 from corpus_engine.reader.driver import COMPARE_FIELDS, plan_reread
 
 QUEUE_CAP = 150
@@ -64,6 +67,15 @@ CHECKER_WORKER = "checker"
 FUZZY_COVERAGE = 0.92
 FUZZY_MAX_RUN = 4
 _WORD = re.compile(r"[a-z0-9]+")
+
+
+class UnknownSection(ValueError):
+    """A card whose reason is in no section of the `sections` this round was built with.
+
+    `select_queue` sorts by `sections`' own order, so a caller passing a restricted tuple (a
+    G-less round, say) would otherwise get a bare `KeyError` out of the sort key. Refusing by
+    name says which reason and which round, which is the difference between a bug report and a
+    traceback."""
 
 
 def checker_path(pin, *, unit_cap: int) -> dict:
@@ -224,7 +236,10 @@ class QueueCard:
 class Queue:
     run_id: str
     cards: tuple[QueueCard, ...]
-    deferred: tuple[int, ...]
+    # What did not fit, in the order it will be asked next round. A case id for sections A-F;
+    # a `{case_id, field}` dict for section G, where one case can carry two cards and the id
+    # alone would not say which field waits (`_deferred_entry`).
+    deferred: tuple
     cap: int = QUEUE_CAP
     # Fuzzy quotes the mechanical rule accepted without a human (D4). Not cards - they are
     # the audit trail the caller writes to runs/<run-id>/fuzzy-auto-accepted.json, so that
@@ -267,28 +282,87 @@ def admitted_case_ids(view, run_id: str) -> list[int]:
     return out
 
 
+def human_decision(view, case_id: int, field: str,
+                   judged: Sequence[str] = JUDGED_DEFAULT) -> tuple[dict, int, str]:
+    """(basis, seq, the field it decided) of the reviewer decision a conflict is against.
+
+    Lives here rather than in `corpus_engine/mapper/admit.py` because there are TWO producers
+    of a section-G card - the re-read tool and `conflicts_from_view` below - and a card whose
+    human basis is derived one way by one of them and another way by the other is a card that
+    reads differently depending on which path raised it. One rule, next to the `CONFLICT_KEYS`
+    the card is projected through.
+
+    The LAST reviewer patch that decided `field`; failing that, the last reviewer decision on
+    ANY judged field. The fallback is what makes a `relevant_false` card nameable: that card is
+    raised because SOME judged field is a human's, and the field is usually not `relevant`
+    itself - a reviewer decided the polarity and never touched the relevance - so looking only
+    at `relevant` would ship a card reading "reviewer ?, run ?, seq 0", which is exactly the
+    "some human, at some point" a reviewer cannot check. The field that IS the reason is
+    returned so the note can name it.
+
+    A reviewer `admit` counts as a decision, not just a `set`: `fold._record_provenance` records
+    human provenance from every judged field a reviewer's re-admit body carries, so a card that
+    looked only at `set` would ship the same blank for a record whose reviewer re-admitted it."""
+    exact = fallback = None
+    exact_field = fallback_field = ""
+    for p in view.history(case_id):
+        if not p.basis.reviewer:
+            continue
+        if p.op == "set" and p.field in judged:
+            decided = (p.field,)
+        elif p.op == "admit" and isinstance(p.new, dict):
+            decided = tuple(f for f in p.new if f in judged)
+        else:
+            continue
+        if not decided:
+            continue
+        if field in decided:
+            exact, exact_field = p, field
+        fallback, fallback_field = p, (field if field in decided else decided[0])
+    p, name = (exact, exact_field) if exact is not None else (fallback, fallback_field)
+    return (p.basis.to_json(), int(p.seq), name) if p is not None else ({}, 0, "")
+
+
 def conflicts_from_view(view) -> list[dict]:
     """The fold's own rejected writes, as section-G cards (D2, spec section 3).
 
     Belt to `reread-conflicts.json`'s braces. The re-read tool declines to EMIT a patch the
     fold would reject, so in the ordinary case this returns nothing; anything it does return is
     a write some other path attempted and the ledger refused, and that is exactly the thing
-    that must not disappear silently."""
+    that must not disappear silently.
+
+    The human basis comes from `human_decision`, the same function the re-read tool uses, and
+    the row is projected through `CONFLICT_KEYS` for the same reason the re-read projects
+    through it: a key added to the tuple at one end only is a card the other end cannot read."""
     out = []
     for case_id, rows in sorted(view.conflicts().items()):
         for row in rows:
             field = row["field"]
-            human_basis, human_at = {}, 0
-            for p in view.history(case_id):
-                if p.basis.reviewer and p.op == "set" and p.field == field:
-                    human_basis, human_at = p.basis.to_json(), int(p.seq)
-            out.append({"case_id": int(case_id), "field": field,
-                        "human_value": row.get("standing"), "human_basis": human_basis,
-                        "human_at": human_at, "reread_value": row.get("attempted"),
-                        "reread_basis": row.get("by") or {},
-                        "kind": "relevant_false" if field == "relevant" else "value",
-                        "cell_key": "", "batch_id": ""})
+            human_basis, human_at, _human_field = human_decision(view, int(case_id), field)
+            entry = {"case_id": int(case_id), "field": field,
+                     "human_value": row.get("standing"), "human_basis": human_basis,
+                     "human_at": human_at, "reread_value": row.get("attempted"),
+                     "reread_basis": row.get("by") or {},
+                     "kind": CONFLICT_KINDS[1] if field == "relevant" else CONFLICT_KINDS[0],
+                     "cell_key": "", "batch_id": ""}
+            out.append({k: entry[k] for k in CONFLICT_KEYS})
     return out
+
+
+def _record_flags(record: Mapping) -> tuple:
+    """The review flags a record carries now. A record with no review block carries none."""
+    return tuple(((record.get("review") or {}).get("flags") or ()))
+
+
+def _deferred_entry(card: "QueueCard"):
+    """One deferred card, as the queue manifest records it (final review, nit 16).
+
+    A case id for sections A-F, where a record appears exactly once and the id IS the card. A
+    `{case_id, field}` pair for section G, where a case can carry two cards: deferring the id
+    alone would say a case waits without saying which of its two disagreements does."""
+    if card.reason == "reread_conflict":
+        return {"case_id": int(card.case_id), "field": card.decide_field}
+    return int(card.case_id)
 
 
 def select_queue(view, run_id: str, *, manifest: Mapping, cases, cap: int = QUEUE_CAP,
@@ -305,13 +379,29 @@ def select_queue(view, run_id: str, *, manifest: Mapping, cases, cap: int = QUEU
     filter below - a G card exists precisely because a human already decided the field, so the
     A-F rule that skips a reviewed record would throw away every card the re-read exists to
     raise. One card per conflicting FIELD, so a case with two disagreements gets two cards -
-    the only place the "one appearance per record" rule does not hold."""
+    the only place the "one appearance per record" rule does not hold.
+
+    WHAT RETIRES A G CARD (final review, finding 1). `view.reviewed()` cannot: a G card exists
+    because the record is reviewed. The `needs-review:<field>` flag can, and it is the protocol
+    the two ends of this round already share - the re-read raises one per conflict
+    (`admit.reread_patches`), `tools/apply_map_review.py` clears exactly that flag on a `keep`
+    or a `set` and re-raises it on an `unsure`. So a conflict whose flag is no longer on the
+    record has been decided and is not asked again, while an `unsure` one comes back next
+    round. Without this every round rebuilt from the whole `reread-conflicts.json` file would
+    re-queue the identical head of decided cards and never reach the deferred ones."""
     g_cards: list[QueueCard] = []
+    seen_g: set[tuple[int, str]] = set()
     for c in sorted(conflicts, key=lambda c: (int(c["case_id"]), str(c["field"]))):
-        rec = view.state.records.get(int(c["case_id"]))
+        cid, field = int(c["case_id"]), str(c["field"])
+        rec = view.state.records.get(cid)
         if rec is None:
             continue
-        g_cards.append(QueueCard(int(c["case_id"]), "G", "reread_conflict", (), rec, (), (),
+        if (cid, field) in seen_g:
+            continue        # the two producers are not guaranteed disjoint; one question, one card
+        if f"{FLAG_PREFIX}{field}" not in _record_flags(rec):
+            continue        # a reviewer has decided this card; it is not asked again
+        seen_g.add((cid, field))
+        g_cards.append(QueueCard(cid, "G", "reread_conflict", (), rec, (), (),
                                  conflict=dict(c)))
     dis = _disagreements_by_case(manifest)
     ids = admitted_case_ids(view, run_id) or list(view.state.order)
@@ -338,9 +428,13 @@ def select_queue(view, run_id: str, *, manifest: Mapping, cases, cap: int = QUEU
         cards.append(QueueCard(cid, SECTION_OF[reasons[0]], reasons[0], tuple(reasons[1:]),
                                rec, tuple(dis.get(cid, ())), fuzzy))
     order = {key: i for i, (_s, key, _t) in enumerate(sections)}
+    unknown = sorted({c.reason for c in cards if c.reason not in order})
+    if unknown:
+        raise UnknownSection(f"no section for {', '.join(unknown)} in the sections this round "
+                             f"was built with ({', '.join(k for _s, k, _t in sections)})")
     cards.sort(key=lambda c: (order[c.reason], c.case_id, c.decide_field))
-    return Queue(run_id, tuple(cards[:cap]), tuple(c.case_id for c in cards[cap:]), cap,
-                 tuple(accepted))
+    return Queue(run_id, tuple(cards[:cap]), tuple(_deferred_entry(c) for c in cards[cap:]),
+                 cap, tuple(accepted))
 
 
 def _unit_status(unit, result) -> str:

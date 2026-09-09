@@ -1318,6 +1318,106 @@ def test_a_section_g_unsure_leaves_the_record_machine_free_of_a_status_change():
     assert not [p for p in patches if p.field == "review.status"]
 
 
+G_RELEVANT = {**CONFLICT, "field": "relevant", "kind": "relevant_false",
+              "human_value": True, "reread_value": False}
+
+
+def _g_relevant_records():
+    return {70: {"relevant": True, "polarity": "favorable",
+                 "who_was_letting": "householder",
+                 "review": {"status": "human-adjudicated",
+                            "flags": ["needs-review:relevant"], "notes": []}}}
+
+
+def test_a_section_g_relevant_card_takes_the_g_branch_not_the_relevance_overturn():
+    """Final review, finding 2. `relevant` is the field of the most serious G card there is
+    (the `relevant_false` kind), and the only meaningful decision on it is `set` False. It has
+    to clear the `needs-review:relevant` flag the re-read raised - the overturn branch clears
+    nothing, so this card would be re-queued for ever - and its note has to name the decision
+    it supersedes. The overturn's own cascade still applies: a case out of the corpus carries
+    no polarity or who_was_letting."""
+    cards = {(70, "relevant"): {"case_id": 70, "section": "G", "decide_field": "relevant",
+                                "conflict": G_RELEVANT}}
+    patches = ap.patches_for([{"case_id": 70, "field": "relevant", "decision": "set",
+                               "value": "false", "note": ""}],
+                             _g_relevant_records(), "mmaldo2", run_id="reread-round-1",
+                             cards=cards)
+    sets = [(p.field, p.new) for p in patches if p.op == "set"]
+    assert ("relevant", False) in sets and ("polarity", None) in sets
+    assert ("who_was_letting", None) in sets
+    assert ("review.flags", []) in sets                     # the re-read's flag is cleared
+    assert ("review.status", "human-adjudicated") in sets
+    notes = " ".join(p.new for p in patches if p.field == "review.notes")
+    assert "revises their own earlier decision" in notes and "seq 900" in notes
+    assert "supersedes the needs-review:relevant flag" in notes
+
+
+def test_a_section_g_relevant_card_refuses_adopt_like_every_other_g_card():
+    cards = {(70, "relevant"): {"case_id": 70, "section": "G", "decide_field": "relevant",
+                                "conflict": G_RELEVANT}}
+    with pytest.raises(ValueError, match="no checker value to adopt"):
+        ap.patches_for([{"case_id": 70, "field": "relevant", "decision": "adopt",
+                         "value": None, "note": ""}],
+                       _g_relevant_records(), "mmaldo2", cards=cards,
+                       checker={70: {"values": {"relevant": False}, "status": "ok"}})
+
+
+def test_a_section_g_relevant_card_refuses_a_set_to_true():
+    cards = {(70, "relevant"): {"case_id": 70, "section": "G", "decide_field": "relevant",
+                                "conflict": G_RELEVANT}}
+    with pytest.raises(ValueError, match="only be set to False"):
+        ap.patches_for([{"case_id": 70, "field": "relevant", "decision": "set",
+                         "value": "true", "note": ""}],
+                       _g_relevant_records(), "mmaldo2", cards=cards)
+
+
+def test_a_section_g_keep_clears_the_flag_the_reread_raised():
+    """The other half of finding 1: nothing retires a G card except this flag going away."""
+    records = {70: {"polarity": "favorable",
+                    "review": {"status": "human-adjudicated",
+                               "flags": ["needs-review:polarity"], "notes": []}}}
+    cards = {(70, "polarity"): {"case_id": 70, "section": "G", "decide_field": "polarity",
+                                "conflict": CONFLICT}}
+    patches = ap.patches_for([{"case_id": 70, "field": "polarity", "decision": "keep",
+                               "value": None, "note": ""}], records, "mmaldo2", cards=cards)
+    assert ("review.flags", []) in [(p.field, p.new) for p in patches if p.op == "set"]
+
+
+def test_a_section_g_unsure_leaves_the_flag_standing():
+    records = {70: {"polarity": "favorable",
+                    "review": {"status": "human-adjudicated",
+                               "flags": ["needs-review:polarity"], "notes": []}}}
+    cards = {(70, "polarity"): {"case_id": 70, "section": "G", "decide_field": "polarity",
+                                "conflict": CONFLICT}}
+    patches = ap.patches_for([{"case_id": 70, "field": "polarity", "decision": "unsure",
+                               "value": None, "note": ""}], records, "mmaldo2", cards=cards)
+    assert not [p for p in patches if p.op == "set" and p.field == "review.flags"]
+    assert any(p.field == "review.flags" and p.op == "append" for p in patches)
+
+
+def test_an_adopt_the_checker_never_answered_is_refused_not_written_as_a_null():
+    """Finding 3. `.get(field)` on a missing checker entry becomes `set <field> None` - a real
+    value patch nulling a field nobody decided."""
+    with pytest.raises(ValueError, match="no entry for the case"):
+        ap.patches_for([{"case_id": 704, "field": "polarity", "decision": "adopt",
+                         "value": None, "note": ""}],
+                       {704: {"polarity": "mixed"}}, "mmaldo2", checker={})
+    with pytest.raises(ValueError, match="answered no polarity"):
+        ap.patches_for([{"case_id": 704, "field": "polarity", "decision": "adopt",
+                         "value": None, "note": ""}],
+                       {704: {"polarity": "mixed"}}, "mmaldo2",
+                       checker={704: {"values": {}, "status": "missing"}})
+
+
+def test_the_queue_manifest_is_required_in_both_modes(tmp_path, monkeypatch):
+    """Since section G the queue is what tells a G decision apart from an ordinary one, and it
+    derives the --checker default; a saved page applied without it loses both silently."""
+    import sys as _sys
+    monkeypatch.setattr(_sys, "argv", ["apply_map_review.py", "--saved", str(tmp_path / "p.html")])
+    with pytest.raises(SystemExit):
+        ap.main()
+
+
 def test_card_index_keys_on_case_and_field_so_two_g_cards_do_not_collide():
     doc = {"sections": {"G": [{"case_id": 70, "decide_field": "polarity", "section": "G"},
                               {"case_id": 70, "decide_field": "who_was_letting",
@@ -1376,3 +1476,86 @@ def test_every_queue_section_appears_in_both_the_html_and_the_js_sections_array(
         assert f"'{sec}'" in js_sections, f"{sec!r} missing from the JS SECTIONS array"
         assert f"'{key}'" in js_sections, f"{key!r} missing from the JS SECTIONS array"
 
+
+
+# ------------------------------------------------- the T6 -> T7 -> apply seam (finding 11) ---
+
+def test_a_reread_conflict_travels_from_the_reread_to_the_queue_to_the_ledger_and_retires(
+        tmp_path):
+    """Final review, finding 11. The one test that carries a real conflict the whole way:
+    `reread_patches` raises it and flags the field, `select_queue` turns it into a section-G
+    card, `patches_for` decides it and clears the flag, and the NEXT round - rebuilt from the
+    same whole conflicts file, which is what Task 8 does - no longer asks it. The four
+    task-scoped section-G tests all pass records with no review block at all, which is why
+    findings 1 and 2 survived seven task reviews."""
+    from corpus_engine.ledger import open_ledger as real_open_ledger
+    from corpus_engine.ledger.types import Basis, Patch
+    from corpus_engine.mapper.admit import AdmittedRecord, reread_patches
+
+    manifest = json.loads((ROOT / "tests" / "fixtures" / "mapper-admit" /
+                           "manifest.json").read_text(encoding="utf-8"))
+    dom = load_domain()
+    led = real_open_ledger(tmp_path / "ledger", domain=dom)
+    seed = _rec(70, polarity="favorable")
+    led.apply([Patch(70, "admit", "", seed, "seed",
+                     Basis(model="m", prompt_version="mapper-v3:f92016681314", run_id="seed"),
+                     cycle="cycle-001"),
+               Patch(70, "set", "polarity", "favorable", "round 1",
+                     Basis(reviewer="mmaldo2", run_id="map-cycle-004-round-1"))],
+              note="seed")
+
+    view = real_open_ledger(tmp_path / "ledger", domain=dom).view()
+    assert view.provenance(70)["polarity"] == "human"
+    out = reread_patches([AdmittedRecord(70, "1860-1900|N.Y.", "b1", "key",
+                                         {**seed, "polarity": "adverse"}, "")],
+                         manifest=manifest, view=view)
+    assert [c["field"] for c in out.conflicts] == ["polarity"]
+    led2 = real_open_ledger(tmp_path / "ledger", domain=dom)
+    led2.apply(out.patches, note="re-read")
+
+    # ROUND 1: the conflict is a card, and the flag the re-read raised is what makes it one.
+    view = real_open_ledger(tmp_path / "ledger", domain=dom).view()
+    assert "needs-review:polarity" in view.record(70)["review"]["flags"]
+    queue = select_queue(view, "cycles-001-003-reread", manifest=_manifest(), cases=_Cases(),
+                         conflicts=out.conflicts)
+    assert [(c.section, c.case_id, c.decide_field) for c in queue.cards] == [("G", 70,
+                                                                             "polarity")]
+
+    patches = ap.patches_for([{"case_id": 70, "field": "polarity", "decision": "keep",
+                               "value": None, "note": ""}],
+                             view.state.records, dom.reviewer_default,
+                             run_id="reread-round-1", cards=ap.card_index(queue.to_json()))
+    real_open_ledger(tmp_path / "ledger", domain=dom).apply(patches, note="round 1")
+
+    # ROUND 2: same conflicts file, and the decided card is gone.
+    after = real_open_ledger(tmp_path / "ledger", domain=dom).view()
+    assert after.record(70)["review"]["flags"] == []
+    assert after.record(70)["polarity"] == "favorable"          # keep left it standing
+    again = select_queue(after, "cycles-001-003-reread", manifest=_manifest(), cases=_Cases(),
+                         conflicts=out.conflicts)
+    assert again.cards == () and again.deferred == ()
+
+
+def test_the_checker_unit_cap_counts_cases_not_cards(tmp_path):
+    """Nit 13. `check_queue` plans one unit per DISTINCT case, and section G is the first round
+    where one case can carry two cards - so a manifest field spelled `len(queue.cards)` is
+    wrong for the first time."""
+    from corpus_engine.mapper.queue import QueueCard, Queue
+    from corpus_engine.reader.model import ModelPin
+
+    rec = _rec(70)
+    queue = Queue("cycles-001-003-reread",
+                  (QueueCard(70, "G", "reread_conflict", (), rec, (), (),
+                             conflict={**CONFLICT, "field": "polarity"}),
+                   QueueCard(70, "G", "reread_conflict", (), rec, (), (),
+                             conflict={**CONFLICT, "field": "who_was_letting"})), ())
+    doc = queue.to_json()
+
+    class _Reader:
+        def read(self, plan):
+            return type("O", (), {"records": [], "units": ()})()
+
+    mk.run_check(doc, tmp_path / "checker.json", reader_factory=lambda: _Reader(),
+                 codebook=None, checker_pin=ModelPin("codex-cli", "openai", "codex-cli"),
+                 budget=None)
+    assert doc["checker_path"]["unit_cap"] == 1                 # one case, two cards

@@ -43,7 +43,11 @@ who_was_letting either way. `relevant` true is not an accepted decision (the rea
 already true for every queued case, so `keep` already covers confirming it), and a case
 already `relevant` false has no relevance left to overturn. This is the one field a decisions
 file may name besides the card's own decide_field; `check_against_queue` waves it through on
-every card, and `patches_for` is what actually enforces `set`/`adopt`-to-`False`-only.
+every card, and `patches_for` is what actually enforces `set`/`adopt`-to-`False`-only. A
+SECTION-G card whose conflicting field IS `relevant` (the re-read's `relevant_false` kind)
+does not take this path: the section-G branch owns it, because that decision also has to
+clear the `needs-review:relevant` flag the re-read raised and name the decision it
+supersedes.
 
 EVERY decided value is validated against the field's own vocabulary before any patch is built
 (final-review I1). The ledger performs no value validation of its own - `fold.apply_patch`
@@ -74,17 +78,24 @@ reason, before a single patch is built - because a decisions file is free-form t
 wrote, not a page whose every field was rendered from the queue in the first place. Exactly
 one of `--saved` / `--decisions` is required.
 
+`--queue <json>` is REQUIRED in both modes, not only for `--decisions`. Since section G it
+is no longer just a validation input: `card_index` is what tells a G decision apart from an
+ordinary one, and the `--checker` default is derived from its path. A saved slice-3 page
+applied without it would silently lose every G semantic and, on an `adopt`, read another
+round's checker answers. An `adopt` for a case the checker file never answered for is refused
+by name rather than becoming a `set <field> None`.
+
 `--assisted-by "<name>"` marks a `--decisions` run as a first pass a model drafted: every
 applied decision's `review.notes` patch gets an extra note ("first pass drafted by <name>;
 confirmed by the reviewer"), and the run's own tag records the same fact in every `why`
 string this run writes - so the human-reviewed tier stays honest about model assistance
 rather than reading identically to a page the reviewer decided unaided.
 
-  .venv\Scripts\python tools\apply_map_review.py --saved <page> --checker <json> --dry-run
-  .venv\Scripts\python tools\apply_map_review.py --saved <page> --checker <json> \
-      --run-id map-cycle-004-round-1
-  .venv\Scripts\python tools\apply_map_review.py --decisions <json> --checker <json> \
-      --assisted-by "GPT Astra" --dry-run
+  .venv\Scripts\python tools\apply_map_review.py --queue <json> --saved <page> --dry-run
+  .venv\Scripts\python tools\apply_map_review.py --queue <json> --saved <page> \
+      --checker <json> --run-id map-cycle-004-round-1
+  .venv\Scripts\python tools\apply_map_review.py --queue <json> --decisions <json> \
+      --checker <json> --assisted-by "GPT Astra" --dry-run
 """
 from __future__ import annotations
 
@@ -233,6 +244,29 @@ def check_against_queue(decisions: Sequence[dict], queue_doc: Mapping) -> None:
         raise ValueError("; ".join(errors))
 
 
+def _adopted(checker: Mapping, case_id: int, field: str):
+    """The checker's value for this case and field, or a refusal naming both.
+
+    An `adopt` says "write what the second reader said". A checker file with no entry for the
+    case, or an entry that never answered for this field (a `missing` or `failed:` status
+    carries an empty `values` map), has said nothing - and `.get(field)` on it would quietly
+    become `set <field> None`, which is a real value patch nulling a field nobody decided.
+    Refused by name instead, so the fix is to pass the round's own checker file rather than to
+    discover a nulled field in the ledger later (final review, finding 3)."""
+    entry = checker.get(case_id)
+    if not entry:
+        raise ValueError(f"case {case_id}: {field} decided `adopt`, but this round's checker "
+                         f"file has no entry for the case - there is no checker value to "
+                         f"adopt. Pass the checker file this round was built with, or decide "
+                         f"keep/set/unsure.")
+    values = entry.get("values") or {}
+    if field not in values:
+        raise ValueError(f"case {case_id}: {field} decided `adopt`, but the checker's entry "
+                         f"for this case answered no {field} (status "
+                         f"{entry.get('status', '?')!r}) - there is no checker value to adopt.")
+    return _value(field, values[field])
+
+
 def _checked(case_id: int, field: str, value):
     """The value about to be written, or a refusal naming the case and the field. This catches
     what `read_state` cannot: an `adopt` writes the CHECKER's value, not the page's."""
@@ -269,42 +303,6 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
         if decision not in DECISIONS:
             raise ValueError(f"case {cid}: decision {decision!r} is not one of {DECISIONS}")
         why = f"{tag}: {field}"
-        if field == "relevant" and decision in ("set", "adopt"):
-            # The relevance-overturn path (round-1b, spec addendum), and round 2's extension
-            # of it: on ANY card, whatever its own decide_field, a reviewer with the full
-            # opinion in front of them may rule the case is not a letting case at all - by
-            # `set`ting relevant to False directly, or (round 2) by a section-C card whose OWN
-            # decide_field is `relevant` `adopt`ing the checker's disagreement, which is only
-            # ever False (a queued record's relevant is already True, so the only relevance
-            # value a checker can disagree with it about is False). Either way `relevant` true
-            # is not accepted here - the reader's value is already true for every queued case,
-            # and `keep` already covers confirming it - so this branch only ever writes
-            # `False`, never a value patch to `True`. It emits the same patches the reference
-            # review's `irrelevant` adoption does (`apply_reference_review.patches_for`): the
-            # case carries no polarity or who_was_letting once it is out of the corpus.
-            if decision == "adopt":
-                value = _value(field, ((checker.get(cid) or {}).get("values") or {}).get(field))
-            else:
-                value = _value(field, d.get("value"))
-            if value is not False:
-                raise ValueError(f"case {cid}: relevant may only be set to False (not a "
-                                 f"letting case); relevant true is not accepted as a "
-                                 f"decision - keep covers it")
-            if (records.get(cid) or {}).get("relevant") is False:
-                raise ValueError(f"case {cid}: already relevant false; no relevance decision "
-                                 f"to overturn")
-            out.append(Patch(cid, "append", "review.notes",
-                             f"{tag}: relevance overturned by the reviewer: {d.get('note') or ''}",
-                             why, basis))
-            out.append(Patch(cid, "set", "relevant", False, why, basis))
-            out.append(Patch(cid, "set", "polarity", None, why, basis))
-            out.append(Patch(cid, "set", "who_was_letting", None, why, basis))
-            if assisted_by:
-                out.append(Patch(cid, "append", "review.notes",
-                                 f"{tag}: first pass drafted by {assisted_by}; confirmed by "
-                                 f"the reviewer", why, basis))
-            out.append(Patch(cid, "set", "review.status", "human-adjudicated", why, basis))
-            continue
         card = (cards or {}).get((cid, field)) or {}
         if card.get("section") == "G":
             # Spec section 7. The re-read disagreed with a decision this reviewer already made.
@@ -313,6 +311,12 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
             # supersedes so the ledger records a revision rather than a fresh opinion; `unsure`
             # takes the ordinary flag path. There is no `adopt`: this card's second opinion is
             # the re-read, and it is on the card.
+            #
+            # This test comes BEFORE the relevance-overturn branch below, and `relevant` is
+            # handled inside it, because a G card's conflicting field can BE `relevant` (the
+            # `relevant_false` kind) - and the overturn branch clears no flag, names no
+            # superseded decision and refuses no `adopt`, so a `relevant` G card taking it
+            # would stay flagged for ever (final review, finding 2).
             conflict = card.get("conflict") or {}
             was = conflict.get("human_basis") or {}
             old = (records.get(cid) or {}).get(field)
@@ -329,6 +333,24 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
                 out += arr._clear_flag(live, records, cid, field, why, basis, tag)
             elif decision == "set":
                 value = _checked(cid, field, _value(field, d.get("value")))
+                if field == "relevant":
+                    # The `relevant_false` card (spec section 7) - the re-read says the case is
+                    # not a letting case at all and a human had decided otherwise. `set` to
+                    # False is the only meaningful decision on it (`keep` is the opposite and
+                    # `True` is what already stands), and it takes the SAME cascade the
+                    # ordinary relevance overturn below takes, because a case out of the corpus
+                    # carries no polarity or who_was_letting either way. What it must NOT take
+                    # is that branch itself: it is a revision of the reviewer's own earlier
+                    # decision, the note has to name the decision it supersedes, and the
+                    # `needs-review:relevant` flag the re-read raised has to be cleared here or
+                    # this card is re-queued for ever (final review, findings 1 and 2).
+                    if value is not False:
+                        raise ValueError(f"case {cid}: relevant may only be set to False (not "
+                                         f"a letting case); relevant true is what already "
+                                         f"stands on this card - keep covers it")
+                    if (records.get(cid) or {}).get("relevant") is False:
+                        raise ValueError(f"case {cid}: already relevant false; no relevance "
+                                         f"decision to overturn")
                 out.append(Patch(cid, "append", "review.notes",
                                  f"{tag}: {field} {old!r} -> {value!r}; the reviewer revises "
                                  f"their own earlier decision "
@@ -337,6 +359,9 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
                                  f"after the mapper-v3 re-read read it as "
                                  f"{conflict.get('reread_value')!r}", why, basis))
                 out.append(Patch(cid, "set", field, value, why, basis))
+                if field == "relevant":
+                    out.append(Patch(cid, "set", "polarity", None, why, basis))
+                    out.append(Patch(cid, "set", "who_was_letting", None, why, basis))
                 out += arr._clear_flag(live, records, cid, field, why, basis, tag)
             else:                                                   # unsure
                 out.append(Patch(cid, "append", "review.flags", f"{FLAG_PREFIX}{field}", why,
@@ -358,9 +383,49 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
             if decision != "unsure":
                 out.append(Patch(cid, "set", "review.status", "human-adjudicated", why, basis))
             continue
+        if field == "relevant" and decision in ("set", "adopt"):
+            # The relevance-overturn path (round-1b, spec addendum), and round 2's extension
+            # of it: on ANY card, whatever its own decide_field, a reviewer with the full
+            # opinion in front of them may rule the case is not a letting case at all - by
+            # `set`ting relevant to False directly, or (round 2) by a section-C card whose OWN
+            # decide_field is `relevant` `adopt`ing the checker's disagreement, which is only
+            # ever False (a queued record's relevant is already True, so the only relevance
+            # value a checker can disagree with it about is False). Either way `relevant` true
+            # is not accepted here - the reader's value is already true for every queued case,
+            # and `keep` already covers confirming it - so this branch only ever writes
+            # `False`, never a value patch to `True`. It emits the same patches the reference
+            # review's `irrelevant` adoption does (`apply_reference_review.patches_for`): the
+            # case carries no polarity or who_was_letting once it is out of the corpus.
+            #
+            # A section-G card whose own conflicting field is `relevant` never reaches here -
+            # the G branch above handles it, with the same cascade plus the flag clearing and
+            # the superseded-decision note that only a G card owes (finding 2).
+            if decision == "adopt":
+                value = _adopted(checker, cid, field)
+            else:
+                value = _value(field, d.get("value"))
+            if value is not False:
+                raise ValueError(f"case {cid}: relevant may only be set to False (not a "
+                                 f"letting case); relevant true is not accepted as a "
+                                 f"decision - keep covers it")
+            if (records.get(cid) or {}).get("relevant") is False:
+                raise ValueError(f"case {cid}: already relevant false; no relevance decision "
+                                 f"to overturn")
+            out.append(Patch(cid, "append", "review.notes",
+                             f"{tag}: relevance overturned by the reviewer: {d.get('note') or ''}",
+                             why, basis))
+            out.append(Patch(cid, "set", "relevant", False, why, basis))
+            out.append(Patch(cid, "set", "polarity", None, why, basis))
+            out.append(Patch(cid, "set", "who_was_letting", None, why, basis))
+            if assisted_by:
+                out.append(Patch(cid, "append", "review.notes",
+                                 f"{tag}: first pass drafted by {assisted_by}; confirmed by "
+                                 f"the reviewer", why, basis))
+            out.append(Patch(cid, "set", "review.status", "human-adjudicated", why, basis))
+            continue
         old = (records.get(cid) or {}).get(field)
         if decision == "adopt":
-            value = _value(field, ((checker.get(cid) or {}).get("values") or {}).get(field))
+            value = _adopted(checker, cid, field)
         else:
             value = _value(field, d.get("value"))
         if decision in ("adopt", "set"):
@@ -430,9 +495,11 @@ def main(argv=None) -> int:
                       help="a JSON list of {case_id, field, decision, value, note} - the same "
                            "schema the page embeds - for a first pass done from files instead "
                            "of the self-saving page")
-    ap.add_argument("--queue", default="runs/cycle-004-shard-01/review-round-1.json",
-                    help="the round's queue manifest, to check every --decisions entry "
-                         "against a real card (ignored for --saved)")
+    ap.add_argument("--queue", required=True,
+                    help="the round's queue manifest (Queue.to_json()). REQUIRED in both "
+                         "modes: it checks every --decisions entry against a real card, it "
+                         "is what tells a section-G decision apart from an ordinary one, and "
+                         "it derives the --checker default")
     ap.add_argument("--checker", default=None,
                     help="the check_queue JSON this round was built with")
     ap.add_argument("--run-id", default=RUN_ID)
@@ -452,8 +519,9 @@ def main(argv=None) -> int:
     # Hoisted so both --saved and --decisions runs can index the round's own cards
     # (card_index, below) - a section-G decision needs its card to be told apart from an
     # ordinary one, and --saved has no other reason to read the queue manifest at all.
-    queue_doc = (json.loads(Path(a.queue).read_text(encoding="utf-8"))
-                if a.queue and Path(a.queue).exists() else {})
+    if not Path(a.queue).exists():
+        sys.exit(f"{a.queue}: no such queue manifest")
+    queue_doc = json.loads(Path(a.queue).read_text(encoding="utf-8"))
     if a.saved:
         try:
             decisions = read_page(Path(a.saved).read_text(encoding="utf-8"), fields)
@@ -466,7 +534,7 @@ def main(argv=None) -> int:
             check_against_queue(decisions, queue_doc)
         except ValueError as exc:
             sys.exit(f"{a.decisions}: {exc}")
-    if not a.checker and a.queue:
+    if not a.checker:
         cand = Path(a.queue).with_name(Path(a.queue).stem + "-checker.json")
         if cand.exists():
             a.checker = str(cand)           # the documented default: <queue>-checker.json
