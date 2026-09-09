@@ -22,9 +22,11 @@ class ClassifierRanker:
         self.ranker_id = self.manifest["ranker_id"]
 
     @classmethod
-    def from_domain(cls, domain):
+    def from_domain(cls, domain, *, version: str | None = None):
+        """`data/ranker/<version>`, defaulting to the version domain.yaml pins. `version` is
+        only ever the one `load_ranker` has already checked against that pin."""
         from corpus_engine.store import paths
-        return cls(paths().root / "data" / "ranker" / domain.ranking.classifier_version)
+        return cls(paths().root / "data" / "ranker" / (version or domain.ranking.classifier_version))
 
     def digest(self) -> str:
         return hashlib.sha256((self.dir / MODEL_FILE).read_bytes()).hexdigest()[:16]

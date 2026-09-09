@@ -1,4 +1,4 @@
-# Ranker v2: held-out heldout_v2_sha256, three-way evaluation, ship rule
+# Ranker v2: held-out data/eval/ranker-heldout-v2.jsonl, three-way evaluation, ship rule
 
 **Trained at commit `04a3659`.** Training set: 2331 positives / 4170 negatives, both frozen slices excluded. Cross-validated `C` = 0.01 (mean AP 0.9211).
 
@@ -111,7 +111,15 @@
 - ap_all: 0.8274 vs fusion 0.7860 - passes
 - ap_reviewed: 0.8274 vs fusion 0.7860 - passes
 
-**Outcome: classifier:v2 SHIPS.** Set `ranking.classifier_version: v2` in domain.yaml; the tail map runs on it.
+**Outcome: classifier:v2 SHIPS** under D6's rule as written, which compares the classifier against fusion only.
+
+### What the rule does not compare, and the state of domain.yaml
+
+D6's rule is classifier-against-fusion, and against fusion v2 wins on both views. Against **v1** it does not: classifier:v1 on the same slice scores **0.8319 vs v2's 0.8274** - v2 is 0.0045 BELOW the model it would replace (the table in section 2 has both numbers; this is the sentence they add up to).
+
+The two numbers are not quite like for like. 32 of the 293 held-out v2 rows were labelled before v1 was trained, so v1 saw them as training data and its 0.8319 is mildly optimistic; v2 excluded both frozen slices, so its 0.8274 is clean. The gap is therefore smaller than it looks, and possibly the other way round - but it is not a measured v2 win, and nothing here measures it.
+
+**`ranking.classifier_version` is NOT moved.** domain.yaml still pins `v1`, and the tail map runs on v1's ordering under the same budget unless and until the user decides otherwise. That key is the operative pin - `--ranker classifier:v2` does not override it (`load_ranker` now refuses a suffix that disagrees with it rather than silently loading v1) - so this report records a ship rule that passed and a ship that has not been made. The decision is the user's and is still open.
 
 ## 4. Per-cell AP (the evaluated classifier)
 

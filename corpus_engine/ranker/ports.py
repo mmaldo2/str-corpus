@@ -44,12 +44,28 @@ def _dim(conn) -> int:
     return int(dict(conn.execute("SELECT key, value FROM embed_meta")).get("dim", "512"))
 
 
-def _load_classifier(domain, layout):
+def _load_classifier(domain, layout, version: str = ""):
+    """The classifier the domain pins, or the one a `classifier:<version>` id names.
+
+    A `:<version>` suffix used to be split off and thrown away, so `--ranker classifier:v2`
+    and `ranking.default: classifier:v2` both quietly loaded whatever `classifier_version`
+    pinned - which is one keystroke away from a whole shard scored by the wrong model with
+    nothing but the shard manifest to say so afterwards. The suffix now SELECTS the directory,
+    and a suffix that disagrees with `ranking.classifier_version` is refused by name: that key
+    is the operative pin (it is what `ClassifierRanker.from_domain` reads and what
+    `tools/train_ranker.py` tells you to edit), so a run under any other version would be a
+    model choice the domain does not record."""
     try:
         from corpus_engine.ranker.classifier import ClassifierRanker   # Task 5
     except ModuleNotFoundError as e:
         raise NotImplementedError(f"classifier ranker is not available yet (Task 5): {e}") from e
-    r = ClassifierRanker.from_domain(domain)
+    pinned = domain.ranking.classifier_version
+    if version and version != pinned:
+        raise ValueError(f"ranker id says classifier:{version} but domain.yaml pins "
+                         f"ranking.classifier_version: {pinned}. That key is what chooses the "
+                         f"model - edit it (and record the edit) rather than passing a version "
+                         f"the domain does not pin.")
+    r = ClassifierRanker.from_domain(domain, version=version or pinned)
     r.check_layout(layout)
     return r
 
@@ -57,7 +73,7 @@ def _load_classifier(domain, layout):
 def load_ranker(domain, conn, ranker_id: str | None):
     from corpus_engine.selector.model import load_selectors
     from corpus_engine.ranker.features import feature_layout
-    rid = (ranker_id or domain.ranking.default or "null").split(":")[0]
+    rid, _sep, version = str(ranker_id or domain.ranking.default or "null").partition(":")
     if rid not in {"null", "fusion", "classifier", "reranker"}:
         raise ValueError(f"unknown ranker {ranker_id!r}")
     if rid == "null":
@@ -67,7 +83,7 @@ def load_ranker(domain, conn, ranker_id: str | None):
         f = domain.ranking.fusion
         return FusionRanker(layout, f["lexical_weight"], f["cosine_weight"])
     if rid == "classifier":
-        return _load_classifier(domain, layout)
+        return _load_classifier(domain, layout, version)
     if rid == "reranker":
         try:
             from corpus_engine.ranker.reranker import QwenReranker         # Task 7

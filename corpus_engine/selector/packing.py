@@ -87,5 +87,10 @@ def pack_batches(conn: sqlite3.Connection, run_id: str, out_dir: Path, *,
     for old in out_dir.glob("batch-*.json"):
         old.unlink()
     for n, batch in enumerate(batches, 1):
-        (out_dir / f"batch-{n:03d}.json").write_text(json.dumps(batch, indent=1), encoding="utf-8")
+        # write_bytes, not write_text: `write_text` translates \n to \r\n on Windows,
+        # and every other artefact this branch writes goes out as UTF-8 LF. NO trailing
+        # newline: `tests/test_packing_char.py` pins these files byte for byte against the
+        # committed cycle-003 pool, so the bytes are fixed by that characterization.
+        (out_dir / f"batch-{n:03d}.json").write_bytes(
+            json.dumps(batch, indent=1).encode("utf-8"))
     return len(batches)

@@ -89,3 +89,71 @@ def test_the_parser_carries_the_tail_flags():
     assert rank_cli.build_parser().parse_args(["--run-id", "x"]).exclude_read is True
     assert rank_cli.build_parser().parse_args(["--run-id", "x",
                                                "--include-read"]).exclude_read is False
+
+
+def test_rerank_refuses_to_delete_an_existing_pool_without_force(tmp_path, fixture_db, repo_root, monkeypatch):
+    """`pack_batches` unlinks every batch-*.json in its output directory first, and runs/*/batches
+    is gitignored - so a re-rank aimed at the wrong run is an unrecoverable delete of a pool
+    admit_map, --retry-lost and pool_case_ids all still read."""
+    import pytest
+    monkeypatch.setattr(rank_cli, "gold_ids", lambda domain: set())
+    conn = make_ranker_db(tmp_path, fixture_db, repo_root)
+    runs = tmp_path / "runs"
+    dst = runs / "cycle-004-shard-02" / "batches"; dst.mkdir(parents=True)
+    (dst / "batch-001.json").write_text(json.dumps({"batch_id": "b", "cases": []}), encoding="utf-8")
+    with pytest.raises(SystemExit, match="already holds 1 batch file"):
+        rank_cli.rerank(conn, "cycle-004-shard-02", ranker_id="null", runs_dir=runs,
+                        ledger_dir=tmp_path / "ledger", log=lambda *_: None)
+    assert (dst / "batch-001.json").exists()                    # nothing was deleted
+    rank_cli.rerank(conn, "cycle-004-shard-02", ranker_id="null", runs_dir=runs,
+                    ledger_dir=tmp_path / "ledger", log=lambda *_: None, force=True)
+    assert json.loads((dst / "batch-001.json").read_text(encoding="utf-8"))["cases"]
+
+
+def test_rerank_refuses_a_run_that_has_already_been_mapped(tmp_path, fixture_db, repo_root, monkeypatch):
+    import pytest
+    monkeypatch.setattr(rank_cli, "gold_ids", lambda domain: set())
+    conn = make_ranker_db(tmp_path, fixture_db, repo_root)
+    runs = tmp_path / "runs"
+    dst = runs / "mapped" / "batches"; dst.mkdir(parents=True)
+    (runs / "mapped" / "map-manifest.json").write_text("{}", encoding="utf-8")
+    with pytest.raises(SystemExit, match="has already been MAPPED"):
+        rank_cli.rerank(conn, "mapped", ranker_id="null", runs_dir=runs,
+                        ledger_dir=tmp_path / "ledger", log=lambda *_: None)
+
+
+def test_rerank_refuses_to_be_its_own_source_pool(tmp_path, fixture_db, repo_root, monkeypatch):
+    """The live command names two adjacent run ids on one line; transposing them would pack a
+    run from its own batches after deleting them."""
+    import pytest
+    monkeypatch.setattr(rank_cli, "gold_ids", lambda domain: set())
+    conn = make_ranker_db(tmp_path, fixture_db, repo_root)
+    runs = tmp_path / "runs"; (runs / "r" / "batches").mkdir(parents=True)
+    with pytest.raises(SystemExit, match="cannot be its own source pool"):
+        rank_cli.rerank(conn, "r", ranker_id="null", runs_dir=runs,
+                        ledger_dir=tmp_path / "ledger", from_run="r", log=lambda *_: None)
+
+
+def test_the_coverage_check_reads_the_slice_the_loaded_ranker_was_judged_on(tmp_path):
+    """Finding 6. The question is "does the slice this ranker's AP was measured on cover the
+    jurisdictions in the pool it is about to order?" - so the model's own manifest is the
+    authority, `ranking.heldout_v2` the fallback, and the four-jurisdiction v1 slice only the
+    last resort."""
+    from corpus_engine.domain import load_domain
+    dom = load_domain()
+    judged = type("R", (), {"manifest": {"heldout": {"path": "data/eval/ranker-heldout-v2.jsonl"}}})()
+    assert rank_cli.heldout_for(judged, dom).as_posix().endswith("data/eval/ranker-heldout-v2.jsonl")
+    # v1's manifest carries no path at all (it was trained before the field existed): the
+    # current slice, not the one it happens to have been trained against.
+    pathless = type("R", (), {"manifest": {"heldout": {"n": 1533}}})()
+    assert rank_cli.heldout_for(pathless, dom) == rank_cli.ROOT / dom.ranking.heldout_v2
+    assert rank_cli.heldout_for(object(), dom) == rank_cli.ROOT / dom.ranking.heldout_v2
+
+
+def test_exclude_read_says_it_is_the_default_and_force_is_carried():
+    helps = {a.dest: (a.help or "") for a in rank_cli.build_parser()._actions
+             for _o in a.option_strings if _o == "--exclude-read"}
+    assert "ALREADY the default" in helps["exclude_read"]
+    assert "--include-read is the real switch" in helps["exclude_read"]
+    assert rank_cli.build_parser().parse_args(["--run-id", "x"]).force is False
+    assert rank_cli.build_parser().parse_args(["--run-id", "x", "--force"]).force is True

@@ -77,3 +77,22 @@ def test_load_classifier_loads_real_v1_cleanly(repo_root):
                                                                        # embed_meta dim is 512 and would legitimately fail
     r = _load_classifier(dom, layout)
     assert r.ranker_id == "classifier:v1"
+
+
+def test_a_classifier_version_suffix_selects_the_model_and_a_mismatch_is_refused():
+    """Finding 5. `classifier:v2` used to have its suffix split off and thrown away, so both
+    `--ranker classifier:v2` and `ranking.default: classifier:v2` quietly loaded whatever
+    `ranking.classifier_version` pinned - a whole shard scored by the wrong model, detectable
+    only from the shard manifest afterwards. The suffix now selects the directory, and one that
+    disagrees with the domain's own pin is refused by name."""
+    import pytest
+    from corpus_engine.domain import load_domain
+    from corpus_engine.ranker import ports
+    from corpus_engine.ranker.classifier import ClassifierRanker
+
+    dom = load_domain()
+    assert dom.ranking.classifier_version == "v1"        # the pin this test is written against
+    assert ClassifierRanker.from_domain(dom).ranker_id == "classifier:v1"
+    assert ClassifierRanker.from_domain(dom, version="v2").ranker_id == "classifier:v2"
+    with pytest.raises(ValueError, match="ranking.classifier_version"):
+        ports._load_classifier(dom, None, "v2")          # the suffix the spec's prose spells

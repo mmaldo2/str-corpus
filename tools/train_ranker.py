@@ -63,7 +63,7 @@ def write_report(path: Path, *, metrics, tag, heldout, strata, shipped, commit, 
              if name not in ("classifier", "fusion")]
     rows.append(("fusion:v1", metrics["fusion"]))
     c, f = metrics["classifier"], metrics["fusion"]
-    lines = [f"# Ranker {tag}: held-out {heldout['pin']}, three-way evaluation, ship rule", "",
+    lines = [f"# Ranker {tag}: held-out {heldout['path']}, three-way evaluation, ship rule", "",
              f"**Trained at commit `{commit}`.** Training set: {train['n_pos']} positives / "
              f"{train['n_neg']} negatives, both frozen slices excluded. Cross-validated `C` = "
              f"{cv['cv_C']} (mean AP {cv['cv_ap']:.4f}).", "",
