@@ -6,6 +6,7 @@ from corpus_engine.ranker.labels import Label, write_heldout
 from tests.helpers.ranker_fixture import make_ranker_db
 
 def test_rank_repacks_existing_run_without_touching_signals(tmp_path, fixture_db, repo_root, monkeypatch):
+    monkeypatch.setattr(rank_cli, "gold_ids", lambda domain: set())          # no test depends on live data/gold/gold.jsonl
     conn = make_ranker_db(tmp_path, fixture_db, repo_root)
     run_dir = tmp_path / "runs" / "r"; (run_dir / "batches").mkdir(parents=True)
     (run_dir / "shard-manifest.json").write_text(json.dumps({"run_id": "r", "engine_version": "v2"}), encoding="utf-8")
@@ -17,9 +18,10 @@ def test_rank_repacks_existing_run_without_touching_signals(tmp_path, fixture_db
     assert conn.execute("SELECT count(*) FROM signals").fetchone()[0] == before
 
 
-def test_rerank_flags_pool_jurisdictions_missing_from_the_heldout_slice(tmp_path, fixture_db, repo_root):
+def test_rerank_flags_pool_jurisdictions_missing_from_the_heldout_slice(tmp_path, fixture_db, repo_root, monkeypatch):
     # I-1: the fixture pool spans {La., N.Y., Pa., Tex.} - freeze a synthetic held-out
     # file that only covers two of them, and assert the manifest names the other two.
+    monkeypatch.setattr(rank_cli, "gold_ids", lambda domain: set())          # no test depends on live data/gold/gold.jsonl
     conn = make_ranker_db(tmp_path, fixture_db, repo_root)
     run_dir = tmp_path / "runs" / "r2"; (run_dir / "batches").mkdir(parents=True)
     (run_dir / "shard-manifest.json").write_text(json.dumps({"run_id": "r2"}), encoding="utf-8")
@@ -34,9 +36,10 @@ def test_rerank_flags_pool_jurisdictions_missing_from_the_heldout_slice(tmp_path
     assert any("La." in w and "Tex." in w for w in warnings)
 
 
-def test_rerank_from_a_source_run_packs_only_its_unread_cases(tmp_path, fixture_db, repo_root):
+def test_rerank_from_a_source_run_packs_only_its_unread_cases(tmp_path, fixture_db, repo_root, monkeypatch):
     """The tail: the source run's pool minus what has been read. The manifest records the
     source, the ranker and the ids left out, so the shard is re-derivable from that file."""
+    monkeypatch.setattr(rank_cli, "gold_ids", lambda domain: set())          # no test depends on live data/gold/gold.jsonl
     conn = make_ranker_db(tmp_path, fixture_db, repo_root)
     runs = tmp_path / "runs"
     src = runs / "cycle-004-shard-01" / "batches"; src.mkdir(parents=True)
@@ -63,7 +66,8 @@ def test_rerank_from_a_source_run_packs_only_its_unread_cases(tmp_path, fixture_
     assert m["ranker"]["ranker_id"] == "null"
 
 
-def test_rerank_packs_batches_in_descending_score_order(tmp_path, fixture_db, repo_root):
+def test_rerank_packs_batches_in_descending_score_order(tmp_path, fixture_db, repo_root, monkeypatch):
+    monkeypatch.setattr(rank_cli, "gold_ids", lambda domain: set())          # no test depends on live data/gold/gold.jsonl
     conn = make_ranker_db(tmp_path, fixture_db, repo_root)
     runs = tmp_path / "runs"; (runs / "r3" / "batches").mkdir(parents=True)
     rank_cli.rerank(conn, "r3", ranker_id="fusion", runs_dir=runs,
