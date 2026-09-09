@@ -358,14 +358,22 @@ def _unit_status(unit, result) -> str:
 def check_queue(queue: Queue, *, reader_factory, codebook, checker_pin, budget) -> dict[int, dict]:
     """D5's 100% checker pass over the queued records, through the driver's re-read path.
 
-    One `plan_reread` unit per case (a unit of one), under the checker's own pin, so the
-    codebook and the gate are the same ones the map ran under and the answer is comparable
-    field by field. `checker_path()` is what the manifest records about this."""
+    One `plan_reread` unit per DISTINCT case (a unit of one), under the checker's own pin, so
+    the codebook and the gate are the same ones the map ran under and the answer is comparable
+    field by field. `checker_path()` is what the manifest records about this.
+
+    A case can now carry more than one queued card (section G queues one card per conflicting
+    field), but the checker's opinion is about the CASE, not the card - `out` is keyed by
+    `case_id` and every card sharing that case_id reads the same entry off it, so the case is
+    still only asked about once no matter how many of its cards are in the round."""
     out: dict[int, dict] = {}
     if not queue.cards:
         return out
-    rows = [{"case_id": c.case_id, "era_partition": "?",
-             "jurisdiction": c.record.get("jurisdiction", "?")} for c in queue.cards]
+    by_case_id: dict[int, str] = {}
+    for c in queue.cards:
+        by_case_id.setdefault(c.case_id, c.record.get("jurisdiction", "?"))
+    rows = [{"case_id": cid, "era_partition": "?", "jurisdiction": jur}
+           for cid, jur in by_case_id.items()]
     plan = plan_reread(rows, codebook.id if codebook is not None else "", checker_pin, budget,
                        worker=CHECKER_WORKER)
     outcome = reader_factory().read(plan)

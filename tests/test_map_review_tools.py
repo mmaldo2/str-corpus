@@ -1341,9 +1341,38 @@ def test_the_page_and_the_export_show_the_conflict(tmp_path):
     html, md, _n = mk.build_pages(queue, tmp_path / "page")
     text = html.read_text(encoding="utf-8")
     assert "Re-read conflicts with a human decision" in text and "reread_value" not in text
+    # spec section 7: both bases on the card, not only the human one.
+    assert "mmaldo2" in text and "map-cycle-004-round-1" in text        # human basis
+    assert "claude-opus-5@claude-cli" in text                            # re-read basis: model
+    assert "mapper-v3:f92016681314" in text        # re-read basis: prompt_version
+    assert "cycles-001-003-reread" in text          # re-read basis: run_id
     cards = ec.cards_from_queue(queue, {})
     assert cards[0]["conflict"] == CONFLICT
     body = ec.markdown_for(cards, "cycles-001-003-reread")
     assert "Your earlier decision: polarity = favorable" in body
     assert "The mapper-v3 re-read reads it as: adverse" in body
+    # spec section 7: the export shows the re-read's own basis beside the human basis.
+    assert "mmaldo2" in body and "map-cycle-004-round-1" in body
+    assert "claude-opus-5@claude-cli" in body
+    assert "mapper-v3:f92016681314" in body
+    assert "cycles-001-003-reread" in body
+
+
+def test_every_queue_section_appears_in_both_the_html_and_the_js_sections_array(tmp_path):
+    """The past defect this task was told to guard against: a section present in
+    `corpus_engine.mapper.queue.SECTIONS` but absent from the page's own hardcoded JS
+    `const SECTIONS = [...]` array renders nothing for that section, silently, with every
+    other test in this file still green - because those other tests only check the section's
+    TITLE text, which lives in the static HTML markup regardless of what the JS array lists.
+    This walks the built page and asserts every section id shows up in both places, so a
+    future section (H, say) cannot vanish the way section G almost did."""
+    doc = _queue_doc()
+    html_path, _md, _n = mk.build_pages(doc, tmp_path / "page", checker=CHECKER)
+    html = html_path.read_text(encoding="utf-8")
+    js_sections = html.split("const SECTIONS = [", 1)[1].split("];", 1)[0]
+    for sec, key, _title in SECTIONS:
+        assert f'id="sec-{sec}"' in html, f"no HTML section block for {sec!r}"
+        assert f'id="cards-{sec}"' in html, f"no card container for {sec!r}"
+        assert f"'{sec}'" in js_sections, f"{sec!r} missing from the JS SECTIONS array"
+        assert f"'{key}'" in js_sections, f"{key!r} missing from the JS SECTIONS array"
 

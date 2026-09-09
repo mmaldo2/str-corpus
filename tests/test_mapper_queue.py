@@ -264,6 +264,28 @@ def test_check_queue_asks_the_checker_once_per_queued_case():
     assert asked == ["reread-600", "reread-601"]     # a re-read plan, not a judgment
 
 
+def test_check_queue_asks_the_checker_once_even_when_a_case_carries_two_g_cards():
+    """A case with two conflicting fields (section G) queues two `QueueCard`s but is one case
+    - the checker's opinion is about the CASE, not the card, so it must not be re-read twice
+    just because the round asked it two questions."""
+    from corpus_engine.reader.model import Budget, ModelPin
+
+    asked = []
+    reader = _plan_reader(asked, lambda plan: [
+        {"case_id": int(u.case_ids[0]), "relevant": True, "polarity": "adverse",
+         "characterization": "license", "quotes": []} for u in plan.units])
+    rec = _rec(70, polarity="favorable", who_was_letting="householder")
+    cards = (QueueCard(70, "G", "reread_conflict", (), rec, (), (),
+                       conflict={"field": "polarity"}),
+             QueueCard(70, "G", "reread_conflict", (), rec, (), (),
+                       conflict={"field": "who_was_letting"}))
+    q = Queue("r", cards, (), 150)
+    got = check_queue(q, reader_factory=lambda: reader(), codebook=None,
+                      checker_pin=ModelPin("codex-cli", "openai"), budget=Budget())
+    assert len(asked) == 1 and asked == ["reread-70"]     # one unit for case 70, not two
+    assert got[70]["status"] == "ok"
+
+
 def test_check_queue_reports_the_four_statuses_it_documents():
     """ok | unparsed | failed:<msg> | missing (R4). A case the budget stopped short of is
     `missing`, not silence: the page has to be able to say the checker was never asked."""

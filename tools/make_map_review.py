@@ -86,11 +86,16 @@ def write_text(path: Path, text: str) -> None:
 def _conflict_view(cf: dict) -> dict:
     """A section-G card's `conflict` (CONFLICT_KEYS shape), trimmed to what the page's client
     JS needs to render the warning box - deliberately not the export shape's own key spelling,
-    so the page's embedded JSON never carries a second copy of it."""
+    so the page's embedded JSON never carries a second copy of it. Spec section 7: the card
+    shows BOTH bases, not only the human one - `them_who`/`them_prompt`/`them_run` are the
+    re-read's own `model`/`prompt_version`/`run_id`, beside the human `reviewer`/`run_id`."""
     hb = cf.get("human_basis") or {}
+    rb = cf.get("reread_basis") or {}
     return {"field": cf.get("field"), "human_value": cf.get("human_value"),
             "human_who": hb.get("reviewer") or "reviewer", "human_run": hb.get("run_id") or "?",
-            "them_value": cf.get("reread_value"), "kind": cf.get("kind")}
+            "them_value": cf.get("reread_value"), "them_who": rb.get("model") or "the re-read",
+            "them_prompt": rb.get("prompt_version") or "?", "them_run": rb.get("run_id") or "?",
+            "kind": cf.get("kind")}
 
 
 def _for_page(sections: dict) -> dict:
@@ -478,7 +483,8 @@ function card(it){
   const cf = it.conflict;
   const conflict = cf ? `<div class="warn">A mapper-v3 re-read disagrees with a decision you
        already made. Your <b>${esc(cf.field)}</b> is <code>${esc(show(cf.human_value))}</code>
-       (${esc(cf.human_who)}, run ${esc(cf.human_run)}); the re-read reads
+       (${esc(cf.human_who)}, run ${esc(cf.human_run)}); the re-read
+       (${esc(cf.them_who)}, prompt ${esc(cf.them_prompt)}, run ${esc(cf.them_run)}) reads
        <code>${esc(show(cf.them_value))}</code>. Your value stands unless you change it
        here.</div>` : '';
 

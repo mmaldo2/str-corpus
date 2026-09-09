@@ -196,6 +196,9 @@ def markdown_for(cards: Sequence[dict], run_id: str, *, part: tuple[int, int] | 
                          f"{(cf.get('human_basis') or {}).get('run_id') or '?'}, seq "
                          f"{cf.get('human_at')})")
             lines.append(f"- **The mapper-v3 re-read reads it as: {_fmt(cf['reread_value'])}**"
+                         f" ({(cf.get('reread_basis') or {}).get('model') or 'model'}, prompt "
+                         f"{(cf.get('reread_basis') or {}).get('prompt_version') or '?'}, run "
+                         f"{(cf.get('reread_basis') or {}).get('run_id') or '?'})"
                          + (" (and reads the case as NOT a letting case at all)"
                             if cf.get("kind") == "relevant_false" else ""))
             lines.append("- Decide: keep (your value stands - the default), set (you revise "
