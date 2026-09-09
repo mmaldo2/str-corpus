@@ -42,3 +42,13 @@ def evaluate_scores(labels, scores: dict) -> dict:
 
 def compare(a: dict, b: dict) -> dict:
     return {k: round(b[k] - a[k], 6) for k in ("ap_all", "ap_reviewed", "p50_all", "p200_all")}
+
+
+def ships(classifier: dict, fusion: dict) -> bool:
+    """D6, exactly as Stage 2C pre-registered it: the classifier becomes `ranking.default`
+    only if its average precision EXCEEDS fusion's on BOTH views - all held-out reads, and the
+    reviewed view. No margin, no tie-break, no per-cell override: `>` on both, or it does not
+    ship. It lives here so the tool that decides and the report that explains the decision
+    cannot drift apart."""
+    return (classifier["ap_all"] > fusion["ap_all"]
+            and classifier["ap_reviewed"] > fusion["ap_reviewed"])

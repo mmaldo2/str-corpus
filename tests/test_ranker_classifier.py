@@ -1,10 +1,12 @@
-import json, numpy as np, pytest
+import dataclasses, json, numpy as np, pytest
+from types import SimpleNamespace
 from corpus_engine.domain import load_domain
 from corpus_engine.selector.model import load_selectors
 from corpus_engine.ranker.classifier import ClassifierRanker, train
-from corpus_engine.ranker.evaluate import average_precision, evaluate_scores, precision_at
+from corpus_engine.ranker.evaluate import average_precision, evaluate_scores, precision_at, ships
 from corpus_engine.ranker.features import feature_layout
-from corpus_engine.ranker.labels import Label, sha256_file
+from corpus_engine.ranker.labels import Label, sha256_file, write_heldout
+from corpus_engine.ranker.ports import NullRanker
 from corpus_engine.store import paths
 from tests.helpers.ranker_fixture import make_ranker_db
 
@@ -18,9 +20,19 @@ def _synthetic_labels(conn):
     rows = conn.execute("SELECT c.case_id, c.era_partition, c.jurisdiction, count(DISTINCT s.selector_id) FROM cases c JOIN signals s ON s.case_id=c.case_id WHERE c.is_duplicate_of IS NULL GROUP BY 1").fetchall()
     return [Label(cid, int(n >= 2), 3.0 if n >= 3 else 1.0, n >= 3, era, jur) for cid, era, jur, n in rows]
 
-def test_train_beats_chance_scores_and_refuses_layout_drift(tmp_path, fixture_db, repo_root):
-    conn = make_ranker_db(tmp_path, fixture_db, repo_root); dom = load_domain()
+def _training_inputs(tmp_path, fixture_db, repo_root):
+    """(conn, domain, train_set, heldout) shared by every test in this module that trains: a
+    fixture DB, a domain whose `.ranking` is a mutable SimpleNamespace copy of RankingSpec (so
+    a test can pin `heldout_v2_sha256` without fighting the frozen dataclass), and a synthetic
+    train/held-out split."""
+    conn = make_ranker_db(tmp_path, fixture_db, repo_root)
+    real = load_domain()
+    dom = dataclasses.replace(real, ranking=SimpleNamespace(**dataclasses.asdict(real.ranking)))
     labels = _synthetic_labels(conn); held = labels[::4]; train_set = [l for l in labels if l not in set(held)]
+    return conn, dom, train_set, held
+
+def test_train_beats_chance_scores_and_refuses_layout_drift(tmp_path, fixture_db, repo_root):
+    conn, dom, train_set, held = _training_inputs(tmp_path, fixture_db, repo_root)
     out = tmp_path / "v9"
     man = train(conn, dom, train_set, held, version="v9", out_dir=out, commit="deadbeef")
     assert (out / "model.npz").exists() and man["ranker_id"] == "classifier:v9" and man["cv_C"] in (0.01, 0.03, 0.1, 0.3, 1, 3)
@@ -64,3 +76,35 @@ def test_train_refuses_when_heldout_path_hash_does_not_match_the_pin(tmp_path, f
     with pytest.raises(ValueError, match="sha256"):
         train(conn, dom, train_set, held, version="v9e", out_dir=out, commit="x", heldout_path=bad_heldout)
     assert not (out / "model.npz").exists()
+
+
+def test_the_ship_rule_needs_both_views_and_gives_no_margin():
+    """D6 verbatim: strictly greater on ap_all AND on ap_reviewed. A tie does not ship."""
+    better = {"ap_all": 0.51, "ap_reviewed": 0.41}
+    fusion = {"ap_all": 0.50, "ap_reviewed": 0.40}
+    assert ships(better, fusion) is True
+    assert ships({"ap_all": 0.50, "ap_reviewed": 0.41}, fusion) is False   # tie on ap_all
+    assert ships({"ap_all": 0.51, "ap_reviewed": 0.40}, fusion) is False   # tie on ap_reviewed
+    assert ships({"ap_all": 0.51, "ap_reviewed": 0.39}, fusion) is False   # worse on one view
+
+
+def test_train_refuses_to_overwrite_a_shipped_model_directory(tmp_path, fixture_db, repo_root):
+    conn, dom, train_set, held = _training_inputs(tmp_path, fixture_db, repo_root)
+    out = tmp_path / "v9f"
+    train(conn, dom, train_set, held, version="v9f", out_dir=out, commit="x")
+    with pytest.raises(ValueError, match="already holds a trained model"):
+        train(conn, dom, train_set, held, version="v9f", out_dir=out, commit="x")
+    train(conn, dom, train_set, held, version="v9f", out_dir=out, commit="x", overwrite=True)
+
+
+def test_train_records_extra_rankers_and_the_pin_it_verified(tmp_path, fixture_db, repo_root):
+    conn, dom, train_set, held = _training_inputs(tmp_path, fixture_db, repo_root)
+    heldout = tmp_path / "v2.jsonl"
+    write_heldout(heldout, held)
+    dom.ranking.heldout_v2_sha256 = sha256_file(heldout)
+    man = train(conn, dom, train_set, held, version="v9g", out_dir=tmp_path / "v9g", commit="x",
+                heldout_path=heldout, heldout_pin="heldout_v2_sha256",
+                extra_rankers={"classifier:v1": NullRanker()})
+    assert man["heldout"]["pin"] == "heldout_v2_sha256"
+    assert set(man["metrics"]) == {"classifier", "fusion", "classifier:v1"}
+    assert man["metrics"]["classifier:v1"]["n_all"] == len(held)
