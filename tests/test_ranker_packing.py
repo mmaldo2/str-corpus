@@ -53,3 +53,18 @@ def test_pack_writes_ranker_id_and_leaves_signals_untouched(tmp_path, fixture_db
     n = pack_batches(conn, "r", tmp_path / "b", gold_ids=set(), exclude_ids=set(), ranker=NullRanker(), ts="t")
     b1 = json.loads((tmp_path / "b" / "batch-001.json").read_text(encoding="utf-8"))
     assert n > 0 and b1["ranker_id"] == "null" and before == conn.execute("SELECT count(*), sum(signal_id) FROM signals").fetchone()
+
+
+def test_restrict_ids_narrows_the_pool_before_the_exclusion(tmp_path, fixture_db, repo_root):
+    from corpus_engine.selector.packing import build_batches
+    conn = make_ranker_db(tmp_path, fixture_db, repo_root)
+    everything = {c["case_id"] for b in build_batches(conn, "r", gold_ids=set(), exclude_ids=set())
+                  for c in b["cases"]}
+    keep = set(sorted(everything)[:20])
+    packed = {c["case_id"] for b in build_batches(conn, "r", gold_ids=set(), exclude_ids=set(),
+                                                  restrict_ids=keep) for c in b["cases"]}
+    assert packed == keep and packed < everything
+    drop = set(sorted(keep)[:5])
+    packed = {c["case_id"] for b in build_batches(conn, "r", gold_ids=set(), exclude_ids=drop,
+                                                  restrict_ids=keep) for c in b["cases"]}
+    assert packed == keep - drop          # restriction and exclusion compose

@@ -16,7 +16,7 @@ def persist_rankings(conn: sqlite3.Connection, run_id: str, ranker_id: str, scor
 
 def build_batches(conn: sqlite3.Connection, run_id: str, *,
                   gold_ids: set[int], exclude_ids: set[int], batch_size: int = 18,
-                  ranker=None, ts: str | None = None) -> list[dict]:
+                  ranker=None, ts: str | None = None, restrict_ids: set[int] | None = None) -> list[dict]:
     rows = conn.execute(
         """SELECT s.case_id, s.era_partition, s.jurisdiction,
                   s.selector_id, s.selector_version, s.matched_text,
@@ -33,6 +33,14 @@ def build_batches(conn: sqlite3.Connection, run_id: str, *,
     groups: dict = {}
     for e in by_case.values():
         groups.setdefault((e["era_partition"], e["jurisdiction"]), []).append(e)
+    if restrict_ids is not None:
+        # The pool this run may consider at all: a re-rank of one earlier run's tail packs
+        # that run's cases and no others, even though `signals` holds every case the selectors
+        # have ever hit. Applied BEFORE the exclusion, so the manifest's excluded count is
+        # about the restricted pool - the number an operator can check against the map.
+        for key in list(groups):
+            groups[key] = [e for e in groups[key] if e["case_id"] in restrict_ids]
+        groups = {k: v for k, v in groups.items() if v}
     if exclude_ids:
         for key in groups:
             groups[key] = [e for e in groups[key] if e["case_id"] not in exclude_ids]
@@ -72,9 +80,9 @@ def build_batches(conn: sqlite3.Connection, run_id: str, *,
 
 def pack_batches(conn: sqlite3.Connection, run_id: str, out_dir: Path, *,
                  gold_ids: set[int], exclude_ids: set[int], batch_size: int = 18,
-                 ranker=None, ts: str | None = None) -> int:
+                 ranker=None, ts: str | None = None, restrict_ids: set[int] | None = None) -> int:
     batches = build_batches(conn, run_id, gold_ids=gold_ids, exclude_ids=exclude_ids, batch_size=batch_size,
-                            ranker=ranker, ts=ts)
+                            ranker=ranker, ts=ts, restrict_ids=restrict_ids)
     out_dir.mkdir(parents=True, exist_ok=True)
     for old in out_dir.glob("batch-*.json"):
         old.unlink()
