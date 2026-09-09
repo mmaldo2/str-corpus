@@ -1,0 +1,1268 @@
+[
+ {
+  "batch_id": "cycles-001-003-reread-batch-001",
+  "case_id": 5206672,
+  "cell_key": "1860-1900|La.",
+  "field": "polarity",
+  "human_at": 4013,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "mixed",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "adverse"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-001",
+  "case_id": 5289134,
+  "cell_key": "1860-1900|La.",
+  "field": "holding_summary",
+  "human_at": 42918,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "map-cycle-004-round-5"
+  },
+  "human_value": "Affirming the conviction of an owner-occupant who refused the mayor's order to remove from a house she kept as a house of assignation, the court held that the city's chartered power to regulate, exclude, and close such houses carried the power to require their occupants to leave, with fine and imprisonment as a competent sanction. That the keeper owned the house was no defense: the ordinance took no property but merely forbade a use of it inconsistent with public order and morals, an exercise of the police power to which even the most absolute rights of property are subject. Enforcement by a competent tribunal, after a contradictory hearing and on proof of the prohibited use, satisfied due process.",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "A city ordinance requiring occupants of houses of prostitution or assignation to remove, on pain of fine and imprisonment, is a valid exercise of the police power; the defendant's ownership of the house did not protect her use of it as an assignation house."
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-001",
+  "case_id": 5303699,
+  "cell_key": "1860-1900|La.",
+  "field": "who_was_letting",
+  "human_at": 7807,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "reference-v2-2026-09-05"
+  },
+  "human_value": "unclear",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "non_resident_owner"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-001",
+  "case_id": 5795630,
+  "cell_key": "1860-1900|La.",
+  "field": "polarity",
+  "human_at": 7088,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "favorable",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "adverse"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-002",
+  "case_id": 625003,
+  "cell_key": "1860-1900|N.Y.",
+  "field": "polarity",
+  "human_at": 821,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "favorable",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "adverse"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-002",
+  "case_id": 630154,
+  "cell_key": "1860-1900|N.Y.",
+  "field": "polarity",
+  "human_at": 4025,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "mixed",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "adverse"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-002",
+  "case_id": 640267,
+  "cell_key": "1860-1900|N.Y.",
+  "field": "polarity",
+  "human_at": 824,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "favorable",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "adverse"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-002",
+  "case_id": 694753,
+  "cell_key": "1860-1900|N.Y.",
+  "field": "polarity",
+  "human_at": 7097,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "favorable",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "adverse"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-002",
+  "case_id": 912009,
+  "cell_key": "1860-1900|N.Y.",
+  "field": "polarity",
+  "human_at": 830,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "mixed",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "adverse"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-003",
+  "case_id": 1306520,
+  "cell_key": "1860-1900|N.Y.",
+  "field": "polarity",
+  "human_at": 839,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "favorable",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "adverse"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-004",
+  "case_id": 1913982,
+  "cell_key": "1860-1900|N.Y.",
+  "field": "polarity",
+  "human_at": 752,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "mixed",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "adverse"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-004",
+  "case_id": 1913982,
+  "cell_key": "1860-1900|N.Y.",
+  "field": "characterization",
+  "human_at": 755,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "other",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lodging"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-006",
+  "case_id": 4448542,
+  "cell_key": "1860-1900|N.Y.",
+  "field": "polarity",
+  "human_at": 7508,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "reference-v2"
+  },
+  "human_value": "favorable",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "mixed"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-007",
+  "case_id": 4482382,
+  "cell_key": "1860-1900|N.Y.",
+  "field": "polarity",
+  "human_at": 818,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "mixed",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "adverse"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-007",
+  "case_id": 4770066,
+  "cell_key": "1860-1900|N.Y.",
+  "field": "polarity",
+  "human_at": 3872,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "favorable",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "adverse"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-007",
+  "case_id": 4809245,
+  "cell_key": "1860-1900|N.Y.",
+  "field": "polarity",
+  "human_at": 3893,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "mixed",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "adverse"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-010",
+  "case_id": 277215,
+  "cell_key": "1860-1900|Tex.",
+  "field": "characterization",
+  "human_at": 4076,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "other",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lodging"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-010",
+  "case_id": 2189028,
+  "cell_key": "1860-1900|Tex.",
+  "field": "relevant",
+  "human_at": 6848,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": true,
+  "kind": "relevant_false",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": false
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-011",
+  "case_id": 608729,
+  "cell_key": "1900-1930|La.",
+  "field": "relevant",
+  "human_at": 7103,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": true,
+  "kind": "relevant_false",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": false
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-011",
+  "case_id": 2618120,
+  "cell_key": "1900-1930|La.",
+  "field": "who_was_letting",
+  "human_at": 7585,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "reference-v2"
+  },
+  "human_value": "commercial_operator",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "non_resident_owner"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-012",
+  "case_id": 5607484,
+  "cell_key": "1900-1930|La.",
+  "field": "relevant",
+  "human_at": 42925,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "map-cycle-004-round-5"
+  },
+  "human_value": true,
+  "kind": "relevant_false",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": false
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-012",
+  "case_id": 8503953,
+  "cell_key": "1900-1930|La.",
+  "field": "polarity",
+  "human_at": 7263,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "polarity-review"
+  },
+  "human_value": "adverse",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "favorable"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-013",
+  "case_id": 743824,
+  "cell_key": "1900-1930|N.Y.",
+  "field": "who_was_letting",
+  "human_at": 7789,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "reference-v2-2026-09-05"
+  },
+  "human_value": "unclear",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "non_resident_owner"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-013",
+  "case_id": 743968,
+  "cell_key": "1900-1930|N.Y.",
+  "field": "polarity",
+  "human_at": 7236,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "polarity-review"
+  },
+  "human_value": "adverse",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "mixed"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-013",
+  "case_id": 749404,
+  "cell_key": "1900-1930|N.Y.",
+  "field": "who_was_letting",
+  "human_at": 7792,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "reference-v2-2026-09-05"
+  },
+  "human_value": "unclear",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "non_resident_owner"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-014",
+  "case_id": 1826673,
+  "cell_key": "1900-1930|N.Y.",
+  "field": "characterization",
+  "human_at": 6986,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "innkeeping",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lodging"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-015",
+  "case_id": 1832770,
+  "cell_key": "1900-1930|N.Y.",
+  "field": "polarity",
+  "human_at": 7449,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "reference-v2"
+  },
+  "human_value": "favorable",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "mixed"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-015",
+  "case_id": 2307032,
+  "cell_key": "1900-1930|N.Y.",
+  "field": "characterization",
+  "human_at": 7163,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "None",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "other"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-016",
+  "case_id": 2721901,
+  "cell_key": "1900-1930|N.Y.",
+  "field": "polarity",
+  "human_at": 7486,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "reference-v2"
+  },
+  "human_value": "favorable",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "mixed"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-016",
+  "case_id": 2721901,
+  "cell_key": "1900-1930|N.Y.",
+  "field": "characterization",
+  "human_at": 7178,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "None",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lodging"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-016",
+  "case_id": 3288237,
+  "cell_key": "1900-1930|N.Y.",
+  "field": "polarity",
+  "human_at": 7184,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "adverse",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "mixed"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-016",
+  "case_id": 3288237,
+  "cell_key": "1900-1930|N.Y.",
+  "field": "characterization",
+  "human_at": 7187,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "None",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lodging"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-017",
+  "case_id": 4907537,
+  "cell_key": "1900-1930|N.Y.",
+  "field": "who_was_letting",
+  "human_at": 7804,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "reference-v2-2026-09-05"
+  },
+  "human_value": "commercial_operator",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "householder"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-018",
+  "case_id": 5637879,
+  "cell_key": "1900-1930|N.Y.",
+  "field": "relevant",
+  "human_at": 6803,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": true,
+  "kind": "relevant_false",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": false
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-019",
+  "case_id": 7664513,
+  "cell_key": "1900-1930|N.Y.",
+  "field": "relevant",
+  "human_at": 42971,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "map-cycle-004-round-5b"
+  },
+  "human_value": true,
+  "kind": "relevant_false",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": false
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-020",
+  "case_id": 860155,
+  "cell_key": "1900-1930|Pa.",
+  "field": "who_was_letting",
+  "human_at": 7544,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "reference-v2"
+  },
+  "human_value": "commercial_operator",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "non_resident_owner"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-022",
+  "case_id": 8256748,
+  "cell_key": "1900-1930|Tex.",
+  "field": "polarity",
+  "human_at": 7233,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "polarity-review"
+  },
+  "human_value": "mixed",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "adverse"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-023",
+  "case_id": 10296227,
+  "cell_key": "1900-1930|Tex.",
+  "field": "holding_summary",
+  "human_at": 42938,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "map-cycle-004-round-5"
+  },
+  "human_value": "A guest at the Adolphus Hotel sued for $683 in cash and jewelry stolen from his room, and the hotel invoked article 4592's $50 cap for keepers who maintain a safe and \"suitable locks or bolts\" on guest-room doors. The court held that although the statute requires only one suitable lock or bolt, a keeper who chooses to install both must keep each of them suitable and safe; because the hotel's night bolt - the one the guest reasonably chose to use - was defective and could be opened from outside with a thumb, the hotel had not complied and could not limit its liability. Negligence followed as a matter of law and the guest's full judgment was affirmed.",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "A hotel that placed both a lock and an unsuitable bolt on a guest room door could not claim the statutory $50 limitation of liability under art. 4592; it was liable for the guest's full loss."
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-024",
+  "case_id": 2923357,
+  "cell_key": "1930-1970|La.",
+  "field": "who_was_letting",
+  "human_at": 7588,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "reference-v2"
+  },
+  "human_value": "commercial_operator",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "non_resident_owner"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-024",
+  "case_id": 10055905,
+  "cell_key": "1930-1970|La.",
+  "field": "relevant",
+  "human_at": 3605,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": true,
+  "kind": "relevant_false",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": false
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-025",
+  "case_id": 10072991,
+  "cell_key": "1930-1970|La.",
+  "field": "relevant",
+  "human_at": 7519,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "reference-v2"
+  },
+  "human_value": true,
+  "kind": "relevant_false",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": false
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-028",
+  "case_id": 1054003,
+  "cell_key": "1930-1970|N.Y.",
+  "field": "characterization",
+  "human_at": 3671,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "other",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lodging"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-028",
+  "case_id": 1112849,
+  "cell_key": "1930-1970|N.Y.",
+  "field": "characterization",
+  "human_at": 3689,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "other",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lease"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-028",
+  "case_id": 1126530,
+  "cell_key": "1930-1970|N.Y.",
+  "field": "characterization",
+  "human_at": 3692,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "None",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lodging"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-028",
+  "case_id": 1177933,
+  "cell_key": "1930-1970|N.Y.",
+  "field": "who_was_letting",
+  "human_at": 42956,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "map-cycle-004-round-5b"
+  },
+  "human_value": "householder",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "non_resident_owner"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-030",
+  "case_id": 1613746,
+  "cell_key": "1930-1970|Pa.",
+  "field": "polarity",
+  "human_at": 42961,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "map-cycle-004-round-5b"
+  },
+  "human_value": "favorable",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "mixed"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-033",
+  "case_id": 10225079,
+  "cell_key": "1930-1970|Tex.",
+  "field": "relevant",
+  "human_at": 3716,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": true,
+  "kind": "relevant_false",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": false
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-034",
+  "case_id": 12692177,
+  "cell_key": "1970-2020|La.",
+  "field": "holding_summary",
+  "human_at": 42945,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "map-cycle-004-round-5"
+  },
+  "human_value": "A parish tax collector sued the operator of the Cajun Hostel - a hostel/guesthouse/bed-and-breakfast furnishing sleeping rooms to transient guests for a fee - and its owner personally for unpaid sales and hotel-occupancy taxes for June 2016 through September 2017. The court of appeal held that the trial court erred in considering the pro se owner's unsworn testimony, because La. R.S. 47:337.61(2) requires all defenses to be filed before the hearing, and that the trial court had never actually ruled on the merits of the summary tax proceeding, leaving the court of appeal without jurisdiction to decide the appeal. The judgment was reversed and the matter remanded for a rehearing, so the tax liability was left undecided.",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "In a summary tax proceeding against a hostel operator for unpaid parish sales and occupancy taxes, the trial court erred by hearing defenses never filed and by failing to rule; judgment reversed and remanded."
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-035",
+  "case_id": 782936,
+  "cell_key": "1970-2020|N.Y.",
+  "field": "who_was_letting",
+  "human_at": 7795,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "reference-v2-2026-09-05"
+  },
+  "human_value": "commercial_operator",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "non_resident_owner"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-035",
+  "case_id": 828076,
+  "cell_key": "1970-2020|N.Y.",
+  "field": "characterization",
+  "human_at": 797,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "innkeeping",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lodging"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-036",
+  "case_id": 1277008,
+  "cell_key": "1970-2020|N.Y.",
+  "field": "characterization",
+  "human_at": 788,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "other",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lodging"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-036",
+  "case_id": 3344688,
+  "cell_key": "1970-2020|N.Y.",
+  "field": "polarity",
+  "human_at": 6899,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "mixed",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "favorable"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-037",
+  "case_id": 3725970,
+  "cell_key": "1970-2020|N.Y.",
+  "field": "characterization",
+  "human_at": 6911,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "other",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lodging"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-037",
+  "case_id": 3761627,
+  "cell_key": "1970-2020|N.Y.",
+  "field": "characterization",
+  "human_at": 6917,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "lease",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lodging"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-037",
+  "case_id": 3786837,
+  "cell_key": "1970-2020|N.Y.",
+  "field": "characterization",
+  "human_at": 3986,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "innkeeping",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "other"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-037",
+  "case_id": 3971519,
+  "cell_key": "1970-2020|N.Y.",
+  "field": "who_was_letting",
+  "human_at": 7798,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "reference-v2-2026-09-05"
+  },
+  "human_value": "non_resident_owner",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "householder"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-037",
+  "case_id": 4268287,
+  "cell_key": "1970-2020|N.Y.",
+  "field": "characterization",
+  "human_at": 3773,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "lodging",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lease"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-038",
+  "case_id": 4369074,
+  "cell_key": "1970-2020|N.Y.",
+  "field": "characterization",
+  "human_at": 791,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "other",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lease"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-038",
+  "case_id": 4413960,
+  "cell_key": "1970-2020|N.Y.",
+  "field": "characterization",
+  "human_at": 7082,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "lease",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "other"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-038",
+  "case_id": 5311532,
+  "cell_key": "1970-2020|N.Y.",
+  "field": "characterization",
+  "human_at": 3776,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "None",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lodging"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-038",
+  "case_id": 5487598,
+  "cell_key": "1970-2020|N.Y.",
+  "field": "characterization",
+  "human_at": 3779,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "other",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lodging"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-038",
+  "case_id": 5676181,
+  "cell_key": "1970-2020|N.Y.",
+  "field": "characterization",
+  "human_at": 3998,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "other",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lease"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-038",
+  "case_id": 5735453,
+  "cell_key": "1970-2020|N.Y.",
+  "field": "polarity",
+  "human_at": 4001,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "mixed",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "favorable"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-040",
+  "case_id": 8744140,
+  "cell_key": "1970-2020|Pa.",
+  "field": "who_was_letting",
+  "human_at": 7810,
+  "human_basis": {
+   "reviewer": "mmaldo2",
+   "run_id": "reference-v2-2026-09-05"
+  },
+  "human_value": "commercial_operator",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "non_resident_owner"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-044",
+  "case_id": 8501453,
+  "cell_key": "pre-1860|La.",
+  "field": "polarity",
+  "human_at": 3947,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "mixed",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "favorable"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-045",
+  "case_id": 1105708,
+  "cell_key": "pre-1860|N.Y.",
+  "field": "characterization",
+  "human_at": 719,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "lodging",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "lease"
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-045",
+  "case_id": 2046153,
+  "cell_key": "pre-1860|N.Y.",
+  "field": "relevant",
+  "human_at": 722,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": true,
+  "kind": "relevant_false",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": false
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-045",
+  "case_id": 2137661,
+  "cell_key": "pre-1860|N.Y.",
+  "field": "relevant",
+  "human_at": 3785,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": true,
+  "kind": "relevant_false",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": false
+ },
+ {
+  "batch_id": "cycles-001-003-reread-batch-045",
+  "case_id": 2172545,
+  "cell_key": "pre-1860|N.Y.",
+  "field": "polarity",
+  "human_at": 3824,
+  "human_basis": {
+   "reviewer": "mmaldo2"
+  },
+  "human_value": "mixed",
+  "kind": "value",
+  "reread_basis": {
+   "model": "claude-opus-5@claude-cli",
+   "prompt_version": "mapper-v3:f92016681314",
+   "run_id": "cycles-001-003-reread"
+  },
+  "reread_value": "adverse"
+ }
+]

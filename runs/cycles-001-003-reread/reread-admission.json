@@ -1,0 +1,105 @@
+{
+ "by_field": {
+  "characterization": {
+   "agree": 428,
+   "conflict": 21,
+   "fill": 85,
+   "replace": 101,
+   "skipped": 1
+  },
+  "doctrinal_concepts": {
+   "agree": 3,
+   "conflict": 0,
+   "fill": 0,
+   "replace": 633,
+   "skipped": 0
+  },
+  "duration_of_occupancy": {
+   "agree": 415,
+   "conflict": 0,
+   "fill": 2,
+   "replace": 219,
+   "skipped": 0
+  },
+  "holding_summary": {
+   "agree": 0,
+   "conflict": 3,
+   "fill": 60,
+   "replace": 573,
+   "skipped": 0
+  },
+  "new_terms_observed": {
+   "agree": 41,
+   "conflict": 0,
+   "fill": 0,
+   "replace": 191,
+   "skipped": 404
+  },
+  "owner_freedom_characterization": {
+   "agree": 0,
+   "conflict": 0,
+   "fill": 587,
+   "replace": 0,
+   "skipped": 49
+  },
+  "polarity": {
+   "agree": 443,
+   "conflict": 24,
+   "fill": 11,
+   "replace": 198,
+   "skipped": 7
+  },
+  "relevance_score": {
+   "agree": 75,
+   "conflict": 0,
+   "fill": 0,
+   "replace": 561,
+   "skipped": 0
+  },
+  "relevant": {
+   "agree": 0,
+   "conflict": 10,
+   "fill": 0,
+   "replace": 47,
+   "skipped": 0
+  },
+  "restriction_nature": {
+   "agree": 0,
+   "conflict": 0,
+   "fill": 338,
+   "replace": 0,
+   "skipped": 298
+  },
+  "under_thirty_days": {
+   "agree": 0,
+   "conflict": 0,
+   "fill": 471,
+   "replace": 0,
+   "skipped": 165
+  },
+  "who_was_letting": {
+   "agree": 437,
+   "conflict": 11,
+   "fill": 0,
+   "replace": 235,
+   "skipped": 0
+  }
+ },
+ "conflicts": 69,
+ "records": 693,
+ "relevant_false_conflicts": [
+  2189028,
+  608729,
+  5607484,
+  5637879,
+  7664513,
+  10055905,
+  10072991,
+  10225079,
+  2046153,
+  2137661
+ ],
+ "run_id": "cycles-001-003-reread",
+ "skipped": [],
+ "unreadable": []
+}

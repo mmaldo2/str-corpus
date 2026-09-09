@@ -30,11 +30,11 @@ def test_the_rename_leaves_the_committed_counts_and_the_replay_untouched(repo_ro
     log = (repo_root / "data" / "ledger" / "patches.jsonl").read_text(encoding="utf-8")
     assert "under_30_days" not in log and "right_characterization" not in log
     v = open_ledger(domain=dom).view()
-    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 3466   # 2716 after the cycle-004 review; the shard-02 tail map admitted 750 relevant (2026-09-09)
+    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 3419   # 3466 after the shard-02 tail map; the cycles 1-3 re-read withdrew 47 machine-only records (2026-09-09)
     fav = v.counts(polarity="favorable").total
-    assert fav.human_reviewed + fav.machine_only == 1501   # 1229 after the cycle-004 review; shard-02 tail map (2026-09-09)
+    assert fav.human_reviewed + fav.machine_only == 1450   # 1501 after the shard-02 tail map; the cycles 1-3 re-read under mapper-v3 (2026-09-09)
     hh = v.counts(polarity="favorable", who_was_letting="householder").total
-    assert hh.human_reviewed + hh.machine_only == 341    # 303 after the cycle-004 review; shard-02 tail map (2026-09-09)
+    assert hh.human_reviewed + hh.machine_only == 318    # 341 after the shard-02 tail map; the cycles 1-3 re-read (2026-09-09)
 
 
 # ---------------------------------------------------------------- D2: reviewer protection
@@ -108,6 +108,7 @@ def test_a_real_dry_run_refuses_a_re_read_of_a_human_decided_field(repo_root):
     clean and overwrote the human value in the trial state."""
     led = open_ledger(domain=load_domain())
     standing = led.view().record(4268287)["polarity"]
+    flags_before = list(led.view().record(4268287)["review"]["flags"])
     assert led.view().provenance(4268287)["polarity"] == "human"
     p = Patch(4268287, "set", "polarity", "favorable", "slice-3 re-read",
               Basis(model="claude-opus-5@claude-cli", prompt_version="mapper-v3:f92016681314",
@@ -121,7 +122,7 @@ def test_a_real_dry_run_refuses_a_re_read_of_a_human_decided_field(repo_root):
     assert res.rejected[0]["by_rule"] == "reviewer-protection"
     assert res.rejected[0]["standing"] == standing
     assert led.view().record(4268287)["polarity"] == standing
-    assert led.view().record(4268287)["review"]["flags"] == []
+    assert led.view().record(4268287)["review"]["flags"] == flags_before   # a dry run adds no flag
 
 
 def test_conflicts_hands_out_copies_the_caller_cannot_write_back(repo_root):
@@ -157,7 +158,7 @@ def test_a_patch_above_the_baseline_is_rejected_over_the_real_state(repo_root):
 
 def test_the_protection_rule_leaves_the_published_counts_untouched(repo_root):
     v = open_ledger(domain=load_domain()).view()
-    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 3466
+    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 3419
     assert v.counts().total.human_reviewed == 821
     flagged = sum(1 for cid in v.state.order
                   for f in (v.state.records[cid].get("review") or {}).get("flags") or ()

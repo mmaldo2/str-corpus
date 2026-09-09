@@ -1,0 +1,3545 @@
+{
+ "batch_size": 18,
+ "cell_order": [
+  "1860-1900|La.",
+  "1860-1900|N.Y.",
+  "1860-1900|Pa.",
+  "1860-1900|Tex.",
+  "1900-1930|La.",
+  "1900-1930|N.Y.",
+  "1900-1930|Pa.",
+  "1900-1930|Tex.",
+  "1930-1970|La.",
+  "1930-1970|N.Y.",
+  "1930-1970|Pa.",
+  "1930-1970|Tex.",
+  "1970-2020|La.",
+  "1970-2020|N.Y.",
+  "1970-2020|Pa.",
+  "1970-2020|Tex.",
+  "pre-1860|La.",
+  "pre-1860|N.Y.",
+  "pre-1860|Pa.",
+  "pre-1860|Tex."
+ ],
+ "cells": {
+  "1860-1900|La.": {
+   "batches_attempted": 1,
+   "batches_completed": 1,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-001": [
+     "51582afc895fe04bee9a73d313afa98d99ff8cf374402429049e8538669c2c07"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 1,
+   "cases_lost": [],
+   "cases_read": 15,
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "checker_units": 0,
+   "era": "1860-1900",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 2,
+   "jurisdiction": "La.",
+   "mean_rank_score": 0.0,
+   "n_batches": 1,
+   "records": 15,
+   "relevant_accepted": 13,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "1 of 1 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "51582afc895fe04bee9a73d313afa98d99ff8cf374402429049e8538669c2c07"
+     ],
+     "cases_lost": [],
+     "cases_read": 15,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 50410,
+     "irrelevant_accepted": 2,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 8782,
+     "records": 15,
+     "relevant_accepted": 13,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 11,
+      "partial": 4
+     },
+     "unit_id": "cycles-001-003-reread-batch-001"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 0.0,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-001",
+     "relevant_accepted": 13
+    }
+   ]
+  },
+  "1860-1900|N.Y.": {
+   "batches_attempted": 7,
+   "batches_completed": 7,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-002": [
+     "c1da1c9bb92dbf97f89a8462ebb27272cab14bb4de41e316dda8150fb9e020dc"
+    ],
+    "cycles-001-003-reread-batch-003": [
+     "4fd08b70e9672a918178258034fa283cc7eeaac9b39bea1ebab4fe8281e3c034"
+    ],
+    "cycles-001-003-reread-batch-004": [
+     "44959d2cdca748feb1d133e920c688b4afdfb66716a007f0558f45fe6e90dbe7"
+    ],
+    "cycles-001-003-reread-batch-005": [
+     "fca581c9e230cc0bad1454ed0c8eb757471d2a5c37f40c35e43d251da3df06ef"
+    ],
+    "cycles-001-003-reread-batch-006": [
+     "ad7566c807668816d81384677498ab39c67938c93e0e3826c48162b09be5165d"
+    ],
+    "cycles-001-003-reread-batch-007": [
+     "4758972430aeee579a28555f3c196db81c13614fa6039dc11044524e2db41237"
+    ],
+    "cycles-001-003-reread-batch-008": [
+     "7566c9e331030128e525c89e0d66e73b2f31690631e9f578f62e0fb99190dba9"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 7,
+   "cases_lost": [],
+   "cases_read": 119,
+   "checker_disagreements": [
+    {
+     "case_id": 2081402,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "mixed",
+     "unit_id": "cycles-001-003-reread-batch-005"
+    },
+    {
+     "case_id": 2211876,
+     "checker_value": "lodging",
+     "field": "characterization",
+     "reader_value": "license",
+     "unit_id": "cycles-001-003-reread-batch-005"
+    },
+    {
+     "case_id": 2216222,
+     "checker_value": false,
+     "field": "relevant",
+     "reader_value": true,
+     "unit_id": "cycles-001-003-reread-batch-005"
+    },
+    {
+     "case_id": 2216222,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "favorable",
+     "unit_id": "cycles-001-003-reread-batch-005"
+    },
+    {
+     "case_id": 2216222,
+     "checker_value": null,
+     "field": "characterization",
+     "reader_value": "other",
+     "unit_id": "cycles-001-003-reread-batch-005"
+    },
+    {
+     "case_id": 2218095,
+     "checker_value": "favorable",
+     "field": "polarity",
+     "reader_value": "mixed",
+     "unit_id": "cycles-001-003-reread-batch-005"
+    },
+    {
+     "case_id": 2251466,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "favorable",
+     "unit_id": "cycles-001-003-reread-batch-005"
+    },
+    {
+     "case_id": 2266583,
+     "checker_value": "other",
+     "field": "characterization",
+     "reader_value": "lease",
+     "unit_id": "cycles-001-003-reread-batch-005"
+    },
+    {
+     "case_id": 2282289,
+     "checker_value": "favorable",
+     "field": "polarity",
+     "reader_value": "mixed",
+     "unit_id": "cycles-001-003-reread-batch-005"
+    }
+   ],
+   "checker_sampled": [
+    "cycles-001-003-reread-batch-005"
+   ],
+   "checker_status": {
+    "cycles-001-003-reread-batch-005": "ok"
+   },
+   "checker_units": 1,
+   "era": "1860-1900",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 3,
+   "jurisdiction": "N.Y.",
+   "mean_rank_score": 0.0,
+   "n_batches": 7,
+   "records": 119,
+   "relevant_accepted": 116,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "7 of 7 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "c1da1c9bb92dbf97f89a8462ebb27272cab14bb4de41e316dda8150fb9e020dc"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 60762,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "restriction_nature",
+      "under_thirty_days"
+     ],
+     "output_tokens": 10935,
+     "records": 18,
+     "relevant_accepted": 18,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 12,
+      "partial": 6
+     },
+     "unit_id": "cycles-001-003-reread-batch-002"
+    },
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "4fd08b70e9672a918178258034fa283cc7eeaac9b39bea1ebab4fe8281e3c034"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 154184,
+     "irrelevant_accepted": 1,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 20211,
+     "records": 18,
+     "relevant_accepted": 17,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 14,
+      "partial": 4
+     },
+     "unit_id": "cycles-001-003-reread-batch-003"
+    },
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "44959d2cdca748feb1d133e920c688b4afdfb66716a007f0558f45fe6e90dbe7"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 186989,
+     "irrelevant_accepted": 1,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 19238,
+     "records": 18,
+     "relevant_accepted": 17,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 15,
+      "partial": 3
+     },
+     "unit_id": "cycles-001-003-reread-batch-004"
+    },
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "fca581c9e230cc0bad1454ed0c8eb757471d2a5c37f40c35e43d251da3df06ef"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [
+       {
+        "case_id": 2081402,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "mixed",
+        "unit_id": "cycles-001-003-reread-batch-005"
+       },
+       {
+        "case_id": 2211876,
+        "checker_value": "lodging",
+        "field": "characterization",
+        "reader_value": "license",
+        "unit_id": "cycles-001-003-reread-batch-005"
+       },
+       {
+        "case_id": 2216222,
+        "checker_value": false,
+        "field": "relevant",
+        "reader_value": true,
+        "unit_id": "cycles-001-003-reread-batch-005"
+       },
+       {
+        "case_id": 2216222,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "favorable",
+        "unit_id": "cycles-001-003-reread-batch-005"
+       },
+       {
+        "case_id": 2216222,
+        "checker_value": null,
+        "field": "characterization",
+        "reader_value": "other",
+        "unit_id": "cycles-001-003-reread-batch-005"
+       },
+       {
+        "case_id": 2218095,
+        "checker_value": "favorable",
+        "field": "polarity",
+        "reader_value": "mixed",
+        "unit_id": "cycles-001-003-reread-batch-005"
+       },
+       {
+        "case_id": 2251466,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "favorable",
+        "unit_id": "cycles-001-003-reread-batch-005"
+       },
+       {
+        "case_id": 2266583,
+        "checker_value": "other",
+        "field": "characterization",
+        "reader_value": "lease",
+        "unit_id": "cycles-001-003-reread-batch-005"
+       },
+       {
+        "case_id": 2282289,
+        "checker_value": "favorable",
+        "field": "polarity",
+        "reader_value": "mixed",
+        "unit_id": "cycles-001-003-reread-batch-005"
+       }
+      ],
+      "sampled": true,
+      "status": "ok"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 81182,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 8516,
+     "records": 18,
+     "relevant_accepted": 18,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 13,
+      "partial": 5
+     },
+     "unit_id": "cycles-001-003-reread-batch-005"
+    },
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "ad7566c807668816d81384677498ab39c67938c93e0e3826c48162b09be5165d"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 44446,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 9292,
+     "records": 18,
+     "relevant_accepted": 18,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 15,
+      "partial": 3
+     },
+     "unit_id": "cycles-001-003-reread-batch-006"
+    },
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "4758972430aeee579a28555f3c196db81c13614fa6039dc11044524e2db41237"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 100726,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 11522,
+     "records": 18,
+     "relevant_accepted": 18,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 10,
+      "partial": 8
+     },
+     "unit_id": "cycles-001-003-reread-batch-007"
+    },
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "7566c9e331030128e525c89e0d66e73b2f31690631e9f578f62e0fb99190dba9"
+     ],
+     "cases_lost": [],
+     "cases_read": 11,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 35360,
+     "irrelevant_accepted": 1,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 5550,
+     "records": 11,
+     "relevant_accepted": 10,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 2,
+      "partial": 9
+     },
+     "unit_id": "cycles-001-003-reread-batch-008"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 85.7,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-002",
+     "relevant_accepted": 18
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-003",
+     "relevant_accepted": 17
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-004",
+     "relevant_accepted": 17
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-005",
+     "relevant_accepted": 18
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-006",
+     "relevant_accepted": 18
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-007",
+     "relevant_accepted": 18
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-008",
+     "relevant_accepted": 10
+    }
+   ]
+  },
+  "1860-1900|Pa.": {
+   "batches_attempted": 1,
+   "batches_completed": 1,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-009": [
+     "1a8168a255f7399227612abb681ec9d0a4fef307cfeb0148aec40013e5ec00d0"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 1,
+   "cases_lost": [],
+   "cases_read": 15,
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "checker_units": 0,
+   "era": "1860-1900",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 3,
+   "jurisdiction": "Pa.",
+   "mean_rank_score": 0.0,
+   "n_batches": 1,
+   "records": 15,
+   "relevant_accepted": 12,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "1 of 1 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "1a8168a255f7399227612abb681ec9d0a4fef307cfeb0148aec40013e5ec00d0"
+     ],
+     "cases_lost": [],
+     "cases_read": 15,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 164102,
+     "irrelevant_accepted": 3,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 14555,
+     "records": 15,
+     "relevant_accepted": 12,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 9,
+      "partial": 6
+     },
+     "unit_id": "cycles-001-003-reread-batch-009"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 0.1,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-009",
+     "relevant_accepted": 12
+    }
+   ]
+  },
+  "1860-1900|Tex.": {
+   "batches_attempted": 1,
+   "batches_completed": 1,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-010": [
+     "5729a08df9fb5781a4720d9e5aa54851d19600be269e9a996f6932d8799ad5ab"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 1,
+   "cases_lost": [],
+   "cases_read": 10,
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "checker_units": 0,
+   "era": "1860-1900",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 2,
+   "jurisdiction": "Tex.",
+   "mean_rank_score": 0.0,
+   "n_batches": 1,
+   "records": 10,
+   "relevant_accepted": 8,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "1 of 1 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "5729a08df9fb5781a4720d9e5aa54851d19600be269e9a996f6932d8799ad5ab"
+     ],
+     "cases_lost": [],
+     "cases_read": 10,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 40979,
+     "irrelevant_accepted": 2,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 5737,
+     "records": 10,
+     "relevant_accepted": 8,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 6,
+      "partial": 4
+     },
+     "unit_id": "cycles-001-003-reread-batch-010"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 0.0,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-010",
+     "relevant_accepted": 8
+    }
+   ]
+  },
+  "1900-1930|La.": {
+   "batches_attempted": 2,
+   "batches_completed": 2,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-011": [
+     "c25bc038b075365b284a0bd8a4805fd78fc57cf22621751a14cb283d7be2b0d6"
+    ],
+    "cycles-001-003-reread-batch-012": [
+     "c87fb59623606c497b4e36ff2e20746bda47574d181b269b8c048795a914149c"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 2,
+   "cases_lost": [],
+   "cases_read": 32,
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "checker_units": 0,
+   "era": "1900-1930",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 7,
+   "jurisdiction": "La.",
+   "mean_rank_score": 0.0,
+   "n_batches": 2,
+   "records": 32,
+   "relevant_accepted": 25,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "2 of 2 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "c25bc038b075365b284a0bd8a4805fd78fc57cf22621751a14cb283d7be2b0d6"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 97477,
+     "irrelevant_accepted": 6,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 9878,
+     "records": 18,
+     "relevant_accepted": 12,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 14,
+      "partial": 4
+     },
+     "unit_id": "cycles-001-003-reread-batch-011"
+    },
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "c87fb59623606c497b4e36ff2e20746bda47574d181b269b8c048795a914149c"
+     ],
+     "cases_lost": [],
+     "cases_read": 14,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 38855,
+     "irrelevant_accepted": 1,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "restriction_nature",
+      "under_thirty_days"
+     ],
+     "output_tokens": 8151,
+     "records": 14,
+     "relevant_accepted": 13,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 4,
+      "partial": 10
+     },
+     "unit_id": "cycles-001-003-reread-batch-012"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 0.1,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-011",
+     "relevant_accepted": 12
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-012",
+     "relevant_accepted": 13
+    }
+   ]
+  },
+  "1900-1930|N.Y.": {
+   "batches_attempted": 7,
+   "batches_completed": 7,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-013": [
+     "3b3197b01fac8d747ca6c0f3b5052b30fe7c8ccf278c1039b729ab828d135ed4"
+    ],
+    "cycles-001-003-reread-batch-014": [
+     "2f36e91beb1358e7b032acedf236d2bd437bd6a0238024b4af9bf0b063e6f2d5"
+    ],
+    "cycles-001-003-reread-batch-015": [
+     "c3989ef4c1d3ae75f6fe117d3342042533a168b41d40522939e557f116d31b2a"
+    ],
+    "cycles-001-003-reread-batch-016": [
+     "1744123278b7c3e7523756c7be4bb5cb4ff04ab0f984c64cc5ae073d52789281"
+    ],
+    "cycles-001-003-reread-batch-017": [
+     "1ef4390dad39de6f7488566e1095f721be3ba062f3cedbe959f8edf721c35bfb"
+    ],
+    "cycles-001-003-reread-batch-018": [
+     "a9ca4926f132833b2a8e0849ecaa71bdbf22e12dfe39049951f4b94c465ff732"
+    ],
+    "cycles-001-003-reread-batch-019": [
+     "ed4e6531a6747cc36af86478f74aa90d2c91a77ca06a5a573646b27698d85b0e"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 7,
+   "cases_lost": [],
+   "cases_read": 123,
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "checker_units": 0,
+   "era": "1900-1930",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 15,
+   "jurisdiction": "N.Y.",
+   "mean_rank_score": 0.0,
+   "n_batches": 7,
+   "records": 123,
+   "relevant_accepted": 108,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "7 of 7 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "3b3197b01fac8d747ca6c0f3b5052b30fe7c8ccf278c1039b729ab828d135ed4"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 117522,
+     "irrelevant_accepted": 1,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 19124,
+     "records": 18,
+     "relevant_accepted": 17,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 8,
+      "partial": 10
+     },
+     "unit_id": "cycles-001-003-reread-batch-013"
+    },
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "2f36e91beb1358e7b032acedf236d2bd437bd6a0238024b4af9bf0b063e6f2d5"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 79245,
+     "irrelevant_accepted": 2,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "restriction_nature",
+      "under_thirty_days"
+     ],
+     "output_tokens": 10320,
+     "records": 18,
+     "relevant_accepted": 16,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 13,
+      "partial": 5
+     },
+     "unit_id": "cycles-001-003-reread-batch-014"
+    },
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "c3989ef4c1d3ae75f6fe117d3342042533a168b41d40522939e557f116d31b2a"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 79361,
+     "irrelevant_accepted": 3,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 10816,
+     "records": 18,
+     "relevant_accepted": 15,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 14,
+      "partial": 4
+     },
+     "unit_id": "cycles-001-003-reread-batch-015"
+    },
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "1744123278b7c3e7523756c7be4bb5cb4ff04ab0f984c64cc5ae073d52789281"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 68785,
+     "irrelevant_accepted": 1,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 11674,
+     "records": 18,
+     "relevant_accepted": 17,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 8,
+      "partial": 10
+     },
+     "unit_id": "cycles-001-003-reread-batch-016"
+    },
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "1ef4390dad39de6f7488566e1095f721be3ba062f3cedbe959f8edf721c35bfb"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 104220,
+     "irrelevant_accepted": 2,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 9436,
+     "records": 18,
+     "relevant_accepted": 16,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 12,
+      "partial": 6
+     },
+     "unit_id": "cycles-001-003-reread-batch-017"
+    },
+    {
+     "cache_hit": true,
+     "cache_keys": [
+      "a9ca4926f132833b2a8e0849ecaa71bdbf22e12dfe39049951f4b94c465ff732"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 118340,
+     "irrelevant_accepted": 3,
+     "nulled_fields": [],
+     "output_tokens": 18131,
+     "records": 18,
+     "relevant_accepted": 15,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 18,
+      "partial": 0
+     },
+     "unit_id": "cycles-001-003-reread-batch-018"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "ed4e6531a6747cc36af86478f74aa90d2c91a77ca06a5a573646b27698d85b0e"
+     ],
+     "cases_lost": [],
+     "cases_read": 15,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 39920,
+     "irrelevant_accepted": 3,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 7518,
+     "records": 15,
+     "relevant_accepted": 12,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 9,
+      "partial": 6
+     },
+     "unit_id": "cycles-001-003-reread-batch-019"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 72.6,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-013",
+     "relevant_accepted": 17
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-014",
+     "relevant_accepted": 16
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-015",
+     "relevant_accepted": 15
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-016",
+     "relevant_accepted": 17
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-017",
+     "relevant_accepted": 16
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-018",
+     "relevant_accepted": 15
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-019",
+     "relevant_accepted": 12
+    }
+   ]
+  },
+  "1900-1930|Pa.": {
+   "batches_attempted": 2,
+   "batches_completed": 2,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-020": [
+     "4ac0b5505d40a00977aee27673b273bb68c7aa67f9e7a5a887f353f8015533aa"
+    ],
+    "cycles-001-003-reread-batch-021": [
+     "3a7afa4b1a4b41f64d839236a9f804ada5b754ef31414cf7f82b8364c66370be"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 2,
+   "cases_lost": [],
+   "cases_read": 26,
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "checker_units": 0,
+   "era": "1900-1930",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 1,
+   "jurisdiction": "Pa.",
+   "mean_rank_score": 0.0,
+   "n_batches": 2,
+   "records": 26,
+   "relevant_accepted": 25,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "2 of 2 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "4ac0b5505d40a00977aee27673b273bb68c7aa67f9e7a5a887f353f8015533aa"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 73268,
+     "irrelevant_accepted": 1,
+     "nulled_fields": [
+      "owner_freedom_characterization"
+     ],
+     "output_tokens": 8890,
+     "records": 18,
+     "relevant_accepted": 17,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 16,
+      "partial": 2
+     },
+     "unit_id": "cycles-001-003-reread-batch-020"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "3a7afa4b1a4b41f64d839236a9f804ada5b754ef31414cf7f82b8364c66370be"
+     ],
+     "cases_lost": [],
+     "cases_read": 8,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 77882,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [],
+     "output_tokens": 10249,
+     "records": 8,
+     "relevant_accepted": 8,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 8,
+      "partial": 0
+     },
+     "unit_id": "cycles-001-003-reread-batch-021"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 187.3,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-020",
+     "relevant_accepted": 17
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-021",
+     "relevant_accepted": 8
+    }
+   ]
+  },
+  "1900-1930|Tex.": {
+   "batches_attempted": 2,
+   "batches_completed": 2,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-022": [
+     "1908c5c621a6f542ba3e5c40eed761c936c011c0ad4632f1d91f6c0d9e8e1b95"
+    ],
+    "cycles-001-003-reread-batch-023": [
+     "68228866ed922af09af452ecd4c3166b97c671562fe05dc1c7db061a0f85cd5d"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 2,
+   "cases_lost": [],
+   "cases_read": 30,
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "checker_units": 0,
+   "era": "1900-1930",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 4,
+   "jurisdiction": "Tex.",
+   "mean_rank_score": 0.0,
+   "n_batches": 2,
+   "records": 30,
+   "relevant_accepted": 26,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "2 of 2 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "1908c5c621a6f542ba3e5c40eed761c936c011c0ad4632f1d91f6c0d9e8e1b95"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 172766,
+     "irrelevant_accepted": 2,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 19370,
+     "records": 18,
+     "relevant_accepted": 16,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 15,
+      "partial": 3
+     },
+     "unit_id": "cycles-001-003-reread-batch-022"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "68228866ed922af09af452ecd4c3166b97c671562fe05dc1c7db061a0f85cd5d"
+     ],
+     "cases_lost": [],
+     "cases_read": 12,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 62433,
+     "irrelevant_accepted": 2,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "restriction_nature",
+      "under_thirty_days"
+     ],
+     "output_tokens": 6337,
+     "records": 12,
+     "relevant_accepted": 10,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 6,
+      "partial": 6
+     },
+     "unit_id": "cycles-001-003-reread-batch-023"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 249.8,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-022",
+     "relevant_accepted": 16
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-023",
+     "relevant_accepted": 10
+    }
+   ]
+  },
+  "1930-1970|La.": {
+   "batches_attempted": 2,
+   "batches_completed": 2,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-024": [
+     "006fe36f0dc84477afa8a318832da16a27e94ac87bfb324824973a8144f6d6cf"
+    ],
+    "cycles-001-003-reread-batch-025": [
+     "df6f7169bb53045eb13009889e2699dddacc472c91f96b59550f722ffaed37d0"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 2,
+   "cases_lost": [],
+   "cases_read": 23,
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "checker_units": 0,
+   "era": "1930-1970",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 5,
+   "jurisdiction": "La.",
+   "mean_rank_score": 0.0,
+   "n_batches": 2,
+   "records": 23,
+   "relevant_accepted": 18,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "2 of 2 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "006fe36f0dc84477afa8a318832da16a27e94ac87bfb324824973a8144f6d6cf"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 70815,
+     "irrelevant_accepted": 4,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 9904,
+     "records": 18,
+     "relevant_accepted": 14,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 16,
+      "partial": 2
+     },
+     "unit_id": "cycles-001-003-reread-batch-024"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "df6f7169bb53045eb13009889e2699dddacc472c91f96b59550f722ffaed37d0"
+     ],
+     "cases_lost": [],
+     "cases_read": 5,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 30611,
+     "irrelevant_accepted": 1,
+     "nulled_fields": [
+      "owner_freedom_characterization"
+     ],
+     "output_tokens": 3074,
+     "records": 5,
+     "relevant_accepted": 4,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 4,
+      "partial": 1
+     },
+     "unit_id": "cycles-001-003-reread-batch-025"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 138.8,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-024",
+     "relevant_accepted": 14
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-025",
+     "relevant_accepted": 4
+    }
+   ]
+  },
+  "1930-1970|N.Y.": {
+   "batches_attempted": 4,
+   "batches_completed": 4,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-026": [
+     "18acb6ae79c9ce58cb915f3333694d411d10b439d7e4503042c5664f35b8bdb5"
+    ],
+    "cycles-001-003-reread-batch-027": [
+     "cb1fdfda8ff6b744f8ae631dfdc50816cbe4224357bc3127a4455559aaa37783"
+    ],
+    "cycles-001-003-reread-batch-028": [
+     "470530f4c1ac60c6d5393469f30465f2f405b42102f665dbae7f7da50e3b684b"
+    ],
+    "cycles-001-003-reread-batch-029": [
+     "29a17f83509984bc257827142c28d4402064eec60454a062dc1da004150f356d"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 4,
+   "cases_lost": [],
+   "cases_read": 66,
+   "checker_disagreements": [
+    {
+     "case_id": 804055,
+     "checker_value": "lodging",
+     "field": "characterization",
+     "reader_value": "lease",
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "case_id": 804136,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "mixed",
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "case_id": 810451,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "favorable",
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "case_id": 810590,
+     "checker_value": true,
+     "field": "relevant",
+     "reader_value": false,
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "case_id": 810590,
+     "checker_value": "adverse",
+     "field": "polarity",
+     "reader_value": null,
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "case_id": 810590,
+     "checker_value": "other",
+     "field": "characterization",
+     "reader_value": null,
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "case_id": 822246,
+     "checker_value": "lodging",
+     "field": "characterization",
+     "reader_value": "lease",
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "case_id": 827706,
+     "checker_value": false,
+     "field": "relevant",
+     "reader_value": true,
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "case_id": 827706,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "favorable",
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "case_id": 827706,
+     "checker_value": null,
+     "field": "characterization",
+     "reader_value": "innkeeping",
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "case_id": 858848,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "adverse",
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "case_id": 870963,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "favorable",
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "case_id": 873400,
+     "checker_value": false,
+     "field": "relevant",
+     "reader_value": true,
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "case_id": 873400,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "favorable",
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "case_id": 873400,
+     "checker_value": null,
+     "field": "characterization",
+     "reader_value": "other",
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "case_id": 936937,
+     "checker_value": "favorable",
+     "field": "polarity",
+     "reader_value": "mixed",
+     "unit_id": "cycles-001-003-reread-batch-026"
+    }
+   ],
+   "checker_sampled": [
+    "cycles-001-003-reread-batch-026"
+   ],
+   "checker_status": {
+    "cycles-001-003-reread-batch-026": "ok"
+   },
+   "checker_units": 1,
+   "era": "1930-1970",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 3,
+   "jurisdiction": "N.Y.",
+   "mean_rank_score": 0.0,
+   "n_batches": 4,
+   "records": 66,
+   "relevant_accepted": 63,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "4 of 4 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "18acb6ae79c9ce58cb915f3333694d411d10b439d7e4503042c5664f35b8bdb5"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [
+       {
+        "case_id": 804055,
+        "checker_value": "lodging",
+        "field": "characterization",
+        "reader_value": "lease",
+        "unit_id": "cycles-001-003-reread-batch-026"
+       },
+       {
+        "case_id": 804136,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "mixed",
+        "unit_id": "cycles-001-003-reread-batch-026"
+       },
+       {
+        "case_id": 810451,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "favorable",
+        "unit_id": "cycles-001-003-reread-batch-026"
+       },
+       {
+        "case_id": 810590,
+        "checker_value": true,
+        "field": "relevant",
+        "reader_value": false,
+        "unit_id": "cycles-001-003-reread-batch-026"
+       },
+       {
+        "case_id": 810590,
+        "checker_value": "adverse",
+        "field": "polarity",
+        "reader_value": null,
+        "unit_id": "cycles-001-003-reread-batch-026"
+       },
+       {
+        "case_id": 810590,
+        "checker_value": "other",
+        "field": "characterization",
+        "reader_value": null,
+        "unit_id": "cycles-001-003-reread-batch-026"
+       },
+       {
+        "case_id": 822246,
+        "checker_value": "lodging",
+        "field": "characterization",
+        "reader_value": "lease",
+        "unit_id": "cycles-001-003-reread-batch-026"
+       },
+       {
+        "case_id": 827706,
+        "checker_value": false,
+        "field": "relevant",
+        "reader_value": true,
+        "unit_id": "cycles-001-003-reread-batch-026"
+       },
+       {
+        "case_id": 827706,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "favorable",
+        "unit_id": "cycles-001-003-reread-batch-026"
+       },
+       {
+        "case_id": 827706,
+        "checker_value": null,
+        "field": "characterization",
+        "reader_value": "innkeeping",
+        "unit_id": "cycles-001-003-reread-batch-026"
+       },
+       {
+        "case_id": 858848,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "adverse",
+        "unit_id": "cycles-001-003-reread-batch-026"
+       },
+       {
+        "case_id": 870963,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "favorable",
+        "unit_id": "cycles-001-003-reread-batch-026"
+       },
+       {
+        "case_id": 873400,
+        "checker_value": false,
+        "field": "relevant",
+        "reader_value": true,
+        "unit_id": "cycles-001-003-reread-batch-026"
+       },
+       {
+        "case_id": 873400,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "favorable",
+        "unit_id": "cycles-001-003-reread-batch-026"
+       },
+       {
+        "case_id": 873400,
+        "checker_value": null,
+        "field": "characterization",
+        "reader_value": "other",
+        "unit_id": "cycles-001-003-reread-batch-026"
+       },
+       {
+        "case_id": 936937,
+        "checker_value": "favorable",
+        "field": "polarity",
+        "reader_value": "mixed",
+        "unit_id": "cycles-001-003-reread-batch-026"
+       }
+      ],
+      "sampled": true,
+      "status": "ok"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 138635,
+     "irrelevant_accepted": 2,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 19188,
+     "records": 18,
+     "relevant_accepted": 16,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 10,
+      "partial": 8
+     },
+     "unit_id": "cycles-001-003-reread-batch-026"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "cb1fdfda8ff6b744f8ae631dfdc50816cbe4224357bc3127a4455559aaa37783"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 53189,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 9910,
+     "records": 18,
+     "relevant_accepted": 18,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 12,
+      "partial": 6
+     },
+     "unit_id": "cycles-001-003-reread-batch-027"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "470530f4c1ac60c6d5393469f30465f2f405b42102f665dbae7f7da50e3b684b"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 73732,
+     "irrelevant_accepted": 1,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 11084,
+     "records": 18,
+     "relevant_accepted": 17,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 14,
+      "partial": 4
+     },
+     "unit_id": "cycles-001-003-reread-batch-028"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "29a17f83509984bc257827142c28d4402064eec60454a062dc1da004150f356d"
+     ],
+     "cases_lost": [],
+     "cases_read": 12,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 43412,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 5948,
+     "records": 12,
+     "relevant_accepted": 12,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 9,
+      "partial": 3
+     },
+     "unit_id": "cycles-001-003-reread-batch-029"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 527.4,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-026",
+     "relevant_accepted": 16
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-027",
+     "relevant_accepted": 18
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-028",
+     "relevant_accepted": 17
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-029",
+     "relevant_accepted": 12
+    }
+   ]
+  },
+  "1930-1970|Pa.": {
+   "batches_attempted": 2,
+   "batches_completed": 2,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-030": [
+     "14020b9ea4ae5281e06bb808bb84dfb86196bbf2dd1b6e3e289e91751d3547d1"
+    ],
+    "cycles-001-003-reread-batch-031": [
+     "709a43116b69371fbbb52c15fa0d5320667978bc8443568b369ad29641efcb6a"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 2,
+   "cases_lost": [],
+   "cases_read": 21,
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "checker_units": 0,
+   "era": "1930-1970",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 0,
+   "jurisdiction": "Pa.",
+   "mean_rank_score": 0.0,
+   "n_batches": 2,
+   "records": 21,
+   "relevant_accepted": 21,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "2 of 2 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "14020b9ea4ae5281e06bb808bb84dfb86196bbf2dd1b6e3e289e91751d3547d1"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 171076,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 19380,
+     "records": 18,
+     "relevant_accepted": 18,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 14,
+      "partial": 4
+     },
+     "unit_id": "cycles-001-003-reread-batch-030"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "709a43116b69371fbbb52c15fa0d5320667978bc8443568b369ad29641efcb6a"
+     ],
+     "cases_lost": [],
+     "cases_read": 3,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 18778,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [],
+     "output_tokens": 1920,
+     "records": 3,
+     "relevant_accepted": 3,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 3,
+      "partial": 0
+     },
+     "unit_id": "cycles-001-003-reread-batch-031"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 201.8,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-030",
+     "relevant_accepted": 18
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-031",
+     "relevant_accepted": 3
+    }
+   ]
+  },
+  "1930-1970|Tex.": {
+   "batches_attempted": 2,
+   "batches_completed": 2,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-032": [
+     "2795af7d35a8a8bc435b9d8b82d6b5fd9b8cd63a892d5cfa1501d95965b36b70"
+    ],
+    "cycles-001-003-reread-batch-033": [
+     "26bd12c921c9d13a3ea8bab783fe23d6c784fe3d2dd19f8aeb8a77952dba1323"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 2,
+   "cases_lost": [],
+   "cases_read": 31,
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "checker_units": 0,
+   "era": "1930-1970",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 3,
+   "jurisdiction": "Tex.",
+   "mean_rank_score": 0.0,
+   "n_batches": 2,
+   "records": 31,
+   "relevant_accepted": 28,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "2 of 2 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "2795af7d35a8a8bc435b9d8b82d6b5fd9b8cd63a892d5cfa1501d95965b36b70"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 130283,
+     "irrelevant_accepted": 1,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 11984,
+     "records": 18,
+     "relevant_accepted": 17,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 13,
+      "partial": 5
+     },
+     "unit_id": "cycles-001-003-reread-batch-032"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "26bd12c921c9d13a3ea8bab783fe23d6c784fe3d2dd19f8aeb8a77952dba1323"
+     ],
+     "cases_lost": [],
+     "cases_read": 13,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 157519,
+     "irrelevant_accepted": 2,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 16960,
+     "records": 13,
+     "relevant_accepted": 11,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 9,
+      "partial": 4
+     },
+     "unit_id": "cycles-001-003-reread-batch-033"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 289.4,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-032",
+     "relevant_accepted": 17
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-033",
+     "relevant_accepted": 11
+    }
+   ]
+  },
+  "1970-2020|La.": {
+   "batches_attempted": 1,
+   "batches_completed": 1,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-034": [
+     "6a63def32cefcfcad5be4cb275d4cb4bdf02bd654eac265554d140a9f499d9de"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 1,
+   "cases_lost": [],
+   "cases_read": 17,
+   "checker_disagreements": [
+    {
+     "case_id": 8421307,
+     "checker_value": "innkeeping",
+     "field": "characterization",
+     "reader_value": "lodging",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 9522208,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "adverse",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 9606185,
+     "checker_value": false,
+     "field": "relevant",
+     "reader_value": true,
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 9606185,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "adverse",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 9606185,
+     "checker_value": null,
+     "field": "characterization",
+     "reader_value": "innkeeping",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 9659934,
+     "checker_value": "other",
+     "field": "characterization",
+     "reader_value": "lease",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 9681317,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "favorable",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 9681317,
+     "checker_value": "lodging",
+     "field": "characterization",
+     "reader_value": "innkeeping",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 11517809,
+     "checker_value": false,
+     "field": "relevant",
+     "reader_value": true,
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 11517809,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "adverse",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 11517809,
+     "checker_value": null,
+     "field": "characterization",
+     "reader_value": "other",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 11882976,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "adverse",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 12120860,
+     "checker_value": false,
+     "field": "relevant",
+     "reader_value": true,
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 12120860,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "adverse",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 12120860,
+     "checker_value": null,
+     "field": "characterization",
+     "reader_value": "lodging",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 12364802,
+     "checker_value": "lodging",
+     "field": "characterization",
+     "reader_value": "other",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 12672508,
+     "checker_value": "lodging",
+     "field": "characterization",
+     "reader_value": "other",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 12692177,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "adverse",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    },
+    {
+     "case_id": 12692177,
+     "checker_value": "innkeeping",
+     "field": "characterization",
+     "reader_value": "lodging",
+     "unit_id": "cycles-001-003-reread-batch-034"
+    }
+   ],
+   "checker_sampled": [
+    "cycles-001-003-reread-batch-034"
+   ],
+   "checker_status": {
+    "cycles-001-003-reread-batch-034": "ok"
+   },
+   "checker_units": 1,
+   "era": "1970-2020",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 0,
+   "jurisdiction": "La.",
+   "mean_rank_score": 0.0,
+   "n_batches": 1,
+   "records": 17,
+   "relevant_accepted": 17,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "1 of 1 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "6a63def32cefcfcad5be4cb275d4cb4bdf02bd654eac265554d140a9f499d9de"
+     ],
+     "cases_lost": [],
+     "cases_read": 17,
+     "checker": {
+      "disagreements": [
+       {
+        "case_id": 8421307,
+        "checker_value": "innkeeping",
+        "field": "characterization",
+        "reader_value": "lodging",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 9522208,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "adverse",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 9606185,
+        "checker_value": false,
+        "field": "relevant",
+        "reader_value": true,
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 9606185,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "adverse",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 9606185,
+        "checker_value": null,
+        "field": "characterization",
+        "reader_value": "innkeeping",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 9659934,
+        "checker_value": "other",
+        "field": "characterization",
+        "reader_value": "lease",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 9681317,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "favorable",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 9681317,
+        "checker_value": "lodging",
+        "field": "characterization",
+        "reader_value": "innkeeping",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 11517809,
+        "checker_value": false,
+        "field": "relevant",
+        "reader_value": true,
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 11517809,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "adverse",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 11517809,
+        "checker_value": null,
+        "field": "characterization",
+        "reader_value": "other",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 11882976,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "adverse",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 12120860,
+        "checker_value": false,
+        "field": "relevant",
+        "reader_value": true,
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 12120860,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "adverse",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 12120860,
+        "checker_value": null,
+        "field": "characterization",
+        "reader_value": "lodging",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 12364802,
+        "checker_value": "lodging",
+        "field": "characterization",
+        "reader_value": "other",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 12672508,
+        "checker_value": "lodging",
+        "field": "characterization",
+        "reader_value": "other",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 12692177,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "adverse",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       },
+       {
+        "case_id": 12692177,
+        "checker_value": "innkeeping",
+        "field": "characterization",
+        "reader_value": "lodging",
+        "unit_id": "cycles-001-003-reread-batch-034"
+       }
+      ],
+      "sampled": true,
+      "status": "ok"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 228515,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 19339,
+     "records": 17,
+     "relevant_accepted": 17,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 14,
+      "partial": 3
+     },
+     "unit_id": "cycles-001-003-reread-batch-034"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 261.2,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-034",
+     "relevant_accepted": 17
+    }
+   ]
+  },
+  "1970-2020|N.Y.": {
+   "batches_attempted": 4,
+   "batches_completed": 4,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-035": [
+     "31f04edddaf320d6c6f3101e83584dd99c472bb67f1b32759b07a3e368360ebf"
+    ],
+    "cycles-001-003-reread-batch-036": [
+     "0798ab8b0b9a8681c27e98707b626dc9ad7364b5105583e5660e323c3ae12757"
+    ],
+    "cycles-001-003-reread-batch-037": [
+     "5a69fcabfe57eed9a2f928d2d87cb7a6da5530feb77e2d71ee693e5f73473aff"
+    ],
+    "cycles-001-003-reread-batch-038": [
+     "44f5f51d2285181a22a7ec7ac857a642b52497883419532dbf08728f62768158"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 4,
+   "cases_lost": [],
+   "cases_read": 71,
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "checker_units": 0,
+   "era": "1970-2020",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 1,
+   "jurisdiction": "N.Y.",
+   "mean_rank_score": 0.0,
+   "n_batches": 4,
+   "records": 71,
+   "relevant_accepted": 70,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "4 of 4 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "31f04edddaf320d6c6f3101e83584dd99c472bb67f1b32759b07a3e368360ebf"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 182362,
+     "irrelevant_accepted": 1,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 20591,
+     "records": 18,
+     "relevant_accepted": 17,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 14,
+      "partial": 4
+     },
+     "unit_id": "cycles-001-003-reread-batch-035"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "0798ab8b0b9a8681c27e98707b626dc9ad7364b5105583e5660e323c3ae12757"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 64265,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 9886,
+     "records": 18,
+     "relevant_accepted": 18,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 9,
+      "partial": 9
+     },
+     "unit_id": "cycles-001-003-reread-batch-036"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "5a69fcabfe57eed9a2f928d2d87cb7a6da5530feb77e2d71ee693e5f73473aff"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 237277,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 20351,
+     "records": 18,
+     "relevant_accepted": 18,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 16,
+      "partial": 2
+     },
+     "unit_id": "cycles-001-003-reread-batch-037"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "44f5f51d2285181a22a7ec7ac857a642b52497883419532dbf08728f62768158"
+     ],
+     "cases_lost": [],
+     "cases_read": 17,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 118850,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 10894,
+     "records": 17,
+     "relevant_accepted": 17,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 15,
+      "partial": 2
+     },
+     "unit_id": "cycles-001-003-reread-batch-038"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 580.4,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-035",
+     "relevant_accepted": 17
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-036",
+     "relevant_accepted": 18
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-037",
+     "relevant_accepted": 18
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-038",
+     "relevant_accepted": 17
+    }
+   ]
+  },
+  "1970-2020|Pa.": {
+   "batches_attempted": 3,
+   "batches_completed": 3,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-039": [
+     "eeed77f529a3e4904a8d7d433e4c32407e9bcaf53057c827f9c918af97d3d9ce"
+    ],
+    "cycles-001-003-reread-batch-040": [
+     "dedb86bff49daf25a43a6437319d8ceb12b36d9f30b238db2cd3f56dd9be78a7"
+    ],
+    "cycles-001-003-reread-batch-041": [
+     "1b772842d2e4100b56c195b6533db6dcca8e8f3cf1f2c79f3c85bfae80bf7265"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 3,
+   "cases_lost": [],
+   "cases_read": 41,
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "checker_units": 0,
+   "era": "1970-2020",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 0,
+   "jurisdiction": "Pa.",
+   "mean_rank_score": 0.0,
+   "n_batches": 3,
+   "records": 41,
+   "relevant_accepted": 41,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "3 of 3 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "eeed77f529a3e4904a8d7d433e4c32407e9bcaf53057c827f9c918af97d3d9ce"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 80123,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "restriction_nature",
+      "under_thirty_days"
+     ],
+     "output_tokens": 9132,
+     "records": 18,
+     "relevant_accepted": 18,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 11,
+      "partial": 7
+     },
+     "unit_id": "cycles-001-003-reread-batch-039"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "dedb86bff49daf25a43a6437319d8ceb12b36d9f30b238db2cd3f56dd9be78a7"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 267729,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [],
+     "output_tokens": 19833,
+     "records": 18,
+     "relevant_accepted": 18,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 18,
+      "partial": 0
+     },
+     "unit_id": "cycles-001-003-reread-batch-040"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "1b772842d2e4100b56c195b6533db6dcca8e8f3cf1f2c79f3c85bfae80bf7265"
+     ],
+     "cases_lost": [],
+     "cases_read": 5,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 1,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 64911,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 2904,
+     "records": 5,
+     "relevant_accepted": 5,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 4,
+      "partial": 1
+     },
+     "unit_id": "cycles-001-003-reread-batch-041"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 295.3,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-039",
+     "relevant_accepted": 18
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-040",
+     "relevant_accepted": 18
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-041",
+     "relevant_accepted": 5
+    }
+   ]
+  },
+  "1970-2020|Tex.": {
+   "batches_attempted": 2,
+   "batches_completed": 2,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-042": [
+     "089dccabb228ff34b43df9abcc95051e6731c84f614ff0c323d630f7722b4f67"
+    ],
+    "cycles-001-003-reread-batch-043": [
+     "1b1bd6e787343eff0be130e2645f742d0d072f66bdb25d1928949aa06b96e5e2"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 2,
+   "cases_lost": [],
+   "cases_read": 22,
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "checker_units": 0,
+   "era": "1970-2020",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 2,
+   "jurisdiction": "Tex.",
+   "mean_rank_score": 0.0,
+   "n_batches": 2,
+   "records": 22,
+   "relevant_accepted": 20,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "2 of 2 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "089dccabb228ff34b43df9abcc95051e6731c84f614ff0c323d630f7722b4f67"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 125442,
+     "irrelevant_accepted": 2,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 10813,
+     "records": 18,
+     "relevant_accepted": 16,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 14,
+      "partial": 4
+     },
+     "unit_id": "cycles-001-003-reread-batch-042"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "1b1bd6e787343eff0be130e2645f742d0d072f66bdb25d1928949aa06b96e5e2"
+     ],
+     "cases_lost": [],
+     "cases_read": 4,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 62912,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [],
+     "output_tokens": 2329,
+     "records": 4,
+     "relevant_accepted": 4,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 4,
+      "partial": 0
+     },
+     "unit_id": "cycles-001-003-reread-batch-043"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 135.2,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-042",
+     "relevant_accepted": 16
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-043",
+     "relevant_accepted": 4
+    }
+   ]
+  },
+  "pre-1860|La.": {
+   "batches_attempted": 1,
+   "batches_completed": 1,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-044": [
+     "49afb2f8444399f776e2aeefd679dcf0d752e3fa91c7b36ca0c7c70a336d8c57"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 1,
+   "cases_lost": [],
+   "cases_read": 5,
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "checker_units": 0,
+   "era": "pre-1860",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 0,
+   "jurisdiction": "La.",
+   "mean_rank_score": 0.0,
+   "n_batches": 1,
+   "records": 5,
+   "relevant_accepted": 5,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "1 of 1 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "49afb2f8444399f776e2aeefd679dcf0d752e3fa91c7b36ca0c7c70a336d8c57"
+     ],
+     "cases_lost": [],
+     "cases_read": 5,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 20950,
+     "irrelevant_accepted": 0,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 2514,
+     "records": 5,
+     "relevant_accepted": 5,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 4,
+      "partial": 1
+     },
+     "unit_id": "cycles-001-003-reread-batch-044"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 27.1,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-044",
+     "relevant_accepted": 5
+    }
+   ]
+  },
+  "pre-1860|N.Y.": {
+   "batches_attempted": 2,
+   "batches_completed": 2,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-045": [
+     "da40eb31028536e169bf93f2297f3d3f0cd379338c6814a97965cc946e6350fa"
+    ],
+    "cycles-001-003-reread-batch-046": [
+     "14a981ff6f3ccbc0834e279d67777085c2ffc45044c15c67ea2aa5f4943f905d"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 2,
+   "cases_lost": [],
+   "cases_read": 20,
+   "checker_disagreements": [
+    {
+     "case_id": 6761639,
+     "checker_value": true,
+     "field": "relevant",
+     "reader_value": false,
+     "unit_id": "cycles-001-003-reread-batch-046"
+    },
+    {
+     "case_id": 6761639,
+     "checker_value": "favorable",
+     "field": "polarity",
+     "reader_value": null,
+     "unit_id": "cycles-001-003-reread-batch-046"
+    },
+    {
+     "case_id": 6761639,
+     "checker_value": "lodging",
+     "field": "characterization",
+     "reader_value": null,
+     "unit_id": "cycles-001-003-reread-batch-046"
+    }
+   ],
+   "checker_sampled": [
+    "cycles-001-003-reread-batch-046"
+   ],
+   "checker_status": {
+    "cycles-001-003-reread-batch-046": "ok"
+   },
+   "checker_units": 1,
+   "era": "pre-1860",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 4,
+   "jurisdiction": "N.Y.",
+   "mean_rank_score": 0.0,
+   "n_batches": 2,
+   "records": 20,
+   "relevant_accepted": 16,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "2 of 2 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "da40eb31028536e169bf93f2297f3d3f0cd379338c6814a97965cc946e6350fa"
+     ],
+     "cases_lost": [],
+     "cases_read": 18,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 173011,
+     "irrelevant_accepted": 3,
+     "nulled_fields": [
+      "owner_freedom_characterization",
+      "under_thirty_days"
+     ],
+     "output_tokens": 20034,
+     "records": 18,
+     "relevant_accepted": 15,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 13,
+      "partial": 5
+     },
+     "unit_id": "cycles-001-003-reread-batch-045"
+    },
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "14a981ff6f3ccbc0834e279d67777085c2ffc45044c15c67ea2aa5f4943f905d"
+     ],
+     "cases_lost": [],
+     "cases_read": 2,
+     "checker": {
+      "disagreements": [
+       {
+        "case_id": 6761639,
+        "checker_value": true,
+        "field": "relevant",
+        "reader_value": false,
+        "unit_id": "cycles-001-003-reread-batch-046"
+       },
+       {
+        "case_id": 6761639,
+        "checker_value": "favorable",
+        "field": "polarity",
+        "reader_value": null,
+        "unit_id": "cycles-001-003-reread-batch-046"
+       },
+       {
+        "case_id": 6761639,
+        "checker_value": "lodging",
+        "field": "characterization",
+        "reader_value": null,
+        "unit_id": "cycles-001-003-reread-batch-046"
+       }
+      ],
+      "sampled": true,
+      "status": "ok"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 14191,
+     "irrelevant_accepted": 1,
+     "nulled_fields": [],
+     "output_tokens": 1262,
+     "records": 2,
+     "relevant_accepted": 1,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 2,
+      "partial": 0
+     },
+     "unit_id": "cycles-001-003-reread-batch-046"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 239.1,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-045",
+     "relevant_accepted": 15
+    },
+    {
+     "batch_id": "cycles-001-003-reread-batch-046",
+     "relevant_accepted": 1
+    }
+   ]
+  },
+  "pre-1860|Pa.": {
+   "batches_attempted": 1,
+   "batches_completed": 1,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-047": [
+     "8d901c390b94cde5141d3d1fb023b62bf48f3e1fd8fa37b8371f326ce6ec1a01"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 1,
+   "cases_lost": [],
+   "cases_read": 3,
+   "checker_disagreements": [
+    {
+     "case_id": 8877300,
+     "checker_value": null,
+     "field": "polarity",
+     "reader_value": "favorable",
+     "unit_id": "cycles-001-003-reread-batch-047"
+    },
+    {
+     "case_id": 8877300,
+     "checker_value": "lodging",
+     "field": "characterization",
+     "reader_value": "license",
+     "unit_id": "cycles-001-003-reread-batch-047"
+    }
+   ],
+   "checker_sampled": [
+    "cycles-001-003-reread-batch-047"
+   ],
+   "checker_status": {
+    "cycles-001-003-reread-batch-047": "ok"
+   },
+   "checker_units": 1,
+   "era": "pre-1860",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 1,
+   "jurisdiction": "Pa.",
+   "mean_rank_score": 0.0,
+   "n_batches": 1,
+   "records": 3,
+   "relevant_accepted": 2,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "1 of 1 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "8d901c390b94cde5141d3d1fb023b62bf48f3e1fd8fa37b8371f326ce6ec1a01"
+     ],
+     "cases_lost": [],
+     "cases_read": 3,
+     "checker": {
+      "disagreements": [
+       {
+        "case_id": 8877300,
+        "checker_value": null,
+        "field": "polarity",
+        "reader_value": "favorable",
+        "unit_id": "cycles-001-003-reread-batch-047"
+       },
+       {
+        "case_id": 8877300,
+        "checker_value": "lodging",
+        "field": "characterization",
+        "reader_value": "license",
+        "unit_id": "cycles-001-003-reread-batch-047"
+       }
+      ],
+      "sampled": true,
+      "status": "ok"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 19261,
+     "irrelevant_accepted": 1,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 1853,
+     "records": 3,
+     "relevant_accepted": 2,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 2,
+      "partial": 1
+     },
+     "unit_id": "cycles-001-003-reread-batch-047"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 58.9,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-047",
+     "relevant_accepted": 2
+    }
+   ]
+  },
+  "pre-1860|Tex.": {
+   "batches_attempted": 1,
+   "batches_completed": 1,
+   "cache_keys": {
+    "cycles-001-003-reread-batch-048": [
+     "fc9867499d3771aebac97f31f030da6f3c038362c30d51ff4535c14b51f52ab4"
+    ]
+   },
+   "cap": "none",
+   "cap_batches": 1,
+   "cases_lost": [],
+   "cases_read": 3,
+   "checker_disagreements": [],
+   "checker_sampled": [],
+   "checker_status": {},
+   "checker_units": 0,
+   "era": "pre-1860",
+   "failed_units": [],
+   "failures": [],
+   "irrelevant_accepted": 1,
+   "jurisdiction": "Tex.",
+   "mean_rank_score": 0.0,
+   "n_batches": 1,
+   "records": 3,
+   "relevant_accepted": 2,
+   "screen": {
+    "state": "off"
+   },
+   "screen_pinned": [],
+   "stop": {
+    "detail": "1 of 1 batches",
+    "kind": "cell_exhausted"
+   },
+   "units": [
+    {
+     "cache_hit": false,
+     "cache_keys": [
+      "fc9867499d3771aebac97f31f030da6f3c038362c30d51ff4535c14b51f52ab4"
+     ],
+     "cases_lost": [],
+     "cases_read": 3,
+     "checker": {
+      "disagreements": [],
+      "sampled": false,
+      "status": "none"
+     },
+     "dropped_quotes": 0,
+     "error": "",
+     "failed": false,
+     "finish_reason": "tool_use",
+     "input_tokens": 32641,
+     "irrelevant_accepted": 1,
+     "nulled_fields": [
+      "under_thirty_days"
+     ],
+     "output_tokens": 3608,
+     "records": 3,
+     "relevant_accepted": 2,
+     "retried": false,
+     "status": "ok",
+     "status_counts": {
+      "extraction-invalid": 0,
+      "missing": 0,
+      "ok": 2,
+      "partial": 1
+     },
+     "unit_id": "cycles-001-003-reread-batch-048"
+    }
+   ],
+   "units_retried_after_split": 0,
+   "wall_seconds": 39.1,
+   "yield_series": [
+    {
+     "batch_id": "cycles-001-003-reread-batch-048",
+     "relevant_accepted": 2
+    }
+   ]
+  }
+ },
+ "checker_pin": "codex-cli@-:-",
+ "codebook_id": "mapper-v3",
+ "codebook_sha": "f920166813144f09d3a8a8de575eb860dbcce18a42b46b2270b4b17cc1a52752",
+ "cycle": "cycles-001-003-reread",
+ "depth_column": "0.25",
+ "effort": "low",
+ "ended_at": "2026-09-09T09:58:52",
+ "engine_version": "reader-v1",
+ "era_depth": {},
+ "flags": {
+  "case_budget": null,
+  "depth_column": "0.25",
+  "dry_run_batches": null,
+  "max_units": 53,
+  "max_wall_seconds": 86400.0,
+  "order": "cell",
+  "reread": true,
+  "sample_pct": 10,
+  "threshold": -1,
+  "window": 3
+ },
+ "max_tokens": 64000,
+ "max_units_note": "--max-units is a ceiling on READER requests, checked between batches. One read can buy the unit plus two split halves, so a run can exceed it by at most DRIVER_UNIT_HEADROOM-1 (2) requests, once, when the last batch it begins will not parse. Checker requests are counted separately as checker_units and are never capped by it.",
+ "process": {
+  "checker_units": 5,
+  "screen_pinned_units": 0,
+  "stop": "done",
+  "units": 30,
+  "wall_seconds": 3389.3
+ },
+ "provider": "claude-cli",
+ "provider_reported": [
+  "claude-cli"
+ ],
+ "read_timeout_seconds": 1500,
+ "reader_pin": "claude-cli/claude-opus-5@claude-cli:-",
+ "resume_command": ".venv\\Scripts\\python tools\\reread_records.py --max-wall-seconds 86400",
+ "run_id": "cycles-001-003-reread",
+ "sample_pct": 10,
+ "schema": "map-manifest-v1",
+ "schema_sha": "be8cb3909d96d5bf03c9f16c541e21c37100fca0c8bc6357ef64421b62b65e59",
+ "screen": {
+  "enabled": false,
+  "hits": 0,
+  "max_usd": 0.0,
+  "screened_units": 0,
+  "state": "off"
+ },
+ "started_at": "2026-09-09T09:02:23",
+ "stop": "done",
+ "store_norm_version": "v1",
+ "tool": "tools/reread_records.py",
+ "tool_version": "2.1.265 (Claude Code)",
+ "totals": {
+  "batches_attempted": 48,
+  "batches_completed": 48,
+  "cases_lost": 0,
+  "cases_read": 693,
+  "cells_exhausted": 20,
+  "cells_read": 20,
+  "cells_stopped_on_cap": 0,
+  "cells_stopped_on_yield": 0,
+  "checker_disagreements": 49,
+  "checker_sampled": 5,
+  "checker_units": 5,
+  "failed_units": 0,
+  "input_tokens": 3366609,
+  "irrelevant_accepted": 57,
+  "output_tokens": 349969,
+  "records": 693,
+  "relevant_accepted": 636,
+  "screen_pinned_units": 0,
+  "spend_usd": 0,
+  "units": 31,
+  "units_not_ok": 0,
+  "units_retried_after_split": 0,
+  "unpriced_requests": 36,
+  "wall_seconds": 3483.4
+ }
+}
