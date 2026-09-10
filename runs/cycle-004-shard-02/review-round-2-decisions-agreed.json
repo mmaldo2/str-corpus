@@ -1,0 +1,662 @@
+[
+ {
+  "case_id": 221223,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the reversal rests on the letting itself - 'a hotel keeper cannot investigate the antecedents and character of every couple that puts up at his house', so mere negligence in letting rooms is not the knowledge the crime requires; the owner's freedom to let without policing every guest is protected Astra: The reversal rejects negligence alone as a basis for punishing a hotel proprietor for guests' use of rented rooms, so favorable is correct."
+ },
+ {
+  "case_id": 321660,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: licensing of the letting itself, decided for the applicant: 'we have found no decision ... requiring that the stable of an innkeeper shall be within the curtilage of his inn' and the omission to name the stabling 'will not bar a license' Astra: The court upheld the inn license despite objections to the location and disclosure of stabling, preserving the applicant's ability to operate the inn."
+ },
+ {
+  "case_id": 851584,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: not a letting case: the court holds 'the relationship of guest ... and that of hotelkeeper ... never arose. the occupancy by plaintiff of a private room was never contemplated by the parties' - a coat left on a lobby rack by a seminar patron, decided on bailment and duty, with no compensated occupancy anywhere in it Astra: Exclude the case as irrelevant: a seminar attendee used a public coat rack and never occupied or contracted to occupy a private room; the holding concerns bailment and negligence liability."
+ },
+ {
+  "case_id": 923216,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the whole case turns on guest status - 'it must appear that such visit was for the purposes which the common law recognizes as the purposes for which inns are kept' - and confines the innkeeper's insurer liability to persons actually taking the inn's accommodations, easing the burden on keeping an inn; checker's relevant=false ignores that the holding is about the occupancy relation itself Astra: The court classified the would-be lodger as outside guest status at the relevant time and relieved the hotel proprietor of innkeeper liability, a favorable owner-side holding."
+ },
+ {
+  "case_id": 2151938,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the innkeeper's plea justifying removal stands: the guest's replication is bad because 'that may be true, and yet there may have been such a refusal as would authorize the host or his servant to remove him' - the host's control over who stays in his public house is upheld; the plaintiff prevails only on the separate excessive-force replication, which restricts force, not letting Astra: The court treated the innkeeper's gentle removal of a disruptive two-day guest as justified and found the guest's attempted reply legally insufficient, supporting favorable polarity."
+ },
+ {
+  "case_id": 3271231,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: zoning of the letting itself, upheld in the owner's favour: the amendment 'permitted hotels to be established in existing structures located within the H-4 District subject to a special permit' and survives the spot-zoning attack, so the conversion to hotel use stands Astra: The court upheld a zoning amendment that enabled conversion of existing buildings to hotel use, directly preserving the proposed lodging use."
+ },
+ {
+  "case_id": 7689988,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: 'the plaintiff has complied with all requirements of law, including the requirement that a hotel has to have bedrooms for lodgers, and is licensed by the state. he is entitled to police protection' - the injunction protects a lawful letting business against extra-legal suppression Astra: The injunction protected a licensed hotel operator from unlawful police interference with the hotel and its lodgers, making the holding favorable to owner freedom."
+ },
+ {
+  "case_id": 9063803,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the occupant's claim against the owner's control fails at the term's end: 'that expectation does not exist in the room or in any item in plain view to anyone after checkout time' and 'the guest's right to occupancy consequently has lapsed' - the owner's re-entry on his own terms is assumed lawful Astra: The majority held that the guest's protected occupancy ended when the paid nightly term expired at checkout, a favorable rule for the proprietor's control of the room."
+ },
+ {
+  "case_id": 9482850,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: the compensated occupancy here is a Knights of Columbus function hall let to a dance company for $100 a night for its business events - no dwelling, no rooms, no lodging; the lease/licence holding is doctrinally adjacent but the case does not bear on letting a dwelling or rooms, and the checker read it the same way Astra: Exclude the case as irrelevant: the paid nightly use was of a function hall for a dance business, not occupancy of a dwelling or lodging room."
+ },
+ {
+  "case_id": 10320303,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the duties a hotel owner owes those he lodges are held not to exceed the fire-escape statute - 'an innkeeper is not an insurer of the safety of his guests, and certainly the landlord of the innkeeper owes no higher duty than the innkeeper himself' - so compliance with the regulation of the letting discharges the owner Astra: The court denied the hotel guest's injury claim because the owners met the statutory fire-escape duty and owed no additional common-law duty, a favorable disposition for the owners."
+ },
+ {
+  "case_id": 2051090,
+  "field": "characterization",
+  "decision": "set",
+  "value": "lease",
+  "note": "Claude and GPT Astra agree. Claude: (adopt: the checker value, taken as the first pass's own set) the court treats the arrangement throughout as a lessor/lessee month-to-month dwelling tenancy governed by Civil Code 1942.5 ('the lessor may not recover possession of a dwelling ... cause the lessee to quit involuntarily'), so the checker's lease is the value the opinion supports and the gate's erasure was mechanical Astra: The court expressly treated the arrangement as a month-to-month residential tenancy between lessor and lessee, so lease is the supported characterization."
+ },
+ {
+  "case_id": 2192772,
+  "field": "characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the court's own words for the arrangement are leasing: 'the defendant had rented his house to lewd women as a place of prostitution' and 'persistently leasing his houses to prostitutes after being warned'; checker's null is not a value the opinion supports better than the reader's lease Astra: The court repeatedly describes the owner as renting or leasing the house to the occupants over a sustained period; lease fits that actual arrangement."
+ },
+ {
+  "case_id": 2200675,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "Claude and GPT Astra agree. Claude: not mixed - only the restricting side is a holding: 'for well-founded reasons of public policy, the innkeeper is held to the exercise of extraordinary vigilance', the notice was insufficient, and liability attached the moment the goods were infra hospitium; the acknowledged 'right to make such regulations in the management of his inn' produced nothing here, the court saying only that with a clearer notice 'it may be that the defendant would not have been responsible' Astra: The court imposed liability on the innkeeper because the posted notice did not clearly require use of the safe. Its recognition of a possible reasonable regulation is part of that rejected defense, not a separate favorable holding."
+ },
+ {
+  "case_id": 3819526,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: the dispute is a mandamus for a permit to build a block of stores, and the by-law is upheld against that; hotels, lodging and boarding houses appear only as items in the list of uses the residence district permits, so nothing about compensated occupancy is decided - the checker read it the same way Astra: Exclude the case as irrelevant: the petitioner sought permission to build stores, and the bylaw's mention of hotels, lodging houses, and boarding houses merely listed other permitted uses."
+ },
+ {
+  "case_id": 4725304,
+  "field": "characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the court's classification is a statutory tenancy at will under the emergency rent laws - expressly 'not a holdover for a year' and 'not a tenant from month to month', with section 232 held inapplicable - which fits none of lease/licence/lodging/innkeeping, so 'other' stands (checker agrees) Astra: The court classified the post-lease arrangement as a statutory tenancy at will and expressly rejected both a yearly holdover and a month-to-month tenancy, so other is correct."
+ },
+ {
+  "case_id": 5753069,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: adverse stands: the owner who had let the tenement away could not retake it herself - 'the defendant, however, had parted with all present right to the possession of the premises' - and was liable in trespass for the self-help removal; the aside that the lessee 'might have taken possession and ejected the tenant' distinguishes rather than holds. Checker's relevant=false is wrong: this is possession of a let dwelling Astra: The court sustained the tenant's trespass recovery against the owner for entering and removing the tenant's property after relinquishing the present right of possession, an adverse owner-side holding."
+ },
+ {
+  "case_id": 10040625,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Claude and GPT Astra agree. Claude: the only holding is that the 1948 sixty-day proviso does not bar a pending eviction suit, so the owner recovered his own duplex apartment for personal use; the sixty-day surrender language is construed narrowly against the tenant rather than applied as a fresh restriction, so nothing here restricts the owner's liberty to let Astra: The owner obtained possession after proving both good-faith personal use and the need for repairs, and the court held the federal sixty-day rule delayed only execution, not filing. More than nine months had already elapsed after notice, so the statutory protection was a satisfied condition and the single disposition reversing for the owner is favorable rather than mixed."
+ },
+ {
+  "case_id": 10168604,
+  "field": "relevant",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: not peripheral: the alleged breach was the lessee's use of the buildings as an apartment house and sleeping quarters open to the public, and the holding is that 'the lease contains no restrictions about who shall occupy the improvements placed thereon' - a ruling about who may occupy for hire, so the checker's relevant:false is too strict Astra: The compensated headlease expressly authorized \"sleeping quarters,\" and the court construed whether the lessee could use buildings on the leased lots for apartment purposes and allow others to occupy them. The actual judgment rejects forfeiture because the lease did not restrict who could occupy the improvements and the lessor ratified the use, so compensated dwelling occupancy is part of the holding and relevant=true is supported."
+ },
+ {
+  "case_id": 10217422,
+  "field": "relevant",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the holding is that a landlord letting an apartment house to several tenants while retaining the common stairway owes them a duty of reasonable repair - a habitability duty imposed on the letting itself, which the codebook treats as in scope (relevant, adverse in polarity), not a passing mention of a rented apartment Astra: The court reverses a directed verdict by applying the landlord's repair duty to an actual tenant injured on stairs serving leased apartments. Its holding that a landlord retaining common-area control is liable for defects directly adjudicates a substantive remedy and duty arising from compensated residential occupancy, so relevant=true is correct."
+ },
+ {
+  "case_id": 10242919,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "Claude and GPT Astra agree. Claude: the lessor-owner sued to cancel the leases whose consideration was his own room, board and washing, and the court held those obligations were covenants and not conditions, so their breach gave no right of forfeiture; the occupant keeps possession and the owner cannot end the arrangement - a pro-occupant outcome, not a recognition of the owner's liberty to let Astra: Waldrop owned and leased the house and land in exchange for noncash rent consisting of room, board, washing, and living with Darnell. The court held those promises were covenants rather than forfeiture conditions, denied the owner-lessor's cancellation remedy, and on rehearing remanded for proceedings under the correct theory; that limitation on enforcing the owner's letting terms is adverse."
+ },
+ {
+  "case_id": 325765,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Claude and GPT Astra agree. Claude: the holding vacates the revocation: absent fraud on the licensing body or a statutory cause, a granted inn licence may not be revoked at a later session, so the innkeeper's operation is protected; 'a license is in no sense a contract' is a concession opened with 'I am aware that', a remark rather than the restricting holding mixed would require Astra: The court protected the innkeeper from an unauthorized revocation and ordered that \"The action of the common council in revoking the license is vacated, with costs.\" Its observation that legislation may alter a license describes the regulatory background, not a contrary holding in this case, so favorable is correct."
+ },
+ {
+  "case_id": 470645,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Claude and GPT Astra agree. Claude: the holding characterizes the Temporary Licensing Agreement as 'no more than a lease with a possible right to prospective purchase', with all payments 'conclusively deemed to be an occupancy charge' - the owner's letting on its own terms is upheld and does not ripen into a sale; there is no restricting holding, so mixed does not fit Astra: The court rejected the occupants' claimed purchase right, classified the agreement as \"no more than a lease with a possible right to prospective purchase,\" and affirmed dismissal of their bill. That single result preserves the owner's title and defeats the asserted occupant remedy, so polarity is favorable rather than mixed."
+ },
+ {
+  "case_id": 684551,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Claude and GPT Astra agree. Claude: the reporter's headnote says the landlord was 'bound to furnish an adequate supply of heat', but the opinion says 'we may assume for the purposes of this appeal' that he was - an assumption arguendo, not a holding; the holding is that the deprivation must continue at the time of abandonment, so the eviction defence failed and the landlord recovered the rent Astra: The court only assumed for purposes of the appeal that an implied heat covenant existed, then held any deprivation had ended before abandonment and that \"the defense of eviction was not established.\" Because the adverse duty was assumed rather than independently decided while the landlord's rent judgment was affirmed, the actual disposition is favorable rather than mixed."
+ },
+ {
+  "case_id": 797166,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Claude and GPT Astra agree. Claude: the holding narrows owner liability - 'only after the inspector has decided it, and has given notice in writing specifying what additional ways of egress or means of escape from fire are necessary, and the owner... has neglected or refused to comply' is the act violated - and judgments for the hotel owners were affirmed; the act's coverage of lodging and boarding houses is stated as an assumption, not as a restriction this court imposes Astra: The fire-escape statute established a regulatory duty, but the court held that liability arises \"only after the inspector has decided it, and has given notice in writing\" and the owner then refuses to comply. Because no inspector had specified the required means of escape, the hotel owners defeated the damages action; the statutory baseline and unmet condition yield one favorable disposition rather than mixed."
+ },
+ {
+  "case_id": 819488,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: genuinely mixed: retroactive RPL 235-f(2) makes the owner's lease clause limiting occupancy to the named tenant and immediate family 'unenforceable as against public policy', while 235-f(6) denies the remaining occupant any right to continued occupancy once the tenant vacated - both holdings, and together they produce the judgment of possession Astra: The court held the family-only occupancy restriction \"unenforceable as against public policy,\" an adverse limit on the landlord's lease terms, but also held that the tenant's departure denied the remaining occupant continued possession without the landlord's written permission and entered judgment for the landlord. Both holdings independently control the occupancy dispute, so mixed is correct."
+ },
+ {
+  "case_id": 948116,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "Claude and GPT Astra agree. Claude: the landlords refused to sign a lease permitting subletting, yet the court holds the statutory tenant's oral lease carries the incident right to sublet, so the subtenant 'cannot be a squatter', and the owner's removal proceeding is dismissed; the letting freedom vindicated is the tenant's, not the owner's, which under the codebook is a pro-occupant, adverse outcome Astra: The court held that an oral lease contained no restriction on subletting, that the statutory tenant could authorize the compensated subtenant's occupancy, and that the subtenant \"cannot be a squatter for he enters with legal authority.\" It dismissed the owner's possession proceeding; possible removal on a different theory was left undecided, so the only actual letting disposition is adverse."
+ },
+ {
+  "case_id": 1267152,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: genuinely mixed: 'in Hohfeldian terms, she had a bare license to occupy the apartment upon the landlord's sufferance, and that is not enough' (no right of possession - the owner's freedom recognized), yet 'the padlocking of the door was a sufficiently forcible detainer' and treble damages follow - both are express holdings on the three issues the judge framed Astra: The court denied restoration because the housekeeper's derivative right ended with the tenant's death and \"she had a bare license to occupy the apartment upon the landlord's sufferance,\" a favorable classification. It separately held the padlocking was a wrongful forcible detainer and awarded treble damages against the landlord, an adverse self-help remedy, so mixed is correct."
+ },
+ {
+  "case_id": 1280217,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "Claude and GPT Astra agree. Claude: judged from the property owner's side the holding restricts him: having sold the building and begun demolishing it under an ex parte injunction, he is met with the rule that the tenant in possession 'was entitled to hold that possession undisturbed until he was deprived of it by a final judgment', and the injunction is prohibited - a tenant-protective outcome against the owner Astra: The court held that the hotel operator under a verbal lease \"was entitled to hold that possession undisturbed until lie was deprived of it by a final judgment\" and prohibited further execution of the owner's ex parte demolition injunction. No favorable letting holding was applied for the owner; the contrary view appears only in dissent, so the majority's disposition is adverse rather than mixed."
+ },
+ {
+  "case_id": 1393371,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: genuinely mixed: 'the personal identity of an apartment occupant obviously has no relationship to public health, safety or general welfare', so a board may not condition a residential special exception on owner-occupancy; but because the 1966 condition was never appealed, 'zoning runs with the land' and it binds the Carvers - both holdings, and both appear in the order Astra: The court protected the apartment owners by holding that \"a board may not attach a condition to a special exception which essentially serves a non-zoning purpose\" and that the exception had not automatically lapsed. It also held the unappealed owner-occupancy condition continued to bind successors and denied an unconditional three-unit exception. Those independent favorable and adverse zoning holdings support mixed."
+ },
+ {
+  "case_id": 1470217,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: genuinely mixed: the day-to-day tenancy and the one-day notices are upheld and 'the landlord may unilaterally increase the rent for the holdover period', but because these holdover tenants dissented the owner may recover only reasonable value, and the $1,375 judgment for the increased rate is vacated - both are dispositive holdings Astra: The court upheld the owner's one-day termination and the day-to-day tenancy classification, but vacated the increased-rent award because the tenants dissented and \"appellees offered no evidence of damages for delay.\" The owner therefore prevailed on possession and notice while losing the independent claim to enforce the new rental term, so mixed is correct."
+ },
+ {
+  "case_id": 1553671,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Claude and GPT Astra agree. Claude: the ratio is that the certificate-of-occupancy statutes create no cause of action, so a tenant cannot recover rent 'he had voluntarily paid to the landlord, even though the rent had accrued during a period of statutory violation'; the sentence that the statutes bar the owner from suing for rent is settled background, not what this case decided, so mixed overstates it Astra: The only action was the tenant's attempt to recover rent already paid voluntarily, and the court held \"neither statute authorizes this action by the tenant\" before affirming judgment for the landlord. The statutory bar on an owner's recovery of unpaid rent explained the tenant's theory but was not an independent claim or contrary disposition here, so the actual result is favorable rather than mixed."
+ },
+ {
+  "case_id": 1695834,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "Claude and GPT Astra agree. Claude: the holdings restrict the landlord - he must keep in repair the pipes used in common by the several flats, and re-letting on the defaulting tenant's account he owed due diligence and could reject the actress 'only for sufficient reason'; the line that acting for himself 'he could rightfully discriminate without any reason' is an express counterfactual, a remark rather than a holding, so mixed does not hold Astra: This landlord was re-letting for the former tenant's account, and the court held he \"was bound to use due diligence in renting and collecting rents\" and lacked sufficient reason to reject the proposed tenant. The statement about a landlord acting for himself was only a hypothetical contrast to the rejected instruction, not a separate applied holding, so the actual disposition is adverse."
+ },
+ {
+  "case_id": 1796750,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: an indictment for keeping a disorderly tippling house plus a hearsay ruling: the charge is procuring persons of ill fame to frequent the house at unseasonable hours to the common nuisance, with no letting of rooms, no lodging and no rent anywhere in the record, so it does not bear on compensated occupancy of another's dwelling (checker agrees); Yeates J.'s 'exclusive right of governing his own house' line is attractive but is not a right-to-let holding Astra: Exclude the case as irrelevant: the prosecution concerned a disorderly tippling house and the evidentiary holding that \"the evidence amounted to no more than the general reputation of a disorderly house.\" The opinion never establishes paid lodging or any compensated dwelling occupancy; the quoted right to govern one's house appears only in a separate judge's discussion of nuisance law."
+ },
+ {
+  "case_id": 5599700,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "Claude and GPT Astra agree. Claude: (adopt: the checker value, taken as the first pass's own set) The only merits ruling on letting is against the owner: the tenants' injunction preserving heat, hot water, elevator and electrical services is granted against the lease's own terms, and the court endorses that 'the landlord shall not be entitled to sue for rent without such a certificate of occupancy and multiple dwelling registration'; the rent condition is an interim equitable condition on a preliminary injunction with the merits expressly deferred, so it is not a contrary holding and the record is not mixed. Astra: The only substantive interim holding expanded tenant protection by ordering the owner not to discontinue electrical services; the court said rent-recovery entitlement \"is not directly before us\", so the status-quo payments imposed only as an equitable injunction condition do not establish a contrary letting holding."
+ },
+ {
+  "case_id": 5754495,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Claude and GPT Astra agree. Claude: The checker's relevant:false is wrong - this is a substantive rental remedy: the appeal affirms the owner's award of past-due rent/use and occupancy, since 'the plaintiff resided at the premises in question and did not pay rent during the ten months following the summary process action' and 'we fail to see how the disposition of the defendant's summary process action bars success on his counterclaim'; the smoke-detector excuse belonged to the separate summary process case and is not a holding here, so favorable rather than mixed. Astra: The appeal concerned \"this action only\", not the separate unappealed summary-process judgment that had excused earlier rent; the court affirmed the owner's \"$8000 in past due rent\" award and rejected the tenant's effort to use that other judgment as a bar."
+ },
+ {
+  "case_id": 8332881,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "Claude and GPT Astra agree. Claude: (adopt: the checker value, taken as the first pass's own set) The letting holding is against the owner: 'We cannot expand the language in section 92.0081(b) to allow a landlord to prevent a tenant from entering the leased property', and the lease's own 'abandonment' clause cannot enlarge the statutory lockout exceptions; the landlords' only win is the reversal of the fee award for want of evidence of reasonableness, a ground unrelated to letting, which under the mixed rule does not make the case mixed. Astra: The letting holding was adverse: the owners \"violated section 92.0081(b) of the Texas Property Code\" by locking out fully paid tenants, and the lease's abandonment clause could not enlarge the statutory exceptions; vacating unsupported attorney fees was a collateral evidentiary ruling."
+ },
+ {
+  "case_id": 8824597,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "Claude and GPT Astra agree. Claude: Adopt is unavailable (the checker left polarity null). The owner loses his summary remedy: 'the justice could not assume that the relation of landlord and tenant subsisted between the defendants and the plaintiff; and, if it did not, there was no foundation for the proceeding', Ingraham conceding 'great hardship in a landlord being compelled to resort to an action'; Brady's lodger discussion is a dissent, so there is no second holding and the record is adverse, not mixed. Astra: The only letting disposition restricted the owner: because the occupants entered under a hostile ownership claim, \"there was, therefore, no relation of landlord and tenant\" supporting summary recovery, leaving the owner to an ejectment action."
+ },
+ {
+  "case_id": 11496253,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Claude and GPT Astra agree. Claude: (adopt: the checker value, taken as the first pass's own set) One holding, for the owner: 'Accordingly, the trial court's judgment for the Landlord is affirmed' on both possession and use and occupancy after a proper thirty-day notice, the waiver argument rejected; the 'judicial thumb on the scale ... in favor of the tenant' remark accompanies a stay question the court expressly declines to decide ('The question of a stay is now moot'), so it is a remark in passing, not the second holding mixed requires. Astra: The owner received possession and three months' rent, and \"the trial court's judgment for the landlord is affirmed\"; the statutory tenant-stay discussion produced no contrary holding because the court expressly found that issue moot."
+ },
+ {
+  "case_id": 41322,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: Relevance stands - the bill sought to restrain a dwellings-only covenant against an owner who 'is using her dwelling as an inn' - but the opinion is wholly silent on how long any guest stayed; it turns on whether the covenant was 'taken for the benefit of the owner of the seven acres', with no fact about the length of any occupancy, so the field stays empty. Astra: The court says only that the defendant was using her dwelling as an inn; it gives no actual guest stay or agreed occupancy term, so the erased duration field remains silent."
+ },
+ {
+  "case_id": 133691,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The court never frames the owner's liberty to let; it decides an omitted term in a conveyance, holding that 'the right to a renewal of the lease with the covenant for support from year to year during her life and at her sole option' was an essential part of the agreement whose omission 'was a fatal defect'. That is contract and mistake reasoning about a boarding-house lease, not a characterization of the freedom to let, so the field stays empty. Astra: The court rescinded the deed and boarding-house lease because the drafting omitted the grantor's agreed sole option to renew yearly with support for life; it rejected the asserted breach-and-defeasance theory and offered no judicial framing of an owner's freedom to let."
+ },
+ {
+  "case_id": 148859,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: Relevance holds under the settled rule that classifying an occupant's legal interest counts even in another proceeding - the court holds 'the mere occupancy of a rented room and boarding does not constitute a person a householder' - but a jury-qualification ruling says nothing at all about an owner's liberty to let, so the field stays empty rather than taking a value. Astra: The court classified the murder-trial juror's actual occupancy as that of a boarder or lodger rather than a householder, but gave no judicial framing of an owner's freedom to let."
+ },
+ {
+  "case_id": 156061,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The opinion characterizes the guest's interest, not the keeper's freedom: the assigned room 'becomes his residence and place of abode for the time being. In it he has a qualified property, even as against the proprietor.' No judicial framing of the owner's liberty to let appears anywhere, so the field stays empty. Astra: The court treated a hotel guest's room as a private residence with qualified property rights against the proprietor, but did not characterize either side's claim in terms of an owner's freedom to let."
+ },
+ {
+  "case_id": 156755,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "Claude and GPT Astra agree. Claude: (adopt: the checker value, taken as the first pass's own set) The holdover petition is dismissed against the owner: the statute's purpose is 'to protect tenants and occupants, not landlords', it created no 'affirmative right of action for landlords to enforce occupancy limitations', and the lease clause is read to permit more than one roommate because it 'provides for \u201coccupants,\u201d not \u201can occupant\u201d'. The dictum that an express reasonable limit would be enforceable is not a holding here, so adverse. Astra: The court dismissed the owner's holdover claim because the lease allowed occupants plural \"in accordance with\" Real Property Law \u00a7 235-f and therefore did not expressly limit the tenant to one roommate; enforcing that statutory and contractual reading restricted recovery of possession, although the court recognized that a reasonable express limit could be enforceable."
+ },
+ {
+  "case_id": 195964,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: Relevance survives the checker's doubt because the tenant recovers '$10 ... as the value of that portion of the term of her lease of which she was deprived' after the manager 'wrongfully entered upon the leased premises' - a substantive wrongful-ejection remedy - but the opinion is conversion and punitive-damages doctrine throughout and never frames the owner's freedom to let, so the field stays empty. Astra: The court imposed liability for ejecting a tenant before the agreed term and converting her furniture, but it did not judicially frame that result as a restriction on the owner's freedom to let."
+ },
+ {
+  "case_id": 245325,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The holding is evidentiary in a possession proceeding - 'the defendant may show that he went into possession under another, who has a bona fide claim of title, and need not show that this title is actual, valid, and unimpeached' - and nothing in the per curiam affirmance by a divided court frames the owner's liberty to let, so the field stays empty. Astra: The court affirmed that an occupant could defeat summary possession by showing entry under another person's bona fide title claim, but did not frame that protection as a restriction on the owner's freedom to let."
+ },
+ {
+  "case_id": 268382,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: Relevance is sound - the court classifies an informal letting, holding 'the lease need not be in writing and the rent need not be paid in money; it may be paid in the equivalent of money, labor or other services' - but the opinion is about the pauper-lessee's settlement and the scope of appellate review, and never frames the owner's liberty to let, so the field stays empty. Astra: The court held that an informal lease paid partly in labor and services could establish a poor-law settlement, but did not characterize the result as either owner liberty or a restriction on ownership."
+ },
+ {
+  "case_id": 335750,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The court construes a repair covenant, holding the landlord 'does not by his contract guaranty that the premises will never in fact be out of repair' and owes only reasonable diligence in inspection. That is the measure of a contractual duty, not a framing of the owner's liberty to let, so the field stays empty. Astra: The court limited the landlords' express repair promise to reasonable inspection and prompt repair rather than a guaranty against every defect, but did not frame that contract construction as freedom incident to ownership."
+ },
+ {
+  "case_id": 337776,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: Exclude the case as irrelevant: the licence set aside is for drink and refreshment, not lodging - the defendant applied 'for a license to keep a restaurant and saloon, including the sale of malt liquors', under a charter power over 'beer or oyster saloons, rooms, houses or other places of refreshment'. No room or dwelling is let to anyone for pay; that the saloon was to be 'in the house where he dwelt' is only its address, and the ordinance the court enforces is a three weeks' advertising condition aimed at tippling and disorderly houses. Astra: Exclude the case as irrelevant: the court upheld a published-notice prerequisite for a restaurant and malt-liquor saloon license in the applicant's own house; it decided no issue about compensated residential or room occupancy."
+ },
+ {
+  "case_id": 340330,
+  "field": "polarity",
+  "decision": "set",
+  "value": "mixed",
+  "note": "Claude and GPT Astra agree. Claude: Relevance holds under the settled rule that an actual commercial trailer park counts. Two contrary holdings, both dispositive: the owner's new lease terms are upheld as reasonable, yet on the cross-appeal the court holds the trial judge 'did not exceed its authority in requiring the landlord to offer plaintiffs who convert within an extended time period a rent abatement' and that 'the trial court could not have granted a judgment of possession to the landlord because of the tenants' failure to sign the lease'. Freedom to set terms recognized on one point, restricted on another. Astra: The court upheld the owner's fuel-conversion and tie-down lease terms and placed their costs on tenants, while independently preserving the $250 rent rebate and extended compliance period and rejecting the owner's immediate-possession cross-appeal."
+ },
+ {
+  "case_id": 361058,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The decision is jurisdictional: 'A lease for \u201ca few days\u201d is extremely indefinite as to time ... The affidavit being defective, the justice had no jurisdiction.' The court says nothing about whether letting part of one's house is an incident of ownership or a regulable privilege, so the field stays empty. Astra: The court set aside summary removal because the owner's affidavit left the short lease term and theory of removal indefinite, but gave no judicial framing of the owner's freedom to let."
+ },
+ {
+  "case_id": 370668,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The opinion classifies the cooperator's hybrid status - 'The relationship is not one of landlord-tenant, and the court has no jurisdiction to hear plaintiff's summary dispossess action' - and frames nothing about an owner's liberty to let; the reasoning is about the reach of a statutory summary remedy, so the field stays empty. Astra: The court classified a cooperative shareholder's occupancy as a unique ownership interest rather than a landlord-tenant relationship for summary-dispossess jurisdiction, but did not frame the cooperative's liberty to let property."
+ },
+ {
+  "case_id": 405956,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The court construes the settlement statute in the pauper's favour ('this is the reasonable construction of an act, always interpreted liberally, in favor of that unfortunate class') and treats the monthly room lettings only as evidence of tenancy; no framing of the lessors' freedom to let appears, so the field stays empty. Astra: The court recognized successive monthly room leases as qualifying residence for a poor-law settlement, but did not characterize the householders' ability to let as an incident of ownership or a regulable privilege."
+ },
+ {
+  "case_id": 406374,
+  "field": "restriction_nature",
+  "decision": "set",
+  "value": "other",
+  "note": "Claude and GPT Astra agree. Claude: Relevance holds - the owner claimed a year's rent out of an execution sale for compensated occupancy of her dwelling - and the restriction the court imposes is squarely stated: the statutory lien is 'co-extensive with his right of distress', and 'to entitle a landlord to distrain, a certain rent must be reserved and made payable at a certain time', so with 'no fixed price or rent ... ever agreed upon' she had no lien and only a claim for use and occupation. That is a technical limit on the owner's remedy, not licensing, zoning, nuisance, tenant protection or tax, so 'other'. Astra: The adverse restriction was a limit on the owner's statutory distress and execution-sale lien: compensation for use and occupation without a certain agreed rent did not qualify for the landlord's priority."
+ },
+ {
+  "case_id": 411332,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The opinion is entirely about the four jurisdictional requisites of the 1847 supplement - the oath must state as a fact, not a belief, that 'satisfaction for such rent could not be obtained by distress', and the three days' written demand must be proved - and never says how long the premises were held or on what term, so the field stays empty. Astra: The three-day period concerned the written demand required before summary removal, not the duration of the tenant's actual stay or agreed occupancy term, which the opinion never states."
+ },
+ {
+  "case_id": 439438,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the opinion decides only whether the jurisdictional affidavit sufficed and whether the tenants had earned the extended term; it never frames the owner's liberty to let, so the field stays empty Astra: The court enforced the lease expiration and reviewed only whether evidence supported the summary dispossession; it did not characterize the owner's freedom to let as an ownership incident, regulable privilege, or commercial use."
+ },
+ {
+  "case_id": 444588,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: Com. v. Young upholds a money-lender licensing act; statutes 'governing lodging houses' appear only as a familiar illustration of police-power classification, so the case does not bear on compensated occupancy at all Astra: Exclude the case as irrelevant: the court upheld a statute licensing money lenders; its single reference to statutes governing lodging houses was only an analogy illustrating permissible business classifications."
+ },
+ {
+  "case_id": 446564,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the holding is that a tenant claiming constructive eviction must vacate before contesting rent; nothing in the opinion frames the owner's liberty to let Astra: The court held that a tenant remaining in possession could not invoke constructive eviction as a rent defense, but it did not frame the owner's liberty to let in any of the owner-freedom categories."
+ },
+ {
+  "case_id": 497743,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the arson holding fixes whose dwelling-house the burned building was ('constructively his dwelling-house, by the express terms of the statute'); the court never speaks to the owner's liberty to let Astra: The arson court treated the tenant-lodger's part of the owner-occupied building as his dwelling, but expressly said ownership was immaterial to the offense and did not frame any liberty to let."
+ },
+ {
+  "case_id": 523650,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the court decides only that a temporary overflow does not dissolve a year's lease of a dwelling; it says nothing about how the owner's liberty to let is framed Astra: The court applied lease-dissolution and rent rules to a year-long dwelling lease after a temporary flood; it did not characterize the owner's freedom to let as an ownership incident, regulable privilege, or commercial use."
+ },
+ {
+  "case_id": 737032,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the dispute is over what 'fitting up the premises' covers under the abridgment clause of a lease taken for a boarding house; the court says nothing about the owner's liberty to let Astra: The court interpreted the compensation clause triggered by the lessors' reserved contractual power to shorten the lease; it did not characterize letting liberty as an incident of ownership, a regulated privilege, or a commercial use."
+ },
+ {
+  "case_id": 904504,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: the holding is that 'landlady' can only mean a woman and the legacy therefore lapsed; the rooming relation serves only to identify the intended legatee and no incident of the letting is adjudicated Astra: Exclude the case as irrelevant: the court only construed 'landlady' in a bequest to identify the intended female legatee and held that the gift lapsed; the room relationship was incidental identity evidence, not a classification of occupancy or a substantive letting issue."
+ },
+ {
+  "case_id": 954340,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "Claude and GPT Astra agree. Claude: the plaintiff was 'a monthly tenant of an apartment consisting of three rooms and bath' and was served a thirty-day notice, so the occupancy at issue was not under thirty days Astra: The tenant occupied the apartment from before July 1947 until October 1948, and the owners then occupied the recovered space for seven months before renting one furnished bedroom; the compensated occupancy at issue was not under thirty days."
+ },
+ {
+  "case_id": 1013224,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the court refuses rescission because no incapacity, fraud or breach was shown; the board-and-lodging agreement is sustained as consideration, but the owner's liberty to let is never framed Astra: The court upheld the noncash lifetime support agreement under which the grantee would board, lodge, and clothe the grantor, but did not characterize an owner's freedom to let in the codebook's terms."
+ },
+ {
+  "case_id": 1026157,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the holding is that a lessor 'cannot recover both the possession and the rent for the balance of the term'; nothing frames the owner's liberty to let Astra: The court barred the apartment lessor from both terminating the lease through ejectment and recovering accelerated future rent, but did not characterize the owner's freedom to let in the codebook's terms."
+ },
+ {
+  "case_id": 1091870,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "Claude and GPT Astra agree. Claude: the occupancy at issue is a three-year lease of three upper stories at a monthly rent, continued as a statutory tenancy, and the sublease ran two years, so it was not under thirty days Astra: The third-party subtenant's paid possession of two floors for lodging-house purposes was directly at issue: she had occupied them for almost forty years, including under a two-year sublease followed by a statutory tenancy, so the adjudicated arrangement was not under thirty days."
+ },
+ {
+  "case_id": 1274078,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the memorandum holds the certificate-of-occupancy ordinance an unreasonable exercise of the police power and recites no facts whatever about the length of any tenancy or occupancy Astra: The court invalidated an ordinance requiring a new certificate of occupancy before each new tenancy or occupancy of a dwelling unit, but the memorandum gave no actual or agreed duration for any occupant's stay."
+ },
+ {
+  "case_id": 1321548,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the opinion says only that Trakas 'rented a room' in the tenement building; no term or length of stay appears anywhere, so the field stays empty Astra: The injured plaintiff rented a room in a tenement building, but the opinion stated neither the agreed term nor how long she had occupied it; the preexisting stair crack supplies no occupancy duration."
+ },
+ {
+  "case_id": 1428770,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the holding concerns retroactive zoning against a trailer park still under construction; no trailer occupancy, let alone its length, is described in the opinion Astra: The court protected an already substantially developed commercial trailer park from a retroactive zoning ban, but the opinion gave no agreed or actual duration for any trailer occupant's stay."
+ },
+ {
+  "case_id": 1487852,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the padlock order rests on liquor found on the premises; the opinion describes a hostelry 'wherein rooms were furnished and meals were served to the general public' but no guest's length of stay Astra: The court padlocked the entire hotel, including the rooms furnished to the public, but stated no guest's agreed or actual stay; the operator's one-year commercial lease of the hostelry does not establish a lodging guest's dwelling duration."
+ },
+ {
+  "case_id": 1621698,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: the holding is that no landlord-tenant relation arises between vendor and vendee so no use and occupation lies; the owner's liberty to let is not framed Astra: The court classified the minor occupants as vendees rather than tenants and rejected the vendor's claim for rental value after disaffirmance, but did not characterize an owner's freedom to let in the codebook's terms."
+ },
+ {
+  "case_id": 1688595,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: recovery rests on the prior judgment having settled the landlord-tenant relation; the opinion never frames the owner's liberty to let Astra: The court enforced rent and deficiency damages because a prior judgment precluded the occupant from denying the landlord-tenant relation, but it did not frame the owners' freedom to let in the codebook's terms."
+ },
+ {
+  "case_id": 1978387,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: Exclude the case as irrelevant: the premises are a store, not a dwelling or rooms let for occupancy. The whole holding is that a landlord's leave to a store tenant to 'remain in the store a while longer, so that he might sell off his old goods' after notice to quit is no waiver of the notice, making him 'either a tenant at sufferance, or it was a demise for a term'; nothing in the opinion bears on compensated occupancy of another's dwelling. Astra: Exclude the case as irrelevant: the court held that a store tenant's sixteen-day holdover for selling goods did not waive the landlord's prior notice to quit; the occupancy was commercial retail space, not a dwelling or lodging room."
+ },
+ {
+  "case_id": 2065580,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "Claude and GPT Astra agree. Claude: The opinion dates the actual furnished-apartment tenancy: the keeper 'furnished gas and electricity to him from february 16, 1920, to march 31, 1920' and 'the apartment was vacated hy tucker on march 31, 1920' - roughly six weeks of occupancy, so the stay at issue was not under thirty days. Astra: Set no because the furnished-apartment tenant's actual rental ran from February 16 through March 31, a period exceeding thirty days."
+ },
+ {
+  "case_id": 2246122,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The court classifies the lodger's interest, not the householder's liberty: 'Garcia rented the room of Mrs. Chapelle, and although she was lessee of the whole house, the room was his for the time being.' There is no framing of letting as an incident of ownership or as a regulable privilege, so the field stays empty. Astra: Keep null because the court held for burglary-pleading purposes that a room rented to a lodger was his for the time being, but it did not frame the resident householder's liberty to rent that room as an incident of ownership, a regulable privilege, or a commercial use."
+ },
+ {
+  "case_id": 2372835,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: Exclude the case as irrelevant: the holding is a criminal-pleading one - a burglarized school dormitory room 'was evidently the living place of the occupants' and so a 'private residence,' making burglary of it a distinct offence whose ownership should have been laid in the occupant. The opinion records no rent, board or any compensated occupancy at all, only students housed in a school dormitory, so there is no letting for the corpus to read. Astra: Exclude the case as irrelevant: the court classified a school dormitory room as a private residence for burglary purposes and remanded because the indictment charged the wrong burglary offense; no compensated occupancy or letting regulation was involved."
+ },
+ {
+  "case_id": 3022544,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The opinion turns on the tax line between real-estate and business corporations - a corporation that 'rents a furnished unit in such apartment house to a tenant on april 15,1951 ... becomes subject to tax under article 9-A' - and never states how long any tenant occupied. Silent on the field. Astra: Keep null because the tax commission reclassified corporations that rented furnished apartment units, but the opinion gives no actual or agreed tenant stay; the April 15 date in the regulation's example marks when one unit was rented, not its duration."
+ },
+ {
+  "case_id": 3818241,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: Exclude the case as irrelevant: this is generic multifamily construction with no compensated-use evidence. The petitioners sought permits 'to build ... a dwelling house designed for two families' and the by-law amendment allowed only 'A detached one-family dwelling'; the opinion is about the police power, vested rights and 'existing structures' and never mentions letting, lodgers, boarders or rent. Astra: Exclude the case as irrelevant: the court upheld a single-family zoning district and revocation of permits for proposed two-family houses, but the project was generic residential construction with no evidence of compensated occupancy."
+ },
+ {
+  "case_id": 4335851,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: Exclude the case as irrelevant: no compensated occupancy of a dwelling is involved. The buyers never lived there - they 'were to live with his parents until roberts completed the house' - and only 'requested of mr. roberts permission to place their five rooms of furniture in the garage part of the new house then under construction' for no consideration. The tenant-at-will label is used instrumentally to fix a tort duty for water damage to furniture. Astra: Exclude the case as irrelevant: the court treated home buyers who stored furniture in an unfinished house before conveyance as tenants at will for purposes of a negligence claim against a plumbing subcontractor; the case concerned furniture damage during a purchase, not compensated dwelling occupancy."
+ },
+ {
+  "case_id": 4386153,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: Exclude the case as irrelevant: the dispute is over a 21-foot driveway strip, not any letting - plaintiff 'seeks a declaration that it may use it as a driveway to provide ingress and egress for two lots it owns immediately outside the riviera tract,' and the court finds the covenanting parties meant 'to prevent the very type of activity which plaintiff seeks to accomplish.' The words 'hotels and public boarding or lodging houses' appear only inside the quoted 1925 covenant text and are not what the court decided. Astra: Exclude the case as irrelevant: the court enforced subdivision covenants against using restricted land as a driveway to serve outside parcels; hotels and public boarding or lodging houses appeared only in the covenant's list of prohibited buildings, and no compensated dwelling occupancy was proposed or adjudicated."
+ },
+ {
+  "case_id": 4868088,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The court characterizes the arrangement rather than the owner's liberty: it distinguishes a case where the owner 'agreed to board the defendant's testator and his family for an indefinite period' from one where the provider 'leased a house for a specific time for the purpose of furnishing ... board at an agreed price per week.' No framing of letting as an incident of ownership or a regulable privilege, so the field stays empty. Astra: Keep null because the dispute involved a compensated summer boarding arrangement giving a family exclusive use of a cottage from June through November, but the court addressed evidence and contract duration rather than characterizing an owner's liberty to let."
+ },
+ {
+  "case_id": 4885733,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: Exclude the case as irrelevant: the holding is about municipal power and double punishment, not letting - 'The municipalities of the city of new orleans have the power of enacting ordinances to prevent nuisances,' and the ordinance's offences 'are pot identical with those punishable under the statute' of 1818. The words 'disorderly inn, tavern, ale house' appear only in describing that state statute; the conviction was for keeping a disorderly house on Gallatin Street, with no rent, room-letting or lodger occupancy anywhere in the opinion. Astra: Exclude the case as irrelevant: the court upheld a municipal fine for keeping a disorderly house and distinguished a state statute covering disorderly inns, taverns, gaming houses, and brothels; the actual nuisance holding did not concern compensated occupancy."
+ },
+ {
+  "case_id": 5433111,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The ordinance conditions reletting on inspection and 'is a valid exercise of the city's police power,' but the opinion never describes any tenancy or its length. The only period stated - inspections within 'two business days after notice of a vacancy' - is a code deadline, not an occupancy. Silent on the field. Astra: Keep null because the court upheld a rental-permit inspection ordinance for dwelling units, but it states no occupant stay or agreed rental term. The two-business-day inspection deadline after vacancy is not an occupancy duration."
+ },
+ {
+  "case_id": 5502996,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: A criminal habitation holding with no word about the motel keeper's liberty to let: 'a hotel or motel room that is being used for purposes of habitation, regardless of the duration of the habitation, is an inhabited dwelling for purposes of first degree robbery and burglary.' No judicial framing of owner freedom, so the field stays empty. Astra: Keep null because the court classified a motel room rented for one night as an inhabited dwelling for burglary and robbery purposes, but it did not characterize the motel owner's liberty to let rooms as an ownership incident, regulable privilege, or commercial use."
+ },
+ {
+  "case_id": 5593821,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The court decides only that the rent-concession covenant bound the purchaser with notice, so the tenant 'cannot secure reimbursement from the defendant, who assigned the property and fully protected plaintiff by notice to the purchaser of the terms of her tenancy.' Nothing frames the owner's liberty to let; the field stays empty. Astra: Keep null because the court enforced against a successor landlord an apartment lease term granting the tenant half a month's free occupancy after six months, but it did not characterize the owner's general liberty to let."
+ },
+ {
+  "case_id": 6035124,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "Claude and GPT Astra agree. Claude: The tenancy at issue ran for years, not days: 'In 1976 appellant leased an apartment to respondents' and 'after the expiration of the one-year period, the lessees remained in possession,' with the notice to quit served in April 1980. The 30-day notice is a statutory notice period, not the occupancy, so under_thirty_days is no. Astra: Set no because the tenants entered a one-year apartment lease in 1976 and remained in possession after that term until the 1980 retaliatory-eviction dispute, so the actual compensated occupancy exceeded thirty days."
+ },
+ {
+  "case_id": 6055696,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "Claude and GPT Astra agree. Claude: The occupancy adjudicated is a twenty-year residence: 'on september 3, 1995, javier and barbara lara began renting the apartment' and the occupant 'has continuously lived in the unit,' the court holding vacancy decontrol unavailable 'until all lawful occupants residing in a dwelling at the start of the tenancy vacate the premises.' Plainly not under thirty days. Astra: Set no because the family began renting and occupying the apartment in September 1995, and the son continuously remained there through the 2011 rent-control dispute, so the actual compensated occupancy exceeded thirty days."
+ },
+ {
+  "case_id": 6057168,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The Appellate Division adopts the lower court's reasoning without stating any, holding only that 'the appellants improperly attempted to cancel the plaintiffs' proprietary leases ... on the ground that the plaintiffs had breached paragraph 14 of those leases by subletting the apartments.' A bare result with no framing of the owner's liberty to let, so the field stays empty. Astra: Keep null because the court protected proprietary lessees from cancellation for subletting apartments to an association for its clients, but it did not frame any property owner's liberty to let as an ownership incident, regulable privilege, or commercial use."
+ },
+ {
+  "case_id": 6682692,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The court decides only the determinability of the letting - 'there was no lease for any determined period of time, but a lease determinable at the will of either party' - and that the syndic ended it by notice and tender of the keys. Nothing frames the lessor's liberty to let, so the field stays empty. Astra: Keep null because the insolvent occupied the leased premises with his family as a store and dwelling house and intended to underlet part, but the court only held that the lease at will ended after notice and tender of the keys and did not frame an owner's general liberty to let."
+ },
+ {
+  "case_id": 8257365,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The holding is contributory negligence, not owner freedom: the tenant of 'a house rented by her, from month to month, by oral contract' showed 'a lack of care and attention on her part, amounting to contributory negligence barring recovery.' The only liberty mentioned is the tenant's - 'she had the right to repair the plank and to deduct the cost from the rent' - so the field stays empty. Astra: Keep null because the court barred the tenant's repair-negligence recovery based on her knowledge of the defective floor, but it did not characterize the landlord's general liberty to let as an ownership incident, regulable privilege, or commercial use."
+ },
+ {
+  "case_id": 8501301,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "Claude and GPT Astra agree. Claude: The arrangement the court adjudicates is a year-long lease of the dwelling: plaintiff pleaded 'the sum of $37.50, per month, said lease being dated august, 1st. 1919, for twelve months,' and the court held 'mrs. moore, the plaintiff in this case, is not the tenant of the house,' the lease belonging to the community. A twelve-month term is not under thirty days. Astra: Set no because the court adjudicated who held the dwelling lease and found that the husband and his family had occupied under successive annual leases for five years; the operative compensated occupancy therefore exceeded thirty days, although the separate boarders' stays were unstated."
+ },
+ {
+  "case_id": 8823953,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The opinion never frames the owner's liberty to let. Its reasoning is contract and criminal-intent law: the tenant's avowed intent 'neither constituted an offence nor gave to the defendant a right to repudiate his contract,' and 'the contract itself was not contra bonos mores.' The lessor's freedom to let, or its regulability, is not addressed anywhere, so the erased null stands and the field stays empty under the silence rule. Astra: The court enforced the room lease and held that the lessee's mere unlawful intent gave the landlord no right to repudiate, but it did not classify the landlord's liberty to let as an incident of ownership, regulable privilege, or commercial use."
+ },
+ {
+  "case_id": 10306290,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: Exclude the case as irrelevant: the arrangement adjudicated is a minor's purchase of a home on vendor's-lien notes and his disaffirmance of it, not compensated occupancy of anyone else's dwelling. The court decides only that 'a home belongs to that class declared to be within term necessaries for a married infant' and that the contract 'can be enforced, but only for market value of premises.' The word 'lodging' appears solely in the traditional list of necessaries ('board, lodging, wearing apparel, medicine, medical attendance and an education') quoted from treatises and older cases; no letting, rent or lodging contract is before the court. The checker also read this as not relevant. Astra: Exclude the case as irrelevant: the actual holding concerns whether a married minor's purchase of a home was a necessary enforceable at market value; its discussion of rented lodging is background, not an adjudicated compensated-occupancy arrangement."
+ },
+ {
+  "case_id": 11161996,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: Exclude the case as irrelevant: the use before the court is a paid daytime child daycare home ('child care is provided at any time for not more than six (6) children'), operating '6:30 a.m. to 5:30 p.m., monday through friday' - a home occupation, not the letting of the dwelling or of rooms to occupants for pay. Nobody occupies the Ensmingers' dwelling as an abode for compensation, so the special-exception holding does not bear on compensated occupancy or its regulation. The checker also read this as not relevant. Astra: Exclude the case as irrelevant: the actual holding affirms a zoning special exception for daytime child-care services in the owner's residence; the children did not occupy the dwelling as tenants, lodgers, or overnight guests."
+ },
+ {
+  "case_id": 12658372,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: The court classifies the occupant's side only - a motel room where the probationer 'spent the nights of july 1-5, 8-13, 16, and 19' is a 'residence' because that term 'implies a place of abode, albeit temporary, rather than a mere transient lodging.' Nothing in the opinion frames the motel keeper's liberty to let, as an incident of ownership or as a regulable privilege, so the field stays empty. Relevance is kept against the checker (which read relevant=False): the court is classifying the legal character of a paid lodging occupancy, which counts even though it does so in a Fourth Amendment proceeding. Astra: The court held that a cash-paid motel room used on thirteen of nineteen prior nights was the probationer's temporary residence for a search condition, but it did not characterize the motel operator's liberty to let rooms."
+ },
+ {
+  "case_id": 111252,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: Faithful rendering. The opinion reads 'plaintiff leased the first-floor apartment to the tenants at a monthly rent of $500'; the quote says 'monthly rental of $500.' One word ('rental' for 'rent') with no change of meaning - the monthly-term and lease facts the quote supports (characterization, under_thirty_days) are exactly what the passage states. The low coverage score reflects the length of the gate's window, not a bad match. Astra: The flagged quote faithfully matches the opinion; its only difference is rental for rent, which does not alter the stated monthly charge under the written lease."
+ },
+ {
+  "case_id": 389316,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: Faithful rendering: the passage appears verbatim in the opinion - 'we have previously recognized that \"[t]he purpose of summary process proceedings . . . is to permit the landlord to recover possession on termination of a lease\"' (quoting Prevedini v. Mobil Oil Corp.). The reader's ellipsis is the court's own. Relevance is kept against the checker (relevant=False): the proceeding is a landlord's summary process action to recover possession of a rented apartment, and the holding is grounded on the policy of giving the landlord 'an expeditious remedy,' though a reviewer could treat the five-day appeal deadline as generic appellate procedure. Astra: The flagged sentence appears verbatim in the opinion, with the ellipsis faithfully omitting only the citation embedded between its clauses."
+ },
+ {
+  "case_id": 530662,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: Faithful rendering. The opinion reads 'the plaintiff however offered evidence to prove that he had made all reasonable effort to let the premises, from the time of the insurance in january, down to the time of the fire, in september following, but without success'; the quote replaces the pronoun 'he' with its antecedent 'the plaintiff' and changes nothing else. Coverage is 0.927 and the substance - the owner's fruitless efforts to let the vacant house - is exactly this passage. Astra: The flagged quotation appears verbatim in the opinion and accurately describes the owner's reasonable but unsuccessful efforts to let the premises from January through September."
+ },
+ {
+  "case_id": 920061,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: Faithful rendering: the opinion quotes Civ. Code section 798.4 as '\"an area of land where two or more mobilehome sites are rented, or held out for rent, to accommodate mobilehomes used for human habitation\"' and the reader's quote is that text less the leading article. Relevance is kept against the checker (relevant=False): the case is a mobilehome-park owner's unlawful detainer against space tenants who 'signed a rental agreement to rent space no. 97 at the park on a month to month tenancy,' squarely compensated occupancy and its regulation. Astra: The flagged definition is quoted accurately from Civil Code section 798.4 in the opinion; quotation-mark and formatting differences do not change its substance."
+ },
+ {
+  "case_id": 1119832,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: Keep, with one flagged wording change: the opinion reads 'against a recalcitrant tenant who, in two different paragraphs of a written lease, agreed that no dogs, cats or other animals shall be kept or harbored in the demised apartment unless expressly permitted by the landlord in writing,' and the reader wrote 'defendant tenant' for 'recalcitrant tenant.' The substituted adjective is accurate on the facts (the tenant is the defendant, and the next sentence begins 'defendant tenant was aware') and the substantive clause the quote supports - the lease covenant and the apartment tenancy - is verbatim, so this is not a materially wrong quotation and should not be dropped; a reviewer wanting strict verbatim fidelity could have the wording corrected instead. Relevance kept against the checker: a landlord's suit to enforce an express lease covenant in an apartment letting. Astra: The flagged passage appears verbatim in the opinion and accurately states the written apartment lease's repeated no-animal covenant."
+ },
+ {
+  "case_id": 3818396,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Claude and GPT Astra agree. Claude: Exclude the case as irrelevant: what the court adjudicated is a tailor shop. The suit sought to enjoin the erection of 'a tailor shop at 318 high street in lowell' and the holding is that G. L. c. 40, sections 25-30 and the Lowell districting ordinance are constitutional. Boarding and lodging houses appear only inside the ordinance's quoted definition of a business district ('devoted to business or industry other than farming, gardening, or the conduct of a boarding or lodging house'); no letting, no lodging-house use and no lodging-house regulation was in dispute or decided. As the record stands it counts this as an adverse zoning restriction on lodging, which inverts what the ordinance actually does for boarding houses. The checker also read this as not relevant. If the reviewer keeps the record instead, the flagged quote is a faithful rendering - the only difference from the statute as printed is 'by-law' for 'bylaw'. Astra: Exclude the case as irrelevant: the actual holding upholds and enforces a zoning ordinance against construction of a tailor shop; boarding and lodging houses appear only as general classification language in the ordinance, with no compensated occupancy at issue."
+ },
+ {
+  "case_id": 4381142,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: Faithful rendering. The opinion reads 'the statutory language, antecedent history and practical construction of chapter 576 compel us to conclude the class b multiple dwellings are not within this statute's embrace'; the quote renders the same holding as 'we conclude that the class B multiple dwellings are not within this statute's embrace.' The change is grammatical only, and the holding the quote supports (Class B rooming houses left outside rent stabilization) is exactly what the sentence says. Astra: The flagged holding is faithful to the opinion; it adds only the connective that to the source phrase conclude the class B multiple dwellings, without changing the conclusion that the statute excludes them."
+ },
+ {
+  "case_id": 6813878,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: Verbatim. The opinion carries the sentence with an OCR word-join ('aresidential tenant's obligation to obtain the assent in writing of the landlord before assigning the lease or subletting or permitting other occupants does not imply as a matter of law an obligation on the landlord's part to act reasonably in withholding consent'), which is the only difference from the quote. Nothing to drop. Astra: The flagged sentence faithfully matches the opinion; its differences are spacing and apostrophe OCR, and the full context confirms the rule that written landlord consent need not be withheld reasonably."
+ },
+ {
+  "case_id": 9961221,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "Claude and GPT Astra agree. Claude: Verbatim. Paragraph 13 of the lease is set out in the opinion as '[t]he tenant shall use the premises only as a private dwelling for himself/herself and the individuals listed on the certification and recertification of tenant eligibility,' which is the quote exactly; the low coverage score comes from the gate's window, not from any difference. The residential-use fact it supports is what the court relied on for jurisdiction under section 24.007. Astra: The flagged private-dwelling covenant appears verbatim in the opinion; capitalization and spacing differences are immaterial, and the surrounding text confirms the apartment's residential use."
+ }
+]
