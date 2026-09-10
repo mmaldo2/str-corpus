@@ -1,0 +1,310 @@
+[
+ {
+  "case_id": 316149,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the dispute concerns bailment liability for horses left near an inn, not compensated occupancy of a dwelling or room."
+ },
+ {
+  "case_id": 647560,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court discharged hotel keepers arrested for serving liquor with Sunday meals and invalidated a conflicting excise-license condition. Its statement about receiving persons for lodgment was incidental; the adjudicated restriction concerned liquor service, not compensated dwelling occupancy."
+ },
+ {
+  "case_id": 828912,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the charged transactions were compensated meals and liquor sales to dining guests, with no dwelling or room occupancy at issue."
+ },
+ {
+  "case_id": 314848,
+  "field": "relevant",
+  "decision": "adopt",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the holding concerns fraud evidence and an interdependent lease in an installment action on a furniture chattel mortgage; boarding-house use is incidental."
+ },
+ {
+  "case_id": 1207848,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the actual holding concerns whether hotel furniture is exempt from an execution sale, not the legal character or regulation of compensated room occupancy."
+ },
+ {
+  "case_id": 2099387,
+  "field": "relevant",
+  "decision": "adopt",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: this parallel report likewise decides fraud pleading and evidentiary use of a lease in a furniture-mortgage action; the boarding-house arrangement is incidental."
+ },
+ {
+  "case_id": 4418866,
+  "field": "relevant",
+  "decision": "adopt",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the holding affirms a disorderly-house conviction and admits proof that the accused rented the premises only to establish that she kept the establishment; it does not adjudicate compensated occupancy."
+ },
+ {
+  "case_id": 5260600,
+  "field": "characterization",
+  "decision": "adopt",
+  "value": "lease",
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: The court treated the appellant's rented possession and control of the upstairs under the cited rental-contract rule for a lessee or tenant; lease best matches that adjudicated arrangement."
+ },
+ {
+  "case_id": 6770287,
+  "field": "relevant",
+  "decision": "adopt",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the appellate holdings defer conflicting account evidence to the jury and apply general mutual-account, limitations, and costs rules; the boarding arrangement supplies only an item in the account."
+ },
+ {
+  "case_id": 304722,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court decides only that \"a mere stipulation of counsel cannot form the foundation on which to reverse the judgment\" and that supported Common Pleas fact findings are unreviewable on certiorari. The record supplies no compensated lodging facts, and affirmance for want of a proper evidentiary record does not adjudicate the innkeeper's substantive authority to provide accommodations."
+ },
+ {
+  "case_id": 330074,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: The court held that the sublessor could invoke the owner-occupancy ground, found his desire and need to occupy sincere, and ordered, \"judgment for possession is granted to plaintiff.\" The Anti-Eviction Act's protections define the satisfied route to possession here rather than supply a contrary disposition, so polarity is favorable rather than mixed."
+ },
+ {
+  "case_id": 496986,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: The court treated the second, unconsented house occupancy as no tenancy at all: the occupant \"took no lease and paid no rent therefor\" and was merely a trespasser, so it refused to tack that occupancy to the earlier paid arrangement. The rejection of an implied occupancy right without the owner's agreement is the letting-specific disposition and is favorable rather than mixed."
+ },
+ {
+  "case_id": 792399,
+  "field": "polarity",
+  "decision": "keep",
+  "value": null,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: The court found the offered substitute room substantially similar and granted the hotel owner a conditional route to possession: \"the petitioner is entitled to a final judgment of possession.\" It also held that upon the resident's timely move and payment, \"the warrant shall be permanently vacated.\" The owner therefore won enforcement of the renovation rule while the resident retained an independently enforced relocation protection, supporting mixed."
+ },
+ {
+  "case_id": 850200,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: The court affirmed refusal of the proprietor's broad requested removal instruction and held that if the paid guest's disturbance resulted from sickness, \"such removal must be in a manner suited to his condition.\" The opinion did not find willful intoxication or uphold this hotel's removal; its new trial concerned causation and damages instructions, so the applied letting-specific holding is adverse rather than mixed."
+ },
+ {
+  "case_id": 1201459,
+  "field": "polarity",
+  "decision": "keep",
+  "value": null,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: The court affirmed the landlord's liability for an illegal entry and detainer and the tenant's nominal award, an adverse self-help restriction, while also affirming for the landlord on CUTPA because \"the plaintiff is precluded from recovery under the cutpa statute\" and declining the unlawful-entry claim. Those independent merits dispositions point in opposite directions, so mixed is correct."
+ },
+ {
+  "case_id": 2156741,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: The court treated the maid's hotel room as noncash wages under the written employment agreement and held that \"the employee was in course of her employment and performing services growing out of and incidental to such employment\" while using the required entrance on her day off, affirming the compensation award. The earlier option to accept cash and live elsewhere was only a pre-contract choice, not a contrary letting holding, so the applied regulation is adverse rather than mixed."
+ },
+ {
+  "case_id": 2347547,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court holds that \"a requirement of a showing of need to expand ... has no bearing whatsoever upon the public's health, safety, welfare or morals\" and remands two educational-use permit applications. The proposed student dormitory is never described as rented, fee-based, or otherwise compensated occupancy, while Cornell's project is academic office use; the actual zoning holdings therefore do not establish compensated dwelling letting."
+ },
+ {
+  "case_id": 2403307,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: The jury found the hotel apartment letting terminable at will rather than binding for the claimed year, and the appellate court held \"there is no ground for interfering with the verdict in this case.\" It also rejected the hotel company's evidence offered to prove its asserted term. The owner lost the sole rent claim, so the disposition is adverse rather than mixed."
+ },
+ {
+  "case_id": 3866698,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court held only that \"the Corporation had not the power to pass the by-law in question\" insofar as it prohibited liquor sales by licensed tavern keepers; its historical description of guest lodging supplied context for a liquor-only ruling, not a decision about compensated occupancy."
+ },
+ {
+  "case_id": 223529,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court decided only that a municipal/excise licensing statute and unrepealed ordinance made an inn or tavern license void; it adjudicated no actual compensated room or dwelling occupancy."
+ },
+ {
+  "case_id": 261535,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "value": null,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: The court recognized a noncash bargain exchanging work for board and clothing as hiring sufficient for a poor-law settlement, but offered no judicial framing of the householder's freedom to let."
+ },
+ {
+  "case_id": 302942,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court decided only that an excise board needed an ordinance or by-law before issuing inn and tavern licenses; it adjudicated no actual or proposed compensated occupancy of rooms or dwellings."
+ },
+ {
+  "case_id": 357543,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court resolved which municipal body exclusively controlled inn and tavern licenses and invalidated a special statute reallocating that authority; it adjudicated no compensated room or dwelling occupancy."
+ },
+ {
+  "case_id": 622091,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court decided only which governmental body possessed authority to issue an inn-or-tavern license under competing municipal statutes; it gave no paid-lodging facts and did not establish that the license concerned compensated dwelling occupancy rather than tavern activity."
+ },
+ {
+  "case_id": 724591,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court construed the devise as a life estate, limited a quitclaim deed to the tax-sale title, and invalidated the tax sale; the will's no-letting clause was merely evidence of the estate intended, with no actual or proposed compensated occupancy."
+ },
+ {
+  "case_id": 814455,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court revoked a tavernkeeper's license for Sunday liquor sales and a bartender's sale to a minor; no compensated room occupancy or inn lodging was at issue."
+ },
+ {
+  "case_id": 1123077,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court voided a payment agreement and promissory note because the City extracted money for expedited, favorable review of SRO status and a demolition permit; it did not establish compensated seamen occupancy or adjudicate a letting relationship."
+ },
+ {
+  "case_id": 1206812,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court granted a new trial in a hotel guest's bathtub fall because English comparative-negligence law governed; the hotel setting supplied only the premises-liability facts, with no substantive holding about paid lodging or letting."
+ },
+ {
+  "case_id": 1391397,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court upheld zoning limits on the area, height, and family density of a proposed apartment building; the record showed only generic multifamily construction, with no actual or proposed compensated occupancy."
+ },
+ {
+  "case_id": 1432882,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the present appeal applied res judicata and the prior mandate, then affirmed conversion damages because a court could not twice reverse on the weight of the evidence; the unlicensed-operator lien ruling for unpaid room rent appeared only in its account of the prior appeal."
+ },
+ {
+  "case_id": 1621568,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court preserved a liquor-certificate exemption after fire and rebuilding by treating the premises as continuously maintained as a hotel; it gave no compensated lodging facts and adjudicated only the liquor privilege and nearby dwelling owners' consent requirement."
+ },
+ {
+  "case_id": 1841321,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "value": null,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: The widow rented out the two rooms held under her life estate and continued receiving rent, but the opinion stated neither the tenants' agreed terms nor their actual lengths of stay."
+ },
+ {
+  "case_id": 2024020,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the actual holding sustained a common-law conviction for keeping a house of ill fame and held that a statute imposing punishment and a future disability to keep boarders did not repeal the common-law offense; no compensated dwelling occupancy was adjudicated."
+ },
+ {
+  "case_id": 2049975,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court upheld rent recovery despite a title dispute and the tenant's later attornment, but the opinion identifies only unspecified property and never establishes compensated occupancy of a dwelling or lodging rooms."
+ },
+ {
+  "case_id": 2089378,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court held that an undertenant's use of leased premises for an unlicensed bar and house of ill fame forfeited only the underlease, not the original five-year lease; the opinion establishes commercial or illicit use, not compensated dwelling occupancy."
+ },
+ {
+  "case_id": 2097213,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court held that an oral tenant at will remained liable for rent until giving statutory notice, but the opinion identifies only a 'tenement' in the property-law sense and never establishes occupancy of a dwelling or lodging room."
+ },
+ {
+  "case_id": 2113098,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the actual holding classified theft from a sleeping lodger's trunk as larceny in a dwelling house because the property was under the house's protection; it neither establishes compensation nor adjudicates the lodger's occupancy arrangement."
+ },
+ {
+  "case_id": 2159981,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court held tract-wide building covenants enforceable against owners erecting stores and other business buildings; hotels and lodging houses appear only among a long list of forbidden uses, and no actual or proposed compensated dwelling occupancy was adjudicated."
+ },
+ {
+  "case_id": 2193751,
+  "field": "characterization",
+  "decision": "set",
+  "value": "other",
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Set other because the court classified the proposed compensated use only at the building-use level as a ten-story hotel under the zoning ordinance; it did not adjudicate any guest's arrangement as a lease, license, lodging contract, or innkeeper-guest relationship."
+ },
+ {
+  "case_id": 2319138,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the memorandum upheld a zoning restriction on unspecified private profit-making enterprises in a residential district; boarding houses appear only in a cited precedent, and the opinion gives no evidence that the actual proposed enterprise involved compensated dwelling occupancy."
+ },
+ {
+  "case_id": 4478381,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court held that statutory dwelling-repair duties did not cover leased business property used as a box factory and therefore allowed no repair offset against rent; it expressly found the building was not intended for human habitation."
+ },
+ {
+  "case_id": 8502721,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the court upheld fire-insurance recovery for merchandise despite nondisclosure of subtenants; the actual premises were a store with a gambling establishment and militia use, and the opinion establishes no compensated residential or lodging occupancy."
+ },
+ {
+  "case_id": 10288677,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: Exclude the case as irrelevant: the actual holding applies generic limitations law to an insufficient written acknowledgment of a time-barred open account; board and lodging only identify the debt's origin, and no letting rule or rental remedy is adjudicated."
+ },
+ {
+  "case_id": 9477593,
+  "field": "quotes",
+  "decision": "keep",
+  "value": null,
+  "note": "the user adopted GPT Astra's decision on this disagreement in bulk (round 2b, 2026-09-10). Astra: The flagged testimony faithfully matches the opinion apart from apostrophe and capitalization formatting; the record also states that the Department of Corrections would pay the operator to treat inpatient residents."
+ }
+]

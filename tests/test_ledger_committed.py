@@ -30,11 +30,11 @@ def test_the_rename_leaves_the_committed_counts_and_the_replay_untouched(repo_ro
     log = (repo_root / "data" / "ledger" / "patches.jsonl").read_text(encoding="utf-8")
     assert "under_30_days" not in log and "right_characterization" not in log
     v = open_ledger(domain=dom).view()
-    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 3834   # 3373 after the shard-02 rounds; the second tail budget admitted 461 (2026-09-09)
+    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 3786   # 3834 after the second budget; shard-02 rounds 2 and 2b withdrew 48 (2026-09-10)
     fav = v.counts(polarity="favorable").total
-    assert fav.human_reviewed + fav.machine_only == 1666   # 1482 after the shard-02 rounds; second tail budget (2026-09-09)
+    assert fav.human_reviewed + fav.machine_only == 1658   # 1666 after the second budget; rounds 2 and 2b (2026-09-10)
     hh = v.counts(polarity="favorable", who_was_letting="householder").total
-    assert hh.human_reviewed + hh.machine_only == 363    # 328 after the shard-02 rounds; second tail budget (2026-09-09)
+    assert hh.human_reviewed + hh.machine_only == 361    # 363 after the second budget; rounds 2 and 2b (2026-09-10)
 
 
 # ---------------------------------------------------------------- D2: reviewer protection
@@ -159,8 +159,8 @@ def test_a_patch_above_the_baseline_is_rejected_over_the_real_state(repo_root):
 
 def test_the_protection_rule_leaves_the_published_counts_untouched(repo_root):
     v = open_ledger(domain=load_domain()).view()
-    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 3834
-    assert v.counts().total.human_reviewed == 1274
+    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 3786
+    assert v.counts().total.human_reviewed == 1373
     flagged = sum(1 for cid in v.state.order
                   for f in (v.state.records[cid].get("review") or {}).get("flags") or ()
                   if f.startswith("needs-review:"))

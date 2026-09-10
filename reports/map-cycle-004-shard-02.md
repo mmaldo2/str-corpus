@@ -139,7 +139,18 @@ bought two floor batches.
 - **Published counts** (two-tier, via `view().counts()`): relevant 3,373 -> **3,834** (1,274
   human-reviewed / 2,560 machine-only), favorable 1,482 -> **1,666**, favorable householder
   328 -> **363**. Review round 2 over the new records: 147 cards (A 13, C 16, D 28, E 80,
-  F 10), nothing deferred; its outcome is appended below when applied.
+  F 10), nothing deferred.
+- **Round 2 (2026-09-10).** Codex 147/147; Claude (six opus agents) and GPT Astra read
+  every card blind to each other under the settled rules (an erased field stays empty when
+  the opinion is silent; a withdrawal is its own decision). They agreed on 103 cards,
+  applied as one set (470 patches). On the 44 disagreements the user adopted Astra's
+  decisions in bulk rather than deciding card by card (247 patches; the assisted-by note
+  says so): 32 withdrawals, 6 sets, 1 adopt, 5 keeps. The disagreements were almost all
+  relevance appetite at the deep end of the curve - dormitories, workers'-comp board,
+  zoning cases that only quote a rooming-house clause - and Astra was the stricter reader.
+  After the round: relevant 3,834 -> **3,786** (1,373 human-reviewed, 2,413 machine-only),
+  favorable **1,658** (670 / 988), favorable householder **361** (153 / 208). Of the second
+  pass's 460 relevant records, 48 were withdrawn on review.
 
 Manifest note: `flags` in `map-manifest.json` record the LAST invocation's flags, and the
 last invocation was `--retry-lost`, so `case_budget` and `cell_floor` read as unset there;
