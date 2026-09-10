@@ -103,6 +103,48 @@ Every new record is machine-only until a review round moves it.
 
 **The review round (2026-09-09).** The queue over the 750 relevant records held 213 cards in one round (A 24, B 1, C 28, D 66, E 82, F 12; nothing deferred), each with the full opinion and the Codex checker's reading (the 100% pass failed on the OpenAI usage limit at first and was re-run after the user reset it: 213 of 213 ok). Two independent first passes read every card, Claude (eight opus agents) and GPT Astra; under the user's rule that an erased field stays empty when the opinion is silent, they agreed on 134 cards, applied as one set with an assisted-by note naming both readers (591 patches). The 79 disagreements went to the user with both readers' notes on each card: 47 keep, 7 set, 5 adopt, **20 withdrawn as not letting cases** (238 patches). The disagreements were mostly appetite for relevance (hotel torts, shelters, zoning cases that only quote a rooming-house clause) and whether a mixed polarity resolves to a side. After the round: relevant 3,373 (1,274 human-reviewed, 2,099 machine-only), favorable 1,482 (625 / 857), favorable householder 328 (144 / 184); 28 of the shard's 750 relevant records were withdrawn on review, and the rest of its reviewed records moved into the human tier.
 
+## 9. The second budget (2026-09-09): a floor per cell, then the global order again
+
+After the first review round the user chose density per era and jurisdiction over raw count
+(the litigation claim is historical and jurisdiction-spanning, and the untouched early cells
+are where a Glucksberg argument needs evidence). The runner gained `--cell-floor N`: before the
+global walk resumes, it reads the top N unread batches of every cell that has fewer than N
+read, best score first across cells. The second invocation was
+`--case-budget 6000 --cell-floor 3` (budgets are cumulative; the 167 batches of the first
+pass replayed from the cache), preceded by a live check that replayed the first pass and
+bought two floor batches.
+
+- **What ran.** 167 more batches, 2,997 cases, **460 relevant** (15%); 77 floor batches over
+  31 thin cells, then 90 in global order from score 0.93 (the head of the three cells the
+  yield floor had stopped) down to about 0.45. 0 failed units; 9 cases lost to one partial
+  parse and re-read with `--retry-lost` (1 relevant). 47 of the 50 cells have now been read
+  at least once; only pre-1860 D.C., Louisiana and Texas remain untouched by this shard, and
+  the first two of those are in the floor's reach next time. Cumulative for the shard: 334
+  batches, 6,012 cases, 1,211 relevant.
+- **Yield by score band, second pass.** 0.6-0.7: 17% (54 batches); 0.5-0.6: 16% (58);
+  0.4-0.5: 17% (23); 0.3-0.4: 8% (10); below 0.3: 9% (21, almost all floor batches in thin
+  cells). The floor reached as deep as global position 967 (score 0.05) and still returned
+  about one relevant case in eleven, which is the density argument in one number: the
+  classifier's score is a poor guide inside the early cells, whose training signal is thin.
+- **Where the floor landed.** 1900-1930 N.Y. 20 relevant from 3 batches, 1860-1900 N.Y. 15
+  from 3, 1860-1900 Pa. 12 from 3, 1930-1970 Tex. 14 from 4, pre-1860 Mass. 11 from 4, and
+  single-digit first entries in cells that held nothing from this map before (1860-1900 N.J.,
+  Conn., La.; 1900-1930 Conn., La., Tex.). The zeros (pre-1860 Ohio, D.C.; 1860-1900 Cal.)
+  are information too.
+- **The D5 test, again.** The global-order boundary moved from score 0.70 to about 0.45 and
+  the yield there is 16-17%, still four times the floor. The next band (0.3-0.45, about 2,400
+  cases) yielded 8% where the floor sampled it. The screen stays deferred: the decision rule
+  set at this brainstorm was "design the screen when the next band's expected yield falls
+  under about ten percent", and the next band is now at the line.
+- **Published counts** (two-tier, via `view().counts()`): relevant 3,373 -> **3,834** (1,274
+  human-reviewed / 2,560 machine-only), favorable 1,482 -> **1,666**, favorable householder
+  328 -> **363**. Review round 2 over the new records: 147 cards (A 13, C 16, D 28, E 80,
+  F 10), nothing deferred; its outcome is appended below when applied.
+
+Manifest note: `flags` in `map-manifest.json` record the LAST invocation's flags, and the
+last invocation was `--retry-lost`, so `case_budget` and `cell_floor` read as unset there;
+the field run's flags are in `runs/map-cycle-004-shard-02-b2.log` and in this section.
+
 ## 8. Reproduction
 
 ```
