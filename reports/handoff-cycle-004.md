@@ -240,12 +240,15 @@ review page publishable as an artifact; reviewer identity recorded.
     (`runs/cycle-004-shard-02/review-round-1.json`, 213 cards, Codex 213/213):
     Claude's first pass is on file; the GPT Astra pass and the user's
     confirmation are pending; apply with `--run-id map-cycle-004-shard-02-round-1`.
-    (2) 22,949 cases of the re-ranked tail remain unread beyond the 3,000-case
-    budget; `tools/map_reader.py --run-id cycle-004-shard-02 --case-budget 6000`
-    resumes from the cache and buys the next 3,000 in the same order. (3) D5:
-    the yield at the budget boundary puts the Gemini screen back on the table on
-    the evidence; the case for it is wall clock, not money, while the reader is
-    inside the Max plan. (4) The four tooling debts parked from the reviews
+    (2) A SECOND budget ran on 2026-09-09/10 (`--case-budget 6000 --cell-floor 3`,
+    reports/map-cycle-004-shard-02.md §9): 2,997 more cases, 460 relevant, 47 of 50
+    cells now read at least once; its review (round 2 + 2b) left 412 of them in the
+    corpus. 19,952 cases remain unread beyond the cumulative 6,000; a third pass is
+    `--case-budget 9000 --cell-floor 3`, resuming from the cache. (3) D5: the
+    global-order boundary is now at score ~0.45 with 16-17% yield; the next band
+    (0.3-0.45) sampled at ~8%, on the ten-percent line set for reconsidering the
+    Gemini screen - decide the screen before a third pass; the case for it is wall
+    clock, not money, while the reader is inside the Max plan.
     were cleared on 2026-09-09 (branch refactor/slice-3-tooling-debts): the
     review page has a "Not a letting case" control that writes the relevance
     withdrawal on any card and the page reader accepts it in any round; every
