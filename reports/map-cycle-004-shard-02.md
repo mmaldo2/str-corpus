@@ -156,6 +156,44 @@ Manifest note: `flags` in `map-manifest.json` record the LAST invocation's flags
 last invocation was `--retry-lost`, so `case_budget` and `cell_floor` read as unset there;
 the field run's flags are in `runs/map-cycle-004-shard-02-b2.log` and in this section.
 
+## 10. The third budget (2026-09-10/11): exhaust the thin cells, then the global order again
+
+Approved as a two-part pass: (1) read the 13 cells that still held fewer than 15 relevant
+records (every pre-1860 cell but Louisiana, Massachusetts and New York; every D.C. era;
+1860-1900 Ohio; 1900-1930 Connecticut) to a deep floor with the yield floor OFF
+(`--cells <13> --case-budget 1920 --cell-floor 40 --threshold -1`; the first attempt with the
+yield floor on bought six batches and stopped, because three low-yield batches had already
+marked most thin cells as "stopped paying"); (2) the plain global walk (`--case-budget 9000`).
+
+- **Part 1, the thin cells.** 68 batches, 1,224 cases, **34 relevant (3%)**. That is the
+  answer about those cells: their reporters hold little more at any score, and the corpus can
+  now say so with the batches read rather than assumed.
+- **Part 2, the global order.** The Claude weekly limit hit mid-run (2026-09-10; resets
+  Thursdays 10am ET): the reader waited out the throttle, 12 units at the tail exhausted
+  their retries and were marked failed, the run continued after the reset and stopped on its
+  24-hour wall cap; a resume re-read the 12 and, because the budget counter follows the
+  walk rather than the manifest's total, bought about 60 more batches before its own stop.
+  Together: 208 batches, 3,735 cases, **537 relevant (14%)**, down to global position 747
+  (score 0.13). By band: 0.40-0.46 **24%** (540 cases), 0.35-0.40 13%, 0.30-0.35 **18%**,
+  below 0.30 **11%** over 2,160 cases.
+- **Cumulative for the shard.** 594 batches, 10,692 cases, 1,754 relevant, 0 failed units,
+  0 cases lost after `--retry-lost`. Published after admission: relevant 3,786 -> **4,329**
+  (1,373 human-reviewed / 2,956 machine-only), favorable **1,925**, favorable householder
+  **395**. Round 3 over the new records: 192 cards (A 15, B 5, C 37, D 33, E 95, F 7),
+  nothing deferred; its outcome is appended when applied.
+
+**The D5 test, third time, and the finding that changes it.** The yield did not collapse
+below a score of 0.3: it held at 11% over 2,160 cases, and the 0.30-0.35 band read at 18%,
+higher than the band above it. The classifier's score orders the head of the tail well and
+says little inside it - the yield floor of about 4% has not been reached anywhere the global
+walk went. What remains unread is 15,263 cases: 1,026 above 0.4 (three cells the per-cell
+yield floor stopped early, plus batches the walk had not reached), 1,116 between 0.2 and
+0.4, and **13,121 below 0.2**. If the deep band holds even 8-10%, it holds a thousand
+relevant records, and the two ways to get them are 700-plus Opus batches (roughly 25 hours
+of subscription, across weekly limits) or a Gemini screen at a few tens of dollars that
+tells Opus which batches to read. The screen is no longer a wall-clock convenience; it is the
+only practical route to the deep tail, and its design is the next decision.
+
 ## 8. Reproduction
 
 ```
