@@ -286,6 +286,16 @@ def test_a_saved_page_may_withdraw_a_record_from_a_card_that_decides_another_fie
         (700, "relevant", "set", False), (701, "polarity", "keep", "adverse")]
 
 
+def test_the_page_reloads_a_saved_withdrawal_under_the_cards_own_key(tmp_path):
+    """Round 3b (2026-09-11): the reviewer's 31 withdrawals reloaded unmarked because the state
+    loader keyed them by their own field (`relevant`) while the cards look up their decide
+    field; a second save would have dropped them. The loader re-keys a withdrawal to the card."""
+    html_path, _md, _n = mk.build_pages(_queue_doc(), tmp_path / "page", checker=CHECKER)
+    html = html_path.read_text(encoding="utf-8")
+    assert "d.field === 'relevant' && !fs.includes('relevant') && fs.length" in html
+    assert "key = d.case_id + '::' + fs[0]" in html
+
+
 def test_the_page_offers_a_withdraw_control_that_writes_a_relevance_decision(tmp_path):
     html_path, _md, _n = mk.build_pages(_queue_doc(), tmp_path / "page", checker=CHECKER)
     html = html_path.read_text(encoding="utf-8")

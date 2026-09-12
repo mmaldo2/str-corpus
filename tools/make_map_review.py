@@ -430,7 +430,17 @@ for (const [s, r] of SECTIONS) SEC_OF_REASON[r] = s;
 let state = {};
 try {
   const raw = JSON.parse(document.getElementById('review-state').textContent);
-  if (Array.isArray(raw)) for (const d of raw) { if (d && d.case_id != null && d.field) state[d.case_id + '::' + d.field] = d; }
+  // A saved withdrawal carries field 'relevant' but lives under the CARD's key, or the card
+  // reloads unmarked and a second save drops it (shard-02 round 3b, 2026-09-11).
+  const fieldsOf = {};
+  for (const sec in DATA) for (const it of (DATA[sec] || [])) (fieldsOf[it.case_id] = fieldsOf[it.case_id] || []).push(it.decide_field);
+  if (Array.isArray(raw)) for (const d of raw) {
+    if (!(d && d.case_id != null && d.field)) continue;
+    let key = d.case_id + '::' + d.field;
+    const fs = fieldsOf[d.case_id] || [];
+    if (d.field === 'relevant' && !fs.includes('relevant') && fs.length) key = d.case_id + '::' + fs[0];
+    state[key] = d;
+  }
 } catch(e) {}
 let dirty = 0;
 

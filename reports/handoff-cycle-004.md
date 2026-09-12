@@ -240,15 +240,18 @@ review page publishable as an artifact; reviewer identity recorded.
     (`runs/cycle-004-shard-02/review-round-1.json`, 213 cards, Codex 213/213):
     Claude's first pass is on file; the GPT Astra pass and the user's
     confirmation are pending; apply with `--run-id map-cycle-004-shard-02-round-1`.
-    (2) A SECOND budget ran on 2026-09-09/10 (`--case-budget 6000 --cell-floor 3`,
-    reports/map-cycle-004-shard-02.md §9): 2,997 more cases, 460 relevant, 47 of 50
-    cells now read at least once; its review (round 2 + 2b) left 412 of them in the
-    corpus. 19,952 cases remain unread beyond the cumulative 6,000; a third pass is
-    `--case-budget 9000 --cell-floor 3`, resuming from the cache. (3) D5: the
-    global-order boundary is now at score ~0.45 with 16-17% yield; the next band
-    (0.3-0.45) sampled at ~8%, on the ten-percent line set for reconsidering the
-    Gemini screen - decide the screen before a third pass; the case for it is wall
-    clock, not money, while the reader is inside the Max plan.
+    (2) SECOND and THIRD budgets ran 2026-09-09/11 (reports/map-cycle-004-shard-02.md
+    §9-10): the shard now stands at 594 batches, 10,692 cases, 1,754 relevant read, with
+    the 13 thin cells (pre-1860 outside La/Mass/NY, every D.C. era, 1860-1900 Ohio,
+    1900-1930 Conn.) read to a deep floor (3% there) and the global order read to score
+    0.13. Reviews (rounds 1-3b, two readers + the user) left published relevant at
+    4,262 (1,498 human-reviewed). 15,263 cases remain unread, 13,121 of them below score
+    0.2. (3) D5: yield did NOT collapse in the tail (11% below 0.3 over 2,160 cases), so
+    the deep band plausibly holds ~1,000 relevant records that 700-plus Opus batches
+    cannot reach across weekly limits; the Gemini screen is now the practical route and
+    its design (provider wiring, a trigger for the budgeted walk, a recall check at these
+    scores) is the next decision. A resume beyond 9,567 is `--case-budget <N>` on the
+    same run id; the budget counter follows the walk, not the manifest total.
     were cleared on 2026-09-09 (branch refactor/slice-3-tooling-debts): the
     review page has a "Not a letting case" control that writes the relevance
     withdrawal on any card and the page reader accepts it in any round; every
