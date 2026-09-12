@@ -8,6 +8,12 @@ def _est(e: dict) -> str:
     return f"{e['value']:.3f} ({e['lo']:.3f}-{e['hi']:.3f}, n={e['n']:,})"
 
 
+def _kappa(k: dict) -> str:
+    if k.get("status") != "ok":
+        return k.get("status", "unavailable")
+    return f"{k['value']:.3f}"
+
+
 def _tier(t: dict) -> str:
     return f"{t['human_reviewed'] + t['machine_only']:,} ({t['human_reviewed']:,} human / {t['machine_only']:,} machine)"
 
@@ -34,8 +40,8 @@ def markdown(doc: dict) -> str:
          f"| favorable householder | {_tier(led['counts']['favorable_householder'])} |", "",
          "## Headline", "",
          "| measure | headline | denominator | uncertainty |", "|---|---|---|---|",
-         f"| gold recovery (union) | {_est(g['union']['recovery'])} | {g['union']['resolved']} resolved gold cases | {g['envelope']['uncertainty']['type']} |",
-         f"| machine-tier precision | {_est(p['precision'])} | {p['decided']} decided of {p['n']} sampled | {p['envelope']['uncertainty']['type']} |",
+         f"| gold recovery (union) | {_est(g['union']['recovery'])} | {g['union']['resolved']:,} resolved gold cases | {g['envelope']['uncertainty']['type']} |",
+         f"| machine-tier precision | {_est(p['precision'])} | {p['decided']:,} decided of {p['n']:,} sampled | {p['envelope']['uncertainty']['type']} |",
          f"| polarity accuracy | {_est(p['field_accuracy'].get('polarity', {'status': 'unavailable'}))} | records found relevant | sampling |",
          f"| who_was_letting accuracy | {_est(p['field_accuracy'].get('who_was_letting', {'status': 'unavailable'}))} | records found relevant | sampling |",
          f"| blind agreement (audit) | {_audit_headline(a)} | audit cards | sampling |",
@@ -43,7 +49,7 @@ def markdown(doc: dict) -> str:
          "## 1. Gold recovery", ""]
     L += ["| tier | entries | resolved | signaled | read | relevant | human-reviewed | recovery |", "|---|---|---|---|---|---|---|---|"]
     for name, t in list(g["tiers"].items()) + [("union", g["union"])]:
-        L.append(f"| {name} | {t['entries']} | {t['resolved']} | {t['signaled']} | {t['read']} | {t['relevant']} | {t['relevant_human']} | {_est(t['recovery'])} |")
+        L.append(f"| {name} | {t['entries']:,} | {t['resolved']:,} | {t['signaled']:,} | {t['read']:,} | {t['relevant']:,} | {t['relevant_human']:,} | {_est(t['recovery'])} |")
     L += ["", f"Inventory: brief-doctrine {g['inventory']['brief-doctrine']['entries']} entries, {g['inventory']['brief-doctrine']['resolved']} resolved (not in the denominator).", ""]
     if g["misses"]:
         L += ["| cite | case | tier | lost at | detail |", "|---|---|---|---|---|"]
@@ -56,8 +62,8 @@ def markdown(doc: dict) -> str:
         L.append("")
     L += _envelope(g["envelope"])
     L += ["## 2. Machine-tier precision", "",
-          f"Sample: {p['n']} of {p['frame_size']:,} machine-only relevant records at seq {p['sampling_seq']:,}; "
-          f"{p['decided']} decided, {p['unresolved']} unresolved.", "",
+          f"Sample: {p['n']:,} of {p['frame_size']:,} machine-only relevant records at seq {p['sampling_seq']:,}; "
+          f"{p['decided']:,} decided, {p['unresolved']:,} unresolved.", "",
           f"Precision: {_est(p['precision'])}", ""]
     L += _envelope(p["envelope"])
     L += ["## 3. Field accuracy", "", "| field | accuracy |", "|---|---|"]
@@ -67,7 +73,7 @@ def markdown(doc: dict) -> str:
         cols = sorted({c for row in m.values() for c in row})
         L += [f"Confusion, {f} (draw-time by row, adjudicated by column):", "",
               "| draw-time \\ adjudicated | " + " | ".join(cols) + " |", "|---|" + "---|" * len(cols)]
-        L += [f"| {row} | " + " | ".join(str(m[row].get(c, 0)) for c in cols) + " |" for row in sorted(m)]
+        L += [f"| {row} | " + " | ".join(f"{m[row].get(c, 0):,}" for c in cols) + " |" for row in sorted(m)]
         L.append("")
     if p.get("subgroups"):
         s = p["subgroups"]["favorable_householder"]
@@ -80,9 +86,7 @@ def markdown(doc: dict) -> str:
               "| pair | field | n | raw agreement | kappa |", "|---|---|---|---|---|"]
         for pair, fields in r["pairs"].items():
             for f, st in fields.items():
-                k = st["kappa"]
-                L.append(f"| {pair} | {f} | {st['n']} | {_est(st['raw'])} | {k['value']:.3f} |" if k["status"] == "ok"
-                         else f"| {pair} | {f} | {st['n']} | {_est(st['raw'])} | {k['status']} |")
+                L.append(f"| {pair} | {f} | {st['n']:,} | {_est(st['raw'])} | {_kappa(st['kappa'])} |")
         L.append("")
     if a["excluded"]:
         L += ["Excluded rounds:"] + [f"- {e['round_id']}: {e['reason']} ({e['cards']} cards)" for e in a["excluded"]] + [""]
@@ -92,7 +96,7 @@ def markdown(doc: dict) -> str:
     L += ["## 5. Unread-tail coverage", "", "| band | read cases | relevant | yield | unread cases |", "|---|---|---|---|---|"]
     for b in c["bands"]:
         y = f"{b['relevant'] / b['read_cases']:.3f}" if b["read_cases"] else "-"
-        L.append(f"| {b['lo']:.2f}-{b['hi']:.2f} | {b['read_cases']:,} | {b['relevant']} | {y} | {b['unread_cases']:,} |")
+        L.append(f"| {b['lo']:.2f}-{b['hi']:.2f} | {b['read_cases']:,} | {b['relevant']:,} | {y} | {b['unread_cases']:,} |")
     L += ["", "| scenario | assumption | estimated relevant |", "|---|---|---|"]
     L += [f"| {s['name']} | {s['assumption']} | {s['estimated_relevant']:,} |" for s in c["scenarios"]]
     L.append("")

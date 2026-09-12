@@ -67,6 +67,21 @@ def test_markdown_has_the_headline_table_and_one_section_per_measure():
     assert "unavailable" in md and "4,351" in md      # counts formatted with thousands separators
 
 
+def test_markdown_renders_the_unresolved_cites_table():
+    tf = TierFunnel(5, 4, 3, 3, 1, 1, Estimate(0.25, 4, 0.05, 0.7, "ok"))
+    gold = GoldRecovery(_env("gold-recovery-1"), {"brief-letting": tf, "treatise": tf}, tf, (),
+                        ({"cite": "9 A. 9", "tier": "brief-letting"},),
+                        {"brief-doctrine": {"entries": 1, "resolved": 1}})
+    prec = Precision(_env("precision-1"), 100, 2842, 150, 0, 0, UNAVAILABLE, {"polarity": UNAVAILABLE, "who_was_letting": UNAVAILABLE}, UNAVAILABLE, {}, {}, {}, {})
+    agr = Agreement(_env("agreement-1"), (), (), ())
+    cov = Coverage(_env("coverage-1"), (Band(0.25, 0.30, 300, 30, 0),), (Scenario("lowest-read-band", "a", 100),))
+    ev = summary.evaluate(_View(), summary.Inputs(gold, prec, agr, cov), cycle="004", reporting_seq=1,
+                          content_sha256="0" * 64, code={})
+    md = render.markdown(summary.to_json(ev))
+    assert "Unresolved cites" in md
+    assert "| 9 A. 9 | brief-letting |" in md
+
+
 def test_ledger_content_hash_is_over_lf_bytes_in_a_fixed_order(tmp_path):
     (tmp_path / "patches.jsonl").write_bytes(b'{"a":1}\r\n')
     (tmp_path / "cycle-001.jsonl").write_bytes(b'{"b":2}\n')
