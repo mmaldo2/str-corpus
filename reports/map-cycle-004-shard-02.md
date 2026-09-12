@@ -180,7 +180,17 @@ marked most thin cells as "stopped paying"); (2) the plain global walk (`--case-
   0 cases lost after `--retry-lost`. Published after admission: relevant 3,786 -> **4,329**
   (1,373 human-reviewed / 2,956 machine-only), favorable **1,925**, favorable householder
   **395**. Round 3 over the new records: 192 cards (A 15, B 5, C 37, D 33, E 95, F 7),
-  nothing deferred; its outcome is appended when applied.
+  nothing deferred.
+- **Round 3 (2026-09-11).** Codex 192/192; Claude (eight opus agents, from the standing
+  brief) and GPT Astra read every card blind to each other. They agreed on 141 cards,
+  applied as one set (661 patches); the user decided the 51 disagreements on the page
+  (16 keep, 9 set, 1 adopt, 25 withdrawn; 187 patches). Withdrawals ran at a third of the
+  round, three times round 1's rate: liquor-licence prosecutions where the inn is
+  background, hotel torts and tax cases with no letting question, covenant cases where
+  "boarding house" is boilerplate, service and dormitory occupancies with no rent. After the
+  round: relevant 4,329 -> **4,262** (1,498 human-reviewed, 2,764 machine-only), favorable
+  **1,911** (747 / 1,164), favorable householder **389** (161 / 228). Of the third budget's
+  571 relevant records, 67 were withdrawn on review.
 
 **The D5 test, third time, and the finding that changes it.** The yield did not collapse
 below a score of 0.3: it held at 11% over 2,160 cases, and the 0.30-0.35 band read at 18%,

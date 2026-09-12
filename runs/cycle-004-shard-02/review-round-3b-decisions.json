@@ -1,0 +1,335 @@
+[
+ {
+  "case_id": 1591911,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 4331229,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 4992036,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 10151613,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 32609,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 363424,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 762512,
+  "field": "relevant",
+  "decision": "adopt",
+  "note": ""
+ },
+ {
+  "case_id": 937091,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 993053,
+  "field": "relevant",
+  "decision": "adopt",
+  "note": ""
+ },
+ {
+  "case_id": 1126670,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "mixed"
+ },
+ {
+  "case_id": 1170345,
+  "field": "characterization",
+  "decision": "set",
+  "note": "",
+  "value": "other"
+ },
+ {
+  "case_id": 1203427,
+  "field": "relevant",
+  "decision": "adopt",
+  "note": ""
+ },
+ {
+  "case_id": 1210652,
+  "field": "relevant",
+  "decision": "adopt",
+  "note": ""
+ },
+ {
+  "case_id": 1499686,
+  "field": "relevant",
+  "decision": "adopt",
+  "note": ""
+ },
+ {
+  "case_id": 1648004,
+  "field": "relevant",
+  "decision": "adopt",
+  "note": ""
+ },
+ {
+  "case_id": 4295148,
+  "field": "relevant",
+  "decision": "adopt",
+  "note": ""
+ },
+ {
+  "case_id": 5197902,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 5409385,
+  "field": "relevant",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 8752331,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 322127,
+  "field": "polarity",
+  "decision": "adopt",
+  "note": ""
+ },
+ {
+  "case_id": 348681,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 884236,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1009637,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 1140422,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 1881504,
+  "field": "polarity",
+  "decision": "set",
+  "note": "",
+  "value": "favorable"
+ },
+ {
+  "case_id": 3733985,
+  "field": "polarity",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 199572,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 206449,
+  "field": "restriction_nature",
+  "decision": "set",
+  "note": "",
+  "value": "tenant_protection"
+ },
+ {
+  "case_id": 300799,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 318354,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 363360,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 446811,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 730785,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 1167707,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 1697861,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 1792254,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 1934145,
+  "field": "owner_freedom_characterization",
+  "decision": "set",
+  "note": "",
+  "value": "commercial_use"
+ },
+ {
+  "case_id": 2115142,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 2175889,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 2226364,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 3596595,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 3772832,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 5612601,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 6753290,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 7693723,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 10145223,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 10163493,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 10177581,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 12435555,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": ""
+ },
+ {
+  "case_id": 337780,
+  "field": "relevant",
+  "decision": "set",
+  "note": "",
+  "value": false
+ },
+ {
+  "case_id": 4032828,
+  "field": "quotes",
+  "decision": "keep",
+  "note": ""
+ }
+]
