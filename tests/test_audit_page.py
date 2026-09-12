@@ -53,3 +53,31 @@ def test_read_audit_state_returns_locked_entries_and_refuses_unlocked_ones(tmp_p
     bad = html.replace('id="review-state">[]</script>', 'id="review-state">' + json.dumps([dict(state[0], locked_at=None)]) + '</script>')
     with pytest.raises(ValueError, match="not locked"):
         mmr.read_audit_state(bad)
+
+
+def test_main_audit_builds_the_page_from_the_queue_dir_opinions(tmp_path):
+    claude, astra = _readers()
+    queue_path = tmp_path / "audit-queue.json"
+    queue_path.write_text(json.dumps(_queue()), encoding="utf-8")
+    opinions_dir = tmp_path / "opinions"
+    opinions_dir.mkdir()
+    (opinions_dir / "9.txt").write_text("she let the room", encoding="utf-8")
+    (opinions_dir / "10.txt").write_text("a store lease", encoding="utf-8")
+    claude_path = tmp_path / "claude.json"
+    claude_path.write_text(json.dumps(claude), encoding="utf-8")
+    astra_path = tmp_path / "astra.json"
+    astra_path.write_text(json.dumps(astra), encoding="utf-8")
+    out_stem = tmp_path / "page"
+
+    assert mmr.main(["--audit", "--queue", str(queue_path), "--claude", str(claude_path),
+                     "--astra", str(astra_path), "--out-stem", str(out_stem)]) == 0
+    html_path = Path(str(out_stem) + ".html")
+    assert html_path.exists()
+    doc = json.loads(re.search(r"const DOC = (.*?);\n",
+                               html_path.read_text(encoding="utf-8")).group(1))
+    assert {c["case_id"]: c["opinion"] for c in doc["cards"]} == {
+        9: "she let the room", 10: "a store lease"}
+
+    with pytest.raises(SystemExit):
+        mmr.main(["--audit", "--queue", str(queue_path), "--astra", str(astra_path),
+                 "--out-stem", str(out_stem)])
