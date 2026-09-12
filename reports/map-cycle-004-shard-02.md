@@ -204,6 +204,28 @@ of subscription, across weekly limits) or a Gemini screen at a few tens of dolla
 tells Opus which batches to read. The screen is no longer a wall-clock convenience; it is the
 only practical route to the deep tail, and its design is the next decision.
 
+## 11. The high-score leftovers (2026-09-12)
+
+After the third budget, 57 unread batches still scored above 0.4: the remainder of the three
+cells the per-cell yield floor had stopped in the first pass (1900-1930 Ohio, 1930-1970
+California and Massachusetts) plus a few batches the walk had not reached. Read on Opus with
+the yield floor off (`--case-budget 11718 --threshold -1`): 58 units, 1,044 cases, **101
+relevant (10%)** - the yield floor had stopped those cells for a reason. Shard cumulative:
+652 batches, 11,736 cases, 1,855 relevant, 0 failed, 0 lost. Published after admission:
+relevant 4,262 -> **4,363** (1,498 / 2,865), favorable **1,962**, favorable householder
+**399**. Round 4 over the new records: 23 cards (A 5, C 2, D 6, E 9, F 1).
+
+**The decision on the deep tail (2026-09-12).** The user weighed the marginal value of the
+13,121 cases below score 0.2 - perhaps 450-750 net relevant records, landing in cells that
+are already dense and skewed toward the borderline kind - against a Gemini screen at roughly
+$65-160 of OpenRouter credit and the recall check it would need, and chose to close cycle
+004 here and move to Stage 4. The screen design stays on file (§10) for the day the
+evaluation shows a gap that breadth would fill, or the methods appendix needs a coverage
+claim. A codebook question was parked with it: relevance stays broad (the ranker, the
+held-out slices and three cycles of human decisions depend on it), and a "centrality"
+signal - which the existing `owner_freedom_characterization` framing already half-carries -
+is a Stage 4 question.
+
 ## 8. Reproduction
 
 ```
