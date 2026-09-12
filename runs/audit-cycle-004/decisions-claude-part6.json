@@ -1,0 +1,373 @@
+[
+ {
+  "case_id": 958872,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Holdover proceeding over who may occupy a rent-controlled apartment: 'santo had entered into a written lease with the landlord-appellant whereby santo rented apartment 3-b for residential purposes.'"
+ },
+ {
+  "case_id": 958872,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Owner won and the local eviction-certificate restriction was held to yield: 'the final order should be reversed... and final order directed for the landlord' because 'a landlord owner in normal times has the right to evict a tenant and any other claiming under him holding over against the will of the landlord.'"
+ },
+ {
+  "case_id": 958872,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The letting party is the building's landlord, not an occupant: 'joseph h. hunt, landlord, appellant' who received the rent for 'the santo apartment.'"
+ },
+ {
+  "case_id": 9929170,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Suit to stop paid room-letting in a residence: 'the foxworths were renting an apartment, located upstairs from their unattached garage, to a rice university student for profit.'"
+ },
+ {
+  "case_id": 9929170,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "The court enjoined the letting: 'we render judgment that appellees john h. foxworth and erna beth foxworth be enjoined from renting the garage apartment as a source of financial gain.'"
+ },
+ {
+  "case_id": 9929170,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "Owners occupied the home and let a room on the premises: 'they occupy a home in southampton place' and 'have rented the room on three different occasions to rice university students.'"
+ },
+ {
+  "case_id": 334138,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "The court fixed the terms implied in a residential letting: 'in the rental of a dwelling unit... there is an implied agreement by the landlord that the rented unit complies with the minimum standards prescribed by building and sanitary codes.'"
+ },
+ {
+  "case_id": 334138,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "New liability was imposed on the letting owner: 'extension of the warranty to the ordinary residential tenancy at will... logically carries with it liability for personal injuries caused by a breach,' and the directed verdict for the landlord was reversed."
+ },
+ {
+  "case_id": 334138,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The defendant owned the rental building without occupying it: 'the plaintiff was the tenant of the third-floor apartment in a three-family house in dorchester owned by the defendant.'"
+ },
+ {
+  "case_id": 923619,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Summary proceeding under the housing rent regulation aimed at an occupant who sublet furnished rooms: 'he arranged with mr. curtis to sublet part of the place with his furniture in it.'"
+ },
+ {
+  "case_id": 923619,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "The court recognised the freedom to let and dismissed the owner's petition: 'he can assign the lease, sublet all or part or underlet... accordingly d'elia had the right to sublet.'"
+ },
+ {
+  "case_id": 923619,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "The sublettor lived in the premises he let: 'the tenant has retained use of one room and so far as the evidence goes uses it as a dwelling part of the time.'"
+ },
+ {
+  "case_id": 220769,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "No letting question: the suit is a poor-law claim by a farmer against overseers for a pauper's keep - 'overseers of the poor of parker city, entered into a contract with john shaffer, a farmer, by which he undertook to board and keep a swedish woman' - the occupant paid nothing and no occupancy arrangement was characterised or regulated."
+ },
+ {
+  "case_id": 8729871,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Zoning control of multiple letting: the owner 'sought... a certificate of variance to permit his property... to be used for a six-family dwelling.'"
+ },
+ {
+  "case_id": 8729871,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "The restriction on letting was upheld: 'the decision of the board is affirmed; the appeal by writ of certiorari is dismissed,' since 'zoning regulation of open rear-yard space in so congested a neighborhood must be upheld... even though it works a hardship on mr. hinton.'"
+ },
+ {
+  "case_id": 8729871,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The owner runs the building as rented apartments rather than living in it: 'mr. hinton has been conducting the apartment house operation for several years.'"
+ },
+ {
+  "case_id": 6708931,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Criminal zoning charge for letting a house to several households: 'charging appellant... with a violation of the city's zoning code in using certain property, zoned r-2 single family residential, as a multifamily dwelling.'"
+ },
+ {
+  "case_id": 6708931,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "The restriction was enforced against the owner: 'mr. sarver's use of the premises as a triplex (multifamily residential purpose) was not a legal nonconforming use. rather, it was an illegal use. he must be found guilty' - judgment affirmed."
+ },
+ {
+  "case_id": 6708931,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The owner let all three units and did not live there: 'appellant rented the apartments to three unrelated families or persons.'"
+ },
+ {
+  "case_id": 3235674,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "The case decides the validity of rent control over residential letting: 'the plaintiffs are tenants of rent-controlled housing accommodations in the defendant village of rockville centre.'"
+ },
+ {
+  "case_id": 3235674,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "The court sustained decontrol and refused to reimpose the restriction: summary judgment was granted declaring 'that the order of decontrol issued by the state division of housing and community renewal here in question is valid.'"
+ },
+ {
+  "case_id": 3235674,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The owners are landlords of rent-controlled housing they let out: 'the defendants-intervenors (a group of landlords) cross-moved for summary judgment.'"
+ },
+ {
+  "case_id": 415548,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Insurance warranty case, letting only as background description: 'compliance with his warranty is a condition precedent to any recovery upon the contract' - the court decided the effect of a broken fire-policy warranty, not the character or regulation of the boarding-house occupancy."
+ },
+ {
+  "case_id": 969736,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Dispute over a residential letting: 'the judgment was entered on a lease... for a certain brick dwelling known as 709 montclair street, pittsburgh... at a rental of $65 per month.'"
+ },
+ {
+  "case_id": 969736,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "The owner's letting contract was enforced as written: 'defendants admittedly being in default in the payment of the installments of rent due at the time, the entire rent at once became due and payable under the terms of the lease, and judgment was properly entered.'"
+ },
+ {
+  "case_id": 969736,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The lessor let a whole dwelling he did not occupy, and controlled subletting: 'he did say that if they could get a responsible party to sub-let that he would agree to their sub-letting.'"
+ },
+ {
+  "case_id": 6707578,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Municipal regulation of rental housing on condominium conversion: 'certain tenants advised pia that they were terminating their lease pursuant to lakewood residential condominium ordinance section 1327.06(e)(1).'"
+ },
+ {
+  "case_id": 6707578,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "The restriction on the letting owner was upheld: 'lrco 1327.06(e)(1) is valid, reasonable, and constitutional. therefore, because the tenants are entitled to vacate the premises without penalty, no actions to retain security deposits nor for claimed lost rents may be maintained.'"
+ },
+ {
+  "case_id": 6707578,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "A corporate owner letting units in a building it does not occupy: 'the owner/landlord, professional investments of america, inc.' of 'the lake house, a high-rise complex in lakewood, ohio.'"
+ },
+ {
+  "case_id": 813495,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Ordinance controlling whether dwellings must stay let: it requires 'that any unit which is a controlled rental unit on august 10, 1979, remain part of the rental housing stock of the city of cambridge.'"
+ },
+ {
+  "case_id": 813495,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "The restriction was upheld against the owners: 'a city ordinance which denied the owner of a condominium the right to occupy his unit if it was used for rental housing on the effective date of the ordinance did not constitute an unconstitutional deprivation of property' - 'we uphold the validity of the ordinance.'"
+ },
+ {
+  "case_id": 813495,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The plaintiffs let units they do not occupy: 'eight citizens of cambridge who reside in apartments owned by one of the plaintiffs' intervened as defendants."
+ },
+ {
+  "case_id": 390709,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Rent-ceiling regulation of a let apartment: the action alleged 'rental overcharges by the defendant in violation of the emergency price control act of 1942, as amended, and the housing and rent act of 1947.'"
+ },
+ {
+  "case_id": 390709,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "The owner was held liable in treble damages for exceeding the permitted rent: 'defendant admits that she received the rents set out in each count of the complaint... the judgment under review will be affirmed.'"
+ },
+ {
+  "case_id": 390709,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "unclear",
+  "note": "The opinion identifies the letting party only as the registering landlord of an apartment with shared facilities - 'bathroom & toilet shared by other tenants' - and says nothing about whether she lived in the building."
+ },
+ {
+  "case_id": 6034648,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "The court decided the legal character of a paid occupancy of a dwelling: 'the trial court granted respondents judgment for possession of the premises, finding a landlord-tenant relationship existed between respondents and appellant.'"
+ },
+ {
+  "case_id": 6034648,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "The letting owners' possessory remedy was upheld: 'a single writing (the 1985 agreement) created both a tenancy in common and a lease between three of the cotenants as lessors (respondents) and the fourth cotenant as lessee' - judgments affirmed in all respects."
+ },
+ {
+  "case_id": 6034648,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The lessors were excluded from the home they let: 'the parties stipulated that appellant exercised exclusive possession of the property, that respondents as cotenants could not enter the premises.'"
+ },
+ {
+  "case_id": 313773,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "The court classified boarding-house keeping as a regulated business: the statute 'applies to furniture used in a boarding-house kept by a married woman.'"
+ },
+ {
+  "case_id": 313773,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "The keeper lost her property for not meeting the statutory filing burden on that business: 'the case at bar is one which comes within the mischief which the statute was designed to remedy' - exceptions overruled, verdict for the attaching creditor."
+ },
+ {
+  "case_id": 313773,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "She kept the boarding house as a business, taking pay even from her husband: 'the furniture was used in a boarding-house kept by the plaintiff; that her husband boarded with her, paying for his board.'"
+ },
+ {
+  "case_id": 3964594,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Permit control of short-term letting: 'they applied for a special use permit to allow rental of their home to summer tenants in 2009 under the city of oneonta summer transient occupancy ordinance.'"
+ },
+ {
+  "case_id": 3964594,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "The denial of permission to let was left standing: 'adjudged that the petition is dismissed, as moot, without costs,' the court finding 'the controversy is moot given that the 2009 summer rental season... has long since passed.'"
+ },
+ {
+  "case_id": 3964594,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "Owners live in the house they proposed to let: 'petitioners are the resident owners of a single-family victorian-era home on draper street.'"
+ },
+ {
+  "case_id": 1048931,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Proceeding over subletting of controlled dwelling space: 'it is claimed that the subletting is a violation of the terms of the tenancy,' and 'walter shepherd is a sublessee of dwelling space and resides in a portion of the demised premises.'"
+ },
+ {
+  "case_id": 1048931,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "The owner's attempt to regain the space failed because the rent statute protects the occupants: 'the undertenants have been in possession since before the enactment of the control statute. thus, they are protected by the statute... final order for tenants dismissing petition.'"
+ },
+ {
+  "case_id": 1048931,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The letting party is the apartment-house owner: 'the landlord is the owner of premises 610 west end avenue, new york, new york.'"
+ },
+ {
+  "case_id": 10311363,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "The case turns on the effect of letting a dwelling for hire: 'plaintiffs have, since moving into the new house, rented the little house to different parties for short periods of time.'"
+ },
+ {
+  "case_id": 10311363,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Letting cost the owners nothing: 'the facts are sufficient to sustain the findings of the trial court that there was no segregation intended, and the renting of the cottage was merely temporary, hence there was no abandonment' - the homestead exemption was preserved and the sale enjoined."
+ },
+ {
+  "case_id": 10311363,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "Resident owners let a small house standing in their own fenced home lot: 'when said small house was rented, only the house was rented, and the plaintiffs reserved the use of the yard for their chickens and calves and horses.'"
+ },
+ {
+  "case_id": 1949113,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Challenge to rent and eviction control over dwellings: the ordinance is 'intended to regulate residential rent increases in the city of berkeley and to protect tenants from unwarranted rent increases and arbitrary, discriminatory, or retaliatory evictions.'"
+ },
+ {
+  "case_id": 1949113,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "The restrictions on letting were sustained: 'plaintiffs, a group of landlords... appeal from a judgment... holding defendants' rent control ordinance constitutional on its face. we substantially affirm the judgment' - only the severable retaliatory-eviction presumption was struck."
+ },
+ {
+  "case_id": 1949113,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The challengers let out property they do not live in: 'plaintiffs, a group of landlords who own property in the city of berkeley,' the ordinance exempting 'certain small owner-occupied buildings.'"
+ }
+]

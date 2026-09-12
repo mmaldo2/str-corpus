@@ -1,0 +1,548 @@
+[
+ {
+  "case_id": 12509571,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"on may 4, 2017, the parties entered into a month-to-month residential lease agreement ... for the premises\" and the case turns on Phila. Code 9-3902(1)(a) requiring a rental license for any dwelling \"let for occupancy\"."
+ },
+ {
+  "case_id": 12509571,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"we ... conclude that under section 9-3901(4)(e), landlords were prohibited from recovering rent as well as possession of the property\" for want of a rental license."
+ },
+ {
+  "case_id": 12509571,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"agnes frempong is the sole owner of property located at 2124 n. 11th street in philadelphia\" which was let in its entirety to the tenants."
+ },
+ {
+  "case_id": 4459228,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"o., an employee of plaintiff, applied for entertainment at defendant's inn, and was furnished a room ... the regular price for a guest was $6 per week\"."
+ },
+ {
+  "case_id": 4459228,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"even though 0. was a boarder, defendant had a lien on the horse, etc., for the amount due from him\" - the court enforced the room-letter's lien for his charges."
+ },
+ {
+  "case_id": 4459228,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "\"during the year 1872 the defendant, daniel l. keyes, was an innkeeper in the village of cooperstown\"."
+ },
+ {
+  "case_id": 3915825,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"in december 2003, defendant and ciccone executed a written lease for use and occupancy of the entire premises\" - a residential letting of a single-family house."
+ },
+ {
+  "case_id": 3915825,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"we hold that defendant landlord had a duty to the decedent to maintain the furnace and, thus, to inspect it periodically\" - a new duty imposed on the letting owner."
+ },
+ {
+  "case_id": 3915825,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"defendant was the owner of a single-family house in neptune city, which he purchased in 1998 for investment purposes.\""
+ },
+ {
+  "case_id": 302574,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"this is a consolidation of six separate actions instituted by numerous owners of multi-family residences seeking to invalidate fort lee rent levelling ordinance 74-26\"."
+ },
+ {
+  "case_id": 302574,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"after february 2, 1973 no valid rent levelling law existed in fort lee\" and \"summary judgment in accordance with this opinion is hereby granted in favor of plaintiffs\" - the rent restriction fell."
+ },
+ {
+  "case_id": 302574,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Plaintiffs are owners and managing partnerships of rented apartment houses - \"harry b. helmsley and alvin schwartz, general partners ... trading as horizon house associates\"."
+ },
+ {
+  "case_id": 2950742,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the plaintiffs are seven tenants. each occupies a residential apartment under an unexpired written lease\" and the suit concerns the owner's conversion of the let building."
+ },
+ {
+  "case_id": 2950742,
+  "field": "polarity",
+  "decision": "set",
+  "value": "mixed",
+  "note": "Holding for the owner: \"the defendants may not be enjoined from altering those parts of the building not occupied by the plaintiffs\"; holding against: \"the injunctive relief granted with respect to the violation of the zoning regulation ... is affirmed.\""
+ },
+ {
+  "case_id": 2950742,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"the defendants, who are the owners of record and lessees of an apartment house\" (55th St. Building Co.), not occupants of it."
+ },
+ {
+  "case_id": 4037195,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"in 2010 the town amended its zoning ordinance to prohibit transient rental, i.e, 'mental [rental] of a dwelling unit for a period of less than 28 continuous days'.\""
+ },
+ {
+  "case_id": 4037195,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"respondent reasonably determined that petitioner's serial rental of the subject property was prohibited under the zoning ordinance ... and thus petitioner had no right to continue such use\"."
+ },
+ {
+  "case_id": 4037195,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"petitioner owns property in the town of webster ... beginning in 2007, she rented the property for periods ranging from one night to approximately three months\" - the whole dwelling let out, not shared."
+ },
+ {
+  "case_id": 518166,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The deciding question is zoning residence, not letting: \"plaintiff cannot be permitted to carry on a dental practice in this building unless it is his rome [home] and its main use is as such\"; the proposed rental to a caretaker was offered to be dropped."
+ },
+ {
+  "case_id": 3588719,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"notwithstanding that 'hotel' is a defined term in the village of thomaston code ... it does not constitute a 'permitted use' in any of the zoning districts in the village\"."
+ },
+ {
+  "case_id": 3588719,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the enactment of the amended code constitutes a valid exercise of the village's police power\" - the total exclusion of hotels was upheld and the owner's suit dismissed."
+ },
+ {
+  "case_id": 3588719,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "\"the plaintiffs application for a building permit to erect and operate a hotel on his property was denied by the village\"."
+ },
+ {
+  "case_id": 2380283,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"plaintiff (landlord) and defendant (tenant) entered into a lease for a residential townhouse\" with a security deposit governed by the Landlord and Tenant Act."
+ },
+ {
+  "case_id": 2380283,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"the defense of noncompliance with subsection 512(a) is without merit\" - the tenant-protection forfeiture was read not to bar the landlord's damages suit; summary judgment denied."
+ },
+ {
+  "case_id": 2380283,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"tenant on february 24, 1980 surrendered possession of the premises to landlord\" - the whole townhouse was let, the landlord not living there."
+ },
+ {
+  "case_id": 351563,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"we consider the validity of a rent control ordinance which prohibits increases in rent without a certification that a dwelling is in 'substantial compliance' with municipal housing regulations.\""
+ },
+ {
+  "case_id": 351563,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"we therefore find that the requirement is not an arbitrary and unreasonable feature of orange's rent control ordinance\" - judgment for the city affirmed."
+ },
+ {
+  "case_id": 351563,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"orange taxpayers council, inc., a coalition of owners of rental properties in orange, and several individual landlords\" of multi-family rented housing."
+ },
+ {
+  "case_id": 784116,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A liquor-nuisance prosecution over a leased tenement used as a grog-shop, with no question of residential occupancy: \"knowingly permit a certain tenement in said building to be used by one edward h. galligan ... for the illegal sale and illegal keeping for sale of intoxicating liquors\"."
+ },
+ {
+  "case_id": 1040761,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"under 42 u.s.c. 3604(f)(2) ... it is unlawful to discriminate against a handicapped person in regard to the providing of services or facilities in connection with the rental of a dwelling\", applied to the trust's apartment tenant."
+ },
+ {
+  "case_id": 1040761,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"we do not perceive anything in the fhaa that mandates that the trust in these circumstances must continue to provide a parking space to this plaintiff\" - judgment entered for the letting owner."
+ },
+ {
+  "case_id": 1040761,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"the trust owns a three-unit apartment building located at 120 brook street, brookline\" and spunt is \"the property manager of the apartment building\"."
+ },
+ {
+  "case_id": 704631,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"this is a claim against a decedent's estate for hoard [board] and lodging ... there is no question that board and lodging were furnished to the decedent.\""
+ },
+ {
+  "case_id": 704631,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"these three elements we think are sufficient to support the decree entered by the learned president judge\" - the household was allowed payment for the board and lodging it furnished."
+ },
+ {
+  "case_id": 704631,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "\"the decedent ellen bergstresser, aged 80, went to the home of witter, her son-in-law, in 1926 and ... remained there until the date of her death\"."
+ },
+ {
+  "case_id": 5567977,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"about two months after the parties separated ... [the father] sublet a room in the house to a [roommate] for $600 per month\", and the court decided the legal character of that arrangement."
+ },
+ {
+  "case_id": 5567977,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"we uphold the finding that the roommate owed sublease rental payments to the father. therefore ... we also uphold the characterization of those payments as 'income'\" - the room letting was charged against him."
+ },
+ {
+  "case_id": 5567977,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "\"after the separation, he continued to live in that rental home and to operate his business therefrom. he also took in a roommate, who paid $600 per month in rent.\""
+ },
+ {
+  "case_id": 520283,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"a debtor, the head of a family, being the owner of a house and lot occupied by himself and family ... leased the same, by a written agreement, for one year\"."
+ },
+ {
+  "case_id": 520283,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"the debtor did not lose his right to have the homestead set off to him, by leasing the premises for the year, and going, with his family, to another county for temporary purposes.\""
+ },
+ {
+  "case_id": 520283,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "\"the head of a family, being the owner of a house and lot occupied by himself and family, the only real estate he owned\", who let it during a temporary absence."
+ },
+ {
+  "case_id": 1042731,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"in this article 78 proceeding petitioner seeks a review of a determination of respondent that a certain apartment is not decontrolled\" under the State Rent and Eviction Regulations."
+ },
+ {
+  "case_id": 1042731,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"the apartment was therefore not fully occupied and is subject to decontrol and the petition is granted accordingly\" - the rent restriction was lifted from the owner."
+ },
+ {
+  "case_id": 1042731,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Petitioner Fifth Avenue Estates, Inc. is the landlord of \"an 11-room apartment in the building located at 1010 fifth avenue\", not an occupant."
+ },
+ {
+  "case_id": 1144765,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the occupancy of apartment 1-b by sherryl, the tenant, falls within the scope of the aforesaid definition [of housing accommodation]. sherryl used the apartment as his residence\"."
+ },
+ {
+  "case_id": 1144765,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the present city rent administrator has jurisdiction and control over the within apartment ... accordingly, i find judgment for the tenant, dismissing the petition on the merits.\""
+ },
+ {
+  "case_id": 1144765,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"the premises is a 6-story elevator building with 42 tenants\" owned by the corporate landlord Avecrest Realty Co., Inc."
+ },
+ {
+  "case_id": 1682254,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the narrow question that must be decided on this appeal is whether a lease of an apartment house, under the facts hereinbefore set forth constitutes a 'business'\" for the mercantile license tax."
+ },
+ {
+  "case_id": 1682254,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"we hold that the income in question is not taxable under the philadelphia mercantile license tax ordinance. appeal sustained.\""
+ },
+ {
+  "case_id": 1682254,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"appellant has engaged in no other activity beyond holding title to this one property [a high-rise apartment building] ... it renders no services to the tenants in the apartments.\""
+ },
+ {
+  "case_id": 822125,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"it shall be unlawful for a landlord to restrict occupancy of residential premises, by express lease terms or otherwise, to a tenant or tenants or to such tenants and immediate family\" (RPL 235-f), applied to the lease."
+ },
+ {
+  "case_id": 822125,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the court rules that the tenant has not violated or breached the terms of the said lease as modified and defined by section 235-f ... accordingly, the petition is dismissed with prejudice.\""
+ },
+ {
+  "case_id": 822125,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Petitioner Marine Terrace Assoc. is the landlord of a subsidized apartment in a multiple dwelling, letting to a section 8 tenant."
+ },
+ {
+  "case_id": 1616661,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The decision turns purely on party-plaintiff procedure, not on the letting: \"held, that he was a proper party to bring the action for the recovery of the money\" deposited by a guest for safe keeping."
+ },
+ {
+  "case_id": 730687,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"he applied ... for a permit to erect upon this lot a two-story brick building, containing three stores on the first floor and two apartments on the second floor\", refused solely under the zoning ordinance."
+ },
+ {
+  "case_id": 730687,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"a peremptory writ will be awarded to the relator, together with costs of suit\" - the zoning bar on erecting the apartments did not stand."
+ },
+ {
+  "case_id": 730687,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "unclear",
+  "note": "The opinion says only that \"the relator, william eichler, is the owner of certain premises\"; nothing states whether he would reside in or operate the apartments."
+ },
+ {
+  "case_id": 519048,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the plaintiffs ... owners of a mobile home, sought injunctive relief ... against the defendant, liberty mobile home sales, inc., which owns the lot where the home is located\" under a residential rental agreement."
+ },
+ {
+  "case_id": 519048,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"we conclude that the statute does not violate the takings clause\" and \"the trial court did not err in determining that this resale standard was prohibited by 21-79\" - the restriction on the park owner's control was upheld."
+ },
+ {
+  "case_id": 519048,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "\"the mobile home was purchased 'in place' on a lot in harmony acres mobile home park, which the defendant owned\" and operated as a park letting lots to residents."
+ },
+ {
+  "case_id": 838282,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"this is an action to recover the sum of $170 alleged to be owing plaintiff by defendant for rent of certain premises\" occupied by the defendant at $25 a month, partly paid by the welfare department."
+ },
+ {
+  "case_id": 838282,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"the plaintiff is entitled to recover the sum of $170, the balance of rent owing to him by the defendant\" - the letting owner's rent claim was enforced despite the relief payments."
+ },
+ {
+  "case_id": 838282,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"plaintiff became the owner of the premises in question upon the death of his father\" and continued to collect rent from the occupying defendant."
+ },
+ {
+  "case_id": 12502941,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the parties entered into a written residential lease agreement, drafted by landlord\" and the suit is brought \"pursuant to the pennsylvania landlord and tenant act of 1951\" over the security deposit."
+ },
+ {
+  "case_id": 12502941,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the trial court correctly found that landlord failed to comply with section 250.512(a), and properly awarded appellee double the amount of appellee's security deposit\"."
+ },
+ {
+  "case_id": 12502941,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"landlord owned a house that he wished to rent to a tenant until he was ready to put the house on the market for sale.\""
+ },
+ {
+  "case_id": 1012298,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"this appeal raises the issue of the criteria to be applied in determining whether a tenancy is bonafide or illusory\" in a rent-stabilized apartment sublet to the occupant."
+ },
+ {
+  "case_id": 1012298,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the instant appeal presents a clear example of an attempt to evade operation of the rent stabilization law\"; the transfer was set aside and the occupant declared tenant entitled to buy the shares."
+ },
+ {
+  "case_id": 1012298,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"it was not elisabeth but the landlord which exercised dominion and control over the premises\" - Park Avenue Equities, the building's owner, was letting."
+ },
+ {
+  "case_id": 4389937,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"petitioner landlord, in this holdover proceeding, seeks to evict respondent tenant from a rent-controlled apartment on the ground that tenant ... allow[ed] a person not a tenant and not part of her 'immediate family' to occupy the apartment\"."
+ },
+ {
+  "case_id": 4389937,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"the landlord reserved the right by virtue of the covenant in the lease to restrict the occupants\" and \"the landlord ... has not discriminated\"; the landlord's petition was reinstated."
+ },
+ {
+  "case_id": 4389937,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Petitioner Hudson View Properties is the owner-landlord of the rent-controlled apartment building, letting apartments to tenants."
+ },
+ {
+  "case_id": 2944419,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"no tenement house or any part thereof or the lot or premises thereof shall be used for the purpose of prostitution or assignation\" - a statute regulating the use of let dwellings, applied to the owner."
+ },
+ {
+  "case_id": 2944419,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the owner, who with notice or knowledge that his property is being used for immoral purposes, takes no steps to end such use, is a party to the violation of the law and cannot take refuge behind his alleged lessees\"."
+ },
+ {
+  "case_id": 2944419,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"the defendant, as the owner of the premises 504 and 506 lenox avenue\", which it had leased out through intermediate lessees to tenants with \"accommodations for thirty families\"."
+ },
+ {
+  "case_id": 543796,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the defendant tenant appeals from a judgment for the plaintiff landlord in a summary process action seeking possession of the leased premises for nonpayment of rent\" on \"a duplex apartment in east hartford\"."
+ },
+ {
+  "case_id": 543796,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"equitable defenses and counterclaims implicating the right to possession are available in a summary process proceeding\" and \"we reverse the judgment of possession\" for a $25.01 shortfall."
+ },
+ {
+  "case_id": 543796,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"on march 4, 1983, the landlord leased a duplex apartment in east hartford to the tenant for a term of ninety-nine years\" - the whole unit let, the landlord not occupying it."
+ }
+]

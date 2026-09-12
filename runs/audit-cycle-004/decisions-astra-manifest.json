@@ -1,0 +1,12 @@
+{
+ "model": "gpt-6-astra",
+ "codex_version": "codex-cli 0.153.4",
+ "cards": 150,
+ "decided": 150,
+ "asked": 150,
+ "failed": [],
+ "input_tokens": 4662142,
+ "output_tokens": 30272,
+ "decisions": "runs/audit-cycle-004/decisions-astra.json",
+ "brief_sha256": "a26e98feadc60d752c2103f23aefe3618498fa51ee1519cef588fec43e552295"
+}

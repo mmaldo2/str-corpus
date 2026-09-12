@@ -1,0 +1,450 @@
+[
+ {
+  "case_id": 339076,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"this certiorari brings up an order of the somerset common pleas, granting to defendants a license to keep an inn\" - the case is about licensing who may keep an inn."
+ },
+ {
+  "case_id": 339076,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"none of the reasons assigned are sufficient to indicate error in the order brought up. it must therefore be affirmed\" - the license to keep an inn stood, and the act was read to permit licensing more than one person."
+ },
+ {
+  "case_id": 339076,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "\"it is not essential that an applicant shall, at the time of the application, be an inhabitant of the house in which the applied for inn is to be kept\" - the licensees keep an inn as a trade."
+ },
+ {
+  "case_id": 12130888,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"defendants are the landlords of an apartment complex where plaintiff resided, under a lease entered into by her ohio employer\" - the dispute is over the legal character of her occupancy (tenant, beneficiary, or mere licensee)."
+ },
+ {
+  "case_id": 12130888,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"we reverse the february 2007 summary judgment for defendants\" on triable issues \"whether defendants improperly disturbed plaintiff's peaceful possession through resort to impermissible self-help\" - the landlords lost their judgment and fee award."
+ },
+ {
+  "case_id": 12130888,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "\"defendants own and operate briarwood apartment homes in sunnyvale, california\" - a corporate apartment-complex operator."
+ },
+ {
+  "case_id": 2300424,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "\"gasoline stations, the type of business institution involved in this proceeding, are excluded from dwelling districts\" - zoning of a filling station, with no question of paid occupancy of rooms or a dwelling."
+ },
+ {
+  "case_id": 971156,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the record indicates that the landlord seeks possession of the subject seven rooms, second floor apartment in a two family house for his personal use\" - rent and eviction regulation of a let apartment."
+ },
+ {
+  "case_id": 971156,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"the commission's determination denying a certificate of eviction was without proper basis or warrant and is annulled\" - the court narrowed the regulation's grip on the owner and rejected opinion no. 7's added necessity requirement."
+ },
+ {
+  "case_id": 971156,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "\"petitioner and his wife, as co-owners, on august 1, 1951, purchased a two-family house ... for the purpose of using the upper apartment for their living quarters\" - owner-occupiers of the two-family house whose other unit is let."
+ },
+ {
+  "case_id": 627003,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "the ordinance defines a lodging house as \"a dwelling or that part of a dwelling where sleeping accommodations are let, with or without kitchen facilities, to four (4) or more persons not within the second degree of kindred to the person conducting it\"."
+ },
+ {
+  "case_id": 627003,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the ordinance was not unconstitutionally vague\" and \"we vacate the judgment\" - the city's lodging-house restriction on letting was upheld."
+ },
+ {
+  "case_id": 627003,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"the defendants each own one or more condominium units in a complex known as the autumn chase condominium\" and each unit \"is occupied by four unrelated individuals, all of whom are students\" - owners letting units they do not live in."
+ },
+ {
+  "case_id": 221224,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the plaintiff was defendant's tenant of apartments in the city of newark\" - the case decides the landlord's right to enter rooms she has let."
+ },
+ {
+  "case_id": 221224,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"in removing the lock without the plaintiff's consent at the time and under the circumstances, the defendant occupied the legal status of a trespasser\" - judgment against the letting owner affirmed."
+ },
+ {
+  "case_id": 221224,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "unclear",
+  "note": "the opinion says only \"the plaintiff was defendant's tenant of apartments\" - nothing shows whether the landlord lived in the building."
+ },
+ {
+  "case_id": 8278738,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "\"appellant ... entered into a written contract with mrs. emma mccann ... wherein he leased to her, for the term of two years, a hotel building in taylor, tex., at $50 per month\" - a commercial lease of a building, with the tenant's boarders entering only as a speculative measure of damages."
+ },
+ {
+  "case_id": 5753551,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the whites had sought unsuccessfully to obtain enforcement of the zoning ordinance against the plaintiffs, who had leased their two-apartment property to fourteen college students\" - a zoning attack on that letting."
+ },
+ {
+  "case_id": 5753551,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"it was error to allow the motion for summary judgment\" - the neighbours' zoning challenge to the owners' rental use was revived against the owners."
+ },
+ {
+  "case_id": 5753551,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"the plaintiffs' property is 480 feet and seven houses distant from the home of the whites\" and they \"leased their two-apartment property to fourteen college students\" - they do not live in the let property."
+ },
+ {
+  "case_id": 11491091,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the plaintiff-landlord ... owns a three family dwelling at 157 perkins st. in somerville ... and does not have the required license, certificate of occupancy or special permit to operate a rooming house\"."
+ },
+ {
+  "case_id": 11491091,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the judge correctly ruled that the tenant was occupying an illegal boarding house\" - the zoning bar on letting single rooms was upheld and the letting ordered stopped."
+ },
+ {
+  "case_id": 11491091,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "the city ordered him to \"cease and desist use of the building as a boarding house by renting single room occupancy units\" - fourteen rooms let under separate weekly agreements as a business."
+ },
+ {
+  "case_id": 6758056,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"they were both actions of replevin for goods and baggage which had been detained by certain boarding-house keepers for non-payment of board\" - the boarding house keeper's act and a boarder's occupancy of rooms."
+ },
+ {
+  "case_id": 6758056,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"on either of these grounds, we think the landlord has not forfeited his bill\" - the statutory posting requirement was held inapplicable where the boarder made his own special contract."
+ },
+ {
+  "case_id": 6758056,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "\"every keeper of a hotel, restaurant, inn, or boarding-house shall put in a conspicuous place ... a printed copy of this act\" - the defendants kept boarding houses as a business."
+ },
+ {
+  "case_id": 3606756,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "the petitioner \"subsequently rented the dwelling to two families without obtaining a certificate of occupancy\" in a district zoned for one-family use."
+ },
+ {
+  "case_id": 3606756,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"we reverse and reinstate the denial of the petitioner's application by the zoning board, as the determination was rational and based upon substantial evidence\" - the two-family rental use stays prohibited."
+ },
+ {
+  "case_id": 3606756,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"the petitioner is the owner of a 40-foot by 150-foot parcel ... which she purchased in 1976 along with two other lots\" and rented the dwelling out; nothing shows she lived in it."
+ },
+ {
+  "case_id": 397249,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"plaintiff was a boarder in the house of defendant, who kept a few boarders\" - the keeper's duty as to property left in a boarder's room."
+ },
+ {
+  "case_id": 397249,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"we think the judgment was properly against the plaintiff and it is affirmed\" - the keeper owes only ordinary care and the boarder's own carelessness barred recovery."
+ },
+ {
+  "case_id": 397249,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "\"plaintiff was a boarder in the house of defendant, who kept a few boarders\" and \"a lady member of the family\" used the rooms - a household taking a few boarders."
+ },
+ {
+  "case_id": 930956,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the st. george has shrunk to only 3 buildings with less than 700 single-room occupancy apartments\" and the suit is for wrongful eviction of one of those room occupants."
+ },
+ {
+  "case_id": 930956,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"defendant's posttrial motion to set aside the verdict is granted only to the extent that the amount awarded for punitive damages is reduced for excessiveness\" - liability for driving the room tenants out stands."
+ },
+ {
+  "case_id": 930956,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "\"the responsible entity is the defendant corporation who undeniably was the owner of the premises before, during and afterwards\" - the corporate operator of the hotel's single-room apartments."
+ },
+ {
+  "case_id": 384426,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "the issue is whether \"the property in question is, as a matter of law, to be considered as commercial by reason of the fact that a portion of the premises is rented\" - the legal character of letting a flat in one's own house."
+ },
+ {
+  "case_id": 384426,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"the property at issue here, being an owner-occupied, two-family home is clearly within the exempted category, absolving the owners from the duty to maintain abutting sidewalks\" - letting a flat does not turn the home into a business."
+ },
+ {
+  "case_id": 384426,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "\"one of the co-owners, defendant young, occupies the first floor, and has been living on the property for more than twenty-five years\" while the remaining unit is rented out."
+ },
+ {
+  "case_id": 3841278,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the defendant, the owner of a newly completed cottage at salisbury beach, rented it, furnished, to the plaintiff for a period of four weeks\" - a short furnished letting of a dwelling."
+ },
+ {
+  "case_id": 3841278,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"upon the letting of the completely furnished house for immediate occupancy an implied agreement arose that the house and its appointments were fit for the use for which they were apparently intended\" - the owner is liable though she neither knew of the defect nor was negligent."
+ },
+ {
+  "case_id": 3841278,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "she \"rented it, furnished, to the plaintiff for a period of four weeks beginning july 1, 1938\" - the whole seasonal cottage was let and the owner did not live in it."
+ },
+ {
+  "case_id": 2786925,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"these later provisions require a finding of compelling necessity to recover possession of an apartment for the landlord's 'own immediate and personal use'\" - eviction control over a let apartment."
+ },
+ {
+  "case_id": 2786925,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"respondents' showing did not comply with the foregoing requirement and the commission properly denied their application for a certificate\" - the restriction on recovering the let apartment was upheld."
+ },
+ {
+  "case_id": 2786925,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "unclear",
+  "note": "the opinion says only that the applicants sought possession \"for the landlord's 'own immediate and personal use'\" - it never says where the owners lived."
+ },
+ {
+  "case_id": 5444981,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "\"the appellant strenuously contends that she, having an established business, would not, in the nature of things, be content to hire a place from month to month\" - a month-to-month hiring of business premises, decided on the sufficiency of the five-days notice to quit."
+ },
+ {
+  "case_id": 12515683,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"under the ellis act may an eligible elderly or disabled tenant defeat an owner's demand for possession of a residential rental unit by showing that the owner changed a term of the tenancy during the notice period?\""
+ },
+ {
+  "case_id": 12515683,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"this finding supports the jury's award of possession of the apartment to allen. the trial court's judgment is, therefore, affirmed\" - the owners were held to the act and lost possession of their own unit."
+ },
+ {
+  "case_id": 12515683,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"the hilalys closed on the purchase of the three-unit property\" and ms. hilaly \"would park in the left-side garage when visiting her son\" - owners of a rental building who did not live in the let unit."
+ },
+ {
+  "case_id": 5570757,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"one is against using any building thereon for a boarding house, and another is that it shall be 'used and occupied solely for the purpose of one private dwelling house'\" - the case turns on whether the defendant's paid arrangement was boarding or lodging."
+ },
+ {
+  "case_id": 5570757,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the order should be reversed ... and the motion for injunction granted\" - the court enjoined the defendant's letting of his house to the other families."
+ },
+ {
+  "case_id": 5570757,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "\"the defendant rented his house to others\"; he was one of the \"association of three\" occupying it with his own family of four and \"manned the house and acted as purveyor\"."
+ },
+ {
+  "case_id": 322989,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the facts, that mrs. newton occupied premises belonging to the administratrix, her daughter, which were worth the monthly rent charged, and that mrs. newton was fully provided for by her daughter ... are established\" - a claim for rent, board and lodging."
+ },
+ {
+  "case_id": 322989,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"it is not shown that mrs. hoffman, the daughter and administratrix, made it a business to keep boarders\" - so the one-year bar on claims for board did not apply and her claim for board survived at ten years."
+ },
+ {
+  "case_id": 322989,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "\"the prescription of one year is only applicable to claims for board in private houses, where it is made a business to furnish board at a fixed price\"; here a daughter housed and boarded her mother in her own premises."
+ },
+ {
+  "case_id": 10069927,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "\"the only issue presented was whether the quoted stipulation contained in the deed to mrs. roberts was a real or personal obligation\" - a covenant on a 550 acre farm that names a \"tourist court\" only in a list with saloons and nightclubs; nothing is decided about paid occupancy of rooms."
+ },
+ {
+  "case_id": 6703218,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"section 3733.06, revised code, gives a park operator with a state license the right to operate his house trailer park\" - the right \"to rent or use each trailer lot or space for the parking of a house trailer or trailers to be used for human habitation\"."
+ },
+ {
+  "case_id": 6703218,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"the sections of ordinance no. 348 pertaining to the trailer park permit, specifically, sections 9, 10, 11, 12, 13, 14, 15 and 17, are clearly unconstitutional\" and enforcement was enjoined - the municipal licensing restriction was struck down."
+ },
+ {
+  "case_id": 6703218,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "the ordinance would \"require all trailer park operators within the village to obtain a village permit\", and the appellant faced \"business losses\" from \"closing down his trailer park\"."
+ },
+ {
+  "case_id": 344157,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the monthly rental, which would include one meal daily, housekeeping services, and access to the support facilities, is presently projected at between $1,500 and $1,800 monthly\", and the facility is regulated only so far as \"it may constitute a boarding or rooming house\"."
+ },
+ {
+  "case_id": 344157,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"we remand for entry of judgment granting the use variance as conditioned by the board of adjustment\" - the refusal to let the owner house paying residents was a \"reversible abuse of discretion\"."
+ },
+ {
+  "case_id": 344157,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "\"plaintiff jayber, inc., a new jersey corporation, owns and operates a 131-bed nursing home\" and \"the congregate care facility here proposed is envisioned as a profit-making enterprise\"."
+ },
+ {
+  "case_id": 1702275,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"this leaves for consideration only section 7 of the ordinance which limits the right of occupancy in a trailer park to 60 days and forbids occupancy there or elsewhere in a trailer camp within the same municipality until the elapse of another 90 days\"."
+ },
+ {
+  "case_id": 1702275,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"in our judgment the ordinance is valid and enforceable\" - the 60-day and 90-day limits on occupancy in the operator's park were upheld."
+ },
+ {
+  "case_id": 1702275,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "\"no trailer camp licensee shall permit a trailer or occupants thereof to remain in a trailer camp for more than sixty days\" - the plaintiffs run the licensed trailer camp as a business."
+ }
+]

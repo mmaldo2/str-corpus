@@ -83,8 +83,31 @@ $R = "cycle-004-shard-01"
 # External first pass (GPT Astra on the Codex subscription, one call per card): the
 # card export with full text -> a decisions file in the apply schema, resumable; the
 # Claude pass and this one meet in the three-way sheet before anything is applied.
-.venv\Scripts\python tools\export_review_cards.py --queue runs\$Review-round-1.json --full-text --out-stem reportseview-round-1-cards
-.venv\Scripts\python toolsirst_pass_codex.py --cards reportseview-round-1-cards.json --handoff reportseview-round-1-handoff.md --out runs\$Review-round-1-decisions-astra.json
+.venv\Scripts\python tools\export_review_cards.py --queue runs\$R
+eview-round-1.json --full-text --out-stem reports
+eview-round-1-cards
+.venv\Scripts\python toolsirst_pass_codex.py --cards reports
+eview-round-1-cards.json --handoff reports
+eview-round-1-handoff.md --out runs\$R
+eview-round-1-decisions-astra.json
+# Evaluation (Stage 4, sub-project 1; docs/superpowers/specs/2026-09-12-stage-4-evaluation-design.md).
+# build-bands derives the committed bands table from the gitignored batches once; publish
+# runs the five measures, validates the JSON contract, and writes reports/evaluation-<cycle>.{json,md}
+# together (--force keeps the superseded pair as -revN). The registry runs/evaluation/rounds.json
+# names every review round; an unregistered reviewer run id blocks publication until it has a
+# disposition there.
+.venv\Scripts\python tools\evaluate.py build-bands --run-id cycle-004-shard-02
+.venv\Scripts\python tools\evaluate.py publish --cycle 004
+# The audit of the machine-only tier: a frozen simple random sample (the seed is in
+# runs/audit-cycle-004/sample-manifest.json), blind cards, two blind model passes from an
+# isolated directory, the lock-then-reveal page the user reads all 150 cards on, and an apply
+# that writes explicit reviewer patches on relevant/polarity/who_was_letting with a drift check.
+.venv\Scripts\python tools\draw_audit_sample.py --seed 20260912 --n 150 --out runsudit-cycle-004
+.venv\Scripts\python tools\export_review_cards.py --queue runsudit-cycle-004udit-queue.json --audit --out-stem reportseview-audit-cards --chunks 6
+.venv\Scripts\python toolsirst_pass_codex.py --audit --workdir <isolated dir with only the brief and the cards> --cards <dir>eview-audit-cards.json --brief <dir>eview-audit-brief.md --out runsudit-cycle-004\decisions-astra.json
+.venv\Scripts\python tools	hreeway_sheet.py --queue runsudit-cycle-004udit-queue.json --claude runsudit-cycle-004\decisions-claude.json --astra runsudit-cycle-004\decisions-astra.json --out-md reportseview-audit-threeway.md --per-field --label "audit cycle 004"
+.venv\Scripts\python tools\make_map_review.py --audit --queue runsudit-cycle-004udit-queue.json --claude runsudit-cycle-004\decisions-claude.json --astra runsudit-cycle-004\decisions-astra.json --out-stem reportseview-audit-page
+.venv\Scripts\python toolspply_map_review.py --audit --saved runsudit-cycle-004\page-saved.html --queue runsudit-cycle-004udit-queue.json --sample runsudit-cycle-004\sample-manifest.json --claude runsudit-cycle-004\decisions-claude.json --astra runsudit-cycle-004\decisions-astra.json --run-id audit-cycle-004 --dry-run
 # Decision apply: --dry-run first, always; --run-id guards against re-applying the
 # same saved page twice.
 .venv\Scripts\python tools\apply_map_review.py --saved <saved page> --checker runs\$R\review-round-1-checker.json --run-id map-cycle-004-round-1 --dry-run

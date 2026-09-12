@@ -1,0 +1,506 @@
+[
+ {
+  "case_id": 1319813,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Suit over 'alleged excess rentals paid by the plaintiff to the defendant for residential quarters in milford' under the Emergency Price Control Act."
+ },
+ {
+  "case_id": 1319813,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "Judgment for the tenant of $305 plus fees: 'his conduct has been characterized by a continuing defiance of regulation in his effort to secure enhanced income from rent-producing properties.'"
+ },
+ {
+  "case_id": 1319813,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Landlord of several 'rent-producing properties' whose 'collection of rents, during the period in question, was entrusted to an agent of the defendant.'"
+ },
+ {
+  "case_id": 1598480,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Turns on the lodging statute: 'whoever, with intent to cheat or defraud, shall obtain food, lodging, credit or other accommodation in any hotel, inn or boardinghouse, is guilty of a misdemeanor.'"
+ },
+ {
+  "case_id": 1598480,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Judgment n.o.v. for the hotel: 'the act gives an innkeeper the necessary legal state of mind: it presents him with probable cause.'"
+ },
+ {
+  "case_id": 1598480,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "'defendant, a hotel, had plaintiff, who was one of its guests, arrested because of plaintiff's long arrearages in his hotel bill.'"
+ },
+ {
+  "case_id": 320407,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Special-permit condition 'requires the plaintiff to lease to the nha three two-bedroom units for low income families at $202 a month for each unit' while comparable units rented at $475."
+ },
+ {
+  "case_id": 320407,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "'condition no. 8 ... is annulled as in excess of the board's authority.'"
+ },
+ {
+  "case_id": 320407,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Plaintiff is the owner-developer of a 'garden apartment development' of fifty-four dwelling units, 'rented by the plaintiff to tenants at $475 a month.'"
+ },
+ {
+  "case_id": 294987,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Summary dispossess of a residential tenant 'from a rental unit in a building undergoing conversion to condominium ownership.'"
+ },
+ {
+  "case_id": 294987,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'the landlord failed to comply with the notice requirements of n.j.s.a. 2a:18-61.8 and, therefore, the court was without jurisdiction to enter a judgment of possession'; the act 'is in derogation of the common law rights of a landlord to evict.'"
+ },
+ {
+  "case_id": 294987,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "'plaintiffs ... are owners of a building consisting of 24 residential units' whose tenants they visited to offer conversion papers."
+ },
+ {
+  "case_id": 1666179,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Claim for 'the reasonable value of such board and lodging furnished decedent ... at the rate of $7.00 per week'; 'she was a boarder and lodger.'"
+ },
+ {
+  "case_id": 1666179,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "'there was ample evidence to support a contract on the part of the decedent to pay for same' - the householder recovered for the board and lodging he furnished."
+ },
+ {
+  "case_id": 1666179,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "'she was given a room of her own in his home. she sat at his table ... and she was cared for by the members of the family of plaintiff when ill or ailing.'"
+ },
+ {
+  "case_id": 12497506,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Challenge to licensing as applied to a 'short-term vacation property manager' who rented her own two cottages and then managed other owners' short-term vacation rentals."
+ },
+ {
+  "case_id": 12497506,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'the application of relra's licensing requirements to ladd, therefore, satisfies the gambone rational basis test'; the petition was dismissed with prejudice."
+ },
+ {
+  "case_id": 12497506,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Ladd, 'a new jersey resident,' rented 'two cottages that she owns in arrowhead lake, monroe county, pennsylvania' and did the same for absentee owners such as Harris."
+ },
+ {
+  "case_id": 1054087,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Challenge to a code section 'insofar as it requires installation of central heating and hot-water equipment in tenement properties containing more than 10 apartments.'"
+ },
+ {
+  "case_id": 1054087,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'the court feels that this was a reasonable use of police power ... individual hardship must yield to the lawful exercise of the police power.'"
+ },
+ {
+  "case_id": 1054087,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Plaintiffs are 'the owners of property' - tenement houses of more than ten apartments - who say they are 'compelled to borrow at very high interest rates or sell the property at a tremendous sacrifice.'"
+ },
+ {
+  "case_id": 2262562,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'brought by owners of rent-controlled new york city residential properties' against a statute that 'prohibits any increase in rents (unless a tenant consents)' during the transfer period."
+ },
+ {
+  "case_id": 2262562,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "Majority: 'we see nothing unconstitutional about the method chosen by the legislature ... the judgments and order appealed from should be affirmed.'"
+ },
+ {
+  "case_id": 2262562,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Plaintiffs are realty companies and partnerships holding rent-controlled apartment properties, one seeking an increase 'based on the price paid for the property.'"
+ },
+ {
+  "case_id": 3296470,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Assault on a patron who 'visited the place for the purpose of getting a beer'; the court added that even if the proprietor 'did not sustain toward them the technical relation of an innkeeper ... substantially the same duties and obligations exist' - the lodging rooms above are incidental colour."
+ },
+ {
+  "case_id": 357518,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'the deponent rented to moore, the defendant, the premises in question, to hold the same from the 1st day of may, 1878, to the 1st day of june, 1878, at the rent of $2 per day and board.'"
+ },
+ {
+  "case_id": 357518,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "'the tenant was not entitled to notice, either as a tenant at will or by the month, and the judgment [of dispossession] should be affirmed.'"
+ },
+ {
+  "case_id": 357518,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "unclear",
+  "note": "The rent was '$2 per day and board for deponent and deponent's hired man'; the opinion never says whether the owner lived on the premises."
+ },
+ {
+  "case_id": 785905,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Tenant of 'the subject residential premises' sought to compel the landlord's consent to an assignment of his apartment lease under Real Property Law 226-b."
+ },
+ {
+  "case_id": 785905,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'the motion in chief is granted and the cross motion denied' - every reason given by the landlord, including waiting lists and loss of a vacancy increase, was held unreasonable as a matter of law."
+ },
+ {
+  "case_id": 785905,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Defendant Berkeley Associates Company is the landlord acting through 'defendant agent greenthal,' with waiting and 'switch' lists for the building."
+ },
+ {
+  "case_id": 750609,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Action for rent of 'a suite of rooms' let at $55 a month on a representation that they 'were in good condition, fit to live in.'"
+ },
+ {
+  "case_id": 750609,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "'the failure of the plaintiff did not absolve the defendant from his obligation to pay the rent agreed'; the unperformed promise to repair 'did not constitute a constructive eviction.'"
+ },
+ {
+  "case_id": 750609,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The landlord collected in person - the tenant 'did not pay the rent for the month of may because the plaintiff did not come to collect it as he customarily did.'"
+ },
+ {
+  "case_id": 856956,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Local Law 22 'imposed affirmative obligations on the owners of buildings containing sro units ... all sro units must then be rented at rents authorized by law.'"
+ },
+ {
+  "case_id": 856956,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "'these regulations impose an unreasonable and arbitrary scheme and frustrate plaintiffs' property rights without due process of law'; enforcement enjoined."
+ },
+ {
+  "case_id": 856956,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Plaintiffs are 'owner-developers of properties containing sro units' who 'do not reside either in or in close proximity to the neighborhood where the sro properties are located.'"
+ },
+ {
+  "case_id": 5585373,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Penalty action against 'the owner of a tenement house' under a law providing 'that no tenement house shall be used for the purpose of prostitution or assignation' by those occupying its apartments."
+ },
+ {
+  "case_id": 5585373,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "'the owner of a tenement house used for purposes of prostitution without his permission or knowledge is not liable for the penalty'; judgment for the owner affirmed."
+ },
+ {
+  "case_id": 5585373,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "She 'had owned this property for six years; that 22 families occupied the house,' and it was the janitor who 'rented these apartments' and had 'charge of these apartments' for fifteen years."
+ },
+ {
+  "case_id": 376175,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "The traveller 'came to the defendant's house, with a load of wheat and barley and was there received as a guest for the night' at the defendant's tavern."
+ },
+ {
+  "case_id": 376175,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'the liability of an inn-keeper for such losses, arises from the nature of his employment ... it is not necessary to prove negligence in the inn-keeper, to make him liable'; judgment against the innkeeper affirmed."
+ },
+ {
+  "case_id": 376175,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "'the defendant kept a tavern, in the town of half moon ... he holds out a general invitation to all travellers to come to his house, and he receives a reward for his hospitality.'"
+ },
+ {
+  "case_id": 971269,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Rent-overcharge suit by an occupant who 'occupied an apartment ... and agreed to pay the sum of $18 per week rental'; 'the sole question ... is whether the premises in question ... is a hotel and therefore not subject to the regulations.'"
+ },
+ {
+  "case_id": 971269,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "'i therefore find that the premises in question are decontrolled and not subject to the regulations of the temporary state housing rent commission. plaintiff's complaint dismissed.'"
+ },
+ {
+  "case_id": 971269,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "The Snowden Apartment Hotel 'catered to transient as well as more or less permanent occupants,' with maid, linen, desk and bellboy service and a transient-hotel-tax permit."
+ },
+ {
+  "case_id": 11139345,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Premises-liability tort only: 'murray garvin slipped and fell while taking a shower' at the Hyatt, and the case turned on the plaintiffs' failure to prove 'the existence of an actionable defect or condition,' with no letting question decided."
+ },
+ {
+  "case_id": 2300734,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'at all times during defendants' ownership the property had been and now is used and operated as an apartment house' of five units in a district zoned first residential (single-family dwelling)."
+ },
+ {
+  "case_id": 2300734,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'the court granted an injunction enjoining defendants from using the property in any manner other than as a single-family dwelling,' and that judgment was affirmed."
+ },
+ {
+  "case_id": 2300734,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "unclear",
+  "note": "The opinion says only that the Burtons acquired the property and that it 'is used and operated as an apartment house'; it never says whether they lived in it."
+ },
+ {
+  "case_id": 2238251,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'appellant rented a furnished apartment, number 114, in the norman manor apartments for occupancy by himself and wife' and was injured when its wall bed collapsed."
+ },
+ {
+  "case_id": 2238251,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'in renting furnished apartments there is an implied warranty that the furniture is fit for use. the owner is liable for damages caused by patent defects'; the judgment for the operating respondents was reversed."
+ },
+ {
+  "case_id": 2238251,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The apartment houses were held in trust with a committee appointed 'to operate, manage and conduct the trust estate as and for apartment house uses ... employing such house managers, janitors, and other help.'"
+ },
+ {
+  "case_id": 380409,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'a partnership owning rental dwelling units in a condominium complex' contested rent control after giving 'a notice of rent increase ... to the tenants of unit e-6.'"
+ },
+ {
+  "case_id": 380409,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'we now ... hold that the landlord of four or more rental dwelling units is subject to rent control even though the units are in separate buildings.' Affirmed."
+ },
+ {
+  "case_id": 380409,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Plaintiff is an investment partnership that bought eighteen rental condominium units from the developer and lets them to tenants."
+ },
+ {
+  "case_id": 412727,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Woods Court 'constructed, on the leased portion, two residential buildings containing private rooms which it subleases to aged or infirmed persons' at a $40,000 entrance fee plus '$150' monthly rent, and Friends Home lets residential-care rooms by the month."
+ },
+ {
+  "case_id": 412727,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "Exemption denied to both: 'friends home has failed to carry its burden of proof to establish that its buildings are exclusively used for charitable purposes' and Woods Court's 'two residential buildings ... are not exclusively used for charitable purposes.'"
+ },
+ {
+  "case_id": 412727,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "'i discern very little difference between friends home's operation and that of a proprietary nursing home,' charging from '$735 a month for a single room with a lavatory' upward."
+ },
+ {
+  "case_id": 914274,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "The 'residence with life care agreement' gave, 'in consideration for the payment of an initial entry fee, plus a monthly maintenance fee,' housing, food and health care, and 'specifies that the document does not create a landlord/tenant relationship.'"
+ },
+ {
+  "case_id": 914274,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "'the lack of a residential lease precludes application of the constructive eviction concept to this case'; the demurrer in the facility's favour was affirmed on every count."
+ },
+ {
+  "case_id": 914274,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "Appellee is 'pennswood village, a nonprofit continuing care facility for individuals over the age of sixty-five' whose premises 'include resident apartments ... guest housing, and two special care facilities.'"
+ },
+ {
+  "case_id": 921915,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'defendants agreed to rent premises in a two family, owner-occupied dwelling for a two-year period' and later invoked the Rent Security Deposit Act."
+ },
+ {
+  "case_id": 921915,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'a tenant in owner-occupied premises may invoke the provisions of the rent security deposit act at any time during the tenancy'; the judgment for possession was vacated and the complaint dismissed."
+ },
+ {
+  "case_id": 921915,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "The letting was of one of not more than two rental units in the landlords' own 'two family, owner-occupied dwelling.'"
+ },
+ {
+  "case_id": 1908448,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Municipal ordinances 'imposing additional restrictions on the freedom of landlords within the municipality to raise rents' for residential apartments."
+ },
+ {
+  "case_id": 1908448,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'the renting of residential property is as much an essential enterprise as the retail sale of food-stuffs ... and equally subject to public regulation when the need arises'; the judgment striking the West Orange ordinance was reversed and the Wayne ordinance upheld."
+ },
+ {
+  "case_id": 1908448,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Plaintiffs are apartment-complex owners and partnerships whose proof was 'the affidavit of richard segal, manager of apartments owned by plaintiff-intervenors.'"
+ },
+ {
+  "case_id": 858397,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Dismissed on procedure alone - 'the plaintiffs have a plain, adequate, and complete remedy at law' before the board of appeals - and the grievance was that 'they cannot sell their land for the construction of new buildings for hotel purposes,' no question of letting rooms being decided."
+ },
+ {
+  "case_id": 439905,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Suit on a one-year lease of 'a certain apartment known as b3, no. 240 south connecticut avenue, atlantic city' after the tenant moved out early."
+ },
+ {
+  "case_id": 439905,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "'to constitute a surrender by agreement the parties should have executed a written release ... no such situation was created by the alleged agreement in this case, and the judgment [for the tenant] must therefore be reversed.'"
+ },
+ {
+  "case_id": 439905,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The plaintiff took an assignment of the lease, 'took over the possession of the apartment-house,' and 'as owner and lessor, had refused to accept a surrender.'"
+ }
+]

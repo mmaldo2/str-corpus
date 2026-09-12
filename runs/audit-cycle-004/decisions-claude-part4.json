@@ -1,0 +1,471 @@
+[
+ {
+  "case_id": 960899,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Owners of adjoining lots were 'restrained from carrying out their declared purpose of erecting a four-story apartment house designed to contain thirty-six apartments' - a restriction on building for letting dwellings."
+ },
+ {
+  "case_id": 960899,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'The proposed construction was therefore declared a violation of the covenant, and the present plaintiffs in error were perpetually enjoined from constructing the flat or apartment building in question'; judgment affirmed."
+ },
+ {
+  "case_id": 960899,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Sadie Arnoff and the Clair-Doan Building & Construction Company had contracted to purchase lots 189 and 190 to erect a thirty-six apartment building, not to dwell there."
+ },
+ {
+  "case_id": 2249370,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'The plaintiff let to the defendant an unfurnished dwelling, known as 334 West Fifty-eighth street, in the city of New York, for one year ... for $1,800' - compensated occupancy of a dwelling."
+ },
+ {
+  "case_id": 2249370,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "'The law does not imply a covenant on the part of the lessor that the dwelling is without inherent defects rendering it unfit for a residence'; judgment for the letting owner affirmed."
+ },
+ {
+  "case_id": 2249370,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Maria L. Daly let the whole of the dwelling to the defendant, who 'began to occupy the premises' himself; the owner dealt with him only through her agent."
+ },
+ {
+  "case_id": 4389874,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The suit is over jewelry stolen from safe-deposit boxes - 'a hotel will not be availed of limited liability provided by section 200 ... unless the hotel establishes that it provided a \"safe\"' - a hotel tort with no letting question decided."
+ },
+ {
+  "case_id": 300914,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Summary dispossess of residential tenants: 'no lessee or tenant ... may be removed ... except upon the establishment of one of the following grounds as good cause.'"
+ },
+ {
+  "case_id": 300914,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'An owner of property ... once he accepts a tenant on that property, no longer has a right of possession to it'; the landlord's dispossess action was dismissed for failure to comply with the good-cause notice."
+ },
+ {
+  "case_id": 300914,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The landlord is the corporation '25 Fairmount Avenue, Inc.,' letting residential premises under a year-to-year lease; no owner occupancy appears."
+ },
+ {
+  "case_id": 343183,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The opinion decides only that 'a second notice and demand after the termination of the tenancy is not required' for jurisdiction, and never identifies the premises as a dwelling or rooms."
+ },
+ {
+  "case_id": 8320804,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Convictions were for 'failing to secure a rental license for each of the rental properties' where 'there are tenants residing in each of the properties' - direct regulation of letting dwellings."
+ },
+ {
+  "case_id": 8320804,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "'The city lacked the express, implied and necessary power to enact the provisions in the ordinance to withhold licenses ... the judgment of sentence is reversed, and Sandra Hoffman is discharged.'"
+ },
+ {
+  "case_id": 8320804,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "'Hoffman owns seven properties ... There are tenants residing in each of the properties' on oral month-to-month leases; the ordinance itself addresses 'non-owner occupied and rental properties.'"
+ },
+ {
+  "case_id": 7661993,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'Lien law ... gives a boarding house keeper a lien on property brought on the premises by a guest' for board furnished to a husband, wife and son who 'became boarders at a boarding house.'"
+ },
+ {
+  "case_id": 7661993,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "'Mrs. Davis ... acquired a lien upon the piano for the board which she was furnishing from day to day'; judgment reversed in favor of the boarding-house keeper's claim."
+ },
+ {
+  "case_id": 7661993,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "The family 'became boarders at the boarding house of Mrs. Jane Davis in Albany, and he brought with him the piano and furniture for his rooms.'"
+ },
+ {
+  "case_id": 969131,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'The foregoing claim is for boarding and lodging plaintiff's testator and family at the tavern of defendant' - the lawfulness of the keeper's charge for board and lodging."
+ },
+ {
+  "case_id": 969131,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "'He also practised the lawful business of a boardinghouse keeper, which could not be rendered illegal by the fact that transient guests were received'; the unlicensed keeper could recover his board bill."
+ },
+ {
+  "case_id": 969131,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "The goods 'were detained by the defendant, being in his house, the United States Hotel, until the above claim for boarding should be paid.'"
+ },
+ {
+  "case_id": 6042936,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "The rule at issue provides 'nonresident owners, whose units are rented or available for rent, do not have the use of the recreational facilities' - a burden attached to letting one's dwelling."
+ },
+ {
+  "case_id": 6042936,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'A conveyance of the unit to a tenant necessarily suspends the owner's access to the common area for the length of the tenancy'; the restriction and the fines against the letting owner were upheld."
+ },
+ {
+  "case_id": 6042936,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "'Liebler never lived in the unit, but leased it to his daughter and then to a succession of tenants.'"
+ },
+ {
+  "case_id": 3980885,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'The ordinance prohibits the removal of any controlled rental unit unless the city rent control board issues a permit' - direct regulation of rental dwellings."
+ },
+ {
+  "case_id": 3980885,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'Removal permits were required in order to combine physically the units in question, and ... the two properties remain subject to the local rent control provisions'; judgment for the board affirmed with double costs."
+ },
+ {
+  "case_id": 3980885,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "unclear",
+  "note": "The opinion establishes only that the properties 'have historically been rented as eight rental units' and rejects the plaintiffs' claim of exemption as 'owner-occupied three-family' houses without finding where the owners lived."
+ },
+ {
+  "case_id": 1165911,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'A landlord seized his tenant's goods in execution for defaulted rental payments of an apartment' under a lease letting the apartment to her."
+ },
+ {
+  "case_id": 1165911,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "'The landlord, having the right to reenter and repossess premises for default in rents by the terms of the lease, had implied authority to remove furniture'; judgment for the owner affirmed."
+ },
+ {
+  "case_id": 1165911,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The lessor is the Chelten Avenue Building Corporation, which by the lease 'may thereupon re-let the demised premises and cancel the certificate for the accompanying shares of stock.'"
+ },
+ {
+  "case_id": 508788,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "A three-year lease of an apartment at $125 a month was 'recontrolled' so that 'the rent which could lawfully be exacted was only such previously established maximum rent.'"
+ },
+ {
+  "case_id": 508788,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'All that the lessor was entitled to receive for the use and occupancy of the apartment by the lessee was a rental not exceeding $55 a month'; the owner's constitutional and rescission claims failed."
+ },
+ {
+  "case_id": 508788,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "'At the time the property was leased to the defendant, it had been occupied by the owner for the twenty-four month period' - she moved out and let the whole apartment."
+ },
+ {
+  "case_id": 622005,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'The action was on a lease for the rent of dwelling apartments in the building 321 Bank street' - compensated occupancy of a dwelling."
+ },
+ {
+  "case_id": 622005,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'The conduct of the landlord becomes evidence of an eviction in answer to his claim for rent accruing after such removal'; judgment against the letting owner affirmed."
+ },
+ {
+  "case_id": 622005,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "'A landlord, who has rented part of his building to a tenant as a dwelling, permits another part to be used for lewd purposes' - he lets apartments in the building, with no residence of his own shown there."
+ },
+ {
+  "case_id": 11788824,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Tenants in a 142-unit apartment building sued over sanitary-code provisions 'governing charges for utilities' in their dwelling units."
+ },
+ {
+  "case_id": 11788824,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'Kennedy Lofts' system of charges for heating, cooling, and hot water in the building is inconsistent with the requirements of the regulation'; summary judgment entered against the landlord."
+ },
+ {
+  "case_id": 11788824,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "'Kennedy Lofts Associates Limited Partnership ... owns and operates the building' and lets its 142 apartments through a management agent."
+ },
+ {
+  "case_id": 1745921,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The decision turns entirely on the roomer's own conduct - 'the plaintiff with full knowledge of all the facts proceeded to use an unlighted stairway' - a personal-injury case with no letting question decided."
+ },
+ {
+  "case_id": 1931451,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'Flats or floors of a house, when leased separately to tenants, are as much separate dwellings as adjoining houses,' and the plaintiff's 'business ... as the keeper of a lodging-house was injured' when 'her lodgers forsook their rooms.'"
+ },
+ {
+  "case_id": 1931451,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'As against their tenant they could not do the same thing, even in the most careful manner, if the result destroyed the quiet enjoyment of such tenant'; the letting owners were held liable irrespective of negligence."
+ },
+ {
+  "case_id": 1931451,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The defendants let the third and fourth floors of 105 Stockton Street to the plaintiff, the rule being that a letting creates a tenancy 'if the owner does not reside as such on the premises, or retain control of the whole.'"
+ },
+ {
+  "case_id": 840171,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'The premises was a single-room occupancy (SRO) hotel' housing 131 residents, and the court enforced the housing maintenance code against its owners."
+ },
+ {
+  "case_id": 840171,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'A vacate order issued to insure the safety of the tenants and others should not be used as a pretext for permanently reducing the housing stock'; the owners' objections were rejected and the access and repair orders stood."
+ },
+ {
+  "case_id": 840171,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "The respondents own and run the SRO hotel at 341 Broome Street, whose 'recent purchase of the property involved more than $1,000,000,' and whose 'ultimate goal' the court found to be demolition."
+ },
+ {
+  "case_id": 9949158,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "The duty at issue arises from 'the rental agreement signed by the Rowletts' for 'the house appellants were renting from appellee,' including its repair and exculpatory clauses."
+ },
+ {
+  "case_id": 9949158,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'This raises fact issues as to whether, first, Mr. McMillan had a duty to make repairs ... it was error for the trial judge to render a summary judgment for appellee'; the letting owner lost his judgment."
+ },
+ {
+  "case_id": 9949158,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "McMillan let the house to the Rowletts and 'did send a repair crew to the premises but then refused to authorize replacement of the door.'"
+ },
+ {
+  "case_id": 3996242,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "The owners of a three-family house sought 'a certificate of exemption, on the basis of owner occupancy, from the town's rent and eviction control by-law.'"
+ },
+ {
+  "case_id": 3996242,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'The board properly made a deeper inquiry into that question in this case and ... had a reasonable basis to reject the plaintiffs' application'; the units stay under rent control."
+ },
+ {
+  "case_id": 3996242,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "'The plaintiff Michael Lebner is not an occupant of the house. Lebner is in the business of owning and managing property,' and the resident's ownership was found to be a straw."
+ },
+ {
+  "case_id": 4414052,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'The San Francisco rent ordinance requires an owner to reside for 12 months in an apartment that has been vacated pursuant to an \"owner move-in\" eviction notice.'"
+ },
+ {
+  "case_id": 4414052,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'Section 37.9(f) represents a proper exercise of the concomitant power to set appropriate penalties'; the treble-damage judgment for wrongful eviction against the owner was affirmed."
+ },
+ {
+  "case_id": 4414052,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "'Appellant purchased an apartment building at 76 Deming Street in March 1986' and evicted tenants; 'although appellant did move into the vacated apartment, he lived there for less than three months.'"
+ },
+ {
+  "case_id": 962427,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "A holdover proceeding against a tenant of a 'HUD section 202 senior citizen housing unit' for permitting her adopted daughter 'to occupy the premises without petitioner's prior written approval.'"
+ },
+ {
+  "case_id": 962427,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'The occupancy restrictions in the lease on the facts here cannot support termination of the tenancy ... the petition is dismissed'; the owner's control over who may occupy was cut back."
+ },
+ {
+  "case_id": 962427,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Greene Avenue Associates owns the subsidized apartment building at 80 Greene Avenue and lets its units through 'AMS Realty Company, petitioner's managing agent.'"
+ },
+ {
+  "case_id": 1964715,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The indictment is for suffering 'the game of cock-fighting' in a licensed house under a statute forbidding gaming implements; nothing is decided about lodging or the letting of rooms."
+ },
+ {
+  "case_id": 865318,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "'Whether the landlord's failure to provide its tenants with adequate security breaches the warranty of habitability' in a residential nonpayment proceeding."
+ },
+ {
+  "case_id": 865318,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'The landlord's failure to adequately protect its tenants' security breaches the warranty of habitability,' and the tenant's counterclaims were allowed despite the lease waiver."
+ },
+ {
+  "case_id": 865318,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The petitioner is '610 W. 142nd St. Owners Corp.,' the successor owner of the apartment building, acting through 'one of petitioner's agents, a Morris Scharf.'"
+ },
+ {
+  "case_id": 8823762,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Zoning denial for a dwelling to be occupied by 12 unrelated residents who 'would pay a certain percentage of their income' for room, board and services."
+ },
+ {
+  "case_id": 8823762,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "'The borough may not arbitrarily limit the use of single-family dwellings only to persons related by blood, adoption or marriage ... the appeal of Group Home, Inc., is sustained.'"
+ },
+ {
+  "case_id": 8823762,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "'Group Home, Inc., has agreed to purchase the premises at 80 South Wade Avenue,' and 'the one or two counselors would not occupy the premises overnight as residents.'"
+ },
+ {
+  "case_id": 2353386,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "Challenge to regulations 'enlarging the class of \"family members\" entitled to succeed to a rent-regulated apartment on the death or departure of the tenant of record.'"
+ },
+ {
+  "case_id": 2353386,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "'The regulations are within the agency's rule-making authority, and ... no unconstitutional \"taking\" was effected'; the owners' challenge failed and the succession restriction stands."
+ },
+ {
+  "case_id": 2353386,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The appellants are the Rent Stabilization Association of New York City and Small Property Owners of New York, landlords of rent-regulated apartments who complained that the rules 'impose the social burden of housing selected classes of persons on individual landlords.'"
+ }
+]

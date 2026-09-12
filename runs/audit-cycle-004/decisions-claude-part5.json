@@ -1,0 +1,520 @@
+[
+ {
+  "case_id": 295359,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"to board of defendant with plaintiff from 1889 to 1894 intermittently, and board from 1894 to 1904 as per agreement\" - the suit is for the price of board furnished in the plaintiff's home."
+ },
+ {
+  "case_id": 295359,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Judgment affirmed for the householder who furnished the board: \"they met and settled their differences by adjusting the indebtedness of one to the other at the sum of $500, which the debtor then and there agreed to pay.\""
+ },
+ {
+  "case_id": 295359,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "\"the plaintiff, a builder residing at bayonne, arranged with the defendant, his aunt, to reside with him\" - board furnished in the plaintiff's own household."
+ },
+ {
+  "case_id": 1473053,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"gorsuch homes, inc., d.b.a. villa park, ltd., is the owner of the apartment complex, villa park, where wooten is a tenant under section 8 federally subsidized housing.\""
+ },
+ {
+  "case_id": 1473053,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"judgment is entered in wooten's favor on the issue of her eviction from the premises\" - the owner's eviction failed and due-process limits were imposed on terminating the tenancy."
+ },
+ {
+  "case_id": 1473053,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The letting party is a corporate owner of an apartment complex acting through a resident manager and a regional property manager, not an occupant of the premises."
+ },
+ {
+  "case_id": 10147833,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"he made arrangements with robert novick to rent the farm dwelling house near sinton on a month to month basis ... novick was to pay appellant $75.00 per month rent\" - the case turns on the dwelling being let rather than owner-occupied."
+ },
+ {
+  "case_id": 10147833,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the summary judgment proof conclusively establishes, as a matter of law, that appellant, the insured, was not occupying the house principally for dwelling purposes\" - coverage was forfeited because he let it, and \"a higher premium is charged for the tenant occupied dwelling.\""
+ },
+ {
+  "case_id": 10147833,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"neither he nor his wife judith went to or entered the dwelling house after novick started occupying it\" - the owner had moved away and let the whole house."
+ },
+ {
+  "case_id": 3584838,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The dispute is over \"this office of approximately 300 square feet\" rented to the natural life medical center and two commercial sign variances - office space, not compensated occupancy of a dwelling or rooms."
+ },
+ {
+  "case_id": 6044763,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"no public entity ... shall, by statute, ordinance, or regulation ... compel the owner of any residential real property to offer, or to continue to offer, accommodations in the property for rent or lease.\""
+ },
+ {
+  "case_id": 6044763,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"we conclude sections 1806 and 1803 are invalid to the extent they conflict with the ellis act by prohibiting residential landlords from evicting tenants in order to go out of the rental residential housing business.\""
+ },
+ {
+  "case_id": 6044763,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"respondent landlords\" are owners of santa monica apartment buildings subject to rent control, not occupants of them."
+ },
+ {
+  "case_id": 2016737,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The only question decided is workmen's compensation coverage: \"the commission found that robinson's employment was casual, but that it was in the usual course of the business or occupation of the petitioner\" - the lodging house is merely the employer's business, with no letting question."
+ },
+ {
+  "case_id": 745970,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"defendant is a long term tenant of plaintiff in its federally subsidized low income housing project in jersey city\" - a residential tenancy and the statutory grounds for removal."
+ },
+ {
+  "case_id": 745970,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"reversed and remanded for entry of an order vacating the judgment of possession\" - the landlord's removal of the tenant under its no-pet rule was undone."
+ },
+ {
+  "case_id": 745970,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The letting party is \"jersey city management,\" operator-owner of a low income housing project, not a resident of the unit."
+ },
+ {
+  "case_id": 1712863,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"lessor does hereby demise and let unto lessee all that certain first-floor apartment, 35 s. morton ave., morton, pa.\" - the terms of a residential letting are what the court construes."
+ },
+ {
+  "case_id": 1712863,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the exculpatory provisions are not 'beyond doubt by express stipulation,' and as a matter of law are not exculpatory\" - the landlord's immunity clause failed, and the court added that \"the contract is one of adhesion.\""
+ },
+ {
+  "case_id": 1712863,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The defendant is the landlord of an apartment building who \"specifically extended his protection to the entire building\" of apartments let to tenants."
+ },
+ {
+  "case_id": 350836,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"at the time of the fire, 18 apartments had been purchased by shareholders, 26 were rented as rent-stabilized or controlled apartments and the remainder were rented at unregulated market rates\" - the housing maintenance code duty of an owner of let dwellings."
+ },
+ {
+  "case_id": 350836,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"as 'owners' of the premises under the hmc, appellants are obligated to undertake and finance the restoration of the premises\" and \"the trial court's order to repair does not constitute an unconstitutional physical or regulatory taking.\""
+ },
+ {
+  "case_id": 350836,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"they also acted as landlords to the nonshareholder tenants\" - controlling shareholders and the managing agent of the building, not occupants letting their own home."
+ },
+ {
+  "case_id": 2073948,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"a dwellinghouse is a protection from arrest upon civil process to the occupant, his children, and domestic servants, and to permanent boarders or lodgers\" - the legal character of boarding in a householder's dwelling."
+ },
+ {
+  "case_id": 2073948,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"permanent boarders, or those who have made the house their home, may properly be considered as a part of the family\" - the householder's castle was extended to the man he boarded; he lost only on a pleading defect unrelated to letting."
+ },
+ {
+  "case_id": 2073948,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "\"chase was at the time, and had been for a long time before, a lodger and boarder in the house of the plaintiff\" - the plaintiff occupied the house and took in the boarder."
+ },
+ {
+  "case_id": 1104209,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the plaintiff became a guest of the defendant's hotel, and contracted a bill amounting to $37.95, which being unpaid, his baggage ... was retained as security\" - the innkeeper's lien for the board bill is the subject."
+ },
+ {
+  "case_id": 1104209,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the authority to sell, not being derived from compliance with the statute, nor from the judgment or decree of any court, must have come from the plaintiff, or otherwise it was unauthorized and amounts in law to a conversion\" - verdict of $205 against the hotel-keeper."
+ },
+ {
+  "case_id": 1104209,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "\"the defendant, being a hotel-keeper, had an inn-keeper's lien upon the plaintiff's baggage\" - a hotel kept as a business."
+ },
+ {
+  "case_id": 308042,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"in september 1988, mr. perez and his family moved into a regular two-bedroom apartment at the complex\" at a discounted rent - a residential tenancy under the summary dispossess statute."
+ },
+ {
+  "case_id": 308042,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the facts of this case unequivocally leads to the conclusion that njsa 2a:18-61.1(m) is inapplicable. therefore, the complaint for possession is dismissed.\""
+ },
+ {
+  "case_id": 308042,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The letting party is \"the apartment complex owned by the plaintiff,\" village associates, letting units through employees rather than living there."
+ },
+ {
+  "case_id": 3827019,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"an excise is hereby imposed upon the transfer of occupancy of any room or rooms in a bed and breakfast establishment, hotel, lodging house, or motel\" - the taxation of paid room occupancy."
+ },
+ {
+  "case_id": 3827019,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"g. l. c. 64g, by its terms, does not impose a room occupancy excise on rent paid by individuals who remain longer than ninety consecutive days as guests\" - the tax on the operators' letting was narrowed and abatement allowed."
+ },
+ {
+  "case_id": 3827019,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "\"plaintiffs, charles and irene lowney, own and operate the carleton circle motel (motel) in falmouth\" with thirty-eight units let to short- and long-term guests."
+ },
+ {
+  "case_id": 5746457,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "The question is whether the property is \"a unit or units in an owner-occupied two-family or three-family house\" exempt from \"st. 1976, c. 36, the cambridge rent control act\" - the regulation of residential letting."
+ },
+ {
+  "case_id": 5746457,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the property is, at the present time, a four-family building and is subject to rent control\" - the exemption was construed narrowly against the owner and rent control upheld over his units."
+ },
+ {
+  "case_id": 5746457,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "\"martin, his wife, and two children moved into unit two at 111 henry street ... while continuing to rent the two units at 109 henry street to tenants\" - an owner living in the building he lets."
+ },
+ {
+  "case_id": 2887942,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"it was conceded upon the trial that from september, 1946, the tenant used the apartment as a home for himself and his family\" and the administrator found \"the predominant use was for dwelling purposes\" under the state residential rent law."
+ },
+ {
+  "case_id": 2887942,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the determination appealed from should be reversed and a new trial granted, with costs to appellant\" - the landlord's award of possession was undone so the tenant could prove the lease \"was a subterfuge for the purpose of evasion ... of the applicable rent control laws.\""
+ },
+ {
+  "case_id": 2887942,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The letting party is 97 fifth avenue corporation, which \"acquired title to the premises\" and let the apartment, not an occupant of the building."
+ },
+ {
+  "case_id": 522296,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the defendant had impliedly undertaken as a part of the letting to keep the hallway lighted\" - a duty arising out of the contract of letting an apartment."
+ },
+ {
+  "case_id": 522296,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"there was no error in denying the defendant's motion for a directed verdict\" - the owner who let was held liable for the unlit common hallway."
+ },
+ {
+  "case_id": 522296,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "\"an apartment on the first floor of a two family house owned by the defendant, who occupied the second floor apartment\" - the owner lived in the house he let."
+ },
+ {
+  "case_id": 6753442,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"this was an action of indebitatus assumpsit for the use and occupation of a certain piece of land, and a house standing thereon\" - what is owed for occupying another's house."
+ },
+ {
+  "case_id": 6753442,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"indebitatus assumpsit can be supported, on the implied promise arising merely from use and occupation of real estate by permission\" - a new trial granted so the owner may recover for the occupancy of his house without an express lease."
+ },
+ {
+  "case_id": 6753442,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "\"the defendant ... went into the possession, use and occupation of the premises under the plaintiff, and by his permission; and from that time ... took all the rents and profits to himself\" - the owner was out of possession."
+ },
+ {
+  "case_id": 2042016,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"he was received as a guest, and the innkeeper took charge of his property\" - the incidents of the innkeeper-guest relation, including the lien for charges, are what the court defines."
+ },
+ {
+  "case_id": 2042016,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the defendant, if he will keep an inn, ought, at his peril, to keep safely his guests' goods\" - judgment affirmed against the innkeeper as insurer, a burden laid on the calling of receiving guests for pay."
+ },
+ {
+  "case_id": 2042016,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "\"the landlord, who fixes his own measure of compensation, and holds the property in pledge for the payment of his charges\" - an inn kept as a public vocation."
+ },
+ {
+  "case_id": 1995274,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"defendants, the sanborns, leased to mr. and mrs. kendis an apartment house in los angeles city consisting of twenty-five furnished apartments for a term of ten years\" - the terms on which dwelling accommodations are let."
+ },
+ {
+  "case_id": 1995274,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"the lessors could fix any terms of payment for giving their consent that they saw fit\"; judgment affirmed for the owners, upholding their control over transfers of the letting."
+ },
+ {
+  "case_id": 1995274,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The sanborns owned and let the twenty-five-unit furnished apartment house to lessees who held and assigned it; they did not occupy it."
+ },
+ {
+  "case_id": 10183012,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "\"located on the premises were a small hotel, a barber shop and beauty shop, a printing shop and a portion of the said lots was subrented and used for other purposes\" - a commercial rental contract of mixed business realty, decided on rent default and trespass to try title."
+ },
+ {
+  "case_id": 734162,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "\"included in the trust estate were four loft buildings\" let to \"thirty tenants\" of commercial loft space - a gross receipts tax on commercial rentals, not on letting dwellings or rooms."
+ },
+ {
+  "case_id": 4432670,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"whenever a lease of residential property shall provide that ... the landlord may recover attorneys' fees\" there shall be implied a like covenant for the tenant - the regulation of the residential letting relation under rent control."
+ },
+ {
+  "case_id": 4432670,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"real property law section 234 applies to a statutory tenant under the rent control law even if not a signatory to the lease ... and ... the statute applies retroactively\" - $51,517.25 in fees charged against the owners after their eviction attempt failed."
+ },
+ {
+  "case_id": 4432670,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "Petitioners are \"the owners of the washington square north property ... as executors of the estate of manny duell,\" letting a rent-controlled apartment they do not occupy."
+ },
+ {
+  "case_id": 1621702,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "\"plaintiff's agent was not a guest nor did he intend to become one ... under these facts he was not a guest\" - a checkroom bailment claim by a non-guest, with no question about the letting of rooms."
+ },
+ {
+  "case_id": 1381144,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"their purpose in buying the property was to convert an existing house on the property into a two-family dwelling and offer both apartments for rent,\" which \"would violate a zoning ordinance concerning minimum lot size per family.\""
+ },
+ {
+  "case_id": 1381144,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"we hold as a matter of law that the facts of this case show the expenditure of substantial unrecoverable sums and we reverse the trial court\" - the zoning denial was reversed and the owners kept their two rental units."
+ },
+ {
+  "case_id": 1381144,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The koziels bought the property to convert it and \"offer both apartments for rent\"; nothing shows them occupying either unit."
+ },
+ {
+  "case_id": 3706418,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"samaritan inns is a tax-exempt charitable corporation that provides below-market rental housing\" and \"the district issued the demolition and building permits necessary to allow samaritan inns to renovate tabitha's house and operate it as a boarding house.\""
+ },
+ {
+  "case_id": 3706418,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "\"the district does not contest the district court's finding that it violated the act by issuing an illegal stop-work order,\" and both boarding and rooming houses are \"uses that are permitted as of right in the area where tabitha's house is located\" - the regulatory obstruction of the letting was struck down."
+ },
+ {
+  "case_id": 3706418,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "Samaritan inns operates three \"inns\" and two \"houses\" letting rooms for compensation, and holds a certificate of occupancy \"for its use as a rooming and boarding house.\""
+ },
+ {
+  "case_id": 1178140,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "The question is \"whether the owner of a thirty-six unit apartment building ... has a continuing obligation to make some of the apartments available at below market rents\" - direct regulation of the rents at which dwellings may be let."
+ },
+ {
+  "case_id": 1178140,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"the act requires an owner to maintain the units as affordable for as long as the housing is not in compliance with local zoning requirements, regardless of the terms of any attendant construction subsidy agreements.\""
+ },
+ {
+  "case_id": 1178140,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "non_resident_owner",
+  "note": "The owner is ardemore apartments limited partnership, which \"purchased the project from cedar street associates\" and lets the thirty-six units."
+ },
+ {
+  "case_id": 450245,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"the word 'hotel' as used in the liquor tax law contemplates only such a structure as complies with section 30n of said statute\" - the statutory requirements a room-letting house must satisfy."
+ },
+ {
+  "case_id": 450245,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "\"relator's building had only five bedrooms instead of six, one of which was materially deficient in floor area and air space ... was ground for refusing the certificate\" - the writ was quashed and the owner's application denied."
+ },
+ {
+  "case_id": 450245,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "The premises were run for the travelling public, and the intervening holder was organized \"to carry on the business of hotel and innkeepers, restaurant keepers, caterers, etc.\""
+ },
+ {
+  "case_id": 876316,
+  "field": "relevant",
+  "decision": "set",
+  "value": true,
+  "note": "\"defendant, a 72-year-old woman separated from her husband, decided to take in a roommate for reasons, as she stated, of security, companionship and to help pay for the rent\" - compensated occupancy of rooms in her dwelling."
+ },
+ {
+  "case_id": 876316,
+  "field": "polarity",
+  "decision": "set",
+  "value": "mixed",
+  "note": "Both novel issues were held: \"the rent overcharge provisions of the rent stabilization law and code are applicable in this case which involves a rental situation between a tenant and a sublessee/roommate\" (a restriction), yet \"the amount of rent a tenant may charge a subtenant, in a partial sublet if within the legal limits, should be determined by the process of negotiation and bargaining between the parties ... and should not entail the intervention of the court\" (the overcharge claim struck)."
+ },
+ {
+  "case_id": 876316,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "householder",
+  "note": "\"she resides in a two-bedroom, rent-stabilized apartment located on the upper west side of manhattan\" and let the master bedroom while living there."
+ }
+]
