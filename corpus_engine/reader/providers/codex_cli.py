@@ -1,22 +1,25 @@
 """Checker transport: the Codex command-line tool via subprocess, as in cycles 1-3 (user decision, ADR-0007 amendment)."""
 from __future__ import annotations
 import json, shutil, subprocess
+from pathlib import Path
 from corpus_engine.reader.model import ReaderError, Request, Response
 
 
 class CodexCliProvider:
     name = "codex-cli"
-    def __init__(self, cli_model: str, *, runner=subprocess.run, timeout: int = 900, exe: str = "codex"):
+    def __init__(self, cli_model: str, *, runner=subprocess.run, timeout: int = 900, exe: str = "codex",
+                cwd: str | Path | None = None):
         # Resolve the executable the way ClaudeCliProvider does: on Windows the npm shim is
         # `codex.CMD`, which subprocess cannot find under the bare name without a shell.
         self.cli_model, self.runner, self.timeout = cli_model, runner, timeout
         self.exe = shutil.which(exe) or exe
+        self.cwd = cwd
         self._version: str | None = None
 
     def version(self) -> str | None:
         if self._version is None:
             try:
-                p = self.runner([self.exe, "--version"], capture_output=True, text=True, timeout=60)
+                p = self.runner([self.exe, "--version"], capture_output=True, text=True, timeout=60, cwd=self.cwd)
                 self._version = (p.stdout or "").strip() or None
             except (FileNotFoundError, OSError, subprocess.TimeoutExpired):
                 self._version = None
@@ -28,7 +31,8 @@ class CodexCliProvider:
     def complete(self, req: Request) -> Response:
         cmd = [self.exe, "exec", "--sandbox", "read-only", "--skip-git-repo-check", "--model", self.cli_model, "--json", "-"]
         try:
-            p = self.runner(cmd, input=req.user, capture_output=True, text=True, timeout=self.timeout, encoding="utf-8")
+            p = self.runner(cmd, input=req.user, capture_output=True, text=True, timeout=self.timeout,
+                            encoding="utf-8", cwd=self.cwd)
         except (FileNotFoundError, OSError) as exc:
             raise ReaderError(f"codex cli unavailable: {exc!r}") from exc
         except subprocess.TimeoutExpired as exc:

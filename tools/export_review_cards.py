@@ -111,7 +111,11 @@ def cards_from_queue(queue_doc: Mapping, checker: Mapping) -> list[dict]:
     checker = {str(k): v for k, v in (checker or {}).items()}
     titles = queue_doc.get("titles") or {}
     out = []
-    for sec, _key, default_title in SECTIONS:
+    known = {sec for sec, _k, _t in SECTIONS}
+    all_sections = list(SECTIONS) + [(sec, sec, titles.get(sec, sec))
+                                     for sec in (queue_doc.get("sections") or {})
+                                     if sec not in known]
+    for sec, _key, default_title in all_sections:
         for c in (queue_doc.get("sections") or {}).get(sec) or ():
             values = c.get("values") or {}
             key = str(c["case_id"])
@@ -126,7 +130,8 @@ def cards_from_queue(queue_doc: Mapping, checker: Mapping) -> list[dict]:
                 "court": c.get("court"),
                 "jurisdiction": c.get("jur"),
                 "year": c.get("year"),
-                "decide_field": c["decide_field"],
+                "decide_field": c.get("decide_field") or (c.get("decide_fields") or ["polarity"])[0],
+                "decide_fields": list(c.get("decide_fields") or ()),
                 "reader": {f: values.get(f) for f in READER_FIELDS},
                 "checker": ({f: chk_values.get(f) for f in CHECKER_FIELDS}
                            if chk_entry is not None else None),
@@ -150,7 +155,8 @@ def _fmt(v) -> str:
     return "null" if v is None else str(v)
 
 
-def markdown_for(cards: Sequence[dict], run_id: str, *, part: tuple[int, int] | None = None) -> str:
+def markdown_for(cards: Sequence[dict], run_id: str, *, part: tuple[int, int] | None = None,
+                 audit: bool = False) -> str:
     """One readable card per record, headed by section - the markdown twin of the JSON
     export, for a model (or a human) reading files rather than parsing JSON by hand.
 
@@ -169,6 +175,14 @@ def markdown_for(cards: Sequence[dict], run_id: str, *, part: tuple[int, int] | 
         if c["section"] != current_section:
             current_section = c["section"]
             lines.append(f"\n## {c['section']}. {c['section_title']}\n")
+        if audit:
+            lines.append(f"### {c.get('cite') or c['case_id']} - {c.get('name') or ''} [{c['case_id']}]")
+            lines.append(f"- Court: {c.get('court') or '?'} - {c.get('jurisdiction') or '?'} - {c.get('year') or '?'}")
+            lines.append(f"- Decide: **{', '.join(c.get('decide_fields') or [])}**")
+            lines.append(f"- CourtListener: {c['courtlistener_url']}")
+            lines.append(""); lines.append("#### Opinion text"); lines.append("")
+            lines.append(c.get("opinion_text") or ""); lines.append("")
+            continue
         lines.append(f"### {c.get('cite') or c['case_id']} - {c.get('name') or ''} "
                      f"[{c['case_id']}]")
         lines.append(f"- Court: {c.get('court') or '?'} - {c.get('jurisdiction') or '?'} - "
@@ -243,12 +257,12 @@ def _card_weight(c: Mapping) -> int:
     return 400 + len(c.get("opinion_text") or "")
 
 
-def markdown_parts(cards: Sequence[dict], run_id: str, n: int = 1) -> list[str]:
+def markdown_parts(cards: Sequence[dict], run_id: str, n: int = 1, *, audit: bool = False) -> list[str]:
     """`markdown_for`'s text, split into `n` roughly-equal files by `_card_weight` - never
     splitting a card across two files, and never reordering them. `n <= 1` (the default) hands
     back a single part, byte-identical to `markdown_for(cards, run_id)`."""
     if not cards or n <= 1:
-        return [markdown_for(cards, run_id)]
+        return [markdown_for(cards, run_id, audit=audit)]
     n = min(int(n), len(cards))
     weights = [_card_weight(c) for c in cards]
     target = sum(weights) / n
@@ -263,7 +277,7 @@ def markdown_parts(cards: Sequence[dict], run_id: str, n: int = 1) -> list[str]:
             current = []
     if current:
         groups.append(current)
-    return [markdown_for(g, run_id, part=(k + 1, len(groups))) for k, g in enumerate(groups)]
+    return [markdown_for(g, run_id, part=(k + 1, len(groups)), audit=audit) for k, g in enumerate(groups)]
 
 
 def only_unsure_ids(decisions_path: str | Path) -> set[int]:
@@ -405,7 +419,13 @@ def main(argv=None) -> int:
                     help="the reader response cache directory (relative to the repo root "
                          "unless absolute); read only when the export includes a section-E "
                          "card, for erased_value's cached response lookup")
+    ap.add_argument("--audit", action="store_true",
+                    help="blind export for the audit queue (section H): identity and full "
+                         "opinion text only, no reader/checker values, no quotes, no holding "
+                         "summary. Forces --full-text.")
     a = ap.parse_args(argv)
+    if a.audit:
+        a.full_text = True
 
     queue_path = Path(a.queue)
     doc = json.loads(queue_path.read_text(encoding="utf-8"))
@@ -431,9 +451,15 @@ def main(argv=None) -> int:
         attach_erased_values(cards, manifest=manifest, batches=batches, cache_dir=cache_dir)
 
     json_path = Path(str(a.out_stem) + ".json")
-    write_text(json_path, json.dumps(cards, indent=1))
+    if a.audit:
+        keep = ("case_id", "section", "section_title", "name", "cite", "court", "jurisdiction",
+               "year", "decide_fields", "courtlistener_url", "opinion_text")
+        json_cards = [{k: c[k] for k in keep if k in c} for c in cards]
+    else:
+        json_cards = cards
+    write_text(json_path, json.dumps(json_cards, indent=1))
 
-    parts = markdown_parts(cards, doc.get("run_id", ""), a.chunks)
+    parts = markdown_parts(cards, doc.get("run_id", ""), a.chunks, audit=a.audit)
     if len(parts) == 1:
         md_paths = [Path(str(a.out_stem) + ".md")]
     else:

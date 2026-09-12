@@ -29,6 +29,7 @@ is listed in the manifest's `failed` and left out of the decisions file - never 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -68,6 +69,67 @@ def build_prompt(card: dict, *, brief: str, handoff: str) -> str:
     body = card_md.split("\n## ", 1)[1] if "\n## " in card_md else card_md
     return "\n\n".join([brief.strip(), handoff.strip(), SINGLE_CARD.strip(),
                         "## The card\n\n## " + body.strip()]) + "\n"
+
+
+AUDIT_FIELDS = ("relevant", "polarity", "who_was_letting")
+AUDIT_CARD = """## This call
+
+You are given ONE card with the full opinion text and nothing else about the case. From the
+opinion alone, decide `relevant` (true|false) and, if true, `polarity` and `who_was_letting`.
+Reply with exactly one JSON list: three entries {"case_id", "field", "decision": "set", "value",
+"note"} (relevant, polarity, who_was_letting) when relevant is true; exactly one entry with
+"field": "relevant", "value": false when it is not a letting case; or exactly one entry
+{"case_id", "field": "relevant", "decision": "unresolved", "note"} if the text is unreadable.
+No keep, adopt or unsure. Nothing but the JSON list is needed in the reply.
+"""
+
+
+def build_prompt_audit(card: dict, *, brief: str) -> str:
+    card_md = markdown_for([card], "", audit=True)
+    return "\n\n".join([brief.strip(), AUDIT_CARD.strip(), card_md.strip()]) + "\n"
+
+
+def parse_decisions_audit(text: str, card: dict) -> list[dict]:
+    objs = _json_objects(text)                       # accepts a bare list too: _json_objects unwraps single-object lists,
+    # so read the list directly here:
+    lst = None
+    for cand in (_FENCE.findall(text) or []) + [text]:
+        i = cand.find("[")
+        while i >= 0:
+            try:
+                obj, _ = json.JSONDecoder().raw_decode(cand, i); lst = obj; break
+            except ValueError:
+                i = cand.find("[", i + 1)
+        if lst is not None:
+            break
+    if not isinstance(lst, list) or not lst:
+        raise ValueError("no JSON list of decisions in the reply")
+    entries = []
+    for d in lst:
+        if str(d.get("case_id")) != str(card["case_id"]):
+            raise ValueError(f"case_id {d.get('case_id')!r} is not the card's ({card['case_id']})")
+        if d.get("decision") == "unresolved":
+            return [{"case_id": card["case_id"], "field": "relevant", "decision": "unresolved",
+                     "note": str(d.get("note") or "").strip()}]
+        if d.get("decision") != "set":
+            raise ValueError(f"decision {d.get('decision')!r}: audit entries are set only, never keep/adopt/unsure")
+        if d.get("field") not in AUDIT_FIELDS:
+            raise ValueError(f"field {d.get('field')!r} is not one of {AUDIT_FIELDS}")
+        entries.append({"case_id": card["case_id"], "field": d["field"], "decision": "set",
+                        "value": _checked_value(d["field"], d.get("value")), "note": str(d.get("note") or "").strip()})
+    fields = [e["field"] for e in entries]
+    if len(set(fields)) != len(fields):
+        raise ValueError("duplicate field in the reply")
+    rel = next((e for e in entries if e["field"] == "relevant"), None)
+    if rel is None:
+        raise ValueError("no relevant entry")
+    if rel["value"] is False:
+        if len(entries) != 1:
+            raise ValueError("a withdrawal is exactly one entry")
+        return entries
+    if sorted(fields) != sorted(AUDIT_FIELDS):
+        raise ValueError("a relevant card needs exactly three entries: relevant, polarity, who_was_letting")
+    return sorted(entries, key=lambda e: AUDIT_FIELDS.index(e["field"]))
 
 
 _FENCE = re.compile(r"```(?:json)?\s*(.*?)```", re.S)
@@ -166,10 +228,21 @@ def manifest_path_for(out_path: Path) -> Path:
 
 def run_first_pass(cards: Sequence[dict], *, brief: str, handoff: str, provider,
                    out_path: Path, log: Callable[..., None] = print,
-                   model: str = DEFAULT_MODEL) -> dict:
+                   model: str = DEFAULT_MODEL, audit: bool = False) -> dict:
     """Ask `provider` about every card not yet in `out_path`; write the decisions file after
     each answer (so a crash loses nothing) and the sidecar manifest at the end. Returns the
-    manifest: model, codex version, `decided`, `asked`, `failed` [{case_id, error}], tokens."""
+    manifest: model, codex version, `decided`, `asked`, `failed` [{case_id, error}], tokens.
+
+    `audit=True` runs the blind single-field-triple pass instead (section H): the prompt is
+    the brief and `AUDIT_CARD` only (no handoff, no checker), the reply is parsed by
+    `parse_decisions_audit` into up to three flat entries per card, and resume is keyed on
+    `(case_id, brief_sha256)` - a rerun under the SAME brief text skips a card already in
+    `out_path`; a rerun under a CHANGED brief moves the existing decisions file aside
+    (`<out>-superseded-<oldhash8>.json`) and asks every card again, because a changed brief
+    means the earlier answers were given under different instructions."""
+    if audit:
+        return _run_first_pass_audit(cards, brief=brief, provider=provider, out_path=out_path,
+                                     log=log, model=model)
     out_path = Path(out_path)
     decided = _load_json(out_path, [])
     done = {str(d["case_id"]) for d in decided}
@@ -205,20 +278,82 @@ def run_first_pass(cards: Sequence[dict], *, brief: str, handoff: str, provider,
     return man
 
 
+def _run_first_pass_audit(cards: Sequence[dict], *, brief: str, provider, out_path: Path,
+                          log: Callable[..., None], model: str) -> dict:
+    out_path = Path(out_path)
+    man_path = manifest_path_for(out_path)
+    old_man = _load_json(man_path, {})
+    brief_sha256 = hashlib.sha256(brief.encode("utf-8")).hexdigest()
+    decided = _load_json(out_path, [])
+    old_brief_sha256 = old_man.get("brief_sha256")
+    if old_brief_sha256 and old_brief_sha256 != brief_sha256:
+        # The brief changed since the earlier run: those answers were given under different
+        # instructions, so they are moved aside (never discarded) and every card is asked
+        # again, rather than silently mixing decisions from two briefs in one file.
+        if out_path.exists():
+            out_path.rename(out_path.with_name(f"{out_path.stem}-superseded-{old_brief_sha256[:8]}.json"))
+        decided = []
+    done = {str(d["case_id"]) for d in decided}
+    failed, asked, in_tok, out_tok = [], 0, 0, 0
+    for n, card in enumerate(cards, 1):
+        cid = card["case_id"]
+        if str(cid) in done:
+            continue
+        asked += 1
+        log(f"[{n}/{len(cards)}] {cid} {card.get('cite') or ''} (audit)")
+        try:
+            resp = provider.complete(Request(pin={"model": model}, user=build_prompt_audit(card, brief=brief)))
+            in_tok += resp.input_tokens or 0
+            out_tok += resp.output_tokens or 0
+            entries = parse_decisions_audit(resp.text, card)
+        except (ReaderError, ValueError) as exc:
+            failed.append({"case_id": cid, "error": str(exc)})
+            log(f"    FAILED: {exc}")
+            continue
+        decided.extend(entries)
+        done.add(str(cid))
+        _dump(out_path, decided)
+        for entry in entries:
+            log(f"    {entry['field']} {entry['decision']}"
+                + (f" {entry['value']!r}" if "value" in entry else "") + f" - {entry['note'][:90]}")
+    order = {str(c["case_id"]): i for i, c in enumerate(cards)}
+    decided.sort(key=lambda d: (order.get(str(d["case_id"]), len(order)),
+                                AUDIT_FIELDS.index(d["field"]) if d["field"] in AUDIT_FIELDS else 0))
+    _dump(out_path, decided)
+    version = provider.version() if hasattr(provider, "version") else None
+    decided_cards = len({str(d["case_id"]) for d in decided})
+    man = {"model": model, "codex_version": version, "cards": len(cards), "decided": decided_cards,
+           "asked": asked, "failed": failed, "input_tokens": in_tok, "output_tokens": out_tok,
+           "decisions": str(out_path).replace("\\", "/"), "brief_sha256": brief_sha256}
+    _dump(man_path, man)
+    return man
+
+
 def build_parser() -> argparse.ArgumentParser:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--cards", required=True, help="the round's card export .json (with --full-text)")
     ap.add_argument("--brief", default=DEFAULT_BRIEF)
-    ap.add_argument("--handoff", required=True, help="the round's handoff addendum .md")
+    ap.add_argument("--handoff", default=None, help="the round's handoff addendum .md; "
+                    "required unless --audit")
     ap.add_argument("--model", default=DEFAULT_MODEL)
     ap.add_argument("--out", required=True, help="the decisions file to write (resumable)")
     ap.add_argument("--timeout", type=int, default=900, help="seconds per call")
     ap.add_argument("--limit", type=int, default=None, help="ask at most N cards this run")
+    ap.add_argument("--audit", action="store_true",
+                    help="the blind audit pass (section H): relevant/polarity/who_was_letting "
+                         "only, no handoff, no checker; resume is keyed on the brief's hash")
+    ap.add_argument("--workdir", default=None,
+                    help="cwd for the codex cli subprocess (CodexCliProvider's cwd) - an "
+                         "isolated directory, so the audit pass never runs in a git repo "
+                         "checkout the model could read")
     return ap
 
 
 def main(argv=None) -> int:
     a = build_parser().parse_args(argv)
+    if not a.audit and not a.handoff:
+        print("--handoff is required unless --audit", file=sys.stderr)
+        return 2
     cards = json.loads(Path(a.cards).read_text(encoding="utf-8"))
     missing = [c["case_id"] for c in cards if "opinion_text" not in c]
     if missing:
@@ -227,10 +362,11 @@ def main(argv=None) -> int:
     if a.limit:
         cards = cards[:a.limit]
     brief = Path(a.brief).read_text(encoding="utf-8")
-    handoff = Path(a.handoff).read_text(encoding="utf-8")
-    provider = CodexCliProvider(a.model, timeout=a.timeout)
+    handoff = Path(a.handoff).read_text(encoding="utf-8") if a.handoff else ""
+    provider = CodexCliProvider(a.model, timeout=a.timeout, cwd=a.workdir)
     man = run_first_pass(cards, brief=brief, handoff=handoff, provider=provider,
-                         out_path=Path(a.out), model=a.model, log=lambda *x: print(*x, flush=True))
+                         out_path=Path(a.out), model=a.model, log=lambda *x: print(*x, flush=True),
+                         audit=a.audit)
     print(f"decided {man['decided']}/{man['cards']} (asked {man['asked']}, failed {len(man['failed'])}) "
           f"-> {man['decisions']}; manifest {manifest_path_for(Path(a.out)).as_posix()}", flush=True)
     return 1 if man["failed"] else 0
