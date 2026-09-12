@@ -1,0 +1,2412 @@
+{
+ "run_id": "audit-cycle-004",
+ "cap": 150,
+ "titles": {
+  "H": "Audit sample: relevance, polarity, who was letting"
+ },
+ "sections": {
+  "H": [
+   {
+    "case_id": 339076,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "52 N.J.L. 326",
+    "name": null,
+    "court": "New Jersey Supreme Court",
+    "jur": "N.J.",
+    "year": 1890
+   },
+   {
+    "case_id": 12130888,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "171 Cal. App. 4th 1004",
+    "name": null,
+    "court": "Court of Appeal of the State of California",
+    "jur": "Cal.",
+    "year": 2009
+   },
+   {
+    "case_id": 2300424,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "124 Tex. 1",
+    "name": null,
+    "court": "Supreme Court of Texas",
+    "jur": "Tex.",
+    "year": 1934
+   },
+   {
+    "case_id": 971156,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "202 Misc. 4",
+    "name": null,
+    "court": "New York Supreme Court",
+    "jur": "N.Y.",
+    "year": 1952
+   },
+   {
+    "case_id": 627003,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "56 Mass. App. Ct. 166",
+    "name": null,
+    "court": "Massachusetts Appeals Court",
+    "jur": "Mass.",
+    "year": 2002
+   },
+   {
+    "case_id": 221224,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "85 N.J.L. 154",
+    "name": null,
+    "court": "New Jersey Supreme Court",
+    "jur": "N.J.",
+    "year": 1913
+   },
+   {
+    "case_id": 8278738,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "146 S.W. 305",
+    "name": null,
+    "court": "Texas Courts of Civil Appeals",
+    "jur": "Tex.",
+    "year": 1912
+   },
+   {
+    "case_id": 5753551,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "34 Mass. App. Ct. 929",
+    "name": null,
+    "court": "Massachusetts Appeals Court",
+    "jur": "Mass.",
+    "year": 1993
+   },
+   {
+    "case_id": 11491091,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "1999 Mass. App. Div. 7",
+    "name": null,
+    "court": "Massachusetts Appellate Division",
+    "jur": "Mass.",
+    "year": 1999
+   },
+   {
+    "case_id": 6758056,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "1 Law Times (N.S.) 119",
+    "name": null,
+    "court": "Philadelphia County Court of Common Pleas",
+    "jur": "Pa.",
+    "year": 1879
+   },
+   {
+    "case_id": 3606756,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "157 A.D.2d 722",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 1990
+   },
+   {
+    "case_id": 397249,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "16 Ohio C.C. (n.s.) 230",
+    "name": null,
+    "court": "Cuyahoga County Circuit Court",
+    "jur": "Ohio",
+    "year": 1907
+   },
+   {
+    "case_id": 930956,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "164 Misc. 2d 177",
+    "name": null,
+    "court": "New York City Civil Court",
+    "jur": "N.Y.",
+    "year": 1995
+   },
+   {
+    "case_id": 384426,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "300 N.J. Super. 82",
+    "name": null,
+    "court": "New Jersey Superior Court, Appellate Division",
+    "jur": "N.J.",
+    "year": 1997
+   },
+   {
+    "case_id": 3841278,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "310 Mass. 754",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 1942
+   },
+   {
+    "case_id": 2786925,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "274 A.D. 905",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 1948
+   },
+   {
+    "case_id": 5444981,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "32 N.Y.S. 136",
+    "name": null,
+    "court": "New York Court of Common Pleas",
+    "jur": "N.Y.",
+    "year": 1895
+   },
+   {
+    "case_id": 12515683,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "248 Cal. Rptr. 3d 874",
+    "name": null,
+    "court": "California Superior Court",
+    "jur": "Cal.",
+    "year": 2019
+   },
+   {
+    "case_id": 5570757,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "150 N.Y.S. 94",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 1914
+   },
+   {
+    "case_id": 322989,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "33 La. Ann. 621",
+    "name": null,
+    "court": "Louisiana Supreme Court",
+    "jur": "La.",
+    "year": 1881
+   },
+   {
+    "case_id": 10069927,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "53 So. 2d 503",
+    "name": null,
+    "court": "Louisiana Court of Appeal",
+    "jur": "La.",
+    "year": 1951
+   },
+   {
+    "case_id": 6703218,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "13 Ohio St. 2d 53",
+    "name": null,
+    "court": "Supreme Court of Ohio",
+    "jur": "Ohio",
+    "year": 1968
+   },
+   {
+    "case_id": 344157,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "238 N.J. Super. 165",
+    "name": null,
+    "court": "New Jersey Superior Court, Appellate Division",
+    "jur": "N.J.",
+    "year": 1990
+   },
+   {
+    "case_id": 1702275,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "162 Ohio St. 120",
+    "name": null,
+    "court": "Supreme Court of Ohio",
+    "jur": "Ohio",
+    "year": 1954
+   },
+   {
+    "case_id": 12509571,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "209 A.3d 1001",
+    "name": null,
+    "court": "Superior Court of Pennsylvania",
+    "jur": "Pa.",
+    "year": 2019
+   },
+   {
+    "case_id": 4459228,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "2 Thomp. & Cook 650",
+    "name": null,
+    "court": "New York Supreme Court, General Term",
+    "jur": "N.Y.",
+    "year": 1874
+   },
+   {
+    "case_id": 3915825,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "419 N.J. Super. 439",
+    "name": null,
+    "court": "New Jersey Superior Court, Appellate Division",
+    "jur": "N.J.",
+    "year": 2011
+   },
+   {
+    "case_id": 302574,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "131 N.J. Super. 558",
+    "name": null,
+    "court": "New Jersey Superior Court, Chancery Division",
+    "jur": "N.J.",
+    "year": 1974
+   },
+   {
+    "case_id": 2950742,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "5 A.D.2d 283",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 1958
+   },
+   {
+    "case_id": 4037195,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "87 A.D.3d 1407",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 2011
+   },
+   {
+    "case_id": 518166,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "94 N.J. Super. 173",
+    "name": null,
+    "court": "New Jersey Superior Court, Appellate Division",
+    "jur": "N.J.",
+    "year": 1967
+   },
+   {
+    "case_id": 3588719,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "150 A.D.2d 653",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 1989
+   },
+   {
+    "case_id": 2380283,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "16 Pa. D. & C.3d 716",
+    "name": null,
+    "court": "Allegheny County Court of Common Pleas",
+    "jur": "Pa.",
+    "year": 1980
+   },
+   {
+    "case_id": 351563,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "83 N.J. 246",
+    "name": null,
+    "court": "Supreme Court of New Jersey",
+    "jur": "N.J.",
+    "year": 1980
+   },
+   {
+    "case_id": 784116,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "146 Mass. 36",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 1888
+   },
+   {
+    "case_id": 1040761,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "39 Mass. App. Ct. 171",
+    "name": null,
+    "court": "Massachusetts Appeals Court",
+    "jur": "Mass.",
+    "year": 1995
+   },
+   {
+    "case_id": 704631,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "107 Pa. Super. 436",
+    "name": null,
+    "court": "Superior Court of Pennsylvania",
+    "jur": "Pa.",
+    "year": 1933
+   },
+   {
+    "case_id": 5567977,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "132 Cal. App. 4th 1434",
+    "name": null,
+    "court": "Court of Appeal of the State of California",
+    "jur": "Cal.",
+    "year": 2005
+   },
+   {
+    "case_id": 520283,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "12 Ohio St. 431",
+    "name": null,
+    "court": "Supreme Court of Ohio",
+    "jur": "Ohio",
+    "year": 1861
+   },
+   {
+    "case_id": 1042731,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "16 Misc. 2d 236",
+    "name": null,
+    "court": "New York Supreme Court",
+    "jur": "N.Y.",
+    "year": 1959
+   },
+   {
+    "case_id": 1144765,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "44 Misc. 2d 516",
+    "name": null,
+    "court": "New York City Civil Court",
+    "jur": "N.Y.",
+    "year": 1964
+   },
+   {
+    "case_id": 1682254,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "33 Pa. D. & C.2d 331",
+    "name": null,
+    "court": "Philadelphia County Court of Common Pleas",
+    "jur": "Pa.",
+    "year": 1964
+   },
+   {
+    "case_id": 822125,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "122 Misc. 2d 921",
+    "name": null,
+    "court": "New York City Civil Court",
+    "jur": "N.Y.",
+    "year": 1983
+   },
+   {
+    "case_id": 1616661,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "1 Ohio Cir. Dec. 34",
+    "name": null,
+    "court": "Hamilton Circuit Court",
+    "jur": "Ohio",
+    "year": 1885
+   },
+   {
+    "case_id": 730687,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "5 N.J. Misc. 578",
+    "name": null,
+    "court": "New Jersey Supreme Court",
+    "jur": "N.J.",
+    "year": 1927
+   },
+   {
+    "case_id": 519048,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "208 Conn. 620",
+    "name": null,
+    "court": "Connecticut Supreme Court",
+    "jur": "Conn.",
+    "year": 1988
+   },
+   {
+    "case_id": 838282,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "150 Misc. 269",
+    "name": null,
+    "court": "Tonawanda City Court",
+    "jur": "N.Y.",
+    "year": 1933
+   },
+   {
+    "case_id": 12502941,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "195 A.3d 941",
+    "name": null,
+    "court": "Superior Court of Pennsylvania",
+    "jur": "Pa.",
+    "year": 2018
+   },
+   {
+    "case_id": 1012298,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "165 A.D.2d 443",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 1991
+   },
+   {
+    "case_id": 4389937,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "59 N.Y.2d 733",
+    "name": null,
+    "court": "New York Court of Appeals",
+    "jur": "N.Y.",
+    "year": 1983
+   },
+   {
+    "case_id": 2944419,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "182 A.D. 773",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 1918
+   },
+   {
+    "case_id": 543796,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "217 Conn. 57",
+    "name": null,
+    "court": "Connecticut Supreme Court",
+    "jur": "Conn.",
+    "year": 1991
+   },
+   {
+    "case_id": 1319813,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "12 Conn. Supp. 226",
+    "name": null,
+    "court": "Connecticut Court of Common Pleas",
+    "jur": "Conn.",
+    "year": 1943
+   },
+   {
+    "case_id": 1598480,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "83 Pa. D. & C. 410",
+    "name": null,
+    "court": "Philadelphia County Court of Common Pleas",
+    "jur": "Pa.",
+    "year": 1952
+   },
+   {
+    "case_id": 320407,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "371 Mass. 849",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 1977
+   },
+   {
+    "case_id": 294987,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "235 N.J. Super. 162",
+    "name": null,
+    "court": "New Jersey Superior Court, Law Division",
+    "jur": "N.J.",
+    "year": 1988
+   },
+   {
+    "case_id": 1666179,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "20 Ohio Law Abs. 375",
+    "name": null,
+    "court": "Ohio Court of Appeals",
+    "jur": "Ohio",
+    "year": 1935
+   },
+   {
+    "case_id": 12497506,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "187 A.3d 1070",
+    "name": null,
+    "court": "Commonwealth Court of Pennsylvania",
+    "jur": "Pa.",
+    "year": 2018
+   },
+   {
+    "case_id": 1054087,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "20 Misc. 2d 557",
+    "name": null,
+    "court": "New York Supreme Court",
+    "jur": "N.Y.",
+    "year": 1959
+   },
+   {
+    "case_id": 2262562,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "11 N.Y.2d 259",
+    "name": null,
+    "court": "New York Court of Appeals",
+    "jur": "N.Y.",
+    "year": 1962
+   },
+   {
+    "case_id": 3296470,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "157 N.Y.S. 623",
+    "name": null,
+    "court": "New York Supreme Court",
+    "jur": "N.Y.",
+    "year": 1916
+   },
+   {
+    "case_id": 357518,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "41 N.J.L. 515",
+    "name": null,
+    "court": "New Jersey Supreme Court",
+    "jur": "N.J.",
+    "year": 1879
+   },
+   {
+    "case_id": 785905,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "111 Misc. 2d 333",
+    "name": null,
+    "court": "New York Supreme Court",
+    "jur": "N.Y.",
+    "year": 1981
+   },
+   {
+    "case_id": 750609,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "244 Mass. 159",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 1923
+   },
+   {
+    "case_id": 856956,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "134 Misc. 2d 187",
+    "name": null,
+    "court": "New York Supreme Court",
+    "jur": "N.Y.",
+    "year": 1986
+   },
+   {
+    "case_id": 5585373,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "150 N.Y.S. 583",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 1914
+   },
+   {
+    "case_id": 376175,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "14 Johns. 175",
+    "name": null,
+    "court": "New York Supreme Court of Judicature",
+    "jur": "N.Y.",
+    "year": 1817
+   },
+   {
+    "case_id": 971269,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "202 Misc. 931",
+    "name": null,
+    "court": "New York City Municipal Court",
+    "jur": "N.Y.",
+    "year": 1952
+   },
+   {
+    "case_id": 11139345,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "2000 Mass. App. Div. 143",
+    "name": null,
+    "court": "Massachusetts Appellate Division",
+    "jur": "Mass.",
+    "year": 2000
+   },
+   {
+    "case_id": 2300734,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "201 Cal. App. 2d 749",
+    "name": null,
+    "court": "District Court of Appeal of the State of California",
+    "jur": "Cal.",
+    "year": 1962
+   },
+   {
+    "case_id": 2238251,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "136 Cal. App. 349",
+    "name": null,
+    "court": "District Court of Appeal of the State of California",
+    "jur": "Cal.",
+    "year": 1934
+   },
+   {
+    "case_id": 380409,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "206 N.J. Super. 240",
+    "name": null,
+    "court": "New Jersey Superior Court, Appellate Division",
+    "jur": "N.J.",
+    "year": 1985
+   },
+   {
+    "case_id": 412727,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "12 N.J. Tax 197",
+    "name": null,
+    "court": "Tax Court of New Jersey",
+    "jur": "N.J.",
+    "year": 1992
+   },
+   {
+    "case_id": 914274,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "417 Pa. Super. 495",
+    "name": null,
+    "court": "Superior Court of Pennsylvania",
+    "jur": "Pa.",
+    "year": 1992
+   },
+   {
+    "case_id": 921915,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "195 N.J. Super. 179",
+    "name": null,
+    "court": "New Jersey Superior Court, Law Division",
+    "jur": "N.J.",
+    "year": 1983
+   },
+   {
+    "case_id": 1908448,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "68 N.J. 543",
+    "name": null,
+    "court": "Supreme Court of New Jersey",
+    "jur": "N.J.",
+    "year": 1975
+   },
+   {
+    "case_id": 858397,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "280 Mass. 69",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 1932
+   },
+   {
+    "case_id": 439905,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "3 N.J. Misc. 473",
+    "name": null,
+    "court": "New Jersey Supreme Court",
+    "jur": "N.J.",
+    "year": 1925
+   },
+   {
+    "case_id": 960899,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "101 Ohio St. 331",
+    "name": null,
+    "court": "Supreme Court of Ohio",
+    "jur": "Ohio",
+    "year": 1920
+   },
+   {
+    "case_id": 2249370,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "132 N.Y. 306",
+    "name": null,
+    "court": "New York Court of Appeals",
+    "jur": "N.Y.",
+    "year": 1892
+   },
+   {
+    "case_id": 4389874,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "58 N.Y.2d 206",
+    "name": null,
+    "court": "New York Court of Appeals",
+    "jur": "N.Y.",
+    "year": 1983
+   },
+   {
+    "case_id": 300914,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "130 N.J. Super. 276",
+    "name": null,
+    "court": "Bergen County District Court",
+    "jur": "N.J.",
+    "year": 1974
+   },
+   {
+    "case_id": 343183,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "54 N.J.L. 525",
+    "name": null,
+    "court": "New Jersey Supreme Court",
+    "jur": "N.J.",
+    "year": 1892
+   },
+   {
+    "case_id": 8320804,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "938 A.2d 1157",
+    "name": null,
+    "court": "Commonwealth Court of Pennsylvania",
+    "jur": "Pa.",
+    "year": 2007
+   },
+   {
+    "case_id": 7661993,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "131 N.Y.S. 909",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 1911
+   },
+   {
+    "case_id": 969131,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "18 Pa. 48",
+    "name": null,
+    "court": "Supreme Court of Pennsylvania",
+    "jur": "Pa.",
+    "year": 1851
+   },
+   {
+    "case_id": 6042936,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "40 Cal. App. 4th 1600",
+    "name": null,
+    "court": "Court of Appeal of the State of California",
+    "jur": "Cal.",
+    "year": 1995
+   },
+   {
+    "case_id": 3980885,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "17 Mass. App. Ct. 1038",
+    "name": null,
+    "court": "Massachusetts Appeals Court",
+    "jur": "Mass.",
+    "year": 1984
+   },
+   {
+    "case_id": 1165911,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "321 Pa. 193",
+    "name": null,
+    "court": "Supreme Court of Pennsylvania",
+    "jur": "Pa.",
+    "year": 1936
+   },
+   {
+    "case_id": 508788,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "326 Mass. 700",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 1951
+   },
+   {
+    "case_id": 622005,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "71 N.J.L. 414",
+    "name": null,
+    "court": "New Jersey Supreme Court",
+    "jur": "N.J.",
+    "year": 1904
+   },
+   {
+    "case_id": 11788824,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "7 Mass. L. Rptr. 565",
+    "name": null,
+    "court": "Massachusetts Superior Court",
+    "jur": "Mass.",
+    "year": 1997
+   },
+   {
+    "case_id": 1745921,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "51 Ohio Law Abs. 289",
+    "name": null,
+    "court": "Ohio Court of Appeals",
+    "jur": "Ohio",
+    "year": 1948
+   },
+   {
+    "case_id": 1931451,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "117 Cal. 67",
+    "name": null,
+    "court": "Supreme Court of California",
+    "jur": "Cal.",
+    "year": 1897
+   },
+   {
+    "case_id": 840171,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "128 Misc. 2d 351",
+    "name": null,
+    "court": "Civil Court of the City of New York",
+    "jur": "N.Y.",
+    "year": 1985
+   },
+   {
+    "case_id": 9949158,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "574 S.W.2d 625",
+    "name": null,
+    "court": "Texas Courts of Civil Appeals",
+    "jur": "Tex.",
+    "year": 1978
+   },
+   {
+    "case_id": 3996242,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "25 Mass. App. Ct. 656",
+    "name": null,
+    "court": "Massachusetts Appeals Court",
+    "jur": "Mass.",
+    "year": 1988
+   },
+   {
+    "case_id": 4414052,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "216 Cal. App. 3d 1586",
+    "name": null,
+    "court": "Court of Appeal of the State of California",
+    "jur": "Cal.",
+    "year": 1990
+   },
+   {
+    "case_id": 962427,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "191 Misc. 2d 775",
+    "name": null,
+    "court": "New York City Civil Court",
+    "jur": "N.Y.",
+    "year": 2002
+   },
+   {
+    "case_id": 1964715,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "49 Mass. 232",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 1844
+   },
+   {
+    "case_id": 865318,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "137 Misc. 2d 567",
+    "name": null,
+    "court": "New York City Civil Court",
+    "jur": "N.Y.",
+    "year": 1987
+   },
+   {
+    "case_id": 8823762,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "39 Pa. D. & C.3d 612",
+    "name": null,
+    "court": "Washington County Court of Common Pleas",
+    "jur": "Pa.",
+    "year": 1985
+   },
+   {
+    "case_id": 2353386,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "83 N.Y.2d 156",
+    "name": null,
+    "court": "New York Court of Appeals",
+    "jur": "N.Y.",
+    "year": 1993
+   },
+   {
+    "case_id": 295359,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "78 N.J.L. 729",
+    "name": null,
+    "court": "New Jersey Court of Errors and Appeals",
+    "jur": "N.J.",
+    "year": 1910
+   },
+   {
+    "case_id": 1473053,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "73 Ohio App. 3d 426",
+    "name": null,
+    "court": "Ohio Court of Appeals",
+    "jur": "Ohio",
+    "year": 1992
+   },
+   {
+    "case_id": 10147833,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "456 S.W.2d 702",
+    "name": null,
+    "court": "Texas Courts of Civil Appeals",
+    "jur": "Tex.",
+    "year": 1970
+   },
+   {
+    "case_id": 3584838,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "150 A.D.2d 444",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 1989
+   },
+   {
+    "case_id": 6044763,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "203 Cal. App. 3d 153",
+    "name": null,
+    "court": "Court of Appeal of the State of California",
+    "jur": "Cal.",
+    "year": 1988
+   },
+   {
+    "case_id": 2016737,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "177 Cal. 737",
+    "name": null,
+    "court": "Supreme Court of California",
+    "jur": "Cal.",
+    "year": 1918
+   },
+   {
+    "case_id": 745970,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "321 N.J. Super. 543",
+    "name": null,
+    "court": "New Jersey Superior Court, Appellate Division",
+    "jur": "N.J.",
+    "year": 1999
+   },
+   {
+    "case_id": 1712863,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "49 Pa. D. & C.2d 236",
+    "name": null,
+    "court": "Delaware County Court of Common Pleas",
+    "jur": "Pa.",
+    "year": 1970
+   },
+   {
+    "case_id": 350836,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "170 Misc. 2d 909",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Term",
+    "jur": "N.Y.",
+    "year": 1997
+   },
+   {
+    "case_id": 2073948,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "13 Mass. 520",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 1816
+   },
+   {
+    "case_id": 1104209,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "2 N.Y. City Ct. Rep. 122",
+    "name": null,
+    "court": "New York City Court",
+    "jur": "N.Y.",
+    "year": 1885
+   },
+   {
+    "case_id": 308042,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "253 N.J. Super. 507",
+    "name": null,
+    "court": "New Jersey Superior Court, Law Division",
+    "jur": "N.J.",
+    "year": 1991
+   },
+   {
+    "case_id": 3827019,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "67 Mass. App. Ct. 718",
+    "name": null,
+    "court": "Massachusetts Appeals Court",
+    "jur": "Mass.",
+    "year": 2006
+   },
+   {
+    "case_id": 5746457,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "19 Mass. App. Ct. 745",
+    "name": null,
+    "court": "Massachusetts Appeals Court",
+    "jur": "Mass.",
+    "year": 1985
+   },
+   {
+    "case_id": 2887942,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "283 A.D. 407",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 1954
+   },
+   {
+    "case_id": 522296,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "348 Mass. 700",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 1965
+   },
+   {
+    "case_id": 6753442,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "4 Day 228",
+    "name": null,
+    "court": "Connecticut Supreme Court",
+    "jur": "Conn.",
+    "year": 1810
+   },
+   {
+    "case_id": 2042016,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "33 N.Y. 571",
+    "name": null,
+    "court": "New York Court of Appeals",
+    "jur": "N.Y.",
+    "year": 1865
+   },
+   {
+    "case_id": 1995274,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "178 Cal. 693",
+    "name": null,
+    "court": "Supreme Court of California",
+    "jur": "Cal.",
+    "year": 1918
+   },
+   {
+    "case_id": 10183012,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "278 S.W.2d 400",
+    "name": null,
+    "court": "Texas Courts of Civil Appeals",
+    "jur": "Tex.",
+    "year": 1954
+   },
+   {
+    "case_id": 734162,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "182 Pa. Super. 122",
+    "name": null,
+    "court": "Superior Court of Pennsylvania",
+    "jur": "Pa.",
+    "year": 1956
+   },
+   {
+    "case_id": 4432670,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "84 N.Y.2d 773",
+    "name": null,
+    "court": "New York Court of Appeals",
+    "jur": "N.Y.",
+    "year": 1995
+   },
+   {
+    "case_id": 1621702,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "9 Pa. D. & C.2d 677",
+    "name": null,
+    "court": "Allegheny County Court of Common Pleas",
+    "jur": "Pa.",
+    "year": 1956
+   },
+   {
+    "case_id": 1381144,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "122 Pa. Commw. 14",
+    "name": null,
+    "court": "Commonwealth Court of Pennsylvania",
+    "jur": "Pa.",
+    "year": 1988
+   },
+   {
+    "case_id": 3706418,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "325 U.S. App. D.C. 19",
+    "name": null,
+    "court": "United States Court of Appeals for the District of Columbia Circuit",
+    "jur": "D.C.",
+    "year": 1997
+   },
+   {
+    "case_id": 1178140,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "436 Mass. 811",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 2002
+   },
+   {
+    "case_id": 450245,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "75 Misc. 163",
+    "name": null,
+    "court": "New York County Court",
+    "jur": "N.Y.",
+    "year": 1912
+   },
+   {
+    "case_id": 876316,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "141 Misc. 2d 899",
+    "name": null,
+    "court": "New York City Civil Court",
+    "jur": "N.Y.",
+    "year": 1988
+   },
+   {
+    "case_id": 958872,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "198 Misc. 50",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Term",
+    "jur": "N.Y.",
+    "year": 1950
+   },
+   {
+    "case_id": 9929170,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "550 S.W.2d 152",
+    "name": null,
+    "court": "Texas Courts of Civil Appeals",
+    "jur": "Tex.",
+    "year": 1977
+   },
+   {
+    "case_id": 334138,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "377 Mass. 443",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 1979
+   },
+   {
+    "case_id": 923619,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "185 Misc. 928",
+    "name": null,
+    "court": "New York City Municipal Court",
+    "jur": "N.Y.",
+    "year": 1945
+   },
+   {
+    "case_id": 220769,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "3 Pennyp. 101",
+    "name": null,
+    "court": "Armstrong County Court of Common Pleas",
+    "jur": "Pa.",
+    "year": 1882
+   },
+   {
+    "case_id": 8729871,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "88 Pa. D. & C. 265",
+    "name": null,
+    "court": "Philadelphia County Court of Common Pleas",
+    "jur": "Pa.",
+    "year": 1954
+   },
+   {
+    "case_id": 6708931,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "9 Ohio App. 3d 279",
+    "name": null,
+    "court": "Ohio Court of Appeals",
+    "jur": "Ohio",
+    "year": 1983
+   },
+   {
+    "case_id": 3235674,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "36 A.D.2d 166",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 1971
+   },
+   {
+    "case_id": 415548,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "30 Pa. 315",
+    "name": null,
+    "court": "Supreme Court of Pennsylvania",
+    "jur": "Pa.",
+    "year": 1858
+   },
+   {
+    "case_id": 969736,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "110 Pa. Super. 128",
+    "name": null,
+    "court": "Superior Court of Pennsylvania",
+    "jur": "Pa.",
+    "year": 1933
+   },
+   {
+    "case_id": 6707578,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "14 Ohio Misc. 2d 1",
+    "name": null,
+    "court": "Cuyahoga County Court of Common Pleas",
+    "jur": "Ohio",
+    "year": 1984
+   },
+   {
+    "case_id": 813495,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "383 Mass. 152",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 1981
+   },
+   {
+    "case_id": 390709,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "10 N.J. Super. 481",
+    "name": null,
+    "court": "New Jersey Superior Court, Appellate Division",
+    "jur": "N.J.",
+    "year": 1950
+   },
+   {
+    "case_id": 6034648,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "90 Cal. App. 4th 1457",
+    "name": null,
+    "court": "Appellate Division of the Superior Court of the State of California",
+    "jur": "Cal.",
+    "year": 2001
+   },
+   {
+    "case_id": 313773,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "93 Mass. 546",
+    "name": null,
+    "court": "Massachusetts Supreme Judicial Court",
+    "jur": "Mass.",
+    "year": 1866
+   },
+   {
+    "case_id": 3964594,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "71 A.D.3d 1282",
+    "name": null,
+    "court": "New York Supreme Court, Appellate Division",
+    "jur": "N.Y.",
+    "year": 2010
+   },
+   {
+    "case_id": 1048931,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "19 Misc. 2d 130",
+    "name": null,
+    "court": "New York City Municipal Court",
+    "jur": "N.Y.",
+    "year": 1959
+   },
+   {
+    "case_id": 10311363,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "198 S.W. 173",
+    "name": null,
+    "court": "Texas Courts of Civil Appeals",
+    "jur": "Tex.",
+    "year": 1917
+   },
+   {
+    "case_id": 1949113,
+    "section": "H",
+    "reason": "audit_sample",
+    "other_reasons": [],
+    "decide_fields": [
+     "relevant",
+     "polarity",
+     "who_was_letting"
+    ],
+    "cite": "37 Cal. 3d 644",
+    "name": null,
+    "court": "Supreme Court of California",
+    "jur": "Cal.",
+    "year": 1984
+   }
+  ]
+ },
+ "deferred": []
+}
