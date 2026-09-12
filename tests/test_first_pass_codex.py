@@ -131,3 +131,10 @@ def test_the_parser_carries_the_flags():
     ap = fp.build_parser()
     a = ap.parse_args(["--cards", "c.json", "--handoff", "h.md", "--out", "o.json"])
     assert a.model == "gpt-6-astra" and a.brief.endswith("review-first-pass-brief.md")
+
+
+def test_audit_requires_workdir():
+    with pytest.raises(SystemExit):
+        fp.build_parser().parse_args(["--audit", "--cards", "c", "--out", "o"])
+    a = fp.build_parser().parse_args(["--audit", "--cards", "c", "--out", "o", "--workdir", "w"])
+    assert a.workdir == "w" and a.audit is True

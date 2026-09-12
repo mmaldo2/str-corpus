@@ -50,7 +50,13 @@ def markdown(doc: dict) -> str:
     L += ["| tier | entries | resolved | signaled | read | relevant | human-reviewed | recovery |", "|---|---|---|---|---|---|---|---|"]
     for name, t in list(g["tiers"].items()) + [("union", g["union"])]:
         L.append(f"| {name} | {t['entries']:,} | {t['resolved']:,} | {t['signaled']:,} | {t['read']:,} | {t['relevant']:,} | {t['relevant_human']:,} | {_est(t['recovery'])} |")
-    L += ["", f"Inventory: brief-doctrine {g['inventory']['brief-doctrine']['entries']} entries, {g['inventory']['brief-doctrine']['resolved']} resolved (not in the denominator).", ""]
+    L.append("")
+    if g["union"].get("first_run"):
+        L += ["| case | first read by |", "|---|---|"]
+        L += [f"| {cid} | {run} |" for cid, run in
+              sorted(g["union"]["first_run"].items(), key=lambda kv: int(kv[0]))]
+        L.append("")
+    L += [f"Inventory: brief-doctrine {g['inventory']['brief-doctrine']['entries']} entries, {g['inventory']['brief-doctrine']['resolved']} resolved (not in the denominator).", ""]
     if g["misses"]:
         L += ["| cite | case | tier | lost at | detail |", "|---|---|---|---|---|"]
         L += [f"| {m['cite']} | {m['case_id'] or '-'} | {m['tier']} | {m['lost_at']} | {m['detail']} |" for m in g["misses"]]
@@ -82,8 +88,10 @@ def markdown(doc: dict) -> str:
         L += ["Revisions after reveal: " + ", ".join(f"{f} {n}" for f, n in p["revisions"].items()), ""]
     L += ["## 4. Reviewer agreement", ""]
     for r in a["rounds"]:
-        L += [f"### {r['round_id']} ({r['kind']}, {r['exposure']})", "", f"Selection rule: {r['selection_rule']}", "",
-              "| pair | field | n | raw agreement | kappa |", "|---|---|---|---|---|"]
+        L += [f"### {r['round_id']} ({r['kind']}, {r['exposure']})", "", f"Selection rule: {r['selection_rule']}", ""]
+        if r.get("user_selection_rule"):
+            L += [f"User pairs: {r['user_selection_rule']}", ""]
+        L += ["| pair | field | n | raw agreement | kappa |", "|---|---|---|---|---|"]
         for pair, fields in r["pairs"].items():
             for f, st in fields.items():
                 L.append(f"| {pair} | {f} | {st['n']:,} | {_est(st['raw'])} | {_kappa(st['kappa'])} |")

@@ -307,8 +307,19 @@ def run_first_pass(cards: Sequence[dict], *, brief: str, handoff: str = "", prov
     return man
 
 
+class _ArgumentParser(argparse.ArgumentParser):
+    """`--audit` requires `--workdir` (the isolated cwd `--workdir`'s own help text explains
+    why); enforced here, at `parse_args`, rather than in `main`, so `build_parser` alone
+    refuses the combination and every caller gets the same argparse-style usage error."""
+    def parse_args(self, args=None, namespace=None):
+        ns = super().parse_args(args, namespace)
+        if ns.audit and not ns.workdir:
+            self.error("--audit requires --workdir")
+        return ns
+
+
 def build_parser() -> argparse.ArgumentParser:
-    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap = _ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--cards", required=True, help="the round's card export .json (with --full-text)")
     ap.add_argument("--brief", default=DEFAULT_BRIEF)
     ap.add_argument("--handoff", default=None, help="the round's handoff addendum .md; "
@@ -323,7 +334,7 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--workdir", default=None,
                     help="cwd for the codex cli subprocess (CodexCliProvider's cwd) - an "
                          "isolated directory, so the audit pass never runs in a git repo "
-                         "checkout the model could read")
+                         "checkout the model could read; required with --audit")
     return ap
 
 

@@ -24,6 +24,7 @@ from corpus_engine.evaluation.precision import precision_and_accuracy  # noqa: E
 from corpus_engine.evaluation.agreement import agreement       # noqa: E402
 from corpus_engine.evaluation.coverage import tail_coverage    # noqa: E402
 import apply_map_review as ap                                  # noqa: E402
+import make_map_review as mmr                                  # noqa: E402
 
 
 def sha256_file(path: Path) -> str:
@@ -64,8 +65,17 @@ def cmd_build_bands(a) -> int:
     return 0
 
 
-def load_registry_files(registry: dict, root: Path) -> dict:
-    files = {}
+def load_registry_files(registry: dict, root: Path) -> tuple[dict, dict]:
+    """Every file a registry entry names, parsed, plus `{path: sha256}` for all of them - the
+    hashes that go into each measure's provenance (spec §6: the registry is frozen per
+    evaluation by its hash, and so is everything it points at).
+
+    A `.html` `user` entry is read through `apply_map_review.read_page` UNLESS its round's
+    `kind` is `"audit"`, in which case it is the lock-then-reveal audit page and is read
+    through `make_map_review.read_audit_state` instead - `read_page` drops `initial_value`
+    and `locked_at`, which an audit round's blind-vs-revealed agreement pair needs."""
+    files: dict = {}
+    hashes: dict = {}
     fields = tuple(load_domain().judged_fields) + ap.EXTRA_FIELDS
     for e in registry.get("rounds") or ():
         for key in ("queue", "checker", "claude", "astra", "user"):
@@ -75,11 +85,17 @@ def load_registry_files(registry: dict, root: Path) -> dict:
             path = root / p
             if not path.exists():
                 raise SystemExit(f"registry names {p} for round {e['round_id']} but it does not exist")
+            raw = path.read_bytes()
+            hashes[p] = hashlib.sha256(raw).hexdigest()
             if p.endswith(".html"):
-                files[p] = ap.read_page(path.read_text(encoding="utf-8"), fields)
+                text = raw.decode("utf-8")
+                if key == "user" and e.get("kind") == "audit":
+                    files[p] = mmr.read_audit_state(text)
+                else:
+                    files[p] = ap.read_page(text, fields)
             else:
-                files[p] = json.loads(path.read_text(encoding="utf-8"))
-    return files
+                files[p] = json.loads(raw.decode("utf-8"))
+    return files, hashes
 
 
 def read_units(root: Path, view) -> dict[int, str]:
@@ -114,19 +130,23 @@ def compute(a) -> dict:
         from corpus_engine import store
         from corpus_engine.selector.engine import attribution
         signaled = {cid: bool(refs) for cid, refs in attribution(store.connect(), ids).items()}
-    gold = gold_recovery(gold_rows, view, signaled=signaled, read_units=read_units(ROOT, view))
+    registry = json.loads(Path(a.rounds).read_text(encoding="utf-8"))
+    files, hashes = load_registry_files(registry, ROOT)
+    gold_path = ROOT / "data" / "gold" / "gold.jsonl"
+    hashes["data/gold/gold.jsonl"] = sha256_file(gold_path)
+    hashes[a.bands] = sha256_file(Path(a.bands))
+    hashes[a.rounds] = sha256_file(Path(a.rounds))
+    gold = gold_recovery(gold_rows, view, signaled=signaled, read_units=read_units(ROOT, view), hashes=hashes)
     audit = Path(a.audit)
     manifest = json.loads((audit / "sample-manifest.json").read_text(encoding="utf-8")) if (audit / "sample-manifest.json").exists() else None
     outcomes = json.loads((audit / "outcomes.json").read_text(encoding="utf-8")) if (audit / "outcomes.json").exists() else None
     prec = precision_and_accuracy(manifest, outcomes) if manifest else precision_and_accuracy(
         {"ledger_head_seq": 0, "frame_size": 0, "seed": None, "records": []}, None)
-    registry = json.loads(Path(a.rounds).read_text(encoding="utf-8"))
-    files = load_registry_files(registry, ROOT)
     ledger_run_ids = sorted({p.basis.run_id for p in view.patches if p.basis.reviewer and p.basis.run_id})
-    agr = agreement(registry, files, ledger_run_ids=ledger_run_ids)
+    agr = agreement(registry, files, ledger_run_ids=ledger_run_ids, hashes=hashes, registry_path=a.rounds)
     if agr.unregistered_run_ids:
         raise SystemExit(f"unregistered reviewer run ids: {', '.join(agr.unregistered_run_ids)}; add a disposition to {a.rounds}")
-    cov = tail_coverage(json.loads(Path(a.bands).read_text(encoding="utf-8")))
+    cov = tail_coverage(json.loads(Path(a.bands).read_text(encoding="utf-8")), hashes=hashes, path=a.bands)
     rev = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True, cwd=ROOT).stdout.strip()
     code = {"git_revision": rev, "command": " ".join(sys.argv), "python": platform.python_version(), "packages": {}}
     ev = summary.evaluate(view, summary.Inputs(gold, prec, agr, cov), cycle=a.cycle, reporting_seq=reporting_seq,

@@ -7,6 +7,7 @@ import pytest
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import evaluate as ev
+import apply_map_review as ap
 from corpus_engine.evaluation.agreement import agreement
 
 FIX = ROOT / "tests" / "fixtures" / "evaluation"
@@ -50,6 +51,63 @@ def test_publish_writes_json_and_md_together_and_force_keeps_a_revision(tmp_path
     monkeypatch.setattr(ev, "compute", lambda a: bad)
     assert ev.main(["publish", "--out", str(tmp_path / "other")]) == 1
     assert not (tmp_path / "other.json").exists() and not (tmp_path / "other.md").exists()
+
+
+def test_load_registry_files_hashes_every_named_file():
+    reg = {"rounds": [{"round_id": "s02-3", "kind": "historical", "queue": "s02-3-queue.json",
+                       "checker": "s02-3-checker.json", "claude": "s02-3-claude.json",
+                       "astra": "s02-3-astra.json", "user": "s02-3-user.json"}]}
+    files, hashes = ev.load_registry_files(reg, FIX)
+    import hashlib
+    for fname in ("s02-3-queue.json", "s02-3-checker.json", "s02-3-claude.json",
+                  "s02-3-astra.json", "s02-3-user.json"):
+        assert hashes[fname] == hashlib.sha256((FIX / fname).read_bytes()).hexdigest()
+    assert set(files) == set(hashes)
+
+
+def test_load_registry_files_reads_an_audit_html_user_entry_through_read_audit_state(tmp_path):
+    import make_map_review as mmr
+    queue = {"run_id": "audit-cycle-004", "cap": 1, "titles": {"H": "Audit sample"}, "deferred": [],
+             "sections": {"H": [{"case_id": 9, "decide_fields": ["relevant", "polarity", "who_was_letting"],
+                                 "cite": "9 A. 9", "name": "A v. B", "court": "Ct.", "jur": "N.Y.", "year": 1900}]}}
+    (tmp_path / "aq.json").write_text(json.dumps(queue), encoding="utf-8")
+    html_path, _ = mmr.build_audit_page(queue, tmp_path / "audit", opinions={9: "she let the room"},
+                                        claude=[], astra=[])
+    html = html_path.read_text(encoding="utf-8")
+    state = [{"case_id": 9, "field": "relevant", "decision": "set", "value": True, "initial_value": True,
+             "locked_at": "t", "revised_reason": None, "note": ""},
+             {"case_id": 9, "field": "polarity", "decision": "set", "value": "adverse", "initial_value": "favorable",
+             "locked_at": "t", "revised_reason": None, "note": ""},
+             {"case_id": 9, "field": "who_was_letting", "decision": "set", "value": "householder",
+             "initial_value": "householder", "locked_at": "t", "revised_reason": None, "note": ""}]
+    saved = html.replace('id="review-state">[]</script>', 'id="review-state">' + json.dumps(state) + '</script>')
+    html_path.write_text(saved, encoding="utf-8")
+    registry = {"rounds": [{"round_id": "audit", "kind": "audit", "queue": "aq.json", "checker": None,
+                            "claude": None, "astra": None, "user": "audit.html"}]}
+    files, hashes = ev.load_registry_files(registry, tmp_path)
+    entries = files["audit.html"]
+    assert entries[0]["field"] == "relevant" and entries[0]["initial_value"] is True
+    assert entries[1]["field"] == "polarity" and entries[1]["initial_value"] == "favorable"
+    assert "audit.html" in hashes and "aq.json" in hashes
+
+
+def test_load_registry_files_reads_a_non_audit_html_user_entry_through_read_page(tmp_path):
+    """The historical rounds' saved-page user entries (s02-1, s02-3) are `kind: historical`,
+    not audit, and must keep going through `apply_map_review.read_page` - the branch added
+    for the audit page must not change this path."""
+    from corpus_engine.domain import load_domain
+    fields = tuple(load_domain().judged_fields) + ap.EXTRA_FIELDS
+    queue = {"run_id": "r1", "sections": {"A": [{"case_id": 1, "decide_field": fields[0]}]}}
+    (tmp_path / "q.json").write_text(json.dumps(queue), encoding="utf-8")
+    decisions = [{"case_id": 1, "field": fields[0], "decision": "unsure", "note": "x"}]
+    html = ('<html><body><script type="application/json" id="review-state">'
+           + json.dumps(decisions) + '</script></body></html>')
+    (tmp_path / "u.html").write_text(html, encoding="utf-8")
+    registry = {"rounds": [{"round_id": "r1", "kind": "historical", "queue": "q.json", "checker": None,
+                            "claude": None, "astra": None, "user": "u.html"}]}
+    files, hashes = ev.load_registry_files(registry, tmp_path)
+    assert files["u.html"] == [{"case_id": 1, "field": fields[0], "decision": "unsure",
+                               "value": None, "note": "x"}]
 
 
 def _env():

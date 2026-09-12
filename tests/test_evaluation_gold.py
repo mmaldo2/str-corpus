@@ -54,6 +54,62 @@ def test_read_but_unread_and_read_failed_are_distinct():
     assert lost == {1: "unread", 2: "read-failed"}
 
 
+def test_union_first_run_names_the_run_that_first_carried_each_hit():
+    records = {1: {"relevant": True}, 2: {"relevant": False}, 3: {"relevant": False}, 7: {"relevant": True}}
+    hist = {3: [Patch(3, "set", "relevant", False, "round", Basis(reviewer="u", run_id="r-1b"))]}
+    g = gold_recovery(_gold(), _View(records, hist, reviewed={1}),
+                      signaled={1: True, 2: True, 3: True, 4: False, 7: True},
+                      read_units={1: "run-a", 2: "run-a", 3: "run-b", 7: "run-a"})
+    assert g.union.first_run == {1: "run-a", 7: "run-a"}
+
+
+def test_first_run_table_is_rendered_under_the_union_funnel():
+    from corpus_engine.evaluation import render
+    from corpus_engine.evaluation.types import as_dict
+    records = {1: {"relevant": True}, 7: {"relevant": True}}
+    g = gold_recovery(_gold(), _View(records, reviewed={1}),
+                      signaled={1: True, 7: True},
+                      read_units={1: "run-a", 7: "run-a"})
+    doc = _minimal_doc(gold_recovery=as_dict(g))
+    md = render.markdown(doc)
+    assert "| case | first read by |" in md
+    assert "| 1 | run-a |" in md and "| 7 | run-a |" in md
+
+
+def test_gold_recovery_provenance_carries_the_gold_files_hash():
+    g = gold_recovery(_gold(), _View({}), signaled={}, read_units={},
+                      hashes={"data/gold/gold.jsonl": "cafebabe" * 8})
+    entry = next(p for p in g.envelope.provenance.inputs if p[2] == "gold")
+    assert entry == ("data/gold/gold.jsonl", "cafebabe" * 8, "gold")
+
+
+def _minimal_doc(**over):
+    from corpus_engine.evaluation.types import as_dict
+    from corpus_engine.evaluation.gold import GoldRecovery, TierFunnel
+    from corpus_engine.evaluation.precision import Precision
+    from corpus_engine.evaluation.agreement import Agreement
+    from corpus_engine.evaluation.coverage import Coverage
+    from corpus_engine.evaluation.types import Envelope, Uncertainty, Provenance, UNAVAILABLE
+
+    def env(v):
+        return as_dict(Envelope(v, "pop", (), Uncertainty("none", None, "none"), (), Provenance()))
+    tf = as_dict(TierFunnel(0, 0, 0, 0, 0, 0, UNAVAILABLE))
+    doc = {"schema_version": "1", "evaluation_id": "e", "generated_at": "t", "cycle": "004",
+          "code": {"git_revision": "?"},
+          "ledger": {"reporting_seq": 1, "content_sha256": "0" * 64,
+                     "counts": {"relevant": {"human_reviewed": 0, "machine_only": 0},
+                                "favorable": {"human_reviewed": 0, "machine_only": 0},
+                                "favorable_householder": {"human_reviewed": 0, "machine_only": 0}}},
+          "gold_recovery": as_dict(GoldRecovery(Envelope("g", "pop", (), Uncertainty("sampling", 0.95, "wilson"), (), Provenance()),
+                                                {}, TierFunnel(0, 0, 0, 0, 0, 0, UNAVAILABLE), (), (), {"brief-doctrine": {"entries": 0, "resolved": 0}})),
+          "precision": as_dict(Precision(Envelope("p", "pop", (), Uncertainty("none", None, "none"), (), Provenance()),
+                                         1, 1, 0, 0, 0, UNAVAILABLE, {}, UNAVAILABLE, {}, {}, {}, {})),
+          "agreement": as_dict(Agreement(Envelope("a", "pop", (), Uncertainty("sampling", 0.95, "wilson"), (), Provenance()), (), (), ())),
+          "coverage": as_dict(Coverage(Envelope("c", "pop", (), Uncertainty("assumption", None, "scenarios"), (), Provenance()), (), ()))}
+    doc.update(over)
+    return doc
+
+
 def test_a_machine_relevant_false_patch_is_reader_negative_not_withdrawn():
     gold = [
         {"cite": "1", "cite_norm": "1", "tier": "treatise", "case_id": 1},

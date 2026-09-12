@@ -1,6 +1,6 @@
 # Evaluation of the corpus, cycle 004 (004-83531-b84796f0)
 
-Generated 2026-09-12T16:31:20+00:00 at ledger seq 83,531 (content b84796f05f9c), code 97819399a66bb2de3e69d4faa9394c4d04406ad9.
+Generated 2026-09-12T16:52:32+00:00 at ledger seq 83,531 (content b84796f05f9c), code 006865a3d030bdee53e666ba2bc40ccc0090563f.
 
 Published counts (`open_ledger().view().counts()`):
 
@@ -28,6 +28,19 @@ Published counts (`open_ledger().view().counts()`):
 | brief-letting | 35 | 9 | 6 | 6 | 1 | 1 | 0.111 (0.020-0.435, n=9) |
 | treatise | 30 | 27 | 22 | 22 | 9 | 7 | 0.333 (0.186-0.522, n=27) |
 | union | 65 | 36 | 28 | 28 | 10 | 8 | 0.278 (0.158-0.440, n=36) |
+
+| case | first read by |
+|---|---|
+| 484038 | cycles-001-003-reread |
+| 674442 | cycles-001-003-reread |
+| 1283545 | cycles-001-003-reread |
+| 1393244 | cycles-001-003-reread |
+| 2121343 | cycles-001-003-reread |
+| 2211876 | cycles-001-003-reread |
+| 2257077 | cycles-001-003-reread |
+| 3515356 | cycles-001-003-reread |
+| 4809400 | cycles-001-003-reread |
+| 8877300 | cycles-001-003-reread |
 
 Inventory: brief-doctrine 114 entries, 52 resolved (not in the denominator).
 
@@ -105,7 +118,7 @@ Limitations:
 - The gold set is a benchmark, not a random sample of the population of letting cases.
 
 Provenance:
-- data/gold/gold.jsonl (gold) sha256 -
+- data/gold/gold.jsonl (gold) sha256 3a4011ee7409eccd4973cfcae971f8a97ab8d894029ac4331f6039eea9ddc9ee
 
 ## 2. Machine-tier precision
 
@@ -137,6 +150,8 @@ Joint correctness (relevant, polarity, who_was_letting all match): unavailable
 ### reread-1 (historical, exposure-affected)
 
 Selection rule: G: re-read conflicts with a human decision; then A-F rules; cap 250
+
+User pairs: the 62 cards Claude and Astra disagreed on in re-read round 1, decided on page 1b
 
 | pair | field | n | raw agreement | kappa |
 |---|---|---|---|---|
@@ -175,6 +190,8 @@ Selection rule: E and F cards deferred from round 1
 ### s02-1 (historical, exposure-affected)
 
 Selection rule: A favorable+under30, B householder nights, C checker disagreements, D mixed, E gate-erased, F fuzzy; cap 250
+
+User pairs: the 79 cards Claude and Astra disagreed on in round 1, decided on page 1b
 
 | pair | field | n | raw agreement | kappa |
 |---|---|---|---|---|
@@ -217,6 +234,8 @@ Selection rule: same section rules over the second budget's records
 ### s02-3 (historical, exposure-affected)
 
 Selection rule: same section rules over the third budget's records
+
+User pairs: the 51 cards Claude and Astra disagreed on in round 3, decided on page 3b
 
 | pair | field | n | raw agreement | kappa |
 |---|---|---|---|---|
@@ -269,34 +288,35 @@ Limitations:
 - Historical rounds are workflow evidence: cards were selected by rules, readers saw the machine values and the checker, and the user saw both readers' notes; only the audit round is blind.
 
 Provenance:
-- runs/cycle-004-shard-02/review-round-1-checker.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-1-decisions-astra.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-1-decisions-claude.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-1.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-1b-saved.html (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-2-checker.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-2-decisions-astra.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-2-decisions-claude.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-2.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-2b-decisions.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-3-checker.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-3-decisions-astra.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-3-decisions-claude.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-3.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-3b-saved.html (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-4-checker.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-4-decisions-astra.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-4-decisions-claude.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-4.json (registry-file) sha256 -
-- runs/cycle-004-shard-02/review-round-4b-decisions.json (registry-file) sha256 -
-- runs/cycles-001-003-reread/review-round-1-checker.json (registry-file) sha256 -
-- runs/cycles-001-003-reread/review-round-1-decisions-astra.json (registry-file) sha256 -
-- runs/cycles-001-003-reread/review-round-1-decisions-claude.json (registry-file) sha256 -
-- runs/cycles-001-003-reread/review-round-1.json (registry-file) sha256 -
-- runs/cycles-001-003-reread/review-round-1b-decisions.json (registry-file) sha256 -
-- runs/cycles-001-003-reread/review-round-2-checker.json (registry-file) sha256 -
-- runs/cycles-001-003-reread/review-round-2-decisions-claude.json (registry-file) sha256 -
-- runs/cycles-001-003-reread/review-round-2.json (registry-file) sha256 -
+- runs/evaluation/rounds.json (registry) sha256 3f6ea9ae5eca8c47c5bc268fdc0dedee07fbc5afdf9a49f046fb6bcdcfebfb96
+- runs/cycle-004-shard-02/review-round-1-checker.json (registry-file) sha256 69b65bb59c1d0998b04378d45ddfe201b3c4360f063ff86b38178b2fbd17070d
+- runs/cycle-004-shard-02/review-round-1-decisions-astra.json (registry-file) sha256 7b4516cf1b79b6127e40f3015a22611cb29f1457e13701dd036488b678766597
+- runs/cycle-004-shard-02/review-round-1-decisions-claude.json (registry-file) sha256 5d050268021e06b7371e563a2e9ca68da46ad5ae7b7594f6c1d166e20306d81c
+- runs/cycle-004-shard-02/review-round-1.json (registry-file) sha256 3a954676a4a7e5e1459033638837d32b224186aca9472585eca733ce647649b4
+- runs/cycle-004-shard-02/review-round-1b-saved.html (registry-file) sha256 eba1e78961d2eab6fd7d2ae2a70e34d14a39fb562d583c28139937079d2daf3b
+- runs/cycle-004-shard-02/review-round-2-checker.json (registry-file) sha256 9f3941e006f533e4cbcacd4e9e9363c831ff84bbc04518cbce2208872f943ef9
+- runs/cycle-004-shard-02/review-round-2-decisions-astra.json (registry-file) sha256 50e4ffe404f7f13a255408812bb4448f7c45c606792855e0ff23c0bced148a63
+- runs/cycle-004-shard-02/review-round-2-decisions-claude.json (registry-file) sha256 01faab667d0b7268d51e3484ec3202fced9aba19f01ee8228b1ea2b18efcbb76
+- runs/cycle-004-shard-02/review-round-2.json (registry-file) sha256 6568b2a25fbb7bee04b019973a6f302699a633eca92a8dba67567dce7fca687d
+- runs/cycle-004-shard-02/review-round-2b-decisions.json (registry-file) sha256 c463e03cf79c73eb0747bc6dd7392c04f5bff7db29e400b2d2c3eb00089093be
+- runs/cycle-004-shard-02/review-round-3-checker.json (registry-file) sha256 29a9e17a4bfdd48d397da950e8a17930f012df02e55dfc7708b1aba1a06e2754
+- runs/cycle-004-shard-02/review-round-3-decisions-astra.json (registry-file) sha256 454275db27927d612a1d6b033122f712b143ae8e3ddbe9be3cdef46d6f9eae9d
+- runs/cycle-004-shard-02/review-round-3-decisions-claude.json (registry-file) sha256 9b03487454b47b30d4492094ac0dbecd43be90e4ea22cff774544752f9ede1ad
+- runs/cycle-004-shard-02/review-round-3.json (registry-file) sha256 c24291ad78f252897225383e74d175f89c937fa3715cf94591ecd785b17dd986
+- runs/cycle-004-shard-02/review-round-3b-saved.html (registry-file) sha256 98d51dc724695e3fe7442d89e32263c3e76f63bf568905c5dc88129a0c42c6bb
+- runs/cycle-004-shard-02/review-round-4-checker.json (registry-file) sha256 f395ceaefae32e9f14ad08cd579d1f35626719dc52f351fe2b7412b74497b3e3
+- runs/cycle-004-shard-02/review-round-4-decisions-astra.json (registry-file) sha256 ab2fd72798dfb1dfb5011b3c04591fc1ac7eda6f6651721bfc891c1683ff00e2
+- runs/cycle-004-shard-02/review-round-4-decisions-claude.json (registry-file) sha256 2523ba76f9004e3b20f7239cc6e9d61a22d7d922fe300c464d54772a7ad0d4bb
+- runs/cycle-004-shard-02/review-round-4.json (registry-file) sha256 f9801c4d713a073ce379e1274ef140199d96fa0b359cfa95bc6825032a07ab7c
+- runs/cycle-004-shard-02/review-round-4b-decisions.json (registry-file) sha256 0e7d7daa0d151938c89580360a90f7b99a54a91def9b93a55b18068724b5f88d
+- runs/cycles-001-003-reread/review-round-1-checker.json (registry-file) sha256 68457334a9335b2fb719d2e2419684c2266c14173fe3746e4d789186f996bf4c
+- runs/cycles-001-003-reread/review-round-1-decisions-astra.json (registry-file) sha256 a05c3f5e1194612f6ff3632ccaf7374c344596f3eef8170e75a691563a97b4c9
+- runs/cycles-001-003-reread/review-round-1-decisions-claude.json (registry-file) sha256 2ab6c2a555d4417fc3b2e495cb721f6d792e920ff219b8ea5cdaf67f89537339
+- runs/cycles-001-003-reread/review-round-1.json (registry-file) sha256 80b59b067064d2f1bde4ba6d8b63cda5efb85b24a920593d83c9b7fd5bf3b3c2
+- runs/cycles-001-003-reread/review-round-1b-decisions.json (registry-file) sha256 16194469523938dc6ec5865a85ebe16b2eaf3af4cd1580553ca4a3d0ed442545
+- runs/cycles-001-003-reread/review-round-2-checker.json (registry-file) sha256 db6a6ea53863b8e5ba9139b4bc7e2bf9925de9b5fc76695459b366e4cc3c602a
+- runs/cycles-001-003-reread/review-round-2-decisions-claude.json (registry-file) sha256 46c258d8be545af286c3d7f615b20c5a34814c989c187b341cb56304e29f8afd
+- runs/cycles-001-003-reread/review-round-2.json (registry-file) sha256 27f740452361e706a54344b5d360b9041585ed4733b284accc7be147a585698c
 
 ## 5. Unread-tail coverage
 
@@ -334,9 +354,11 @@ Population: 14255 unread shard-02 candidate cases, by ranker-score band
 Limitations:
 - Batches were read in a rule-driven, adaptively stopped order, so read-band yields are not a random sample of the tail.
 - Unsignaled cases and reader false negatives are unmeasured; the estimate covers shard-02 candidates only.
+- Unread cases are counted from the bands table (batches with no completed unit); this is the count after the high-score leftovers pass and supersedes the 15,263 figure in the tail-map report, which predates it.
 
 Provenance:
 - bands-table (map-manifest) sha256 f03b7633da62936932e0fa908f767089fa829cb141464aee121cd19c675e1ff8
+- runs/evaluation/shard-02-bands.json (bands-file) sha256 6187d08b83b4c7a47a7dfa41de611f7020400ca859e3729f7395995ceee65ecf
 
 ## Rounds registry
 

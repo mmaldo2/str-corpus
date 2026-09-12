@@ -1,12 +1,13 @@
 """Measure 1: recovery of the eligible gold cases, with the stage each miss was lost at."""
 from __future__ import annotations
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Mapping, Sequence
 from corpus_engine.evaluation.stats import estimate
 from corpus_engine.evaluation.types import Envelope, Uncertainty, Provenance, Estimate
 
 METHOD_VERSION = "gold-recovery-1"
 READ_FAILED = "read-failed"          # the read_units value for a case whose unit failed
+GOLD_PATH = "data/gold/gold.jsonl"
 
 
 @dataclass(frozen=True)
@@ -18,6 +19,7 @@ class TierFunnel:
     relevant: int
     relevant_human: int
     recovery: Estimate
+    first_run: dict = field(default_factory=dict)   # case_id -> the run id that first carried the hit
 
 
 @dataclass(frozen=True)
@@ -74,6 +76,7 @@ def _lost_at(cid: int, view, signaled, read_units) -> tuple[str, str]:
 def _funnel(rows, view, signaled, read_units, misses: list[Miss]) -> TierFunnel:
     resolved = [r for r in rows if r.get("case_id")]
     n_sig = n_read = n_rel = n_hum = 0
+    first_run: dict[int, str] = {}
     for r in resolved:
         cid = int(r["case_id"])
         rec = view.state.records.get(cid) or {}
@@ -85,14 +88,19 @@ def _funnel(rows, view, signaled, read_units, misses: list[Miss]) -> TierFunnel:
             n_rel += 1
             if view.reviewed(cid):
                 n_hum += 1
+            ru = read_units.get(cid)
+            if ru and ru != READ_FAILED:
+                first_run[cid] = ru
         else:
             stage, detail = _lost_at(cid, view, signaled, read_units)
             misses.append(Miss(str(r.get("cite")), cid, _tier_of(r) or "", stage, detail))
-    return TierFunnel(len(rows), len(resolved), n_sig, n_read, n_rel, n_hum, estimate(n_rel, len(resolved)))
+    return TierFunnel(len(rows), len(resolved), n_sig, n_read, n_rel, n_hum,
+                      estimate(n_rel, len(resolved)), first_run)
 
 
 def gold_recovery(gold_rows: Sequence[Mapping], view, *, signaled: Mapping[int, bool],
-                  read_units: Mapping[int, str]) -> GoldRecovery:
+                  read_units: Mapping[int, str],
+                  hashes: Mapping[str, str] | None = None) -> GoldRecovery:
     rows = _dedupe(gold_rows)
     by_tier = {"brief-letting": [], "treatise": [], "brief-doctrine": []}
     for r in rows:
@@ -115,5 +123,5 @@ def gold_recovery(gold_rows: Sequence[Mapping], view, *, signaled: Mapping[int, 
         Uncertainty("sampling", 0.95, "wilson"),
         ("Recovery is cumulative across every map run; a per-run column names the run that first carried each hit.",
          "The gold set is a benchmark, not a random sample of the population of letting cases."),
-        Provenance(inputs=(("data/gold/gold.jsonl", "", "gold"),)))
+        Provenance(inputs=((GOLD_PATH, (hashes or {}).get(GOLD_PATH, ""), "gold"),)))
     return GoldRecovery(env, tiers, union, tuple(misses), unresolved, inventory)

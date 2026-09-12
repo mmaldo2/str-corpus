@@ -43,7 +43,11 @@ def _band_of(score: float) -> tuple[float, float]:
     return (lo, round(lo + BAND_WIDTH, 2))
 
 
-def tail_coverage(table: Mapping) -> Coverage:
+DEFAULT_BANDS_PATH = "runs/evaluation/shard-02-bands.json"
+
+
+def tail_coverage(table: Mapping, *, hashes: Mapping[str, str] | None = None,
+                  path: str = DEFAULT_BANDS_PATH) -> Coverage:
     acc: dict[tuple[float, float], list[int]] = {}
     for b in table["batches"]:
         key = _band_of(float(b["score"]))
@@ -54,13 +58,17 @@ def tail_coverage(table: Mapping) -> Coverage:
             row[2] += int(b["cases"])
     bands = tuple(Band(lo, hi, r, k, u) for (lo, hi), (r, k, u) in sorted(acc.items()))
     unread = sum(b.unread_cases for b in bands)
-    prov = Provenance(inputs=(("bands-table", str(table.get("map_manifest_sha256")), "map-manifest"),),
+    prov = Provenance(inputs=(("bands-table", str(table.get("map_manifest_sha256")), "map-manifest"),
+                              (path, (hashes or {}).get(path, ""), "bands-file")),
                       run_ids=(str(table.get("run_id")),))
     limitations = (
         "Batches were read in a rule-driven, adaptively stopped order, so read-band yields are "
         "not a random sample of the tail.",
         "Unsignaled cases and reader false negatives are unmeasured; the estimate covers "
         "shard-02 candidates only.",
+        "Unread cases are counted from the bands table (batches with no completed unit); this "
+        "is the count after the high-score leftovers pass and supersedes the 15,263 figure in "
+        "the tail-map report, which predates it.",
     )
     eligible = [b for b in bands if b.read_cases >= MIN_BAND_CASES]
     if not eligible:

@@ -25,6 +25,7 @@ class RoundAgreement:
     selection_rule: str
     exposure: str                 # "blind" | "exposure-affected"
     pairs: dict                   # {"claude-astra": {field: PairStat}}
+    user_selection_rule: str | None = None   # the disagreement-page rule, when `user` is that page
 
 
 @dataclass(frozen=True)
@@ -100,7 +101,8 @@ def _pair(a: Mapping, b: Mapping, fields: Sequence[str]) -> dict[str, PairStat]:
     return out
 
 
-def agreement(registry: Mapping, files: Mapping[str, object], *, ledger_run_ids: Sequence[str]) -> Agreement:
+def agreement(registry: Mapping, files: Mapping[str, object], *, ledger_run_ids: Sequence[str],
+             hashes: Mapping[str, str] | None = None, registry_path: str | None = None) -> Agreement:
     rounds, excluded, named = [], [], set()
     for e in registry.get("rounds") or ():
         named.update(e.get("apply_run_ids") or ())
@@ -122,14 +124,21 @@ def agreement(registry: Mapping, files: Mapping[str, object], *, ledger_run_ids:
             readers["user"] = _labels(files[e["user"]], cards, checker, initial=(e.get("kind") == "audit"))
         pairs = {f"{x}-{y}": _pair(readers[x], readers[y], fields) for x, y in PAIRS if x in readers and y in readers}
         rounds.append(RoundAgreement(e["round_id"], e.get("kind", "historical"), e.get("selection_rule", ""),
-                                     "blind" if e.get("kind") == "audit" else "exposure-affected", pairs))
+                                     "blind" if e.get("kind") == "audit" else "exposure-affected", pairs,
+                                     e.get("user_selection_rule")))
     named.update((registry.get("dispositions") or {}).keys())
     unregistered = tuple(sorted(set(ledger_run_ids) - named))
+    h = hashes or {}
+    inputs = tuple((p, h.get(p, ""), "registry-file") for p in sorted(files))
+    if registry_path:
+        # the registry itself, frozen per evaluation by its hash (spec §6): named first, and
+        # under its own role so it is never mistaken for one of the files it names.
+        inputs = ((registry_path, h.get(registry_path, ""), "registry"),) + inputs
     env = Envelope(METHOD_VERSION,
                    "review-round cards decided by two model readers and, where the user decided card by card, the user",
                    ("rounds where the user adopted one reader in bulk are excluded from every user pair",),
                    Uncertainty("sampling", 0.95, "wilson"),
                    ("Historical rounds are workflow evidence: cards were selected by rules, readers saw the machine "
                     "values and the checker, and the user saw both readers' notes; only the audit round is blind.",),
-                   Provenance(inputs=tuple((p, "", "registry-file") for p in sorted(files))))
+                   Provenance(inputs=inputs))
     return Agreement(env, tuple(rounds), tuple(excluded), unregistered)

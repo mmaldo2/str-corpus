@@ -44,6 +44,20 @@ def test_a_table_with_no_read_batches_is_unavailable_not_a_crash():
     assert c.scenarios == () and "no read batches" in c.envelope.exclusions[0]
 
 
+def test_provenance_carries_the_bands_files_own_hash():
+    c = tail_coverage(_table(), hashes={"runs/evaluation/shard-02-bands.json": "deadbeef" * 8},
+                      path="runs/evaluation/shard-02-bands.json")
+    entry = next(p for p in c.envelope.provenance.inputs if p[2] == "bands-file")
+    assert entry == ("runs/evaluation/shard-02-bands.json", "deadbeef" * 8, "bands-file")
+    manifest_entry = next(p for p in c.envelope.provenance.inputs if p[2] == "map-manifest")
+    assert manifest_entry[0] == "bands-table" and manifest_entry[1] == "m"
+
+
+def test_unread_count_limitation_supersedes_the_stale_report_figure():
+    c = tail_coverage(_table())
+    assert any("supersedes the 15,263 figure" in s for s in c.envelope.limitations)
+
+
 def test_build_bands_reads_the_manifest_units_and_batch_scores():
     manifest = {"run_id": "r", "cells": {"1900-1930|N.Y.": {"units": [
         {"unit_id": "r-batch-001", "cases_read": 2, "relevant_accepted": 1, "status": "ok", "failed": False}]}}}

@@ -105,6 +105,81 @@ def test_bulk_adopted_astra_round_keeps_claude_astra_pair_but_is_also_excluded()
     assert "user pairs excluded" in a.excluded[0]["reason"]
 
 
+def test_agreement_provenance_carries_the_registry_and_named_file_hashes():
+    registry = {"rounds": [{"round_id": "r1", "kind": "historical", "queue": "q1.json", "checker": "c1.json",
+                            "claude": "cl1.json", "astra": "as1.json", "user": "u1.json",
+                            "selection_rule": "same", "user_mode": "card_by_card", "apply_run_ids": ["r1"]}],
+                "dispositions": {}}
+    files = {"q1.json": _queue(), "c1.json": {"1": {"values": {"polarity": "adverse"}}},
+             "cl1.json": [_dec(1, "polarity", "keep")], "as1.json": [_dec(1, "polarity", "keep")],
+             "u1.json": [_dec(1, "polarity", "keep")]}
+    hashes = {"q1.json": "q" * 64, "runs/evaluation/rounds.json": "r" * 64}
+    a = agreement(registry, files, ledger_run_ids=["r1"], hashes=hashes, registry_path="runs/evaluation/rounds.json")
+    reg_entry = next(p for p in a.envelope.provenance.inputs if p[2] == "registry")
+    assert reg_entry == ("runs/evaluation/rounds.json", "r" * 64, "registry")
+    q_entry = next(p for p in a.envelope.provenance.inputs if p[0] == "q1.json")
+    assert q_entry == ("q1.json", "q" * 64, "registry-file")
+    # a named file with no entry in `hashes` gets an empty string, not a KeyError
+    missing_entry = next(p for p in a.envelope.provenance.inputs if p[0] == "c1.json")
+    assert missing_entry[1] == ""
+
+
+def test_user_selection_rule_is_carried_and_rendered_above_the_pair_table():
+    registry = {"rounds": [{"round_id": "r1", "kind": "historical", "queue": "q1.json", "checker": "c1.json",
+                            "claude": "cl1.json", "astra": "as1.json", "user": "u1.json",
+                            "selection_rule": "A: favorable + under thirty days", "user_mode": "card_by_card",
+                            "user_selection_rule": "the 79 cards Claude and Astra disagreed on in round 1, "
+                                                   "decided on page 1b",
+                            "apply_run_ids": ["r1"]}],
+                "dispositions": {}}
+    files = {"q1.json": _queue(), "c1.json": {"1": {"values": {"polarity": "adverse"}}},
+             "cl1.json": [_dec(1, "polarity", "keep")], "as1.json": [_dec(1, "polarity", "keep")],
+             "u1.json": [_dec(1, "polarity", "keep")]}
+    a = agreement(registry, files, ledger_run_ids=["r1"])
+    r1 = a.rounds[0]
+    assert r1.user_selection_rule == "the 79 cards Claude and Astra disagreed on in round 1, decided on page 1b"
+    from corpus_engine.evaluation import render
+    from corpus_engine.evaluation.types import as_dict
+    doc = _doc_with_agreement(as_dict(a))
+    md = render.markdown(doc)
+    assert "User pairs: the 79 cards Claude and Astra disagreed on in round 1, decided on page 1b" in md
+    idx_rule = md.index("User pairs:")
+    idx_table = md.index("| pair | field | n | raw agreement | kappa |")
+    assert idx_rule < idx_table
+
+
+def test_bulk_round_carries_no_user_selection_rule():
+    registry = {"rounds": [{"round_id": "r2", "kind": "historical", "queue": "q1.json", "checker": "c1.json",
+                            "claude": "cl1.json", "astra": "as1.json", "user": "u1.json",
+                            "selection_rule": "same", "user_mode": "bulk_adopted_astra", "apply_run_ids": ["r2"]}],
+                "dispositions": {}}
+    files = {"q1.json": _queue(), "c1.json": {"1": {"values": {"polarity": "adverse"}}},
+             "cl1.json": [_dec(1, "polarity", "keep")], "as1.json": [_dec(1, "polarity", "keep")],
+             "u1.json": [_dec(1, "polarity", "keep")]}
+    a = agreement(registry, files, ledger_run_ids=["r2"])
+    assert a.rounds[0].user_selection_rule is None
+
+
+def _doc_with_agreement(agreement_dict):
+    from corpus_engine.evaluation.types import as_dict
+    from corpus_engine.evaluation.gold import GoldRecovery, TierFunnel
+    from corpus_engine.evaluation.precision import Precision
+    from corpus_engine.evaluation.coverage import Coverage
+    from corpus_engine.evaluation.types import Envelope, Uncertainty, Provenance, UNAVAILABLE
+    return {"schema_version": "1", "evaluation_id": "e", "generated_at": "t", "cycle": "004",
+           "code": {"git_revision": "?"},
+           "ledger": {"reporting_seq": 1, "content_sha256": "0" * 64,
+                      "counts": {"relevant": {"human_reviewed": 0, "machine_only": 0},
+                                 "favorable": {"human_reviewed": 0, "machine_only": 0},
+                                 "favorable_householder": {"human_reviewed": 0, "machine_only": 0}}},
+           "gold_recovery": as_dict(GoldRecovery(Envelope("g", "pop", (), Uncertainty("sampling", 0.95, "wilson"), (), Provenance()),
+                                                 {}, TierFunnel(0, 0, 0, 0, 0, 0, UNAVAILABLE), (), (), {"brief-doctrine": {"entries": 0, "resolved": 0}})),
+           "precision": as_dict(Precision(Envelope("p", "pop", (), Uncertainty("none", None, "none"), (), Provenance()),
+                                          1, 1, 0, 0, 0, UNAVAILABLE, {}, UNAVAILABLE, {}, {}, {}, {})),
+           "agreement": agreement_dict,
+           "coverage": as_dict(Coverage(Envelope("c", "pop", (), Uncertainty("assumption", None, "scenarios"), (), Provenance()), (), ()))}
+
+
 def test_agreement_omits_pairs_when_a_reader_file_is_null():
     """Mirrors the real registry's reread-2 round: astra and user are null. The measure must
     build only the readers whose file is named and must not raise for the missing pairs."""
