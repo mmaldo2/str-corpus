@@ -1,5 +1,5 @@
 """Measure 4: agreement per round and pair on substantive labels; the registry reconciliation."""
-from corpus_engine.evaluation.agreement import agreement, effective_label
+from corpus_engine.evaluation.agreement import agreement, effective_label, WITHDRAWN
 
 
 def _queue():
@@ -73,6 +73,36 @@ def test_an_audit_round_is_reported_blind_with_per_field_pairs():
     assert r.exposure == "blind" and r.pairs["claude-astra"]["who_was_letting"].raw.value == 0.0
     # the user pair uses the INITIAL (pre-reveal) value: claude said adverse, user initially favorable
     assert r.pairs["claude-user"]["polarity"].raw.value == 0.0
+
+
+def test_effective_label_relevant_adopt_resolves_via_the_checker():
+    card = {"decide_field": "relevant", "values": {"relevant": True}}
+    assert effective_label(_dec(1, "relevant", "adopt"), card, {"relevant": False}) == WITHDRAWN
+    assert effective_label(_dec(1, "relevant", "adopt"), card, {"relevant": True}) == "True"
+
+
+def test_bulk_adopted_astra_round_keeps_claude_astra_pair_but_is_also_excluded():
+    """The spec excludes a bulk_adopted_astra round from every USER pair only: claude-astra
+    is still built and the round still appears in `rounds`, in addition to `excluded`."""
+    registry = {"rounds": [
+        {"round_id": "r2", "kind": "historical", "queue": "q1.json", "checker": "c1.json",
+         "claude": "cl1.json", "astra": "as1.json", "user": "u1.json",
+         "selection_rule": "same", "user_mode": "bulk_adopted_astra", "apply_run_ids": ["r2"]}],
+        "dispositions": {}}
+    files = {"q1.json": _queue(), "c1.json": {"1": {"values": {"polarity": "adverse"}}},
+             "cl1.json": [_dec(1, "polarity", "keep"), _dec(2, "polarity", "set", "adverse"),
+                          _dec(3, "polarity", "set", "adverse"), _dec(4, "relevant", "set", False)],
+             "as1.json": [_dec(1, "polarity", "adopt"), _dec(2, "polarity", "set", "adverse"),
+                          _dec(3, "polarity", "set", "adverse"), _dec(4, "relevant", "set", False)],
+             "u1.json": [_dec(1, "polarity", "set", "adverse")]}
+    a = agreement(registry, files, ledger_run_ids=["r2"])
+    assert len(a.rounds) == 1
+    r2 = a.rounds[0]
+    assert r2.round_id == "r2"
+    assert set(r2.pairs.keys()) == {"claude-astra"}
+    assert r2.pairs["claude-astra"]["polarity"].n == 4
+    assert [e["round_id"] for e in a.excluded] == ["r2"]
+    assert "user pairs excluded" in a.excluded[0]["reason"]
 
 
 def test_agreement_omits_pairs_when_a_reader_file_is_null():

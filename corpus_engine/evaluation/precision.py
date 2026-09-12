@@ -62,6 +62,26 @@ def precision_and_accuracy(manifest: Mapping, outcomes: Mapping | None) -> Preci
         if cid not in sample:
             raise ValueError(f"case {cid} is not in the sample manifest")
         rows_all.append({"case_id": cid, **o})
+    # Add synthetic rows for sampled cases missing from outcomes
+    outcomes_case_ids = {int(cid_s) for cid_s in outcomes["records"].keys()}
+    for cid in sample.keys():
+        if cid not in outcomes_case_ids:
+            draw_time_record = sample[cid]["record"]
+            rows_all.append({
+                "case_id": cid,
+                "status": "missing",
+                "draw_time": {
+                    "relevant": draw_time_record.get("relevant"),
+                    "polarity": draw_time_record.get("polarity"),
+                    "who_was_letting": draw_time_record.get("who_was_letting")
+                },
+                "user_initial": None,
+                "user_final": None,
+                "claude": None,
+                "astra": None,
+                "checker": None,
+                "revised_reason": None
+            })
     decided = [r for r in rows_all if r["status"] == "decided"]
     unresolved = [r for r in rows_all if r["status"] != "decided"]
     rates = _rates(decided)
@@ -77,9 +97,14 @@ def precision_and_accuracy(manifest: Mapping, outcomes: Mapping | None) -> Preci
         "Field accuracy is conditioned on the records the human found relevant; a withdrawn record counts "
         "against joint correctness, not against a field.",
     ]
-    if unresolved:
-        limitations.append(f"{len(unresolved)} sampled records were left unresolved (unreadable opinions) and "
-                           f"are outside every rate's denominator: " + ", ".join(str(r["case_id"]) for r in unresolved))
+    missing = [r for r in unresolved if r["status"] == "missing"]
+    other_unresolved = [r for r in unresolved if r["status"] != "missing"]
+    if missing:
+        limitations.append(f"{len(missing)} sampled records were missing from the outcomes and "
+                           f"are outside every rate's denominator: " + ", ".join(str(r["case_id"]) for r in missing))
+    if other_unresolved:
+        limitations.append(f"{len(other_unresolved)} sampled records were left unresolved (unreadable opinions) and "
+                           f"are outside every rate's denominator: " + ", ".join(str(r["case_id"]) for r in other_unresolved))
     env = Envelope(METHOD_VERSION,
                    f"simple random sample of {n} of the {manifest['frame_size']} machine-only relevant records at seq "
                    f"{manifest['ledger_head_seq']} (seed {manifest['seed']})",

@@ -58,3 +58,23 @@ def test_unknown_case_in_outcomes_is_refused():
            "checker": None, "revised_reason": None}}}
     with pytest.raises(ValueError, match="99 is not in the sample"):
         precision_and_accuracy(_manifest(), out)
+
+
+def test_missing_case_in_outcomes_counted_as_unresolved():
+    out = {"run_id": "audit-cycle-004", "applied_seq_range": [101, 140],
+           "drift": {"checked": 3, "changed": [], "disposition": "none"},
+           "records": {
+               "1": {"draw_time": _val(True, "favorable", "householder"), "claude": None, "astra": None, "checker": None,
+                     "user_initial": _val(True, "favorable", "householder"), "user_final": _val(True, "favorable", "householder"),
+                     "revised_reason": None, "status": "decided"},
+               "2": {"draw_time": _val(True, "favorable", "commercial_operator"), "claude": None, "astra": None, "checker": None,
+                     "user_initial": _val(True, "adverse", "commercial_operator"), "user_final": _val(True, "adverse", "commercial_operator"),
+                     "revised_reason": None, "status": "decided"},
+               "3": {"draw_time": _val(True, "favorable", "householder"), "claude": None, "astra": None, "checker": None,
+                     "user_initial": _val(True, "favorable", "householder"), "user_final": _val(True, "favorable", "householder"),
+                     "revised_reason": None, "status": "decided"}}}
+    p = precision_and_accuracy(_manifest(), out)
+    assert (p.n, p.decided, p.unresolved) == (4, 3, 1)
+    assert p.precision.n == 3 and abs(p.precision.value - 1.0) < 1e-9
+    assert "case 4: missing" in p.envelope.exclusions
+    assert any("missing" in s for s in p.envelope.limitations)

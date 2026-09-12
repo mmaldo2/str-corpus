@@ -8,6 +8,7 @@ from corpus_engine.evaluation.types import Envelope, Uncertainty, Provenance, Es
 METHOD_VERSION = "agreement-1"
 WITHDRAWN, UNSURE = "WITHDRAWN", "UNSURE"
 PAIRS = (("claude", "astra"), ("claude", "user"), ("astra", "user"))
+_MISSING = object()
 
 
 @dataclass(frozen=True)
@@ -36,7 +37,15 @@ class Agreement:
 
 def effective_label(d: Mapping, card: Mapping, checker_values: Mapping | None) -> str:
     field, decision = d.get("field"), d.get("decision")
-    if field == "relevant" and decision in ("set", "adopt") and (d.get("value") in (False, "false", "False") or decision == "adopt"):
+    if field == "relevant" and decision == "adopt":
+        # The apply tool's semantics: a relevant adopt on a queued card can only ever have
+        # disagreed to False, so resolve it like any other adopt (via the checker's value),
+        # and fall back to WITHDRAWN when the checker has no value for it.
+        val = (checker_values or {}).get(field, _MISSING)
+        if val is _MISSING or val in (False, "false", "False"):
+            return WITHDRAWN
+        return str(val)
+    if field == "relevant" and decision == "set" and d.get("value") in (False, "false", "False"):
         return WITHDRAWN
     if decision == "unsure":
         return UNSURE
@@ -99,8 +108,11 @@ def agreement(registry: Mapping, files: Mapping[str, object], *, ledger_run_ids:
         checker = files.get(e["checker"]) if e.get("checker") else {}
         fields = sorted({f for c in cards.values() for f in (c.get("decide_fields") or [c.get("decide_field")])})
         if e.get("user_mode") == "bulk_adopted_astra":
-            excluded.append({"round_id": e["round_id"], "reason": "the user adopted Astra's view in bulk", "cards": len(cards)})
-            continue
+            # Excluded from every USER pair only: the claude-astra pair is still built below,
+            # and the round still appears in `rounds` (with only claude-astra) as well as here.
+            excluded.append({"round_id": e["round_id"],
+                              "reason": "the user adopted Astra's view in bulk; user pairs excluded",
+                              "cards": len(cards)})
         readers = {}
         if e.get("claude"):
             readers["claude"] = _labels(files[e["claude"]], cards, checker)
