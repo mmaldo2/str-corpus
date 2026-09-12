@@ -2152,5 +2152,14 @@
   "E": "Judged fields erased by the quote gate",
   "F": "Fuzzy quote match",
   "G": "Re-read conflicts with a human decision"
- }
+ },
+ "checker_path": {
+  "plan": "reread",
+  "worker": "checker",
+  "pin": "codex-cli@-:-",
+  "cases_per_unit": 1,
+  "unit_cap": 23,
+  "sample_pct": 100
+ },
+ "checker_results": "runs/cycle-004-shard-02/review-round-4-checker.json"
 }
