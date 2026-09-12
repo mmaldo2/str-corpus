@@ -1,0 +1,21 @@
+{
+ "schema_version": "1",
+ "required": {
+  "": {"schema_version": "string", "evaluation_id": "string", "generated_at": "string", "cycle": "string",
+       "code": "object", "ledger": "object", "gold_recovery": "object", "precision": "object",
+       "agreement": "object", "coverage": "object"},
+  "ledger": {"reporting_seq": "integer", "content_sha256": "string", "counts": "object"},
+  "ledger.counts": {"relevant": "object", "favorable": "object", "favorable_householder": "object"},
+  "gold_recovery": {"envelope": "object", "tiers": "object", "union": "object", "misses": "array", "unresolved": "array", "inventory": "object"},
+  "precision": {"envelope": "object", "sampling_seq": "integer", "frame_size": "integer", "n": "integer", "decided": "integer",
+                "unresolved": "integer", "precision": "object", "field_accuracy": "object", "joint_correctness": "object",
+                "confusion": "object", "subgroups": "object", "revisions": "object", "drift": "object"},
+  "agreement": {"envelope": "object", "rounds": "array", "excluded": "array", "unregistered_run_ids": "array"},
+  "coverage": {"envelope": "object", "bands": "array", "scenarios": "array"},
+  "gold_recovery.envelope": {"method_version": "string", "population": "string", "exclusions": "array", "uncertainty": "object", "limitations": "array", "provenance": "object"},
+  "precision.envelope": {"method_version": "string", "population": "string", "exclusions": "array", "uncertainty": "object", "limitations": "array", "provenance": "object"},
+  "agreement.envelope": {"method_version": "string", "population": "string", "exclusions": "array", "uncertainty": "object", "limitations": "array", "provenance": "object"},
+  "coverage.envelope": {"method_version": "string", "population": "string", "exclusions": "array", "uncertainty": "object", "limitations": "array", "provenance": "object"},
+  "precision.precision": {"value": "number|null", "n": "integer", "lo": "number|null", "hi": "number|null", "status": "string"}
+ }
+}
