@@ -1,0 +1,162 @@
+[
+ {
+  "case_id": 417614,
+  "field": "relevant",
+  "decision": "set",
+  "note": "The dispute concerns rent and release under a commercial store-building lease; temporary use of part of the store-room does not concern compensated dwelling or room occupancy, supporting the checker's relevance withdrawal.",
+  "value": false
+ },
+ {
+  "case_id": 964063,
+  "field": "relevant",
+  "decision": "set",
+  "note": "The holding concerns ordinary care for baggage stored under a separate bailment between hotel stays, with no letting question; the checker retained relevance based on innkeeping, but that relationship is background to the storage dispute.",
+  "value": false,
+  "checker_disagrees": true
+ },
+ {
+  "case_id": 1542248,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The court upheld the innkeeper’s authority to exclude non-guest women from rented sleeping rooms as a reasonable occupancy rule, protecting the owner’s control over letting and supporting the reader’s and checker’s favorable polarity."
+ },
+ {
+  "case_id": 1637608,
+  "field": "relevant",
+  "decision": "set",
+  "note": "The opinion concerns rent and release under a commercial store-building lease; transient use of part of the store room involves no dwelling or residential occupancy, supporting the checker's irrelevance reading.",
+  "value": false
+ },
+ {
+  "case_id": 3828237,
+  "field": "relevant",
+  "decision": "set",
+  "note": "The house was used for a public sales exhibition, not compensated residential occupancy; the holding concerns control of lighting and liability for a visitor's fall, supporting the checker's irrelevance reading.",
+  "value": false
+ },
+ {
+  "case_id": 1600946,
+  "field": "relevant",
+  "decision": "set",
+  "note": "The opinion supports the checker's exclusion over the reader's inclusion: it decides liability for a fall through an open cellar door, with residential tenancy merely background and no holding on the legal character of occupancy or the owner's freedom to let.",
+  "value": false
+ },
+ {
+  "case_id": 9502323,
+  "field": "relevant",
+  "decision": "keep",
+  "note": "The opinion supports both reader and checker on relevance: it classifies rent for a family dwelling as necessaries permitting attachment of the tenant's wages, even after departure mid-month."
+ },
+ {
+  "case_id": 375786,
+  "field": "relevant",
+  "decision": "set",
+  "note": "The plaintiff occupied his own trailer on his own land; the holding invalidates licensing of private owner-occupancy, with no compensated letting at issue and lodging businesses mentioned only to distinguish the statute's scope.",
+  "value": false
+ },
+ {
+  "case_id": 1321884,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Both are holdings: the court invalidated repair and maintenance charges under rent control but enforced the severable $200 monthly rent obligation after abandonment; the checker reads favorable, overlooking the substantive restriction on the owner's letting terms.",
+  "checker_disagrees": true
+ },
+ {
+  "case_id": 1745569,
+  "field": "polarity",
+  "decision": "set",
+  "note": "The court sustained tenant damages because the landlords' repair agreement and retained control imposed a reasonable inspection duty; rejection of an alternative liability theory did not establish a separate holding protecting the owner's freedom to let.",
+  "value": "adverse"
+ },
+ {
+  "case_id": 2147126,
+  "field": "relevant",
+  "decision": "set",
+  "note": "The court adjudicates zoning restrictions on sanitariums providing medical care, not compensated dwelling or room occupancy; references to apartments and flats are analogies supporting protection of existing businesses.",
+  "value": false
+ },
+ {
+  "case_id": 4383916,
+  "field": "relevant",
+  "decision": "set",
+  "note": "The holding concerns insufficient allegations of negligent stairway repairs, not the legal character of occupancy or a restriction on letting; statutory repair remedies supply background rather than decide the claim; the checker retained relevance, but the tenancy is context for an ordinary negligence action.",
+  "value": false,
+  "checker_disagrees": true
+ },
+ {
+  "case_id": 6043808,
+  "field": "polarity",
+  "decision": "set",
+  "note": "The court required compliance with federal restrictions on terminating the residential tenancy; rejecting necessity in favor of good faith protected recovery for personal occupancy, not the owner's freedom to let.",
+  "value": "adverse"
+ },
+ {
+  "case_id": 484641,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court holds that letting apartments confers access easements allowing tenants to admit visitors over the landlord's objection, but does not characterize the owner's liberty to let; leave the field empty."
+ },
+ {
+  "case_id": 485758,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court does not frame the owner's liberty to let, so the field stays empty; the checker withdraws relevance, but the holding directly determines the residential tenancy's termination, conversion to sufferance, and inability to revive by paying rent.",
+  "checker_disagrees": true
+ },
+ {
+  "case_id": 513982,
+  "field": "relevant",
+  "decision": "set",
+  "note": "The holding concerns negligent snow removal under the landlord's contractual undertaking and control of the stairway; the lodger's status is background, with no disputed letting classification or restriction; the checker retained relevance, but this is a premises-liability case.",
+  "value": false,
+  "checker_disagrees": true
+ },
+ {
+  "case_id": 871855,
+  "field": "relevant",
+  "decision": "set",
+  "note": "The court decided only whether floor waxing established negligence, assuming invitee status without deciding it and addressing no letting question; the checker retained relevance, but the lodging relationship is merely background to the premises-liability claim.",
+  "value": false,
+  "checker_disagrees": true
+ },
+ {
+  "case_id": 935439,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court rejected the alleged tenancy because the letting lacked all co-tenants' authorization, but did not frame an owner's liberty to let; leave the field empty."
+ },
+ {
+  "case_id": 1673206,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court enforces the tenant's rent obligation under a dwelling lease but does not frame the owner's liberty to let; the field stays empty."
+ },
+ {
+  "case_id": 3830178,
+  "field": "relevant",
+  "decision": "set",
+  "note": "The holding concerns the owner's tort liability for a defective step under a repair undertaking; lodging is incidental background, contrary to the checker's relevant reading, and no letting classification or restriction is decided.",
+  "value": false,
+  "checker_disagrees": true
+ },
+ {
+  "case_id": 6035355,
+  "field": "relevant",
+  "decision": "set",
+  "note": "Occupancy was either rent-free permission or possession under an alleged agreement to convey the house for services, not compensated letting; the checker retained relevance, but the tenancy-at-will classification does not change either underlying arrangement into compensated occupancy.",
+  "value": false,
+  "checker_disagrees": true
+ },
+ {
+  "case_id": 8753380,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court enforced the apartment lease's renewal notice requirement but did not address the owner's liberty to let; the field stays empty."
+ },
+ {
+  "case_id": 1537438,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "The disputed quote reproduces the opinion's quotation from Judge Swan verbatim apart from capitalization and quotation-mark formatting."
+ }
+]

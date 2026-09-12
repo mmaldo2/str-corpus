@@ -1,0 +1,11 @@
+{
+ "model": "gpt-6-astra",
+ "codex_version": "codex-cli 0.153.4",
+ "cards": 23,
+ "decided": 23,
+ "asked": 23,
+ "failed": [],
+ "input_tokens": 713390,
+ "output_tokens": 2184,
+ "decisions": "runs/cycle-004-shard-02/review-round-4-decisions-astra.json"
+}
