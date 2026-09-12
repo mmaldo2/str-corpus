@@ -80,6 +80,11 @@ $R = "cycle-004-shard-01"
 # as an Artifact and the user decides.
 .venv\Scripts\python tools\make_map_review.py --check --queue runs\$R\review-round-1.json --checker runs\$R\review-round-1-checker.json
 .venv\Scripts\python tools\make_map_review.py --build --queue runs\$R\review-round-1.json --checker runs\$R\review-round-1-checker.json --out-stem reports\review-queue-map-cycle-004
+# External first pass (GPT Astra on the Codex subscription, one call per card): the
+# card export with full text -> a decisions file in the apply schema, resumable; the
+# Claude pass and this one meet in the three-way sheet before anything is applied.
+.venv\Scripts\python tools\export_review_cards.py --queue runs\$Review-round-1.json --full-text --out-stem reportseview-round-1-cards
+.venv\Scripts\python toolsirst_pass_codex.py --cards reportseview-round-1-cards.json --handoff reportseview-round-1-handoff.md --out runs\$Review-round-1-decisions-astra.json
 # Decision apply: --dry-run first, always; --run-id guards against re-applying the
 # same saved page twice.
 .venv\Scripts\python tools\apply_map_review.py --saved <saved page> --checker runs\$R\review-round-1-checker.json --run-id map-cycle-004-round-1 --dry-run
