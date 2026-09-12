@@ -91,6 +91,10 @@ def test_audit_parse_requires_three_entries_or_one_withdrawal_or_one_unresolved(
         fp.parse_decisions_audit(json.dumps([dict(json.loads(ok)[0], decision="keep")] + json.loads(ok)[1:]), _card())
     with pytest.raises(ValueError, match="vocabulary"):
         fp.parse_decisions_audit(json.dumps(json.loads(ok)[:2] + [dict(json.loads(ok)[2], value="lodger")]), _card())
+    mixed = json.dumps([json.loads(ok)[0],
+                        {"case_id": 9, "field": "relevant", "decision": "unresolved", "note": "garbled"}])
+    with pytest.raises(ValueError, match="unresolved reply is exactly one entry"):
+        fp.parse_decisions_audit(mixed, _card())
 
 
 class _Scripted:

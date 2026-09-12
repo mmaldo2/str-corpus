@@ -20,13 +20,20 @@ sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT / "tools"))
 from corpus_engine.domain import load_domain                 # noqa: E402
 from corpus_engine.ledger import open_ledger                 # noqa: E402
 from corpus_engine.evaluation.summary import ledger_content_sha256   # noqa: E402
-from export_review_cards import write_text, courtlistener_url        # noqa: E402
+from export_review_cards import write_text        # noqa: E402
 
 RUN_ID = "audit-cycle-004"
 DECIDE_FIELDS = ["relevant", "polarity", "who_was_letting"]
 JUDGED = ("relevant", "polarity", "who_was_letting", "duration_of_occupancy", "characterization",
           "under_thirty_days", "owner_freedom_characterization", "restriction_nature")
 BAND = 0.05
+
+
+def _in_frame(view, cid: int) -> bool:
+    """The audit frame (spec §4.1): relevant, and not yet reached by a human reviewer. One
+    predicate, so `draw()` (the frame it samples from) and `main()` (the frame it fetches
+    opinion text for) can never quietly diverge on what counts."""
+    return view.state.records[cid].get("relevant") is True and not view.reviewed(cid)
 
 
 def _band(score: float) -> str:
@@ -44,8 +51,7 @@ def _sha(s: str) -> str:
 def draw(view, *, seed: int, n: int, texts: Mapping[int, str], scores: Mapping[int, float],
          cells: Mapping[int, str], head_seq: int, content_sha256: str, tool_revision: str,
          brief_sha256: str, drawn_at: str) -> tuple[dict, dict]:
-    frame = sorted(cid for cid in view.state.order
-                   if view.state.records[cid].get("relevant") is True and not view.reviewed(cid))
+    frame = sorted(cid for cid in view.state.order if _in_frame(view, cid))
     if n > len(frame):
         raise ValueError(f"the frame has {len(frame)} records; cannot draw {n}")
     ids = random.Random(seed).sample(frame, n)
@@ -84,7 +90,7 @@ def main(argv=None) -> int:
     from corpus_engine import store
     from corpus_engine.reader.sources import StoreCaseSource
     dom = load_domain(); led = open_ledger(domain=dom); view = led.view()
-    frame_ids = [cid for cid in view.state.order if view.state.records[cid].get("relevant") is True and not view.reviewed(cid)]
+    frame_ids = [cid for cid in view.state.order if _in_frame(view, cid)]
     conn = store.connect()
     texts = {t.case_id: t.norm_text for t in StoreCaseSource(conn).fetch(frame_ids)}
     scores, cells = {}, {}
