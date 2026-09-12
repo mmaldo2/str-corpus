@@ -37,7 +37,6 @@ class Agreement:
 
 def effective_label(d: Mapping, card: Mapping, checker_values: Mapping | None) -> str:
     field, decision = d.get("field"), d.get("decision")
-    decide_fields = card.get("decide_fields") or [card.get("decide_field")]
     if field == "relevant" and decision == "adopt":
         # The apply tool's semantics: a relevant adopt on a queued card can only ever have
         # disagreed to False, so resolve it like any other adopt (via the checker's value),
@@ -46,14 +45,7 @@ def effective_label(d: Mapping, card: Mapping, checker_values: Mapping | None) -
         if val is _MISSING or val in (False, "false", "False"):
             return WITHDRAWN
         return str(val)
-    if (field == "relevant" and decision == "set" and d.get("value") in (False, "false", "False")
-            and field not in decide_fields):
-        # A card queued to decide a different field (e.g. who_was_letting) whose reader instead
-        # answers "relevant: False" is withdrawing the whole card, spread to every judged field
-        # below. A card queued to decide relevant itself is just answering that question, so its
-        # explicit False is a real value (falls through to the literal-value return below), kept
-        # distinct from an `adopt` of the checker's False (still WITHDRAWN, see above) — the
-        # three-way sheet counted an independent False against an adopted False as a disagreement.
+    if field == "relevant" and decision == "set" and d.get("value") in (False, "false", "False"):
         return WITHDRAWN
     if decision == "unsure":
         return UNSURE

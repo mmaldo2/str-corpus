@@ -50,10 +50,7 @@ def markdown(doc: dict) -> str:
     L += ["| tier | entries | resolved | signaled | read | relevant | human-reviewed | recovery |", "|---|---|---|---|---|---|---|---|"]
     for name, t in list(g["tiers"].items()) + [("union", g["union"])]:
         L.append(f"| {name} | {t['entries']:,} | {t['resolved']:,} | {t['signaled']:,} | {t['read']:,} | {t['relevant']:,} | {t['relevant_human']:,} | {_est(t['recovery'])} |")
-    # gold.py writes this key hyphenated ("brief-doctrine"); tolerate an underscored caller too
-    # (e.g. a hand-built test fixture) rather than KeyError on an otherwise-valid document.
-    doc_inv = g["inventory"].get("brief-doctrine") or g["inventory"].get("brief_doctrine") or {"entries": 0, "resolved": 0}
-    L += ["", f"Inventory: brief-doctrine {doc_inv['entries']} entries, {doc_inv['resolved']} resolved (not in the denominator).", ""]
+    L += ["", f"Inventory: brief-doctrine {g['inventory']['brief-doctrine']['entries']} entries, {g['inventory']['brief-doctrine']['resolved']} resolved (not in the denominator).", ""]
     if g["misses"]:
         L += ["| cite | case | tier | lost at | detail |", "|---|---|---|---|---|"]
         L += [f"| {m['cite']} | {m['case_id'] or '-'} | {m['tier']} | {m['lost_at']} | {m['detail']} |" for m in g["misses"]]

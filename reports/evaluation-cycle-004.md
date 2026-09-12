@@ -1,6 +1,6 @@
 # Evaluation of the corpus, cycle 004 (004-83531-b84796f0)
 
-Generated 2026-09-12T16:24:12+00:00 at ledger seq 83,531 (content b84796f05f9c), code 3e91e5ee48c8168f5c0c175461b6574eacbc4673.
+Generated 2026-09-12T16:31:20+00:00 at ledger seq 83,531 (content b84796f05f9c), code 97819399a66bb2de3e69d4faa9394c4d04406ad9.
 
 Published counts (`open_ledger().view().counts()`):
 
@@ -182,14 +182,14 @@ Selection rule: A favorable+under30, B householder nights, C checker disagreemen
 | claude-astra | owner_freedom_characterization | 26 | 0.692 (0.500-0.835, n=26) | 0.019 |
 | claude-astra | polarity | 102 | 0.627 (0.531-0.715, n=102) | 0.431 |
 | claude-astra | quotes | 12 | 0.500 (0.254-0.746, n=12) | 0.000 |
-| claude-astra | relevant | 11 | 0.545 (0.280-0.787, n=11) | 0.154 |
+| claude-astra | relevant | 11 | 0.727 (0.434-0.903, n=11) | 0.377 |
 | claude-astra | under_thirty_days | 47 | 0.660 (0.517-0.778, n=47) | 0.391 |
 | claude-astra | who_was_letting | 1 | 0.000 (0.000-0.793, n=1) | 0.000 |
 | claude-user | characterization | 5 | 0.000 (0.000-0.434, n=5) | 0.000 |
 | claude-user | owner_freedom_characterization | 8 | 0.000 (0.000-0.324, n=8) | -0.306 |
 | claude-user | polarity | 38 | 0.026 (0.005-0.135, n=38) | -0.087 |
 | claude-user | quotes | 6 | 0.000 (0.000-0.390, n=6) | 0.000 |
-| claude-user | relevant | 5 | 0.000 (0.000-0.434, n=5) | -0.087 |
+| claude-user | relevant | 5 | 0.400 (0.118-0.769, n=5) | -0.364 |
 | claude-user | under_thirty_days | 16 | 0.000 (0.000-0.194, n=16) | -0.225 |
 | claude-user | who_was_letting | 1 | 0.000 (0.000-0.793, n=1) | 0.000 |
 | astra-user | characterization | 5 | 1.000 (0.566-1.000, n=5) | 1.000 |
@@ -210,7 +210,7 @@ Selection rule: same section rules over the second budget's records
 | claude-astra | owner_freedom_characterization | 38 | 0.842 (0.696-0.926, n=38) | 0.484 |
 | claude-astra | polarity | 49 | 0.714 (0.576-0.822, n=49) | 0.603 |
 | claude-astra | quotes | 10 | 0.900 (0.596-0.982, n=10) | 0.615 |
-| claude-astra | relevant | 6 | 0.333 (0.097-0.700, n=6) | 0.250 |
+| claude-astra | relevant | 6 | 1.000 (0.610-1.000, n=6) | 1.000 |
 | claude-astra | restriction_nature | 1 | 1.000 (0.207-1.000, n=1) | undefined |
 | claude-astra | under_thirty_days | 38 | 0.553 (0.397-0.699, n=38) | 0.372 |
 
@@ -224,7 +224,7 @@ Selection rule: same section rules over the third budget's records
 | claude-astra | owner_freedom_characterization | 54 | 0.870 (0.756-0.936, n=54) | 0.633 |
 | claude-astra | polarity | 66 | 0.773 (0.658-0.857, n=66) | 0.674 |
 | claude-astra | quotes | 7 | 0.714 (0.359-0.918, n=7) | 0.500 |
-| claude-astra | relevant | 14 | 0.429 (0.214-0.674, n=14) | 0.273 |
+| claude-astra | relevant | 14 | 0.929 (0.685-0.987, n=14) | 0.857 |
 | claude-astra | restriction_nature | 1 | 0.000 (0.000-0.793, n=1) | 0.000 |
 | claude-astra | under_thirty_days | 39 | 0.615 (0.459-0.751, n=39) | 0.318 |
 | claude-astra | who_was_letting | 5 | 0.600 (0.231-0.882, n=5) | 0.000 |
@@ -232,7 +232,7 @@ Selection rule: same section rules over the third budget's records
 | claude-user | owner_freedom_characterization | 7 | 0.000 (0.000-0.354, n=7) | 0.000 |
 | claude-user | polarity | 15 | 0.000 (0.000-0.204, n=15) | -0.160 |
 | claude-user | quotes | 2 | 0.000 (0.000-0.658, n=2) | -0.333 |
-| claude-user | relevant | 8 | 0.000 (0.000-0.324, n=8) | 0.000 |
+| claude-user | relevant | 8 | 0.875 (0.529-0.978, n=8) | 0.000 |
 | claude-user | restriction_nature | 1 | 0.000 (0.000-0.793, n=1) | 0.000 |
 | claude-user | under_thirty_days | 15 | 0.000 (0.000-0.204, n=15) | -0.389 |
 | claude-user | who_was_letting | 2 | 0.000 (0.000-0.658, n=2) | 0.000 |
