@@ -1,0 +1,150 @@
+[
+ {
+  "case_id": 417614,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A suit for rent under a store lease: the only letting discussed is 'the renting of a part of said store room for transient purposes' to show no permanent tenant was procured, and the case is decided on whether notes were taken in payment - a commercial lease of a shop, with no occupancy of a dwelling or rooms at issue."
+ },
+ {
+  "case_id": 964063,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A hotel baggage case: the guest's three-or-four-day weekly stays are background and the holding is that the trunk left in the storage room was 'a bailment by special arrangement . . . for the mutual benefit of bailor and bailee' requiring ordinary care, the innkeeper-guest relation being discussed only to date the bailment; the checker kept it relevant, but no question about the occupancy arrangement is decided."
+ },
+ {
+  "case_id": 1542248,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The demurrer is sustained on the ground that 'the management of a hotel has a right to place restrictions upon who may become its guests' and may 'prohibit ladies who are not guests or employes from occupying any of the private apartments' - the owner's control over who occupies its rooms is upheld, so favorable stands."
+ },
+ {
+  "case_id": 1637608,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The same Price v. Coblitz store-lease dispute as 417614 in a second reporter: rent on a written lease of a store building, with 'the renting of a part of said store room for transient purposes' mentioned only to show no 'permanent tenant' was procured - a commercial shop lease, not occupancy of a dwelling or rooms."
+ },
+ {
+  "case_id": 3828237,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "No compensated occupancy at all: the owner let the Boston Herald run a week-long 'better homes exhibit' in her house for advertising, and the holding is that 'the mere ownership of the premises by the defendant, without occupancy or control of the building, did not subject her to liability' to an injured visitor - a control-and-negligence case, with the permissive-use label used only to fix the duty."
+ },
+ {
+  "case_id": 1600946,
+  "field": "relevant",
+  "decision": "keep",
+  "note": "The tenant of 'the lower apartment in a three-story flat' sues her landlord, and the rule applied is an incident of the letting of a dwelling - 'a lessor, out of possession and control, would not be liable to a tenant for personal injuries in the absence of deceit' and 'she got exactly what she bargained for when she rented the premises'; the checker read it as not relevant, but the letting is the relation the duty question turns on, not incidental colour."
+ },
+ {
+  "case_id": 9502323,
+  "field": "relevant",
+  "decision": "keep",
+  "note": "The holding is about the legal character of rent for a dwelling: 'a month's rent for a dwelling house, occupied by a man and his family, is a claim for necessaries,' expressly distinguished from 'the rent of a boarding house kept by a single woman without a family,' which is a business use - squarely about compensated occupancy of a dwelling."
+ },
+ {
+  "case_id": 375786,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Nobody is letting: the plaintiff parked and occupied his own trailer 'on his own property,' and the licensing ordinance is ultra vires because R.S. 40:52-1(d) reaches only 'businesses and public sleeping, lodging and eating places'; the lodging-house language is the statute's scope, not a letting adjudicated here."
+ },
+ {
+  "case_id": 1321884,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Both sides are operative holdings: the lease terms shifting grounds care, repairs and machinery maintenance to the tenant are 'invalid, null and void' against the frozen 1941 rent level and the lessor loses those counts, while the $200 monthly rent is held severable and recoverable for the balance of the term despite the tenant's abandonment - so mixed stands; the checker read only the rent recovery and called it favorable, but the rent-control avoidance of the lease's own terms is equally a holding against the lessor."
+ },
+ {
+  "case_id": 1745569,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "The resident owners of the three-family house lose: the verdict for their month-to-month tenant is sustained because they had agreed 'to keep the property in repair and for that purpose had retained a key,' which imposed a duty of reasonable inspection - the caveat emptor branch only disposes of an alternative theory and changes no outcome, so the holding is adverse to the letting householder."
+ },
+ {
+  "case_id": 2147126,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The regulated use is a sanitarium for nervous diseases, a medical business rather than paid occupancy of rooms; apartment houses and flats appear only as the analogy for how far the zoning power could reach ('then it follows that the same thing may be done to apartment houses, flats, or stores'), so no letting question is decided."
+ },
+ {
+  "case_id": 4383916,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Only the favorable side is a holding: the tenants of 'five rooms in the second story of a tenement' lose on demurrer because 'the obligation of the landlord is said to be limited to the extent of the privilege conferred upon the tenant' under Civ. Code 1941-1942 and no negligence in the repairs actually undertaken was pleaded; the statutory repair duty is recited as the standard of liability, not applied against this owner."
+ },
+ {
+  "case_id": 6043808,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "The owner wins on the point decided: 'the test of the owner's right to recover possession of housing accommodations for his own immediate use and occupancy is not his necessity but his good faith,' and the judgment for the tenants is reversed; the pleading requirement under the OPA regulation is noted but expressly held not fatal, so the restriction is cut back rather than enforced - the checker read the case as adverse because rent control governs, but the holding narrows it in the owner's favour."
+ },
+ {
+  "case_id": 484641,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court decides what the letting gives the tenant - 'the letting of an apartment in an apartment building carries with it a right of way, appurtenant to the apartment,' a licence the tenants may grant and one the landlord 'could not revoke' - and never frames the owner's own liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 485758,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The opinion settles only the occupant's status after a fourteen days' notice to quit - the tenant at will 'becomes a tenant at sufferance,' who is 'a bare licensee to whom the landlord owes merely the duty not wantonly nor wilfully to injure him' - and says nothing about the owner's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 513982,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The holding is that snow removal was one of 'the terms of the letting' the owner had assumed and performed negligently, and that the lodger 'had the same rights as did the tenant under whom he claimed'; the court defines the landlord-tenant relation but never characterises the owner's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 871855,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A lodging-house slip-and-fall in which nothing about the lodging is decided: the court assumes 'without deciding' that the lodger had an invitee's rights in the shared kitchen and rules on ordinary floor-wax negligence ('the use of wax on a wooden floor or linoleum . . . by no means unusual or out of the ordinary'), so the letting is only the setting; the checker kept it relevant, but no question about the occupancy arrangement or its regulation is reached."
+ },
+ {
+  "case_id": 935439,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court holds that 'no relationship of landlord and tenant ever existed between the occupant of the premises and all of the co-tenants,' the $25-a-month letting having been made by two executors without the complainant's knowledge, and rejects the Emergency Price Control Act defence on that footing; it never frames an owner's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 1673206,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "A straight enforcement of a $40-a-month dwelling lease against a repudiating tenant, the rent running until the landlord sold the property; the opinion never characterises the owner's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 3830178,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The question decided is whether the owner 'undertook direct and initial responsibility for the condition of the premises,' the answer being that 'at most, the obligation was to repair upon notice, which carries no liability in tort'; the tenant's occupying her half 'with her lodgers' is recited without comment and the owner's liberty to let is never framed, so the field stays empty."
+ },
+ {
+  "case_id": 6035355,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The opinion classifies the occupancy - 'a permissive occupation of real estate, where no rent is reserved or paid and no time agreed on to limit the occupation, is a tenancy at will,' not a licence, so the thirty-day notice under Civ. Code 789 was required - and says nothing about the owner's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 8753380,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The holding is contract construction, that the lease's thirty days' written notice is 'one of the essential elements of the contract' and one day's notice no substantial compliance; the owner's liberty to let is nowhere framed, so the field stays empty."
+ },
+ {
+  "case_id": 1537438,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "The quote is the opinion's own text, Judge Swan quoted verbatim - 'if a lease is not in writing but a mere verbal contract, it is binding on both parties, provided the tenant took possession under it, precisely as if it was executed according to the prescribed rules of the statute' - with only OCR drift in the closing quotation marks."
+ }
+]
