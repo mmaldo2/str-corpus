@@ -122,6 +122,16 @@ _spec = importlib.util.spec_from_file_location("apply_reference_review",
 arr = importlib.util.module_from_spec(_spec)                        # the flag-clearing rule and
 _spec.loader.exec_module(arr)                                       # the state reader live once
 
+_spec_mmr = importlib.util.spec_from_file_location("make_map_review",
+                                                    ROOT / "tools" / "make_map_review.py")
+mmr = importlib.util.module_from_spec(_spec_mmr)                    # read_audit_state, loaded
+_spec_mmr.loader.exec_module(mmr)                                   # by path (no import cycle)
+
+_spec_erc = importlib.util.spec_from_file_location("export_review_cards",
+                                                    ROOT / "tools" / "export_review_cards.py")
+erc = importlib.util.module_from_spec(_spec_erc)                    # write_text, the byte-safe
+_spec_erc.loader.exec_module(erc)                                   # writer the outcomes file uses
+
 DECISIONS = ("keep", "adopt", "set", "unsure")
 RUN_ID = "map-cycle-004-round-1"
 # Section F decides `quotes`, which is not a judged field and carries no vocabulary: the
@@ -512,6 +522,169 @@ def patches_for(decisions: Sequence[dict], records: Mapping[int, dict], reviewer
     return out
 
 
+AUDIT_FIELDS = ("relevant", "polarity", "who_was_letting")
+
+
+def drift_check(manifest: Mapping, records: Mapping[int, dict]) -> list[int]:
+    """Case ids whose current `relevant`, `polarity` or `who_was_letting` differ from the
+    manifest's draw-time values - the audit sample's blind-reading premise breaks the moment
+    a record moves after the draw, so this is what the CLI checks before applying."""
+    changed = []
+    for r in manifest["records"]:
+        cid = int(r["case_id"]); cur = records.get(cid) or {}
+        if any(cur.get(f) != r["record"].get(f) for f in AUDIT_FIELDS):
+            changed.append(cid)
+    return changed
+
+
+def audit_patches(entries: Sequence[dict], records: Mapping[int, dict], reviewer: str, *,
+                  run_id: str) -> list[Patch]:
+    """The audit's own patch shape (spec section 9/Task 10): a `relevant: true` card writes an
+    explicit `set` on all three fields, even where the value equals what already stands, because
+    the point of the audit is reviewer-basis confirmation, not a value change. A `relevant:
+    false` card takes the ordinary withdrawal cascade via `patches_for`. `unresolved` writes
+    nothing."""
+    basis = Basis(reviewer=reviewer, run_id=run_id)
+    tag = arr._label(run_id)
+    by_case: dict[int, dict[str, dict]] = {}
+    for e in entries:
+        by_case.setdefault(int(e["case_id"]), {})[e["field"]] = e
+    out: list[Patch] = []
+    live: dict[int, list] = {}
+    for cid in sorted(by_case):
+        fields = by_case[cid]; rel = fields.get("relevant")
+        if rel is None or rel.get("decision") == "unresolved":
+            continue
+        if rel.get("value") is False:
+            out += patches_for([{"case_id": cid, "field": "relevant", "decision": "set", "value": False,
+                                 "note": f"audit, blind reading: {rel.get('note') or ''}"}], records, reviewer, run_id=run_id)
+            continue
+        if sorted(fields) != sorted(AUDIT_FIELDS):
+            raise ValueError(f"case {cid}: a relevant audit card needs relevant, polarity and who_was_letting; got {sorted(fields)}")
+        for f in AUDIT_FIELDS:
+            e = fields[f]; value = _checked(cid, f, _value(f, e.get("value")))
+            old = (records.get(cid) or {}).get(f)
+            why = f"{tag}: {f}"
+            out.append(Patch(cid, "append", "review.notes",
+                             (f"{tag}: {f} confirmed {old!r} (audit, blind reading)" if old == value
+                              else f"{tag}: {f} {old!r} -> {value!r} (audit, blind reading)"), why, basis))
+            if e.get("revised_reason"):
+                out.append(Patch(cid, "append", "review.notes",
+                                 f"{tag}: {f} revised after reveal from {e.get('initial_value')!r}: {e['revised_reason']}", why, basis))
+            out.append(Patch(cid, "set", f, value, why, basis))
+            out += arr._clear_flag(live, records, cid, f, why, basis, tag)
+            if e.get("note"):
+                out.append(Patch(cid, "append", "review.notes", f"user note: {e['note']}", why, basis))
+        out.append(Patch(cid, "set", "review.status", "human-adjudicated", f"{tag}: audit", basis))
+    return out
+
+
+def _vals(entries: Sequence[dict] | None, initial: bool = False):
+    if entries is None:
+        return None
+    d = {f: None for f in AUDIT_FIELDS}
+    for e in entries:
+        if e.get("field") in d:
+            d[e["field"]] = e.get("initial_value") if initial and "initial_value" in e else e.get("value")
+    return d
+
+
+def outcomes_doc(manifest: Mapping, entries: Sequence[dict], *, claude: Sequence[dict], astra: Sequence[dict],
+                 checker: Mapping | None, run_id: str, applied_seq_range: tuple[int, int], drift: dict) -> dict:
+    """The audit outcomes file (spec section 4.7): per case, the draw-time values, each
+    reader's answer, the checker's (if any), the reviewer's initial and final decision, and
+    whether the card was decided or left unresolved."""
+    by = lambda lst: {int(e["case_id"]): [x for x in lst if int(x["case_id"]) == int(e["case_id"])] for e in lst}
+    cl, asr, us = by(claude or []), by(astra or []), by(entries)
+    recs = {}
+    for r in manifest["records"]:
+        cid = int(r["case_id"]); mine = us.get(cid, [])
+        rel = next((e for e in mine if e["field"] == "relevant"), None)
+        status = "decided" if rel and rel.get("decision") == "set" else "unresolved"
+        chk = ((checker or {}).get(str(cid)) or {}).get("values") if checker else None
+        recs[str(cid)] = {"draw_time": {f: r["record"].get(f) for f in AUDIT_FIELDS},
+                          "claude": _vals(cl.get(cid)), "astra": _vals(asr.get(cid)),
+                          "checker": ({f: chk.get(f) for f in AUDIT_FIELDS} if chk else None),
+                          "user_initial": _vals(mine, initial=True) if status == "decided" else None,
+                          "user_final": _vals(mine) if status == "decided" else None,
+                          "revised_reason": next((e.get("revised_reason") for e in mine if e.get("revised_reason")), None),
+                          "status": status}
+    return {"run_id": run_id, "applied_seq_range": list(applied_seq_range), "drift": drift, "records": recs}
+
+
+def _main_audit(a, dom) -> int:
+    """The `--audit` branch of `main`: the audit page's own patch shape (`audit_patches`), a
+    drift check against the draw-time manifest, and an outcomes file - never the ordinary
+    map-review path, whose keep/adopt/set/unsure vocabulary and section-G handling do not
+    apply to a lock-then-reveal audit card."""
+    if a.assisted_by:
+        print("audit decisions are the user's own; --assisted-by is refused", file=sys.stderr)
+        sys.exit(2)
+    if a.saved:
+        try:
+            entries = mmr.read_audit_state(Path(a.saved).read_text(encoding="utf-8"))
+        except ValueError as exc:
+            sys.exit(f"{a.saved}: {exc}")
+    else:
+        raw = json.loads(Path(a.decisions).read_text(encoding="utf-8"))
+        if not isinstance(raw, list):
+            sys.exit(f"{a.decisions}: not a JSON list of audit entries")
+        entries = raw
+    if not a.sample:
+        sys.exit("--sample is required with --audit")
+    manifest = json.loads(Path(a.sample).read_text(encoding="utf-8"))
+    claude = json.loads(Path(a.claude).read_text(encoding="utf-8")) if a.claude else []
+    astra = json.loads(Path(a.astra).read_text(encoding="utf-8")) if a.astra else []
+    if not a.checker:
+        cand = Path(a.queue).with_name(Path(a.queue).stem + "-checker.json")
+        if cand.exists():
+            a.checker = str(cand)           # the documented default: <queue>-checker.json
+    checker = json.loads(Path(a.checker).read_text(encoding="utf-8")) if a.checker else {}
+    led = open_ledger(domain=dom)
+    head = led.view()
+    changed = drift_check(manifest, head.state.records)
+    allowed = {int(x) for x in a.allow_drift.split(",") if x.strip()}
+    disallowed = sorted(set(changed) - allowed)
+    if disallowed:
+        sys.exit(f"drift: records changed since the draw: {disallowed}; pass --allow-drift to "
+                 f"override per record")
+    if not a.force and arr.run_id_already_applied(head, a.run_id):
+        sys.exit(f"run-id {a.run_id!r} already has patches in the ledger; a second apply would "
+                 f"re-emit a fresh review.notes patch for every decision. Pass --force only if "
+                 f"that is really what you want.")
+    patches = audit_patches(entries, head.state.records, dom.reviewer_default, run_id=a.run_id)
+    counts = {"decided": sum(1 for e in entries if e.get("field") == "relevant"
+                             and e.get("decision") == "set"),
+              "unresolved": sum(1 for e in entries if e.get("field") == "relevant"
+                                and e.get("decision") == "unresolved")}
+    print(f"{len(entries)} entries {counts} over "
+          f"{len({int(e['case_id']) for e in entries})} cases -> {len(patches)} patches",
+          flush=True)
+    if a.dry_run:
+        for cid in sorted({int(e["case_id"]) for e in entries}):
+            print(f"  {cid}", flush=True)
+    head_before = head.as_of
+    res = led.apply(patches, note=f"{arr._label(a.run_id)} audit", dry_run=a.dry_run)
+    print(f"{len(res.applied)} applied, {len(res.skipped)} already present; "
+          f"replay_ok={res.replay_ok}{' (dry run)' if a.dry_run else ''}", flush=True)
+    if res.applied:
+        seqs = [p.seq for p in res.applied]
+        applied_seq_range = (min(seqs), max(seqs))
+    else:
+        applied_seq_range = (head_before + 1, led.log.head())
+    drift = {"checked": len(manifest["records"]), "changed": changed,
+             "disposition": (f"allowed: {','.join(map(str, sorted(allowed & set(changed))))}"
+                             if changed else "none")}
+    doc = outcomes_doc(manifest, entries, claude=claude, astra=astra, checker=checker,
+                       run_id=a.run_id, applied_seq_range=applied_seq_range, drift=drift)
+    outcomes_path = Path(a.outcomes) if a.outcomes else Path(a.sample).parent / "outcomes.json"
+    if a.dry_run:
+        outcomes_path = outcomes_path.with_name(outcomes_path.stem + "-dry" + outcomes_path.suffix)
+    erc.write_text(outcomes_path, json.dumps(doc, indent=2, sort_keys=True))
+    print(f"outcomes written to {outcomes_path}", flush=True)
+    return 0
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     mode = ap.add_mutually_exclusive_group(required=True)
@@ -537,8 +710,29 @@ def main(argv=None) -> int:
     ap.add_argument("--force", action="store_true",
                     help="apply even though this --run-id already has patches in the ledger")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--audit", action="store_true",
+                    help="apply the lock-then-reveal audit page (Task 9/10) instead of an "
+                         "ordinary map-review round: --saved/--decisions carry the audit "
+                         "review-state, and --sample/--claude/--astra/--outcomes/--allow-drift "
+                         "take effect")
+    ap.add_argument("--sample", default=None,
+                    help="the audit draw manifest (--audit only): draw-time relevant, "
+                         "polarity and who_was_letting for every sampled case, for the drift "
+                         "check and the outcomes file's draw_time column")
+    ap.add_argument("--claude", default=None,
+                    help="the Claude reader's audit decisions file (--audit only)")
+    ap.add_argument("--astra", default=None,
+                    help="the GPT Astra reader's audit decisions file (--audit only)")
+    ap.add_argument("--outcomes", default=None,
+                    help="where to write the audit outcomes doc (--audit only; default "
+                         "<sample dir>/outcomes.json, or with a -dry suffix on --dry-run)")
+    ap.add_argument("--allow-drift", default="",
+                    help="comma-separated case ids to apply despite drift since the draw "
+                         "(--audit only)")
     a = ap.parse_args(argv)
     dom = load_domain()
+    if a.audit:
+        return _main_audit(a, dom)
     fields = (tuple(f.strip() for f in a.fields.split(",") if f.strip()) if a.fields
               else tuple(dom.judged_fields) + EXTRA_FIELDS)
     # Hoisted so both --saved and --decisions runs can index the round's own cards
