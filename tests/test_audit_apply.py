@@ -103,3 +103,23 @@ def test_main_refuses_assisted_by_and_drift_and_writes_outcomes(tmp_path, monkey
     assert r1["draw_time"]["polarity"] == "favorable" and r1["claude"]["relevant"] is True and r1["checker"] is None
     assert oc["records"]["2"]["status"] == "unresolved"
     assert oc["applied_seq_range"][0] <= oc["applied_seq_range"][1]
+
+
+def test_main_refuses_decisions_outside_sample_manifest(tmp_path, monkeypatch):
+    import sys as _sys
+    dom = load_domain(); ledger_dir = tmp_path / "ledger"; led = real_open_ledger(ledger_dir, domain=dom)
+    recs = [_rec(1), _rec(2)]
+    led.apply([Patch(r["case_id"], "admit", "", r, "seed", Basis(model="m", prompt_version="v", run_id="seed"), cycle="cycle-004") for r in recs], note="seed")
+    out = tmp_path / "audit"; out.mkdir()
+    (out / "sample-manifest.json").write_text(json.dumps(_manifest(recs)), encoding="utf-8")
+    queue = {"run_id": "audit-cycle-004", "sections": {"H": [{"case_id": 1, "decide_fields": ["relevant", "polarity", "who_was_letting"]},
+                                                              {"case_id": 2, "decide_fields": ["relevant", "polarity", "who_was_letting"]}]}}
+    (out / "audit-queue.json").write_text(json.dumps(queue), encoding="utf-8")
+    (out / "decisions.json").write_text(json.dumps([_entry(99, "relevant", True)]), encoding="utf-8")
+    monkeypatch.setattr(ap, "open_ledger", lambda *a, **kw: real_open_ledger(ledger_dir, domain=kw.get("domain") or dom))
+    argv = ["apply_map_review.py", "--audit", "--decisions", str(out / "decisions.json"), "--queue", str(out / "audit-queue.json"),
+            "--sample", str(out / "sample-manifest.json"), "--run-id", "audit-cycle-004", "--outcomes", str(out / "outcomes.json")]
+    monkeypatch.setattr(_sys, "argv", argv)
+    with pytest.raises(SystemExit) as e:
+        ap.main()
+    assert "outside the sample" in str(e.value.code)

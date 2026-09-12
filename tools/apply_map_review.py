@@ -612,6 +612,46 @@ def outcomes_doc(manifest: Mapping, entries: Sequence[dict], *, claude: Sequence
     return {"run_id": run_id, "applied_seq_range": list(applied_seq_range), "drift": drift, "records": recs}
 
 
+def _checker_default(queue_path: str) -> str | None:
+    """The documented default second-opinion file beside the queue manifest: `<queue>
+    -checker.json`, if one exists there. Shared by the ordinary path and `--audit` so the
+    convention can never drift between the two."""
+    cand = Path(queue_path).with_name(Path(queue_path).stem + "-checker.json")
+    return str(cand) if cand.exists() else None
+
+
+def _audit_entry_from_dict(i, d: Mapping) -> dict:
+    """The one per-entry check every audit decision must pass, whatever container it arrived
+    in: field one of `AUDIT_FIELDS`, decision `set`/`unresolved`, and locked - the same rule
+    `make_map_review.read_audit_state` applies to a saved page's state block, so a
+    `--decisions` list is validated under exactly the same rule rather than a looser one."""
+    if not isinstance(d, dict) or d.get("field") not in AUDIT_FIELDS:
+        raise ValueError(f"entry {i}: not an audit entry")
+    if d.get("decision") not in ("set", "unresolved"):
+        raise ValueError(f"entry {i}: decision {d.get('decision')!r}")
+    if not d.get("locked_at"):
+        raise ValueError(f"entry {i} (case {d.get('case_id')}): not locked")
+    return {"case_id": int(d["case_id"]), "field": d["field"], "decision": d["decision"],
+            "value": d.get("value"), "initial_value": d.get("initial_value"),
+            "locked_at": d["locked_at"], "revised_reason": d.get("revised_reason"),
+            "note": d.get("note") or ""}
+
+
+def _audit_entries_from_list(raw) -> list[dict]:
+    """A bare `--decisions` JSON list, validated entry by entry (`_audit_entry_from_dict`)."""
+    if not isinstance(raw, list):
+        raise ValueError("not a JSON list of audit entries")
+    return [_audit_entry_from_dict(i, d) for i, d in enumerate(raw)]
+
+
+def _audit_queue_case_ids(queue_doc: Mapping) -> set[int]:
+    """Every case id the audit round's queue manifest carries a card for (spec section 9's
+    single section H), across whichever sections the manifest names - so an entry naming a
+    case this round never queued is refused rather than silently written."""
+    return {int(c["case_id"]) for cards in (queue_doc.get("sections") or {}).values()
+            for c in cards or ()}
+
+
 def _main_audit(a, dom) -> int:
     """The `--audit` branch of `main`: the audit page's own patch shape (`audit_patches`), a
     drift check against the draw-time manifest, and an outcomes file - never the ordinary
@@ -626,19 +666,30 @@ def _main_audit(a, dom) -> int:
         except ValueError as exc:
             sys.exit(f"{a.saved}: {exc}")
     else:
-        raw = json.loads(Path(a.decisions).read_text(encoding="utf-8"))
-        if not isinstance(raw, list):
-            sys.exit(f"{a.decisions}: not a JSON list of audit entries")
-        entries = raw
+        try:
+            entries = _audit_entries_from_list(json.loads(Path(a.decisions).read_text(encoding="utf-8")))
+        except ValueError as exc:
+            sys.exit(f"{a.decisions}: {exc}")
     if not a.sample:
         sys.exit("--sample is required with --audit")
+    if not Path(a.queue).exists():
+        sys.exit(f"{a.queue}: no such queue manifest")
+    queue_doc = json.loads(Path(a.queue).read_text(encoding="utf-8"))
     manifest = json.loads(Path(a.sample).read_text(encoding="utf-8"))
+    # A stale manifest or the wrong queue must be refused BEFORE anything is written: an entry
+    # naming a case outside either one is not a card this audit round ever queued or drew, and
+    # the outcomes file (built from the manifest's own case ids) would never record it.
+    entry_ids = {int(e["case_id"]) for e in entries}
+    outside_sample = sorted(entry_ids - {int(r["case_id"]) for r in manifest["records"]})
+    if outside_sample:
+        sys.exit(f"audit: decisions name cases outside the sample manifest: {outside_sample}")
+    outside_queue = sorted(entry_ids - _audit_queue_case_ids(queue_doc))
+    if outside_queue:
+        sys.exit(f"audit: decisions name cases outside the queue: {outside_queue}")
     claude = json.loads(Path(a.claude).read_text(encoding="utf-8")) if a.claude else []
     astra = json.loads(Path(a.astra).read_text(encoding="utf-8")) if a.astra else []
     if not a.checker:
-        cand = Path(a.queue).with_name(Path(a.queue).stem + "-checker.json")
-        if cand.exists():
-            a.checker = str(cand)           # the documented default: <queue>-checker.json
+        a.checker = _checker_default(a.queue)
     checker = json.loads(Path(a.checker).read_text(encoding="utf-8")) if a.checker else {}
     led = open_ledger(domain=dom)
     head = led.view()
@@ -754,9 +805,7 @@ def main(argv=None) -> int:
         except ValueError as exc:
             sys.exit(f"{a.decisions}: {exc}")
     if not a.checker:
-        cand = Path(a.queue).with_name(Path(a.queue).stem + "-checker.json")
-        if cand.exists():
-            a.checker = str(cand)           # the documented default: <queue>-checker.json
+        a.checker = _checker_default(a.queue)
     checker = json.loads(Path(a.checker).read_text(encoding="utf-8")) if a.checker else {}
     led = open_ledger(domain=dom)
     head = led.view()
