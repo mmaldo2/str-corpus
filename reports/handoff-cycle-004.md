@@ -236,23 +236,21 @@ review page publishable as an artifact; reviewer identity recorded.
     **3,405** (1,093 human-reviewed, 2,312 machine-only), favorable **1,465**,
     favorable+householder **326**.
 
-    **Carried forward from slice 3.** (1) The tail-map review round
-    (`runs/cycle-004-shard-02/review-round-1.json`, 213 cards, Codex 213/213):
-    Claude's first pass is on file; the GPT Astra pass and the user's
-    confirmation are pending; apply with `--run-id map-cycle-004-shard-02-round-1`.
-    (2) SECOND and THIRD budgets ran 2026-09-09/11 (reports/map-cycle-004-shard-02.md
-    §9-10): the shard now stands at 594 batches, 10,692 cases, 1,754 relevant read, with
-    the 13 thin cells (pre-1860 outside La/Mass/NY, every D.C. era, 1860-1900 Ohio,
-    1900-1930 Conn.) read to a deep floor (3% there) and the global order read to score
-    0.13. Reviews (rounds 1-3b, two readers + the user) left published relevant at
-    4,262 (1,498 human-reviewed). 15,263 cases remain unread, 13,121 of them below score
-    0.2. (3) D5: yield did NOT collapse in the tail (11% below 0.3 over 2,160 cases), so
-    the deep band plausibly holds ~1,000 relevant records that 700-plus Opus batches
-    cannot reach across weekly limits; the Gemini screen is now the practical route and
-    its design (provider wiring, a trigger for the budgeted walk, a recall check at these
-    scores) is the next decision. A resume beyond 9,567 is `--case-budget <N>` on the
+    **Cycle 004 closed (2026-09-12).** The tail map ran in five passes (first budget,
+    floor-3 + global, thin-cell exhaustion, global to score 0.13, high-score leftovers;
+    reports/map-cycle-004-shard-02.md §9-12): 652 batches, 11,736 cases, 1,855 relevant
+    read. Four review rounds (Codex check, Claude and GPT Astra first passes, the user on
+    the disagreements) closed with no open queue; from round 4 the Astra pass runs through
+    `tools/first_pass_codex.py` (one Codex CLI call per card) instead of by hand. Published
+    at the close: relevant **4,351** (1,509 human-reviewed / 2,842 machine-only), favorable
+    **1,954**, favorable householder **397**. 15,263 shard cases remain unread (13,121
+    below score 0.2) by the user's decision: the yield did not collapse in the tail (11%
+    below 0.3), so the deep band plausibly holds ~1,000 relevant records, but their marginal
+    value (dense cells, borderline kind) did not justify the Gemini screen now; the screen
+    design stays on file in report §10. Parked for Stage 4: a codebook "centrality" signal
+    (relevance stays broad). A resume beyond the last budget is `--case-budget <N>` on the
     same run id; the budget counter follows the walk, not the manifest total.
-    were cleared on 2026-09-09 (branch refactor/slice-3-tooling-debts): the
+    **Tooling debts from slice 3** were cleared on 2026-09-09 (branch refactor/slice-3-tooling-debts): the
     review page has a "Not a letting case" control that writes the relevance
     withdrawal on any card and the page reader accepts it in any round; every
     reader of a quote's `supports` goes through `quote_supports`, so the

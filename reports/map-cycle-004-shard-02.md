@@ -215,6 +215,27 @@ relevant (10%)** - the yield floor had stopped those cells for a reason. Shard c
 relevant 4,262 -> **4,363** (1,498 / 2,865), favorable **1,962**, favorable householder
 **399**. Round 4 over the new records: 23 cards (A 5, C 2, D 6, E 9, F 1).
 
+**Round 4 outcome (2026-09-12).** Codex checker 23/23. The GPT Astra pass was the first live
+run of `tools/first_pass_codex.py` (one Codex CLI call per card, 23/23, no failures, 713k
+input tokens on the subscription); the Claude pass ran as before. Three-way sheet
+`reports/review-round-s02-4-threeway.md`: 17 agreed (7 withdrawals) applied under
+`--run-id map-cycle-004-shard-02-round-4`; the 6 disagreements (5 tort cases with the
+letting as background that Astra withdrew and Claude kept, 1 polarity split) the user
+resolved by adopting Astra's view in bulk (`--run-id map-cycle-004-shard-02-round-4b`, 12
+withdrawals in all across the round). Published after the round: relevant 4,363 -> **4,351
+(1,509 human-reviewed / 2,842 machine-only)**, favorable **1,954**, favorable householder
+**397**, open review flags 34 (unchanged).
+
+## 12. Where cycle 004 closes (2026-09-12)
+
+Shard 02 read 652 batches / 11,736 cases in five passes (first budget, floor-3 + global,
+thin-cell exhaustion, global to score 0.13, high-score leftovers), 1,855 relevant before
+review; four review rounds (each: Codex check, Claude and GPT Astra first passes, the user
+on the disagreements) closed with every card decided and no open queue. 15,263 shard cases
+remain unread, 13,121 of them below score 0.2, by decision (§11). The published corpus at
+the close: **4,351 relevant (1,509 / 2,842), 1,954 favorable, 397 favorable householder**,
+counts from `open_ledger().view().counts()`.
+
 **The decision on the deep tail (2026-09-12).** The user weighed the marginal value of the
 13,121 cases below score 0.2 - perhaps 450-750 net relevant records, landing in cells that
 are already dense and skewed toward the borderline kind - against a Gemini screen at roughly

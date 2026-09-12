@@ -30,11 +30,11 @@ def test_the_rename_leaves_the_committed_counts_and_the_replay_untouched(repo_ro
     log = (repo_root / "data" / "ledger" / "patches.jsonl").read_text(encoding="utf-8")
     assert "under_30_days" not in log and "right_characterization" not in log
     v = open_ledger(domain=dom).view()
-    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 4363   # 4262 after rounds 3/3b; the high-score leftovers admitted 101 (2026-09-12)
+    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 4351   # 4363 after the leftovers were admitted; round 4 withdrew 12 (2026-09-12)
     fav = v.counts(polarity="favorable").total
-    assert fav.human_reviewed + fav.machine_only == 1962   # 1911 after rounds 3/3b; high-score leftovers (2026-09-12)
+    assert fav.human_reviewed + fav.machine_only == 1954   # 1962 after the leftovers; round 4 (2026-09-12)
     hh = v.counts(polarity="favorable", who_was_letting="householder").total
-    assert hh.human_reviewed + hh.machine_only == 399    # 389 after rounds 3/3b; high-score leftovers (2026-09-12)
+    assert hh.human_reviewed + hh.machine_only == 397    # 399 after the leftovers; round 4 (2026-09-12)
 
 
 # ---------------------------------------------------------------- D2: reviewer protection
@@ -159,8 +159,8 @@ def test_a_patch_above_the_baseline_is_rejected_over_the_real_state(repo_root):
 
 def test_the_protection_rule_leaves_the_published_counts_untouched(repo_root):
     v = open_ledger(domain=load_domain()).view()
-    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 4363
-    assert v.counts().total.human_reviewed == 1498
+    assert v.counts().total.human_reviewed + v.counts().total.machine_only == 4351
+    assert v.counts().total.human_reviewed == 1509
     flagged = sum(1 for cid in v.state.order
                   for f in (v.state.records[cid].get("review") or {}).get("flags") or ()
                   if f.startswith("needs-review:"))

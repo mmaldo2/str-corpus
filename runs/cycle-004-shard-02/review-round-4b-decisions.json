@@ -1,0 +1,48 @@
+[
+ {
+  "case_id": 1600946,
+  "field": "relevant",
+  "decision": "set",
+  "note": "The opinion supports the checker's exclusion over the reader's inclusion: it decides liability for a fall through an open cellar door, with residential tenancy merely background and no holding on the legal character of occupancy or the owner's freedom to let.",
+  "value": false
+ },
+ {
+  "case_id": 4383916,
+  "field": "relevant",
+  "decision": "set",
+  "note": "The holding concerns insufficient allegations of negligent stairway repairs, not the legal character of occupancy or a restriction on letting; statutory repair remedies supply background rather than decide the claim; the checker retained relevance, but the tenancy is context for an ordinary negligence action.",
+  "value": false,
+  "checker_disagrees": true
+ },
+ {
+  "case_id": 6043808,
+  "field": "polarity",
+  "decision": "set",
+  "note": "The court required compliance with federal restrictions on terminating the residential tenancy; rejecting necessity in favor of good faith protected recovery for personal occupancy, not the owner's freedom to let.",
+  "value": "adverse"
+ },
+ {
+  "case_id": 513982,
+  "field": "relevant",
+  "decision": "set",
+  "note": "The holding concerns negligent snow removal under the landlord's contractual undertaking and control of the stairway; the lodger's status is background, with no disputed letting classification or restriction; the checker retained relevance, but this is a premises-liability case.",
+  "value": false,
+  "checker_disagrees": true
+ },
+ {
+  "case_id": 3830178,
+  "field": "relevant",
+  "decision": "set",
+  "note": "The holding concerns the owner's tort liability for a defective step under a repair undertaking; lodging is incidental background, contrary to the checker's relevant reading, and no letting classification or restriction is decided.",
+  "value": false,
+  "checker_disagrees": true
+ },
+ {
+  "case_id": 6035355,
+  "field": "relevant",
+  "decision": "set",
+  "note": "Occupancy was either rent-free permission or possession under an alleged agreement to convey the house for services, not compensated letting; the checker retained relevance, but the tenancy-at-will classification does not change either underlying arrangement into compensated occupancy.",
+  "value": false,
+  "checker_disagrees": true
+ }
+]
