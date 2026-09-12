@@ -32,8 +32,10 @@ import argparse
 import base64
 import importlib.util
 import json
+import re
 import sys
 from pathlib import Path
+from typing import Mapping, Sequence
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -49,6 +51,10 @@ STATE_MARKER = _mr.STATE_MARKER          # "__REVIEW_STATE__"
 TB64_MARKER = _mr.TB64_MARKER            # "__TEMPLATE_B64__"
 esc = _mr.esc
 cl_link = _mr.cl_link
+# pipeline/make_review.py carries no state-block regex of its own (only
+# tools/apply_reference_review.py does, for the reference page); read_audit_state needs one
+# to read the audit page back, so it is defined here rather than reaching into a sibling tool.
+STATE_RE = re.compile(r'<script[^>]*id="review-state"[^>]*>(.*?)</script>', re.S)
 
 from corpus_engine.mapper.queue import (QueueCard, Queue, SECTIONS,  # noqa: E402
                                         check_queue, checker_path)
@@ -182,6 +188,73 @@ def cards_from_doc(doc: dict) -> Queue:
                  int(doc.get("cap") or len(cards)))
 
 
+AUDIT_FIELDS = ("relevant", "polarity", "who_was_letting")
+AUDIT_VOCAB = {"relevant": ["true", "false"], "polarity": ["favorable", "adverse", "mixed"],
+              "who_was_letting": ["householder", "commercial_operator", "non_resident_owner",
+                                   "unclear"]}
+
+
+def build_audit_page(queue: dict, out_stem: Path, *, opinions: Mapping[int, str],
+                     claude: Sequence[dict], astra: Sequence[dict],
+                     checker: dict | None = None) -> tuple:
+    """The lock-then-reveal audit page (spec section 9, Task 9). `queue` is the audit sample
+    (Task 8's `draw_audit_sample.py`); `claude`/`astra` are the two readers' decisions files
+    (Task 8's `first_pass_codex.py --audit`); `checker` is optional and keyed by case id.
+
+    The page carries only identity, the opinion text and the readers' answers - never the
+    draw-time values the sample was built from, so a reviewer locking a card cannot see what
+    the reader who drew the sample already thought."""
+    cards = [{"case_id": c["case_id"], "cite": c.get("cite"), "name": c.get("name"),
+              "court": c.get("court"), "jur": c.get("jur"), "year": c.get("year"),
+              "opinion": opinions[int(c["case_id"])]}
+             for c in queue["sections"]["H"]]
+    readers: dict[str, dict] = {}
+    for name, lst in (("claude", claude), ("astra", astra)):
+        for d in lst or ():
+            readers.setdefault(str(d["case_id"]),
+                               {"claude": [], "astra": [], "checker": None})[name].append(d)
+    for k, v in (checker or {}).items():
+        readers.setdefault(str(k), {"claude": [], "astra": [], "checker": None})["checker"] = (
+            (v or {}).get("values"))
+    data = {"run_id": queue["run_id"], "cards": cards, "readers": readers}
+    content = (AUDIT_TMPL.replace("{{DATA}}", json.dumps(data).replace("</", "<\\/"))
+               .replace("{{VOCAB}}", json.dumps(AUDIT_VOCAB)).replace("{{RUN}}", esc(queue["run_id"]))
+               .replace("{{N_CARDS}}", str(len(cards))))
+    full = ("<!doctype html>\n<html><head><meta charset=\"utf-8\">"
+            "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">"
+            "</head><body>" + content + "</body></html>")
+    tb64 = base64.b64encode(full.encode("utf-8")).decode("ascii")
+    out = content.replace(TB64_MARKER, tb64).replace(f'"{STATE_MARKER}"', "[]")
+    html_path = Path(str(out_stem) + ".html")
+    write_text(html_path, out)
+    return html_path, len(tb64)
+
+
+def read_audit_state(html: str) -> list[dict]:
+    """The `review-state` block a saved audit page carries, read back for Task 10. Refuses an
+    entry that lacks `locked_at`: an unlocked field was never decided, and the reveal panel
+    that would justify treating it as a decision was never shown."""
+    m = STATE_RE.search(html)
+    if not m:
+        raise ValueError("no review-state block")
+    raw = json.loads(m.group(1))
+    if not isinstance(raw, list):
+        raise ValueError("review-state is not a list")
+    out = []
+    for i, d in enumerate(raw):
+        if not isinstance(d, dict) or d.get("field") not in AUDIT_FIELDS:
+            raise ValueError(f"entry {i}: not an audit entry")
+        if d.get("decision") not in ("set", "unresolved"):
+            raise ValueError(f"entry {i}: decision {d.get('decision')!r}")
+        if not d.get("locked_at"):
+            raise ValueError(f"entry {i} (case {d.get('case_id')}): not locked")
+        out.append({"case_id": int(d["case_id"]), "field": d["field"],
+                    "decision": d["decision"], "value": d.get("value"),
+                    "initial_value": d.get("initial_value"), "locked_at": d["locked_at"],
+                    "revised_reason": d.get("revised_reason"), "note": d.get("note") or ""})
+    return out
+
+
 def checker_pin_for(domain):
     """The pin for the domain's `reader.checker`, spelled exactly as tools/map_reader.py
     spells it, so the round's second opinion is addressed by the same pin the map's own
@@ -245,12 +318,21 @@ def main(argv=None) -> int:
     mode.add_argument("--check", action="store_true",
                       help="run the checker at 100%% over the queued records (CALLS CODEX)")
     mode.add_argument("--build", action="store_true", help="render the page")
+    mode.add_argument("--audit", action="store_true",
+                      help="render the lock-then-reveal audit page (Task 9)")
     ap.add_argument("--queue", required=True, help="the queue manifest (Queue.to_json())")
     ap.add_argument("--checker", default=None,
                     help="check_queue output; defaults to <queue>-checker.json")
     ap.add_argument("--out-stem", default=DEFAULT_STEM)
     ap.add_argument("--max-units", type=int, default=None,
                     help="unit ceiling for --check (default: the queue's size, i.e. 100%%)")
+    ap.add_argument("--opinions", default=None,
+                    help="--audit: directory of <case_id>.txt opinion files "
+                         "(default: <queue dir>/opinions)")
+    ap.add_argument("--claude", default=None,
+                    help="--audit: the Claude reader's decisions json (Task 8)")
+    ap.add_argument("--astra", default=None,
+                    help="--audit: the Astra reader's decisions json (Task 8)")
     a = ap.parse_args(argv)
 
     queue_path = Path(a.queue)
@@ -275,6 +357,24 @@ def main(argv=None) -> int:
             key = r["status"].split(":")[0]
             tally[key] = tally.get(key, 0) + 1
         print(f"{len(results)} checked {tally} -> {checker_out.as_posix()}", flush=True)
+        return 0
+
+    if a.audit:
+        if not a.claude or not a.astra:
+            ap.error("--audit requires --claude and --astra")
+        opinions_dir = Path(a.opinions) if a.opinions else queue_path.parent / "opinions"
+        claude = json.loads(Path(a.claude).read_text(encoding="utf-8"))
+        astra = json.loads(Path(a.astra).read_text(encoding="utf-8"))
+        checker = (json.loads(checker_out.read_text(encoding="utf-8"))
+                  if checker_out.exists() else {})
+        opinions = {}
+        for c in doc["sections"]["H"]:
+            cid = int(c["case_id"])
+            opinions[cid] = (opinions_dir / f"{cid}.txt").read_text(encoding="utf-8")
+        html_path, tb64_len = build_audit_page(doc, Path(a.out_stem), opinions=opinions,
+                                               claude=claude, astra=astra, checker=checker)
+        print(f"wrote {html_path.as_posix()} ({html_path.stat().st_size // 1024} KB); "
+              f"template {tb64_len // 1024} KB b64", flush=True)
         return 0
 
     checker = json.loads(checker_out.read_text(encoding="utf-8")) if checker_out.exists() else {}
@@ -656,6 +756,261 @@ for (const id of ['save','save-top'])
 for (const id of ['copy','copy-top'])
   document.getElementById(id).onclick = copyJson;
 updateCounts(); updateBar();
+</script>
+"""
+
+
+AUDIT_TMPL = r"""<title>Cycle-004 audit</title>
+<style>
+:root{
+  --bg:#f6f6f4;--panel:#ffffff;--panel2:#eeefeb;--border:#dcdfd8;--border2:#c2c7bd;
+  --text:#191d21;--muted:#5b6570;--head:#2b3138;
+  --accent:#8a5a12;--ok:#0d6b48;--link:#0b53b0;--neg:#a51f52;--quote:#fbf9f3;
+  --sans:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --serif:Georgia,'Iowan Old Style','Times New Roman',serif;
+  --mono:ui-monospace,'IBM Plex Mono',Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#101418;--panel:#171d24;--panel2:#1d242d;--border:#2a333d;--border2:#3a4550;
+  --text:#e8eaed;--muted:#9aa5b1;--head:#f0f2f4;
+  --accent:#ffc14d;--ok:#46f9b8;--link:#6aa9ff;--neg:#ff6b8a;--quote:#0e1216;
+}}
+:root[data-theme="dark"]{
+  --bg:#101418;--panel:#171d24;--panel2:#1d242d;--border:#2a333d;--border2:#3a4550;
+  --text:#e8eaed;--muted:#9aa5b1;--head:#f0f2f4;
+  --accent:#ffc14d;--ok:#46f9b8;--link:#6aa9ff;--neg:#ff6b8a;--quote:#0e1216;
+}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 var(--sans);
+padding:26px 22px 96px;overflow-x:hidden}
+.wrap{max-width:940px;margin:0 auto}
+h1{font-family:var(--serif);font-weight:600;font-size:26px;margin:0 0 6px;color:var(--head)}
+.sub{color:var(--muted);max-width:78ch;font-size:13.5px}
+section{margin-top:30px}
+h2{font-size:17px;color:var(--head);border-bottom:1px solid var(--border);padding-bottom:8px}
+h2 .k{display:inline-flex;width:24px;height:24px;border-radius:6px;background:var(--accent);
+color:var(--bg);align-items:center;justify-content:center;font:700 13px var(--sans);margin-right:6px}
+h2 .count{float:right;font:600 12px var(--mono);color:var(--ok)}
+.blurb{color:var(--muted);font-size:13.5px;margin-top:-2px}
+.item{background:var(--panel);border:1px solid var(--border);border-radius:10px;
+padding:12px 14px;margin:12px 0;scroll-margin-top:12px}
+.item.decided{border-color:var(--ok)}
+.cite a{color:var(--link);text-decoration:none;font:500 13px var(--mono)}
+.cite a:hover{text-decoration:underline}
+.nm{font-family:var(--serif);font-size:16px;font-weight:600}
+.meta{color:var(--muted);font:400 12px var(--mono);overflow-wrap:anywhere}
+.xlink{font:500 12px var(--sans);color:var(--accent);text-decoration:none;margin-left:8px}
+.xlink:hover{text-decoration:underline}
+.cmp{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.cmp>div{flex:1 1 220px;background:var(--panel2);border:1px solid var(--border);
+border-radius:8px;padding:8px 10px}
+.cmp .lab{font:600 10px var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.cmp .val{font:600 15px var(--mono);margin-top:3px;overflow-wrap:anywhere}
+.cmp .chk .val{color:var(--accent)}
+table.cand{width:100%;border-collapse:collapse;margin:6px 0 2px;font:400 12.5px var(--mono)}
+table.cand td{padding:2px 6px 2px 0;border-bottom:1px solid var(--border);vertical-align:top}
+table.cand td.c{color:var(--muted);width:34%}
+td .nulled{text-decoration:line-through;color:var(--muted)}
+td .tag{font-size:10.5px;color:var(--neg);margin-left:6px;letter-spacing:.04em}
+.ev{margin:8px 0 0}
+.ev .lab{font:600 10px var(--mono);letter-spacing:.11em;text-transform:uppercase;
+color:var(--muted);margin-top:8px}
+blockquote{margin:6px 0;padding:8px 12px;background:var(--quote);
+border-left:3px solid var(--accent);border-radius:0 8px 8px 0;
+font:400 14px/1.6 var(--serif);overflow-wrap:anywhere;max-height:220px;overflow-y:auto}
+blockquote.src{border-left-color:var(--link)}
+blockquote .who{display:block;margin-top:6px;font:400 11.5px var(--mono);color:var(--muted)}
+.hold{font:400 12.5px/1.5 var(--sans);color:var(--muted);margin:2px 0 6px}
+.warn{margin:8px 0 0;padding:7px 10px;border:1px dashed var(--border2);border-radius:8px;
+font-size:12.5px;color:var(--muted)}
+.controls{margin-top:11px;border-top:1px solid var(--border);padding-top:9px;
+display:flex;flex-direction:column;gap:5px}
+.controls label{display:flex;align-items:center;gap:7px;font-size:13.5px;flex-wrap:wrap}
+.controls code{font:600 12.5px var(--mono);color:var(--accent)}
+select,input[type=text]{background:var(--bg);border:1px solid var(--border2);border-radius:7px;
+color:var(--text);font:400 12.5px var(--sans);padding:4px 8px}
+input[type=text]{margin-top:4px;width:100%;box-sizing:border-box}
+.bar{display:flex;gap:12px;align-items:center;margin:14px 0 2px}
+.savebar{position:fixed;left:0;right:0;bottom:0;background:var(--panel);
+border-top:1px solid var(--border);padding:11px 22px;display:flex;gap:12px;align-items:center}
+button{background:var(--ok);color:var(--bg);border:none;border-radius:8px;
+padding:8px 18px;font:700 13.5px var(--sans);cursor:pointer}
+button.alt{background:var(--panel2);color:var(--text);border:1px solid var(--border2)}
+button:disabled{opacity:.45;cursor:default}
+.status{font:500 12.5px var(--mono);color:var(--muted)}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{
+outline:2px solid var(--link);outline-offset:2px}
+.op{max-height:340px;overflow-y:auto;white-space:pre-wrap;background:var(--quote);
+border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-top:8px;
+font:13px/1.6 var(--mono)}
+.dep{transition:opacity .15s}
+.revealslot .reveal{margin-top:10px;padding-top:10px;border-top:1px dashed var(--border2)}
+.reveal table{width:100%;border-collapse:collapse;font:12.5px var(--mono)}
+.reveal td,.reveal th{padding:4px 8px;border-bottom:1px solid var(--border);text-align:left}
+.why{margin-top:6px}
+</style>
+<div class="wrap">
+<h1>Cycle-004 audit</h1>
+<p class="sub">Run <b>{{RUN}}</b>. <b>{{N_CARDS}}</b> cards in this audit sample. Answer
+<b>relevant</b>, and if relevant, <b>polarity</b> and <b>who_was_letting</b>, from the opinion
+alone - the readers' answers stay hidden until you press <b>Lock</b>. Locking is blind: it
+cannot be undone by re-answering, only by pressing <b>Revise</b> afterward, which requires a
+reason and keeps your first answer on the record. Decisions are saved into this page itself
+when you press <b>Save decisions</b>; if the viewer cannot save, use <b>Copy JSON</b> and paste
+it back. Citations link to CourtListener.</p>
+<div class="bar">
+  <button id="save-top">Save decisions</button>
+  <button id="copy-top" class="alt">Copy JSON</button>
+  <span class="status" id="status-top"></span>
+</div>
+<div id="cards-H"></div>
+</div>
+<div class="savebar">
+  <button id="save">Save decisions</button>
+  <button id="copy" class="alt">Copy JSON</button>
+  <span class="status" id="status"></span>
+</div>
+<script type="application/json" id="review-state">"__REVIEW_STATE__"</script>
+<script>
+const DOC = {{DATA}};
+const VOCAB = {{VOCAB}};
+const TB64 = "__TEMPLATE_B64__";
+const FIELDS = ['relevant','polarity','who_was_letting'];
+let state = {};
+try { const raw = JSON.parse(document.getElementById('review-state').textContent);
+      if (Array.isArray(raw)) for (const d of raw) if (d && d.case_id != null && d.field) state[d.case_id + '::' + d.field] = d; } catch(e) {}
+let dirty = 0;
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const clq = c => 'https://www.courtlistener.com/?q=%22' + encodeURIComponent(String(c||'')) + '%22';
+const radios = (name, opts) => opts.map(o => `<label><input type="radio" name="${name}" value="${o}"> ${o}</label>`).join(' ');
+const locked = it => !!(state[it.case_id + '::relevant'] || {}).locked_at;
+const valueOf = (div, name) => { const r = div.querySelector(`input[name="${name}"]:checked`); return r ? r.value : null; };
+const conv = (f, v) => f === 'relevant' ? v === 'true' : v;
+
+function readerTable(it){
+  const r = DOC.readers[String(it.case_id)] || {claude: [], astra: [], checker: null};
+  const cell = (list, f) => { const e = (list || []).find(x => x.field === f); if (!e) return (list||[]).some(x => x.field === 'relevant' && x.value === false) ? '&mdash;' : ''; return esc(e.decision === 'unresolved' ? 'unresolved' : String(e.value)); };
+  const notes = list => (list || []).map(e => `<div class="who">${esc(e.field)}: ${esc(e.note || '')}</div>`).join('');
+  return `<div class="reveal"><table><tr><th></th><th>relevant</th><th>polarity</th><th>who_was_letting</th></tr>
+    <tr><td>Claude</td><td>${cell(r.claude,'relevant')}</td><td>${cell(r.claude,'polarity')}</td><td>${cell(r.claude,'who_was_letting')}</td></tr>
+    <tr><td>Astra</td><td>${cell(r.astra,'relevant')}</td><td>${cell(r.astra,'polarity')}</td><td>${cell(r.astra,'who_was_letting')}</td></tr>
+    ${r.checker ? `<tr><td>Checker</td><td>${esc(String(r.checker.relevant))}</td><td>${esc(String(r.checker.polarity))}</td><td></td></tr>` : ''}
+    </table><div>Claude notes</div>${notes(r.claude)}<div>Astra notes</div>${notes(r.astra)}</div>`;
+}
+
+function card(it){
+  const div = document.createElement('div'); div.className = 'item'; div.id = 'c-' + it.case_id;
+  const id = it.case_id;
+  div.innerHTML = `
+    <div><span class="nm">${esc(it.name || '')}</span></div>
+    <div class="cite"><a href="${clq(it.cite)}" target="_blank" rel="noopener">${esc(it.cite || '')}</a></div>
+    <div class="meta">${esc(it.court || '')} &middot; ${esc(it.jur || '')} &middot; ${esc(it.year || '')} &middot; case ${esc(id)}</div>
+    <pre class="op">${esc(it.opinion)}</pre>
+    <div class="controls">
+      <div>relevant: ${radios('rel-' + id, VOCAB.relevant)}</div>
+      <div class="dep">polarity: ${radios('pol-' + id, VOCAB.polarity)}</div>
+      <div class="dep">who_was_letting: ${radios('who-' + id, VOCAB.who_was_letting)}</div>
+      <input type="text" class="note" placeholder="note (optional)">
+      <button class="lock" disabled>Lock</button>
+      <button class="unres">Cannot read this opinion</button>
+      <button class="revise" hidden>Revise</button>
+      <input type="text" class="why" placeholder="reason for the revision (required)" hidden>
+      <button class="confirm" hidden>Confirm revision</button>
+    </div>
+    <div class="revealslot"></div>`;
+  const lockBtn = div.querySelector('.lock'), unres = div.querySelector('.unres'), rev = div.querySelector('.revise');
+  const why = div.querySelector('.why'), confirm = div.querySelector('.confirm'), note = div.querySelector('.note');
+  const inputs = div.querySelectorAll('input[type=radio]');
+  const complete = () => { const r = valueOf(div, 'rel-' + id); return r === 'false' || (r === 'true' && valueOf(div, 'pol-' + id) && valueOf(div, 'who-' + id)); };
+  const refresh = () => { lockBtn.disabled = !complete(); div.querySelectorAll('.dep').forEach(d => d.style.opacity = valueOf(div, 'rel-' + id) === 'false' ? 0.4 : 1); };
+  inputs.forEach(r => r.onchange = refresh);
+  const write = (initial) => {
+    const rel = valueOf(div, 'rel-' + id) === 'true';
+    const vals = {relevant: rel, polarity: rel ? valueOf(div, 'pol-' + id) : null, who_was_letting: rel ? valueOf(div, 'who-' + id) : null};
+    for (const f of FIELDS) {
+      if (!rel && f !== 'relevant') { delete state[id + '::' + f]; continue; }
+      const prev = state[id + '::' + f] || {};
+      state[id + '::' + f] = {case_id: id, field: f, decision: 'set', value: vals[f],
+        initial_value: initial ? vals[f] : (prev.initial_value ?? vals[f]),
+        locked_at: initial ? new Date().toISOString() : prev.locked_at, revised_reason: initial ? null : why.value, note: note.value || ''};
+    }
+  };
+  const showLocked = () => { inputs.forEach(r => r.disabled = true); lockBtn.hidden = true; unres.hidden = true; rev.hidden = false;
+    div.querySelector('.revealslot').innerHTML = readerTable(it); div.classList.add('decided'); };
+  lockBtn.onclick = () => { write(true); showLocked(); dirty++; updateBar(); };
+  unres.onclick = () => { state[id + '::relevant'] = {case_id: id, field: 'relevant', decision: 'unresolved', value: null, initial_value: null,
+      locked_at: new Date().toISOString(), revised_reason: null, note: note.value || ''}; for (const f of ['polarity','who_was_letting']) delete state[id + '::' + f]; showLocked(); dirty++; updateBar(); };
+  rev.onclick = () => { inputs.forEach(r => r.disabled = false); why.hidden = false; confirm.hidden = false; rev.hidden = true; };
+  confirm.onclick = () => {
+    if (!why.value.trim()) { why.focus(); return; }
+    const before = FIELDS.map(f => JSON.stringify((state[id + '::' + f] || {}).value));
+    write(false);
+    const after = FIELDS.map(f => JSON.stringify((state[id + '::' + f] || {}).value));
+    if (before.join() === after.join()) { for (const s of ['status','status-top']) document.getElementById(s).textContent = 'Revision unchanged - nothing recorded.'; return; }
+    inputs.forEach(r => r.disabled = true); why.hidden = true; confirm.hidden = true; rev.hidden = false; dirty++; updateBar();
+  };
+  // a loaded page: restore and lock
+  const st = state[id + '::relevant'];
+  if (st && st.locked_at) {
+    if (st.decision === 'set') {
+      const relR = div.querySelector(`input[name="rel-${id}"][value="${st.value}"]`); if (relR) relR.checked = true;
+      const pe = state[id + '::polarity']; if (pe) { const polR = div.querySelector(`input[name="pol-${id}"][value="${pe.value}"]`); if (polR) polR.checked = true; }
+      const we = state[id + '::who_was_letting']; if (we) { const whoR = div.querySelector(`input[name="who-${id}"][value="${we.value}"]`); if (whoR) whoR.checked = true; }
+    }
+    note.value = st.note || ''; showLocked();
+  }
+  refresh();
+  return div;
+}
+function decisions(){ const out = []; for (const it of DOC.cards) for (const f of FIELDS) { const d = state[it.case_id + '::' + f]; if (d) out.push(d); } return out; }
+function updateBar(){ const done = DOC.cards.filter(locked).length;
+  const txt = `${done}/${DOC.cards.length} locked` + (dirty ? ` · ${dirty} unsaved change${dirty > 1 ? 's' : ''}` : ' · saved');
+  for (const id of ['status','status-top']) document.getElementById(id).textContent = txt; }
+const root = document.getElementById('cards-H'); for (const it of DOC.cards) root.appendChild(card(it));
+
+function rebuildDoc(){
+  const tmpl = new TextDecoder().decode(Uint8Array.from(atob(TB64), c => c.charCodeAt(0)));
+  const payload = JSON.stringify(decisions()).replace(/</g, '\\u003c');
+  return tmpl.split('"__REVIEW_' + 'STATE__"').join(payload)
+             .split('__TEMPLATE_' + 'B64__').join(TB64);
+}
+
+async function save(btn){
+  const others = [document.getElementById('save'), document.getElementById('save-top')];
+  others.forEach(b => b.disabled = true);
+  const label = btn.textContent;
+  btn.textContent = 'Saving…';
+  try {
+    const art = (typeof claude !== 'undefined' && claude.use)
+      ? await claude.use('artifact') : null;
+    if(!art){ throw new Error('no-capability'); }
+    await art.publish(rebuildDoc());
+    dirty = 0; btn.textContent = 'Saved ✓';
+  } catch(err) {
+    btn.textContent = label;
+    const msg = err.message === 'no-capability'
+      ? 'Saving unavailable in this viewer — use Copy JSON and send it back.'
+      : 'Save failed (' + (err.code || err.message) + ') — try again or Copy JSON.';
+    for (const id of ['status','status-top']) document.getElementById(id).textContent = msg;
+    others.forEach(b => b.disabled = false); return;
+  }
+  setTimeout(() => { others.forEach(b => b.disabled = false);
+    btn.textContent = 'Save decisions'; updateBar(); }, 1200);
+}
+
+async function copyJson(){
+  let msg;
+  try {
+    await navigator.clipboard.writeText(JSON.stringify(decisions(), null, 1));
+    msg = 'Decision JSON copied to clipboard.';
+  } catch(e) { msg = 'Clipboard blocked — open the console and copy from there.'; }
+  for (const id of ['status','status-top']) document.getElementById(id).textContent = msg;
+}
+
+for (const id of ['save','save-top'])
+  document.getElementById(id).onclick = (e) => save(e.currentTarget);
+for (const id of ['copy','copy-top'])
+  document.getElementById(id).onclick = copyJson;
+updateBar();
 </script>
 """
 
