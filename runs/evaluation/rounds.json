@@ -7,5 +7,20 @@
   {"round_id": "s02-3", "kind": "historical", "queue": "runs/cycle-004-shard-02/review-round-3.json", "checker": "runs/cycle-004-shard-02/review-round-3-checker.json", "claude": "runs/cycle-004-shard-02/review-round-3-decisions-claude.json", "astra": "runs/cycle-004-shard-02/review-round-3-decisions-astra.json", "user": "runs/cycle-004-shard-02/review-round-3b-saved.html", "selection_rule": "same section rules over the third budget's records", "user_mode": "card_by_card", "apply_run_ids": ["map-cycle-004-shard-02-round-3", "map-cycle-004-shard-02-round-3b"]},
   {"round_id": "s02-4", "kind": "historical", "queue": "runs/cycle-004-shard-02/review-round-4.json", "checker": "runs/cycle-004-shard-02/review-round-4-checker.json", "claude": "runs/cycle-004-shard-02/review-round-4-decisions-claude.json", "astra": "runs/cycle-004-shard-02/review-round-4-decisions-astra.json", "user": "runs/cycle-004-shard-02/review-round-4b-decisions.json", "selection_rule": "same section rules over the high-score leftovers", "user_mode": "bulk_adopted_astra", "apply_run_ids": ["map-cycle-004-shard-02-round-4", "map-cycle-004-shard-02-round-4b"]}
  ],
- "dispositions": {}
+ "dispositions": {
+  "map-cycle-004-round-1": "cycle-004's first map-review round (single first-pass reviewer, GPT Astra; 83 human-confirmed, 67 unsure flagged); predates the shard-02 two-reader (Claude+Astra) flow",
+  "map-cycle-004-round-1b": "cycle-004 round 1's unsure-card follow-up (64 human-confirmed, 28 relevance overturns); predates the two-reader flow",
+  "map-cycle-004-round-1c": "cycle-004 round 1's three-card closeout, closing round 1; predates the two-reader flow",
+  "map-cycle-004-round-2": "cycle-004's second map-review round (single first-pass reviewer, GPT Astra; 246 human-confirmed, 4 unsure); predates the two-reader flow",
+  "map-cycle-004-round-3": "cycle-004 review round 3a (102 confirmed on full text; round 3b held out 148 cards); predates the two-reader flow",
+  "map-cycle-004-round-3b": "cycle-004 review round 3b (147 confirmed on full text, 68 relevance overturns, 7 reinstated); predates the two-reader flow",
+  "map-cycle-004-round-4": "cycle-004's fourth map-review round (256 confirmed on full text, 79 relevance overturns), which exhausted the original map review queue; predates the two-reader flow",
+  "map-cycle-004-round-5": "cycle-004 round 5a: six high-confidence flagged records (Claude first pass on full opinions, user-confirmed), seven left on the page for round 5b; predates the two-reader flow",
+  "map-cycle-004-round-5b": "cycle-004 round 5b: the last seven flagged records decided by the user, closing the cycle-004 review; predates the two-reader flow",
+  "polarity-review": "a targeted polarity re-review across cycle ledgers after the owner-right-to-let definition was tightened (cumulative favorable count corrected); a correction pass, not a two-reader review round",
+  "reference-v2": "the Stage 1 reference review (no model first pass; predates the two-reader flow)",
+  "reference-v2-2026-09-05": "a later page of the Stage 1 reference review applying the user's who_was_letting adjudications on the never-reviewed kit cases; predates the two-reader flow",
+  "reference-v2-flagclear": "a one-off pass (tools/clear_superseded_flags.py) clearing needs-review flags a reference-v2 decision had already superseded; not a review round",
+  "relevance-recheck": "a targeted relevance re-check on 9 reviewer-flagged records (relevance_recheck.py); not a two-reader review round"
+ }
 }

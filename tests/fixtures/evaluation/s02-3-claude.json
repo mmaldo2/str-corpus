@@ -1,0 +1,1234 @@
+[
+ {
+  "case_id": 411328,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Court refused the forfeiture: occasional lodging of twelve or fourteen persons at the depot over five years did not break the deed's condition against a public house, inn or tavern, conditions defeating estates being stricti juris - a private restriction on lodging use construed narrowly in the holder's favour."
+ },
+ {
+  "case_id": 654624,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Holding that a cotenant's right to use and occupy includes the right to license his paying inn guests defeated the neighbours' suit to restrain the bed-and-breakfast's use of the shared lakefront parcel; the owner's freedom to serve lodgers was upheld."
+ },
+ {
+  "case_id": 895027,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The guest's right of occupancy and privacy end at check-out because 'management must be free to enter the room and prepare it for re-rental'; the jacket-pocket suppression binds the police, not the owner, so no holding cuts against the freedom to let - the checker recorded no polarity and read the arrangement as lodging rather than innkeeping, but the owner-centred holding is plainly favorable."
+ },
+ {
+  "case_id": 1226193,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Zoning case about a nonprofit college: the absolute ban on dormitories and on any use for which admission is charged was void as an unreasonable restriction on a constitutionally protected educational use, and the court expressly declined to say the conference centre itself was permitted - institutional sleeping quarters accessory to a school, with no paid occupancy of anyone's dwelling or rooms adjudicated."
+ },
+ {
+  "case_id": 1586280,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The board's refusal was overturned on findings that the establishment is a bona fide hotel with twelve bedrooms equipped for transient guests and the only house available for transients in the village, so the owner won on the genuineness of his transient-lodging operation and not on a ground unrelated to letting."
+ },
+ {
+  "case_id": 1591911,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The trailer occupants owned and inhabited their own dwellings and paid only for a site; the holding is a fixtures ruling that registered trailers stay personalty and cannot be assessed as the landowner's realty, so nothing about occupancy of the owner's dwelling or rooms, or its regulation, is decided - the checker kept it relevant, but what is let here is ground, not rooms."
+ },
+ {
+  "case_id": 1963865,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The lodging-house keeper was entitled to an instruction that she had a legal right to command a lodger who had assaulted her to leave her house and to arm herself in doing so, and that this was a question of law - the keeper's power to exclude a lodger recognised."
+ },
+ {
+  "case_id": 2154090,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A carrier-liability tort over a watch stolen from a stateroom: the shipowner 'has no house' and is not an innkeeper, and the accommodation is incidental to carriage - no question about the letting of rooms or its regulation is decided."
+ },
+ {
+  "case_id": 4331229,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A Proposition 13 / 218 franchise case: the hotel-room special tax fell because only hotel landowners rather than the city's registered voters were allowed to vote - the hotel owners themselves approved it by 92 percent, so the opinion decides who may vote on a special tax and nothing about letting."
+ },
+ {
+  "case_id": 4992036,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Innkeeper's liability for a guest's valise - a hotel tort; the innkeeper-and-guest question goes to custody of baggage and the guest's own imprudence, not to the letting of rooms, its character or its regulation."
+ },
+ {
+  "case_id": 7092685,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A sales-tax refund on soaps, shampoos and notepads: the overnight-lodging fee is discussed only to show consideration passed for the consumables, and the reader's own summary concedes the opinion restricts nothing about the letting - the checker kept it relevant but recorded no polarity, which is the tell."
+ },
+ {
+  "case_id": 8710939,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "What was let was a partitioned 1,000 square foot part of a hotel banquet hall taken by a fur company for a three-day retail sale; nobody occupied a dwelling or rooms, so the zoning holding is about the meaning of 'store or shop', not about letting."
+ },
+ {
+  "case_id": 10024589,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "House let at $4.50 a week: after a five-day notice and repeated failures to collect, the owner 'was within her rights in entering' when appearances showed the occupant had vacated - a holding on the letting owner's right of re-entry, and she won on it."
+ },
+ {
+  "case_id": 10133139,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Art. 1551(b), framed around obtaining lodging at a hotel, motor hotel, inn, tourist court or mobile home park, was upheld against vagueness and imprisonment-for-debt attacks; the ruling secures the keeper's charge for letting and imposes no restriction on letting."
+ },
+ {
+  "case_id": 10151613,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A guest assaulted by an unknown assailant - a hotel tort with no letting question: the innkeeper is not an insurer and owes only ordinary care, and the remark that no authority compels assignment of a particular room is an aside - the checker kept it relevant, but nothing about the occupancy arrangement is decided."
+ },
+ {
+  "case_id": 32609,
+  "field": "who_was_letting",
+  "decision": "keep",
+  "note": "The tenant himself occupied the six-room apartment and let four of its rooms to teachers and students for a fee, so the person letting is a resident householder letting from his own home; the commercial character the court found is carried by owner_freedom_characterization, not by who was letting - the checker read the case as irrelevant, but licensing rooms in one's own home for a fee is the corpus's subject."
+ },
+ {
+  "case_id": 363424,
+  "field": "who_was_letting",
+  "decision": "set",
+  "value": "commercial_operator",
+  "note": "The license was to keep a public inn and tavern, granted under the act concerning inns and taverns on a finding of public convenience; that he dwelt in the house was ordinary for the trade in 1882 and does not turn a licensed public house into a householder's letting."
+ },
+ {
+  "case_id": 1194292,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A legal-malpractice action against the buyer's attorney; the covenant barring bed-and-breakfast use appears only as the measure of her damages, and the court decides nothing about the covenant's validity or about any right to let."
+ },
+ {
+  "case_id": 1235717,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Daytime care of six children from 8 a.m. to 5 p.m. in a statutory tenant's own apartment - nobody paid to occupy rooms and nobody lodged there, so this is a use-of-premises holding and not a letting case at all."
+ },
+ {
+  "case_id": 10251767,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A noise-nuisance suit by tourist-cottage owners against a neighbouring roller-coaster; their letting to tourists is only the setting, and denying the injunction on relative-hardship and acquiescence grounds decides nothing about the character or regulation of the letting."
+ },
+ {
+  "case_id": 206442,
+  "field": "relevant",
+  "decision": "keep",
+  "note": "The four individual respondents occupied rooms in the building in exchange for services and were held mere licensees without article 7-C protection, so the opinion decides the legal character of room occupancy and the private owner's right to end it - relevance stands."
+ },
+ {
+  "case_id": 252533,
+  "field": "characterization",
+  "decision": "keep",
+  "note": "The court describes the owners as renting the whole house to 'various tenants' and reasons about 'rental occupancy' and 'absentee landlords' in a single-family district, treating the arrangement as ordinary landlord-and-tenant; the checker recorded no characterization, but the opinion's own words support lease and no other vocabulary value fits."
+ },
+ {
+  "case_id": 369028,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Liability turned on the letting itself: a two-family house occupied wholly by tenants is 'commercial' because operated by its owner as a business, so the sidewalk duty attaches because he let the units (the partly owner-occupied case expressly reserved) - a burden imposed on the owner for letting, hence adverse."
+ },
+ {
+  "case_id": 758157,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Judgment went for the landlord for rent at the former rate: the court held the holdover election survives the rent laws except where those laws give the tenant a new right of possession, and no dwelling-purpose or October 1920 possession facts were pleaded, so the only holding narrows a tenant protection - favorable, not mixed; the checker read the court's passing acknowledgment that the rent laws curtail the election as if it were the holding and called it adverse."
+ },
+ {
+  "case_id": 762512,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The prosecution is for keeping a liquor nuisance: the innholder's licence appears only through the statutory condition allowing Sunday sales to guests who resorted to the house for food or lodging, and the court decides nothing about letting rooms, so the innkeeping is incidental colour."
+ },
+ {
+  "case_id": 802453,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "The jury, charged that everything turned on whether the plaintiff was a tenant or a mere intruder, found for her, so the defendants' forcible entry and removal of her goods was unlawful and the verdict against them stood - a pro-tenant outcome burdening the owner, hence adverse; the reader appears to have credited the plaintiff as a boarding-house keeper whose business was protected, but the owners on this record are the defendant lessors."
+ },
+ {
+  "case_id": 865415,
+  "field": "relevant",
+  "decision": "keep",
+  "note": "The case is decided out of the bungalow leases: the court enforced the lessor's supply-purchase and access covenants and its parking charges as a reasonable, non-monopolistic exercise of its rights as lessor of seasonal dwellings, so the record bears directly on the letting of dwellings and its terms."
+ },
+ {
+  "case_id": 865524,
+  "field": "relevant",
+  "decision": "keep",
+  "note": "The action is for rent and use and occupation of apartment 6-A: the widow who stayed on after the lessee's death is liable as assignee in possession because she cannot take the benefit of the occupancy without assuming the burden of paying its reasonable rent - squarely the legal character of a compensated occupancy of a dwelling; the checker read it as an estate/administration case and would drop it."
+ },
+ {
+  "case_id": 899423,
+  "field": "relevant",
+  "decision": "keep",
+  "note": "The per curiam decides the legal character of a continued occupancy - the landlord's silence after the tenant's letter did not create a month-to-month tenancy, so the occupant remained a holdover liable for the rent - which is a letting holding, though the four-sentence opinion never describes the premises, the thinnest point on this card."
+ },
+ {
+  "case_id": 937091,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "The owner asked only for a declaration cancelling the lease of the whole house (let 'for the purpose of renting furnished apartments and furnished rooms') and for constructive possession plus the subtenants' rents, and got all of it; the statutory-tenancy carve-out for the three rooms the operator actually occupies was conceded by the owner at the outset, not a holding against him, so this resolves to favorable rather than mixed - the checker kept mixed."
+ },
+ {
+  "case_id": 993053,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The only question decided is whether a college residence hall for some sixty student brothers is a one-family dwelling or an accessory building for side and rear yard setbacks; no compensated occupancy is at issue, nobody is letting to strangers, and no restriction on an owner's freedom to let is imposed."
+ },
+ {
+  "case_id": 1026206,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The landlord prevailed on every point: the 1952 lease's right to assign or sublet is not projected into the statutory tenancy, unauthorized occupancy is a ground for eviction, and acceptance of rent checks waived nothing - the owner's control over who occupies the apartment was vindicated, hence favorable; the checker would have withdrawn the record although its whole subject is occupancy of an apartment by someone other than the tenant."
+ },
+ {
+  "case_id": 1073906,
+  "field": "characterization",
+  "decision": "keep",
+  "note": "The court said in terms that 'it is unnecessary to resolve this issue of whether a college student-resident relationship constitutes a landlord-tenant relationship' and applied the implied co-insureds rule by analogy, so it made no lease, license, lodging or innkeeping classification and 'other' is the right label for a tuition-funded dorm residency; footnote 3's treatment of tuition as consideration for occupancy keeps the record relevant against the checker's withdrawal."
+ },
+ {
+  "case_id": 1126670,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The court refused to let attorney's fees from a prior holdover proceeding be treated as additional rent whose non-payment grounds eviction, because that would subvert the emergency rent laws and let landlords amass fees to make eviction inevitable - a tenant protection limiting the owner's remedy, hence adverse, notwithstanding the final order for the two months' rent actually due."
+ },
+ {
+  "case_id": 1170345,
+  "field": "characterization",
+  "decision": "keep",
+  "note": "The court struck down as applied the code amendment compelling this owner to put a bathtub or shower and washbasin in each of his eleven three-room apartments; it never classified the occupancies in words, but the premises are rented apartments in a multiple dwelling (the court reasons from the Multiple Dwelling and Multiple Residence Laws), so 'lease' is the only vocabulary value the record supports and license, lodging and innkeeping are all excluded. The checker recorded no characterization."
+ },
+ {
+  "case_id": 1203427,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The premises are three floors and part of the basement of a commercial office building let for executive and general offices and stockroom, and the holding is about a landlord's consent to a commercial sublease - a commercial lease, not the letting of a dwelling or rooms."
+ },
+ {
+  "case_id": 1210652,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The dispute is an area (height) variance for a four-storey addition to a home for the aged: the use was already permitted, the ordinance restricted height, and the opinion says nothing about the terms on which the residents occupy their rooms and apartments, so the letting is incidental to the zoning question."
+ },
+ {
+  "case_id": 1499686,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The bill sought to enjoin an apartment-house garage as a nuisance per se, and it is decided by the Hollinger/Ladner classification of residential districts; tenements, flats, apartments, hotels and boarding houses appear only inside that borrowed taxonomy, and no holding touches compensated occupancy, its legal character, or its regulation."
+ },
+ {
+  "case_id": 1519764,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The petitioners lived on the premises but had furnished them and rented them out as furnished apartments while acting as janitors, and for exactly that reason the court held they were not the 'home owners' the moratorium act protects and vacated the stay - a resident householder losing a statutory protection because he let, hence adverse; the mortgage setting does not make this a mere foreclosure case, since the letting is what decided it."
+ },
+ {
+  "case_id": 1610589,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The tenants' injunction was denied and RPAPL 745 (2) and 747-a were upheld on their face under Lindsey v Normet, the court quoting that without swift repossession 'the tenant would be able to deny the landlord the rights of income incident to ownership'; the one provision doubted (the 'immediate trial' mandate) was faulted for stripping courts of calendar control, not as a burden on owners, so the polarity is favorable."
+ },
+ {
+  "case_id": 1648004,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "This is a poor-relief contribution action under the pauper-support statute: 'their ability to earn money, even if by taking boarders' is a measure of the relatives' earning capacity and the son's $10 weekly board is a family budget fact, so the boarding is incidental colour and no question about letting, its character or its regulation is decided."
+ },
+ {
+  "case_id": 1665103,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Judgment of possession for the housing authority was affirmed: the federal bypass power was read into the lease as existing law, so the lessor could terminate for a tenant's health and safety threat without the grievance hearing, and the summary process trial satisfied due process - the lessor's power to end the tenancy was upheld, hence favorable."
+ },
+ {
+  "case_id": 1964248,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The court held the retaliatory-eviction shield of section 47a-20 (3) is not invoked unless the requested repair is necessary to keep the premises fit and habitable, refusing to let requests to tighten a washer convert month-to-month tenancies into six-month ones and so be 'metamorphosed into a sword to deprive landlords of their property', and the landlord's summary process succeeded - a tenant protection cut back, hence favorable; the checker read the retaliatory-eviction setting as adverse, but the outcome narrowed the restriction."
+ },
+ {
+  "case_id": 1989654,
+  "field": "relevant",
+  "decision": "keep",
+  "note": "The letting is the operative fact, not colour: the life tenant's parol letting of the vacant dwelling-house to Rose, who entered and occupied about four weeks under him, terminated the prior estate at will by consent and made the defendant's later entry a trespass, so the court treats letting a dwelling as a lawful exercise of the owner's estate."
+ },
+ {
+  "case_id": 2091571,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The holding is that a Boston port custom of paying seamen's advance wages through the boarding-house keeper who brought them is unreasonable and does not bind the seamen; the keeper figures only as a wage-collecting agent whose leverage the court declines to encourage, and no question about the boarding arrangement or its regulation is decided."
+ },
+ {
+  "case_id": 2309538,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The Commissioner's withholding of approval of Amendment 33 was upheld because the amendment would leave the 'owner-landlord . . . deprived of an increase, to which he is entitled, without any provision for compensating him', and the landlords are entitled to have their hardship applications processed under the prior regulations - a tightening of rent control blocked, hence favorable."
+ },
+ {
+  "case_id": 2704423,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The owner let the one-family house to her son under an oral lease with no more than a promise to reimburse repairs he made, and the court held that arrangement plus a privilege to visit was not control enough to make her liable to the tenant's visitor - the letting is what decided the case and it left the lessor out of possession and free of liability, hence favorable."
+ },
+ {
+  "case_id": 3329502,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Every point went to the owner: the occupants named in the typed rider never used the studio as a primary residence, the son's status was held irrelevant, the board's determination was upheld, the petition dismissed and the holdover stay vacated, so no holding restricted the owner and the polarity resolves to favorable; the checker said mixed, presumably crediting the general statement that a corporate tenant meeting the primary-residence test would get a renewal."
+ },
+ {
+  "case_id": 4295148,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The agreement is for a hat-check and coatroom concession in a basement, held to be a revocable licence giving no possessory interest and outside the Emergency Commercial Rent Law - a commercial concession with no occupancy of a dwelling or rooms at issue."
+ },
+ {
+  "case_id": 5197902,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Court enforced the proprietary lease's bar on assigning or subletting without the directors' or two-thirds stockholders' consent as 'reasonable and appropriate', upholding a restraint on the apartment holder's power to transfer or sublet - adverse under the owner-centred rule; the checker read the case as not a letting case at all and left polarity null, but the restriction sustained is squarely one on subletting a dwelling."
+ },
+ {
+  "case_id": 5409385,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Pure hotel-tort case: the claimant was never a guest ('was not at that time a guest of the hotel, but was waiting for a vacancy') and the only questions were conversion of stored baggage and the section 201 liability cap - no letting question, so the innkeeping label is incidental."
+ },
+ {
+  "case_id": 5480513,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The only thing the court says about the occupancy favours the owner - 'if plaintiff's possession of the premises was merely incidental to his service as janitor, his master had the legal right ... to remove the servant ... and to employ the necessary force' - while the demurrer ruling that went against the owner turned purely on pleading form (a redundant separate defence), not on letting; the checker read the record as irrelevant and left polarity null."
+ },
+ {
+  "case_id": 5554939,
+  "field": "relevant",
+  "decision": "keep",
+  "note": "Owner-occupants of a two-family house recovering the let ground-floor apartment from a rent-controlled tenant for their daughter: rent-control regulation of a householder's letting, squarely in scope; the checker marked it not relevant."
+ },
+ {
+  "case_id": 5647080,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Majority reinstated the warrants of eviction and held the Loft Law neither vacates prior final judgments nor stays warrants issued before it - the owner won on the letting question itself, so favorable; the two dissents would have stayed the warrants but did not carry."
+ },
+ {
+  "case_id": 6686094,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "'This is an action for house rent' and the court ranked the landlord's legal lien above the United States' priority and above judgment creditors, ordering him paid first - a right arising out of the letting of a dwelling decided in the letting party's favour; the checker left polarity null while agreeing the record is relevant."
+ },
+ {
+  "case_id": 8730997,
+  "field": "characterization",
+  "decision": "keep",
+  "note": "The court never classified the occupancy - it decided only zoning and vested rights, refusing a permit for '10 cabins, a store and a utility building' on a proposed motor court - so the catch-all 'other' stands rather than lodging or innkeeping, neither of which the opinion's own words support; the checker left characterization null and read the record as irrelevant."
+ },
+ {
+  "case_id": 8752331,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The decided question is a surety's attempt to set off, on an appeal bond, the excess rent the lessors got after the lease was annulled; nothing shows the premises were a dwelling or rooms and the court says nothing about the character or regulation of occupancy - the lease is only the source of the debt."
+ },
+ {
+  "case_id": 300668,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "The only holding is for the motel owners - 'Consequently, Cinnaminson's ordinance may not be enforced', with inspection fees refunded with interest; the line that municipalities may adopt more restrictive ordinances is the statutory premise (N.J.S.A. 55:13A-25(b)) recited on the way there, not a restriction imposed in this case."
+ },
+ {
+  "case_id": 303426,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Both sides are holdings: the court agreed 'that a landlord may require even tenants who are then in violation of the occupancy limits to sign leases containing those limits' and evict those who refuse, yet reversed because such a landlord 'may be liable for the same or similar benefits' as relocation assistance - so mixed stands; the checker's 'adverse' reads only the reversal and drops the occupancy-limit holding."
+ },
+ {
+  "case_id": 322127,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The court summed up its own decision in two rulings - '1. The ordinance is valid' (a single-housekeeping-unit restriction on who may occupy upheld) and '2. It does not apply to this situation' (the ten students are a family, so the letting continues) - both holdings, so mixed; the checker took only the owner's win."
+ },
+ {
+  "case_id": 348681,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The Appellate Division affirmed Judge Miller in both directions - the ordinance's validity upheld against the owners' cross-appeal and the ten unrelated students held to qualify as a 'family' against the borough's appeal - so a restriction and a recognition are both affirmed holdings."
+ },
+ {
+  "case_id": 349763,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "What the court decides about letting is that the inn licence is personal and place-bound - 'no license shall entitle any person to keep an inn and tavern in any other place than that in which it was first kept ... and such license, with regard to all other places and persons, shall be void' - so the buyer took a paper 'absolutely ineffectual as an authority to keep a tavern'; the point that agreeing to transfer it was not illegal goes to contract validity, not the owner's freedom to let, and the assignment and cheque points are unrelated to letting; the checker read the record as irrelevant."
+ },
+ {
+  "case_id": 361164,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Two applied holdings pull opposite ways: the landlord's refusal of the key was an unlawful eviction because 'a mere breach of covenant by the tenant, such as the non-payment of rent ... gives the landlord no right of entry' absent a forfeiture clause, but rent 'already accrued and overdue is not forfeited by the eviction' and recoupment is barred on a sealed lease, so the sureties stayed liable - mixed; the checker read the record as irrelevant."
+ },
+ {
+  "case_id": 363326,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The ordinance and the whole dispute concern the hours for selling malt and spirituous liquors in licensed houses and the penalty of fine plus forfeiture of licence - no question of accommodation or occupancy; the inn-and-tavern licence is background to a liquor-regulation case."
+ },
+ {
+  "case_id": 376044,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A Sunday liquor prosecution - whether liquor standing in its usual place in the bar was 'exposed for sale' - with the innkeeper's licence mentioned only as the status bringing the defendant within the ordinance; nothing about letting rooms or its regulation."
+ },
+ {
+  "case_id": 569668,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "An indictment for selling a half pint of whiskey without a licence, quashed because it negatived only the 1797 inns-and-taverns act while the 1820 act also prescribes how a licence is obtained - a pleading point in a liquor prosecution, with no occupancy question."
+ },
+ {
+  "case_id": 730402,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Both points were decided: the tenant's constructive-eviction defence failed because the leaking roof was 'temporary, and certainly not designed by the landlords', but the landlords' use of the vacated apartment as a model to sell the building and rent other units was 'inconsistent with the claim of the continued relationship of landlord and tenant', reversing their directed verdict - mixed; the checker took only the reversal."
+ },
+ {
+  "case_id": 810116,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Two holdings: the building 'is an IMD', which brings it under article 7-C and disposes of the owner's holdover, and section 285 nonetheless lets him recover $9,350 of back rent from April 1980 with a judgment of possession - mixed; the checker read only the rent recovery and called it favorable."
+ },
+ {
+  "case_id": 825101,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Only one holding, and it favours the party who let: the sublessor gets 'a final judgment of possession', the sublessee is outside both the Loft Law and the ETPA and removable on a 30-day notice, and his overcharge counterclaim is dismissed; the zoning finding that the unit is too small for lawful residential use is the reason she wins, not a separate restriction imposed on her."
+ },
+ {
+  "case_id": 839182,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "The single holding preserves the owner's remedy - accepting rent, renewing the lease and bringing a nonpayment proceeding did not waive the illegal-use proceeding, because RPL 231 (1) voids the tenancy automatically - so the owner may evict; the accompanying statement that he may not unilaterally continue the tenancy is the reasoning for that result, not a restriction applied against him here; the checker read the record as irrelevant."
+ },
+ {
+  "case_id": 884236,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The decided question is how a condominium council may allocate scarce common-element parking among unit owners and whether it may expropriate non-resident owners' interests; the plaintiffs' difficulty 'in securing a new tenant' is only how they show harm, so the letting is incidental colour."
+ },
+ {
+  "case_id": 889522,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "One holding on letting and it favours the owner: a partnership leasing apartments to many tenants under gross leases with landlord-supplied services 'is engaged in a trade or business', so gain on the depreciable buildings is excluded from the tax and 'cannot be included by regulation of the Director'; the residual point that gain on the land stays taxable is a classification detail, not a restriction on letting."
+ },
+ {
+  "case_id": 1009637,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Two holdings: the county local laws restricting park owners' eviction grounds are 'preempted' and 'inconsistent' with Real Property Law 233 and therefore invalid (owners win), and the same enactment's forced lease continuances worked no taking, so the inverse-condemnation cause of action is dismissed - mixed; the checker read the record as irrelevant."
+ },
+ {
+  "case_id": 1140422,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Both are holdings: tenants who rented from the sponsor after conversion are 'non-purchasing tenants' under the Martin Act, extending that protection against the owner, yet the $850 rent 'was not unconscionable' and summary judgment awards the landlords possession and dismisses the retaliation counterclaim - mixed; the checker kept only the protection side."
+ },
+ {
+  "case_id": 1246382,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Both directions are in the judgment: the husband's lease of the entireties house does not bind the co-owner, who is awarded joint possession, yet 'the lease existing between her husband and the respondent is a defense to a proceeding to evict respondent tenant', so the letting stands - mixed; the zoning remark about dual-family occupancy is left for a later disposition, and the checker read the case as simply adverse."
+ },
+ {
+  "case_id": 1579168,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "Every holding runs against the property owner: she waived the covenant against assignment by accepting rent with knowledge of the assignee's claim, and she is liable for $450 for 'interference with the operation of her rooming-house business' plus $400 for converting the furnishings - a pro-occupant outcome cutting back the owner's control over who holds her premises and lets its rooms, with no counterbalancing holding in her favour."
+ },
+ {
+  "case_id": 1606067,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Both sides are holdings in the order nisi: the supervisors 'do have the right and duty ... to impose standards and regulations for both the occupants of the trailers and those making a business of catering to them', while sections 20-24, section 25 and the section 9 setback as applied to pre-existing parks are declared invalid as 'unreasonable, unlawful and unauthorized interference with the right of private property'."
+ },
+ {
+  "case_id": 1659618,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "Court upheld the landlord's implied month-to-month tenancy and awarded back rent; the partial losses (no recovery after the notice to quit, no attorney's fees) turn on pleading limits and novation, not on any restriction of the owner's freedom to let, so only the favorable side is a letting holding."
+ },
+ {
+  "case_id": 1881504,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Two squarely decided issues: the single-housekeeping-unit definition of 'family' was held valid (a zoning restriction on who may occupy a rented house upheld) and the ten students leasing the whole house were held to be a family needing no rental licence, so both a restriction and a recognition of the owner's freedom are holdings."
+ },
+ {
+  "case_id": 2044735,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "The deed condition against selling, leasing or renting to non-Caucasians was held void as a restraint on alienation (owner free to let), while the condition against occupancy by non-Caucasians was held valid and enforceable by forfeiture (a restraint on letting the property be occupied) - both are holdings on the same complaint."
+ },
+ {
+  "case_id": 2154873,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Habeas for a man who built a real estate office in Atherton's residence district; 'hotel, boarding house' appears only inside the quoted list of excluded uses and no letting question is decided, so the letting is incidental colour."
+ },
+ {
+  "case_id": 2172169,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Magruder is a lumber-yard zoning case; the hotel/lodging-house contrast appears only as an illustration in the appellant's discrimination argument and decides nothing about letting."
+ },
+ {
+  "case_id": 2202297,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Prohibition-era common-nuisance conviction reversed on the liquor instructions; the 'Furnished Rooms To Let' sign is only evidence that the house was used for something other than letting, and no question about the letting itself is decided; checker_disagrees: the checker kept it relevant, but nothing here bears on the legal character or regulation of letting rooms."
+ },
+ {
+  "case_id": 2231634,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "The person letting (the lessee who took the whole house and let the plaintiff occupy half under a parol five-year agreement) was denied a year's rent: the occupant was a tenant at will liable only for the six and a half months he stayed, a pro-occupant outcome burdening the letter, and liability for use and occupation during occupancy was never in dispute."
+ },
+ {
+  "case_id": 3166826,
+  "field": "polarity",
+  "decision": "set",
+  "value": "favorable",
+  "note": "The only holding is that the fire commissioner's vacate order was no eviction under Real Property Law s. 227 and the lodging-house owners recover their rent - the owners' letting bargain is protected and the validity of the regulation was never in issue; checker_disagrees: the checker read the case as irrelevant (a whole-building lease), but the premises were let and used only as lodging houses and the dispute is about who bears the regulation of that use."
+ },
+ {
+  "case_id": 3377982,
+  "field": "polarity",
+  "decision": "set",
+  "value": "adverse",
+  "note": "The substantive holding stays the landlord's ejectment pending the Loft Board's coverage determination, leaving the residential occupant in possession under the Loft Law; the direction to pay use and occupancy is interim relief accommodating both sides, not a recognition of the owner's freedom to let."
+ },
+ {
+  "case_id": 3733985,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The residents of Greenwood Village own their homes and lease only the land beneath them, so no one is paying to occupy another's dwelling or rooms; this is land-lease (manufactured-home-park style) regulation, not letting."
+ },
+ {
+  "case_id": 5769241,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Both sides are holdings: the landlord forfeited as much as $15,000 of rent for exceeding the statutory security-deposit cap (a tenant-protection restriction enforced against him), while substantial performance preserved his rent during occupancy and the habitability, quiet-enjoyment and double-deposit claims all failed."
+ },
+ {
+  "case_id": 6034673,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Peters v. Elkins decides only that a foreclosure purchaser cannot sue a mortgagor's tenant in assumpsit for use and occupation; it is a mortgage-foreclosure and form-of-action case in which the one-year lease is background."
+ },
+ {
+  "case_id": 9250003,
+  "field": "polarity",
+  "decision": "keep",
+  "note": "Two holdings pull opposite ways: the housing authority is liable in negligence and negligence per se for the lead paint in the unit it let (a burden on the letting owner), while the implied warranty of habitability recognised in Pugh v. Holmes is held not to reach public housing (a tenant-protection doctrine narrowed)."
+ },
+ {
+  "case_id": 20716,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The opinion records only that the widow 'collected $450 for rental on The Anchorage' while deciding she had a personal option of user with no authority to rent; nothing is said about how long any occupant stayed, so the field stays empty."
+ },
+ {
+  "case_id": 175547,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Fortescue v. Carroll construes a covenant that 'not more than one building shall be erected on a single lot' against a structure internally arranged as two residences; no rent, tenant or lodger appears and no compensated occupancy is at issue."
+ },
+ {
+  "case_id": 199572,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "The occupancy at issue is the grantee's possession of the mansion-house under the widow's quarantine right, taken in 1884 and continuing at the 1904 hearing ('she has occupied the property ever since'), far beyond thirty days."
+ },
+ {
+  "case_id": 200301,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court decides only that a son's $100 a month room and board was a contribution to household support and created no landlord-tenant relation for Fourth Amendment purposes; it never frames the householder's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 206449,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A receivership fight over forfeiture and assignment of a commercial lease of the building in which an insolvent hotel company ran its business; no question about letting rooms to anyone is decided."
+ },
+ {
+  "case_id": 227040,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Blake v. Pleasantville sustains ordinances governing liquor licences; the statutory phrase 'inn and tavern' is the licence nomenclature for selling drink and no occupancy or letting question is reached."
+ },
+ {
+  "case_id": 229235,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Huff v. Wallace is a trade-name dispute over 'Blairstown Garage'; the only letting is of a garage rented out for an independent business, and the innkeeper's stabling duty is discussed solely to show it confers no right to the name."
+ },
+ {
+  "case_id": 238821,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "Deck v. Bell reviews the grant of a liquor licence under the 1913 act's picnic-or-recreation-ground exception; 'inn and tavern' is the generic licence label and nothing about letting rooms is decided."
+ },
+ {
+  "case_id": 297463,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The proceedings were set aside purely because the justice entered no judgment for possession as the dispossess statute strictly requires; the court says nothing about how the owner's liberty to let is to be characterised, so the field stays empty."
+ },
+ {
+  "case_id": 300799,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The opinion decides only that the 1892 borough act vesting concurrent inn-and-tavern licensing power in the Common Pleas is an unconstitutional special law; no guest's stay is described anywhere, so the field stays empty; I keep the record relevant because the licensed activity is keeping an inn, where the checker read relevant=false."
+ },
+ {
+  "case_id": 318354,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The holding is confined to the sufficiency of the description ('the westerly portion of the building known as Newings Hotel') in a dispossession affidavit; no term or length of the tenancy appears, so the field stays empty; I keep it relevant as a landlord-tenant dispossession, where the checker read relevant=false."
+ },
+ {
+  "case_id": 363360,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The court vacates a Common Pleas license to keep an inn and tavern in Lambertville because the 1879 supplement was a local law; the opinion never touches any guest's occupancy or its length, so the field stays empty."
+ },
+ {
+  "case_id": 399671,
+  "field": "owner_freedom_characterization",
+  "decision": "set",
+  "value": "regulable_privilege",
+  "note": "The court holds Real Property Law 235-b voids any waiver of the warranty and that public policy forbids a conditional limitation ending a residential tenancy for nonpayment even in unregulated luxury housing - residential letting is framed as subject to non-waivable statutory limits on the owner's own lease terms, not as an unqualified incident of ownership."
+ },
+ {
+  "case_id": 414320,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Decided wholly on the statute of frauds (no new possession taken) and on a holdover being held only for the original seven-month term; the court says nothing about the owner's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 446811,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "A per curiam sustaining the board's refusal of a permit to erect an apartment house on traffic-congestion and school-children evidence; no occupancy exists or is described, so the field stays empty; I keep it relevant as a zoning restriction on rental dwellings, where the checker read relevant=false."
+ },
+ {
+  "case_id": 465768,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "An intra-family suit for use and occupation between co-tenants and for a step-daughter's domestic services; the boarding and lodging house carried on in the home is only the setting for the services, and no question about letting rooms is decided."
+ },
+ {
+  "case_id": 534550,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Wilson rented Shaw the spare bedroom and Shaw 'was living there' as a 'legal tenant' when the shots were fired, but the opinion fixes no term or length for that occupancy, so the field stays empty."
+ },
+ {
+  "case_id": 580741,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The case decides a carpenter's assumpsit for building a nine-pin alley for a coffee-house; the English let-lodgings case is cited only as one illustration in a list of contracts aiding an illegal purpose."
+ },
+ {
+  "case_id": 720746,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A refusal to transfer a liquor license to premises within 300 feet of Girard College; 'hotel' names only the class of liquor license and no question about the letting of rooms is raised or decided."
+ },
+ {
+  "case_id": 727948,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The holding upholds police entry on liquor-licensed premises to see how the business is conducted; 'innholder' appears only inside quoted statutory text about Sunday sales, and no letting question is decided."
+ },
+ {
+  "case_id": 730785,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The permit case turns on whether the ordinance's lot-area and enlargement clauses bar remodeling the second floor of the Brakes' garage into an apartment; no occupancy has begun and none is described, so the field stays empty; I keep it relevant as a householder's added dwelling unit, where the checker read relevant=false."
+ },
+ {
+  "case_id": 735037,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The lease at issue is of space in a multi-tenanted commercial building and the court abandons the independent-covenants rule for commercial leases; the 1892 furnished-room exception is recited only as doctrinal history."
+ },
+ {
+  "case_id": 780728,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The Chancellor decides equity jurisdiction, the statute of limitations and that a hotel keeper who expected to buy was 'merely a tenant' who cannot recover for improvements; nothing frames the owner's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 792730,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court holds the dormitory occupant kept a reasonable expectation of privacy and that the university as lessor could not consent to the search; the lessor's reserved right of inspection is discussed only as a Fourth Amendment question, never as a characterization of the owner's liberty to let."
+ },
+ {
+  "case_id": 859629,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The homeless families are described only as being in 'temporary housing', one family to a room, with no stated length of stay, so the field stays empty; I keep it relevant because the suit sought to enjoin the operation of a lodging facility as a nuisance, where the checker read relevant=false."
+ },
+ {
+  "case_id": 873363,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Purely common-law holdover reasoning - the landlord who elects to hold the tenant over cannot ex parte drop the rent concession carried in the prior lease - with no characterization of the owner's liberty to let."
+ },
+ {
+  "case_id": 878112,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The injunction restrains picketing on the association's private streets over a beach charge; that most defendants were tenants of rooms or apartments is only their description, and no letting question is decided."
+ },
+ {
+  "case_id": 891170,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The Surrogate applies the ordinary holdover option and rejects surrender-and-acceptance in allowing the hotel corporation's rent claim; the owner's liberty to let is never framed."
+ },
+ {
+  "case_id": 896672,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court construes the Turnkey III Homebuyers Ownership Opportunity Agreement as a lease with an option to purchase so municipal court had jurisdiction; the housing authority's liberty to let is nowhere characterized."
+ },
+ {
+  "case_id": 928612,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "A two-sentence memorandum holding that an owner of a fractional interest is not 'the landlord' under the housing rent regulation; no occupancy or its length appears, so the field stays empty; I keep it relevant as rent-regulation eviction law, where the checker read relevant=false."
+ },
+ {
+  "case_id": 948107,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The Surrogate construes the will's occupancy clause as an offer the widow accepted, making her a monthly tenant of the trustee at the stipulated $100; nothing characterizes an owner's liberty to let."
+ },
+ {
+  "case_id": 952033,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court upholds NYCHA's determination as a rational exercise of its statutory power under Public Housing Law 156 to decide who may occupy its apartments - a public authority's tenant-selection power rather than a framing of an owner's liberty to let, so the field stays empty; I keep the record relevant, where the checker read relevant=false."
+ },
+ {
+  "case_id": 971328,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The holding is that after the judgment of foreclosure and sale the occupants were no longer 'tenants' within the State Residential Rent Law, so a writ of assistance lies; the owner's liberty to let is not characterized."
+ },
+ {
+  "case_id": 987517,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A larceny prosecution over fixtures removed by a foreclosed former owner who had refused the buyer's offer of a tenancy at will; there is no compensated occupancy at issue, only ownership of the fixtures."
+ },
+ {
+  "case_id": 1065795,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court decides that accepting rent with an express reservation did not waive the notice to quit and that the justice-of-the-peace action and the confessed judgment are cumulative remedies; the OPA certificate is mentioned only as already obtained, with no characterization of the owner's liberty to let."
+ },
+ {
+  "case_id": 1167707,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "In re Jacobs strikes the Tenement House Cigar Act as an arbitrary invasion of liberty and property; the tenement families' occupancy is never given any term, so the field stays empty; I keep it relevant because the court's own rationale embraces the right to live in, rent or sell one's house, where the checker read relevant=false."
+ },
+ {
+  "case_id": 1197016,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Bigelow C.J. decides only that a lessee's brother holding over continues the original tenancy so that use and occupation for the second year is recoverable; the opinion never touches how the landlord's liberty to let is characterised, so the field stays empty."
+ },
+ {
+  "case_id": 1204313,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court frames only the hotel keeper's lien on baggage and his statutory remedy against actual fraud ('a hotel keeper can require a guest to pay his board in advance'), never the owner's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 1259998,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The affirmance is a one-line per curiam on Judge Levinthal's unreported opinion and the only reasoning printed is Bell J.'s dissent, so nothing in the text before us frames the life tenants' liberty to rent; relevance retained against the checker's relevant=False because the whole dispute is whether 'is not to be rented or sold' barred Benny and Sophie from renting the house."
+ },
+ {
+  "case_id": 1421156,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Monell J. holds only that unfitness for occupancy and want of repair are no defence to rent and that the landlord's parol promise to repair was nudum pactum; no framing of the owner's liberty to let appears, so the field stays empty."
+ },
+ {
+  "case_id": 1646002,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The holding is that a tenant who surrenders possession may deny his landlord's title in an action for damages for the whole term; the opinion says nothing about how the owner's liberty to let is characterised."
+ },
+ {
+  "case_id": 1697861,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "yes",
+  "note": "Defendant was a hotel guest found asleep in bed in room 933 at 6:15 a.m. and removed that morning, and Aldisert J. decides the search under innkeeper law governing the 'sleeping guests of the Pittsburgh Hilton Hotel', so the occupancy at issue was a night; no longer stay is stated anywhere in the opinion."
+ },
+ {
+  "case_id": 1699170,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Freedman P.J. decides the appurtenances and parol-evidence question and orders a new trial over the hall and the saloon door; he nowhere characterises the lodging-house keepers' liberty to let their forty-four rooms, so the field stays empty."
+ },
+ {
+  "case_id": 1792254,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "Nothing in the opinion shows how long Trout roomed with Tipton, so the duration question is untouched and the field stays empty; relevance retained against the checker's relevant=False because the affirmed holding is that no lien for unpaid room rent arises unless the keeper is shown to be a licensed rooming-house operator in Columbus."
+ },
+ {
+  "case_id": 1848884,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Giegerich J. holds only that, absent an express covenant, the lessee of an apartment runs the risk of bedbugs and water-bugs; the opinion contains no characterisation of the landlord's liberty to let."
+ },
+ {
+  "case_id": 1850287,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Seabury J. decides only that a tenant who stays in possession cannot recover damages for inadequate heat and must surrender to claim constructive eviction; nothing frames the owner's liberty to let."
+ },
+ {
+  "case_id": 1934145,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Rogers J. decides that residential rental units are not the owner-occupant's 'place of business' for eminent-domain dislocation damages; that characterises the units for a compensation statute, not the owner's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 1986173,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The action is assumpsit for 'the use and occupation of a store' under the First Freewill Baptist meeting-house, let by parol from quarter to quarter and decided on eviction by paramount title - a commercial letting of a shop with no question about occupancy of a dwelling or rooms."
+ },
+ {
+  "case_id": 1988388,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Van Wyck C.J. decides only that the tenant's eviction defence is not insufficient in law and that of an apartment house the landlord retains control of hallways and staircases; no framing of the liberty to let, so the field stays empty - relevance retained against the checker because the suit is rent for a flat and the defence goes to the letting itself."
+ },
+ {
+  "case_id": 2025439,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The sole question is whether a licence as innholder under St. 1832 c. 166 section 8 authorised the sale of spirituous liquors; the innkeeping is the setting of a liquor prosecution and the opinion decides nothing about letting rooms."
+ },
+ {
+  "case_id": 2026595,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Nelson C.J. holds a tenant who deserted a hired house for noxious smells still liable for use and occupation absent fraud, and declines to introduce a new principle into landlord-and-tenant law; the framing is of the tenant's duty, not of the owner's liberty to let."
+ },
+ {
+  "case_id": 2033144,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Emott J. decides that rooms in a tenement house severed by lease are the occupant's dwelling for burglary, distinguishing lodgers with a resident owner from tenants of severed tenements; the court characterises the occupancy, never the owner's liberty to let."
+ },
+ {
+  "case_id": 2077234,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "No tenancy length appears anywhere - the only durations litigated are the workman's ten days of repair work - so the occupancy question is untouched and the field stays empty; relevance retained against the checker's relevant=False because the holding is that an owner who lets houses for profit is not thereby engaged in a trade or business."
+ },
+ {
+  "case_id": 2115142,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The decision rests on injunction doctrine and the pleadings, the court calling the findings on the lease and tender of rent 'much immaterial matter', so nothing characterises the owner's liberty to let; relevance retained against the checker because the whole suit is over the plaintiff's possession of two rented rooms in a Post Street house."
+ },
+ {
+  "case_id": 2163354,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The use actually litigated is a store building on a border lot, enforcement of the tract restrictions being refused for changed neighbourhood conditions; 'apartment house, flat, lodging house' appear only as words inside the quoted covenant, so the letting is incidental colour."
+ },
+ {
+  "case_id": 2175889,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Waste C.J. denies the motion to dismiss because it goes to the merits and expressly leaves undecided whether mere roomers are parties aggrieved, so the opinion frames nothing about the owner's liberty to let; relevance retained against the checker because the question presented is the interest of roomers in the rooms they occupied as 'places of dwelling' in a hotel closed by abatement."
+ },
+ {
+  "case_id": 2192476,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The premises are 'a business block' in San Diego and the question is forfeiture of its lease for bookmaking in room 438 and one act of liquor possession in a ground-floor restaurant; no occupancy of a dwelling or rooms as a home is at issue."
+ },
+ {
+  "case_id": 2226364,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The case is a quiet-title fight over a recorded condition forbidding lodging-houses and apartment houses on a lot; no one had occupied anything under any letting, so the opinion says nothing about the length of any occupancy and the field stays empty."
+ },
+ {
+  "case_id": 2307581,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A Residence D zoning challenge by owners who wanted a business use and failed to show that no permitted use would yield a reasonable return; 'rooming or boarding houses' appear only as one item in the list of permitted uses, and the court decides nothing about letting."
+ },
+ {
+  "case_id": 2601303,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Rich J. decides only that a building with two families and no common right of three families in more than one accessory is not a 'tenement house' within the statute; the court measures the statute's reach rather than characterising the owner's liberty to let."
+ },
+ {
+  "case_id": 2849253,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The opinion says only that the plaintiff 'rents' a four-room club cottage with maid service and meals in the clubhouse; no length of occupancy appears anywhere, so the field stays empty."
+ },
+ {
+  "case_id": 3084202,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court applies the two-year co-residency requirement of Rent Stabilization Code section 2523.5(b)(1) and awards the landlord possession; it never characterises the owner's liberty to let - relevance retained against the checker because the case is the succession right to a rent-stabilised apartment, a regulation of letting."
+ },
+ {
+  "case_id": 3231498,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The holding is that the stipulation's lease-renewal promise touches and concerns the land and binds the purchaser through privity of estate; the reasoning is covenant law and says nothing framing the owner's liberty to let."
+ },
+ {
+  "case_id": 3307118,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "Gische J. decides lease-versus-licence and the required-service question under the RSL and holds the roof terrace part of the tenancy; the opinion characterises the space, not the owner's liberty to let - relevance retained against the checker because the holding is a rent-stabilisation limit on what the owner may withdraw from a letting."
+ },
+ {
+  "case_id": 3311797,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court decides only that the estate may summarily remove a decedent's unmarried cohabitant as a revoked licensee; it expressly reserves (\"we express no opinion\") whether the estate could sublease the apartment, so it never frames the owner's liberty to let and the field stays empty."
+ },
+ {
+  "case_id": 3494988,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The majority resolves only whether the wife was \"living with another man\" under a support stipulation, accepting the $300-a-month letting of two levels of her home as a genuine tenancy; it says nothing about an owner's liberty to let, so the field stays empty (the checker read the record as not relevant, but the court did adjudicate the character of the letting, so relevance stands)."
+ },
+ {
+  "case_id": 3596595,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "The occupancy at issue is a resident student's dormitory room held under a university housing contract with routine-inspection and notice terms - a residential term the court likens to landlord-tenant and hotel-occupant relations, not a stay of under thirty days (the checker read the record as not relevant, but the holding turns on the legal character of the paid housing relationship)."
+ },
+ {
+  "case_id": 3772832,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court decides that a cohabiting former partner who shared use of the homeowner's house is a common-law licensee removable under RPAPL 713 (7); it discusses the lodger/licensee line and the revocation of a license, never the owner's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 3894154,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "This is a mortgage-possession case: after the mortgagee took seizin on habere facias the mortgagor stayed on by sufferance without paying rent, and the holding is only that he was not a lessee holding over for the summary statute - no compensated occupancy of a dwelling or rooms is at issue."
+ },
+ {
+  "case_id": 4044338,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court holds only that a B-2 visa holder maintaining her principal dwelling in London cannot claim the apartment as a primary residence under rent stabilization; it construes the primary-residence rule and never characterizes the owner's liberty to let, so the field stays empty (the checker read the record as not relevant, but rent-stabilization recovery is regulation of letting)."
+ },
+ {
+  "case_id": 4297597,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The opinion says only that the Forbeses \"from time to time, rented rooms and have provided breakfast for roomers\" and gives no length of any roomer's stay, so the court is silent on duration and the field stays empty."
+ },
+ {
+  "case_id": 4339693,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "The case is at the pleading stage over a covenant forbidding the developer to rent rather than sell condominium units; no unit has yet been occupied and the opinion never describes the length of any tenancy, so the field stays empty."
+ },
+ {
+  "case_id": 4400068,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "No one paid to occupy any room: a bar chartered an excursion boat for a Halloween party and a guest was shot aboard, with \"innkeeper\" invoked only as a Restatement special-relationship label for the duty analysis - a tort case with no letting question."
+ },
+ {
+  "case_id": 4680773,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The ordinance regulates liquor traffic, exempting only hotel-keepers with forty or more bedrooms who serve wine and beer with meals; the hotel classification is incidental to the liquor rule and the petitioner's freedom to let rooms is neither restricted nor discussed."
+ },
+ {
+  "case_id": 5110124,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court examines the hotel arrangement (room and baggage held, charged only for nights actually stayed, the hotel free to relet it) to decide the guest was a visitor rather than a resident for substituted service; it says nothing about the hotel's liberty to let, so the field stays empty (the checker read the record as not relevant, but the holding turns on the character of the paid room arrangement)."
+ },
+ {
+  "case_id": 5260659,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court reverses a conviction under art. 1551 for fraudulently obtaining board and lodging because the information never set out the false representations; the boarding-house keeper's liberty to let is nowhere framed, so the field stays empty (the checker read the record as not relevant, but the statute construed governs the boarding relationship itself)."
+ },
+ {
+  "case_id": 5528026,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The resident owner of a two-family house who let the basement and parlor floors \"with the appurtenances\" is enjoined from cutting off the cellar furnace; the court reasons from what passes as an appurtenance to leased rooms and never characterizes her liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 5612601,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "The premises the injunction reaches are \"year-round residences\" the defendants were building and letting \"for purposes of human habitation\", which is occupancy on a year-round footing rather than a stay under thirty days."
+ },
+ {
+  "case_id": 5666085,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The only restriction at issue is the 200-foot liquor prohibition: the saloonkeeper partitioned ten rooms to fit the statutory hotel exemption and lost his liquor tax certificate, while his freedom to let those rooms was never touched or discussed."
+ },
+ {
+  "case_id": 6753290,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The holding is confined to pleading and evidence in indebitatus assumpsit for use and occupation - a separate claim for goods and services cannot be set off against rent, and an ejectment record is not of itself a bar - so the court never frames the owner's liberty to let and the field stays empty."
+ },
+ {
+  "case_id": 7680874,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The certificate was revoked because casual Sunday callers served whisky with a token sandwich were not guests obtaining a meal in good faith; the hotel's letting of rooms is never at issue, only the liquor sale."
+ },
+ {
+  "case_id": 7693723,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court holds a landlord owes no repair duty except by contract and that breach sounds in contract, not tort; it lists the tenant's remedies but never characterizes the owner's liberty to let, so the field stays empty (the checker read the record as not relevant, but the July letting of the rooms at $20 is the relationship the holding governs)."
+ },
+ {
+  "case_id": 9990126,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The holding is that the housing authority needed no common-law demand for rent before forcible detainer because the lease waived it and the federal grievance regulations displace it; nothing in the opinion frames the owner's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 10007862,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The householder who let one bedroom of her duplex for monthly rent had access only to clean and so stood \"in the same position as the hotel manager and the landlord\" with no power to consent to a search; the court measures her control over the let room, not her liberty to let it, so the field stays empty."
+ },
+ {
+  "case_id": 10145223,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court construed only the duration of the Shadyside covenants (item 17's perpetual ban on a public boarding house) and never framed an owner's liberty to let at all, so the field stays empty."
+ },
+ {
+  "case_id": 10150612,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The violation enjoined was a plumbing business run from an outbuilding; 'a boarding house' appears only as one item in the quoted list of prohibited uses, so the letting is incidental colour."
+ },
+ {
+  "case_id": 10163493,
+  "field": "under_thirty_days",
+  "decision": "keep",
+  "note": "No occupancy of any kind was at issue (an electrical contractor's home shop), the room-renting rule appearing only as the quoted Southhampton Civic Club standard, so duration is untouched; kept relevant on the strength of that restated rule although the checker read the record as not relevant."
+ },
+ {
+  "case_id": 10166236,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "A rescission-and-waiver fight over a twelve-month house lease decided on equitable grounds; the court said nothing about the owner's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 10168401,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A jewelry salesman's safety-deposit box was emptied at the Statler; the case is bailment and negligence over a hotel vault, with the guest's lodging only background and no letting question decided."
+ },
+ {
+  "case_id": 10177581,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The whole dispute is a zoning board's conditional-use permit extending a nonconforming trailer-park use to an adjacent lot; nobody's occupancy of another's dwelling or rooms is discussed."
+ },
+ {
+  "case_id": 10226208,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The court held only that a month-to-month tenant is not a 'property owner' entitled to park-association membership and never characterised the lot owners' liberty to let, so the field stays empty; the checker read the record as not relevant, but the tenant's status was the litigated question."
+ },
+ {
+  "case_id": 11713956,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The duty analysis turned on the lease transferring exclusive possession and control to the lessee; the court framed control, not the owner's freedom to let, so the field stays empty; the checker read the record as not relevant, but the character of the letting is what decided the duty."
+ },
+ {
+  "case_id": 12170518,
+  "field": "owner_freedom_characterization",
+  "decision": "keep",
+  "note": "The opinion distinguishes a monthly from a month-to-month tenancy and awards the landlords a month's rent; it never frames the owner's liberty to let, so the field stays empty."
+ },
+ {
+  "case_id": 12435555,
+  "field": "under_thirty_days",
+  "decision": "set",
+  "value": "no",
+  "note": "The accommodations are rent-controlled residential rental units whose tenants get no-fault eviction notices and ten-year re-occupancy rights, and the Ellis Act text expressly carves out residential-hotel guestrooms, so the occupancy at issue is plainly not under thirty days."
+ },
+ {
+  "case_id": 12658328,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "A premises-liability appeal decided wholly on the ferae naturae doctrine after a brown recluse bite; that McCall leased a cabin and Hillis ran a B&B is background, and no letting question is decided."
+ },
+ {
+  "case_id": 314726,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The tenancy at issue is a barber's shop in Bromfield Street let at $200 a year - a commercial shop lease, notwithstanding that the shop formed part of the defendant's public house."
+ },
+ {
+  "case_id": 337780,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "The flagged quote is the opinion's own sentence ('made-application to the court of common pleas of the county of mercer to grant him a license to keep an inn and tavern in the borough of princeton') with only hyphenation and capitalisation drift."
+ },
+ {
+  "case_id": 585349,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "The suit is trespass for mesne profits over a Cincinnati lot, turning on whether removable buildings could be set off against rent; no occupancy of a dwelling or rooms is in question."
+ },
+ {
+  "case_id": 915895,
+  "field": "relevant",
+  "decision": "set",
+  "value": false,
+  "note": "'No rent was reserved, demanded or expected' - a son-in-law's gratuitous permissive occupancy of fifteen to twenty acres of farmland, so there is no compensated occupancy of a dwelling."
+ },
+ {
+  "case_id": 1230795,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "The flagged quote matches the opinion verbatim ('became the superintendent, and held this position from about july, 1967 until february, 1971'); the low coverage figure reflects the short span, not a paraphrase."
+ },
+ {
+  "case_id": 2491554,
+  "field": "quotes",
+  "decision": "keep",
+  "note": "The flagged quote is the opinion's sentence word for word, differing only by the OCR hyphen in 'after-wards' and by capitalisation."
+ },
+ {
+  "case_id": 4032828,
+  "field": "quotes",
+  "decision": "set",
+  "value": "This case involves a dispute between a residential landlord and his former tenant over unpaid rent and the tenant\u2019s conversion of several items of the plaintiffs personal property.",
+  "note": "The opinion's opening sentence reads 'the tenant's conversion of several items of the landlord's personal property'; the reader's version substitutes 'the plaintiffs', a word swap spliced from a later sentence rather than OCR drift, so the quote should be dropped."
+ }
+]
