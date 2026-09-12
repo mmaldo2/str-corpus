@@ -52,3 +52,19 @@ def test_read_but_unread_and_read_failed_are_distinct():
     g = gold_recovery(gold, _View({}), signaled={1: True, 2: True}, read_units={2: "read-failed"})
     lost = {m.case_id: m.lost_at for m in g.misses}
     assert lost == {1: "unread", 2: "read-failed"}
+
+
+def test_a_machine_relevant_false_patch_is_reader_negative_not_withdrawn():
+    gold = [
+        {"cite": "1", "cite_norm": "1", "tier": "treatise", "case_id": 1},
+        {"cite": "2", "cite_norm": "2", "tier": "treatise", "case_id": 2},
+    ]
+    hist = {
+        1: [Patch(1, "set", "relevant", False, "map", Basis(model="m", run_id="run-a"))],  # machine basis, no reviewer
+        2: [Patch(2, "set", "relevant", False, "round", Basis(reviewer="u", run_id="run-b"))],  # reviewer basis
+    }
+    g = gold_recovery(gold, _View({1: {"relevant": False}, 2: {"relevant": False}}, hist),
+                      signaled={1: True, 2: True}, read_units={1: "run-a", 2: "run-b"})
+    lost = {m.case_id: m.lost_at for m in g.misses}
+    assert lost[1] == "reader-negative"
+    assert lost[2] == "withdrawn"
