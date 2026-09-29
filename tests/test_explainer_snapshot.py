@@ -240,3 +240,16 @@ def test_cli_render_lints_both_sides_and_refuses_without_writing(tmp_path):
     assert not out2.exists()
     assert es.main(["lint", "--in", str(out)]) == 0
     assert es.main(["lint", "--in", str(bad), "--template"]) == 1
+
+
+def test_ledger_figures_count_adverse_and_mixed_opinions(tmp_path):
+    led = open_ledger(tmp_path / "ledger", domain=load_domain())
+    reader = Basis(model="m", prompt_version="mapper-v1", run_id="r")
+    led.apply([Patch(1, "admit", "", _rec(1, 1850, pol="adverse"), "v", reader, cycle="cycle-001"),
+               Patch(2, "admit", "", _rec(2, 1900, pol="mixed"), "v", reader, cycle="cycle-001"),
+               Patch(3, "admit", "", _rec(3, 1900, pol="adverse", relevant=False), "v", reader, cycle="cycle-001")],
+              note="seed", at=AT)
+    head = led.view().as_of
+    f = es.ledger_figures(led.view(as_of=head), head)
+    assert f["adverse"] == {"human_reviewed": 0, "machine_only": 1, "total": 1}   # the irrelevant read is not counted
+    assert f["mixed"] == {"human_reviewed": 0, "machine_only": 1, "total": 1}

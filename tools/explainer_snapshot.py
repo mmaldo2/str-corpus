@@ -59,6 +59,8 @@ def ledger_figures(view, as_of: int) -> dict:
             "opinions_read": len(view.state.order),
             "relevant": tier(view.counts().total),
             "favorable": tier(view.counts(polarity="favorable").total),
+            "adverse": tier(view.counts(polarity="adverse").total),
+            "mixed": tier(view.counts(polarity="mixed").total),
             "favorable_householder": tier(view.counts(polarity="favorable",
                                                       who_was_letting="householder").total)}
 
