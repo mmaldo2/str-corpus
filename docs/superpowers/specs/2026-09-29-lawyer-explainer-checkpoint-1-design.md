@@ -1,7 +1,8 @@
 # Lawyer explainer, Checkpoint 1: design
 
-Date: 2026-09-29. Status: design approved in conversation section by section; this
-written spec awaits the user's review. Branch: `explainer/checkpoint-1`.
+Date: 2026-09-29. Status: approved by the user 2026-09-29 (amended the same day: old
+guide dropped, explainer files kept outside git, no dollar figures). Branch:
+`explainer/checkpoint-1`.
 
 ## 1. Purpose
 
@@ -23,12 +24,18 @@ Stated by the user:
   may be cut from the same script later (not in this spec).
 - **Timing:** a **checkpoint snapshot taken before the audit**. The team reviews it
   before the user completes the audit; Checkpoint 2 follows the audit.
-- **Also publish** the Sept 14 guide (`reports/right-to-let-guide.html`) as the
-  depth link.
+- **No old guides.** The Sept 14 guide (`reports/right-to-let-guide.html`) and the
+  August attorney report are neither published nor referenced (user decision
+  2026-09-29, reversing an earlier "publish the guide too"). Depth lives in expanders
+  on the new page.
+- **Outside git.** The GitHub repo is public, so the script, snapshot, sources record,
+  and page live in a gitignored folder; only this spec and the snapshot tool are
+  committed. The page's durable home is the private Artifact.
+- **No dollar figures** (spend history or unit prices) in anything the team receives;
+  models and routes are named neutrally.
 
 Assumed and not corrected by the user:
 
-- The new page is a short front door; the Sept 14 guide stays the depth layer.
 - The page carries only a handful of numbers, each dated and tied to one ledger snapshot.
 - Four limits are never abstracted away (section 7).
 
@@ -50,15 +57,16 @@ systematic content analysis of judicial opinions.
 
 ## 2. Deliverables
 
-| # | Deliverable | Where |
-|---|---|---|
-| 1 | The script: every word on the page, each factual claim tagged to its source | `reports/explainer/script.md` |
-| 2 | The numbers, generated from the ledger at the pinned snapshot | `reports/explainer/snapshot.json` via `tools/explainer_snapshot.py` |
-| 3 | The page, Checkpoint 1, published as a private Artifact | `reports/explainer/method-explainer.html` |
-| 4 | Provenance record: repo revision, ledger seq, sha256 of every source file the claims rest on | `reports/explainer/sources.md` |
-| 5 | The Sept 14 guide, committed and published as its own private Artifact after a staleness check | `reports/right-to-let-guide.html` + `-sources.md` |
+| # | Deliverable | Where | In git? |
+|---|---|---|---|
+| 1 | The script: every word on the page, each factual claim tagged to its source | `reports/explainer/script.md` | no |
+| 2 | The numbers, generated from the ledger at the pinned snapshot | `reports/explainer/snapshot.json` | no |
+| 3 | The snapshot tool and its fixture-only tests | `tools/explainer_snapshot.py`, `tests/` | yes |
+| 4 | The page, Checkpoint 1, published as a private Artifact | `reports/explainer/method-explainer.html` | no |
+| 5 | Provenance record: repo revision, ledger seq, sha256 of every source file the claims rest on | `reports/explainer/sources.md` | no |
 
-The printable one-page summary is part of deliverable 3 (a print stylesheet), not a
+`reports/explainer/` is added to `.gitignore` before any file is written there. The
+printable one-page summary is part of deliverable 4 (a print stylesheet), not a
 separate file.
 
 ## 3. The spine: five steps
@@ -122,7 +130,10 @@ A checkpoint banner sits at the top: *Checkpoint 1 · ledger snapshot of Septemb
      values can still be the reader's.
    - *Has any court accepted this?* Each ingredient has precedent (corpus linguistics;
      technology-assisted review); no court has yet ruled on an AI-assisted case survey.
-8. **Go deeper.** Links to the published Sept 14 guide and the evaluation report.
+8. **Where this comes from.** The snapshot identifiers (date, ledger sequence, repo
+   revision), a short glossary (pipeline term to plain term), and links to the
+   published legal authorities cited. No links to repository files, the Sept 14
+   guide, or the August pages; further depth lives in the page's own expanders.
 
 ## 5. The two cases
 
@@ -216,6 +227,10 @@ The page passes only if:
    described as checking what the AI kept, not what it discarded.
 9. The audit is described as drawn and frozen but not yet read; no audit result and no
    model-versus-model agreement figure is presented as accuracy.
+10. No dollar figures anywhere (spend history, unit prices, list-equivalent costs);
+    models and routes are named neutrally (e.g. "Claude Opus," "a GPT model"), with no
+    discussion of billing routes.
+11. No reference to the Sept 14 guide, `attorney-report.html`, or the August artifacts.
 
 ## 8. Numbers
 
@@ -253,9 +268,6 @@ URL, and update the banner.
    in light and dark, and in print preview (the summary fits on one page).
 6. **User reviews the page**, then it is published as a private Artifact; the user
    shares the link with the team.
-7. **The Sept 14 guide.** Check its figures and claims against the snapshot, read the
-   whole file, commit it with its sources file, and publish it as a private Artifact;
-   the explainer's "go deeper" link points to it.
 
 ## 10. Form
 
@@ -273,6 +285,7 @@ URL, and update the banner.
 
 - The video (a later spec, reusing the script).
 - Completing the audit, and any change to the ledger, selectors, codebook, or gold set.
+- Publishing, committing, or referencing the Sept 14 guide.
 - Deleting or editing the August artifacts ("The Right-to-Let Record", "Right-to-Let
   Corpus Engine"); the user may stop pointing people to them.
 
