@@ -15,3 +15,6 @@ data/ledger/.lock
 data/ledger/**/*.tmp
 
 data/reader/cache/
+
+# Lawyer explainer content (public repo): script, evidence, snapshot, page
+reports/explainer/
