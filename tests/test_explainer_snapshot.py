@@ -115,7 +115,7 @@ def test_tail_figures_sum_unread_and_span_the_scenarios():
 
 
 def test_audit_figures_report_the_frozen_draw_with_the_seed_as_text():
-    f = es.audit_figures(_sample(83531))
+    f = es.audit_figures(_sample(83531), as_of=83531)
     assert f == {"n": 150, "frame_size": 2842, "seed": "20260912", "drawn_seq": 83531,
                  "drawn_date": "2026-09-12", "status": "drawn, not yet read"}
 
@@ -260,3 +260,55 @@ def test_lint_template_ignores_commas_inside_markup_but_not_in_text():
     assert es.lint('<polygon points="44,154 36,150 40,160"></polygon>', template=True) == []
     assert es.lint('<p class="n">We read 24,643 opinions</p>', template=True) == [
         "line 1: literal grouped number '24,643' (use a {{snap:...}} placeholder)"]
+
+
+
+def test_lint_template_flags_grouped_numbers_followed_by_commas():
+    assert es.lint("We found 4,351, and then more.", template=True) == [
+        "line 1: literal grouped number '4,351' (use a {{snap:...}} placeholder)"]
+    probs = es.lint("Counts were 4,351, 2,000, and 1,200.", template=True)
+    assert [p.split("'")[1] for p in probs] == ["4,351", "2,000", "1,200"]
+    assert es.lint("Decided Sept 12, 2026; odd tokens 1,2345 and 1,234,5678 stay quiet.", template=True) == []
+
+
+def test_audit_status_is_only_asserted_at_the_seq_the_sample_was_drawn():
+    assert es.audit_figures(_sample(83531), as_of=83531)["status"] == "drawn, not yet read"
+    later = es.audit_figures(_sample(83531), as_of=90000)
+    assert "status" not in later and later["drawn_seq"] == 83531     # a template asking for it fails loudly
+
+
+def test_cli_snapshot_at_an_earlier_seq_reproduces_that_seq(tmp_path):
+    led = _ledger(tmp_path)
+    head = led.view().as_of                              # the review patch is the head
+    db, _ = _library(tmp_path)
+    ev, sm = tmp_path / "ev.json", tmp_path / "sample.json"
+    ev.write_text(json.dumps(_evaluation(head - 1, rel=(0, 2), fav=(0, 2), hh=(0, 1))), encoding="utf-8")
+    sm.write_text(json.dumps(_sample(head - 1)), encoding="utf-8")
+    out = tmp_path / "snapshot.json"
+    rc = es.main(["snapshot", "--as-of", str(head - 1), "--label", "Checkpoint 1", "--evaluation", str(ev),
+                  "--sample", str(sm), "--ledger-dir", str(tmp_path / "ledger"), "--db", str(db), "--out", str(out)])
+    snap = json.loads(out.read_text(encoding="utf-8"))
+    assert rc == 0 and snap["snapshot"]["as_of"] == head - 1
+    assert snap["ledger"]["relevant"] == {"human_reviewed": 0, "machine_only": 2, "total": 2}   # before the review
+
+
+def test_cli_snapshot_refuses_a_later_sample_and_a_seq_beyond_the_head(tmp_path):
+    led = _ledger(tmp_path)
+    head = led.view().as_of
+    db, _ = _library(tmp_path)
+    for as_of, sample_seq in ((head, head + 1), (head + 5, head + 5)):
+        ev, sm = tmp_path / "ev.json", tmp_path / "sample.json"
+        ev.write_text(json.dumps(_evaluation(as_of)), encoding="utf-8")
+        sm.write_text(json.dumps(_sample(sample_seq)), encoding="utf-8")
+        out = tmp_path / f"snapshot-{as_of}-{sample_seq}.json"
+        rc = es.main(["snapshot", "--as-of", str(as_of), "--label", "Checkpoint 1", "--evaluation", str(ev),
+                      "--sample", str(sm), "--ledger-dir", str(tmp_path / "ledger"), "--db", str(db), "--out", str(out)])
+        assert rc == 2 and not out.exists()
+
+
+def test_cli_render_refuses_an_unknown_placeholder_without_writing(tmp_path):
+    snap, tpl, out = tmp_path / "snapshot.json", tmp_path / "t.md", tmp_path / "out.md"
+    snap.write_text(json.dumps(SNAP), encoding="utf-8")
+    tpl.write_text("At least {{snap:ledger.relevent.total}} cases", encoding="utf-8")
+    assert es.main(["render", "--template", str(tpl), "--snapshot", str(snap), "--out", str(out)]) == 1
+    assert not out.exists()

@@ -97,10 +97,14 @@ def tail_figures(evaluation: Mapping) -> dict:
     return {"unread": sum(b["unread_cases"] for b in c["bands"]), "low": min(est), "high": max(est)}
 
 
-def audit_figures(sample: Mapping) -> dict:
-    return {"n": sample["n"], "frame_size": sample["frame_size"], "seed": str(sample["seed"]),
-            "drawn_seq": sample["ledger_head_seq"], "drawn_date": sample["drawn_at"][:10],
-            "status": AUDIT_STATUS}
+def audit_figures(sample: Mapping, as_of: int) -> dict:
+    """`status` is asserted only at the seq the sample was drawn; at a later snapshot the audit may
+    have been read, and this tool has no input that says so, so a template asking for it fails."""
+    out = {"n": sample["n"], "frame_size": sample["frame_size"], "seed": str(sample["seed"]),
+           "drawn_seq": sample["ledger_head_seq"], "drawn_date": sample["drawn_at"][:10]}
+    if sample["ledger_head_seq"] == as_of:
+        out["status"] = AUDIT_STATUS
+    return out
 
 
 def check_consistency(as_of: int, ledger: Mapping, evaluation: Mapping, sample: Mapping) -> None:
@@ -128,13 +132,13 @@ def build_snapshot(*, label: str, as_of: int, view, conn, jurisdictions: Sequenc
             "ledger": led,
             "benchmark": benchmark_figures(evaluation),
             "tail": tail_figures(evaluation),
-            "audit": audit_figures(sample),
+            "audit": audit_figures(sample, as_of),
             "inputs": dict(inputs)}
 
 
 PLACEHOLDER = re.compile(r"\{\{snap:([A-Za-z0-9_.]+)\}\}")
 DOLLAR = re.compile(r"\$\s?\d")
-GROUPED = re.compile(r"(?<![\d.,])\d{1,3}(?:,\d{3})+(?![\d,])")
+GROUPED = re.compile(r"(?<![\d.,])\d{1,3}(?:,\d{3})+(?!\d|,\d)")   # "4,351, and" still counts
 TAG = re.compile(r"<[^>]*>")
 ALLOW_PRICE = "lint-allow: historical price"
 RETIRED = ("right-to-let-guide", "attorney-report", "the right-to-let record", "right-to-let corpus engine")
