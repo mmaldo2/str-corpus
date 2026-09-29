@@ -253,3 +253,10 @@ def test_ledger_figures_count_adverse_and_mixed_opinions(tmp_path):
     f = es.ledger_figures(led.view(as_of=head), head)
     assert f["adverse"] == {"human_reviewed": 0, "machine_only": 1, "total": 1}   # the irrelevant read is not counted
     assert f["mixed"] == {"human_reviewed": 0, "machine_only": 1, "total": 1}
+
+
+def test_lint_template_ignores_commas_inside_markup_but_not_in_text():
+    assert es.lint('<link href="css2?family=X:ital,wght@0,400;1,400">', template=True) == []
+    assert es.lint('<polygon points="44,154 36,150 40,160"></polygon>', template=True) == []
+    assert es.lint('<p class="n">We read 24,643 opinions</p>', template=True) == [
+        "line 1: literal grouped number '24,643' (use a {{snap:...}} placeholder)"]

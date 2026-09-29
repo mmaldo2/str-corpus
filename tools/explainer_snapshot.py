@@ -135,6 +135,7 @@ def build_snapshot(*, label: str, as_of: int, view, conn, jurisdictions: Sequenc
 PLACEHOLDER = re.compile(r"\{\{snap:([A-Za-z0-9_.]+)\}\}")
 DOLLAR = re.compile(r"\$\s?\d")
 GROUPED = re.compile(r"(?<![\d.,])\d{1,3}(?:,\d{3})+(?![\d,])")
+TAG = re.compile(r"<[^>]*>")
 ALLOW_PRICE = "lint-allow: historical price"
 RETIRED = ("right-to-let-guide", "attorney-report", "the right-to-let record", "right-to-let corpus engine")
 
@@ -179,8 +180,8 @@ def lint(text: str, *, template: bool) -> list[str]:
         for name in RETIRED:
             if name in low:
                 problems.append(f"line {i}: reference to retired page {name!r}")
-        if template:
-            for m in GROUPED.finditer(PLACEHOLDER.sub("", line)):
+        if template:   # figures live in text; commas inside tags (font axes, SVG points) are markup
+            for m in GROUPED.finditer(TAG.sub(" ", PLACEHOLDER.sub("", line))):
                 problems.append(f"line {i}: literal grouped number {m.group(0)!r} (use a {{{{snap:...}}}} placeholder)")
         elif "{{" in line:
             problems.append(f"line {i}: unrendered placeholder")
