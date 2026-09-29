@@ -179,3 +179,64 @@ def test_cli_snapshot_refuses_and_writes_nothing_on_a_mismatch(tmp_path):
                   "--sample", str(sm), "--ledger-dir", str(tmp_path / "ledger"), "--db", str(db),
                   "--out", str(out)])
     assert rc == 2 and not out.exists()
+
+
+SNAP = {"ledger": {"relevant": {"total": 4351, "human_reviewed": 1509}, "opinions_read": 24643},
+        "library": {"first_year": "1671", "in_scope_display": "about 1.8 million"},
+        "audit": {"seed": "20260912"}, "tail": {"ratio": 0.5}, "flag": {"on": True}}
+
+
+def test_render_substitutes_counts_grouped_and_text_verbatim():
+    out = es.render("At least {{snap:ledger.relevant.total}} cases since {{snap:library.first_year}}, "
+                    "seed {{snap:audit.seed}}, {{snap:library.in_scope_display}}.", SNAP)
+    assert out == "At least 4,351 cases since 1671, seed 20260912, about 1.8 million."
+
+
+def test_render_fails_listing_every_unknown_key():
+    with pytest.raises(es.SnapshotError) as e:
+        es.render("{{snap:ledger.relevent.total}} and {{snap:nope}} and {{snap:nope}}", SNAP)
+    assert str(e.value) == "unknown snapshot keys: ledger.relevent.total, nope"
+
+
+def test_render_refuses_floats_booleans_and_whole_blocks():
+    for path in ("tail.ratio", "flag.on", "ledger.relevant"):
+        with pytest.raises(es.SnapshotError, match=path):
+            es.render("{{snap:%s}}" % path, SNAP)
+
+
+def test_lint_flags_dollar_amounts_but_honours_the_historical_price_marker():
+    assert es.lint("It cost $0.02 per million.", template=False) == ["line 1: dollar amount"]
+    assert es.lint("rooms at $ 8.50 a week", template=False) == ["line 1: dollar amount"]
+    assert es.lint('"$8.50 a week" <!-- lint-allow: historical price -->', template=False) == []
+
+
+def test_lint_flags_retired_pages_in_any_case():
+    probs = es.lint("See reports/right-to-let-guide.html\nand the ATTORNEY-REPORT page", template=False)
+    assert probs == ["line 1: reference to retired page 'right-to-let-guide'",
+                     "line 2: reference to retired page 'attorney-report'"]
+
+
+def test_lint_template_flags_literal_grouped_numbers_outside_placeholders():
+    assert es.lint("We read 24,643 opinions.", template=True) == [
+        "line 1: literal grouped number '24,643' (use a {{snap:...}} placeholder)"]
+    assert es.lint("We read {{snap:ledger.opinions_read}} opinions in 1860.", template=True) == []
+
+
+def test_lint_rendered_flags_leftover_placeholders():
+    assert es.lint("x {{snap:a}} y", template=False) == ["line 1: unrendered placeholder"]
+
+
+def test_cli_render_lints_both_sides_and_refuses_without_writing(tmp_path):
+    snap = tmp_path / "snapshot.json"
+    snap.write_text(json.dumps(SNAP), encoding="utf-8")
+    good, bad = tmp_path / "good.md", tmp_path / "bad.md"
+    good.write_text("Read {{snap:ledger.opinions_read}} — ok\n", encoding="utf-8")
+    bad.write_text("Read 24,643 opinions\n", encoding="utf-8")
+    out = tmp_path / "out.md"
+    assert es.main(["render", "--template", str(good), "--snapshot", str(snap), "--out", str(out)]) == 0
+    assert out.read_bytes().decode("utf-8") == "Read 24,643 — ok\n"
+    out2 = tmp_path / "out2.md"
+    assert es.main(["render", "--template", str(bad), "--snapshot", str(snap), "--out", str(out2)]) == 1
+    assert not out2.exists()
+    assert es.main(["lint", "--in", str(out)]) == 0
+    assert es.main(["lint", "--in", str(bad), "--template"]) == 1

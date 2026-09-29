@@ -3,12 +3,17 @@
 snapshot  every figure the explainer shows, read at ONE pinned ledger seq from the ledger API,
           corpus.db, the published evaluation JSON and the audit sample manifest; refused (exit 2,
           nothing written) when those inputs describe different ledger states.
+render    substitutes {{snap:dotted.path}} placeholders from snapshot.json (ints grouped, text
+          verbatim); an unknown key fails the whole render.
+lint      the guardrails a text must pass before the team sees it: no dollar amounts, no retired
+          pages, nothing left unrendered, and (templates) no literal grouped numbers.
 
 Counts are ints; years and identifiers are strings, so a later render never groups them."""
 from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import subprocess
 import sys
 from collections import Counter
@@ -125,6 +130,93 @@ def build_snapshot(*, label: str, as_of: int, view, conn, jurisdictions: Sequenc
             "inputs": dict(inputs)}
 
 
+PLACEHOLDER = re.compile(r"\{\{snap:([A-Za-z0-9_.]+)\}\}")
+DOLLAR = re.compile(r"\$\s?\d")
+GROUPED = re.compile(r"(?<![\d.,])\d{1,3}(?:,\d{3})+(?![\d,])")
+ALLOW_PRICE = "lint-allow: historical price"
+RETIRED = ("right-to-let-guide", "attorney-report", "the right-to-let record", "right-to-let corpus engine")
+
+
+def resolve(snapshot: Mapping, path: str):
+    cur = snapshot
+    for part in path.split("."):
+        if not isinstance(cur, Mapping) or part not in cur:
+            raise KeyError(path)
+        cur = cur[part]
+    return cur
+
+
+def format_value(value, path: str) -> str:
+    if isinstance(value, bool) or not isinstance(value, (int, str)):
+        raise SnapshotError(f"{{{{snap:{path}}}}} is a {type(value).__name__}; only counts and text render")
+    return f"{value:,}" if isinstance(value, int) else value
+
+
+def render(text: str, snapshot: Mapping) -> str:
+    missing: list[str] = []
+
+    def sub(m: re.Match) -> str:
+        try:
+            return format_value(resolve(snapshot, m.group(1)), m.group(1))
+        except KeyError:
+            missing.append(m.group(1))
+            return m.group(0)
+
+    out = PLACEHOLDER.sub(sub, text)
+    if missing:
+        raise SnapshotError("unknown snapshot keys: " + ", ".join(sorted(set(missing))))
+    return out
+
+
+def lint(text: str, *, template: bool) -> list[str]:
+    problems: list[str] = []
+    for i, line in enumerate(text.splitlines(), 1):
+        if DOLLAR.search(line) and ALLOW_PRICE not in line:
+            problems.append(f"line {i}: dollar amount")
+        low = line.lower()
+        for name in RETIRED:
+            if name in low:
+                problems.append(f"line {i}: reference to retired page {name!r}")
+        if template:
+            for m in GROUPED.finditer(PLACEHOLDER.sub("", line)):
+                problems.append(f"line {i}: literal grouped number {m.group(0)!r} (use a {{{{snap:...}}}} placeholder)")
+        elif "{{" in line:
+            problems.append(f"line {i}: unrendered placeholder")
+    return problems
+
+
+def _report(problems: list[str], label: str) -> None:
+    for p in problems:
+        print(f"{label}: {p}", file=sys.stderr)
+
+
+def cmd_render(a) -> int:
+    src = Path(a.template).read_text(encoding="utf-8")
+    snap = json.loads(Path(a.snapshot).read_text(encoding="utf-8"))
+    problems = lint(src, template=True)
+    if problems:
+        _report(problems, a.template)
+        return 1
+    try:
+        out = render(src, snap)
+    except SnapshotError as e:
+        print(f"refused: {e}", file=sys.stderr)
+        return 1
+    problems = lint(out, template=False)
+    if problems:
+        _report(problems, "rendered output")
+        return 1
+    write_text(Path(a.out), out)
+    print(f"{Path(a.template).as_posix()} -> {Path(a.out).as_posix()}")
+    return 0
+
+
+def cmd_lint(a) -> int:
+    problems = lint(Path(a.input).read_text(encoding="utf-8"), template=a.template)
+    _report(problems, a.input)
+    return 1 if problems else 0
+
+
 def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -164,8 +256,15 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--out", required=True)
     s.add_argument("--ledger-dir", default=None, help="default: the project ledger")
     s.add_argument("--db", default=None, help="default: data/db/corpus.db")
+    r = sub.add_parser("render", help="fill {{snap:...}} placeholders; lint before and after")
+    r.add_argument("--template", required=True)
+    r.add_argument("--snapshot", required=True)
+    r.add_argument("--out", required=True)
+    li = sub.add_parser("lint", help="check a file against the explainer guardrails")
+    li.add_argument("--in", dest="input", required=True)
+    li.add_argument("--template", action="store_true")
     a = ap.parse_args(argv)
-    return {"snapshot": cmd_snapshot}[a.cmd](a)
+    return {"snapshot": cmd_snapshot, "render": cmd_render, "lint": cmd_lint}[a.cmd](a)
 
 
 if __name__ == "__main__":
