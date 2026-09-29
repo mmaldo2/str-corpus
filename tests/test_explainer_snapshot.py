@@ -43,6 +43,8 @@ def _library(tmp_path):
                  "is_duplicate_of INTEGER)")
     conn.executemany("INSERT INTO cases VALUES (?,?,?,?)", [
         (1, "N.Y.", 1799, None), (2, "Cal.", 2019, None), (3, "U.S.", 1900, None), (4, "N.Y.", 1650, 1)])
+    conn.execute("CREATE TABLE signals (case_id INTEGER)")
+    conn.executemany("INSERT INTO signals VALUES (?)", [(1,), (1,), (2,), (3,), (4,)])
     conn.commit()
     return path, conn
 
@@ -61,9 +63,13 @@ def _evaluation(seq, rel=(1, 1), fav=(1, 1), hh=(1, 0)):
                                        {"estimated_relevant": 1568}]}}
 
 
-def _sample(seq):
-    return {"drawn_at": "2026-09-12T17:09:26+00:00", "ledger_head_seq": seq, "frame_size": 2842,
-            "seed": 20260912, "n": 150}
+def _sample(seq, frame=(2,), picks=(2,)):
+    """The fixture ledger's audit frame (relevant, not reviewed) is [2] at its head and [1, 2] before the
+    review patch; `frame` must match the ledger at `seq` wherever the snapshot tool recomputes it."""
+    import hashlib
+    return {"drawn_at": "2026-09-12T17:09:26+00:00", "ledger_head_seq": seq, "frame_size": len(frame),
+            "frame_sha256": hashlib.sha256(chr(10).join(map(str, frame)).encode("utf-8")).hexdigest(),
+            "seed": 20260912, "n": len(picks), "records": [{"case_id": c} for c in picks]}
 
 
 def test_ledger_figures_counts_reads_and_tiers_at_the_pinned_seq(tmp_path):
@@ -116,7 +122,7 @@ def test_tail_figures_sum_unread_and_span_the_scenarios():
 
 def test_audit_figures_report_the_frozen_draw_with_the_seed_as_text():
     f = es.audit_figures(_sample(83531), as_of=83531)
-    assert f == {"n": 150, "frame_size": 2842, "seed": "20260912", "drawn_seq": 83531,
+    assert f == {"n": 1, "frame_size": 1, "seed": "20260912", "drawn_seq": 83531,
                  "drawn_date": "2026-09-12", "status": "drawn, not yet read"}
 
 
@@ -283,7 +289,7 @@ def test_cli_snapshot_at_an_earlier_seq_reproduces_that_seq(tmp_path):
     db, _ = _library(tmp_path)
     ev, sm = tmp_path / "ev.json", tmp_path / "sample.json"
     ev.write_text(json.dumps(_evaluation(head - 1, rel=(0, 2), fav=(0, 2), hh=(0, 1))), encoding="utf-8")
-    sm.write_text(json.dumps(_sample(head - 1)), encoding="utf-8")
+    sm.write_text(json.dumps(_sample(head - 1, frame=(1, 2), picks=(2,))), encoding="utf-8")
     out = tmp_path / "snapshot.json"
     rc = es.main(["snapshot", "--as-of", str(head - 1), "--label", "Checkpoint 1", "--evaluation", str(ev),
                   "--sample", str(sm), "--ledger-dir", str(tmp_path / "ledger"), "--db", str(db), "--out", str(out)])
@@ -312,3 +318,64 @@ def test_cli_render_refuses_an_unknown_placeholder_without_writing(tmp_path):
     tpl.write_text("At least {{snap:ledger.relevent.total}} cases", encoding="utf-8")
     assert es.main(["render", "--template", str(tpl), "--snapshot", str(snap), "--out", str(out)]) == 1
     assert not out.exists()
+
+
+
+def test_library_figures_count_the_opinions_the_searches_flagged(tmp_path):
+    _, conn = _library(tmp_path)
+    assert es.library_figures(conn, ("N.Y.", "Cal."))["flagged"] == 2     # distinct, canonical, in scope
+
+
+def test_ledger_figures_include_the_tradition_grid_without_the_unsearched_region(tmp_path):
+    led = _ledger(tmp_path)
+    head = led.view().as_of
+    m = es.ledger_figures(led.view(as_of=head), head)["matrix"]
+    assert m["eras"][0] == "pre-1860" and m["durations"] == ["nights", "weeks", "months", "unclear"]
+    assert [r["name"] for r in m["regions"]] == ["northeast", "mid-atlantic", "midwest", "south", "west"]
+    assert m["regions"][0]["jurisdictions"] == ["Conn.", "Mass.", "N.J.", "N.Y.", "Pa."]
+    assert m["tiers"] == ["householder", "owner", "commercial", "unclear"]
+    cells = {tuple(c[:4]): c[4:] for c in m["cells"]}
+    assert cells[("pre-1860", "northeast", "householder", "nights")] == [1, 0]     # case 1 (1850), reviewed
+    assert cells[("1900-1930", "northeast", "owner", "nights")] == [0, 1]           # case 2 (1900), machine-only
+    assert cells[("pre-1860", "west", "householder", "weeks")] == [0, 0]            # zero-filled
+    assert not any(c[1] == "federal" for c in m["cells"])
+
+
+def test_audit_positions_place_each_pick_in_the_recomputed_frame(tmp_path):
+    led = _ledger(tmp_path)
+    head = led.view().as_of
+    assert es.audit_positions(led.view(as_of=head - 1), _sample(head - 1, frame=(1, 2), picks=(2,))) == [1]
+    assert es.audit_positions(led.view(as_of=head), _sample(head)) == [0]
+
+
+def test_audit_positions_refuse_a_frame_that_does_not_match_the_manifest(tmp_path):
+    led = _ledger(tmp_path)
+    head = led.view().as_of
+    with pytest.raises(es.SnapshotError, match="frame"):
+        es.audit_positions(led.view(as_of=head), _sample(head, frame=(1, 2), picks=(2,)))   # head frame is [2]
+    with pytest.raises(es.SnapshotError, match="not in the frame"):
+        es.audit_positions(led.view(as_of=head), _sample(head, frame=(2,), picks=(1,)))
+
+
+def test_render_inlines_json_from_the_snapshot_and_named_data_safely():
+    data = {"examples": {"map": {"items": [{"t": "a </script> b"}]}}}
+    out = es.render("{{json:snap.ledger.relevant}}|{{json:examples.map}}", SNAP, data=data)
+    assert out.startswith('{"total":4351,"human_reviewed":1509}|')
+    assert r"<\/script>" in out and "</script> b" not in out
+
+
+def test_render_json_fails_on_an_unknown_source_or_key():
+    with pytest.raises(es.SnapshotError, match="examples.nope"):
+        es.render("{{json:examples.nope}}", SNAP, data={"examples": {}})
+    with pytest.raises(es.SnapshotError, match="other.x"):
+        es.render("{{json:other.x}}", SNAP)
+
+
+def test_cli_render_takes_named_data_files(tmp_path):
+    snap, ex, tpl, out = (tmp_path / n for n in ("snapshot.json", "examples.json", "t.html", "out.html"))
+    snap.write_text(json.dumps(SNAP), encoding="utf-8")
+    ex.write_text(json.dumps({"map": {"n": 18}}), encoding="utf-8")
+    tpl.write_text('<script type="application/json">{{json:examples.map}}</script>', encoding="utf-8")
+    assert es.main(["render", "--template", str(tpl), "--snapshot", str(snap), "--data", f"examples={ex}",
+                    "--out", str(out)]) == 0
+    assert out.read_text(encoding="utf-8").strip() == '<script type="application/json">{"n":18}</script>'
