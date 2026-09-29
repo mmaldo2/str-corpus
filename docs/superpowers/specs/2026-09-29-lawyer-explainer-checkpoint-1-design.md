@@ -76,7 +76,7 @@ its corpus-linguistics name, its document-review name, and "how it is checked."
 
 | Step | Plain terms | Corpus linguistics | Document review |
 |---|---|---|---|
-| 1. The library | About 1.87M reported opinions from 10 jurisdictions (Cal., Conn., D.C., La., Mass., N.J., N.Y., Ohio, Pa., Tex.), pre-1860 to 2020, one frozen snapshot of the Caselaw Access Project | The corpus | The collection |
+| 1. The library | About 1.8 million reported opinions from the 10 searched jurisdictions (Cal., Conn., D.C., La., Mass., N.J., N.Y., Ohio, Pa., Tex.), 1671-2019, one frozen snapshot of the Caselaw Access Project; the library also holds about 79 thousand federal and stray opinions outside these searches | The corpus | The collection |
 | 2. The search | Period vocabulary ("lodger," "boarder," "furnished rooms") from treatises and usage in context, plus meaning-based and citation search, plus adverse searches built to find the opposing record; every search logged and versioned | Search queries, concordance | Search terms, predictive ranking |
 | 3. The first read | An AI reader codes each opinion against a fixed codebook and must back each answer with a quote; the quote is machine-matched against the opinion text and an answer without a matching quote is erased | Coding under a protocol | First-level review |
 | 4. The second look | A second AI from a different company re-reads samples; disagreements and priority records go to a person, whose decision no machine can overwrite | Multiple coders, agreement | QC and second-level attorney review |
@@ -240,7 +240,7 @@ reproducible even after the ledger moves.
 
 | # | Figure | Source | Today's value |
 |---|---|---|---|
-| 1 | Size of the library | `corpus.db`, canonical (non-duplicate) cases in scope; cross-checked with `reports/build-cycle-004.md` | ~1,874,141 |
+| 1 | Size of the library | `corpus.db` canonical (non-duplicate) cases in the 10 domain jurisdictions, plus the out-of-scope remainder | 1,795,165 in scope (1671-2019); 78,976 outside (mostly U.S.); 1,874,141 total |
 | 2 | Opinions the AI readers read | Unique case ids with a reader verdict at seq 83531, cross-checked against the map manifests; re-reads never double-counted | to be computed |
 | 3 | Relevant records, two tiers (with favorable and favorable-householder as subsets) | `open_ledger().view(as_of=83531).counts()` | 4,351 (1,509 / 2,842); favorable 1,954 (754 / 1,200); favorable householder 397 (161 / 236) |
 | 4 | The audit | `runs/audit-cycle-004/sample-manifest.json` | 150 drawn from 2,842 machine-only relevant records, seed 20260912, not yet read |
