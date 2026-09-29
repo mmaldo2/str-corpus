@@ -98,6 +98,11 @@ eview-round-1-decisions-astra.json
 # disposition there.
 .venv\Scripts\python tools\evaluate.py build-bands --run-id cycle-004-shard-02
 .venv\Scripts\python tools\evaluate.py publish --cycle 004
+# The lawyer explainer (docs/superpowers/specs/2026-09-29-lawyer-explainer-checkpoint-1-design.md). Its
+# content lives in the gitignored reports\explainer\; the tool reads every figure at one pinned ledger seq
+# (refusing inputs from different ledger states), fills {{snap:...}} placeholders, and lints the guardrails.
+.venv\Scripts\python tools\explainer_snapshot.py snapshot --as-of 83531 --label "Checkpoint 1" --evaluation reports\evaluation-cycle-004.json --sample runs\audit-cycle-004\sample-manifest.json --out reports\explainer\snapshot.json
+.venv\Scripts\python tools\explainer_snapshot.py render --template reports\explainer\method-explainer.template.html --snapshot reports\explainer\snapshot.json --out reports\explainer\method-explainer.html
 # The audit of the machine-only tier: a frozen simple random sample (the seed is in
 # runs/audit-cycle-004/sample-manifest.json), blind cards, two blind model passes from an
 # isolated directory, the lock-then-reveal page the user reads all 150 cards on, and an apply

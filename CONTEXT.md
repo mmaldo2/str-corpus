@@ -78,9 +78,11 @@ How the court classified the arrangement: lease, license, lodging,
 innkeeping, or other.
 
 **Restriction nature**:
-On an adverse case, what kind of restriction was upheld: licensing,
-conditions, zoning exclusion, or outright prohibition. Exists because a
-tradition of regulating letting is not a tradition of prohibiting it.
+On an adverse case, what kind of rule restricted the owner: licensing,
+zoning, nuisance, tenant protection, tax, or other (the codebook's values,
+`mapper-v3`). Exists to tell kinds of regulation apart, because a tradition
+of regulating letting is not a tradition of prohibiting it; the current
+values have no separate category for an outright prohibition.
 
 **Verified quote**:
 A passage the reader extracted that matches the source text verbatim or

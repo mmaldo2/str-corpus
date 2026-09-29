@@ -301,3 +301,28 @@ URL, and update the banner.
 - **D2: the Newsom concurrence.** Included only if the fact-check confirms the citation
   and that it fits the oracle-versus-coder contrast.
 - **D3: *Peet v. McGraw* in the primer.** Only if a real concordance line fits.
+
+## 13. As built (2026-09-29)
+
+Where the published Checkpoint 1 differs from the design above, and why:
+
+- **No Print button (section 10).** The Artifact viewer cannot open a print dialog. The one-page summary is an "At a glance" card in *Retell it*, with a print stylesheet; `reports/explainer/at-a-glance.pdf` is generated locally for forwarding.
+- **Case cards sit inline under each step**, not swapped in by scrolling. The page must be complete without scrolling tricks, so the observer only highlights the active step.
+- **Title: "How the Letting Record Was Built".** "The Right-to-Let Record" is the retired August page.
+- **Fact-check rewrite (factcheck.md).**
+  - The quote rule is stated as covering every coded finding except relevance, who was letting and duration.
+  - "Human-reviewed" marks the record, not each answer.
+  - The crosswalk standards are re-sourced to Lee & Mouritsen and to content-analysis practice; the multiple-coders row is "Departs for now".
+  - "At least" is dropped: the unaudited machine-only records and duplicate reports can overcount.
+  - Adverse and mixed counts were added; the snapshot tool counts them.
+  - The main-path reading cap was relaxed from 2,300 to about 2,900 words.
+- **Seven additions the user approved after review:**
+  - concept search, naming Qwen3-Embedding-4B;
+  - citation searches compared to a citator;
+  - why the codebook asks what it asks;
+  - reading spread across era and place, with its stopping rule;
+  - the tradition grid;
+  - reporter pages on quotes;
+  - two new tough questions: how the AI reader was chosen, and whether review is a rubber stamp.
+- **Restriction nature.** The page lists the codebook's real values. CONTEXT.md was corrected to match.
+- **Published:** a private Artifact at https://claude.ai/artifact/7TBQRFaCjQBbADx9WQZ48C (version 2).
