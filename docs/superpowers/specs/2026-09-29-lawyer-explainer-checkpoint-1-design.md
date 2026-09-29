@@ -326,3 +326,13 @@ Where the published Checkpoint 1 differs from the design above, and why:
   - two new tough questions: how the AI reader was chosen, and whether review is a rubber stamp.
 - **Restriction nature.** The page lists the codebook's real values. CONTEXT.md was corrected to match.
 - **Published:** a private Artifact at https://claude.ai/artifact/7TBQRFaCjQBbADx9WQZ48C (version 2).
+- **Seven visuals the user approved after the final review** (version 3):
+  - a "try it" coding exercise on the "lodger" lines;
+  - a meaning map, with 18 real passages and an example query embedded with the pinned Qwen3-Embedding-4B, exact cosines, and positions from a 2-D PCA, disclosed as an illustration;
+  - the annotated Ackley opinion with the reader's coding panel, and a real failed quote (Beaumont);
+  - the In re Jacobs replay;
+  - the interactive tradition grid;
+  - a log-scale funnel from library to audit, with the 2,842 audit-frame squares and the 150 picks drawn from the real draw;
+  - a worked example (Crown Point v. Warner, 3 Hill 150 (N.Y. Sup. Ct. 1842)).
+
+  The snapshot tool gained the grid, the flagged count, audit positions (the frame is checked against the manifest hash) and `{{json:...}}` rendering. Example data comes from the gitignored `reports/explainer/build_examples.py`. The main path is now about 3,700 words, with visuals.
