@@ -75,10 +75,21 @@ def matrix_figures(view) -> dict:
     regions = [{"name": n, "jurisdictions": sorted(j for j in d.jurisdictions if d.regions.get(j) == n)} for n in names]
     regions = [r for r in regions if r["jurisdictions"]]
     kept = {r["name"] for r in regions}
+    eras, tiers, durations = list(d.eras), list(dict.fromkeys(d.letting_tiers.values())), ["nights", "weeks", "months", "unclear"]
+    all_cells = view.matrix().cells
+    stray = sorted({k for k, t in all_cells.items() if (t.human_reviewed or t.machine_only) and k[1] in kept
+                    and (k[0] not in eras or k[2] not in tiers or k[3] not in durations)})
+    if stray:
+        raise SnapshotError(f"favorable opinions fall outside the grid's axes: {stray[:3]}")
     cells = [[k[0], k[1], k[2], k[3], t.human_reviewed, t.machine_only]
-             for k, t in sorted(view.matrix().cells.items()) if k[1] in kept]
-    return {"eras": list(d.eras), "regions": regions, "tiers": list(dict.fromkeys(d.letting_tiers.values())),
-            "durations": ["nights", "weeks", "months", "unclear"], "cells": cells}
+             for k, t in sorted(all_cells.items()) if k[1] in kept]
+    fav = view.counts(polarity="favorable").total
+    got = (sum(c[4] for c in cells), sum(c[5] for c in cells))
+    if got != (fav.human_reviewed, fav.machine_only):
+        dropped = sorted({k[1] for k, t in all_cells.items() if k[1] not in kept and (t.human_reviewed or t.machine_only)})
+        raise SnapshotError(f"the grid holds {got[0]}/{got[1]} favorable opinions but the ledger has "
+                            f"{fav.human_reviewed}/{fav.machine_only}; outside the searched regions: {dropped}")
+    return {"eras": eras, "regions": regions, "tiers": tiers, "durations": durations, "cells": cells}
 
 
 def library_figures(conn, jurisdictions: Sequence[str]) -> dict:

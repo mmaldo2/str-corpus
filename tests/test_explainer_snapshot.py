@@ -16,10 +16,10 @@ from corpus_engine.ledger import Basis, Patch, open_ledger  # noqa: E402
 AT = "2026-09-12T08:55:22"
 
 
-def _rec(cid, year, *, relevant=True, pol="favorable", who="householder"):
-    return {"case_id": cid, "cite": f"{cid} X", "year": year, "jurisdiction": "N.Y.",
+def _rec(cid, year, *, relevant=True, pol="favorable", who="householder", jur="N.Y.", dur="nights"):
+    return {"case_id": cid, "cite": f"{cid} X", "year": year, "jurisdiction": jur,
             "relevant": relevant, "polarity": pol, "who_was_letting": who,
-            "duration_of_occupancy": "nights", "characterization": "lodging",
+            "duration_of_occupancy": dur, "characterization": "lodging",
             "holding_summary": "h", "quotes": [{"text": "q", "supports": "polarity"}],
             "extraction_status": "ok"}
 
@@ -379,3 +379,53 @@ def test_cli_render_takes_named_data_files(tmp_path):
     assert es.main(["render", "--template", str(tpl), "--snapshot", str(snap), "--data", f"examples={ex}",
                     "--out", str(out)]) == 0
     assert out.read_text(encoding="utf-8").strip() == '<script type="application/json">{"n":18}</script>'
+
+
+
+def _one_record_ledger(tmp_path, rec):
+    led = open_ledger(tmp_path / "ledger", domain=load_domain())
+    led.apply([Patch(rec["case_id"], "admit", "", rec, "v", Basis(model="m", prompt_version="mapper-v1", run_id="r"),
+                     cycle="cycle-001")], note="seed", at=AT)
+    return led
+
+
+def test_the_grid_refuses_to_drop_a_favorable_opinion_outside_the_searched_regions(tmp_path):
+    led = _one_record_ledger(tmp_path, _rec(9, 1850, jur="U.S."))          # federal: mapped, never searched
+    head = led.view().as_of
+    with pytest.raises(es.SnapshotError, match="grid"):
+        es.ledger_figures(led.view(as_of=head), head)
+
+
+def test_the_grid_refuses_a_cell_outside_its_declared_axes(tmp_path):
+    led = _one_record_ledger(tmp_path, _rec(9, 1850, dur="years"))          # a duration no filter offers
+    head = led.view().as_of
+    with pytest.raises(es.SnapshotError, match="axes"):
+        es.ledger_figures(led.view(as_of=head), head)
+
+
+def test_cli_snapshot_at_checkpoint_2_places_an_earlier_draw_and_asserts_no_status(tmp_path):
+    led = _ledger(tmp_path)
+    head = led.view().as_of
+    db, _ = _library(tmp_path)
+    ev, sm = tmp_path / "ev.json", tmp_path / "sample.json"
+    ev.write_text(json.dumps(_evaluation(head)), encoding="utf-8")
+    sm.write_text(json.dumps(_sample(head - 1, frame=(1, 2), picks=(2,))), encoding="utf-8")   # drawn before the review
+    out = tmp_path / "snapshot.json"
+    rc = es.main(["snapshot", "--as-of", str(head), "--label", "Checkpoint 2", "--evaluation", str(ev),
+                  "--sample", str(sm), "--ledger-dir", str(tmp_path / "ledger"), "--db", str(db), "--out", str(out)])
+    audit = json.loads(out.read_text(encoding="utf-8"))["audit"]
+    assert rc == 0 and audit["positions"] == [1] and "status" not in audit
+
+
+def test_audit_positions_refuse_a_same_size_frame_with_other_members(tmp_path):
+    led = _ledger(tmp_path)
+    head = led.view().as_of
+    with pytest.raises(es.SnapshotError, match="frame"):
+        es.audit_positions(led.view(as_of=head), _sample(head, frame=(1,), picks=(2,)))   # real frame [2]
+
+
+def test_audit_positions_refuse_a_view_at_another_seq(tmp_path):
+    led = _ledger(tmp_path)
+    head = led.view().as_of
+    with pytest.raises(es.SnapshotError, match="needs the ledger"):
+        es.audit_positions(led.view(as_of=head), _sample(head - 1, frame=(1, 2), picks=(2,)))
