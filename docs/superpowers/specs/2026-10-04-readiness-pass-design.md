@@ -126,7 +126,10 @@ as 98 N.Y. 98 (case 558002) and 2 N.Y. Crim. 539 (case 1167707).
 - Candidate groups: canonical cases (`is_duplicate_of IS NULL`) with equal jurisdiction, court
   and decision year, equal normalized `name_abbreviation`, and at least two reporters.
 - Guards on every pair: decision dates prefix-compatible ("1908-04" is compatible with
-  "1908-04-24"; two different full dates are not); shingle-set size ratio within 0.5-2.0.
+  "1908-04-24"; two different full dates are not); shingle-set size ratio within 0.5-2.0;
+  both texts at least 50 word 5-grams long (two different memorandum decisions in one case,
+  "Judgment affirmed, with costs", would otherwise match on boilerplate). Normalized names
+  shorter than 6 characters never group.
 - Score: word-shingle containment, |A ∩ B| / min(|A|, |B|), on `norm_text`. Shingle size (3 or 5)
   and the threshold are set by calibration (6.3) and recorded in the method version string
   (e.g. `parallel-v1:w5:0.55`).
@@ -134,7 +137,8 @@ as 98 N.Y. 98 (case 558002) and 2 N.Y. Crim. 539 (case 1167707).
   passes; a member that fails stays canonical.
 
 `tools/merge_parallel_reports.py score` writes every candidate pair with its score and guards to
-`runs/parallel-reports/candidates.jsonl` (read-only on the corpus).
+`runs/parallel-reports/candidates.jsonl` (read-only on the corpus; ignored by git, tens of MB).
+`apply` writes the merges it made to `runs/parallel-reports/merges.jsonl`, which is committed.
 
 ### 6.3 Calibration
 
@@ -188,9 +192,13 @@ then the lowest `case_id`.
 
 ### 6.7 Follow-on rules
 
-- No future read of a loser: batch building in `pipeline/rank.py` / `selector.packing` drops
-  cases with `is_duplicate_of` set, and the map reader's case source skips one in an already
-  packed batch (the shard-02 tail was packed before the merge) with a recorded skip reason.
+- No future read of a loser: batch building (`selector.packing.build_batches`, used by
+  `pipeline/shard.py` and `pipeline/rank.py`) drops cases with `is_duplicate_of` set, and
+  `tools/map_reader.py` refuses to start on a batch directory that holds one (the shard-02
+  tail was packed before the merge), naming the re-pack. Planning amendment: the design said
+  the case source would skip such a case at read time; admission re-derives every batch
+  offline from the batch files, so a read-time filter would make admission disagree with what
+  was read. Refusing and re-packing keeps the two in step.
 - Gold recovery follows the merge: `tools/evaluate.py` loads loser-to-winner from
   `parallel_reports` and the gold measure scores a gold case at its winner. `gold.jsonl` and its
   pinned sha are unchanged.
@@ -236,4 +244,9 @@ calibration sample, not by reading every pair.
 - The `keep` provenance gap (part 2).
 - KWIC proximity and a per-jurisdiction frequency filter (part 1).
 - Parallel reports across name variants, courts or years (6.8).
+- `pipeline/build_gold.py` resolves a gold cite only to a canonical case; after the merge a
+  cite that names a losing copy would not resolve. `gold.jsonl` is frozen and not rebuilt
+  here; make the lookup follow `is_duplicate_of` before any gold rebuild.
+- The groups on the reconcile's user list are decided in a later review round (a `relevant`
+  disagreement does not double-count; a human-value disagreement does until decided).
 - Deleting `.venv-hermes` (after the first successful run).
