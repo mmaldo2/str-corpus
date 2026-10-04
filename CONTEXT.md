@@ -138,6 +138,13 @@ case was accounted for" can be checked from the repository alone.
 Any published number about the ledger, stated separately for human-reviewed
 and machine-only records.
 
+**Parallel report**:
+One decision printed in more than one reporter. The corpus keeps one copy canonical and marks
+the others `is_duplicate_of` it; in the ledger a second copy's record carries `duplicate_of`
+and is left out of every count. Copies found by opinion text rather than by CAP's citations
+are listed in `parallel_reports` and can be undone.
+_Avoid_: duplicate case (a duplicate can also be one volume ingested twice)
+
 ## Finding cases
 
 **Corpus**:

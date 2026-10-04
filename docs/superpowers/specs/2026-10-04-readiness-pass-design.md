@@ -250,3 +250,30 @@ calibration sample, not by reading every pair.
 - The groups on the reconcile's user list are decided in a later review round (a `relevant`
   disagreement does not double-count; a human-value disagreement does until decided).
 - Deleting `.venv-hermes` (after the first successful run).
+
+## 10. As built (2026-10-04)
+
+Branch `readiness/pre-gluck`; suite 847 passed + 1 xfail (812 + 1 at the start).
+
+- Environment: `.venv` on uv CPython 3.11.15 (`home` = uv's 3.11 minor link), installed from
+  `requirements-lock.txt` (52 packages, freeze == lock); GPU, Qwen query encoder and KWIC
+  verified. `.venv-hermes` kept as the fallback.
+- Patch log: three segments (25,000,344 / 25,000,123 / 4,189,290 bytes at the split); content
+  hash b84796f0 unchanged; the reconcile's 92 patches went to `0003.jsonl`.
+- Parallel reports: 96,125 candidate pairs in 75,260 groups; 74,627 pass the guards (date
+  16,826, size 12,302, length 1,538 fail). Blind calibration: 200 stratified pairs plus 50 from
+  the 0.5-0.6 band at the user's request (25 Tex. Crim. App., 25 other courts): 236 same, 14
+  different (9 Texas companion appeals, the rest New York motion/reargument pairs), 0 unsure;
+  the highest different scored c5 0.484. Threshold c5 >= 0.5 (user's choice), method
+  `parallel-v1:w5:0.5`: 68,962 applied, 2,911 skipped as targets, 0 stale. Canonical cases
+  1,874,141 -> 1,805,179.
+- Ledger: 92 `duplicate_of` patches (seq 83,532-83,623); relevant 4,351 -> 4,259 (1,477 / 2,782),
+  favorable 1,954 -> 1,906, favorable householder 397 -> 379; 35 groups on the user's list.
+
+Amendments made while building: the minimum-length guard (6.2); `map_reader` refuses a pool
+holding a merged copy instead of skipping at read time (6.7); `build_gold` parked (9);
+`apply` skips a loser other cases already point at, counted as `target`, so no chain forms;
+the target set is read once per run (the first live apply, with a per-pair lookup, was stopped
+at the one-hour limit having committed nothing); `apply` merges only pairs inside the
+sampled c5 region (c5 >= 0.2) whatever measure the calibration picks; output files are
+written LF.

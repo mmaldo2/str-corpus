@@ -282,6 +282,39 @@ review page publishable as an artifact; reviewer identity recorded.
     once (~23 GiB committed) on top of the encoder's 20.2 GiB — it would not
     have run.
 
+## Readiness pass (2026-10-04)
+
+Before the Gluck work (Cam's thirteen questions). Spec
+`docs/superpowers/specs/2026-10-04-readiness-pass-design.md` (section 10 is as-built), plan
+`docs/superpowers/plans/2026-10-04-readiness-pass.md`, branch `readiness/pre-gluck`.
+
+- **Environment.** `.venv` rebuilt on uv's standalone CPython 3.11.15 from
+  `requirements-lock.txt` (the old one sat on the Hermes agent's bundled interpreter).
+  `.venv-hermes` is the fallback; delete it after the first successful run.
+- **Patch log.** `data/ledger/patches/NNNN.jsonl`, 25 MB segments; the old single file is
+  refused. The content hash was unchanged by the split (b84796f0).
+- **Parallel reports.** 68,962 second copies merged at `c5 >= 0.5` (method
+  `parallel-v1:w5:0.5`) after a blind calibration of 250 pairs (236 same, 14 different, all
+  14 below 0.484; 0.5-0.6 band 75/75 same). 2,911 more were skipped because other cases
+  already point at the loser (no chains). Canonical cases 1,874,141 -> 1,805,179.
+- **Ledger.** 92 copies take `duplicate_of` and leave the counts: relevant 4,351 -> 4,259
+  (1,477 human-reviewed / 2,782 machine-only), favorable 1,954 -> 1,906, favorable
+  householder 397 -> 379 (ledger seq 83,623). Three audit-sample records (5570757, 5585373,
+  7661993) are among them; only `duplicate_of` was written, so the audit's drift check is
+  unaffected.
+- **For a review round:** `runs/parallel-reports/reconcile-for-user.json`, 35 groups: 32 where
+  two copies of one opinion were read differently on relevance (three where the user withdrew
+  one copy and its twin is still counted: 67 N.Y. Sup. Ct. 125 / 38 N.Y. St. Rep. 782,
+  124 A.D. 328 / 108 N.Y.S. 894, 68 Tex. Crim. 56 / 150 S.W. 890), and 3 where both copies
+  carry different human values (double-counted until decided).
+- **Carry-forwards.** Re-pack `cycle-004-shard-02` (`pipeline/rank.py`) before reading its
+  tail: `map_reader` refuses a pool holding a merged copy. `pipeline/build_gold.py` must
+  follow `is_duplicate_of` before any gold rebuild. The `keep` provenance gap moves to the
+  codebook-v4 work; KWIC proximity and a per-jurisdiction frequency filter to the ledger-answers
+  work (also check `kwic.py freq`: "lodger" returns only 44-114 cases per era). The explainer's
+  library figure (canonical cases) changes at Checkpoint 2, and the audit frame (2,842) no
+  longer equals the ledger's machine-only count (2,782).
+
 ## Watch-outs (unchanged)
 
 OOM if any step `fetchall()`s the whole corpus; SQLite writer contention

@@ -145,6 +145,18 @@ admitted as 30,398 patches, moving published relevant 693 -> 2,939 (133 human-re
 unchanged, 2,806 machine-only). Review round 1 selected 150 of 903 qualifying records; the
 user's decisions on that round are pending.
 
+## Parallel reports (one decision printed in two reporters)
+
+```powershell
+.venv\Scripts\python tools\merge_parallel_reports.py score | sample | threshold | apply [--dry-run] | undo --method <m> | reconcile [--dry-run]
+```
+
+Merges live in corpus.db's `parallel_reports` table (`undo` clears exactly them) and in
+`runs\parallel-reports\merges.jsonl`; the ledger keeps one copy per decision and marks the
+others `duplicate_of`. A run packed before a merge must be re-packed (`pipeline\rank.py`)
+before `map_reader` will read it. First merge (2026-10-04): 68,962 copies at `c5 >= 0.5`
+after a blind calibration of 250 pairs; canonical cases 1,874,141 -> 1,805,179.
+
 ## Layout
 
 Per spec §3. `selectors/selectors.yaml` is the load-bearing versioned artifact;
@@ -160,7 +172,8 @@ connections, schema), `domain` (loads `domains/<name>/domain.yaml`),
 `ports.py`, adapters under `reader/providers/`, and `measure` for the
 pre-registered scoring), and
 `ledger` (the system of record, ADR-0002: `data/ledger/cycle-*.jsonl` are the
-snapshot, `data/ledger/patches.jsonl` the append-only log,
+snapshot, `data/ledger/patches/NNNN.jsonl` the append-only log (25 MB segments;
+concatenated in order they are the log),
 `data/ledger/manifest/` the per-cycle account of every case read). Scripts in
 `pipeline/` are thin wrappers during the staged refactor. Every count comes
 from `open_ledger().view().counts()`; never compute one by hand.
