@@ -297,11 +297,14 @@ Before the Gluck work (Cam's thirteen questions). Spec
   `parallel-v1:w5:0.5`) after a blind calibration of 250 pairs (236 same, 14 different, all
   the 14 different pairs all scored at or below 0.484, under the 0.5 threshold; 0.5-0.6 band 75/75 same). 2,911 more were skipped because other cases
   already point at the loser (no chains). Canonical cases 1,874,141 -> 1,805,179.
-- **Ledger.** 92 copies take `duplicate_of` and leave the counts: relevant 4,351 -> 4,259
-  (1,477 human-reviewed / 2,782 machine-only), favorable 1,954 -> 1,906, favorable
-  householder 397 -> 379 (ledger seq 83,623). Three audit-sample records (5570757, 5585373,
+- **Ledger.** 93 copies take `duplicate_of` and leave the counts (92 in the first reconcile,
+  1 more after the final-review fix to relevance-disagreement groups): relevant 4,351 -> 4,258
+  (1,477 human-reviewed / 2,781 machine-only), favorable 1,954 -> 1,905, favorable
+  householder 397 -> 378 (ledger seq 83,624). Three audit-sample records (5570757, 5585373,
   7661993) are among them; only `duplicate_of` was written, so the audit's drift check is
-  unaffected.
+  unaffected. When the audit is applied, `apply_map_review --audit` mirrors each of their
+  decisions onto its kept twin (1209593, 2461892, 2767299), lists the mirror in the dry run,
+  and notes it on the keeper.
 - **For a review round:** `runs/parallel-reports/reconcile-for-user.json`, 35 groups: 32 where
   two copies of one opinion were read differently on relevance (three where the user withdrew
   one copy and its twin is still counted: 67 N.Y. Sup. Ct. 125 / 38 N.Y. St. Rep. 782,
@@ -326,7 +329,7 @@ Before the Gluck work (Cam's thirteen questions). Spec
   codebook-v4 work; KWIC proximity and a per-jurisdiction frequency filter to the ledger-answers
   work (also check `kwic.py freq`: "lodger" returns only 44-114 cases per era). The explainer's
   library figure (canonical cases) changes at Checkpoint 2, and the audit frame (2,842) no
-  longer equals the ledger's machine-only count (2,782).
+  longer equals the ledger's machine-only count (2,781).
 
 ## Watch-outs (unchanged)
 

@@ -20,11 +20,11 @@ def test_counts_and_matrix_on_the_real_ledger(repo_root):
     # whole drop lands on that tier and machine_only is unchanged. Favorable
     # holds at 367 -- 11 records gained the label and 12 lost it, one of the 12
     # being 1262336, which was outside the counted population either way.
-    assert c.total == TierCount(human_reviewed=1477, machine_only=2782)   # 1509/2842 before the parallel-report merge (2026-10-04); 1498/2865 after the leftovers; round 4 decided 23 cards, withdrew 12 (2026-09-12)
+    assert c.total == TierCount(human_reviewed=1477, machine_only=2781)   # 1477/2782 before the relevance-disagreement fix; 1509/2842 before the parallel-report merge (2026-10-04); 1498/2865 after the leftovers; round 4 decided 23 cards, withdrew 12 (2026-09-12)
     pol = v.counts(by=("polarity",))
-    assert pol[("favorable",)].human_reviewed + pol[("favorable",)].machine_only == 1906   # 1954 before the parallel-report merge (2026-10-04); 1962 after the leftovers; round 4 (2026-09-12)
+    assert pol[("favorable",)].human_reviewed + pol[("favorable",)].machine_only == 1905   # 1906 before the relevance-disagreement fix; 1954 before the parallel-report merge (2026-10-04); 1962 after the leftovers; round 4 (2026-09-12)
     hh = v.counts(polarity="favorable", who_was_letting="householder")
-    assert hh.total.human_reviewed + hh.total.machine_only == 379    # 397 before the parallel-report merge (2026-10-04); 399 after the leftovers; round 4 (2026-09-12)   # 138 before reference v2
+    assert hh.total.human_reviewed + hh.total.machine_only == 378    # 379 before the relevance-disagreement fix; 397 before the parallel-report merge (2026-10-04); 399 after the leftovers; round 4 (2026-09-12)   # 138 before reference v2
     m = v.matrix()
     pre = {k: t for k, t in m.cells.items() if k[0] == "pre-1860" and k[2] == "householder"}
     assert sum(t.human_reviewed + t.machine_only for t in pre.values()) == 19   # 20 after the second budget; rounds 2 and 2b withdrew one (2026-09-10)
