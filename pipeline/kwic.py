@@ -3,6 +3,8 @@
     python pipeline/kwic.py kwic "taking in lodgers" [--era 1860-1900] [--jur "N.Y."] [--n 25]
     python pipeline/kwic.py colloc "lodger" [--window 5] [--n 30]
     python pipeline/kwic.py freq "lodger" "boarder" "roomer"   # per-era counts
+    python pipeline/kwic.py freq "NEAR(transient lodging, 10)" --expr --stem --rate --by jurisdiction
+    python pipeline/kwic.py earliest "tourist home" --stem      # the five earliest uses
 """
 
 import argparse
@@ -13,6 +15,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+from corpus_engine import concordance as cc  # noqa: E402
+
 DB = ROOT / "data" / "db" / "corpus.db"
 
 STOPWORDS = set(
@@ -68,24 +73,46 @@ def cmd_colloc(conn, args):
         print(f"{n:6}  {word}")
 
 
+def _eras(conn) -> list[str]:
+    return [r[0] for r in conn.execute(
+        "SELECT DISTINCT era_partition FROM cases WHERE era_partition IS NOT NULL ORDER BY era_partition")]
+
+
+def _fmt(n: int, d: int | None, as_rate: bool) -> str:
+    if not as_rate:
+        return str(n)
+    r = cc.rate(n, d or 0)
+    return "-" if r is None else f"{r:g}"
+
+
 def cmd_freq(conn, args):
-    eras = [r[0] for r in conn.execute(
-        "SELECT DISTINCT era_partition FROM cases WHERE era_partition IS NOT NULL ORDER BY era_partition"
-    )]
-    print("term".ljust(28) + "".join(e.rjust(12) for e in eras))
+    dens = cc.denominators(conn) if args.rate else {}
+    eras = _eras(conn)
+    unit = "per 1,000 opinions" if args.rate else "opinions matching"
+    if args.by == "era":
+        print(f"({unit})")
+        print("term".ljust(28) + "".join(e.rjust(12) for e in eras))
     for term in args.terms:
-        counts = []
-        for era in eras:
-            n = conn.execute(
-                """SELECT count(*) FROM fts_raw JOIN cases c ON c.case_id = fts_raw.rowid
-                   WHERE fts_raw MATCH ? AND c.era_partition = ? AND c.is_duplicate_of IS NULL""",
-                (f'"{term}"' if " " in term else term, era),
-            ).fetchone()[0]
-            counts.append(n)
-        print(term.ljust(28) + "".join(str(n).rjust(12) for n in counts))
+        cells = cc.cell_counts(conn, term, expr=args.expr, stem=args.stem, jur=args.jur)
+        if args.by == "jurisdiction":
+            jurs = sorted({j for _, j in cells} | {j for _, j in dens if not args.jur or j == args.jur})
+            print(f"{term}  ({unit})")
+            print("era".ljust(12) + "".join(str(j).rjust(9) for j in jurs))
+            for e in eras:
+                print(e.ljust(12) + "".join(
+                    _fmt(cells.get((e, j), 0), dens.get((e, j)), args.rate).rjust(9) for j in jurs))
+        else:
+            table = cc.era_table(cells, dens, jur=args.jur, eras=eras)
+            print(term.ljust(28) + "".join(
+                _fmt(table[e]["matches"], table[e]["opinions"], args.rate).rjust(12) for e in eras))
 
 
-def main() -> int:
+def cmd_earliest(conn, args):
+    for r in cc.earliest(conn, args.term, expr=args.expr, stem=args.stem, jur=args.jur, n=args.n):
+        print(f"{r['year']}  {r['cite']} ({r['jurisdiction']}) {r['name']} | {r['context']}")
+
+
+def main(argv=None, db=None) -> int:
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     k = sub.add_parser("kwic")
@@ -102,9 +129,20 @@ def main() -> int:
     c.add_argument("--window", type=int, default=5)
     f = sub.add_parser("freq")
     f.add_argument("terms", nargs="+")
-    args = ap.parse_args()
-    conn = sqlite3.connect(DB)
-    {"kwic": cmd_kwic, "colloc": cmd_colloc, "freq": cmd_freq}[args.cmd](conn, args)
+    f.add_argument("--expr", action="store_true", help="pass each term to FTS5 unquoted (NEAR, prefix*, OR)")
+    f.add_argument("--stem", action="store_true", help="use the stemmed index (fts_porter)")
+    f.add_argument("--jur")
+    f.add_argument("--by", choices=("era", "jurisdiction"), default="era")
+    f.add_argument("--rate", action="store_true", help="matches per 1,000 canonical opinions")
+    e = sub.add_parser("earliest")
+    e.add_argument("term")
+    e.add_argument("--expr", action="store_true")
+    e.add_argument("--stem", action="store_true")
+    e.add_argument("--jur")
+    e.add_argument("--n", type=int, default=5)
+    args = ap.parse_args(argv)
+    conn = sqlite3.connect(f"file:{Path(db or DB).as_posix()}?mode=ro", uri=True)
+    {"kwic": cmd_kwic, "colloc": cmd_colloc, "freq": cmd_freq, "earliest": cmd_earliest}[args.cmd](conn, args)
     return 0
 
 
