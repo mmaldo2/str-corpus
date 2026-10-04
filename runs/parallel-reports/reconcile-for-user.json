@@ -1,0 +1,445 @@
+[
+ {
+  "winner": 383126,
+  "members": [
+   383126,
+   3349952
+  ],
+  "reason": "relevant",
+  "detail": {
+   "383126": true,
+   "3349952": false
+  }
+ },
+ {
+  "winner": 400618,
+  "members": [
+   400618,
+   1834826
+  ],
+  "reason": "relevant",
+  "detail": {
+   "400618": true,
+   "1834826": false
+  }
+ },
+ {
+  "winner": 630154,
+  "members": [
+   630154,
+   913813
+  ],
+  "reason": "relevant",
+  "detail": {
+   "630154": true,
+   "913813": false
+  }
+ },
+ {
+  "winner": 889522,
+  "members": [
+   889522,
+   392726
+  ],
+  "reason": "relevant",
+  "detail": {
+   "889522": true,
+   "392726": false
+  }
+ },
+ {
+  "winner": 896931,
+  "members": [
+   896931,
+   1325527
+  ],
+  "reason": "relevant",
+  "detail": {
+   "896931": true,
+   "1325527": false
+  }
+ },
+ {
+  "winner": 1422502,
+  "members": [
+   1422502,
+   1781971
+  ],
+  "reason": "relevant",
+  "detail": {
+   "1422502": true,
+   "1781971": false
+  }
+ },
+ {
+  "winner": 1745921,
+  "members": [
+   1745921,
+   1393192
+  ],
+  "reason": "relevant",
+  "detail": {
+   "1745921": true,
+   "1393192": false
+  }
+ },
+ {
+  "winner": 1808393,
+  "members": [
+   1808393,
+   7708700
+  ],
+  "reason": "relevant",
+  "detail": {
+   "1808393": true,
+   "7708700": false
+  }
+ },
+ {
+  "winner": 1992977,
+  "members": [
+   1992977,
+   2211876
+  ],
+  "reason": "human-value",
+  "detail": {
+   "2211876": {
+    "characterization": [
+     "lodging",
+     "license"
+    ]
+   }
+  }
+ },
+ {
+  "winner": 1996720,
+  "members": [
+   1996720,
+   5687014
+  ],
+  "reason": "relevant",
+  "detail": {
+   "1996720": true,
+   "5687014": false
+  }
+ },
+ {
+  "winner": 2020786,
+  "members": [
+   2020786,
+   1122184
+  ],
+  "reason": "relevant",
+  "detail": {
+   "2020786": true,
+   "1122184": false
+  }
+ },
+ {
+  "winner": 2039624,
+  "members": [
+   2039624,
+   5688895
+  ],
+  "reason": "relevant",
+  "detail": {
+   "2039624": true,
+   "5688895": false
+  }
+ },
+ {
+  "winner": 2058139,
+  "members": [
+   2058139,
+   2382572,
+   4298358
+  ],
+  "reason": "relevant",
+  "detail": {
+   "2058139": true,
+   "2382572": false,
+   "4298358": true
+  }
+ },
+ {
+  "winner": 2077769,
+  "members": [
+   2077769,
+   5637344
+  ],
+  "reason": "relevant",
+  "detail": {
+   "2077769": true,
+   "5637344": false
+  }
+ },
+ {
+  "winner": 2125451,
+  "members": [
+   2125451,
+   5675166
+  ],
+  "reason": "relevant",
+  "detail": {
+   "2125451": true,
+   "5675166": false
+  }
+ },
+ {
+  "winner": 2194446,
+  "members": [
+   2194446,
+   1283542
+  ],
+  "reason": "relevant",
+  "detail": {
+   "2194446": true,
+   "1283542": false
+  }
+ },
+ {
+  "winner": 2249370,
+  "members": [
+   2249370,
+   2074878
+  ],
+  "reason": "relevant",
+  "detail": {
+   "2249370": true,
+   "2074878": false
+  }
+ },
+ {
+  "winner": 2301654,
+  "members": [
+   2301654,
+   3512786
+  ],
+  "reason": "relevant",
+  "detail": {
+   "2301654": true,
+   "3512786": false
+  }
+ },
+ {
+  "winner": 2544956,
+  "members": [
+   2544956,
+   7667949
+  ],
+  "reason": "relevant",
+  "detail": {
+   "2544956": true,
+   "7667949": false
+  }
+ },
+ {
+  "winner": 2580389,
+  "members": [
+   2580389,
+   7664513
+  ],
+  "reason": "human-value",
+  "detail": {
+   "7664513": {
+    "polarity": [
+     "mixed",
+     "adverse"
+    ]
+   }
+  }
+ },
+ {
+  "winner": 3003000,
+  "members": [
+   3003000,
+   353243
+  ],
+  "reason": "relevant",
+  "detail": {
+   "3003000": true,
+   "353243": false
+  }
+ },
+ {
+  "winner": 3368386,
+  "members": [
+   3368386,
+   5307146
+  ],
+  "reason": "relevant",
+  "detail": {
+   "3368386": true,
+   "5307146": false
+  }
+ },
+ {
+  "winner": 4686927,
+  "members": [
+   4686927,
+   694753,
+   4303017
+  ],
+  "reason": "human-value",
+  "detail": {
+   "694753": {
+    "polarity": [
+     "adverse",
+     "favorable"
+    ]
+   },
+   "4303017": {
+    "polarity": [
+     "adverse",
+     "favorable"
+    ]
+   }
+  }
+ },
+ {
+  "winner": 4770066,
+  "members": [
+   4770066,
+   2110218,
+   5461334
+  ],
+  "reason": "relevant",
+  "detail": {
+   "4770066": true,
+   "2110218": false,
+   "5461334": false
+  }
+ },
+ {
+  "winner": 4804553,
+  "members": [
+   4804553,
+   7692081
+  ],
+  "reason": "relevant",
+  "detail": {
+   "4804553": true,
+   "7692081": false
+  }
+ },
+ {
+  "winner": 4888338,
+  "members": [
+   4888338,
+   7681251
+  ],
+  "reason": "relevant",
+  "detail": {
+   "4888338": true,
+   "7681251": false
+  }
+ },
+ {
+  "winner": 5035124,
+  "members": [
+   5035124,
+   7679793
+  ],
+  "reason": "relevant",
+  "detail": {
+   "5035124": true,
+   "7679793": false
+  }
+ },
+ {
+  "winner": 5193585,
+  "members": [
+   5193585,
+   7696968
+  ],
+  "reason": "relevant",
+  "detail": {
+   "5193585": true,
+   "7696968": false
+  }
+ },
+ {
+  "winner": 5292675,
+  "members": [
+   5292675,
+   10220219
+  ],
+  "reason": "relevant",
+  "detail": {
+   "5292675": true,
+   "10220219": false
+  }
+ },
+ {
+  "winner": 5637879,
+  "members": [
+   5637879,
+   2515345
+  ],
+  "reason": "relevant",
+  "detail": {
+   "5637879": true,
+   "2515345": false
+  }
+ },
+ {
+  "winner": 8294955,
+  "members": [
+   8294955,
+   4650394
+  ],
+  "reason": "relevant",
+  "detail": {
+   "8294955": true,
+   "4650394": false
+  }
+ },
+ {
+  "winner": 8817482,
+  "members": [
+   8817482,
+   1603146
+  ],
+  "reason": "relevant",
+  "detail": {
+   "8817482": true,
+   "1603146": false
+  }
+ },
+ {
+  "winner": 8823584,
+  "members": [
+   8823584,
+   1799878
+  ],
+  "reason": "relevant",
+  "detail": {
+   "8823584": true,
+   "1799878": false
+  }
+ },
+ {
+  "winner": 10030134,
+  "members": [
+   10030134,
+   3358455
+  ],
+  "reason": "relevant",
+  "detail": {
+   "10030134": true,
+   "3358455": false
+  }
+ },
+ {
+  "winner": 10158387,
+  "members": [
+   10158387,
+   2610887
+  ],
+  "reason": "relevant",
+  "detail": {
+   "10158387": true,
+   "2610887": false
+  }
+ }
+]
