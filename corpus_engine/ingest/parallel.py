@@ -134,9 +134,11 @@ def apply_merges(conn, pairs: Iterable[tuple[int, int, float]], *, method: str, 
                  ts: str) -> dict:
     """Mark each loser `is_duplicate_of` its winner and record the merge. A loser already
     recorded is skipped (a re-run); a pair whose winner or loser is no longer canonical is
-    skipped as stale, which also stops a chain inside one run. Commits every 5,000 merges."""
+    skipped as stale, which also stops a chain inside one run. A loser that other cases already
+    point at is skipped as "target", because merging it would chain those cases through a
+    non-canonical case. Commits every 5,000 merges."""
     ensure_table(conn)
-    n = {"applied": 0, "already": 0, "stale": 0}
+    n = {"applied": 0, "already": 0, "stale": 0, "target": 0}
     for winner, loser, score in pairs:
         if conn.execute("SELECT 1 FROM parallel_reports WHERE loser=?", (loser,)).fetchone():
             n["already"] += 1
@@ -146,6 +148,9 @@ def apply_merges(conn, pairs: Iterable[tuple[int, int, float]], *, method: str, 
         if winner not in marks or loser not in marks or marks[winner] is not None \
                 or marks[loser] is not None:
             n["stale"] += 1
+            continue
+        if conn.execute("SELECT 1 FROM cases WHERE is_duplicate_of=? LIMIT 1", (loser,)).fetchone():
+            n["target"] += 1
             continue
         conn.execute("UPDATE cases SET is_duplicate_of=? WHERE case_id=? AND is_duplicate_of IS NULL",
                      (winner, loser))

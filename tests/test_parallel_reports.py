@@ -77,11 +77,11 @@ def test_apply_is_idempotent_and_skips_a_stale_winner(conn):
     for cid, rep in ((1, "nys"), (2, "misc"), (3, "nys"), (4, "misc"), (5, "ad")):
         _case(conn, cid, reporter=rep)
     res = par.apply_merges(conn, [(1, 2, 0.9), (3, 4, 0.8), (4, 5, 0.7)], method="m", run_id="r", ts="t")
-    assert res == {"applied": 2, "already": 0, "stale": 1}       # 4 became a loser first: no chain
+    assert res == {"applied": 2, "already": 0, "stale": 1, "target": 0}       # 4 became a loser first: no chain
     marks = dict(conn.execute("SELECT case_id, is_duplicate_of FROM cases"))
     assert marks == {1: None, 2: 1, 3: None, 4: 3, 5: None}
     again = par.apply_merges(conn, [(1, 2, 0.9), (3, 4, 0.8)], method="m", run_id="r", ts="t")
-    assert again == {"applied": 0, "already": 2, "stale": 0}
+    assert again == {"applied": 0, "already": 2, "stale": 0, "target": 0}
 
 
 def test_undo_restores_exactly_and_leaves_citation_based_marks(conn):
@@ -96,6 +96,20 @@ def test_undo_restores_exactly_and_leaves_citation_based_marks(conn):
     marks = dict(conn.execute("SELECT case_id, is_duplicate_of FROM cases"))
     assert marks == {1: None, 2: None, 8: None, 9: 8}
     assert par.winner_map(conn) == {}
+
+
+def test_apply_never_merges_a_loser_other_cases_point_at(conn):
+    _case(conn, 1, reporter="nys")
+    _case(conn, 2, reporter="misc")
+    _case(conn, 3, reporter="ad", dup=2)                              # dedupe.py made 3 a copy of 2
+    _case(conn, 4, reporter="hun")
+    res = par.apply_merges(conn, [(1, 2, 0.9)], method="m", run_id="r", ts="t")
+    assert res == {"applied": 0, "already": 0, "stale": 0, "target": 1}
+    par.apply_merges(conn, [(4, 1, 0.9)], method="m", run_id="r", ts="t")   # 1 -> 4 recorded
+    marks = dict(conn.execute("SELECT case_id, is_duplicate_of FROM cases"))
+    assert marks == {1: 4, 2: None, 3: 2, 4: None}
+    res = par.apply_merges(conn, [(2, 4, 0.9)], method="m2", run_id="r", ts="t")
+    assert res["target"] == 1 and dict(conn.execute("SELECT case_id, is_duplicate_of FROM cases"))[4] is None
 
 
 def test_winner_map_without_the_table_is_empty(conn):
