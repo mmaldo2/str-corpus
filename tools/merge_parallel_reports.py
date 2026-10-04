@@ -180,7 +180,8 @@ def cmd_apply(a) -> int:
     conn = store.connect(Path(a.db))
     res = par.apply_merges(conn, [(r["winner"], r["loser"], r[m]) for r in rows],
                            method=ch["method"], run_id=a.run_id,
-                           ts=time.strftime("%Y-%m-%dT%H:%M:%S"))
+                           ts=time.strftime("%Y-%m-%dT%H:%M:%S"),
+                           log=lambda s: print(s, flush=True))
     print(f"applied {res['applied']}, already merged {res['already']}, stale {res['stale']}, "
           f"skipped (other cases point at the loser) {res['target']}")
     with (out / "merges.jsonl").open("w", encoding="utf-8", newline="\n") as f:

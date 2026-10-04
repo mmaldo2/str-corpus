@@ -112,5 +112,13 @@ def test_apply_never_merges_a_loser_other_cases_point_at(conn):
     assert res["target"] == 1 and dict(conn.execute("SELECT case_id, is_duplicate_of FROM cases"))[4] is None
 
 
+def test_apply_tracks_targets_made_earlier_in_the_same_run(conn):
+    for cid, rep in ((1, "nys"), (2, "misc"), (3, "ad")):
+        _case(conn, cid, reporter=rep)
+    res = par.apply_merges(conn, [(1, 2, 0.9), (3, 1, 0.8)], method="m", run_id="r", ts="t")
+    assert res == {"applied": 1, "already": 0, "stale": 0, "target": 1}
+    assert dict(conn.execute("SELECT case_id, is_duplicate_of FROM cases")) == {1: None, 2: 1, 3: None}
+
+
 def test_winner_map_without_the_table_is_empty(conn):
     assert par.winner_map(conn) == {}

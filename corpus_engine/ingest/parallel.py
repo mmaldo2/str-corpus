@@ -131,14 +131,18 @@ def ensure_table(conn) -> None:
 
 
 def apply_merges(conn, pairs: Iterable[tuple[int, int, float]], *, method: str, run_id: str,
-                 ts: str) -> dict:
+                 ts: str, log=None) -> dict:
     """Mark each loser `is_duplicate_of` its winner and record the merge. A loser already
     recorded is skipped (a re-run); a pair whose winner or loser is no longer canonical is
     skipped as stale, which also stops a chain inside one run. A loser that other cases already
-    point at is skipped as "target", because merging it would chain those cases through a
-    non-canonical case. Commits every 5,000 merges."""
+    point at is skipped as "target" (merging it would chain them through a non-canonical case);
+    the target set is read once per run - the column sits behind the opinion text, so a per-pair
+    lookup would re-read the table - and kept current as merges land. Calls `log(msg)` (if given)
+    at each 5,000-merge commit for progress tracking."""
     ensure_table(conn)
     n = {"applied": 0, "already": 0, "stale": 0, "target": 0}
+    targets = {int(r[0]) for r in conn.execute(
+        "SELECT DISTINCT is_duplicate_of FROM cases WHERE is_duplicate_of IS NOT NULL")}
     for winner, loser, score in pairs:
         if conn.execute("SELECT 1 FROM parallel_reports WHERE loser=?", (loser,)).fetchone():
             n["already"] += 1
@@ -149,16 +153,19 @@ def apply_merges(conn, pairs: Iterable[tuple[int, int, float]], *, method: str, 
                 or marks[loser] is not None:
             n["stale"] += 1
             continue
-        if conn.execute("SELECT 1 FROM cases WHERE is_duplicate_of=? LIMIT 1", (loser,)).fetchone():
+        if loser in targets:
             n["target"] += 1
             continue
         conn.execute("UPDATE cases SET is_duplicate_of=? WHERE case_id=? AND is_duplicate_of IS NULL",
                      (winner, loser))
         conn.execute("INSERT INTO parallel_reports (loser, winner, score, method, run_id, ts) "
                      "VALUES (?,?,?,?,?,?)", (loser, winner, score, method, run_id, ts))
+        targets.add(winner)
         n["applied"] += 1
         if n["applied"] % 5000 == 0:
             conn.commit()
+            if log:
+                log(f"{n['applied']} merged so far: {n}")
     conn.commit()
     return n
 
