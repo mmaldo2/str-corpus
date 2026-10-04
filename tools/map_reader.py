@@ -35,8 +35,9 @@ sys.path.insert(0, str(ROOT))
 
 from corpus_engine import store                                                     # noqa: E402
 from corpus_engine.domain import load_domain                                        # noqa: E402
+from corpus_engine.ingest.parallel import losers_among  # noqa: E402
 from corpus_engine.mapper.admit import unanswered_cases                              # noqa: E402
-from corpus_engine.mapper.cells import (DEPTH_COLUMNS, BatchSource,                 # noqa: E402
+from corpus_engine.mapper.cells import (BATCH_GLOB, DEPTH_COLUMNS, BatchSource,     # noqa: E402
                                         build_budget_cells, build_cells,
                                         global_batch_order, load_batches, select_cells,
                                         floor_batches, read_batch_ids, walk_order)
@@ -117,6 +118,15 @@ def build_parser() -> argparse.ArgumentParser:
                          "constructs no provider of any kind.")
     ap.add_argument("--screen-max-usd", type=float, default=5.0)
     return ap
+
+
+def _marked_duplicates(conn, batches_dir: Path) -> list[int]:
+    """Cases in the run's packed batches that are now marked duplicates (spec 2026-10-04
+    section 6.7). Admission re-derives every batch from its file, so they are not filtered
+    out at read time; the run is re-packed instead."""
+    ids = {int(c["case_id"]) for p in sorted(batches_dir.glob(BATCH_GLOB))
+           for c in json.loads(p.read_text(encoding="utf-8")).get("cases") or ()}
+    return sorted(losers_among(conn, ids))
 
 
 def main(argv=None) -> int:
@@ -223,6 +233,11 @@ def main(argv=None) -> int:
         sys.exit("codex cli not available; the checker sample is part of the map (D5)")
 
     conn = store.connect(ROOT / "data" / "db" / "corpus.db")
+    stale = _marked_duplicates(conn, batches_dir)
+    if stale:
+        sys.exit(f"{len(stale)} cases in {batches_dir} are now marked duplicates of another case "
+                 f"(first {stale[:5]}); re-pack the run with pipeline/rank.py (README: cycle map) "
+                 "before reading it")
     cache = ResponseCache(ROOT / "data" / "reader" / "cache")   # re-read: --retry-lost above
     source = StoreCaseSource(conn)
     # A retry's own ceiling is the units it planned: it reads exactly the batches it wrote,

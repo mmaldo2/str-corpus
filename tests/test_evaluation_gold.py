@@ -124,3 +124,13 @@ def test_a_machine_relevant_false_patch_is_reader_negative_not_withdrawn():
     lost = {m.case_id: m.lost_at for m in g.misses}
     assert lost[1] == "reader-negative"
     assert lost[2] == "withdrawn"
+
+
+def test_follow_merges_scores_a_gold_case_at_its_winner():
+    from corpus_engine.evaluation.gold import follow_merges
+    rows = [{"case_id": 2, "tier": "treatise"}, {"case_id": 1, "tier": "treatise"},
+            {"cite_norm": "x"}]
+    out = follow_merges(rows, {2: 1})
+    assert out[0] == {"case_id": 1, "tier": "treatise", "merged_from": 2}
+    assert out[1] == {"case_id": 1, "tier": "treatise"} and out[2] == {"cite_norm": "x"}
+    assert rows[0]["case_id"] == 2                       # the caller's rows are not edited

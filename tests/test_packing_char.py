@@ -20,7 +20,15 @@ def test_pack_batches_reproduces_cycle_003_byte_for_byte(repo_root, golden_dir, 
         if k.startswith(params["run_id"] + "/")
         and re.fullmatch(r"batch-\d{3}\.json", k.split("/")[1])
     }
-    conn = sqlite3.connect(repo_root / "tests/fixtures/cycle-003-signals.db")
+    # The frozen fixture holds only `signals`; batch building now joins `cases` to leave out
+    # marked duplicates, so the test copies it to memory and adds a `cases` table with no
+    # duplicates (the fixture file itself stays byte-identical).
+    src = sqlite3.connect(repo_root / "tests/fixtures/cycle-003-signals.db")
+    conn = sqlite3.connect(":memory:")
+    src.backup(conn)
+    src.close()
+    conn.execute("CREATE TABLE cases (case_id INTEGER PRIMARY KEY, is_duplicate_of INTEGER)")
+    conn.execute("INSERT INTO cases (case_id) SELECT DISTINCT case_id FROM signals")
     exclude = set(json.loads((repo_root / "tests/fixtures/cycle-003-already-read.json").read_text())) if params["exclude_mapped"] else set()
     n = pack_batches(conn, params["run_id"], tmp_path, gold_ids=_gold_ids(repo_root),
                      exclude_ids=exclude, batch_size=params["batch_size"])

@@ -412,3 +412,18 @@ def test_the_parser_carries_the_budget_flag():
     assert "--case-budget" in {a for action in ap._actions for a in action.option_strings}
     assert ap.parse_args([]).case_budget is None
     assert ap.parse_args([]).cell_floor == 0
+
+
+def test_a_pool_holding_a_merged_duplicate_is_refused_before_any_read(wired):
+    import sqlite3
+    pool = wired["root"] / "runs" / RUN_ID / "batches"
+    cases = json.loads((pool / "batch-001.json").read_text(encoding="utf-8"))["cases"]
+    loser, winner = int(cases[0]["case_id"]), int(cases[1]["case_id"])
+    conn = sqlite3.connect(wired["root"] / "data" / "db" / "corpus.db")
+    conn.execute("UPDATE cases SET is_duplicate_of=? WHERE case_id=?", (winner, loser))
+    conn.commit()
+    conn.close()
+    with pytest.raises(SystemExit) as exc:
+        mr.main(["--sample-pct", "0"])
+    assert "marked duplicates" in str(exc.value) and str(loser) in str(exc.value)
+    assert not Path(wired["manifest"]).exists()

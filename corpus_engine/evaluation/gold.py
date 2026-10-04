@@ -59,6 +59,21 @@ def _dedupe(rows: Sequence[Mapping]) -> list[dict]:
     return out
 
 
+def follow_merges(rows: Sequence[Mapping], winner_of: Mapping[int, int]) -> list[dict]:
+    """A gold row whose case was merged into a parallel report is scored at the winner
+    (spec 2026-10-04 section 6.7); `merged_from` keeps the id the gold file names. `_dedupe`
+    then collapses two gold rows that name two copies of one decision."""
+    out = []
+    for r in rows:
+        d = dict(r)
+        cid = d.get("case_id")
+        if cid is not None and int(cid) in winner_of:
+            d["merged_from"] = int(cid)
+            d["case_id"] = winner_of[int(cid)]
+        out.append(d)
+    return out
+
+
 def _lost_at(cid: int, view, signaled, read_units) -> tuple[str, str]:
     if not signaled.get(cid):
         return "unsignaled", "no selector or ranker signal"

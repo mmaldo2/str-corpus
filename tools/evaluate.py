@@ -19,7 +19,7 @@ from export_review_cards import write_text                     # noqa: E402
 from corpus_engine.domain import load_domain                   # noqa: E402
 from corpus_engine.ledger import open_ledger                   # noqa: E402
 from corpus_engine.evaluation import contract, render, summary  # noqa: E402
-from corpus_engine.evaluation.gold import gold_recovery, READ_FAILED  # noqa: E402
+from corpus_engine.evaluation.gold import follow_merges, gold_recovery, READ_FAILED  # noqa: E402
 from corpus_engine.evaluation.precision import precision_and_accuracy  # noqa: E402
 from corpus_engine.evaluation.agreement import agreement       # noqa: E402
 from corpus_engine.evaluation.coverage import tail_coverage    # noqa: E402
@@ -123,13 +123,17 @@ def compute(a) -> dict:
     dom = load_domain(); led = open_ledger(domain=dom); view = led.view()
     reporting_seq = led.log.head(); content = summary.ledger_content_sha256(led.dir)
     gold_rows = [json.loads(l) for l in (ROOT / "data" / "gold" / "gold.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
+    if not a.no_store:
+        from corpus_engine import store
+        from corpus_engine.ingest.parallel import winner_map
+        conn = store.connect()
+        gold_rows = follow_merges(gold_rows, winner_map(conn))
     ids = [int(g["case_id"]) for g in gold_rows if g.get("case_id")]
     if a.no_store:
         signaled = {cid: True for cid in ids}
     else:
-        from corpus_engine import store
         from corpus_engine.selector.engine import attribution
-        signaled = {cid: bool(refs) for cid, refs in attribution(store.connect(), ids).items()}
+        signaled = {cid: bool(refs) for cid, refs in attribution(conn, ids).items()}
     registry = json.loads(Path(a.rounds).read_text(encoding="utf-8"))
     files, hashes = load_registry_files(registry, ROOT)
     gold_path = ROOT / "data" / "gold" / "gold.jsonl"

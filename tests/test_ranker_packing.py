@@ -1,4 +1,5 @@
 import json
+from corpus_engine import store
 from corpus_engine.selector.packing import build_batches, pack_batches
 from corpus_engine.ranker.ports import NullRanker
 from tests.helpers.ranker_fixture import make_ranker_db
@@ -68,3 +69,17 @@ def test_restrict_ids_narrows_the_pool_before_the_exclusion(tmp_path, fixture_db
     packed = {c["case_id"] for b in build_batches(conn, "r", gold_ids=set(), exclude_ids=drop,
                                                   restrict_ids=keep) for c in b["cases"]}
     assert packed == keep - drop          # restriction and exclusion compose
+
+
+def test_build_batches_leaves_out_a_case_marked_duplicate(tmp_path):
+    conn = store.connect(tmp_path / "c.db")
+    store.ensure_schema(conn)
+    for cid in (1, 2, 3):
+        conn.execute("INSERT INTO cases (case_id, era_partition, jurisdiction, is_duplicate_of) "
+                     "VALUES (?,?,?,?)", (cid, "1900-1930", "N.Y.", 1 if cid == 2 else None))
+        conn.execute("INSERT INTO signals (case_id, selector_id, selector_version, era_partition, "
+                     "jurisdiction, run_id) VALUES (?,?,?,?,?,?)",
+                     (cid, "s", 1, "1900-1930", "N.Y.", "r"))
+    conn.commit()
+    batches = build_batches(conn, "r", gold_ids=set(), exclude_ids=set())
+    assert [c["case_id"] for b in batches for c in b["cases"]] == [1, 3]
