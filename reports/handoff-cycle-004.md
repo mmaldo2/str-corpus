@@ -295,7 +295,7 @@ Before the Gluck work (Cam's thirteen questions). Spec
   refused. The content hash was unchanged by the split (b84796f0).
 - **Parallel reports.** 68,962 second copies merged at `c5 >= 0.5` (method
   `parallel-v1:w5:0.5`) after a blind calibration of 250 pairs (236 same, 14 different, all
-  14 below 0.484; 0.5-0.6 band 75/75 same). 2,911 more were skipped because other cases
+  the 14 different pairs all scored at or below 0.484, under the 0.5 threshold; 0.5-0.6 band 75/75 same). 2,911 more were skipped because other cases
   already point at the loser (no chains). Canonical cases 1,874,141 -> 1,805,179.
 - **Ledger.** 92 copies take `duplicate_of` and leave the counts: relevant 4,351 -> 4,259
   (1,477 human-reviewed / 2,782 machine-only), favorable 1,954 -> 1,906, favorable
@@ -306,9 +306,22 @@ Before the Gluck work (Cam's thirteen questions). Spec
   two copies of one opinion were read differently on relevance (three where the user withdrew
   one copy and its twin is still counted: 67 N.Y. Sup. Ct. 125 / 38 N.Y. St. Rep. 782,
   124 A.D. 328 / 108 N.Y.S. 894, 68 Tex. Crim. 56 / 150 S.W. 890), and 3 where both copies
-  carry different human values (double-counted until decided).
-- **Carry-forwards.** Re-pack `cycle-004-shard-02` (`pipeline/rank.py`) before reading its
-  tail: `map_reader` refuses a pool holding a merged copy. `pipeline/build_gold.py` must
+  carry different human values. After the final-review fix, relevance-disagreement groups
+  count once (other relevant copies are patched); the 3 human-value groups count each copy
+  until decided (4 extra records: 2211876, 7664513, 694753, 4303017).
+- **Carry-forwards.** `cycle-004-shard-02` has a map-manifest and is never re-packed in
+  place: pack its unread tail into a NEW run with `pipeline\rank.py --run-id <new-run>
+  --from-run cycle-004-shard-02` (already-read cases are excluded by default), because
+  `map_reader` refuses a pool holding a merged copy. Checkpoint 2 cautions: the gitignored
+  explainer `reports/explainer/script.md` cites `data/ledger/patches.jsonl` (now segments); its
+  "a decision printed in two reporters can appear twice" sentence is now mostly untrue; the
+  Jacobs visual's 98 N.Y. 98 (558002) was merged into 2 N.Y. Crim. 539 (1167707). Case tables
+  for the attorney must show the official and parallel cites (from `parallel_reports` and
+  `citations`), because the ledger keeps the ledger copy even when it is the unofficial
+  reporter (e.g. Jacobs kept as 2 N.Y. Crim. 539, Oliver v. Moore as 25 N.Y. St. Rep. 37).
+  Parked: `corpus_engine/ingest/dedupe.py` never checks its winner is canonical, so a future
+  ingest could chain onto a merged loser; resolve to the canonical root before the next
+  ingest. `pipeline/build_gold.py` must
   follow `is_duplicate_of` before any gold rebuild. The `keep` provenance gap moves to the
   codebook-v4 work; KWIC proximity and a per-jurisdiction frequency filter to the ledger-answers
   work (also check `kwic.py freq`: "lodger" returns only 44-114 cases per era). The explainer's

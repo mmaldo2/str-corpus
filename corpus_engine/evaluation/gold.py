@@ -5,7 +5,7 @@ from typing import Mapping, Sequence
 from corpus_engine.evaluation.stats import estimate
 from corpus_engine.evaluation.types import Envelope, Uncertainty, Provenance, Estimate
 
-METHOD_VERSION = "gold-recovery-1"
+METHOD_VERSION = "gold-recovery-2"
 READ_FAILED = "read-failed"          # the read_units value for a case whose unit failed
 GOLD_PATH = "data/gold/gold.jsonl"
 
@@ -137,6 +137,7 @@ def gold_recovery(gold_rows: Sequence[Mapping], view, *, signaled: Mapping[int, 
          "unresolved cites are an ingest coverage gap, listed but outside the recovery denominator"),
         Uncertainty("sampling", 0.95, "wilson"),
         ("Recovery is cumulative across every map run; a per-run column names the run that first carried each hit.",
-         "The gold set is a benchmark, not a random sample of the population of letting cases."),
+         "The gold set is a benchmark, not a random sample of the population of letting cases.",
+         "A gold case whose corpus copy was merged as a parallel report is scored at the merge winner."),
         Provenance(inputs=((GOLD_PATH, (hashes or {}).get(GOLD_PATH, ""), "gold"),)))
     return GoldRecovery(env, tiers, union, tuple(misses), unresolved, inventory)

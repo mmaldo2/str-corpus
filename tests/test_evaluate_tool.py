@@ -126,3 +126,11 @@ def test_live_smoke_validates_and_renders(tmp_path):
     md = render.markdown(doc)
     assert "## Headline" in md and doc["ledger"]["counts"]["relevant"]["human_reviewed"] > 0
     assert doc["precision"]["precision"]["status"] in ("ok", "unavailable")
+
+
+def test_merges_from_file_reads_loser_to_winner_and_tolerates_a_missing_file(tmp_path):
+    f = tmp_path / "merges.jsonl"
+    f.write_text('{"loser": 5, "winner": 2, "score": 0.9, "method": "m"}\n\n'
+                 '{"loser": 7, "winner": 3, "score": 0.8, "method": "m"}\n', encoding="utf-8")
+    assert ev.merges_from_file(f) == {5: 2, 7: 3}
+    assert ev.merges_from_file(tmp_path / "none.jsonl") == {}

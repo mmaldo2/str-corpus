@@ -144,6 +144,7 @@ def test_score_sample_apply_reconcile_undo_end_to_end(tmp_path, capsys):
 
     assert mpr.main(common + ["undo", "--method", "parallel-v1:w5:0.6"]) == 0
     assert _duplicates(db) == {}
+    assert (out / "merges.jsonl").read_text(encoding="utf-8").splitlines() == []
 
 
 def test_apply_merges_nothing_outside_the_sampled_region(tmp_path, capsys):

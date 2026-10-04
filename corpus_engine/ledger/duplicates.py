@@ -33,9 +33,12 @@ class Reconciled:
 def reconcile(view, merges: Mapping[int, int], *, run_id: str,
               judged: Sequence[str]) -> Reconciled:
     """`merges` is loser -> winner from the corpus. For each group with two or more ledger
-    records: a `relevant` disagreement, or a human-set judged value on another relevant copy
-    that differs from the winner's, puts the group on the user's list and patches nothing;
-    otherwise every other relevant copy gets `duplicate_of = winner`. Idempotent."""
+    records: a human-set judged value on another relevant copy that differs from the winner's
+    puts the group on the user's list and patches nothing (that copy stays counted until
+    decided). A `relevant` disagreement also goes on the user's list (reason "relevant"), but
+    still takes every OTHER relevant copy out of the count with `duplicate_of = winner`,
+    provided the winner is itself relevant and the copy holds no differing human value.
+    Otherwise every other relevant copy gets `duplicate_of = winner`. Idempotent."""
     groups: dict[int, list[int]] = defaultdict(list)
     for loser, winner in merges.items():
         groups[int(winner)].append(int(loser))
@@ -47,10 +50,12 @@ def reconcile(view, merges: Mapping[int, int], *, run_id: str,
             continue
         readings = {c: recs[c].get("relevant") for c in in_ledger
                     if recs[c].get("relevant") is not None}
-        if True in readings.values() and False in readings.values():
+        disagree = True in readings.values() and False in readings.values()
+        if disagree:
             out.for_user.append({"winner": winner, "members": in_ledger, "reason": "relevant",
                                  "detail": {str(c): v for c, v in readings.items()}})
-            continue
+            if readings.get(winner) is not True:
+                continue
         counted = [c for c in in_ledger if readings.get(c) is True]
         if len(counted) < 2:
             continue
@@ -66,12 +71,12 @@ def reconcile(view, merges: Mapping[int, int], *, run_id: str,
                       if prov.get(f) == "human" and recs[c].get(f) != recs[winner].get(f)]
             if fields:
                 diffs[str(c)] = {f: [recs[c].get(f), recs[winner].get(f)] for f in fields}
-        if diffs:
+        if diffs and not disagree:
             out.for_user.append({"winner": winner, "members": in_ledger,
                                  "reason": "human-value", "detail": diffs})
             continue
         for c in others:
-            if recs[c].get(DUPLICATE_FIELD) == winner:
+            if str(c) in diffs or recs[c].get(DUPLICATE_FIELD) == winner:
                 continue
             out.patches.append(Patch(c, "set", DUPLICATE_FIELD, winner,
                                      f"parallel report of {winner}: one decision, counted once",

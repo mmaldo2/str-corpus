@@ -99,3 +99,18 @@ def test_the_queue_the_audit_frame_and_the_drift_check_treat_a_copy_right(tmp_pa
     manifest = {"records": [{"case_id": 2, "record": {k: _rec(2)[k] for k in
                                                        ("relevant", "polarity", "who_was_letting")}}]}
     assert amr.drift_check(manifest, v.state.records) == []
+
+
+def test_a_relevance_disagreement_group_still_patches_the_other_relevant_copy(tmp_path):
+    led = _ledger(tmp_path, [_rec(1), _rec(2), _rec(3, relevant=False)])
+    res = reconcile(led.view(), {2: 1, 3: 1}, run_id="merge-x", judged=_judged())
+    assert [(p.case_id, p.field, p.new) for p in res.patches] == [(2, DUPLICATE_FIELD, 1)]
+    assert [(u["winner"], u["reason"]) for u in res.for_user] == [(1, "relevant")]
+
+
+def test_a_relevance_disagreement_group_leaves_a_differing_human_value_copy_counted(tmp_path):
+    led = _ledger(tmp_path, [_rec(1), _rec(2), _rec(3, relevant=False)])
+    led.apply([Patch(2, "set", "polarity", "adverse", "user", USER)], note="review")
+    res = reconcile(led.view(), {2: 1, 3: 1}, run_id="merge-x", judged=_judged())
+    assert res.patches == []
+    assert [(u["winner"], u["reason"]) for u in res.for_user] == [(1, "relevant")]

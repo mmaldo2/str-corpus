@@ -123,3 +123,31 @@ def test_main_refuses_decisions_outside_sample_manifest(tmp_path, monkeypatch):
     with pytest.raises(SystemExit) as e:
         ap.main()
     assert "outside the sample" in str(e.value.code)
+
+
+def test_mirror_to_keepers_copies_only_entries_of_merged_copies():
+    records = {1: _rec(1, duplicate_of=9), 2: _rec(2)}
+    entries = [_entry(1, "relevant", True), _entry(1, "polarity", "favorable"), _entry(2, "relevant", True)]
+    mirrored, pairs = ap.mirror_to_keepers(entries, records)
+    assert pairs == [(1, 9)]
+    assert [(e["case_id"], e["field"]) for e in mirrored] == [(9, "relevant"), (9, "polarity")]
+    assert all(e["decision"] == "set" for e in mirrored)
+    assert ap.mirror_to_keepers([_entry(2, "relevant", True)], records) == ([], [])
+
+
+def test_audit_patches_on_entries_plus_mirror_reach_copy_and_keeper(tmp_path):
+    dom = load_domain(); led = real_open_ledger(tmp_path / "ledger", domain=dom)
+    recs = [_rec(1), _rec(2), _rec(9), _rec(10)]
+    led.apply([Patch(r["case_id"], "admit", "", r, "seed", Basis(model="m", prompt_version="v", run_id="seed"), cycle="cycle-004") for r in recs], note="seed")
+    records = dict(real_open_ledger(tmp_path / "ledger", domain=dom).view().state.records)
+    records[1] = dict(records[1], duplicate_of=9); records[2] = dict(records[2], duplicate_of=10)
+    entries = [_entry(1, "relevant", True), _entry(1, "polarity", "adverse", initial="favorable", reason="r"),
+               _entry(1, "who_was_letting", "householder"), _entry(2, "relevant", False)]
+    mirrored, pairs = ap.mirror_to_keepers(entries, records)
+    patches = ap.audit_patches(entries + mirrored, records, "mmaldo2", run_id="audit-cycle-004")
+    sets = [(p.case_id, p.field, p.new) for p in patches if p.op == "set"]
+    for cid in (1, 9):
+        assert (cid, "relevant", True) in sets and (cid, "polarity", "adverse") in sets
+        assert (cid, "who_was_letting", "householder") in sets
+    for cid in (2, 10):
+        assert (cid, "relevant", False) in sets and (cid, "polarity", None) in sets

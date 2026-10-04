@@ -236,8 +236,10 @@ def main(argv=None) -> int:
     stale = _marked_duplicates(conn, batches_dir)
     if stale:
         sys.exit(f"{len(stale)} cases in {batches_dir} are now marked duplicates of another case "
-                 f"(first {stale[:5]}); re-pack the run with pipeline/rank.py (README: cycle map) "
-                 "before reading it")
+                 f"(first {stale[:5]}); pack the unread tail into a NEW run with "
+                 f"`pipeline\\rank.py --run-id <new-run> --from-run {a.run_id}` (already-read cases "
+                 "are excluded by default) and read that run; never re-pack a run that has a "
+                 "map-manifest in place")
     cache = ResponseCache(ROOT / "data" / "reader" / "cache")   # re-read: --retry-lost above
     source = StoreCaseSource(conn)
     # A retry's own ceiling is the units it planned: it reads exactly the batches it wrote,

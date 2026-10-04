@@ -119,6 +119,15 @@ def read_units(root: Path, view) -> dict[int, str]:
     return out
 
 
+def merges_from_file(path: Path) -> dict[int, int]:
+    """loser -> winner from `runs/parallel-reports/merges.jsonl`, for `--no-store` (no corpus
+    to ask); empty when the file does not exist."""
+    if not path.exists():
+        return {}
+    rows = (json.loads(l) for l in path.read_text(encoding="utf-8").splitlines() if l.strip())
+    return {int(r["loser"]): int(r["winner"]) for r in rows}
+
+
 def compute(a) -> dict:
     dom = load_domain(); led = open_ledger(domain=dom); view = led.view()
     reporting_seq = led.log.head(); content = summary.ledger_content_sha256(led.dir)
@@ -128,6 +137,9 @@ def compute(a) -> dict:
         from corpus_engine.ingest.parallel import winner_map
         conn = store.connect()
         gold_rows = follow_merges(gold_rows, winner_map(conn))
+    else:
+        gold_rows = follow_merges(gold_rows, merges_from_file(
+            ROOT / "runs" / "parallel-reports" / "merges.jsonl"))
     ids = [int(g["case_id"]) for g in gold_rows if g.get("case_id")]
     if a.no_store:
         signaled = {cid: True for cid in ids}

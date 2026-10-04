@@ -86,3 +86,14 @@ def test_a_ledger_applies_through_segments(tmp_path):
     assert (tmp_path / "patches" / "0001.jsonl").exists()
     assert not (tmp_path / "patches.jsonl").exists()
     assert led.log.head() == 1
+
+
+def test_a_seq_gap_between_segments_is_refused(tmp_path):
+    log = PatchLog(tmp_path / "patches")
+    log.append([_p(1), _p(2)])
+    seg2 = tmp_path / "patches" / "0002.jsonl"
+    late = log.read()[-1]
+    from dataclasses import replace
+    seg2.write_text(json.dumps(replace(late, seq=5).to_json()) + "\n", encoding="utf-8")
+    with pytest.raises(LedgerError, match=r"seq 3 is missing.*0001\.jsonl.*0002\.jsonl"):
+        log.read()

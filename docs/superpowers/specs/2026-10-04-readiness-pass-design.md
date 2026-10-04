@@ -248,7 +248,9 @@ calibration sample, not by reading every pair.
   cite that names a losing copy would not resolve. `gold.jsonl` is frozen and not rebuilt
   here; make the lookup follow `is_duplicate_of` before any gold rebuild.
 - The groups on the reconcile's user list are decided in a later review round (a `relevant`
-  disagreement does not double-count; a human-value disagreement does until decided).
+  disagreement counts once after the 2026-10-04 final-review fix, which still patches every
+  other relevant copy; the 3 human-value groups count each copy until decided, 4 extra
+  records: 2211876, 7664513, 694753, 4303017).
 - Deleting `.venv-hermes` (after the first successful run).
 
 ## 10. As built (2026-10-04)
@@ -264,7 +266,7 @@ Branch `readiness/pre-gluck`; suite 847 passed + 1 xfail (812 + 1 at the start).
   16,826, size 12,302, length 1,538 fail). Blind calibration: 200 stratified pairs plus 50 from
   the 0.5-0.6 band at the user's request (25 Tex. Crim. App., 25 other courts): 236 same, 14
   different (9 Texas companion appeals, the rest New York motion/reargument pairs), 0 unsure;
-  the highest different scored c5 0.484. Threshold c5 >= 0.5 (user's choice), method
+  the 14 different pairs all scored at or below 0.484, under the 0.5 threshold. Threshold c5 >= 0.5 (user's choice), method
   `parallel-v1:w5:0.5`: 68,962 applied, 2,911 skipped as targets, 0 stale. Canonical cases
   1,874,141 -> 1,805,179.
 - Ledger: 92 `duplicate_of` patches (seq 83,532-83,623); relevant 4,351 -> 4,259 (1,477 / 2,782),

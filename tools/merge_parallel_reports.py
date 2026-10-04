@@ -164,6 +164,15 @@ def _choice(out: Path) -> dict:
     return cal["choice"]
 
 
+def _write_merges(conn, out: Path) -> None:
+    """merges.jsonl mirrors every row of `parallel_reports` (all methods), so it never goes stale."""
+    with (out / "merges.jsonl").open("w", encoding="utf-8", newline="\n") as f:
+        for loser, winner, score, method in conn.execute(
+                "SELECT loser, winner, score, method FROM parallel_reports ORDER BY loser"):
+            f.write(json.dumps({"loser": loser, "winner": winner, "score": score,
+                                "method": method}) + "\n")
+
+
 def cmd_apply(a) -> int:
     out = Path(a.out_dir)
     ch = _choice(out)
@@ -184,17 +193,14 @@ def cmd_apply(a) -> int:
                            log=lambda s: print(s, flush=True))
     print(f"applied {res['applied']}, already merged {res['already']}, stale {res['stale']}, "
           f"skipped (other cases point at the loser) {res['target']}")
-    with (out / "merges.jsonl").open("w", encoding="utf-8", newline="\n") as f:
-        for loser, winner, score, method in conn.execute(
-                "SELECT loser, winner, score, method FROM parallel_reports WHERE method=? "
-                "ORDER BY loser", (ch["method"],)):
-            f.write(json.dumps({"loser": loser, "winner": winner, "score": score,
-                                "method": method}) + "\n")
+    _write_merges(conn, out)
     return 0
 
 
 def cmd_undo(a) -> int:
-    n = par.undo_merges(store.connect(Path(a.db)), a.method)
+    conn = store.connect(Path(a.db))
+    n = par.undo_merges(conn, a.method)
+    _write_merges(conn, Path(a.out_dir))
     print(f"undid {n} merges of {a.method}; ledger duplicate_of patches, if any, still stand")
     return 0
 
@@ -220,6 +226,11 @@ def cmd_reconcile(a) -> int:
           f"-> {a.user_list}")
     if a.dry_run:
         return 0
+    trial_run = led.apply(res.patches, note="parallel-report merge: one decision, counted once",
+                          dry_run=True)
+    if trial_run.rejected:
+        sys.exit(f"reconcile: the ledger would refuse {len(trial_run.rejected)} writes; nothing "
+                 f"applied: {trial_run.rejected}")
     r = led.apply(res.patches, note="parallel-report merge: one decision, counted once")
     if r.rejected or not r.replay_ok:
         sys.exit(f"apply refused {len(r.rejected)} writes or the replay failed "

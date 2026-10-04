@@ -85,7 +85,14 @@ class PatchLog:
         for seg in self.segments():
             out += [Patch.from_json(json.loads(l))
                     for l in seg.read_text(encoding="utf-8").splitlines() if l.strip()]
-        return sorted(out, key=lambda p: p.seq)
+        out.sort(key=lambda p: p.seq)
+        for i, p in enumerate(out, start=1):
+            if p.seq != i:
+                kind = "repeated" if p.seq < i else "missing"
+                seq = p.seq if p.seq < i else i
+                raise LedgerError(f"patch log seq {seq} is {kind} (expected {i}, found {p.seq}); "
+                                  f"segments read: {[s.name for s in self.segments()]}")
+        return out
 
     def head(self) -> int:
         ps = self.read()

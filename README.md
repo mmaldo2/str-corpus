@@ -152,9 +152,12 @@ user's decisions on that round are pending.
 ```
 
 Merges live in corpus.db's `parallel_reports` table (`undo` clears exactly them) and in
-`runs\parallel-reports\merges.jsonl`; the ledger keeps one copy per decision and marks the
-others `duplicate_of`. A run packed before a merge must be re-packed (`pipeline\rank.py`)
-before `map_reader` will read it. First merge (2026-10-04): 68,962 copies at `c5 >= 0.5`
+`runs\parallel-reports\merges.jsonl`; the ledger counts one copy per decision, except groups
+awaiting review in `runs\parallel-reports\reconcile-for-user.json`, and marks the others
+`duplicate_of`. A run packed before a merge is not re-packed in place: pack its unread tail
+into a NEW run with `pipeline\rank.py --run-id <new-run> --from-run <this-run>` (already-read
+cases are excluded by default), and never re-pack a run that has a map-manifest.
+`map_reader` refuses a pool holding a merged copy. First merge (2026-10-04): 68,962 copies at `c5 >= 0.5`
 after a blind calibration of 250 pairs; canonical cases 1,874,141 -> 1,805,179.
 
 ## Layout

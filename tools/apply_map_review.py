@@ -579,6 +579,22 @@ def audit_patches(entries: Sequence[dict], records: Mapping[int, dict], reviewer
     return out
 
 
+def mirror_to_keepers(entries: Sequence[dict], records: Mapping[int, dict]
+                      ) -> tuple[list[dict], list[tuple[int, int]]]:
+    """A decision on a case whose record carries `duplicate_of` K (a parallel copy merged away)
+    is the same decision on K, the counted case: emit a copy of each such entry with
+    `case_id` K, and the sorted (copy, keeper) pairs. Entries on other cases are not mirrored."""
+    mirrored: list[dict] = []
+    pairs: set[tuple[int, int]] = set()
+    for e in entries:
+        cid = int(e["case_id"])
+        k = (records.get(cid) or {}).get("duplicate_of")
+        if isinstance(k, int) and not isinstance(k, bool):
+            mirrored.append({**e, "case_id": k})
+            pairs.add((cid, k))
+    return mirrored, sorted(pairs)
+
+
 def _vals(entries: Sequence[dict] | None, initial: bool = False):
     if entries is None:
         return None
@@ -703,8 +719,16 @@ def _main_audit(a, dom) -> int:
         sys.exit(f"run-id {a.run_id!r} already has patches in the ledger; a second apply would "
                  f"re-emit a fresh review.notes patch for every decision. Pass --force only if "
                  f"that is really what you want.")
-    patches = audit_patches(entries, head.state.records, dom.reviewer_default, run_id=a.run_id)
-    counts = {"decided": sum(1 for e in entries if e.get("field") == "relevant"
+    mirrored, pairs = mirror_to_keepers(entries, head.state.records)
+    patches = audit_patches(entries + mirrored, head.state.records, dom.reviewer_default, run_id=a.run_id)
+    tag = arr._label(a.run_id)
+    basis = Basis(reviewer=dom.reviewer_default, run_id=a.run_id)
+    for copy, keeper in pairs:
+        patches.append(Patch(keeper, "append", "review.notes",
+                             f"{tag}: decisions mirrored from the blind audit card of parallel copy {copy} "
+                             f"(same decision, another reporter)", f"{tag}: mirror", basis))
+    print("mirrored onto keepers: " + (", ".join(f"{c}->{k}" for c, k in pairs) or "none"), flush=True)
+    counts ={"decided": sum(1 for e in entries if e.get("field") == "relevant"
                              and e.get("decision") == "set"),
               "unresolved": sum(1 for e in entries if e.get("field") == "relevant"
                                 and e.get("decision") == "unresolved")}
