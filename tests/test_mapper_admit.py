@@ -396,7 +396,7 @@ def test_a_dry_run_writes_nothing_and_reports_the_counts_both_ways(tmp_path, man
     ps = patches_for(derive(manifest), manifest=manifest)
     res = led.apply(ps, note="cycle-004 map admission", dry_run=True)
     assert len(res.applied) == len(ps) and res.files_written == []
-    assert not (tmp_path / "ledger" / "patches.jsonl").exists()
+    assert not (tmp_path / "ledger" / "patches").exists()
     assert led.view().counts().total.machine_only == 0
 
 
@@ -506,7 +506,7 @@ def test_the_tool_applies_and_then_refuses_the_same_run_id_but_never_a_dry_run(a
                                                                                capsys):
     assert admit_map.main(_rehearsal_argv(tmp_path, fixture_dir, "--apply")) == 0
     assert "29 applied, 0 already present; replay_ok=True" in capsys.readouterr().out
-    assert (tmp_path / "ledger" / "patches.jsonl").exists()
+    assert (tmp_path / "ledger" / "patches" / "0001.jsonl").exists()
     with pytest.raises(SystemExit) as exc:
         admit_map.main(_rehearsal_argv(tmp_path, fixture_dir, "--apply"))
     assert "already has patches in the ledger" in str(exc.value)

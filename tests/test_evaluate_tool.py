@@ -118,7 +118,7 @@ def _u():
     return {"value": None, "n": 0, "lo": None, "hi": None, "status": "unavailable"}
 
 
-@pytest.mark.skipif(not (ROOT / "data" / "ledger" / "patches.jsonl").exists(), reason="no committed ledger here")
+@pytest.mark.skipif(not (ROOT / "data" / "ledger" / "patches").exists(), reason="no committed ledger here")
 def test_live_smoke_validates_and_renders(tmp_path):
     from corpus_engine.evaluation import contract, render
     doc = ev.compute(ev.build_parser().parse_args(["publish", "--out", str(tmp_path / "e"), "--no-store"]))

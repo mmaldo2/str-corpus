@@ -69,12 +69,12 @@ def test_migrate_appends_v2_fields_at_end():
     assert keys[-2:] == ["schema_version", "under_30_days"] or keys[-1] == "under_30_days"
 
 def test_patch_log_stamps_and_round_trips(tmp_path):
-    log = PatchLog(tmp_path / "patches.jsonl")
+    log = PatchLog(tmp_path / "patches")
     p = Patch(5, "set", "polarity", "adverse", "why", Basis(reviewer="m"))
     [stamped] = log.append([p])
     assert stamped.seq == 1 and stamped.patch_id == patch_id(p) and stamped.at
     assert log.read() == [stamped] and log.head() == 1
-    assert json.loads((tmp_path / "patches.jsonl").read_text().splitlines()[0])["seq"] == 1
+    assert json.loads((tmp_path / "patches" / "0001.jsonl").read_text().splitlines()[0])["seq"] == 1
 
 
 MAPPER_V3 = "mapper-v3:f92016681314"

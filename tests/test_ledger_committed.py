@@ -5,6 +5,7 @@ import subprocess
 import pytest
 
 from corpus_engine.ledger import open_ledger
+from corpus_engine.ledger.log import log_files
 from corpus_engine.domain import load_domain
 from corpus_engine.ledger.fold import (JUDGED_DEFAULT, PROTECTION_FROM_SEQ, apply_patch)
 from corpus_engine.ledger.types import UNSET, Basis, Patch
@@ -27,7 +28,7 @@ def test_the_rename_leaves_the_committed_counts_and_the_replay_untouched(repo_ro
     assert "under_30_days" not in dom.judged_fields
     assert "right_characterization" not in dom.judged_fields
     assert tuple(dom.judged_fields) == JUDGED_DEFAULT
-    log = (repo_root / "data" / "ledger" / "patches.jsonl").read_text(encoding="utf-8")
+    log = "".join(p.read_text(encoding="utf-8") for p in log_files(repo_root / "data" / "ledger"))
     assert "under_30_days" not in log and "right_characterization" not in log
     v = open_ledger(domain=dom).view()
     assert v.counts().total.human_reviewed + v.counts().total.machine_only == 4351   # 4363 after the leftovers were admitted; round 4 withdrew 12 (2026-09-12)

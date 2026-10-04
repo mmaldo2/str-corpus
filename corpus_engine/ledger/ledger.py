@@ -4,7 +4,7 @@ from dataclasses import dataclass, field, replace
 from pathlib import Path
 from corpus_engine.domain import Domain, load_domain
 from corpus_engine.ledger.fold import State, apply_patch
-from corpus_engine.ledger.log import PatchLog, patch_id, provisional_seqs
+from corpus_engine.ledger.log import SEGMENT_DIR, PatchLog, patch_id, provisional_seqs
 from corpus_engine.ledger.render import render_cycle
 from corpus_engine.ledger.types import Patch, SeedSet, StaleSnapshot, NotTraditionEvidence, LedgerError
 from corpus_engine.store import paths
@@ -138,7 +138,7 @@ class Ledger:
         self.dir = ledger_dir if name == "tradition" else ledger_dir / name
         self.name = name
         self.domain = domain
-        self.log = PatchLog(self.dir / "patches.jsonl")
+        self.log = PatchLog(self.dir / SEGMENT_DIR)
         self._views: dict[int | None, LedgerView] = {}
 
     def _replay(self, patches: list[Patch]) -> State:

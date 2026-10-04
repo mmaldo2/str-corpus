@@ -1,9 +1,38 @@
-"""Append-only patch log: data/ledger/patches.jsonl."""
+"""Append-only patch log, stored as numbered segments: data/ledger/patches/NNNN.jsonl.
+
+The log is one sequence of patches (seq 1..head). Each segment holds a contiguous seq range,
+segment n+1 starting where segment n ended, so the segments concatenated in name order are
+the log byte for byte - what `evaluation.summary.ledger_content_sha256` hashes. Only the last
+segment is appended to; an append that finds it at or over `SEGMENT_CAP_BYTES` opens the next
+one, and one append never spans two segments (spec 2026-10-04 section 5). The old single file
+`patches.jsonl` is refused: `tools/split_patch_log.py` converts it."""
 from __future__ import annotations
 import hashlib, json, time
 from dataclasses import replace
 from pathlib import Path
-from corpus_engine.ledger.types import Patch
+from corpus_engine.ledger.types import LedgerError, Patch
+
+SEGMENT_DIR = "patches"
+LEGACY_FILE = "patches.jsonl"
+SEGMENT_CAP_BYTES = 25_000_000
+SEGMENT_GLOB = "[0-9][0-9][0-9][0-9].jsonl"
+
+
+def segment_name(n: int) -> str:
+    return f"{n:04d}.jsonl"
+
+
+def log_files(ledger_dir: Path) -> list[Path]:
+    """The files holding a ledger directory's patch log, in log order: the segments, or the
+    old single file on its own (so the migration can hash it before it splits it). A
+    directory holding both layouts is refused, never merged."""
+    legacy = ledger_dir / LEGACY_FILE
+    segdir = ledger_dir / SEGMENT_DIR
+    segs = sorted(segdir.glob(SEGMENT_GLOB)) if segdir.is_dir() else []
+    if legacy.exists() and segs:
+        raise LedgerError(f"{ledger_dir} holds both {LEGACY_FILE} and {SEGMENT_DIR}/; "
+                          "one layout only (tools/split_patch_log.py)")
+    return [legacy] if legacy.exists() else segs
 
 
 def patch_id(p: Patch) -> str:
@@ -38,25 +67,46 @@ def provisional_seqs(patches, head_seq: int) -> list[Patch]:
 
 
 class PatchLog:
-    def __init__(self, path: Path):
-        self.path = path
+    """The log of one ledger. `dir` is its segment directory, `<ledger>/patches`."""
+
+    def __init__(self, dir: Path, *, cap_bytes: int = SEGMENT_CAP_BYTES):
+        self.dir = dir
+        self.cap_bytes = cap_bytes
+
+    def segments(self) -> list[Path]:
+        legacy = self.dir.parent / LEGACY_FILE
+        if legacy.exists():
+            raise LedgerError(f"{legacy} is the old single-file log; run "
+                              "tools/split_patch_log.py before opening this ledger")
+        return sorted(self.dir.glob(SEGMENT_GLOB)) if self.dir.is_dir() else []
 
     def read(self) -> list[Patch]:
-        if not self.path.exists():
-            return []
-        out = [Patch.from_json(json.loads(l)) for l in self.path.read_text(encoding="utf-8").splitlines() if l.strip()]
+        out = []
+        for seg in self.segments():
+            out += [Patch.from_json(json.loads(l))
+                    for l in seg.read_text(encoding="utf-8").splitlines() if l.strip()]
         return sorted(out, key=lambda p: p.seq)
 
     def head(self) -> int:
         ps = self.read()
         return ps[-1].seq if ps else 0
 
+    def _target(self) -> Path:
+        segs = self.segments()
+        if not segs:
+            return self.dir / segment_name(1)
+        if segs[-1].stat().st_size >= self.cap_bytes:
+            return self.dir / segment_name(int(segs[-1].stem) + 1)
+        return segs[-1]
+
     def append(self, patches: list[Patch], *, at: str | None = None) -> list[Patch]:
-        seq = self.head()
+        if not patches:
+            return []
+        seq = self.head()                       # refuses an unmigrated ledger before any write
         stamp = at or time.strftime("%Y-%m-%dT%H:%M:%S")
         stamped = []
-        self.path.parent.mkdir(parents=True, exist_ok=True)
-        with self.path.open("a", encoding="utf-8", newline="\n") as f:
+        self.dir.mkdir(parents=True, exist_ok=True)
+        with self._target().open("a", encoding="utf-8", newline="\n") as f:
             for p in patches:
                 seq += 1
                 q = replace(p, seq=seq, at=p.at or stamp, patch_id=patch_id(p))

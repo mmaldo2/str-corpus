@@ -8,6 +8,7 @@ from corpus_engine.evaluation.gold import GoldRecovery
 from corpus_engine.evaluation.precision import Precision
 from corpus_engine.evaluation.agreement import Agreement
 from corpus_engine.evaluation.coverage import Coverage
+from corpus_engine.ledger.log import log_files
 
 SCHEMA_VERSION = "1"
 
@@ -37,14 +38,18 @@ def _tier(c) -> dict:
     return {"human_reviewed": c.total.human_reviewed, "machine_only": c.total.machine_only}
 
 
-def ledger_content_sha256(ledger_dir: Path) -> str:
+def sha256_over(paths) -> str:
+    """sha256 over the files' bytes in the given order, CRLF and CR folded to LF per file."""
     h = hashlib.sha256()
-    names = ["patches.jsonl"] + sorted(p.name for p in ledger_dir.glob("cycle-*.jsonl"))
-    for n in names:
-        p = ledger_dir / n
-        if p.exists():
-            h.update(p.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n"))
+    for p in paths:
+        h.update(p.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n"))
     return h.hexdigest()
+
+
+def ledger_content_sha256(ledger_dir: Path) -> str:
+    """The patch log (its segments in order, or the old single file) and then the cycle files.
+    The segments concatenate to the old file, so the split leaves this value unchanged."""
+    return sha256_over(log_files(ledger_dir) + sorted(ledger_dir.glob("cycle-*.jsonl")))
 
 
 def evaluate(view, inputs: Inputs, *, cycle: str, reporting_seq: int, content_sha256: str,

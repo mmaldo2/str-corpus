@@ -23,7 +23,7 @@ def test_apply_then_view_renders_sorted_snapshot(tmp_path):
     ids = [json.loads(l)["case_id"] for l in rendered.splitlines()]
     assert ids == [1, 2]                      # sorted by year; relevant:false not in file
     assert (tmp_path / "cycle-001.jsonl").read_bytes() == v.render()["cycle-001.jsonl"]
-    assert (tmp_path / "patches.jsonl").exists()
+    assert (tmp_path / "patches" / "0001.jsonl").exists()
 
 def test_apply_is_atomic_and_idempotent(tmp_path):
     led = open_ledger(tmp_path, domain=load_domain())
