@@ -28,6 +28,12 @@ def _population(view, **filters):
             yield cid, r
 
 
+def counted_records(view) -> list[dict]:
+    """The records every count is taken over (relevant, in the cycle files, not a parallel copy),
+    in ledger order."""
+    return [r for _, r in _population(view)]
+
+
 def counts(view, *, by: tuple[str, ...] = (), **filters) -> CountTable:
     acc: dict[tuple, list[int]] = defaultdict(lambda: [0, 0])
     tot = [0, 0]
