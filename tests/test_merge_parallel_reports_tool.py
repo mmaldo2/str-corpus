@@ -120,6 +120,7 @@ def test_score_sample_apply_reconcile_undo_end_to_end(tmp_path, capsys):
     assert mpr.main(common + ["sample", "--per-band", "1", "--parts", "2"]) == 0
     md = (out / "calibration-pairs-part1.md").read_text(encoding="utf-8")
     assert "## pair 0" in md and "c5" not in md                           # the readers are blind to scores
+    assert b"\r\n" not in (out / "calibration-pairs-part1.md").read_bytes()
 
     (out / "calibration.json").write_text(json.dumps(
         {"choice": {"measure": "c5", "threshold": 0.6, "method": "parallel-v1:w5:0.6"}}), encoding="utf-8")
@@ -135,6 +136,7 @@ def test_score_sample_apply_reconcile_undo_end_to_end(tmp_path, capsys):
     assert mpr.main(common + ["reconcile", "--dry-run"]) == 0
     text = capsys.readouterr().out
     assert "relevant: 0+3 -> 0+2" in text and "1 duplicate_of patches" in text
+    assert b"\r\n" not in (out / "reconcile-for-user.json").read_bytes()
     assert open_ledger(ledger, domain=load_domain()).view().record(4).get("duplicate_of") is None
     assert mpr.main(common + ["reconcile"]) == 0
     v = open_ledger(ledger, domain=load_domain()).view()
@@ -142,3 +144,15 @@ def test_score_sample_apply_reconcile_undo_end_to_end(tmp_path, capsys):
 
     assert mpr.main(common + ["undo", "--method", "parallel-v1:w5:0.6"]) == 0
     assert _duplicates(db) == {}
+
+
+def test_apply_merges_nothing_outside_the_sampled_region(tmp_path, capsys):
+    out = tmp_path / "pr"
+    out.mkdir()
+    rows = [dict(_row(0.9, None, c3=0.95), winner=1, loser=2, jurisdiction="N.Y.", era="1900-1930"),
+            dict(_row(0.1, None, c3=0.95), winner=3, loser=4, jurisdiction="N.Y.", era="1900-1930")]
+    (out / "candidates.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows), encoding="utf-8")
+    (out / "calibration.json").write_text(json.dumps(
+        {"choice": {"measure": "c3", "threshold": 0.5, "method": "parallel-v1:w3:0.5"}}), encoding="utf-8")
+    assert mpr.main(["--out-dir", str(out), "apply", "--dry-run"]) == 0
+    assert "1 merges at c3 >= 0.5" in capsys.readouterr().out

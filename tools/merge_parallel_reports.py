@@ -51,6 +51,11 @@ def _jsonl(path: Path) -> list[dict]:
     return [json.loads(l) for l in path.read_text(encoding="utf-8").splitlines() if l.strip()]
 
 
+def _write_text(path: Path, text: str) -> None:
+    with Path(path).open("w", encoding="utf-8", newline="\n") as f:
+        f.write(text)
+
+
 def choose_threshold(labelled, *, measures=MEASURES, bounds=BOUNDS) -> dict | None:
     """Per measure, the lowest bound strictly above every pair not labelled `same` (`unsure`
     counts as not same); the measure kept is the one that merges more labelled-same pairs, c5
@@ -114,7 +119,7 @@ def cmd_sample(a) -> int:
     random.Random(a.seed).shuffle(picked)          # every reader gets every band
     for i, r in enumerate(picked):
         r["pair_id"] = i
-    (out / "calibration-sample.json").write_text(json.dumps(picked, indent=1) + "\n", encoding="utf-8")
+    _write_text(out / "calibration-sample.json", json.dumps(picked, indent=1) + "\n")
     conn = _ro(a.db)
     size = -(-len(picked) // a.parts) if picked else 0
     for k in range(a.parts):
@@ -125,7 +130,7 @@ def cmd_sample(a) -> int:
             lines += [f"## pair {r['pair_id']}", f"{r['court']}, {r['year']}: {r['name']}", "",
                       f"### A ({r['winner_cite']})", _excerpt(texts.get(r["winner"], "")), "",
                       f"### B ({r['loser_cite']})", _excerpt(texts.get(r["loser"], "")), ""]
-        (out / f"calibration-pairs-part{k + 1}.md").write_text("\n".join(lines), encoding="utf-8")
+        _write_text(out / f"calibration-pairs-part{k + 1}.md", "\n".join(lines))
     print(f"{len(picked)} pairs in {a.parts} parts -> {out}")
     return 0
 
@@ -147,8 +152,8 @@ def cmd_threshold(a) -> int:
     for b in SAMPLE_BANDS:
         print(f"c5 {b:.1f}: " + ", ".join(f"{lab} {bands[(f'{b:.1f}', lab)]}" for lab in LABELS))
     print(f"choice: {choice}")
-    (out / "calibration.json").write_text(json.dumps(
-        {"bounds": BOUNDS, "choice": choice, "labels": labelled}, indent=1) + "\n", encoding="utf-8")
+    _write_text(out / "calibration.json", json.dumps(
+        {"bounds": BOUNDS, "choice": choice, "labels": labelled}, indent=1) + "\n")
     return 0
 
 
@@ -163,7 +168,9 @@ def cmd_apply(a) -> int:
     out = Path(a.out_dir)
     ch = _choice(out)
     m, t = ch["measure"], ch["threshold"]
-    rows = [r for r in _jsonl(out / "candidates.jsonl") if par.passes_guards(r) and r[m] >= t]
+    # only pairs inside the sampled region (c5 >= the lowest calibration band) can merge
+    rows = [r for r in _jsonl(out / "candidates.jsonl")
+            if par.passes_guards(r) and r[m] >= t and r["c5"] >= SAMPLE_BANDS[0]]
     print(f"{len(rows)} merges at {m} >= {t} ({ch['method']})")
     for label in ("jurisdiction", "era"):
         c = collections.Counter(r[label] for r in rows)
@@ -207,7 +214,7 @@ def cmd_reconcile(a) -> int:
         b, c = view.counts(**flt).total, after.counts(**flt).total
         print(f"{label}: {b.human_reviewed}+{b.machine_only} -> {c.human_reviewed}+{c.machine_only}")
     Path(a.user_list).parent.mkdir(parents=True, exist_ok=True)
-    Path(a.user_list).write_text(json.dumps(res.for_user, indent=1) + "\n", encoding="utf-8")
+    _write_text(Path(a.user_list), json.dumps(res.for_user, indent=1) + "\n")
     print(f"{len(res.patches)} duplicate_of patches; {len(res.for_user)} groups for the user "
           f"-> {a.user_list}")
     if a.dry_run:
