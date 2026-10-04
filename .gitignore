@@ -18,3 +18,13 @@ data/reader/cache/
 
 # Lawyer explainer content (public repo): script, evidence, snapshot, page
 reports/explainer/
+
+# Local scratch, and the retired Sept 14 guide, kept off the public repo (2026-10-04)
+.tmp/
+.playwright-mcp/
+cl.html
+reports/right-to-let-guide.html
+reports/right-to-let-guide-sources.md
+runs/*.err
+tests/fixtures/*.db-shm
+tests/fixtures/*.db-wal

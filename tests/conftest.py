@@ -1,3 +1,4 @@
+import shutil
 import sqlite3
 from pathlib import Path
 import pytest
@@ -33,11 +34,15 @@ def golden_dir() -> Path:
     return REPO / "tests" / "golden"
 
 @pytest.fixture(scope="session")
-def fixture_db() -> Path:
-    p = REPO / "tests" / "fixtures" / "corpus-tiny.db"
-    if not p.exists():
+def fixture_db(tmp_path_factory) -> Path:
+    """A per-session copy of tests/fixtures/corpus-tiny.db. Tests open it with store.connect
+    (WAL) and some write to it; the copy keeps the tracked file, and its directory, untouched."""
+    src = REPO / "tests" / "fixtures" / "corpus-tiny.db"
+    if not src.exists():
         pytest.skip("tests/fixtures/corpus-tiny.db not built yet (Task 3)")
-    return p
+    dst = tmp_path_factory.mktemp("fixture-db") / "corpus-tiny.db"
+    shutil.copyfile(src, dst)
+    return dst
 
 @pytest.fixture(scope="session")
 def live_db() -> Path:

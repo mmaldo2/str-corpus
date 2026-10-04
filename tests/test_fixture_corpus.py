@@ -14,3 +14,12 @@ def test_fixture_corpus_is_self_contained(fixture_db, repo_root):
     ids = [c["case_id"] for c in b1["cases"]]
     q = f"SELECT count(*) FROM cases WHERE case_id IN ({','.join('?'*len(ids))})"
     assert conn.execute(q, ids).fetchone()[0] == len(ids)
+
+
+def test_fixture_db_is_a_session_copy_not_the_tracked_file(fixture_db, repo_root):
+    """Tests open the fixture with store.connect (WAL) and some write to it; the tracked file
+    and its directory must never see a -wal/-shm or a write (spec 2026-10-04 section 3)."""
+    tracked = repo_root / "tests" / "fixtures" / "corpus-tiny.db"
+    assert fixture_db != tracked
+    assert fixture_db.parent != tracked.parent
+    assert fixture_db.stat().st_size == tracked.stat().st_size

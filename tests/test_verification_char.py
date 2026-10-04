@@ -21,7 +21,7 @@ def test_verified_files_reproduce_on_fixture_subset(fixture_db, repo_root, golde
 @pytest.mark.live_db
 def test_verified_files_reproduce_for_all_cycle_003(live_db, repo_root, golden_dir):
     digests = json.loads((golden_dir / "digests.json").read_text(encoding="utf-8"))["verified"]
-    conn = sqlite3.connect(live_db)
+    conn = sqlite3.connect(f"file:{live_db.as_posix()}?mode=ro", uri=True)
     for run in ("cycle-003-shard-01", "cycle-003-remap"):
         extractions_dir = repo_root / "runs" / run / "extractions"
         names = sorted(p.name for p in extractions_dir.glob("*.json"))

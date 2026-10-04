@@ -1,0 +1,451 @@
+{
+ "batch_size": 18,
+ "embed_runs": {
+  "1860-1900|Cal.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1860-1900|Conn.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1860-1900|D.C.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1860-1900|La.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1860-1900|Mass.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1860-1900|N.J.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1860-1900|N.Y.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1860-1900|Ohio": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1860-1900|Pa.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1860-1900|Tex.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1860-1900|U.S.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1860-1900|Utah": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1900-1930|Cal.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1900-1930|Conn.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1900-1930|D.C.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1900-1930|La.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1900-1930|Mass.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1900-1930|N.J.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1900-1930|N.Y.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1900-1930|Ohio": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1900-1930|Pa.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1900-1930|Tex.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1900-1930|U.S.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1930-1970|Cal.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1930-1970|Conn.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1930-1970|D.C.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1930-1970|La.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1930-1970|Mass.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1930-1970|N.J.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1930-1970|N.Y.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1930-1970|Ohio": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1930-1970|Pa.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1930-1970|Tex.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1930-1970|U.S.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1970-2020|Cal.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1970-2020|Conn.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1970-2020|D.C.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1970-2020|La.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1970-2020|Mass.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1970-2020|N.J.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1970-2020|N.Y.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1970-2020|Ohio": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1970-2020|Pa.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1970-2020|Tex.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "1970-2020|U.S.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|Ark.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|Cal.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|Conn.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|D.C.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|Del.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|Fla.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|La.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|Mass.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|N.H.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|N.J.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|N.Y.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|Ohio": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|Pa.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|S.C.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|Tex.": [
+   "qwen3-4b-1024-int8"
+  ],
+  "pre-1860|U.S.": [
+   "qwen3-4b-1024-int8"
+  ]
+ },
+ "engine_version": "v2",
+ "exclude_count": 6069,
+ "exclude_sha256": "c4a8076e794b22dac29a0f811949a0a0f2dd846456bb56e1daa3095269ba6788",
+ "exclude_skipped_files": 0,
+ "matrix_partitions": [
+  "1860-1900|Cal.",
+  "1860-1900|Conn.",
+  "1860-1900|D.C.",
+  "1860-1900|La.",
+  "1860-1900|Mass.",
+  "1860-1900|N.J.",
+  "1860-1900|N.Y.",
+  "1860-1900|Ohio",
+  "1860-1900|Pa.",
+  "1860-1900|Tex.",
+  "1900-1930|Cal.",
+  "1900-1930|Conn.",
+  "1900-1930|D.C.",
+  "1900-1930|La.",
+  "1900-1930|Mass.",
+  "1900-1930|N.J.",
+  "1900-1930|N.Y.",
+  "1900-1930|Ohio",
+  "1900-1930|Pa.",
+  "1900-1930|Tex.",
+  "1930-1970|Cal.",
+  "1930-1970|Conn.",
+  "1930-1970|D.C.",
+  "1930-1970|La.",
+  "1930-1970|Mass.",
+  "1930-1970|N.J.",
+  "1930-1970|N.Y.",
+  "1930-1970|Ohio",
+  "1930-1970|Pa.",
+  "1930-1970|Tex.",
+  "1970-2020|Cal.",
+  "1970-2020|Conn.",
+  "1970-2020|D.C.",
+  "1970-2020|La.",
+  "1970-2020|Mass.",
+  "1970-2020|N.J.",
+  "1970-2020|N.Y.",
+  "1970-2020|Ohio",
+  "1970-2020|Pa.",
+  "1970-2020|Tex.",
+  "pre-1860|Cal.",
+  "pre-1860|Conn.",
+  "pre-1860|D.C.",
+  "pre-1860|La.",
+  "pre-1860|Mass.",
+  "pre-1860|N.J.",
+  "pre-1860|N.Y.",
+  "pre-1860|Ohio",
+  "pre-1860|Pa.",
+  "pre-1860|Tex."
+ ],
+ "matrix_rows": 13452039,
+ "ranker": {
+  "digest": "a489a2dc960adb5b",
+  "ranker_id": "classifier:v1",
+  "reranked_at": "2026-09-04T14:52:59"
+ },
+ "run_id": "cycle-004-shard-01",
+ "seed_hashes": {
+  "both": "550f561dd1567ee4",
+  "ledger-favorable-reviewed": "bc88f7990814d626"
+ },
+ "selectors": [
+  {
+   "digest": "b4c84bdcc586af66",
+   "kind": "fts_phrase",
+   "label": "lodger-core-01@v1"
+  },
+  {
+   "digest": "fdb5f1dbe2d8a0da",
+   "kind": "fts_near",
+   "label": "lodger-tenant-near-02@v1"
+  },
+  {
+   "digest": "517dda023629c583",
+   "kind": "fts_phrase",
+   "label": "boarder-core-03@v1"
+  },
+  {
+   "digest": "42e5d9735a11fdc8",
+   "kind": "fts_phrase",
+   "label": "boarding-house-keeping-04@v1"
+  },
+  {
+   "digest": "9f6cfd6a471151c2",
+   "kind": "fts_phrase",
+   "label": "lodging-house-05@v1"
+  },
+  {
+   "digest": "0efa4c5f9b7f9548",
+   "kind": "fts_phrase",
+   "label": "furnished-rooms-06@v1"
+  },
+  {
+   "digest": "0bc442ef08bc3996",
+   "kind": "fts_phrase",
+   "label": "letting-rooms-07@v1"
+  },
+  {
+   "digest": "70dffd45b9d47037",
+   "kind": "fts_near",
+   "label": "demise-lodgings-08@v1"
+  },
+  {
+   "digest": "def4be7f2ea60bbb",
+   "kind": "fts_phrase",
+   "label": "license-vs-lease-09@v1"
+  },
+  {
+   "digest": "554a400064ba4dba",
+   "kind": "fts_near",
+   "label": "exclusive-possession-lodger-10@v1"
+  },
+  {
+   "digest": "d989a406e336f7c5",
+   "kind": "fts_phrase",
+   "label": "incident-of-ownership-11@v1"
+  },
+  {
+   "digest": "3296f4c972ac4fbd",
+   "kind": "fts_phrase",
+   "label": "right-to-lease-12@v1"
+  },
+  {
+   "digest": "1222d3ba12abe362",
+   "kind": "fts_phrase",
+   "label": "paying-guests-13@v1"
+  },
+  {
+   "digest": "531ae16a5a1aad08",
+   "kind": "fts_phrase",
+   "label": "roomers-boarders-14@v1"
+  },
+  {
+   "digest": "e9af975c5542e645",
+   "kind": "fts_phrase",
+   "label": "transient-guests-16@v1"
+  },
+  {
+   "digest": "0e9c0fc349554650",
+   "kind": "fts_near",
+   "label": "single-family-boarders-17@v1"
+  },
+  {
+   "digest": "93d55d5324eff89f",
+   "kind": "fts_near",
+   "label": "accessory-use-roomers-18@v1"
+  },
+  {
+   "digest": "b68b2fc497534df4",
+   "kind": "fts_near",
+   "label": "inmate-historical-20@v1"
+  },
+  {
+   "digest": "b75c748e1fb688e4",
+   "kind": "embedding",
+   "label": "embed-short-letting-23@v1"
+  },
+  {
+   "digest": "56fd7ae3c58d2983",
+   "kind": "fts_near",
+   "label": "adverse-lodging-license-24@v1"
+  },
+  {
+   "digest": "5ae9f0f7ec674216",
+   "kind": "fts_near",
+   "label": "adverse-boarding-license-25@v1"
+  },
+  {
+   "digest": "478a4ccdf6f15983",
+   "kind": "fts_near",
+   "label": "adverse-boarding-nuisance-26@v1"
+  },
+  {
+   "digest": "52d19d17a2cf0e71",
+   "kind": "fts_near",
+   "label": "adverse-police-power-27@v1"
+  },
+  {
+   "digest": "ff59dd32a75e2e2d",
+   "kind": "fts_near",
+   "label": "adverse-innkeeper-regulation-28@v1"
+  },
+  {
+   "digest": "eded7d568399967f",
+   "kind": "embedding",
+   "label": "adverse-embed-regulation-29@v1"
+  },
+  {
+   "digest": "397a2a2b0c30a2d6",
+   "kind": "fts_phrase",
+   "label": "homestay-bnb-30@v1"
+  },
+  {
+   "digest": "bb2dcc3befa562c1",
+   "kind": "fts_phrase",
+   "label": "housekeeping-unit-31@v1"
+  },
+  {
+   "digest": "798d154ceec50d2d",
+   "kind": "fts_phrase",
+   "label": "boarding-variants-32@v1"
+  },
+  {
+   "digest": "70558209d509d35a",
+   "kind": "fts_near",
+   "label": "zoning-power-residence-33@v1"
+  },
+  {
+   "digest": "4bf79835d4f2c438",
+   "kind": "fts_phrase",
+   "label": "tourist-home-15@v2"
+  },
+  {
+   "digest": "de7b8e7e11c2cfed",
+   "kind": "embedding",
+   "label": "embed-zoning-paying-occupants-22@v2"
+  },
+  {
+   "digest": "7993728571ed525c",
+   "kind": "fts_phrase",
+   "label": "apartment-hotel-34@v1"
+  },
+  {
+   "digest": "f0fbf484a15cb00e",
+   "kind": "fts_phrase",
+   "label": "sro-35@v1"
+  },
+  {
+   "digest": "05e8ea50806048c5",
+   "kind": "fts_near",
+   "label": "motel-near-36@v1"
+  },
+  {
+   "digest": "3442214138afbd73",
+   "kind": "fts_phrase",
+   "label": "rent-houses-37@v1"
+  },
+  {
+   "digest": "77c9e353f895019f",
+   "kind": "embedding",
+   "label": "embed-householder-letting-21@v2"
+  },
+  {
+   "digest": "7f3355c6c2598fa5",
+   "kind": "citation_graph",
+   "label": "citation-graph-38@v1"
+  },
+  {
+   "digest": "5e7c0869dec6cd94",
+   "kind": "relevance_feedback",
+   "label": "relevance-feedback-39@v1"
+  }
+ ],
+ "selectors_digest": "f4cd436555d69f47",
+ "skips": [],
+ "ts": "2026-09-04T11:08:15",
+ "units_run": 946
+}
