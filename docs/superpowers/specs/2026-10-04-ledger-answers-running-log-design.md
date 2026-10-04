@@ -69,8 +69,8 @@ CAP's `type = 'official'` label is not used: it marks each case's own cite in ev
     - under_thirty_days: ["yes"]
   group_by: [characterization]          # the question's own grouping (summary table)
   earliest_per_jurisdiction: {restriction_nature: zoning}   # optional
-  text_match:              # optional; turns the answer into a review list
-    terms: ["season*", "summer", "cottage", "\"furnished house\""]
+  text_match:              # optional; a phrase is matched as a phrase, a trailing * is a prefix
+    terms: ["season*", summer cottage, furnished house]
     in: [quotes, holding_summary, opinion]
   review_list: true        # optional; labels the answer "candidates for review, not a finding"
 ```
