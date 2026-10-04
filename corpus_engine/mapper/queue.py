@@ -37,6 +37,7 @@ from typing import Mapping, Sequence
 
 from rapidfuzz import fuzz
 
+from corpus_engine.ledger.duplicates import DUPLICATE_FIELD
 from corpus_engine.ledger.fold import FLAG_PREFIX, JUDGED_DEFAULT
 from corpus_engine.reader.driver import COMPARE_FIELDS, plan_reread
 
@@ -154,7 +155,7 @@ def reasons_for(record: Mapping, *, disagreements: Sequence[Mapping],
                 fuzzy_needs_human: bool) -> tuple[str, ...]:
     """Every section this record qualifies for, in D4's priority order. Empty for a record
     that is not relevant: an irrelevant read carries no judged values to adjudicate."""
-    if not record.get("relevant"):
+    if not record.get("relevant") or record.get(DUPLICATE_FIELD):
         return ()
     out = []
     if record.get("polarity") == "favorable" and record.get("under_thirty_days") == "yes":
@@ -400,8 +401,8 @@ def select_queue(view, run_id: str, *, manifest: Mapping, cases, cap: int = QUEU
             continue        # the two producers are not guaranteed disjoint; one question, one card
         if f"{FLAG_PREFIX}{field}" not in _record_flags(rec):
             continue        # a reviewer has decided this card; it is not asked again
-        if rec.get("relevant") is False:
-            continue        # a withdrawn record asks nothing: its field flags are moot
+        if rec.get("relevant") is False or rec.get(DUPLICATE_FIELD):
+            continue        # a withdrawn record, or a parallel copy, asks nothing
         seen_g.add((cid, field))
         g_cards.append(QueueCard(cid, "G", "reread_conflict", (), rec, (), (),
                                  conflict=dict(c)))

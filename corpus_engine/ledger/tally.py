@@ -2,6 +2,7 @@
 from __future__ import annotations
 from collections import defaultdict
 from dataclasses import dataclass
+from corpus_engine.ledger.duplicates import DUPLICATE_FIELD
 from corpus_engine.ledger.types import TierCount
 from corpus_engine.store import era_partition
 
@@ -21,7 +22,7 @@ def _population(view, **filters):
         if not view.state.in_file.get(cid):
             continue
         r = view.state.records[cid]
-        if not r.get("relevant"):
+        if not r.get("relevant") or r.get(DUPLICATE_FIELD):
             continue
         if all(r.get(k) == v for k, v in filters.items()):
             yield cid, r

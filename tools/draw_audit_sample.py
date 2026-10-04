@@ -33,7 +33,8 @@ def _in_frame(view, cid: int) -> bool:
     """The audit frame (spec §4.1): relevant, and not yet reached by a human reviewer. One
     predicate, so `draw()` (the frame it samples from) and `main()` (the frame it fetches
     opinion text for) can never quietly diverge on what counts."""
-    return view.state.records[cid].get("relevant") is True and not view.reviewed(cid)
+    rec = view.state.records[cid]
+    return rec.get("relevant") is True and not rec.get("duplicate_of") and not view.reviewed(cid)
 
 
 def _band(score: float) -> str:

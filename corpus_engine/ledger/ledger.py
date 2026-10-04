@@ -64,6 +64,12 @@ class LedgerView:
         return any(p.basis.reviewer and p.op in ("set", "append") and p.field in judged
                    for p in self.history(case_id))
 
+    def reviewed_ids(self) -> set[int]:
+        """Every case `reviewed()` is true for, in one pass (`reviewed` scans the log per call)."""
+        judged = set(self.domain.judged_fields) | {"review.status"}
+        return {p.case_id for p in self.patches
+                if p.basis.reviewer and p.op in ("set", "append") and p.field in judged}
+
     def conflicts(self, case_id: int | None = None, *,
                   historical: bool = False) -> dict[int, list[dict]]:
         """Every write that landed on a field a human had already decided (D2).
