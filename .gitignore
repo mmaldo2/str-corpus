@@ -29,3 +29,4 @@ reports/right-to-let-guide-sources.md
 runs/*.err
 tests/fixtures/*.db-shm
 tests/fixtures/*.db-wal
+runs/parallel-reports/candidates.jsonl
