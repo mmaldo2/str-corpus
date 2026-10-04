@@ -9,10 +9,9 @@ block, which governs on conflict); legal context:
 ## Reproduce from a clean machine
 
 ```powershell
-python -m venv .venv                       # Python 3.11
-.venv\Scripts\python -m pip install -r requirements.txt
-.venv\Scripts\python -m pip install -r requirements-ranker.txt  # optional: GPU/hub deps for
-                                            # corpus_engine\ranker\reranker.py and tools\pin_reranker.py only
+uv venv --seed --python 3.11.15 .venv      # standalone CPython (not an app-bundled interpreter)
+.venv\Scripts\python -m pip install -r requirements-lock.txt   # exact versions, incl. torch +cu128
+# requirements.txt / requirements-ranker.txt list the direct dependencies the lock was built from
 .venv\Scripts\python pipeline\download.py  # static.case.law volume zips -> data/raw/  (~20 GB)
 .venv\Scripts\python pipeline\ingest.py    # HTML casebody -> data/db/corpus.db
 .venv\Scripts\python pipeline\index.py     # FTS5 + Qwen3-Embedding-0.6B (GPU)
