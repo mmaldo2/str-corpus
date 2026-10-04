@@ -1,7 +1,7 @@
 """Domain loader: everything STR-specific comes from domains/<name>/domain.yaml
 so the engine never imports a domain file by literal path (ADR-0010)."""
 from __future__ import annotations
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Mapping
 import yaml
@@ -84,6 +84,7 @@ class Domain:
     sharding: ShardingSpec
     ranking: RankingSpec
     reader: ReaderSpec
+    citation_preference: Mapping[str, tuple[str, ...]] = field(default_factory=dict)
 
 
 def load_domain(name: str = "str-right-to-let") -> Domain:
@@ -110,4 +111,5 @@ def load_domain(name: str = "str-right-to-let") -> Domain:
         sharding=ShardingSpec(**cfg.get("sharding", {})),
         ranking=RankingSpec(**cfg.get("ranking", {})),
         reader=ReaderSpec(**cfg.get("reader", {})),
+        citation_preference={k: tuple(v) for k, v in (cfg.get("citation_preference") or {}).items()},
     )
