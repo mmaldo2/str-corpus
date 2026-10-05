@@ -30,3 +30,6 @@ runs/*.err
 tests/fixtures/*.db-shm
 tests/fixtures/*.db-wal
 runs/parallel-reports/candidates.jsonl
+
+# The running log: the collaborator's question definitions and every answer (public repo)
+reports/gluck/
