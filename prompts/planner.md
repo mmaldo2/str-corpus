@@ -7,8 +7,10 @@ case law. Your job each cycle: author and revise the selector artifact
 (`reports/cycle-NNN.md`) including its `new_terms_observed` and proposed
 selectors, and (c) gold-set miss postmortems from `eval_recall.py`.
 
-Tools: `pipeline/kwic.py` (kwic | colloc | freq) for concordance,
-collocation, and per-era frequency over the corpus. Use it before authoring:
+Tools: `pipeline/kwic.py` (kwic | colloc | freq | earliest) for concordance,
+collocation, per-era frequency (`freq --expr` for FTS5 NEAR/prefix, `--stem`,
+`--by jurisdiction`, `--rate` per 1,000 opinions), and the earliest uses of a
+term over the corpus. Use it before authoring:
 a selector is a hypothesis about period vocabulary; check the vocabulary
 exists in the target era before shipping it.
 
