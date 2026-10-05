@@ -64,6 +64,24 @@ def test_text_match_reads_quotes_holdings_and_opinion_text(tmp_path):
     conn.close()
 
 
+def test_opinion_search_treats_punctuation_and_operator_words_as_plain_words(tmp_path):
+    conn = store.connect(tmp_path / "c.db")
+    store.ensure_schema(conn)
+    store.ensure_fts(conn)
+    for cid, text in ((1, "a short-term rental of the house"), (2, "the owner's cottage"),
+                      (3, "whether or not to let"), (4, 'a so-called "tourist home"'), (5, "nothing here")):
+        conn.execute("INSERT INTO cases (case_id, norm_text) VALUES (?,?)", (cid, text))
+    conn.execute("INSERT INTO fts_raw(fts_raw) VALUES('rebuild')")
+    conn.commit()
+    ids = [1, 2, 3, 4, 5]
+    assert ar.opinion_text_hits(conn, ids, ["short-term"]) == {1}
+    assert ar.opinion_text_hits(conn, ids, ["owner's"]) == {2}
+    assert ar.opinion_text_hits(conn, ids, ["NOT"]) == {3}
+    assert ar.opinion_text_hits(conn, ids, ['"tourist home']) == {4}
+    assert ar.opinion_text_hits(conn, ids, ["cott*", "short-term"]) == {1, 2}
+    conn.close()
+
+
 def test_case_rows_carry_names_citations_quotes_tiers_and_blank_reviewer_columns(tmp_path):
     v = _view(tmp_path, [_rec(1, 1850), _rec(2, 1880, quotes=(("fuzzy", "verified-fuzzy", "4"),))],
               reviewed=[1])

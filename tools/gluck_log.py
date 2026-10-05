@@ -43,7 +43,10 @@ def _folder(out: Path, name: str) -> Path:
 
 
 def build_records(q, *, view, domain, conn, reviewed):
-    recs = ar.select(view, domain, q, conn=conn)
+    try:
+        recs = ar.select(view, domain, q, conn=conn)
+    except sqlite3.OperationalError as exc:
+        raise SystemExit(f"{q.id}: text search: {exc}")
     ids = [int(r["case_id"]) for r in recs]
     cites = citation_sets(conn, ids, jurisdiction_of={int(r["case_id"]): r.get("jurisdiction") for r in recs},
                           preference=domain.citation_preference)

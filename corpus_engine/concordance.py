@@ -4,17 +4,25 @@ section 5).
 Counts are of canonical opinions (`is_duplicate_of IS NULL`) that match, per era partition and
 jurisdiction. `fts_raw` matches exact words ("lodger" and "lodgers" differ); `fts_porter`
 (`stem=True`) matches stems. An expression (`expr=True`) is FTS5 syntax passed through unquoted
-- `NEAR(a b, 10)`, a prefix `lodg*`, `OR`; a plain term with a space becomes a phrase."""
+- `NEAR(a b, 10)`, a prefix `lodg*`, `OR`; a plain term is matched as words (`fts_string`)."""
 from __future__ import annotations
 from collections import defaultdict
 from typing import Mapping, Sequence
 
 
+def fts_string(term: str) -> str:
+    """A plain term as one FTS5 string, so punctuation ("short-term", "owner's") and operator
+    words (NOT, AND) are matched as words; an embedded double quote is escaped and a trailing *
+    stays a prefix."""
+    t = term.strip()
+    star = t.endswith("*")
+    core = t[:-1].rstrip() if star else t
+    return '"' + core.replace('"', '""') + '"' + ("*" if star else "")
+
+
 def fts_query(term: str, *, expr: bool = False) -> str:
     t = term.strip()
-    if expr:
-        return t
-    return f'"{t}"' if " " in t else t
+    return t if expr else fts_string(t)
 
 
 def _table(stem: bool) -> str:

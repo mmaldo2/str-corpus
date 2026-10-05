@@ -290,7 +290,8 @@ Before the Gluck work (Cam's thirteen questions). Spec
 
 - **Environment.** `.venv` rebuilt on uv's standalone CPython 3.11.15 from
   `requirements-lock.txt` (the old one sat on the Hermes agent's bundled interpreter).
-  `.venv-hermes` is the fallback; delete it after the first successful run.
+  `.venv-hermes` was the fallback; deleted 2026-10-05 after a check that the new `.venv` holds
+  every package it had and that the suite and tools run without it.
 - **Patch log.** `data/ledger/patches/NNNN.jsonl`, 25 MB segments; the old single file is
   refused. The content hash was unchanged by the split (b84796f0).
 - **Parallel reports.** 68,962 second copies merged at `c5 >= 0.5` (method
@@ -350,8 +351,8 @@ outputs stay in the gitignored `reports/gluck/`.
   identity per decision); re-picking canonical copies by reporter (CAP's `official` label marks
   every reporter's own cite, so it never decided a merge winner); a ledger correction for three
   private-covenant decisions coded `zoning`; the three human-value twin groups still show two
-  or three rows for one decision until reviewed; FTS5 syntax in plain `text_match` terms
-  (hyphens, apostrophes, NOT) is not yet escaped.
+  or three rows for one decision until reviewed. (Fixed 2026-10-05: plain search terms are now
+  matched as words, so hyphens, apostrophes and NOT no longer break the full-text search.)
 
 ## Watch-outs (unchanged)
 

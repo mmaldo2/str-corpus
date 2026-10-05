@@ -24,9 +24,17 @@ def _direct(conn, table, match):
 
 
 def test_fts_query_quotes_a_plain_phrase_and_passes_an_expression_through():
-    assert cc.fts_query("lodger") == "lodger"
+    assert cc.fts_query("lodger") == '"lodger"'
     assert cc.fts_query("taking in lodgers") == '"taking in lodgers"'
     assert cc.fts_query("NEAR(board lodging, 5)", expr=True) == "NEAR(board lodging, 5)"
+
+
+def test_a_plain_term_is_always_an_fts_string_so_punctuation_and_operator_words_are_words(conn):
+    assert cc.fts_query("short-term") == '"short-term"'
+    assert cc.fts_query('say "hi"') == '"say ""hi"""'
+    assert cc.fts_query("lodg*") == '"lodg"*'
+    for term in ("short-term", "owner's", "NOT", "AND", 'stray "quote'):
+        cc.cell_counts(conn, term)              # FTS5 would raise a syntax error on any of these bare
 
 
 def test_cell_counts_sum_to_the_canonical_matches(conn):

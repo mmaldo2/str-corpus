@@ -112,6 +112,21 @@ def test_a_bad_fts_expression_is_refused_without_writing(tmp_path):
     assert not (root / "out").exists()
 
 
+def test_a_records_question_whose_text_search_fails_is_named_and_nothing_is_written(tmp_path, monkeypatch):
+    import sqlite3
+    root, common = _install(tmp_path)
+    (root / "questions.yaml").write_text(
+        "- id: q8\n  title: Search\n  population: {polarity: [favorable]}\n"
+        "  text_match: {terms: [cottage], in: [opinion]}\n", encoding="utf-8")
+
+    def broken(*a, **k):
+        raise sqlite3.OperationalError("fts5: syntax error near x")
+    monkeypatch.setattr(gl.ar, "opinion_text_hits", broken)
+    with pytest.raises(SystemExit, match="q8.*syntax error"):
+        gl.main(common + ["run", "--all"])
+    assert not (root / "out").exists()
+
+
 def test_unknown_questions_and_a_bad_file_are_refused(tmp_path):
     root, common = _install(tmp_path)
     with pytest.raises(SystemExit, match="no such question: q7"):

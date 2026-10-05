@@ -4,6 +4,7 @@ from __future__ import annotations
 import re
 from collections import defaultdict
 from typing import Iterable, Mapping, Sequence
+from corpus_engine.concordance import fts_string
 from corpus_engine.ledger.tally import counted_records
 from corpus_engine.store import era_partition
 
@@ -43,16 +44,10 @@ def record_text_hits(records: Iterable[Mapping], terms: Sequence[str], where: Se
     return hits
 
 
-def _fts_term(term: str) -> str:
-    t = term.strip()
-    star = t.endswith("*")
-    core = t[:-1] if star else t
-    return (f'"{core}"' + ("*" if star else "")) if " " in core else t
-
-
 def opinion_text_hits(conn, case_ids: Iterable[int], terms: Sequence[str]) -> set[int]:
-    """Opinion-text matches through `fts_raw`, restricted to `case_ids`."""
-    expr = " OR ".join(_fts_term(t) for t in terms)
+    """Opinion-text matches through `fts_raw`, restricted to `case_ids`; each term is matched as
+    words (`concordance.fts_string`)."""
+    expr = " OR ".join(fts_string(t) for t in terms)
     ids = sorted({int(c) for c in case_ids})
     hits: set[int] = set()
     for i in range(0, len(ids), 500):

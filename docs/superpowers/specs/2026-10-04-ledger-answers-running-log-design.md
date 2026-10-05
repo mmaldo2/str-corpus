@@ -211,9 +211,12 @@ Branch `answers/part-1`. Differences from the sections above, and the first resu
   24 / 54 (a review list). Question 4 is a concordance of four phrases. Readings were
   fact-checked (62 claims; two material corrections each in questions 3 and 5) and re-checked
   (23 claims, clean).
-- **Parked, in addition to section 11.** FTS5 syntax in plain `text_match` terms (hyphens,
-  apostrophes, NOT) is not escaped, and an FTS error in a records question is not labelled with
-  its question id; some questions-file shapes are not validated (empty value lists, records keys
+- **Fixed after merge (2026-10-05).** A plain term (a `text_match` term, or a concordance term
+  without `fts_expression`) is now one FTS5 string (`concordance.fts_string`): hyphens,
+  apostrophes and operator words (NOT, AND) are matched as words, an embedded double quote is
+  escaped, and a trailing `*` stays a prefix. A text-search error in a records question is
+  reported with its question id. Question 5 re-selected live: unchanged (78).
+- **Parked, in addition to section 11.** Some questions-file shapes are not validated (empty value lists, records keys
   on a concordance question, truthy strings for booleans); the stamp does not flag a dirty tree;
   readings render as plain text (Markdown is not interpreted); the same cite in two spellings
   can both appear.
