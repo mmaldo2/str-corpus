@@ -122,7 +122,7 @@ reader:
   fallback_model: {model_id: google/gemini-3.7-flash, family: google, provider_name: null, precision: null, extra: {reasoning: {effort: low}}}
   checker: {model_id: codex-cli, family: openai, cli_model: gpt-5.6-terra}
 citation_preference:   # reporter abbreviations as CAP spells them, official reports first (answers spec section 3)
-  N.Y.: [N.Y., N.Y.2d, N.Y.3d, Johns., Wend., A.D., App. Div., A.D.2d, A.D.3d, Misc., Misc. Rep., Misc. 2d, Misc. 3d, N.Y. Sup. Ct., Barb., Hun., N.Y. Super. Ct., Jones & S., How. Pr., Abb. Pr., Daly (N.Y.), Mills Surr., N.E., N.E.2d, N.Y.S., N.Y.S.2d, N.Y.S.3d, N.Y. St. Rep., N.Y. Crim.]
+  N.Y.: [N.Y., N.Y.2d, N.Y.3d, Johns., Wend., A.D., App. Div., A.D.2d, A.D.3d, Misc., Misc. Rep., Misc. 2d, Misc.2d, Misc. 3d, Misc.3d, N.Y. Sup. Ct., Barb., Hun., N.Y. Super. Ct., Jones & S., How. Pr., Abb. Pr., Daly (N.Y.), Mills Surr., N.E., N.E.2d, N.Y.S., N.Y.S.2d, N.Y.S.3d, N.Y. St. Rep., N.Y. Crim.]
   Tex.: [Tex., Tex. Crim., Tex. Cr. R., Tex. Civ. App., Tex. Ct. App., Dallam, Posey, White & W., Willson, Wilson, Robards, S.W., S.W.2d, S.W.3d]
   Ohio: [Ohio, Ohio St., Ohio St. 2d, Ohio St. 3d, Wright, Ohio App., Ohio App. 2d, Ohio App. 3d, Ohio C.C., Ohio C.C. (n.s.), Ohio C.C. (N.S.), Ohio Cir. Dec., Ohio C.C. Dec., Ohio C.A., Ohio N.P., Ohio N.P. (n.s.), Ohio Misc., Ohio Misc. 2d, Ohio Law Abs., Ohio L. Abs., Abs., N.E., N.E.2d]
   Pa.: [Pa., Dall., Yeates, Binn., Serg. & Rawle, Rawle, Pen. & W., Watts, Watts & Serg., Whart., Pa. Super., Pa. Super. Ct., Pa. Commw., Pa. D. & C., Pa. D. & C.2d, Pa. D. & C.3d, Pa. D. & C.4th, Pa. D. & C.5th, A., A.2d, A.3d]

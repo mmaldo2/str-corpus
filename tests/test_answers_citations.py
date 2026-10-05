@@ -49,3 +49,10 @@ def test_the_domain_lists_use_the_corpus_spellings_and_put_official_reports_firs
     assert order_cites(["624 N.Y.S.2d 341", "164 Misc. 2d 177"], ny) == ["164 Misc. 2d 177", "624 N.Y.S.2d 341"]
     assert order_cites(["51 N.Y.S. 1006", "23 App. Div. 623"], ny) == ["23 App. Div. 623", "51 N.Y.S. 1006"]
     assert order_cites(["318 F.3d 203", "355 U.S. App. D.C. 12"], dc) == ["355 U.S. App. D.C. 12", "318 F.3d 203"]
+
+
+def test_a_combined_cite_string_is_split_and_every_misc_spelling_is_listed():
+    ny = load_domain().citation_preference["N.Y."]
+    assert order_cites(["96 N.Y.S. 671", "110 App. Div. 218; 48 Misc. Rep. 177"], ny) == [
+        "110 App. Div. 218", "48 Misc. Rep. 177", "96 N.Y.S. 671"]
+    assert order_cites(["886 N.Y.S.2d 587", "26 Misc.3d 170"], ny) == ["26 Misc.3d 170", "886 N.Y.S.2d 587"]

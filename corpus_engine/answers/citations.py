@@ -21,8 +21,10 @@ def reporter_of(cite: str) -> str:
 
 
 def order_cites(cites: Iterable[str], preference: Sequence[str]) -> list[str]:
+    """CAP sometimes stores two cites in one string ("110 App. Div. 218; 48 Misc. Rep. 177"),
+    so each string is split on ";" before ordering."""
     rank = {r: i for i, r in enumerate(preference)}
-    uniq = list(dict.fromkeys(c.strip() for c in cites if c and c.strip()))
+    uniq = list(dict.fromkeys(part.strip() for c in cites if c for part in c.split(";") if part.strip()))
     listed = sorted((c for c in uniq if reporter_of(c) in rank), key=lambda c: (rank[reporter_of(c)], c))
     rest = sorted(c for c in uniq if reporter_of(c) not in rank)
     return listed + rest
