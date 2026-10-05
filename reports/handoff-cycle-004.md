@@ -331,6 +331,28 @@ Before the Gluck work (Cam's thirteen questions). Spec
   library figure (canonical cases) changes at Checkpoint 2, and the audit frame (2,842) no
   longer equals the ledger's machine-only count (2,781).
 
+## Ledger answers, part 1 (2026-10-04)
+
+The collaborator's questions 1-5, answered from the existing ledger as a running log. Spec
+`docs/superpowers/specs/2026-10-04-ledger-answers-running-log-design.md` (section 12 is as
+built), plan `docs/superpowers/plans/2026-10-04-ledger-answers-running-log.md`, branch
+`answers/part-1`. Tool `tools/gluck_log.py`; question definitions, readings, the fact-check and
+outputs stay in the gitignored `reports/gluck/`.
+
+- **Published.** All five answers at ledger seq 83,624, in the shared Drive folder "Gluck log":
+  a Google Doc per answer, a Sheet per case or count table (with blank reviewer columns), and
+  the links recorded in `reports/gluck/log.md`. The three largest case tables went up by hand.
+- **Readings.** Each answer carries a short "what this shows and what it does not" paragraph.
+  An independent fact-check of 62 claims found two material corrections each in questions 3
+  and 5 (applied), and question 5's search words were tightened as a result; a re-check of 23
+  claims was clean.
+- **Parked.** Importing the collaborator's review columns into the ledger (needs reviewer
+  identity per decision); re-picking canonical copies by reporter (CAP's `official` label marks
+  every reporter's own cite, so it never decided a merge winner); a ledger correction for three
+  private-covenant decisions coded `zoning`; the three human-value twin groups still show two
+  or three rows for one decision until reviewed; FTS5 syntax in plain `text_match` terms
+  (hyphens, apostrophes, NOT) is not yet escaped.
+
 ## Watch-outs (unchanged)
 
 OOM if any step `fetchall()`s the whole corpus; SQLite writer contention

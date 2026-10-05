@@ -178,3 +178,42 @@ preference order. Re-picking canonical copies by reporter is parked.
   decision).
 - Re-picking canonical copies by reporter preference (section 10).
 - Bluebook formatting and string cites.
+
+## 12. As built
+
+Branch `answers/part-1`. Differences from the sections above, and the first results:
+
+- **Citation order (section 3).** The preference lists are two tiers per jurisdiction,
+  `{official: [...], reprint: [...]}` (a plain list counts as official), written in CAP's own
+  reporter spellings (`App. Div.`, `Misc. 2d`, `Hun.`, `U.S. App. D.C.`, the early nominative
+  reports). Order is official (list order), then reporters on neither list (alphabetically), then
+  reprints (list order), so a reporter missing from the lists can never put a reprint first.
+  Reporters match ignoring spaces and case. CAP sometimes stores two cites in one `citations`
+  string (`110 App. Div. 218; 48 Misc. Rep. 177`), so strings are split on `;`, and a part with no
+  number in it ("Judgment accordingly.") is dropped. A live test checks that no counted record
+  leads with a reprint when an official report is in its set.
+- **The answer page (section 6).** The page never states a blended count: the case-table line
+  gives the two tiers. The "By" table is omitted when a question has no grouping. The
+  earliest-per-jurisdiction table names its filter in its heading and shows each row's review
+  tier. Concordance earliest uses carry the decision's preferred citation, not the stored copy's
+  own cite. Concordance answers write `counts.csv` (term, era, jurisdiction, matches, opinions,
+  rate per 1,000) instead of `cases.csv`.
+- **Publishing (section 7).** The Drive folder is "Gluck log". The connector takes file content
+  inline, so the larger case tables (here 123 KB to 1.36 MB) are uploaded by hand; the log says so.
+  Local runs that were superseded before publishing are marked "not published (superseded)" in
+  `log.md`; nothing on Drive has been superseded yet, so the "Older" subfolder does not exist.
+- **Question definitions (section 4).** Two were narrowed after a live look: question 4's "short
+  term" as a bare phrase is generic (finance and the like), so it is matched NEAR rental words;
+  question 5's `resort*` mostly caught "resort to" and `season*` caught "seasonable", so the
+  search words became season, seasons, seasonal and named resort phrases.
+- **First results (ledger seq 83,624).** Human-reviewed / machine-only: question 1, 48 / 147;
+  question 2, 245 / 63; question 3, 546 / 1,588 (the whole adverse record); question 5,
+  24 / 54 (a review list). Question 4 is a concordance of four phrases. Readings were
+  fact-checked (62 claims; two material corrections each in questions 3 and 5) and re-checked
+  (23 claims, clean).
+- **Parked, in addition to section 11.** FTS5 syntax in plain `text_match` terms (hyphens,
+  apostrophes, NOT) is not escaped, and an FTS error in a records question is not labelled with
+  its question id; some questions-file shapes are not validated (empty value lists, records keys
+  on a concordance question, truthy strings for booleans); the stamp does not flag a dirty tree;
+  readings render as plain text (Markdown is not interpreted); the same cite in two spellings
+  can both appear.

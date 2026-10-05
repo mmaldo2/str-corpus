@@ -160,6 +160,25 @@ cases are excluded by default), and never re-pack a run that has a map-manifest.
 `map_reader` refuses a pool holding a merged copy. First merge (2026-10-04): 68,962 copies at `c5 >= 0.5`
 after a blind calibration of 250 pairs; canonical cases 1,874,141 -> 1,805,179.
 
+## Running log (ledger answers)
+
+```powershell
+.venv\Scripts\python tools\gluck_log.py run --all      # reports\gluck\out\<date>-<id>-<slug>\
+.venv\Scripts\python tools\gluck_log.py run --question q1 --question q3
+.venv\Scripts\python tools\gluck_log.py list
+.venv\Scripts\python pipeline\kwic.py freq "NEAR(transient lodging, 10)" --expr --stem --rate --by jurisdiction
+.venv\Scripts\python pipeline\kwic.py earliest "tourist home" --stem
+```
+
+Question definitions (`reports\gluck\questions.yaml`), readings and outputs live in the
+gitignored `reports\gluck\` because the repo is public. Each run writes `answer.html`,
+`cases.csv` (blank reviewer columns) or `counts.csv`, and `summary.json`, all stamped with the
+ledger seq and code commit, and appends a line to `reports\gluck\log.md`. Counts are two-tier
+(human-reviewed / machine-only), never blended. Citations list the preferred report first, using
+the per-jurisdiction `citation_preference` tiers (official / unknown / reprint) in `domain.yaml`.
+Publishing to the shared Drive folder is an agent step with the Drive connector; a case table too
+large to pass inline is uploaded by hand.
+
 ## Layout
 
 Per spec §3. `selectors/selectors.yaml` is the load-bearing versioned artifact;
