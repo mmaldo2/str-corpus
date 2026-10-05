@@ -41,3 +41,11 @@ def test_every_copy_of_a_decision_carries_the_whole_citation_set(tmp_path):
     assert sets[1] == sets[2] == ["98 N.Y. 98", "2 N.Y. Crim. 539", "1 N.Y. Ann. Cas. 5"]
     assert sets[3] == ["40 Barb. 1"]
     conn.close()
+
+
+def test_the_domain_lists_use_the_corpus_spellings_and_put_official_reports_first():
+    pref = load_domain().citation_preference
+    ny, dc = pref["N.Y."], pref["D.C."]
+    assert order_cites(["624 N.Y.S.2d 341", "164 Misc. 2d 177"], ny) == ["164 Misc. 2d 177", "624 N.Y.S.2d 341"]
+    assert order_cites(["51 N.Y.S. 1006", "23 App. Div. 623"], ny) == ["23 App. Div. 623", "51 N.Y.S. 1006"]
+    assert order_cites(["318 F.3d 203", "355 U.S. App. D.C. 12"], dc) == ["355 U.S. App. D.C. 12", "318 F.3d 203"]
