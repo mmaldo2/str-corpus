@@ -98,8 +98,8 @@ def answer_html(q, stamp: Mapping, *, n_rows: int, reading: str | None = None,
         t = summary["total"]
         out.append("<h2>Counts</h2>" + _table(("human-reviewed", "machine-only"),
                                               [(t["human_reviewed"], t["machine_only"])]))
-        if summary["by_group"]:
-            keys = list(summary["by_group"][0]["key"])
+        keys = list(summary["by_group"][0]["key"]) if summary["by_group"] else []
+        if keys:
             out.append("<h3>By " + h(", ".join(k.replace("_", " ") for k in keys)) + "</h3>" + _table(
                 [k.replace("_", " ") for k in keys] + ["human-reviewed", "machine-only"],
                 [[g["key"][k] for k in keys] + [g["human_reviewed"], g["machine_only"]]
@@ -108,12 +108,14 @@ def answer_html(q, stamp: Mapping, *, n_rows: int, reading: str | None = None,
             ("jurisdiction", "era", "human-reviewed", "machine-only"),
             [(c["jurisdiction"], c["era"], c["human_reviewed"], c["machine_only"])
              for c in summary["by_jurisdiction_era"]]))
-        out.append(f"<p>Case table: {n_rows} rows (the sheet).</p>")
+        out.append(f"<p>Case table (the sheet): {t['human_reviewed']} human-reviewed and "
+                   f"{t['machine_only']} machine-only records.</p>")
     if earliest:
-        out.append("<h3>Earliest per jurisdiction</h3>" + _table(
-            ("jurisdiction", "year", "case", "citations"),
-            [(e["jurisdiction"], e["year"], e.get("case_name", ""), e.get("citations", ""))
-             for e in earliest]))
+        where = " and ".join(_cond(f, v) for f, v in (q.earliest_per_jurisdiction or {}).items())
+        out.append(f"<h3>Earliest per jurisdiction{' where ' + h(where) if where else ''}</h3>" + _table(
+            ("jurisdiction", "year", "case", "citations", "review"),
+            [(e["jurisdiction"], e["year"], e.get("case_name", ""), e.get("citations", ""),
+              e.get("review_tier", "")) for e in earliest]))
     for term in concordance or ():
         out.append(f"<h2>{h(term['label'])}</h2><p class='stamp'>FTS: {h(term['expr'])}"
                    f"{' (expression)' if term['fts_expression'] else ''}"

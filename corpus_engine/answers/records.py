@@ -144,7 +144,7 @@ def summary(records: Iterable[Mapping], *, domain, reviewed: set[int],
 
 
 def earliest_per_jurisdiction(records: Iterable[Mapping], mapping: Mapping[str, Sequence], *,
-                              domain) -> list[dict]:
+                              domain, reviewed: set[int] = frozenset()) -> list[dict]:
     best: dict[str, Mapping] = {}
     for r in records:
         if not matches(r, era_of(r, domain), mapping):
@@ -153,5 +153,6 @@ def earliest_per_jurisdiction(records: Iterable[Mapping], mapping: Mapping[str, 
         key = (r.get("year") or 9999, r["case_id"])
         if j not in best or key < (best[j].get("year") or 9999, best[j]["case_id"]):
             best[j] = r
-    return [{"jurisdiction": j, "case_id": int(r["case_id"]), "year": r.get("year"), "cite": r.get("cite")}
+    return [{"jurisdiction": j, "case_id": int(r["case_id"]), "year": r.get("year"), "cite": r.get("cite"),
+             "review_tier": "human-reviewed" if int(r["case_id"]) in reviewed else "machine-only"}
             for j, r in sorted(best.items(), key=lambda kv: str(kv[0]))]

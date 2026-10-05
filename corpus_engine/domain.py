@@ -84,7 +84,7 @@ class Domain:
     sharding: ShardingSpec
     ranking: RankingSpec
     reader: ReaderSpec
-    citation_preference: Mapping[str, tuple[str, ...]] = field(default_factory=dict)
+    citation_preference: Mapping[str, Mapping[str, tuple[str, ...]]] = field(default_factory=dict)
 
 
 def load_domain(name: str = "str-right-to-let") -> Domain:
@@ -111,5 +111,8 @@ def load_domain(name: str = "str-right-to-let") -> Domain:
         sharding=ShardingSpec(**cfg.get("sharding", {})),
         ranking=RankingSpec(**cfg.get("ranking", {})),
         reader=ReaderSpec(**cfg.get("reader", {})),
-        citation_preference={k: tuple(v) for k, v in (cfg.get("citation_preference") or {}).items()},
+        citation_preference={
+            k: ({"official": tuple(v.get("official") or ()), "reprint": tuple(v.get("reprint") or ())}
+                if isinstance(v, dict) else {"official": tuple(v), "reprint": ()})
+            for k, v in (cfg.get("citation_preference") or {}).items()},
     )

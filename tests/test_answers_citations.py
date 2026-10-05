@@ -1,8 +1,13 @@
 """Every citation of a decision, preferred first (spec section 3)."""
+import sqlite3
+from pathlib import Path
+import pytest
 from corpus_engine import store
 from corpus_engine.domain import load_domain
 from corpus_engine.answers.citations import citation_sets, order_cites, reporter_of
 from corpus_engine.ingest import parallel as par
+
+LIVE = Path(__file__).resolve().parent.parent / "data" / "db" / "corpus.db"
 
 
 def test_reporter_of_reads_the_text_between_volume_and_page():
@@ -21,7 +26,38 @@ def test_order_puts_listed_reporters_first_in_list_order_then_the_rest_alphabeti
 
 def test_the_domain_prefers_official_state_reports():
     ny = load_domain().citation_preference["N.Y."]
-    assert ny[0] == "N.Y." and ny.index("N.Y.") < ny.index("N.Y.S.") < ny.index("N.Y. Crim.")
+    assert ny["official"][0] == "N.Y." and "N.Y.S." in ny["reprint"] and "N.Y. Crim." in ny["reprint"]
+
+
+def test_an_unknown_reporter_sorts_between_the_official_and_the_reprint_tiers():
+    pref = {"official": ("Cal.",), "reprint": ("Cal. Rptr. 3d",)}
+    assert order_cites(["248 Cal. Rptr. 3d 874", "36 Cal. App. Supp. 5th 12", "1 Cal. 1"], pref) == [
+        "1 Cal. 1", "36 Cal. App. Supp. 5th 12", "248 Cal. Rptr. 3d 874"]
+
+
+def test_reporters_match_ignoring_spaces_and_case_and_text_without_a_number_is_dropped():
+    pref = {"official": ("Misc. 2d",), "reprint": ("N.Y.S.2d",)}
+    assert order_cites(["624 N.Y.S.2d 341", "164 Misc.2d 177", "Judgment accordingly."], pref) == [
+        "164 Misc.2d 177", "624 N.Y.S.2d 341"]
+
+
+@pytest.mark.live_db
+@pytest.mark.skipif(not LIVE.exists(), reason="no live corpus")
+def test_no_counted_record_leads_with_a_reprint_when_an_official_report_is_in_its_set():
+    from corpus_engine.ledger import open_ledger
+    from corpus_engine.ledger.tally import counted_records
+    from corpus_engine.answers.citations import reporter_tier
+    dom = load_domain()
+    recs = counted_records(open_ledger(domain=dom).view())
+    conn = sqlite3.connect(f"file:{LIVE.as_posix()}?mode=ro", uri=True)
+    sets = citation_sets(conn, [r["case_id"] for r in recs],
+                         jurisdiction_of={r["case_id"]: r.get("jurisdiction") for r in recs},
+                         preference=dom.citation_preference)
+    jur = {r["case_id"]: r.get("jurisdiction") for r in recs}
+    bad = [(cid, s) for cid, s in sets.items() if s
+           and reporter_tier(s[0], dom.citation_preference.get(jur[cid], {})) == "reprint"
+           and any(reporter_tier(c, dom.citation_preference.get(jur[cid], {})) == "official" for c in s)]
+    assert bad == []
 
 
 def test_every_copy_of_a_decision_carries_the_whole_citation_set(tmp_path):

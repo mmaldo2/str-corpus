@@ -51,7 +51,8 @@ def build_records(q, *, view, domain, conn, reviewed):
     rows = ar.case_rows(recs, domain=domain, reviewed=reviewed, names=names, citations=cites)
     earliest = []
     if q.earliest_per_jurisdiction:
-        for e in ar.earliest_per_jurisdiction(recs, q.earliest_per_jurisdiction, domain=domain):
+        for e in ar.earliest_per_jurisdiction(recs, q.earliest_per_jurisdiction, domain=domain,
+                                             reviewed=reviewed):
             e["case_name"] = names.get(e["case_id"], ("", ""))[0]
             e["citations"] = "; ".join(cites.get(e["case_id"]) or [])
             earliest.append(e)
@@ -68,6 +69,11 @@ def build_concordance(q, *, conn, dens, domain):
             first = cc.earliest(conn, t.expr, expr=t.is_expr, stem=t.stem, n=5)
         except sqlite3.OperationalError as exc:
             raise SystemExit(f"{q.id}: term {t.label!r}: {exc}")
+        cites = citation_sets(conn, [u["case_id"] for u in first],
+                              jurisdiction_of={u["case_id"]: u["jurisdiction"] for u in first},
+                              preference=domain.citation_preference)
+        for u in first:                          # the decision's preferred citation, not the copy's own
+            u["cite"] = "; ".join(cites.get(u["case_id"]) or [u["cite"] or ""])
         for (e, j), d in sorted(dens.items(), key=lambda kv: (order.get(kv[0][0], 99), str(kv[0][1]))):
             m = cells.get((e, j), 0)
             rows.append({"term": t.label, "era": e, "jurisdiction": j, "matches": m, "opinions": d,

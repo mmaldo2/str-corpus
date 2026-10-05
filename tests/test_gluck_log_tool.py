@@ -138,3 +138,21 @@ def test_live_question_one_has_a_two_tier_summary(tmp_path):
     doc = json.loads(next((root / "out").iterdir()).joinpath("summary.json").read_text(encoding="utf-8"))
     total = doc["summary"]["total"]
     assert total["human_reviewed"] + total["machine_only"] > 0
+
+
+def test_concordance_earliest_uses_carry_the_preferred_citation(tmp_path):
+    from corpus_engine import concordance as cc
+    from corpus_engine.answers.questions import Question, Term
+    conn = store.connect(tmp_path / "c.db")
+    store.ensure_schema(conn)
+    store.ensure_fts(conn)
+    conn.execute("INSERT INTO cases (case_id, name_abbreviation, cite, jurisdiction, decision_year, era_partition, "
+                 "norm_text) VALUES (1, 'In re Jacobs', '2 N.Y. Crim. 539', 'N.Y.', 1885, '1860-1900', "
+                 "'a lodger in the tenement')")
+    conn.execute("INSERT INTO citations (case_id, cite, cite_norm, type) VALUES (1, '98 N.Y. 98', '98 n.y. 98', 'parallel')")
+    conn.execute("INSERT INTO fts_raw(fts_raw) VALUES('rebuild')")
+    conn.commit()
+    q = Question("q4", "t", kind="concordance", terms=(Term("lodger", "lodger"),))
+    _, extra = gl.build_concordance(q, conn=conn, dens=cc.denominators(conn), domain=load_domain())
+    assert extra["concordance"][0]["earliest"][0]["cite"] == "98 N.Y. 98; 2 N.Y. Crim. 539"
+    conn.close()

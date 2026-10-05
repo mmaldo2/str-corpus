@@ -121,15 +121,37 @@ reader:
   model: {model_id: claude-cli/claude-opus-5, family: anthropic, provider: claude-cli, cli_model: claude-opus-5, effort: low}
   fallback_model: {model_id: google/gemini-3.7-flash, family: google, provider_name: null, precision: null, extra: {reasoning: {effort: low}}}
   checker: {model_id: codex-cli, family: openai, cli_model: gpt-5.6-terra}
-citation_preference:   # reporter abbreviations as CAP spells them, official reports first (answers spec section 3)
-  N.Y.: [N.Y., N.Y.2d, N.Y.3d, Johns., Wend., A.D., App. Div., A.D.2d, A.D.3d, Misc., Misc. Rep., Misc. 2d, Misc.2d, Misc. 3d, Misc.3d, N.Y. Sup. Ct., Barb., Hun., N.Y. Super. Ct., Jones & S., How. Pr., Abb. Pr., Daly (N.Y.), Mills Surr., N.E., N.E.2d, N.Y.S., N.Y.S.2d, N.Y.S.3d, N.Y. St. Rep., N.Y. Crim.]
-  Tex.: [Tex., Tex. Crim., Tex. Cr. R., Tex. Civ. App., Tex. Ct. App., Dallam, Posey, White & W., Willson, Wilson, Robards, S.W., S.W.2d, S.W.3d]
-  Ohio: [Ohio, Ohio St., Ohio St. 2d, Ohio St. 3d, Wright, Ohio App., Ohio App. 2d, Ohio App. 3d, Ohio C.C., Ohio C.C. (n.s.), Ohio C.C. (N.S.), Ohio Cir. Dec., Ohio C.C. Dec., Ohio C.A., Ohio N.P., Ohio N.P. (n.s.), Ohio Misc., Ohio Misc. 2d, Ohio Law Abs., Ohio L. Abs., Abs., N.E., N.E.2d]
-  Pa.: [Pa., Dall., Yeates, Binn., Serg. & Rawle, Rawle, Pen. & W., Watts, Watts & Serg., Whart., Pa. Super., Pa. Super. Ct., Pa. Commw., Pa. D. & C., Pa. D. & C.2d, Pa. D. & C.3d, Pa. D. & C.4th, Pa. D. & C.5th, A., A.2d, A.3d]
-  Mass.: [Mass., Tyng, Pick., Met., Cush., Gray, Allen, Mass. App. Ct., Mass. App. Div., Mass. App. Dec., Mass. Supp., Mass. L. Rptr., N.E., N.E.2d]
-  Conn.: [Conn., Root, Kirby, Day, Conn. App., Conn. Supp., Conn. Cir. Ct., A., A.2d]
-  N.J.: [N.J., N.J.L., N.J. Eq., N.J. Super., N.J. Misc., N.J. Tax, N.J. Tax., A., A.2d, A.3d]
-  Cal.: [Cal., Cal. 2d, Cal. 3d, Cal. 4th, Cal. 5th, Cal. App., Cal. App. 2d, Cal. App. 3d, Cal. App. 4th, Cal. App. 5th, Cal. App. 2d Supp., Cal. App. 3d Supp., Cal. App. 4th Supp., Cal. Unrep., Pac., P., P.2d, P.3d, Cal. Rptr., Cal. Rptr. 2d, Cal. Rptr. 3d]
-  La.: [La., La. Ann., Mart., Mart. (o.s.), Mart. (n.s.), Rob., La. App., Teiss., Pelt., So., So. 2d, So.2d, So. 3d, So.3d]
-  D.C.: [U.S. App. D.C., App. D.C., D.C., Mackey, MacArth., MacArth. & M., Hay. & Haz., D.C. App., F.2d, F.3d, A.2d, A.3d]
-  U.S.: [U.S., Dall., Cranch, Wheat., Pet., How., Black, Wall., S. Ct., L. Ed., L. Ed. 2d, F. Cas., F., F.2d]
+citation_preference:   # reporters as CAP spells them (spaces and case ignored); official reports first, regional/unofficial reprints last, any other reporter between (answers spec section 3)
+  N.Y.:
+    official: [N.Y., N.Y.2d, N.Y.3d, Johns., Wend., A.D., App. Div., A.D.2d, A.D.3d, Misc., Misc. Rep., Misc. 2d, Misc. 3d, N.Y. Sup. Ct., Barb., Hun., N.Y. Super. Ct., Jones & S., How. Pr., Abb. Pr., Daly (N.Y.), Mills Surr.]
+    reprint: [N.E., N.E.2d, N.E.3d, N.Y.S., N.Y.S.2d, N.Y.S.3d, N.Y. St. Rep., N.Y. Crim.]
+  Tex.:
+    official: [Tex., Tex. Crim., Tex. Cr. R., Tex. Civ. App., Tex. Ct. App., Dallam, Posey, White & W., Willson, Wilson, Robards]
+    reprint: [S.W., S.W.2d, S.W.3d]
+  Ohio:
+    official: [Ohio, Ohio St., Ohio St. 2d, Ohio St. 3d, Wright, Ohio App., Ohio App. 2d, Ohio App. 3d, Ohio C.C., Ohio C.C. (n.s.), Ohio Cir. Dec., Ohio C.C. Dec., Ohio C.A., Ohio N.P., Ohio N.P. (n.s.), Ohio Misc., Ohio Misc. 2d]
+    reprint: [Ohio Law Abs., Ohio L. Abs., Abs., N.E., N.E.2d, N.E.3d]
+  Pa.:
+    official: [Pa., Dall., Yeates, Binn., Serg. & Rawle, Rawle, Pen. & W., Watts, Watts & Serg., Whart., Pa. Super., Pa. Super. Ct., Pa. Commw., Pa. D. & C., Pa. D. & C.2d, Pa. D. & C.3d, Pa. D. & C.4th, Pa. D. & C.5th]
+    reprint: [A., A.2d, A.3d]
+  Mass.:
+    official: [Mass., Tyng, Pick., Met., Cush., Gray, Allen, Mass. App. Ct., Mass. App. Div., Mass. App. Dec., Mass. Supp.]
+    reprint: [Mass. L. Rptr., N.E., N.E.2d, N.E.3d]
+  Conn.:
+    official: [Conn., Root, Kirby, Day, Conn. App., Conn. Supp., Conn. Cir. Ct.]
+    reprint: [A., A.2d, A.3d]
+  N.J.:
+    official: [N.J., N.J.L., N.J. Eq., N.J. Super., N.J. Misc., N.J. Tax]
+    reprint: [A., A.2d, A.3d]
+  Cal.:
+    official: [Cal., Cal. 2d, Cal. 3d, Cal. 4th, Cal. 5th, Cal. App., Cal. App. 2d, Cal. App. 3d, Cal. App. 4th, Cal. App. 5th, Cal. App. 2d Supp., Cal. App. 3d Supp., Cal. App. 4th Supp., Cal. App. Supp. 5th, Cal. Unrep.]
+    reprint: [Pac., P., P.2d, P.3d, Cal. Rptr., Cal. Rptr. 2d, Cal. Rptr. 3d]
+  La.:
+    official: [La., La. Ann., Mart., Mart. (o.s.), Mart. (n.s.), Rob., La. App., Teiss., Pelt.]
+    reprint: [So., So. 2d, So. 3d]
+  D.C.:
+    official: [U.S. App. D.C., App. D.C., D.C., Mackey, MacArth., MacArth. & M., Hay. & Haz., D.C. App.]
+    reprint: [F.2d, F.3d, A.2d, A.3d]
+  U.S.:
+    official: [U.S., Dall., Cranch, Wheat., Pet., How., Black, Wall.]
+    reprint: [S. Ct., L. Ed., L. Ed. 2d, F. Cas., F., F.2d, F.3d]

@@ -101,5 +101,6 @@ def test_earliest_per_jurisdiction(tmp_path):
                          _rec(4, 1900, polarity="adverse", restriction="licensing")])
     dom = load_domain()
     recs = ar.select(v, dom, Question("q", "t", population={"polarity": ("adverse",)}))
-    got = ar.earliest_per_jurisdiction(recs, {"restriction_nature": ("zoning",)}, domain=dom)
+    got = ar.earliest_per_jurisdiction(recs, {"restriction_nature": ("zoning",)}, domain=dom, reviewed={3})
     assert [(g["jurisdiction"], g["case_id"], g["year"]) for g in got] == [("N.Y.", 2, 1915), ("Tex.", 3, 1930)]
+    assert [g["review_tier"] for g in got] == ["machine-only", "human-reviewed"]
